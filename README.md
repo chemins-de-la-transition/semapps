@@ -13,9 +13,9 @@ chmod +x install-docker.sh
 
 This script will:
 
-- Install Docker engine (https://docs.docker.com/engine/install/)
-- Configure Docker user as root (https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)
-- Install Docker-compose (https://docs.docker.com/compose/install/)
+- Install Docker engine ([official doc](https://docs.docker.com/engine/install/))
+- Configure Docker user as root ([official doc](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user))
+- Install Docker-compose ([official doc](https://docs.docker.com/compose/install/))
 
 ### Clone this repo
 
