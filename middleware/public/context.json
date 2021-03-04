@@ -1,0 +1,441 @@
+{
+  "@context": {
+    "@vocab": "_:",
+    "pair": "http://virtual-assembly.org/ontologies/pair#",
+    "cdlt": "http://virtual-assembly.org/ontologies/cdlt#",
+
+    "as": "https://www.w3.org/ns/activitystreams#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dc": "http://purl.org/dc/terms/",
+    "sec": "https://w3id.org/security#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "ldp": "http://www.w3.org/ns/ldp#",
+    "schema": "http://schema.org/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "semapps": "http://semapps.org/ns/core#",
+    "oasis": "http://cooperative-oasis.org/ns/core#",
+
+    "id": "@id",
+    "type": "@type",
+
+    "pair:image": {
+      "@type": "@id"
+    },
+
+    "pair:about": {
+      "@type": "@id"
+    },
+    "pair:activityOfInvolvement": {
+      "@type": "@id"
+    },
+    "pair:actorOfInvolvement": {
+      "@type": "@id"
+    },
+    "pair:actorOfMembership": {
+      "@type": "@id"
+    },
+    "pair:affiliates": {
+      "@type": "@id"
+    },
+    "pair:affiliatedBy": {
+      "@type": "@id"
+    },
+    "pair:agentResourceProperty": {
+      "@type": "@id"
+    },
+    "pair:aimedBy": {
+      "@type": "@id"
+    },
+    "pair:aims": {
+      "@type": "@id"
+    },
+    "pair:allowedBy": {
+      "@type": "@id"
+    },
+    "pair:allows": {
+      "@type": "@id"
+    },
+    "pair:assignedTo": {
+      "@type": "@id"
+    },
+    "pair:assigneeOf": {
+      "@type": "@id"
+    },
+    "pair:associationProperties": {
+      "@type": "@id"
+    },
+    "pair:branchOf": {
+      "@type": "@id"
+    },
+    "pair:topicOf": {
+      "@type": "@id"
+    },
+    "pair:challengeOf": {
+      "@type": "@id"
+    },
+    "pair:concernedBy": {
+      "@type": "@id"
+    },
+    "pair:concerns": {
+      "@type": "@id"
+    },
+    "pair:basedOn": {
+      "@type": "@id"
+    },
+    "pair:concretizedBy": {
+      "@type": "@id"
+    },
+    "pair:hasFollower": {
+      "@type": "@id"
+    },
+    "pair:follows": {
+      "@type": "@id"
+    },
+    "pair:consumedBy": {
+      "@type": "@id"
+    },
+    "pair:consumes": {
+      "@type": "@id"
+    },
+    "pair:containedIn": {
+      "@type": "@id"
+    },
+    "pair:contains": {
+      "@type": "@id"
+    },
+    "pair:cooperatesWith": {
+      "@type": "@id"
+    },
+    "pair:documents": {
+      "@type": "@id"
+    },
+    "pair:documentedBy": {
+      "@type": "@id"
+    },
+    "pair:domainOf": {
+      "@type": "@id"
+    },
+    "pair:producedBy": {
+      "@type": "@id"
+    },
+    "pair:operates": {
+      "@type": "@id"
+    },
+    "pair:operatedBy": {
+      "@type": "@id"
+    },
+    "pair:extendedBy": {
+      "@type": "@id"
+    },
+    "pair:extends": {
+      "@type": "@id"
+    },
+    "pair:hasActivityField": {
+      "@type": "@id"
+    },
+    "pair:hasBranch": {
+      "@type": "@id"
+    },
+    "pair:hasChallenge": {
+      "@type": "@id"
+    },
+    "pair:hasConceptType": {
+      "@type": "@id"
+    },
+    "pair:hasDomain": {
+      "@type": "@id"
+    },
+    "pair:hasInspired": {
+      "@type": "@id"
+    },
+    "pair:hasObjectType": {
+      "@type": "@id"
+    },
+    "pair:hasOrigin": {
+      "@type": "@id"
+    },
+    "pair:hasPart": {
+      "@type": "@id"
+    },
+    "pair:hasSector": {
+      "@type": "@id"
+    },
+    "pair:hasSkill": {
+      "@type": "@id"
+    },
+    "pair:hasStatus": {
+      "@type": "@id"
+    },
+    "pair:hasSubactivity": {
+      "@type": "@id"
+    },
+    "pair:hasSubjectType": {
+      "@type": "@id"
+    },
+    "pair:hosts": {
+      "@type": "@id"
+    },
+    "pair:hostedIn": {
+      "@type": "@id"
+    },
+    "pair:brainstorms": {
+      "@type": "@id"
+    },
+    "pair:brainstormedBy": {
+      "@type": "@id"
+    },
+    "pair:involves": {
+      "@type": "@id"
+    },
+    "pair:involvedIn": {
+      "@type": "@id"
+    },
+    "pair:inspiredBy": {
+      "@type": "@id"
+    },
+    "pair:intendedBy": {
+      "@type": "@id"
+    },
+    "pair:intends": {
+      "@type": "@id"
+    },
+    "pair:interExtentionalSubjectProperty": {
+      "@type": "@id"
+    },
+    "pair:interObjectProperty": {
+      "@type": "@id"
+    },
+    "pair:involvementActivity": {
+      "@type": "@id"
+    },
+    "pair:involvementActor": {
+      "@type": "@id"
+    },
+    "pair:involvementRole": {
+      "@type": "@id"
+    },
+    "pair:membershipActor": {
+      "@type": "@id"
+    },
+    "pair:membershipOrganization": {
+      "@type": "@id"
+    },
+    "pair:membershipRole": {
+      "@type": "@id"
+    },
+    "pair:mobilizes": {
+      "@type": "@id"
+    },
+    "pair:moblizedBy": {
+      "@type": "@id"
+    },
+    "pair:nourishes": {
+      "@type": "@id"
+    },
+    "pair:needs": {
+      "@type": "@id"
+    },
+    "pair:neededBy": {
+      "@type": "@id"
+    },
+    "pair:objectSubjectProperty": {
+      "@type": "@id"
+    },
+    "pair:offeredBy": {
+      "@type": "@id"
+    },
+    "pair:organizationOfMembership": {
+      "@type": "@id"
+    },
+    "pair:originOf": {
+      "@type": "@id"
+    },
+    "pair:partOf": {
+      "@type": "@id"
+    },
+    "pair:partnerOf": {
+      "@type": "@id"
+    },
+    "pair:produces": {
+      "@type": "@id"
+    },
+    "pair:offers": {
+      "@type": "@id"
+    },
+    "pair:represents": {
+      "@type": "@id"
+    },
+    "pair:representedBy": {
+      "@type": "@id"
+    },
+    "pair:referencedBy": {
+      "@type": "@id"
+    },
+    "pair:references": {
+      "@type": "@id"
+    },
+    "pair:sectorOf": {
+      "@type": "@id"
+    },
+    "pair:solvedBy": {
+      "@type": "@id"
+    },
+    "pair:solves": {
+      "@type": "@id"
+    },
+    "pair:subactivityOf": {
+      "@type": "@id"
+    },
+    "pair:subjectConceptProperties": {
+      "@type": "@id"
+    },
+    "pair:supportedBy": {
+      "@type": "@id"
+    },
+    "pair:supports": {
+      "@type": "@id"
+    },
+    "pair:typeOf": {
+      "@type": "@id"
+    },
+    "pair:typeOfConcept": {
+      "@type": "@id"
+    },
+    "pair:typeOfObject": {
+      "@type": "@id"
+    },
+    "pair:typeOfSubject": {
+      "@type": "@id"
+    },
+    "pair:usedBy": {
+      "@type": "@id"
+    },
+    "pair:uses": {
+      "@type": "@id"
+    },
+    "pair:hasTopic": {
+      "@type": "@id"
+    },
+    "pair:hasType": {
+      "@type": "@id"
+    },
+
+    "pair:startDate": {
+      "@type": "xsd:dateTime"
+    },
+    "pair:endDate": {
+      "@type": "xsd:dateTime"
+    },
+    "pair:dueDate": {
+      "@type": "xsd:dateTime"
+    },
+
+    "cdlt:statusOfSession" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#statusOfSession",
+      "@type" : "@id"
+    },
+    "cdlt:economicalConditions" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#economicalConditions"
+    },
+    "cdlt:typeOfPath" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#typeOfPath",
+      "@type" : "@id"
+    },
+    "cdlt:introduction" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#introduction"
+    },
+    "cdlt:hasSessionStatus" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasSessionStatus",
+      "@type" : "@id"
+    },
+    "cdlt:subSessionOf" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#subSessionOf",
+      "@type" : "@id"
+    },
+    "cdlt:organizes" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#organizes",
+      "@type" : "@id"
+    },
+    "cdlt:cdltDataProperty" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#cdltDataProperty"
+    },
+    "cdlt:learnerOn" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#learnerOn",
+      "@type" : "@id"
+    },
+    "cdlt:learningObjectives" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#learningObjectives"
+    },
+    "cdlt:mentorOn" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#mentorOn",
+      "@type" : "@id"
+    },
+    "cdlt:hasSubsession" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasSubsession",
+      "@type" : "@id"
+    },
+    "cdlt:hasMentor" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasMentor",
+      "@type" : "@id"
+    },
+    "cdlt:proposes" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#proposes",
+      "@type" : "@id"
+    },
+    "cdlt:prerequisites" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#prerequisites"
+    },
+    "cdlt:hasSession" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasSession",
+      "@type" : "@id"
+    },
+    "cdlt:proposedBy" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#proposedBy",
+      "@type" : "@id"
+    },
+    "cdlt:organizedBy" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#organizedBy",
+      "@type" : "@id"
+    },
+    "cdlt:statusOfPath" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#statusOfPath",
+      "@type" : "@id"
+    },
+    "cdlt:statusOf" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#statusOf",
+      "@type" : "@id"
+    },
+    "cdlt:forWhom" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#forWhom"
+    },
+    "cdlt:sessionOf" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#sessionOf",
+      "@type" : "@id"
+    },
+    "cdlt:hasSessionType" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasSessionType",
+      "@type" : "@id"
+    },
+    "cdlt:hasPathType" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasPathType",
+      "@type" : "@id"
+    },
+    "cdlt:typeOfSession" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#typeOfSession",
+      "@type" : "@id"
+    },
+    "cdlt:practicalConditions" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#practicalConditions"
+    },
+    "cdlt:hasPathStatus" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasPathStatus",
+      "@type" : "@id"
+    },
+    "cdlt:hasLearner" : {
+      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasLearner",
+      "@type" : "@id"
+    }
+  }
+}
