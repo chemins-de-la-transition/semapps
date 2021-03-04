@@ -41,8 +41,7 @@ services:
       ADMIN_PASSWORD: "admin"
 
   middleware:
-    build:
-      dockerfile: Dockerfile
+    build: .
     container_name: middleware
     depends_on:
       - fuseki
