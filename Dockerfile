@@ -11,12 +11,12 @@ WORKDIR /app
 
 RUN mkdir ~/.ssh && touch ~/.ssh/known_hosts && ssh-keyscan gateways.storage.sbg.cloud.ovh.net >> ~/.ssh/known_hosts
 
-COPY middleware /app
-COPY ecosystem.config.js /app
+COPY ./middleware /app
+COPY ./ecosystem.config.js /app
 
 RUN ./initialize.sh
 
-RUN npm install
+RUN yarn install
 
 EXPOSE 3000
 
