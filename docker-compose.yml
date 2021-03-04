@@ -42,7 +42,7 @@ services:
 
   middleware:
     build:
-      context: .
+      dockerfile: Dockerfile
     container_name: middleware
     depends_on:
       - fuseki
