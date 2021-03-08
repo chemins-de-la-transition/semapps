@@ -16,6 +16,9 @@ const SessionShow = props => (
           <UrlField source="pair:aboutPage" />
           <DateField source="pair:startDate" />
           <DateField source="pair:endDate" />
+          <ReferenceField source="cdlt:sessionOf" reference="Path" link="show">
+            <TextField source="pair:label" />
+          </ReferenceField>
           <ReferenceField source="pair:hasType" reference="Type" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
@@ -25,6 +28,11 @@ const SessionShow = props => (
         </Hero>
         <MainList>
           <MarkdownField source="pair:description" />
+          <MarkdownField source="cdlt:forWhom" />
+          <MarkdownField source="cdlt:prerequisites" />
+          <MarkdownField source="cdlt:learningObjectives" />
+          <MarkdownField source="cdlt:economicalConditions" />
+          <MarkdownField source="cdlt:practicalConditions" />
           <UriArrayField label="Déroulé" reference="Event" source="pair:hasPart" sort={{ field: "pair:startDate", order: 'ASC' }}>
             <Datagrid rowClick="show">
               <TextField source="pair:label" />
@@ -59,12 +67,17 @@ const SessionShow = props => (
               <AvatarField label={record => `${record['pair:firstName']} ${record['pair:lastName']}`} image="pair:image" labelColor="grey.300" />
             </GridList>
           </UriArrayField>
-          <UriArrayField reference="Theme" source="pair:hasTopic">
+          <UriArrayField reference="Person" source="cdlt:hasLearner">
+            <GridList xs={6} linkType="show">
+              <AvatarField label={record => `${record['pair:firstName']} ${record['pair:lastName']}`} image="pair:image" labelColor="grey.300" />
+            </GridList>
+          </UriArrayField>
+          <UriArrayField reference="Skill" source="pair:produces">
             <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
           </UriArrayField>
-          <UriArrayField reference="Skill" source="pair:produces">
+          <UriArrayField reference="Theme" source="pair:hasTopic">
             <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
