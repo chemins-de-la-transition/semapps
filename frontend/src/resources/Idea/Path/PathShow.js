@@ -1,8 +1,8 @@
 import React from 'react';
-import { ChipField, Datagrid, DateField, ReferenceField, ShowButton, SingleFieldList, TextField } from 'react-admin';
+import { ChipField, Datagrid, DateField, ShowButton, SingleFieldList, TextField } from 'react-admin';
 import { Grid } from "@material-ui/core";
 import { MainList, SideList, Hero, Show, MarkdownField, GridList, AvatarField } from '@semapps/archipelago-layout';
-import { UriArrayField } from '@semapps/semantic-data-provider';
+import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import { MapList } from '@semapps/geo-components';
 import PathTitle from './PathTitle';
 
@@ -25,42 +25,42 @@ const PathShow = props => (
           <MarkdownField source="cdlt:prerequisites" />
           <MarkdownField source="cdlt:learningObjectives" />
           <MarkdownField source="cdlt:professionalPerspectives" />
-          <UriArrayField reference="Session" source="cdlt:hasSession" sort={{ field: "pair:startDate", order: 'ASC' }}>
+          <ReferenceArrayField reference="Session" source="cdlt:hasSession" sort={{ field: "pair:startDate", order: 'ASC' }}>
             <Datagrid rowClick="show">
               <TextField source="pair:label" />
               <DateField source="pair:startDate" />
               <DateField source="pair:endDate" />
               <ShowButton />
             </Datagrid>
-          </UriArrayField>
-          <UriArrayField reference="Place" source="pair:hasLocation" sort={{ field: "pair:startDate", order: 'ASC' }}>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Place" source="pair:hasLocation" sort={{ field: "pair:startDate", order: 'ASC' }}>
             <MapList
-              latitude={record => record && record['pair:hasPostalAddress'] && record['pair:hasPostalAddress']['pair:latitude']}
-              longitude={record => record && record['pair:hasPostalAddress'] && record['pair:hasPostalAddress']['pair:longitude']}
-              label={record => record && record['pair:label']}
-              description={record => record && record['pair:comment']}
+              latitude={record => record?.['pair:hasPostalAddress']?.['pair:latitude']}
+              longitude={record => record?.['pair:hasPostalAddress']?.['pair:longitude']}
+              label={record => record?.['pair:label']}
+              description={record => record?.['pair:comment']}
               scrollWheelZoom
             />
-          </UriArrayField>
+          </ReferenceArrayField>
         </MainList>
       </Grid>
       <Grid item xs={12} sm={3}>
         <SideList>
-          <UriArrayField reference="Person" source="cdlt:proposedBy">
+          <ReferenceArrayField reference="Person" source="cdlt:proposedBy">
             <GridList xs={6} linkType="show">
               <AvatarField label={record => `${record['pair:firstName']} ${record['pair:lastName']}`} image="pair:image" labelColor="grey.300" />
             </GridList>
-          </UriArrayField>
-          <UriArrayField reference="Skill" source="pair:produces">
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Skill" source="pair:produces">
             <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
-          </UriArrayField>
-          <UriArrayField reference="Theme" source="pair:hasTopic">
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
             <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
-          </UriArrayField>
+          </ReferenceArrayField>
         </SideList>
       </Grid>
     </Grid>

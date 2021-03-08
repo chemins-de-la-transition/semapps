@@ -14,10 +14,10 @@ const PlaceList = props => (
         pagination: false,
         list: (
           <MapList
-            latitude={record => record['pair:hasPostalAddress'] && record['pair:hasPostalAddress']['pair:latitude']}
-            longitude={record => record['pair:hasPostalAddress'] && record['pair:hasPostalAddress']['pair:longitude']}
-            label={record => record['pair:label']}
-            description={record => record['pair:comment']}
+            latitude={record => record?.['pair:hasPostalAddress']?.['pair:latitude']}
+            longitude={record => record?.['pair:hasPostalAddress']?.['pair:longitude']}
+            label={record => record?.['pair:label']}
+            description={record => record?.['pair:comment']}
             scrollWheelZoom
           />
         )
