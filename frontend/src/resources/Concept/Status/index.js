@@ -23,11 +23,8 @@ export default {
     fr: {
       name: 'Statut |||| Statuts',
       fields: {
-        '@type': 'Type',
-        'pair:label': 'Nom',
-        'pair:comment': 'Courte description',
-        'pair:description': 'Description',
-        'pair:topicOf': 'Sujets'
+        '@type': 'Classe',
+        'pair:label': 'Nom'
       }
     }
   }

@@ -23,11 +23,8 @@ export default {
     fr: {
       name: 'Type |||| Types',
       fields: {
-        '@type': 'Sous-classe',
-        'pair:label': 'Nom',
-        'pair:comment': 'Courte description',
-        'pair:description': 'Description',
-        'pair:topicOf': 'Sujets'
+        '@type': 'Classe',
+        'pair:label': 'Nom'
       }
     }
   }

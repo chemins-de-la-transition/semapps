@@ -8,7 +8,7 @@ import {
 import { Grid } from "@material-ui/core";
 import { Hero, Show, MarkdownField, MainList, SideList } from '@semapps/archipelago-layout';
 import { MapField } from '@semapps/geo-components';
-import { UriArrayField } from '@semapps/semantic-data-provider';
+import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import PlaceTitle from './PlaceTitle';
 
 const PlaceShow = props => (
@@ -23,19 +23,19 @@ const PlaceShow = props => (
           <MarkdownField source="pair:description" addLabel />
           <MapField
             source="pair:hasPostalAddress"
-            address={record => record['pair:hasPostalAddress'] && record['pair:hasPostalAddress']['pair:label']}
-            latitude={record => record['pair:hasPostalAddress'] && record['pair:hasPostalAddress']['pair:latitude']}
-            longitude={record => record['pair:hasPostalAddress'] && record['pair:hasPostalAddress']['pair:longitude']}
+            address={record => record?.['pair:hasPostalAddress']?.['pair:label']}
+            latitude={record => record?.['pair:hasPostalAddress']?.['pair:latitude']}
+            longitude={record => record?.['pair:hasPostalAddress']?.['pair:longitude']}
           />
         </MainList>
       </Grid>
       <Grid item xs={12} sm={3}>
         <SideList>
-          <UriArrayField reference="Theme" source="pair:hasTopic">
+          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
-          </UriArrayField>
+          </ReferenceArrayField>
         </SideList>
       </Grid>
     </Grid>

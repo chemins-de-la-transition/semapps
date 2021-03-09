@@ -3,7 +3,7 @@ import { ChipField, SingleFieldList, TextField, UrlField, DateField } from 'reac
 import { Grid } from "@material-ui/core";
 import { Hero, Show, MarkdownField, MainList, SideList } from '@semapps/archipelago-layout';
 import { MapField } from '@semapps/geo-components';
-import { UriArrayField } from '@semapps/semantic-data-provider';
+import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import EventTitle from './EventTitle';
 
 const EventShow = props => (
@@ -16,27 +16,27 @@ const EventShow = props => (
           <DateField source="pair:endDate" showTime />
           <UrlField source="pair:aboutPage" />
           <TextField source="pair:hostedIn[pair:label]" />
-          {/*<ReferenceField source="pair:hostedIn" reference="Place" link="show">*/}
-          {/*  <TextField source="pair:label" />*/}
-          {/*</ReferenceField>*/}
+          <ReferenceField source="pair:hostedIn" reference="Place" link="show">
+            <TextField source="pair:label" />
+          </ReferenceField>
         </Hero>
         <MainList>
           <MarkdownField source="pair:description" />
           <MapField
             source="pair:hostedIn"
-            address={record => record && record['pair:hostedIn'] && record['pair:hostedIn']['pair:hasPostalAddress'] && record['pair:hostedIn']['pair:hasPostalAddress']['pair:label']}
-            latitude={record => record && record['pair:hostedIn'] && record['pair:hostedIn']['pair:hasPostalAddress'] && record['pair:hostedIn']['pair:hasPostalAddress']['pair:latitude']}
-            longitude={record => record && record['pair:hostedIn'] && record['pair:hostedIn']['pair:hasPostalAddress'] && record['pair:hostedIn']['pair:hasPostalAddress']['pair:longitude']}
+            address={record => record?.['pair:hostedIn']?.['pair:label'] + ', ' + record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:label']}
+            latitude={record => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:latitude']}
+            longitude={record => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
           />
         </MainList>
       </Grid>
       <Grid item xs={12} sm={3}>
         <SideList>
-          <UriArrayField reference="Session" source="pair:partOf">
+          <ReferenceArrayField reference="Session" source="pair:partOf">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
-          </UriArrayField>
+          </ReferenceArrayField>
         </SideList>
       </Grid>
     </Grid>
