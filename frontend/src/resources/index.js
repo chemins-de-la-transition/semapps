@@ -10,6 +10,11 @@ export { default as Activity } from './Agent/Activity/Activity';
 // Other
 export { default as Place } from './Place';
 
+// Actors
+export { default as Organization } from './Agent/Actor/Organization';
+export { default as Person } from './Agent/Actor/Person';
+export { default as Actor } from './Agent/Actor/Actor';
+
 // Resources
 export { default as Skill } from './Resource/Skill';
 export { default as Resource } from './Resource/Resource';
@@ -19,11 +24,6 @@ export { default as Status } from './Concept/Status';
 export { default as Theme } from './Concept/Theme';
 export { default as Type } from './Concept/Type';
 export { default as Concept } from './Concept/Concept';
-
-// Actors
-export { default as Organization } from './Agent/Actor/Organization';
-export { default as Person } from './Agent/Actor/Person';
-export { default as Actor } from './Agent/Actor/Actor';
 
 // Put this at the end, otherwise it will load as the homepage
 export { default as Agent } from './Agent/Agent';

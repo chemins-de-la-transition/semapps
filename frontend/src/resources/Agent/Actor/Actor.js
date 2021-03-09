@@ -4,7 +4,7 @@ export default {
   config: {
     icon: PersonIcon,
     options: {
-      label: 'Communauté'
+      label: 'Acteurs'
     }
   },
   dataModel: {

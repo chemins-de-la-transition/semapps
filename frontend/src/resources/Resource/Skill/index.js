@@ -12,7 +12,8 @@ export default {
     show: SkillShow,
     icon: PanToolIcon,
     options: {
-      label: 'Compétences'
+      label: 'Compétences',
+      parent: 'Resource'
     }
   },
   dataModel: {

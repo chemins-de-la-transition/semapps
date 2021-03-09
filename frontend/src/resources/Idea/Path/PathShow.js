@@ -1,44 +1,69 @@
 import React from 'react';
-import { ChipField, SingleFieldList, TextField, UrlField, DateField } from 'react-admin';
-import { Column, ColumnShowLayout, Hero, Show, MarkdownField, GridList, UserIcon } from '@semapps/archipelago-layout';
+import { ChipField, Datagrid, DateField, ReferenceField, ShowButton, SingleFieldList, TextField } from 'react-admin';
+import { Grid } from "@material-ui/core";
+import { MainList, SideList, Hero, Show, MarkdownField, GridList, AvatarField } from '@semapps/archipelago-layout';
 import { UriArrayField } from '@semapps/semantic-data-provider';
+import { MapList } from '@semapps/geo-components';
 import PathTitle from './PathTitle';
 
 const PathShow = props => (
   <Show title={<PathTitle />} {...props}>
-    <ColumnShowLayout>
-      <Column xs={12} sm={9}>
+    <Grid container spacing={5}>
+      <Grid item xs={12} sm={9}>
         <Hero>
           <TextField source="pair:comment" />
-          <DateField source="pair:startDate" showTime />
-          <DateField source="pair:endDate" showTime />
-          <UrlField source="pair:aboutPage" />
+          <ReferenceField source="pair:hasType" reference="Type" link={false}>
+            <TextField source="pair:label" />
+          </ReferenceField>
+          <ReferenceField source="pair:hasStatus" reference="Status" link={false}>
+            <TextField source="pair:label" />
+          </ReferenceField>
         </Hero>
-        <MarkdownField source="pair:description" />
-      </Column>
-      <Column xs={12} sm={3} showLabel>
-        <UriArrayField
-          label="Organisations"
-          reference="Organization"
-          filter={{ '@type': 'pair:Organization' }}
-          source="pair:involves"
-        >
-          <SingleFieldList linkType="show">
-            <ChipField source="pair:label" color="secondary" />
-          </SingleFieldList>
-        </UriArrayField>
-        <UriArrayField label="Personnes" reference="Person" filter={{ '@type': 'pair:Person' }} source="pair:involves">
-          <GridList xs={6} linkType="show">
-            <UserIcon />
-          </GridList>
-        </UriArrayField>
-        <UriArrayField reference="Theme" source="pair:hasTopic">
-          <SingleFieldList linkType={false}>
-            <ChipField source="pair:label" color="secondary" />
-          </SingleFieldList>
-        </UriArrayField>
-      </Column>
-    </ColumnShowLayout>
+        <MainList>
+          <MarkdownField source="pair:description" />
+          <MarkdownField source="cdlt:forWhom" />
+          <MarkdownField source="cdlt:prerequisites" />
+          <MarkdownField source="cdlt:learningObjectives" />
+          <MarkdownField source="cdlt:professionalPerspectives" />
+          <UriArrayField reference="Session" source="cdlt:hasSession" sort={{ field: "pair:startDate", order: 'ASC' }}>
+            <Datagrid rowClick="show">
+              <TextField source="pair:label" />
+              <DateField source="pair:startDate" />
+              <DateField source="pair:endDate" />
+              <ShowButton />
+            </Datagrid>
+          </UriArrayField>
+          <UriArrayField reference="Place" source="pair:hasLocation" sort={{ field: "pair:startDate", order: 'ASC' }}>
+            <MapList
+              latitude={record => record && record['pair:hasPostalAddress'] && record['pair:hasPostalAddress']['pair:latitude']}
+              longitude={record => record && record['pair:hasPostalAddress'] && record['pair:hasPostalAddress']['pair:longitude']}
+              label={record => record && record['pair:label']}
+              description={record => record && record['pair:comment']}
+              scrollWheelZoom
+            />
+          </UriArrayField>
+        </MainList>
+      </Grid>
+      <Grid item xs={12} sm={3}>
+        <SideList>
+          <UriArrayField reference="Person" source="cdlt:proposedBy">
+            <GridList xs={6} linkType="show">
+              <AvatarField label={record => `${record['pair:firstName']} ${record['pair:lastName']}`} image="pair:image" labelColor="grey.300" />
+            </GridList>
+          </UriArrayField>
+          <UriArrayField reference="Skill" source="pair:produces">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </UriArrayField>
+          <UriArrayField reference="Theme" source="pair:hasTopic">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </UriArrayField>
+        </SideList>
+      </Grid>
+    </Grid>
   </Show>
 );
 

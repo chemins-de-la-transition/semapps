@@ -111,5 +111,17 @@ export const PlaceInput = ({ label, source, ...rest }) => (
   </ReferenceInput>
 );
 
+export const SessionsInput = ({ label, source }) => (
+  <UriArrayInput label={label} reference="Session" source={source}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  </UriArrayInput>
+);
+
+export const PathInput = ({ label, source, ...rest }) => (
+  <ReferenceInput label={label} reference="Path" source={source} {...rest}>
+    <SelectInput optionText="pair:label" />
+  </ReferenceInput>
+);
+
 export { default as PairLocationInput } from './PairLocationInput';
 export { default as PairResourceCreate } from './PairResourceCreate';
