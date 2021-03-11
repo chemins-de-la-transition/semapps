@@ -1,8 +1,23 @@
+import React from 'react';
+import { Show } from 'react-admin';
+import { RedirectByType } from '@semapps/archipelago-layout';
 import PersonIcon from '@material-ui/icons/Person';
+
+const ActorRedirect = props => (
+  <Show {...props}>
+    <RedirectByType
+      typesMap={{
+        Person: 'pair:Person',
+        Organization: 'pair:Organization'
+      }}
+    />
+  </Show>
+);
 
 export default {
   config: {
     icon: PersonIcon,
+    show: ActorRedirect,
     options: {
       label: 'Acteurs'
     }

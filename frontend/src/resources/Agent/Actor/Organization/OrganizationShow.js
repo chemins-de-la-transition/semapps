@@ -28,7 +28,7 @@ const OrganizationShow = props => (
         <SideList>
           <ReferenceArrayField reference="Person" source="pair:affiliates">
             <GridList xs={6} linkType="show">
-              <AvatarField label={record => `${record['pair:firstName']} ${record['pair:lastName']}`} image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Organization" source="pair:partnerOf">

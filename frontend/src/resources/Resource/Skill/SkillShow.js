@@ -1,4 +1,5 @@
 import React from 'react';
+import { ChipField, SingleFieldList } from "react-admin";
 import { Show, AvatarField, GridList, SideList } from '@semapps/archipelago-layout';
 import { Grid, Typography } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
@@ -12,9 +13,14 @@ const SkillShow = props => (
       </Grid>
       <Grid item xs={12} sm={3}>
         <SideList>
-          <ReferenceArrayField reference="Person" source="pair:offeredBy" filterToQuery={searchText => ({ title: searchText })}>
+          <ReferenceArrayField reference="Person" source="pair:producedBy">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Person" source="pair:offeredBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label={record => `${record['pair:firstName']} ${record['pair:lastName']}`} image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
         </SideList>

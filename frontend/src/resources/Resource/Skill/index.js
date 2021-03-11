@@ -26,7 +26,8 @@ export default {
       name: 'Compétence |||| Compétences',
       fields: {
         'pair:label': 'Titre',
-        'pair:offeredBy': 'Proposé par'
+        'pair:offeredBy': 'Proposé par',
+        'pair:producedBy': 'Produit par'
       }
     }
   }

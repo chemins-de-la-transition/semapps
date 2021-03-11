@@ -46,18 +46,18 @@ const PathShow = props => (
       </Grid>
       <Grid item xs={12} sm={3}>
         <SideList>
-          <ReferenceArrayField reference="Person" source="cdlt:proposedBy">
+          <ReferenceArrayField reference="Actor" source="cdlt:proposedBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label={record => `${record['pair:firstName']} ${record['pair:lastName']}`} image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:produces">
-            <SingleFieldList linkType={false}>
+            <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-            <SingleFieldList linkType={false}>
+            <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
