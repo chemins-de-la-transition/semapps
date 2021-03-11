@@ -1,8 +1,10 @@
 import React from 'react';
+import { Avatar } from "@material-ui/core";
 import { MultiViewsList, SimpleList } from '@semapps/archipelago-layout';
 import { MapList } from '@semapps/geo-components';
 import MapIcon from '@material-ui/icons/Map';
 import ListIcon from '@material-ui/icons/List';
+import PersonIcon from '@material-ui/icons/Person';
 
 const PersonList = props => (
   <MultiViewsList
@@ -16,8 +18,10 @@ const PersonList = props => (
           <SimpleList
             primaryText={record => record['pair:label']}
             secondaryText={record => record['pair:comment']}
-            leftAvatar={record => (
-              <img src={record['pair:image'] || process.env.PUBLIC_URL + '/unknown-user.png'} width="100%" alt="SemApps" />
+            leftIcon={record => (
+              <Avatar src={record['pair:image']} alt={record['pair:label']}>
+                <PersonIcon />
+              </Avatar>
             )}
             linkType="show"
           />
