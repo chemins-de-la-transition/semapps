@@ -48,6 +48,7 @@ const SessionShow = props => (
               label={record => record?.['pair:label']}
               description={record => record?.['pair:comment']}
               connectMarkers
+              boundToMarkers
               scrollWheelZoom
             />
           </ReferenceArrayField>
@@ -73,12 +74,12 @@ const SessionShow = props => (
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:produces">
-            <SingleFieldList linkType="show">
+            <SingleFieldList link="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-            <SingleFieldList linkType="show">
+            <SingleFieldList link="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>

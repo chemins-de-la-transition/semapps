@@ -14,7 +14,7 @@ const SkillShow = props => (
       <Grid item xs={12} sm={3}>
         <SideList>
           <ReferenceArrayField reference="Person" source="pair:producedBy">
-            <SingleFieldList linkType="show">
+            <SingleFieldList link="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>

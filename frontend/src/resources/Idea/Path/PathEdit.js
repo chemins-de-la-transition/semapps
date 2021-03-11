@@ -2,7 +2,7 @@ import React from 'react';
 import { TabbedForm, TextInput, FormTab } from 'react-admin';
 import MarkdownInput from 'ra-input-markdown';
 import { Edit } from '@semapps/archipelago-layout';
-import { SessionsInput, ActorsInput, PlacesInput, StatusInput, ThemesInput, TypeInput, SkillsInput } from '../../../pair';
+import { SessionsInput, ActorsInput, PlacesInput, StatusInput, ThemesInput, TypesInput, SkillsInput } from '../../../pair';
 import PathTitle from './PathTitle';
 
 const PathEdit = props => (
@@ -20,7 +20,7 @@ const PathEdit = props => (
       <FormTab label="Relations">
         <SessionsInput source="cdlt:hasSession" />
         <StatusInput source="pair:hasStatus" filter={{ a: 'cdlt:PathStatus' }} />
-        <TypeInput source="pair:hasType" filter={{ a: 'cdlt:PathType' }} />
+        <TypesInput source="pair:hasType" filter={{ a: 'cdlt:PathType' }} />
         <PlacesInput source="pair:hasLocation" />
         <ActorsInput source="cdlt:proposedBy" />
         <SkillsInput source="pair:produces" />
