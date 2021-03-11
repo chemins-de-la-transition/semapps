@@ -1,31 +1,6 @@
 import React from 'react';
 import { ReferenceArrayInput, ReferenceInput } from '@semapps/semantic-data-provider';
 import { AutocompleteArrayInput, SelectInput } from 'react-admin';
-import * as resources from '../resources';
-
-const selectOptionTextByType = resource => {
-  if (resource) {
-    const resourceType = resource['@type'] || resource.type;
-    const matchingResourceKey = Object.keys(resources).find(resourceKey => {
-      if (resources[resourceKey].dataModel.types.length === 1) {
-        if (
-          resources[resourceKey].dataModel.types[0] === resourceType ||
-          (Array.isArray(resourceType) && resourceType.includes(resources[resourceKey].dataModel.types[0]))
-        ) {
-          return true;
-        }
-      }
-      return false;
-    });
-    if (Array.isArray(resources[matchingResourceKey].dataModel.slugField)) {
-      return resources[matchingResourceKey].dataModel.slugField.map(field => resource[field]).join(' ');
-    } else {
-      return resource[resources[matchingResourceKey].dataModel.slugField];
-    }
-  } else {
-    return null;
-  }
-};
 
 export const OrganizationsInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Organization" source={source}>
@@ -35,11 +10,7 @@ export const OrganizationsInput = ({ label, source }) => (
 
 export const ActorsInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Actor" source={source}>
-    <AutocompleteArrayInput
-      optionText={selectOptionTextByType}
-      shouldRenderSuggestions={value => value.length > 1}
-      fullWidth
-    />
+    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={value => value.length > 1} fullWidth />
   </ReferenceArrayInput>
 );
 
@@ -75,21 +46,13 @@ export const ThemesInput = ({ label, source }) => (
 
 export const UsersInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Person" source={source}>
-    <AutocompleteArrayInput
-      optionText={record => record && `${record['pair:firstName']} ${record['pair:lastName']}`}
-      shouldRenderSuggestions={value => value.length > 1}
-      fullWidth
-    />
+    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={value => value.length > 1} fullWidth />
   </ReferenceArrayInput>
 );
 
 export const AgentsInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Agent" source={source}>
-    <AutocompleteArrayInput
-      optionText={selectOptionTextByType}
-      shouldRenderSuggestions={value => value.length > 1}
-      fullWidth
-    />
+    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={value => value.length > 1} fullWidth />
   </ReferenceArrayInput>
 );
 

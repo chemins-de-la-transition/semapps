@@ -1,7 +1,8 @@
 import React from 'react';
-import { TextField } from 'react-admin';
+import { ChipField, SingleFieldList, TextField } from 'react-admin';
 import { Grid } from "@material-ui/core";
-import { Hero, Show, MarkdownField, MainList } from '@semapps/archipelago-layout';
+import { Hero, Show, MarkdownField, MainList, SideList } from '@semapps/archipelago-layout';
+import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import ThemeTitle from './ThemeTitle';
 
 const ThemeShow = props => (
@@ -14,6 +15,15 @@ const ThemeShow = props => (
         <MainList>
           <MarkdownField source="pair:description" />
         </MainList>
+      </Grid>
+      <Grid item xs={12} sm={3}>
+        <SideList>
+          <ReferenceArrayField reference="Subject" source="pair:topicOf">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+        </SideList>
       </Grid>
     </Grid>
   </Show>

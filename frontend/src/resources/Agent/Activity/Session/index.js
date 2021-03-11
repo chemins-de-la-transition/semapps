@@ -12,7 +12,7 @@ export default {
     edit: SessionEdit,
     icon: DateRangeIcon,
     options: {
-      label: 'Sessions',
+      label: 'Parcours',
       parent: 'Activity'
     }
   },
@@ -23,7 +23,7 @@ export default {
   },
   translations: {
     fr: {
-      name: 'Session |||| Sessions',
+      name: 'Parcours |||| Parcours',
       fields: {
         'pair:label': 'Titre',
         'pair:description': 'Description',
@@ -41,7 +41,7 @@ export default {
         'cdlt:learningObjectives': 'Objectifs d\'apprentissage',
         'cdlt:economicalConditions': 'Conditions financières',
         'cdlt:practicalConditions': 'Conditions pratiques',
-        'cdlt:sessionOf': 'Est une session de',
+        'cdlt:sessionOf': 'Est un parcours de',
         'cdlt:hasLearner': 'A pour apprenant',
         'cdlt:hasMentor': 'A pour mentor'
       }

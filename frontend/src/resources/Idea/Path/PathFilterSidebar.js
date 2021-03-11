@@ -1,10 +1,10 @@
 import React from 'react';
-import { FilterLiveSearch } from 'react-admin';
-import { Card as MuiCard, CardContent, withStyles } from '@material-ui/core';
+import { Card, CardContent, makeStyles } from '@material-ui/core';
 import { ReferenceFilter } from '@semapps/archipelago-layout';
 
-const Card = withStyles(theme => ({
-  root: {
+const useStyles = makeStyles(theme => ({
+  card: {
+    paddingTop: 0,
     [theme.breakpoints.up('sm')]: {
       width: '15em',
       marginLeft: '1em',
@@ -13,17 +13,22 @@ const Card = withStyles(theme => ({
       display: 'none',
     },
   },
-}))(MuiCard);
+  cardContent: {
+    paddingTop: 0
+  }
+}));
 
-const ProjectFilterSidebar = () => (
-  <Card>
-    <CardContent>
-      <FilterLiveSearch source="q" />
-      <ReferenceFilter reference="Status" source="pair:hasStatus" filter={{ a: 'cdlt:PathStatus' }} />
-      <ReferenceFilter reference="Type" source="pair:hasType" filter={{ a: 'cdlt:PathType' }} />
-      <ReferenceFilter reference="Theme" source="pair:hasTopic" />
-    </CardContent>
-  </Card>
-);
+const ProjectFilterSidebar = () => {
+  const classes = useStyles();
+  return (
+    <Card className={classes.card}>
+      <CardContent className={classes.cardContent}>
+        <ReferenceFilter reference="Status" source="pair:hasStatus" filter={{ a: 'cdlt:PathStatus' }} />
+        <ReferenceFilter reference="Type" source="pair:hasType" filter={{ a: 'cdlt:PathType' }} />
+        <ReferenceFilter reference="Theme" source="pair:hasTopic" />
+      </CardContent>
+    </Card>
+  );
+}
 
 export default ProjectFilterSidebar;

@@ -14,7 +14,7 @@ const PersonList = props => (
         perPage: 25,
         list: (
           <SimpleList
-            primaryText={record => `${record['pair:firstName']} ${record['pair:lastName'].toUpperCase()}`}
+            primaryText={record => record['pair:label']}
             secondaryText={record => record['pair:comment']}
             leftAvatar={record => (
               <img src={record['pair:image'] || process.env.PUBLIC_URL + '/unknown-user.png'} width="100%" alt="SemApps" />
@@ -32,7 +32,7 @@ const PersonList = props => (
           <MapList
             latitude={record => record['pair:hasLocation'] && record['pair:hasLocation']['pair:latitude']}
             longitude={record => record['pair:hasLocation'] && record['pair:hasLocation']['pair:longitude']}
-            label={record => `${record['pair:firstName']} ${record['pair:lastName'].toUpperCase()}`}
+            label={record => record['label']}
             description={record => record['pair:comment']}
             scrollWheelZoom
           />
