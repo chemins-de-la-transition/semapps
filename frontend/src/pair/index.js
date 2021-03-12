@@ -62,10 +62,10 @@ export const StatusInput = ({ label, source, ...rest }) => (
   </ReferenceInput>
 );
 
-export const TypeInput = ({ label, source, ...rest }) => (
-  <ReferenceInput label={label} reference="Type" source={source} {...rest}>
-    <SelectInput optionText="pair:label" />
-  </ReferenceInput>
+export const TypesInput = ({ label, source, ...rest }) => (
+  <ReferenceArrayInput label={label} reference="Type" source={source} {...rest}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  </ReferenceArrayInput>
 );
 
 export const PlaceInput = ({ label, source, ...rest }) => (

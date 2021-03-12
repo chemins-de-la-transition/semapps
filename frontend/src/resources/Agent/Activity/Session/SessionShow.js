@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChipField, SingleFieldList, TextField, UrlField, DateField, Datagrid, ShowButton } from 'react-admin';
 import { Grid } from '@material-ui/core';
-import { Hero, Show, MarkdownField, GridList, MainList, SideList, AvatarField } from '@semapps/archipelago-layout';
+import { Hero, Show, MarkdownField, GridList, MainList, SideList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
 import { MapList } from '@semapps/geo-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import SessionTitle from './SessionTitle';
@@ -19,9 +19,11 @@ const SessionShow = props => (
           <ReferenceField source="cdlt:sessionOf" reference="Path" link="show">
             <TextField source="pair:label" />
           </ReferenceField>
-          <ReferenceField source="pair:hasType" reference="Type" link={false}>
-            <TextField source="pair:label" />
-          </ReferenceField>
+          <ReferenceArrayField source="pair:hasType" reference="Type">
+            <SeparatedListField linkType={false}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
           <ReferenceField source="pair:hasStatus" reference="Status" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
@@ -48,6 +50,7 @@ const SessionShow = props => (
               label={record => record?.['pair:label']}
               description={record => record?.['pair:comment']}
               connectMarkers
+              boundToMarkers
               scrollWheelZoom
             />
           </ReferenceArrayField>
@@ -73,12 +76,12 @@ const SessionShow = props => (
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:produces">
-            <SingleFieldList linkType="show">
+            <SingleFieldList link="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-            <SingleFieldList linkType="show">
+            <SingleFieldList link="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>

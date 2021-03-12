@@ -16,7 +16,7 @@ const EventList = props => (
         </>
       )}
       leftAvatar={() => <EventIcon />}
-      linkType="show"
+      link="show"
     />
   </List>
 );

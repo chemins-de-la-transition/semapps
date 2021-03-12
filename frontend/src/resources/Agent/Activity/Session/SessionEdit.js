@@ -2,7 +2,7 @@ import React from 'react';
 import { FormTab, TabbedForm, TextInput } from 'react-admin';
 import MarkdownInput from 'ra-input-markdown';
 import { Edit } from '@semapps/archipelago-layout';
-import { ActorsInput, EventsInput, ThemesInput, StatusInput, TypeInput, SkillsInput, PathInput } from '../../../../pair';
+import { ActorsInput, EventsInput, ThemesInput, StatusInput, TypesInput, SkillsInput, PathInput } from '../../../../pair';
 import SessionTitle from './SessionTitle';
 import { DateInput } from "@semapps/date-components";
 import frLocale from "date-fns/locale/fr";
@@ -43,7 +43,7 @@ const SessionEdit = props => (
       <FormTab label="Relations">
         <PathInput source="cdlt:sessionOf" />
         <StatusInput source="pair:hasStatus" filter={{ a: 'cdlt:SessionStatus' }} />
-        <TypeInput source="pair:hasType" filter={{ a: 'cdlt:SessionType' }} />
+        <TypesInput source="pair:hasType" filter={{ a: 'cdlt:SessionType' }} />
         <EventsInput source="pair:hasPart" />
         <ActorsInput source="pair:organizedBy" />
         <SkillsInput source="pair:produces" />

@@ -23,7 +23,7 @@ const PersonList = props => (
                 <PersonIcon />
               </Avatar>
             )}
-            linkType="show"
+            link="show"
           />
         )
       },
