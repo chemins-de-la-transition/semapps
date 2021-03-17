@@ -32,7 +32,7 @@ const PlaceShow = props => (
       <Grid item xs={12} sm={3}>
         <SideList>
           <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-            <SingleFieldList link="show">
+            <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>

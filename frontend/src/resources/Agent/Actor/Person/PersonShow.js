@@ -33,17 +33,17 @@ const PersonShow = props => (
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Event" source="cdlt:mentorOn">
-            <SingleFieldList link="show">
+            <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-            <SingleFieldList link="show">
+            <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:offers">
-            <SingleFieldList link="show">
+            <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>

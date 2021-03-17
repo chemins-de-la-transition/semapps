@@ -34,7 +34,7 @@ const PlaceList = props => (
             leftAvatar={record => (
               <img src={record['image'] || process.env.PUBLIC_URL + '/logo192.png'} width="100%" alt="SemApps" />
             )}
-            link="show"
+            linkType="show"
           />
         )
       }

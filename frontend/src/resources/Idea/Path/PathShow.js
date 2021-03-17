@@ -55,12 +55,12 @@ const PathShow = props => (
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:produces">
-            <SingleFieldList link="show">
+            <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-            <SingleFieldList link="show">
+            <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>

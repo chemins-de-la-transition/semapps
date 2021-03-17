@@ -4,7 +4,7 @@ import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 
 const ThemeList = props => (
   <List {...props}>
-    <SimpleList primaryText={record => record['pair:label']} leftAvatar={() => <LocalOfferIcon />} link="show" />
+    <SimpleList primaryText={record => record['pair:label']} leftAvatar={() => <LocalOfferIcon />} linkType="show" />
   </List>
 );
 
