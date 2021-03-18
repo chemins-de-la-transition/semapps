@@ -1,0 +1,303 @@
+@prefix : <http://virtual-assembly.org/ontologies/cdlt#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@base <http://virtual-assembly.org/ontologies/cdlt#> .
+
+<http://virtual-assembly.org/ontologies/cdlt#> rdf:type owl:Ontology ;
+                                                owl:imports <http://virtual-assembly.org/ontologies/pair> ;
+                                                rdfs:comment """Version 0.1 de l'ontologie des Chemins de la Transition (CdlT). 
+Basée sur l'ontologie PAIR, elle intègre les concepts et relations métiers spécifiques aux CdlT, dont les notions de Chemin (Path) et de Parcours (Course)""" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://virtual-assembly.org/ontologies/cdlt#courseOn
+:courseOn rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#basedOn> ;
+          owl:inverseOf :hasCourse ;
+          rdfs:domain :Course ;
+          rdfs:range :Path .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#hasCourse
+:hasCourse rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#concretizedBy> ;
+           rdfs:domain :Path ;
+           rdfs:range :Course .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#hasCourseStatus
+:hasCourseStatus rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#hasStatus> ;
+                 owl:inverseOf :statusOfCourse ;
+                 rdfs:domain :Course ;
+                 rdfs:range :CourseStatus .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#hasCourseType
+:hasCourseType rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#hasSubjectType> ;
+               owl:inverseOf :typeOfCourse ;
+               rdfs:domain :Course ;
+               rdfs:range :CourseType .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#hasLearner
+:hasLearner rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#involves> ;
+            owl:inverseOf :learnerOn ;
+            rdfs:domain :Course ;
+            rdfs:range <http://virtual-assembly.org/ontologies/pair#Actor> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#hasMentor
+:hasMentor rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#involves> ;
+           owl:inverseOf :mentorOn ;
+           rdfs:domain :Course ;
+           rdfs:range <http://virtual-assembly.org/ontologies/pair#Actor> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#hasPathStatus
+:hasPathStatus rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#hasStatus> ;
+               owl:inverseOf :statusOfPath ;
+               rdfs:domain :Path ;
+               rdfs:range :PathStatus .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#hasPathType
+:hasPathType rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#hasSubjectType> ;
+             owl:inverseOf :typeOfPath ;
+             rdfs:domain :Path ;
+             rdfs:range :CourseType .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#hasTransportationType
+:hasTransportationType rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#hasType> ;
+                       rdfs:domain :Course ,
+                                   :Path .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#learnerOn
+:learnerOn rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#involvedIn> ;
+           rdfs:domain <http://virtual-assembly.org/ontologies/pair#Actor> ;
+           rdfs:range :Course .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#mentorOn
+:mentorOn rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#involvedIn> ;
+          rdfs:domain <http://virtual-assembly.org/ontologies/pair#Actor> ;
+          rdfs:range :Course .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#organizedBy
+:organizedBy rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#involvedIn> ;
+             owl:inverseOf :organizes ;
+             rdfs:domain :Course ;
+             rdfs:range <http://virtual-assembly.org/ontologies/pair#Actor> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#organizes
+:organizes rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#involves> ;
+           rdfs:domain <http://virtual-assembly.org/ontologies/pair#Actor> ;
+           rdfs:range :Course .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#proposedBy
+:proposedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#brainstormedBy> ;
+            owl:inverseOf :proposes ;
+            rdfs:domain :Path ;
+            rdfs:range <http://virtual-assembly.org/ontologies/pair#Actor> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#proposes
+:proposes rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#brainstorms> ;
+          rdfs:domain <http://virtual-assembly.org/ontologies/pair#Actor> ;
+          rdfs:range :Path .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#statusOf
+:statusOf rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#entityConceptProperty> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#statusOfCourse
+:statusOfCourse rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :statusOf ;
+                rdfs:domain :CourseStatus ;
+                rdfs:range :Course .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#statusOfPath
+:statusOfPath rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :statusOf ;
+              rdfs:domain :PathStatus ;
+              rdfs:range :Path .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#transportationTypeOf
+:transportationTypeOf rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#typeOf> ;
+                      rdfs:domain :Transportation ;
+                      rdfs:range :Course ,
+                                 :Path .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#typeOfCourse
+:typeOfCourse rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#typeOfSubject> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#typeOfPath
+:typeOfPath rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#typeOfSubject> .
+
+
+###  http://virtual-assembly.org/ontologies/pair#about
+<http://virtual-assembly.org/ontologies/pair#about> rdfs:domain <http://virtual-assembly.org/ontologies/pair#Event> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://virtual-assembly.org/ontologies/cdlt#beds
+:beds rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf :cdltDataProperty ;
+      rdfs:domain :Hosting .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#campingPlaces
+:campingPlaces rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :cdltDataProperty ;
+               rdfs:domain :Hosting .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#cdltDataProperty
+:cdltDataProperty rdf:type owl:DatatypeProperty .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#economicalConditions
+:economicalConditions rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf :cdltDataProperty ;
+                      rdfs:domain :Course ,
+                                  <http://virtual-assembly.org/ontologies/pair#Event> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#forWhom
+:forWhom rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf :cdltDataProperty ;
+         rdfs:domain :Course ,
+                     :Path .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#kitchenAcces
+:kitchenAcces rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :cdltDataProperty ;
+              rdfs:domain :Hosting .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#learningObjectives
+:learningObjectives rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :cdltDataProperty ;
+                    rdfs:domain :Course ,
+                                :Path ,
+                                <http://virtual-assembly.org/ontologies/pair#Event> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#magementTool
+:magementTool rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf <http://virtual-assembly.org/ontologies/pair#webPage> ;
+              rdfs:domain <http://virtual-assembly.org/ontologies/pair#Organization> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#practicalConditions
+:practicalConditions rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :cdltDataProperty ;
+                     rdfs:domain :Course ,
+                                 <http://virtual-assembly.org/ontologies/pair#Event> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#prerequisites
+:prerequisites rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :cdltDataProperty ;
+               rdfs:domain :Course ,
+                           :Path ,
+                           <http://virtual-assembly.org/ontologies/pair#Event> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#priceRange
+:priceRange rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :cdltDataProperty ;
+            rdfs:domain :Hosting .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#professionalPerspectives
+:professionalPerspectives rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf :cdltDataProperty ;
+                          rdfs:domain :Course ,
+                                      :Path .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://virtual-assembly.org/ontologies/cdlt#Course
+:Course rdf:type owl:Class ;
+        rdfs:subClassOf <http://virtual-assembly.org/ontologies/pair#Event> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#CourseStatus
+:CourseStatus rdf:type owl:Class ;
+              rdfs:subClassOf <http://virtual-assembly.org/ontologies/pair#EventStatus> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#CourseType
+:CourseType rdf:type owl:Class ;
+            rdfs:subClassOf <http://virtual-assembly.org/ontologies/pair#EventType> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#Hosting
+:Hosting rdf:type owl:Class ;
+         rdfs:subClassOf <http://virtual-assembly.org/ontologies/pair#Resource> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#Path
+:Path rdf:type owl:Class ;
+      rdfs:subClassOf <http://virtual-assembly.org/ontologies/pair#Idea> ;
+      rdfs:comment ""@fr ;
+      rdfs:label "Parcours"@fr .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#PathStatus
+:PathStatus rdf:type owl:Class ;
+            rdfs:subClassOf <http://virtual-assembly.org/ontologies/pair#IdeaStatus> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#PathType
+:PathType rdf:type owl:Class ;
+          rdfs:subClassOf <http://virtual-assembly.org/ontologies/pair#IdeaType> .
+
+
+###  http://virtual-assembly.org/ontologies/cdlt#Transportation
+:Transportation rdf:type owl:Class ;
+                rdfs:subClassOf <http://virtual-assembly.org/ontologies/pair#Type> .
+
+
+###  Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi
