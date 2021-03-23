@@ -15,7 +15,7 @@ module.exports = [
   },
   {
     path: '/sessions',
-    acceptedTypes: ['pair:Project']
+    acceptedTypes: ['cdlt:Session']
   },
   {
     path: '/events',

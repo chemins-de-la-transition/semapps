@@ -5,7 +5,7 @@ import { Create } from '@semapps/archipelago-layout';
 const PairResourceCreate = props => (
   <Create {...props}>
     <SimpleForm>
-      <TextInput source="pair:label" label="Nom" fullWidth />
+      <TextInput source="pair:label" fullWidth />
     </SimpleForm>
   </Create>
 );
