@@ -9,7 +9,7 @@ RUN apk add --update --no-cache autoconf bash libtool automake python alpine-sdk
 
 WORKDIR /app
 
-RUN mkdir ~/.ssh && touch ~/.ssh/known_hosts && ssh-keyscan gateways.storage.sbg.cloud.ovh.net >> ~/.ssh/known_hosts
+RUN mkdir ~/.ssh && touch ~/.ssh/known_hosts && ssh-keyscan gateways.storage.gra.cloud.ovh.net >> ~/.ssh/known_hosts
 
 COPY ./middleware /app
 COPY ./ecosystem.config.js /app
