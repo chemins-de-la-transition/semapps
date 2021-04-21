@@ -321,6 +321,12 @@
     "pair:hasType": {
       "@type": "@id"
     },
+    "pair:hasLocation": {
+      "@type": "@id"
+    },
+    "pair:locationOf": {
+      "@type": "@id"
+    },
 
     "pair:startDate": {
       "@type": "xsd:dateTime"
