@@ -14,6 +14,7 @@ const history = createBrowserHistory();
 
 const App = () => (
   <Admin
+    title="Les Chemins de la Transition"
     history={history}
     dataProvider={dataProvider}
     i18nProvider={i18nProvider}

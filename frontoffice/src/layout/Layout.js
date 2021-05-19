@@ -1,23 +1,15 @@
 import React, { useState } from 'react';
 import { Notification, Link } from 'react-admin';
-import { Container, Box, useMediaQuery, ThemeProvider, makeStyles, Typography } from '@material-ui/core';
-import { UserMenu, LogoutButton } from '@semapps/auth-provider';
+import { Container, Box, useMediaQuery, ThemeProvider, makeStyles, Typography, Grid } from '@material-ui/core';
 import AppBar from './AppBar';
 import ScrollToTop from './ScrollToTop';
 import SideMenu from './SideMenu';
 
 const useStyles = makeStyles(theme => ({
-  hero: {
-    backgroundImage: `url('${process.env.PUBLIC_URL}/bandeau.jpg')`
-  },
-  userMenu: {
-    float: 'right',
-    marginTop: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    backgroundColor: theme.palette.grey["200"],
-    '& button': {
-      padding: '6px 12px'
-    }
+  topBar: {
+    backgroundColor: theme.palette.grey['700'],
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1)
   },
   title: {
     position: 'absolute',
@@ -50,7 +42,7 @@ const menuItems = {
   '/Document': 'Médiathèque Ressources'
 };
 
-const Layout = ({ appBar, logout, theme, children }) => {
+const Layout = ({ logout, theme, children, title }) => {
   const classes = useStyles();
   const xs = useMediaQuery(theme.breakpoints.down('xs'));
   const [ sidebarOpen, setSidebarOpen] = useState(false);
@@ -59,32 +51,36 @@ const Layout = ({ appBar, logout, theme, children }) => {
       <ScrollToTop />
       <SideMenu menuItems={menuItems} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       {!xs && (
-        <Box width={1} height="90px" className={classes.hero}>
+        <Box width={1} className={classes.topBar}>
           <Container>
-            <UserMenu logout={<LogoutButton />} classes={{ user: classes.userMenu }} />
+            <Grid container>
+              <Grid item xs={6}>
+                <Typography>Le lieu pour voyager en apprenant</Typography>
+              </Grid>
+              <Grid item xs={6}>
+
+              </Grid>
+            </Grid>
           </Container>
         </Box>
       )}
-      {React.cloneElement(appBar, { logout, menuItems, setSidebarOpen })}
-      <Container maxWidth="lg" disableGutters={xs}>
-        <Typography variant="h4" color="primary" className={classes.title} id="react-admin-title" component="h1" />
-        <Box mb={{ xs: 0, sm: 2 }}>{children}</Box>
-        <Box mb={{ xs: 0, sm: 3 }}>
+      <AppBar title={title} logout={logout} menuItems={menuItems} setSidebarOpen={setSidebarOpen} />
+
+        {/*<Typography variant="h4" color="primary" className={classes.title} id="react-admin-title" component="h1" />*/}
+      <Box mb={{ xs: 0, sm: 2 }}>{children}</Box>
+      <Box mb={{ xs: 0, sm: 3 }}>
+        <Container maxWidth="lg" disableGutters={xs}>
           <Typography variant="subtitle2" color="textSecondary" align="right">
             <Link to="/SemApps" className={classes.footerLink}>Plateforme collaborative propulsée par SemApps</Link>
             &nbsp;|&nbsp;
             <Link to="/Contact" className={classes.footerLink}>Nous contacter</Link>
           </Typography>
-        </Box>
-      </Container>
+        </Container>
+      </Box>
       {/* Required for react-admin optimistic update */}
       <Notification />
     </ThemeProvider>
   );
-};
-
-Layout.defaultProps = {
-  appBar: <AppBar />
 };
 
 export default Layout;

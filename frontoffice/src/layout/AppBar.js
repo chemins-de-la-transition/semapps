@@ -1,9 +1,13 @@
 import React from 'react';
-import { Container, Box, Grid, makeStyles, Typography, AppBar as MuiAppBar, useMediaQuery, IconButton } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import { Container, Box, Grid, makeStyles, Typography, AppBar as MuiAppBar, useMediaQuery } from '@material-ui/core';
+import { UserMenu, LogoutButton } from '@semapps/auth-provider';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
+  appBar: {
+    backgroundColor: '#FFF',
+    boxShadow: 'none'
+  },
   header: {
     position: 'relative',
     padding: 10,
@@ -25,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     fontFamily: 'Helvetica',
     fontSize: 20,
     fontWeight: 'bold',
-    color: theme.palette.common.white,
+    color: theme.palette.common.black,
     verticalAlign: 'middle',
     [theme.breakpoints.down('sm')]: {
       fontSize: 18,
@@ -44,51 +48,61 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     lineHeight: 1,
     color: theme.palette.common.white
-  }
+  },
+  userMenu: {
+    float: 'right',
+    marginTop: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    color: theme.palette.common.black,
+    '& button': {
+      padding: '6px 12px'
+    }
+  },
 }));
 
-const AppBar = ({ userMenu, logout, menuItems, setSidebarOpen }) => {
+const AppBar = ({ menuItems, setSidebarOpen, title }) => {
   const classes = useStyles();
   const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
-    <MuiAppBar position="sticky">
+    <MuiAppBar position="sticky" className={classes.appBar}>
       <Container maxWidth="lg" className={classes.header}>
         <Grid container>
           <Grid item sm={4} xs={10} >
             <Link to="/" className={classes.menuLink}>
-              <img src={process.env.PUBLIC_URL + '/colibris-blanc.png'} alt="Colibris" className={classes.logo} />
-              <span className={classes.logoText}>Colibris Pays Creillois</span>
+              <img src={process.env.PUBLIC_URL + '/logo192.png'} alt="Colibris" className={classes.logo} />
+              <Typography className={classes.logoText} component="span">{title}</Typography>
             </Link>
           </Grid>
           <Grid item sm={8} xs={2} align="right">
-            {xs ? (
-              <IconButton
-                color="inherit"
-                onClick={() => setSidebarOpen(true)}
-                className={classes.openButton}
-              >
-                <MenuIcon />
-              </IconButton>
-            ) : (
-            <Grid container>
-              {Object.keys(menuItems).map(link => (
-                <Grid item sm={2} key={link}>
-                  <Box display="flex" height={48} alignItems="center" justifyContent="center">
-                    <Link to={link} className={classes.menuLink}>
-                      <Typography className={classes.menuText}>
-                        {menuItems[link].split('\n').map((item, key) => (
-                          <React.Fragment key={key}>
-                            {item}
-                            <br />
-                          </React.Fragment>
-                        ))}
-                      </Typography>
-                    </Link>
-                  </Box>
-                </Grid>
-              ))}
-            </Grid>
-            )}
+            <UserMenu logout={<LogoutButton />} classes={{ userButton: classes.userMenu }} />
+            {/*{xs ? (*/}
+            {/*  <IconButton*/}
+            {/*    color="inherit"*/}
+            {/*    onClick={() => setSidebarOpen(true)}*/}
+            {/*    className={classes.openButton}*/}
+            {/*  >*/}
+            {/*    <MenuIcon />*/}
+            {/*  </IconButton>*/}
+            {/*) : (*/}
+            {/*<Grid container>*/}
+            {/*  {Object.keys(menuItems).map(link => (*/}
+            {/*    <Grid item sm={2} key={link}>*/}
+            {/*      <Box display="flex" height={48} alignItems="center" justifyContent="center">*/}
+            {/*        <Link to={link} className={classes.menuLink}>*/}
+            {/*          <Typography className={classes.menuText}>*/}
+            {/*            {menuItems[link].split('\n').map((item, key) => (*/}
+            {/*              <React.Fragment key={key}>*/}
+            {/*                {item}*/}
+            {/*                <br />*/}
+            {/*              </React.Fragment>*/}
+            {/*            ))}*/}
+            {/*          </Typography>*/}
+            {/*        </Link>*/}
+            {/*      </Box>*/}
+            {/*    </Grid>*/}
+            {/*  ))}*/}
+            {/*</Grid>*/}
+            {/*)}*/}
           </Grid>
         </Grid>
       </Container>
