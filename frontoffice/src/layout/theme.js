@@ -28,7 +28,7 @@ const depth16_2 = depth4_2;
 const depth64_1 = white +'38'; //21.9% ~ 22% in HEX
 const depth64_2 = white +'2E'; //18% in HEX
 
-const theme = createMuiTheme({
+let theme = createMuiTheme({
   palette: {
     primary: {
       light:  primary,// to not be calculated from palette.primary.main
@@ -117,7 +117,7 @@ const theme = createMuiTheme({
   },
   // TODO define palette for depth
   typography: {
-    fontFamily: 'Segeo UI,Open Sans',
+    fontFamily: '"Segeo UI","Open Sans", "sans-serif"',
     fontSize: 14,
   },
   // TODO check if following if needed
@@ -170,6 +170,6 @@ const theme = createMuiTheme({
 });
 
 // TODO check if useful and working
-// theme = responsiveFontSizes(theme);
+theme = responsiveFontSizes(theme);
 
 export default theme;

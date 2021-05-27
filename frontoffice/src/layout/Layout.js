@@ -1,17 +1,43 @@
 import React, { useState } from 'react';
-import { Notification, Link } from 'react-admin';
+import { Notification, Link, Button } from 'react-admin';
 import { Container, Box, useMediaQuery, ThemeProvider, makeStyles, Typography, Grid } from '@material-ui/core';
 import AppBar from './AppBar';
 import ScrollToTop from './ScrollToTop';
 import SideMenu from './SideMenu';
 import themecdlt from './theme';
 
-// TODO use theme
+// TODO use theme instead of themecdlt
 const useStyles = makeStyles({
   topBar: {
     backgroundColor: themecdlt.palette.secondary.main,
     color: themecdlt.palette.secondary.contrastText,
     height: 48,
+    position: 'relative',
+  },
+  topBarText: {
+    // TODO import font
+    fontFamily: '"Integral CF",'+themecdlt.typography.fontFamily,
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 10,
+    lineHeight: '12px',
+    height: 12,
+    left: 40, // TODO use GRID
+    top: 'calc(50% - 12px/2)',
+    position: 'absolute',
+    
+    /* identical to box height */
+    textTransform: 'uppercase',
+  },
+  topBarHelpIcon: {
+    // TODO import font
+    /* FabricMDL / 16 */
+    fontFamily: '"Fabric MDL2 Assets",'+themecdlt.typography.fontFamily,
+    fontSize: 16,
+    lineHeight: '100%',
+    
+    /* identical to box height, or 16px */
+    textAlign: 'center',
   },
   title: {
     position: 'absolute',
@@ -57,10 +83,12 @@ const Layout = ({ logout, theme, children, title }) => {
           <Container>
             <Grid container>
               <Grid item xs={6}>
-                <Typography>Le lieu pour voyager en apprenant</Typography>
+                <Typography className={classes.topBarText}>Le lieu pour voyager en apprenant</Typography>
               </Grid>
               <Grid item xs={6}>
-
+                <Button>
+                  <Typography className={classes.topBarHelpIcon}>?</Typography>
+                </Button>
               </Grid>
             </Grid>
           </Container>
