@@ -4,10 +4,12 @@ import { Container, Box, useMediaQuery, ThemeProvider, makeStyles, Typography, G
 import AppBar from './AppBar';
 import ScrollToTop from './ScrollToTop';
 import SideMenu from './SideMenu';
+import {theme} from "./theme";
 
 const useStyles = makeStyles(theme => ({
   topBar: {
-    backgroundColor: theme.palette.grey['700'],
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.secondary.contrastText,
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(1)
   },
@@ -42,8 +44,8 @@ const menuItems = {
   '/Document': 'Médiathèque Ressources'
 };
 
-const Layout = ({ logout, theme, children, title }) => {
-  const classes = useStyles();
+const Layout = ({ logout, theme,children, title }) => {
+  const classes = useStyles(theme);
   const xs = useMediaQuery(theme.breakpoints.down('xs'));
   const [ sidebarOpen, setSidebarOpen] = useState(false);
   return (

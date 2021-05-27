@@ -16,19 +16,19 @@ const grey10 = '#FAF9F8';
 const grey20 = '#F3F2F1';
 const grey30 = '#E1DFDD';
 const grey40 = '#828282';
-const overlay_light = rgba(255, 255, 255, 0,4);
-const overlay_dark = rgba(0, 0, 0, 0,4);
-const depth4_1 = rgba(0, 0, 0, 0,08);
-const depth4_2 = rgba(0, 0, 0, 0,1);
-const depth8_1 = rgba(0, 0, 0, 0,13);
+const overlay_light = white +'66'; //40% in HEX
+const overlay_dark = '#00000066'; /// black 40%
+const depth4_1 = white +'14'; //7,8% ~ 8% in HEX
+const depth4_2 = white +'1A'; //10,2% ~ 10% in HEX
+const depth8_1 = white +'21'; //12.9% ~ 13% in HEX
 const depth8_2 = depth4_2;
-const depth8_3 = rgba(0, 0, 0, 0,25);
-const depth16_1 = depth8;
+const depth8_3 = white +'40'; //25% in HEX
+const depth16_1 = depth8_1;
 const depth16_2 = depth4_2;
-const depth64_1 = rgba(0, 0, 0, 0,22);
-const depth64_2 = rgba(0, 0, 0, 0,18);
+const depth64_1 = white +'38'; //21.9% ~ 22% in HEX
+const depth64_2 = white +'2E'; //18% in HEX
 
-const theme = createMuiTheme({
+let theme = createMuiTheme({
   palette: {
     primary: {
       light:  primary,// to not be calculated from palette.primary.main
