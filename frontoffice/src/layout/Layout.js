@@ -4,14 +4,14 @@ import { Container, Box, useMediaQuery, ThemeProvider, makeStyles, Typography, G
 import AppBar from './AppBar';
 import ScrollToTop from './ScrollToTop';
 import SideMenu from './SideMenu';
-import {theme} from "./theme";
+import themecdlt from './theme';
 
-const useStyles = makeStyles(theme => ({
+// TODO use theme
+const useStyles = makeStyles({
   topBar: {
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.secondary.contrastText,
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(1)
+    backgroundColor: themecdlt.palette.secondary.main,
+    color: themecdlt.palette.secondary.contrastText,
+    height: 48,
   },
   title: {
     position: 'absolute',
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
-    [theme.breakpoints.down('sm')]: {
+    [themecdlt.breakpoints.down('sm')]: {
       top: 70,
       left: 15,
       right: 50,
@@ -28,12 +28,12 @@ const useStyles = makeStyles(theme => ({
     }
   },
   footerLink: {
-    color: theme.palette.grey["500"],
+    color: themecdlt.palette.grey10.main,
     '&:hover': {
       textDecoration: 'underline'
     }
   }
-}));
+});
 
 const menuItems = {
   '/': 'Accueil',
@@ -44,8 +44,8 @@ const menuItems = {
   '/Document': 'Médiathèque Ressources'
 };
 
-const Layout = ({ logout, theme,children, title }) => {
-  const classes = useStyles(theme);
+const Layout = ({ logout, theme, children, title }) => {
+  const classes = useStyles();
   const xs = useMediaQuery(theme.breakpoints.down('xs'));
   const [ sidebarOpen, setSidebarOpen] = useState(false);
   return (

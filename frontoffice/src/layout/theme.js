@@ -5,7 +5,7 @@ const defaultTheme = createMuiTheme();
 
 const white = '#FFFFFF';
 const primary = '#EFBE74';
-const secondary = '#E323647';
+const secondary = '#323647';
 const tertiary = '#F6F6F6';
 const neutral_web_grey190 = '#201F1E';
 const theme_1 = '#E2805F';
@@ -28,7 +28,7 @@ const depth16_2 = depth4_2;
 const depth64_1 = white +'38'; //21.9% ~ 22% in HEX
 const depth64_2 = white +'2E'; //18% in HEX
 
-let theme = createMuiTheme({
+const theme = createMuiTheme({
   palette: {
     primary: {
       light:  primary,// to not be calculated from palette.primary.main
@@ -170,6 +170,6 @@ let theme = createMuiTheme({
 });
 
 // TODO check if useful and working
-theme = responsiveFontSizes(theme);
+// theme = responsiveFontSizes(theme);
 
 export default theme;
