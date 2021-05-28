@@ -1,65 +1,11 @@
 import React, { useState } from 'react';
 import { Notification, Link, Button } from 'react-admin';
-import { Container, Box, useMediaQuery, ThemeProvider, makeStyles, Typography, Grid } from '@material-ui/core';
+import { Container, Box, useMediaQuery, ThemeProvider, Typography, Grid } from '@material-ui/core';
 import AppBar from './AppBar';
+import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
 import SideMenu from './SideMenu';
-import themecdlt from './theme';
-
-// TODO use theme instead of themecdlt
-const useStyles = makeStyles({
-  topBar: {
-    backgroundColor: themecdlt.palette.secondary.main,
-    color: themecdlt.palette.secondary.contrastText,
-    height: 48,
-    position: 'relative',
-  },
-  topBarText: {
-    // TODO import font
-    fontFamily: '"Integral CF",'+themecdlt.typography.fontFamily,
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: 10,
-    lineHeight: '12px',
-    height: 12,
-    left: 40, // TODO use GRID
-    top: 'calc(50% - 12px/2)',
-    position: 'absolute',
-    
-    /* identical to box height */
-    textTransform: 'uppercase',
-  },
-  topBarHelpIcon: {
-    // TODO import font
-    /* FabricMDL / 16 */
-    fontFamily: '"Fabric MDL2 Assets",'+themecdlt.typography.fontFamily,
-    fontSize: 16,
-    lineHeight: '100%',
-    
-    /* identical to box height, or 16px */
-    textAlign: 'center',
-  },
-  title: {
-    position: 'absolute',
-    top: 180,
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    [themecdlt.breakpoints.down('sm')]: {
-      top: 70,
-      left: 15,
-      right: 50,
-      fontSize: 22,
-      zIndex: 10
-    }
-  },
-  footerLink: {
-    color: themecdlt.palette.grey10.main,
-    '&:hover': {
-      textDecoration: 'underline'
-    }
-  }
-});
+import TopBar from './TopBar';
 
 const menuItems = {
   '/': 'Accueil',
@@ -71,42 +17,18 @@ const menuItems = {
 };
 
 const Layout = ({ logout, theme, children, title }) => {
-  const classes = useStyles();
   const xs = useMediaQuery(theme.breakpoints.down('xs'));
   const [ sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <ThemeProvider theme={theme}>
       <ScrollToTop />
       <SideMenu menuItems={menuItems} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-      {!xs && (
-        <Box width={1} className={classes.topBar}>
-          <Container>
-            <Grid container>
-              <Grid item xs={6}>
-                <Typography className={classes.topBarText}>Le lieu pour voyager en apprenant</Typography>
-              </Grid>
-              <Grid item xs={6}>
-                <Button>
-                  <Typography className={classes.topBarHelpIcon}>?</Typography>
-                </Button>
-              </Grid>
-            </Grid>
-          </Container>
-        </Box>
-      )}
+      <TopBar />
       <AppBar title={title} logout={logout} menuItems={menuItems} setSidebarOpen={setSidebarOpen} />
 
         {/*<Typography variant="h4" color="primary" className={classes.title} id="react-admin-title" component="h1" />*/}
       <Box mb={{ xs: 0, sm: 2 }}>{children}</Box>
-      <Box mb={{ xs: 0, sm: 3 }}>
-        <Container maxWidth="lg" disableGutters={xs}>
-          <Typography variant="subtitle2" color="textSecondary" align="right">
-            <Link to="/SemApps" className={classes.footerLink}>Plateforme collaborative propulsée par SemApps</Link>
-            &nbsp;|&nbsp;
-            <Link to="/Contact" className={classes.footerLink}>Nous contacter</Link>
-          </Typography>
-        </Container>
-      </Box>
+      <Footer />
       {/* Required for react-admin optimistic update */}
       <Notification />
     </ThemeProvider>

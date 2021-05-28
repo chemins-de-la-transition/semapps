@@ -58,6 +58,20 @@ const useStyles = makeStyles(theme => ({
       padding: '6px 12px'
     }
   },
+  title: {
+    position: 'absolute',
+    top: 180,
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    [theme.breakpoints.down('sm')]: {
+      top: 70,
+      left: 15,
+      right: 50,
+      fontSize: 22,
+      zIndex: 10
+    }
+  },
 }));
 
 const AppBar = ({ menuItems, setSidebarOpen, title }) => {
