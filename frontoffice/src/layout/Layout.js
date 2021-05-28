@@ -7,16 +7,14 @@ import ScrollToTop from './ScrollToTop';
 import SideMenu from './SideMenu';
 import TopBar from './TopBar';
 
-const menuItems = {
-  '/': 'Accueil',
-  '/QuiSommesNous': 'Qui sommes-nous ?',
-  '/Project': 'Frise\ndes actions',
-  '/Organization': 'Carte\ndes acteurs',
-  '/Event': 'Agenda\npartagé',
-  '/Document': 'Médiathèque Ressources'
-};
-
 const Layout = ({ logout, theme, children, title }) => {
+  const menuItems = {
+    '/':{title},
+    '/NosParcours': 'Nos Parcours',
+    '/Lieux': 'Lieux',
+    '/Evenements': 'Evènements',
+    '/Ressources': 'Ressources',
+  };
   const xs = useMediaQuery(theme.breakpoints.down('xs'));
   const [ sidebarOpen, setSidebarOpen] = useState(false);
   return (

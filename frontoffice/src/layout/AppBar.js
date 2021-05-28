@@ -83,7 +83,7 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
         <Grid container>
           <Grid item sm={4} xs={10} >
             <Link to="/" className={classes.menuLink}>
-              <img src={process.env.PUBLIC_URL + '/logo192.png'} alt="Colibris" className={classes.logo} />
+              <img src={process.env.PUBLIC_URL + '/logo192.png'} alt="{title}" className={classes.logo} />
               <Typography className={classes.logoText} component="span">{title}</Typography>
             </Link>
           </Grid>
@@ -98,24 +98,24 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
             {/*    <MenuIcon />*/}
             {/*  </IconButton>*/}
             {/*) : (*/}
-            {/*<Grid container>*/}
-            {/*  {Object.keys(menuItems).map(link => (*/}
-            {/*    <Grid item sm={2} key={link}>*/}
-            {/*      <Box display="flex" height={48} alignItems="center" justifyContent="center">*/}
-            {/*        <Link to={link} className={classes.menuLink}>*/}
-            {/*          <Typography className={classes.menuText}>*/}
-            {/*            {menuItems[link].split('\n').map((item, key) => (*/}
-            {/*              <React.Fragment key={key}>*/}
-            {/*                {item}*/}
-            {/*                <br />*/}
-            {/*              </React.Fragment>*/}
-            {/*            ))}*/}
-            {/*          </Typography>*/}
-            {/*        </Link>*/}
-            {/*      </Box>*/}
-            {/*    </Grid>*/}
-            {/*  ))}*/}
-            {/*</Grid>*/}
+            <Grid container>
+             {Object.keys(menuItems).map(link => (
+               <Grid item sm={2} key={link}>
+                 <Box display="flex" height={48} alignItems="center" justifyContent="center">
+                   <Link to={link} className={classes.menuLink}>
+                     <Typography className={classes.menuText}>
+                       {menuItems[link].split('\n').map((item, key) => (
+                         <React.Fragment key={key}>
+                           {item}
+                           <br />
+                         </React.Fragment>
+                       ))}
+                     </Typography>
+                   </Link>
+                 </Box>
+               </Grid>
+             ))}
+            </Grid>
             {/*)}*/}
           </Grid>
         </Grid>
