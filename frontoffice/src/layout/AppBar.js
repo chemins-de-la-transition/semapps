@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: 18,
     textAlign: 'center',
     lineHeight: 1,
-    color: theme.palette.common.white
+    color: theme.palette.secondary.main
   },
   userMenu: {
     float: 'right',
@@ -104,12 +104,11 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
                  <Box display="flex" height={48} alignItems="center" justifyContent="center">
                    <Link to={link} className={classes.menuLink}>
                      <Typography className={classes.menuText}>
-                       {menuItems[link].split('\n').map((item, key) => (
-                         <React.Fragment key={key}>
-                           {item}
-                           <br />
-                         </React.Fragment>
-                       ))}
+                        {/* <React.Fragment key={link}>
+                          {menuItems[link]}
+                          <br />
+                        </React.Fragment> */}
+                        {menuItems[link]}
                      </Typography>
                    </Link>
                  </Box>
