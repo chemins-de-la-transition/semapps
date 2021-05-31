@@ -9,6 +9,7 @@ import * as resources from './resources';
 import HomePage from "./pages/HomePage";
 import Layout from "./layout/Layout";
 import theme from "./layout/theme";
+import customRoutes from './customRoutes';
 
 const history = createBrowserHistory();
 
@@ -21,6 +22,7 @@ const App = () => (
     dashboard={HomePage}
     layout={Layout}
     theme={theme}
+    customRoutes={customRoutes}
   >
     {Object.entries(resources).map(([key, resource]) => (
       <Resource key={key} name={key} {...resource.config} />

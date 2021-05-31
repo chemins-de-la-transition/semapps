@@ -31,69 +31,69 @@ const depth64_2 = white +'2E'; //18% in HEX
 let theme = createMuiTheme({
   palette: {
     primary: {
-      light:  primary,// to not be calculated from palette.primary.main
+      // light:  primary,// to not be calculated from palette.primary.main
       main: primary,
-      dark: primary ,// to not be calculated from palette.primary.main
+      // dark: primary ,// to not be calculated from palette.primary.main
       contrastText: white ,// to not be calculated from palette.primary.main
     },
     secondary: {
-      light: secondary,// to not be calculated from palette.secondary.main
+      // light: secondary,// to not be calculated from palette.secondary.main
       main: secondary,
-      dark: secondary ,// to not be calculated from palette.secondary.main
+      // dark: secondary ,// to not be calculated from palette.secondary.main
       contrastText: white ,// to not be calculated from palette.secondary.main
     },
     tertiary: {
-      light: tertiary,// to not be calculated from palette.tertiary.main
+      // light: tertiary,// to not be calculated from palette.tertiary.main
       main: tertiary,
-      dark: tertiary ,// to not be calculated from palette.tertiary.main
+      // dark: tertiary ,// to not be calculated from palette.tertiary.main
       contrastText: secondary ,// to not be calculated from palette.tertiary.main
     },
     white: {
-      light: white,// to not be calculated from palette.white.main
+      // light: white,// to not be calculated from palette.white.main
       main: white,
-      dark: white ,// to not be calculated from palette.white.main
+      // dark: white ,// to not be calculated from palette.white.main
       contrastText: neutral_web_grey190 ,// to not be calculated from palette.white.main
     },
     theme_1: {
-      light: theme_1,// to not be calculated from palette.theme_1.main
+      // light: theme_1,// to not be calculated from palette.theme_1.main
       main: theme_1,
-      dark: theme_1 ,// to not be calculated from palette.theme_1.main
+      // dark: theme_1 ,// to not be calculated from palette.theme_1.main
       contrastText: tertiary ,// to not be calculated from palette.theme_1.main
     },
     theme_2: {
-      light: theme_2,// to not be calculated from palette.theme_2.main
+      // light: theme_2,// to not be calculated from palette.theme_2.main
       main: theme_2,
-      dark: theme_2 ,// to not be calculated from palette.theme_2.main
+      // dark: theme_2 ,// to not be calculated from palette.theme_2.main
       contrastText: tertiary ,// to not be calculated from palette.theme_2.main
     },
     theme_3: {
-      light: theme_3,// to not be calculated from palette.theme_3.main
+      // light: theme_3,// to not be calculated from palette.theme_3.main
       main: theme_3,
-      dark: theme_3 ,// to not be calculated from palette.theme_3.main
+      // dark: theme_3 ,// to not be calculated from palette.theme_3.main
       contrastText: tertiary ,// to not be calculated from palette.theme_3.main
     },
     theme_4: {
-      light: theme_4,// to not be calculated from palette.theme_4.main
+      // light: theme_4,// to not be calculated from palette.theme_4.main
       main: theme_4,
-      dark: theme_4 ,// to not be calculated from palette.theme_4.main
+      // dark: theme_4 ,// to not be calculated from palette.theme_4.main
       contrastText: tertiary ,// to not be calculated from palette.theme_4.main
     },
     grey10: {
-      light: grey10,// to not be calculated from palette.grey10.main
+      // light: grey10,// to not be calculated from palette.grey10.main
       main: grey10,
-      dark: grey10 ,// to not be calculated from palette.grey10.main
+      // dark: grey10 ,// to not be calculated from palette.grey10.main
       contrastText: neutral_web_grey190 ,// to not be calculated from palette.grey10.main
     },
     grey20: {
-      light: grey20,// to not be calculated from palette.grey20.main
+      // light: grey20,// to not be calculated from palette.grey20.main
       main: grey20,
-      dark: grey20 ,// to not be calculated from palette.grey20.main
+      // dark: grey20 ,// to not be calculated from palette.grey20.main
       contrastText: neutral_web_grey190 ,// to not be calculated from palette.grey20.main
     },
     grey30: {
-      light: grey30,// to not be calculated from palette.grey30.main
+      // light: grey30,// to not be calculated from palette.grey30.main
       main: grey30,
-      dark: grey30 ,// to not be calculated from palette.grey30.main
+      // dark: grey30 ,// to not be calculated from palette.grey30.main
       contrastText: neutral_web_grey190 ,// to not be calculated from palette.grey30.main
     },
     grey40: {
@@ -103,69 +103,83 @@ let theme = createMuiTheme({
       contrastText: white ,// to not be calculated from palette.grey40.main
     },
     overlay_light: {
-      light: overlay_light,// to not be calculated from palette.overlay_light.main
+      // light: overlay_light,// to not be calculated from palette.overlay_light.main
       main: overlay_light,
-      dark: overlay_light ,// to not be calculated from palette.overlay_light.main
+      // dark: overlay_light ,// to not be calculated from palette.overlay_light.main
       contrastText: neutral_web_grey190 ,// to not be calculated from palette.overlay_light.main
     },
     overlay_dark: {
-      light: overlay_dark,// to not be calculated from palette.overlay_dark.main
+      // light: overlay_dark,// to not be calculated from palette.overlay_dark.main
       main: overlay_dark,
-      dark: overlay_dark ,// to not be calculated from palette.overlay_dark.main
+      // dark: overlay_dark ,// to not be calculated from palette.overlay_dark.main
       contrastText: white ,// to not be calculated from palette.overlay_dark.main
     },
   },
-  // TODO define palette for depth
   typography: {
-    fontFamily: '"Segeo UI","Open Sans", "sans-serif"',
+    fontFamily: '"Open Sans", "sans-serif"',
     fontSize: 14,
   },
-  // TODO check if following if needed
   overrides: {
-    RaChipField: {
-      chip: {
-        marginLeft: 0,
-        marginTop: 0,
-        marginRight: 8,
-        marginBottom: 8
-      }
+    MuiButton: {
+      outlined: {
+        border: 1,
+        boxSizing: 'border-box',
+        borderRadius: 8,
+        paddingTop: 10,
+        paddingRight: 20,
+        paddingBottom: 10,
+        paddingLeft: 20,
+      },
+      outlinedSecondary: {
+        color: white,
+        borderColor: white,
+      },
     },
-    RaShow: {
-      card: {
-        padding: 25,
-        [defaultTheme.breakpoints.down('xs')]: {
-          padding: 15
-        }
-      }
-    },
-    RaList: {
-      content: {
-        padding: 25,
-        [defaultTheme.breakpoints.down('xs')]: {
-          padding: 15
-        }
-      }
-    },
-    // Hide top actions bar in mobile for list pages
-    RaListToolbar: {
-      toolbar: {
-        [defaultTheme.breakpoints.down('xs')]: {
-          height: 0,
-          minHeight: 0
-        }
-      }
-    },
-    RaSingleFieldList: {
-      root: {
-        marginTop: 0,
-        marginBottom: 0
-      }
-    },
-    MuiTab: {
-      labelIcon: {
-        paddingTop: 0
-      }
-    }
+    // TODO check if following if needed
+    // RaChipField: {
+    //   chip: {
+    //     marginLeft: 0,
+    //     marginTop: 0,
+    //     marginRight: 8,
+    //     marginBottom: 8
+    //   }
+    // },
+    // RaShow: {
+    //   card: {
+    //     padding: 25,
+    //     [defaultTheme.breakpoints.down('xs')]: {
+    //       padding: 15
+    //     }
+    //   }
+    // },
+    // RaList: {
+    //   content: {
+    //     padding: 25,
+    //     [defaultTheme.breakpoints.down('xs')]: {
+    //       padding: 15
+    //     }
+    //   }
+    // },
+    // // Hide top actions bar in mobile for list pages
+    // RaListToolbar: {
+    //   toolbar: {
+    //     [defaultTheme.breakpoints.down('xs')]: {
+    //       height: 0,
+    //       minHeight: 0
+    //     }
+    //   }
+    // },
+    // RaSingleFieldList: {
+    //   root: {
+    //     marginTop: 0,
+    //     marginBottom: 0
+    //   }
+    // },
+    // MuiTab: {
+    //   labelIcon: {
+    //     paddingTop: 0
+    //   }
+    // }
   }
 });
 
