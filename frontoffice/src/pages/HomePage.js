@@ -5,7 +5,7 @@ import Events from '../layout/Events.js';
 const HomePage = () => (
   <>
     <Container maxWidth="lg">
-      Voyager, Essaimer, je sais plus quoi
+      Voyager, Essaimer, je sais plus quoi !
     </Container>
     <Container maxWidth="lg">
       Liste des lieux
