@@ -3,34 +3,40 @@ import { Container, Box, Grid, makeStyles, Typography, AppBar as MuiAppBar, useM
 import { UserMenu, LogoutButton } from '@semapps/auth-provider';
 import { Link } from 'react-router-dom';
 
+import logo from '../images/Logo CDLT.png';
+
+const logoSize = 67;
+const logoSizeSmall = 24;
 const useStyles = makeStyles(theme => ({
   appBar: {
-    backgroundColor: '#FFF',
+    backgroundColor: theme.palette.white.main,
     boxShadow: 'none'
   },
   header: {
     position: 'relative',
     padding: 10,
-    height: 65,
-    [theme.breakpoints.down('sm')]: {
-      height: 50
-    }
+    // height: 65,
+    // [theme.breakpoints.down('xs')]: {
+    //   height: 50
+    // }
   },
   logo: {
-    width: 48,
-    height: 48,
+    width: logoSize,
+    height: logoSize,
     verticalAlign: 'middle',
-    [theme.breakpoints.down('sm')]: {
-      width: 32,
-      height: 32,
+    [theme.breakpoints.down('xs')]: {
+      width: logoSizeSmall,
+      height: logoSizeSmall,
     }
   },
   logoText: {
-    fontFamily: 'Helvetica',
+    fontFamily: 'Helvetica,'+theme.typography.fontFamily,
     fontSize: 20,
+    lineHeight: '27px',
     fontWeight: 'bold',
-    color: theme.palette.common.black,
+    color: theme.palette.secondary.main,
     verticalAlign: 'middle',
+    paddingLeft: theme.spacing(1),
     [theme.breakpoints.down('sm')]: {
       fontSize: 18,
     }
@@ -50,28 +56,27 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.secondary.main
   },
   userMenu: {
-    float: 'right',
     marginTop: theme.spacing(1),
     marginRight: theme.spacing(1),
-    color: theme.palette.common.black,
+    color: theme.palette.secondary.main,
     '& button': {
       padding: '6px 12px'
     }
   },
-  title: {
-    position: 'absolute',
-    top: 180,
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    [theme.breakpoints.down('sm')]: {
-      top: 70,
-      left: 15,
-      right: 50,
-      fontSize: 22,
-      zIndex: 10
-    }
-  },
+  // title: {
+  //   position: 'absolute',
+  //   top: 180,
+  //   textOverflow: 'ellipsis',
+  //   whiteSpace: 'nowrap',
+  //   overflow: 'hidden',
+  //   [theme.breakpoints.down('sm')]: {
+  //     top: 70,
+  //     left: 15,
+  //     right: 50,
+  //     fontSize: 22,
+  //     zIndex: 10
+  //   }
+  // },
 }));
 
 const AppBar = ({ menuItems, setSidebarOpen, title }) => {
@@ -80,15 +85,16 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
   return (
     <MuiAppBar position="sticky" className={classes.appBar}>
       <Container maxWidth="lg" className={classes.header}>
-        <Grid container>
-          <Grid item sm={4} xs={10} >
+        <Box width={1} display="flex" alignItems="center" justifyItems="center">
+          <Box height={logoSize} width="237px" justifyContent="flex-start" flexShrink={0}>
             <Link to="/" className={classes.menuLink}>
-              <img src={process.env.PUBLIC_URL + '/logo192.png'} alt="{title}" className={classes.logo} />
-              <Typography className={classes.logoText} component="span">{title}</Typography>
+              <Box display="flex" alignItems="center">
+                <img src={logo} alt="{title}" className={classes.logo} />
+                <Typography className={classes.logoText} component="div">{title}</Typography>
+              </Box>
             </Link>
-          </Grid>
-          <Grid item sm={8} xs={2} align="right">
-            <UserMenu logout={<LogoutButton />} classes={{ userButton: classes.userMenu }} />
+          </Box>
+          <Box flexGrow={1}></Box>
             {/*{xs ? (*/}
             {/*  <IconButton*/}
             {/*    color="inherit"*/}
@@ -98,26 +104,26 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
             {/*    <MenuIcon />*/}
             {/*  </IconButton>*/}
             {/*) : (*/}
-            <Grid container>
-             {Object.keys(menuItems).map(link => (
-               <Grid item sm={2} key={link}>
-                 <Box display="flex" height={48} alignItems="center" justifyContent="center">
-                   <Link to={link} className={classes.menuLink}>
-                     <Typography className={classes.menuText}>
-                        {/* <React.Fragment key={link}>
-                          {menuItems[link]}
-                          <br />
-                        </React.Fragment> */}
-                        {menuItems[link]}
-                     </Typography>
-                   </Link>
-                 </Box>
-               </Grid>
-             ))}
-            </Grid>
+            
             {/*)}*/}
+          <Grid container>
+            {Object.keys(menuItems).map(link => (
+              <Grid item sm={2} key={link}>
+                <Box display="flex" height={48} alignItems="center" justifyContent="center">
+                  <Link to={link} className={classes.menuLink}>
+                    <Typography className={classes.menuText}>
+                      {menuItems[link]}
+                    </Typography>
+                  </Link>
+                </Box>
+              </Grid>
+            ))}
           </Grid>
-        </Grid>
+          <Box flexGrow={1}></Box>
+          <Box justifyContent="flex-end">
+            <UserMenu logout={<LogoutButton />} classes={{ userButton: classes.userMenu }} />
+          </Box>
+        </Box>
       </Container>
     </MuiAppBar>
   );

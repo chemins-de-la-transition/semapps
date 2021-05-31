@@ -9,7 +9,6 @@ import TopBar from './TopBar';
 
 const Layout = ({ logout, theme, children, title }) => {
   const menuItems = {
-    '/': 'Titl', //{title},
     '/NosParcours': 'Nos Parcours',
     '/Lieux': 'Lieux',
     '/Evenements': 'Evènements',
