@@ -25,7 +25,7 @@ const Layout = ({ logout, theme, children, title }) => {
 
         {/*<Typography variant="h4" color="primary" className={classes.title} id="react-admin-title" component="h1" />*/}
       <Box mb={{ xs: 0, sm: 2 }}>{children}</Box>
-      <Footer />
+      <Footer title={title} />
       {/* Required for react-admin optimistic update */}
       <Notification />
     </ThemeProvider>
