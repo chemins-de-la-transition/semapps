@@ -2,10 +2,9 @@ import React from 'react';
 import { Container, Box, Grid, makeStyles, Typography, AppBar as MuiAppBar, useMediaQuery } from '@material-ui/core';
 import { UserMenu, LogoutButton } from '@semapps/auth-provider';
 import { Link } from 'react-router-dom';
+import LogoTitle from './LogoTitle';
 // import Container from './Container';
 
-const logoSize = 67;
-const logoSizeSmall = 24;
 const useStyles = makeStyles(theme => ({
   appBar: {
     backgroundColor: theme.palette.white.main,
@@ -14,27 +13,6 @@ const useStyles = makeStyles(theme => ({
   header: {
     paddingTop: 10,
     paddingBottom: 10,
-  },
-  logo: {
-    width: logoSize,
-    height: logoSize,
-    verticalAlign: 'middle',
-    [theme.breakpoints.down('xs')]: {
-      width: logoSizeSmall,
-      height: logoSizeSmall,
-    }
-  },
-  logoText: {
-    fontFamily: 'Helvetica,'+theme.typography.fontFamily,
-    fontSize: 20,
-    lineHeight: '27px',
-    fontWeight: 'bold',
-    color: theme.palette.secondary.main,
-    verticalAlign: 'middle',
-    paddingLeft: theme.spacing(1),
-    [theme.breakpoints.down('sm')]: {
-      fontSize: 18,
-    }
   },
   openButton: {
     padding: 5,
@@ -97,14 +75,7 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
     <MuiAppBar position="sticky" className={classes.appBar}>
       <Container maxWidth="lg" className={classes.header}>
         <Box width={1} display="flex" alignItems="center" justifyItems="center">
-          <Box height={logoSize} width="200px" justifyContent="flex-start" flexShrink={0}>
-            <Link to="/" className={classes.menuLink}>
-              <Box display="flex" alignItems="center">
-                <img src={process.env.PUBLIC_URL + '/images/Logo CDLT.png'} alt="logo" className={classes.logo} />
-                <Typography className={classes.logoText} component="div">{title}</Typography>
-              </Box>
-            </Link>
-          </Box>
+          <LogoTitle title={title} justifyContent="flex-start" classes={classes}></LogoTitle>
           <Box flexGrow={1}></Box>
             {/*{xs ? (*/}
             {/*  <IconButton*/}
