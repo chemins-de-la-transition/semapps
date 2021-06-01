@@ -25,4 +25,4 @@ yarn-error.log*
 .vercel
 
 # images (because of rigths)
-/src/images
+/public/images

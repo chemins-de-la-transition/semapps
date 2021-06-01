@@ -3,8 +3,6 @@ import { Container, Box, Grid, makeStyles, Typography, AppBar as MuiAppBar, useM
 import { UserMenu, LogoutButton } from '@semapps/auth-provider';
 import { Link } from 'react-router-dom';
 
-import logo from '../images/Logo CDLT.png';
-
 const logoSize = 67;
 const logoSizeSmall = 24;
 const useStyles = makeStyles(theme => ({
@@ -89,7 +87,7 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
           <Box height={logoSize} width="237px" justifyContent="flex-start" flexShrink={0}>
             <Link to="/" className={classes.menuLink}>
               <Box display="flex" alignItems="center">
-                <img src={logo} alt="{title}" className={classes.logo} />
+                <img src={process.env.PUBLIC_URL + '/images/Logo CDLT.png'} alt="logo" className={classes.logo} />
                 <Typography className={classes.logoText} component="div">{title}</Typography>
               </Box>
             </Link>
