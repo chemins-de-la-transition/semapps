@@ -10,5 +10,4 @@ export default [
   <Route exact path="/" component={ HomePage }/>,
   <Route exact path="/Aide" component={ Aide }/>,
   <Route exact path="/DevenirActeurDeLaTransition" component={ DevenirActeurDeLaTransition }/>,
-  <Route exact path="/Login" component={ CdlTLoginPage }/>,
 ];
