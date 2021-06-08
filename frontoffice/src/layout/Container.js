@@ -1,22 +1,21 @@
 import React from 'react';
 import { Container as MUI_Container , makeStyles} from '@material-ui/core';
-import clsx from 'clsx';
 
-const containerMargin = 40 - 24;
+const containerMargin = 40;
 
 const useStyles = makeStyles(theme => ({
     container: {
-        [theme.breakpoints.up('lg')]: {
-            marginLeft: containerMargin,
-            marginRight: containerMargin,
-        }
+        marginLeft: containerMargin,
+        marginRight: containerMargin,
+        paddingLeft: 0,
+        paddingRight: 0,
     },
 }));
 
-const Container = ({ children,className, ...other }) => {
+const Container = ({ children, ...other }) => {
     const classesContainer = useStyles();
     return (
-        <MUI_Container maxWidth="lg"  className={clsx(classesContainer.container, className)} {...other}>
+        <MUI_Container maxWidth="lg"  classes={{ root: classesContainer.container }} {...other}>
             {children}
         </MUI_Container>
     );

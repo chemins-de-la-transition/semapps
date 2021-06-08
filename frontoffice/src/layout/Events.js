@@ -1,10 +1,13 @@
 import * as React from "react";
-import { Container } from '@material-ui/core';
+import Container from './Container';
+import Box from './Box';
 
 const Event = () => (
-  <Container>
-      Evènements
-  </Container>
+  <Box>
+    <Container>
+        Evènements
+    </Container>
+  </Box>
 );
 
 export default Event;

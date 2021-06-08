@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container, useMediaQuery, makeStyles} from '@material-ui/core';
+import { useMediaQuery, makeStyles} from '@material-ui/core';
+import Box from '../../layout/Box';
+import Container from '../../layout/Container';
 
 const useStyles = makeStyles((theme) =>({
   background1: {
@@ -12,9 +14,11 @@ const Welcome = ({ theme, ...other }) => {
   const classes = useStyles();
   const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
-    <Container maxWidth="lg" {...other}>
-      Voyager, Essaimer, je sais plus quoi !
-    </Container>
+    <Box>
+      <Container maxWidth="lg" {...other}>
+        Voyager, Essaimer, je sais plus quoi !
+      </Container>
+    </Box>
   );
 };
 

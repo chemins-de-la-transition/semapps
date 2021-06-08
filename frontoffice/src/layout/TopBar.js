@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Box, useMediaQuery, makeStyles, Typography, Button} from '@material-ui/core';
 import { Link } from 'react-router-dom';
+// import Box from './Box';
 
 const TopBarHeight = 48;
 const useStyles = makeStyles((theme) =>({
