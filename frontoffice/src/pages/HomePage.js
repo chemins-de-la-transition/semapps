@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Container } from '@material-ui/core';
 import Events from '../layout/Events.js';
 import Welcome from './homepage/Welcome';
 import PlacesList from './homepage/PlacesList';
