@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container as MUI_Container , makeStyles} from '@material-ui/core';
+import { Container , makeStyles} from '@material-ui/core';
 
 const containerMargin = 40;
 
@@ -12,13 +12,13 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Container = ({ children, ...other }) => {
+const Largecontainer = ({ children, ...other }) => {
     const classesContainer = useStyles();
     return (
-        <MUI_Container maxWidth="lg"  classes={{ root: classesContainer.container }} {...other}>
+        <Container maxWidth="lg"  classes={{ root: classesContainer.container }} {...other}>
             {children}
-        </MUI_Container>
+        </Container>
     );
 };
 
-export default Container;
+export default Largecontainer;

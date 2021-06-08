@@ -2,6 +2,8 @@ import React from 'react';
 import { Container, Box, useMediaQuery, makeStyles, Typography, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import LogoTitle from './LogoTitle';
+import Fullwidthbox from './Fullwidthbox';
+import Largecontainer from './Largecontainer';
 
 const useStyles = makeStyles((theme) =>({
   footerLink: {
@@ -24,8 +26,8 @@ const Footer = ({ title , theme }) => {
   const classes = useStyles();
   const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
-    <Box mb={{ xs: 0, sm: 3 }} className={classes.background}>
-      <Container maxWidth="lg" disableGutters={xs}>
+    <Fullwidthbox mb={{ xs: 0, sm: 3 }} className={classes.background}>
+      <Largecontainer disableGutters={xs}>
         <Grid container className={classes.root} spacing={2}>
           <Grid item xs={9}>
             <LogoTitle title={title} classes={classes}></LogoTitle>
@@ -44,8 +46,8 @@ const Footer = ({ title , theme }) => {
             </Typography>
           </Grid>
         </Grid>
-      </Container>
-    </Box>
+      </Largecontainer>
+    </Fullwidthbox>
   );
 };
 

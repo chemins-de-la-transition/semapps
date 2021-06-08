@@ -1,13 +1,13 @@
 import * as React from "react";
-import Container from './Container';
-import Box from './Box';
+import Largecontainer from './Largecontainer';
+import Fullwidthbox from './Fullwidthbox';
 
 const Event = () => (
-  <Box>
-    <Container>
+  <Fullwidthbox>
+    <Largecontainer>
         Evènements
-    </Container>
-  </Box>
+    </Largecontainer>
+  </Fullwidthbox>
 );
 
 export default Event;
