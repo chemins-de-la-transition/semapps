@@ -15,7 +15,7 @@ const history = createBrowserHistory();
 
 const App = () => (
   <Admin
-    title="Les Chemins de la Transition" /* be careful to the NO-BREAK SPACES */
+    title="Les Chemins de&nbsp;la&nbsp;Transition"
     history={history}
     dataProvider={dataProvider}
     i18nProvider={i18nProvider}
