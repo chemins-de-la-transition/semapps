@@ -24,9 +24,6 @@ const useStyles = makeStyles(theme => ({
   menuText: {
     fontFamily: 'Helvetica',
     fontSize: 18,
-    [theme.breakpoints.down('md')]: {
-      fontSize: 16,
-    },
     textAlign: 'center',
     lineHeight: 1,
     color: theme.palette.secondary.main
