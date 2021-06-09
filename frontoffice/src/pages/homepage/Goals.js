@@ -1,9 +1,9 @@
 import React from 'react';
-import { /*useMediaQuery, */makeStyles } from '@material-ui/core';
+import { /*useMediaQuery, */makeStyles, Grid, Typography } from '@material-ui/core';
 import Fullwidthbox from '../../layout/Fullwidthbox';
 import Largecontainer from '../../layout/Largecontainer';
 
-const goalsHeight = '800px';
+const goalsHeight = '1730px';
 const useStyles = makeStyles((theme) => ({
   mainBox: {
     backgroundColor: theme.palette.secondary.main,
@@ -61,11 +61,36 @@ const useStyles = makeStyles((theme) => ({
     fill: theme.palette.theme_2.main,
   },
   goals: {
-    display:'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
+    // display:'flex',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+  },
+  goalsFirstImage:{
+    objectFit: 'cover',
+    objectPosition: 'center',
+  },
+  goalsFirstImageContainer :{
+    marginTop: '165px',
+    [theme.breakpoints.down(600)]: {
+      marginTop: '20px',
+      height: '80%',
+    },
+  },
+  goalsSecondText: {
+    marginTop: '200px',
+    [theme.breakpoints.down(600)]: {
+      marginTop: '20px',
+    },
+  },
 }));
+
+const ListGoals = ({ text }) => {
+  return (
+    <Typography variant="body2" component="div" style={{marginTop: '12px'}}>
+      {text}
+    </Typography>
+  );
+};
 
 const Goals = ({ theme }) => {
   const classes = useStyles();
@@ -90,7 +115,38 @@ const Goals = ({ theme }) => {
       </Fullwidthbox>
       <Fullwidthbox className={classes.frontBox}>
         <Largecontainer className={classes.goals}>
-          Objectifs
+          <Grid container spacing={2}>
+            <Grid item sm={4} style={{marginTop: '65px'}}>
+              <Typography variant="h2">
+                Notre objectif
+              </Typography>
+              <Typography variant="h3" component="div" style={{marginBottom: '40px'}}>
+                Vous permettre d'apprendre en voyageant
+              </Typography>
+              <Typography variant="body2" >
+              Les Chemins de la Transition c’est avant tout une envie de relier et connecter les acteurs de la transition, 
+              mais aussi de transmettre pour voir se multiplier les initiatives. 
+              Agissons ensemble pour participer à la découverte, la formation et la mise en réseau des personnes souhaitant 
+              s’engager dans la Transition afin que le rêve de voir éclore, mûrir et s’entrelacer des mondes solidaires et 
+              écologiques s’enracine dans notre réalité.
+              </Typography>
+            </Grid>
+            <Grid item sm={1}>
+            </Grid>
+            <Grid item sm={4} className={classes.goalsFirstImageContainer}>
+              <img src={process.env.PUBLIC_URL + '/pexels-gary-barnes-6231809.jpg'} width="100%" height="80%" className={classes.goalsFirstImage}/>
+              <span dangerouslySetInnerHTML={{ __html: `<!-- Image : (Free to Use and no attribution required) Gary Barnes @pexels https://www.pexels.com/photo/happy-multiethnic-female-friends-sitting-on-green-field-in-countryside-6231809/-->` }}/>
+            </Grid>
+            <Grid item sm={3} className={classes.goalsSecondText}>
+              <Typography variant="h5" component="div" style={{marginBottom: '24px'}}>
+                Mailler les territoires & Valoriser les initiatives existantes
+              </Typography>
+              <ListGoals text={"Promouvoir et dynamiser l’attractivité des zones rurales grâce à une nouvelle dynamique de tourisme."}></ListGoals>
+              <ListGoals text={"Référencer les lieux inspirationnels et les initiatives qui contribuent à la transition (écologique, énergétique, social, culturelle, économique,...)"}></ListGoals>
+              <ListGoals text={"Interconnecter les acteurs de la transition et leur donner de la visibilité. Créer des synergies inter-projets / inter-territoires"}></ListGoals>
+              <ListGoals text={"Accélérer des projets grâce à l’aide apportée par les voyageurs"}></ListGoals>
+            </Grid>
+          </Grid>
         </Largecontainer>
       </Fullwidthbox>
     </Fullwidthbox>

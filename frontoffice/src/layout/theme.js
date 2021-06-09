@@ -27,7 +27,7 @@ const overlay_dark = '#00000066'; /// black 40%
 // const depth16_2 = depth4_2;
 // const depth64_1 = white +'38'; //21.9% ~ 22% in HEX
 // const depth64_2 = white +'2E'; //18% in HEX
-const font1 = '"Mate", "serif"'; // serif instead of Recoleta;
+const font1 = '"serif"'; // serif instead of Recoleta;
 const font2 = '"Montserrat", "Open Sans", "sans-serif"'; // Montserrat instead of Integral CF
 const font3 = '"Poppins", "Open Sans", "sans-serif"'; // Poppins instead of Sofia Pro
 
