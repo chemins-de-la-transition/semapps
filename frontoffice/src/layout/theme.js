@@ -1,4 +1,4 @@
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { createMuiTheme /*, responsiveFontSizes*/ } from '@material-ui/core/styles';
 
 // Allow to use breakpoints
 // const defaultTheme = createMuiTheme();
@@ -118,6 +118,103 @@ let theme = createMuiTheme({
   typography: {
     fontFamily: '"Open Sans", "sans-serif"',
     fontSize: 14,
+    h1: {
+      fontFamily: '"Mate", "serif"', // Mate instead of Integral CF
+      fontSize: 40,
+      fontStyle: 'normal',
+      fontWeight: 'bold',
+      lineHeight: '54px',
+    },
+    h2: {
+      fontFamily: '"Mate", "serif"', // Mate instead of Integral CF
+      fontSize: 32,
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      lineHeight: '44px',
+    },
+    h3: {
+      fontFamily: '"Montserrat", "Open Sans", "sans-serif"', // Montserrat instead of Integral CF
+      fontSize: 28,
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      lineHeight: '34px',
+      textTransform: 'uppercase',
+    },
+    h4: {
+      fontFamily: '"Mate", "serif"', // Mate instead of Integral CF
+      fontSize: 24,
+      fontStyle: 'normal',
+      fontWeight: '600',
+      lineHeight: '30px',
+    },
+    h5: {
+      fontFamily: '"Montserrat", "Open Sans", "sans-serif"', // Montserrat instead of Integral CF
+      fontSize: 14,
+      fontStyle: 'normal',
+      fontWeight: '600',
+      lineHeight: '16px',
+      textTransform: 'uppercase',
+    },
+    h6: {
+      fontFamily: '"Montserrat", "Open Sans", "sans-serif"', // Montserrat instead of Integral CF
+      fontSize: 12,
+      fontStyle: 'normal',
+      fontWeight: '600',
+      lineHeight: '14px',
+      textTransform: 'uppercase',
+    },
+    subtitle1: {
+      fontFamily: '"Poppins", "Open Sans", "sans-serif"', // Poppins instead of Sofia Pro
+      fontSize: 14,
+      fontStyle: 'normal',
+      fontWeight: 'bold',
+      lineHeight: '16px',
+      textTransform: 'uppercase',
+    },
+    subtitle2: {
+      fontFamily: '"Poppins", "Open Sans", "sans-serif"', // Poppins instead of Sofia Pro
+      fontSize: 12,
+      fontStyle: 'normal',
+      fontWeight: '600',
+      lineHeight: '12px',
+      textTransform: 'uppercase',
+    },
+    body1: {
+      fontFamily: '"Poppins", "Open Sans", "sans-serif"', // Poppins instead of Sofia Pro
+      fontSize: 16,
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      lineHeight: '16px',
+    },
+    body2: {
+      fontFamily: '"Poppins", "Open Sans", "sans-serif"', // Poppins instead of Sofia Pro
+      fontSize: 14,
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      lineHeight: '16px',
+    },
+    body3: {
+      fontFamily: '"Poppins", "Open Sans", "sans-serif"', // Poppins instead of Sofia Pro
+      fontSize: 12,
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      lineHeight: '12px',
+    },
+    button1: {
+      fontFamily: '"Poppins", "Open Sans", "sans-serif"', // Poppins instead of Sofia Pro
+      fontSize: 12,
+      fontStyle: 'normal',
+      fontWeight: '600',
+      lineHeight: '12px',
+      textTransform: 'uppercase',
+    },
+    button2: {
+      fontFamily: '"Poppins", "Open Sans", "sans-serif"', // Poppins instead of Sofia Pro
+      fontSize: '26px',
+      fontStyle: 'normal',
+      fontWeight: 'bold',
+      lineHeight: '20px',
+    },
   },
   props: {
     MuiTypography: {
@@ -137,8 +234,59 @@ let theme = createMuiTheme({
   },
   overrides: {
     MuiButton: {
+      contained: {
+        border: 1,
+        borderStyle: 'solid',
+        boxSizing: 'border-box',
+        borderRadius: 8,
+        paddingTop: 20,
+        paddingRight: 20,
+        paddingBottom: 20,
+        paddingLeft: 20,
+      },
+      containedPrimary: {
+        color: white,
+        borderColor: white,
+        backgroundColor: primary,
+        '&:focus': {
+          color: white,
+          borderColor: white,
+          backgroundColor: primary,
+        },
+        '&:hover': {
+          color: white,
+          borderColor: white,
+          backgroundColor: primary,
+        },
+        '&:disabled': {
+          color: grey40,
+          borderColor: grey10,
+          backgroundColor: grey10,
+        },
+      },
+      containedSecondary: {
+        color: white,
+        borderColor: white,
+        backgroundColor: secondary,
+        '&:focus': {
+          color: white,
+          borderColor: white,
+          backgroundColor: secondary,
+        },
+        '&:hover': {
+          color: white,
+          borderColor: white,
+          backgroundColor: secondary,
+        },
+        '&:disabled': {
+          color: grey40,
+          borderColor: grey10,
+          backgroundColor: grey10,
+        },
+      },
       outlined: {
         border: 1,
+        borderStyle: 'solid',
         boxSizing: 'border-box',
         borderRadius: 8,
         paddingTop: 10,
@@ -146,9 +294,43 @@ let theme = createMuiTheme({
         paddingBottom: 10,
         paddingLeft: 20,
       },
+      outlinedPrimary: {
+        color: white,
+        borderColor: white,
+        '&:focus': {
+          color: primary,
+          borderColor: white,
+          backgroundColor: white,
+        },
+        '&:hover': {
+          color: primary,
+          borderColor: white,
+          backgroundColor: white,
+        },
+        '&:disabled': {
+          color: grey40,
+          borderColor: grey10,
+          backgroundColor: grey10,
+        },
+      },
       outlinedSecondary: {
         color: white,
         borderColor: white,
+        '&:focus': {
+          color: secondary,
+          borderColor: white,
+          backgroundColor: white,
+        },
+        '&:hover': {
+          color: secondary,
+          borderColor: white,
+          backgroundColor: white,
+        },
+        '&:disabled': {
+          color: grey40,
+          borderColor: grey10,
+          backgroundColor: grey10,
+        },
       },
     },
     // TODO check if following if needed
@@ -200,6 +382,7 @@ let theme = createMuiTheme({
 });
 
 // TODO check if useful and working
-theme = responsiveFontSizes(theme);
+// can not be used with font definition
+// theme = responsiveFontSizes(theme);
 
 export default theme;

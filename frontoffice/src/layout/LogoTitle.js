@@ -17,12 +17,10 @@ const useStyles = makeStyles(theme => ({
       }
     },
     logoText: {
-      fontFamily: 'Helvetica,'+theme.typography.fontFamily,
       fontSize: 20,
       lineHeight: '27px',
-      fontWeight: 'bold',
+      fontWeight: '900',
       color: theme.palette.secondary.main,
-      verticalAlign: 'middle',
       paddingLeft: theme.spacing(1),
       [theme.breakpoints.down(breakPointlimit)]: {
         fontSize: 14,
@@ -46,7 +44,7 @@ const LogoTitle = ({ title,classes, ...other }) => {
             <Link to="/" className={classes.menuLink}>
                 <Box display="flex" alignItems="center">
                 <img src={process.env.PUBLIC_URL + '/Logo CDLT.png'} alt="logo" className={classesLogo.logo} />
-                <Typography className={classesLogo.logoText} component="div">{title}</Typography>
+                <Typography variant="h1" className={classesLogo.logoText} component="h1">{title}</Typography>
                 </Box>
             </Link>
         </Box>

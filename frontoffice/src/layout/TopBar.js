@@ -14,17 +14,6 @@ const useStyles = makeStyles((theme) =>({
   topBarIncluded: {
     height: TopBarHeight,
   },
-  topBarText: {
-    fontFamily: '"Montserrat",'+theme.typography.fontFamily,
-    fontStyle: 'normal',
-    fontWeight: 'Bold',
-    fontSize: 10,
-    lineHeight: '12px',
-    height: 12,
-    
-    /* identical to box height */
-    textTransform: 'uppercase',
-  },
   topBarHelpIcon: {
     // TODO import font
     /* FabricMDL / 16 */
@@ -49,7 +38,7 @@ const TopBar = ({ theme }) => {
       <Fullwidthbox className={classes.topBar}>
         <Largecontainer >
           <Box display="flex" width={1} height={1} alignItems="center" className={classes.topBarIncluded}>
-            <Typography className={classes.topBarText}>Le lieu pour voyager en apprenant</Typography>
+            <Typography variant="subtitle2">Le lieu pour voyager en apprenant</Typography>
             <Box flexGrow={1}></Box>
             <Link to='/Aide' className={classes.topBarHelpIcon} color="inherit" component={Button} aria-label="Aide">
               ?
@@ -61,7 +50,7 @@ const TopBar = ({ theme }) => {
                 className={classes.MuiButtonSecondary} 
                 component={Button}
               > 
-              <Typography className={classes.topBarText}>Devenir acteur de la Transition</Typography>
+              <Typography variant="subtitle2">Devenir acteur de la Transition</Typography>
             </Link>
           </Box>
         </Largecontainer>

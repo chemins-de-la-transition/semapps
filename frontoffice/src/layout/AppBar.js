@@ -23,8 +23,6 @@ const useStyles = makeStyles(theme => ({
     textDecoration: 'none'
   },
   menuText: {
-    fontFamily: 'Helvetica',
-    fontSize: 18,
     textAlign: 'center',
     lineHeight: 1,
     color: theme.palette.secondary.main
@@ -91,7 +89,7 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
               {Object.keys(menuItems).map(link => (
                 <Box display="flex" height={48} alignItems="center" justifyContent="center" className={classes.linkBox} m={2}>
                   <Link to={link} className={classes.menuLink}>
-                    <Typography className={classes.menuText}>
+                    <Typography variant="subtitle2" className={classes.menuText}>
                       {menuItems[link]}
                     </Typography>
                   </Link>
