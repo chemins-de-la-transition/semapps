@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 
 const logoSize = 67;
 const logoSizeSmall = 40;
+// const breakPointlimit = 'xs';
+const breakPointlimit = 720;
 const useStyles = makeStyles(theme => ({
     logo: {
       width: logoSize,
       height: logoSize,
       verticalAlign: 'middle',
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down(breakPointlimit)]: {
         width: logoSizeSmall,
         height: logoSizeSmall,
       }
@@ -22,7 +24,7 @@ const useStyles = makeStyles(theme => ({
       color: theme.palette.secondary.main,
       verticalAlign: 'middle',
       paddingLeft: theme.spacing(1),
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down(breakPointlimit)]: {
         fontSize: 14,
         lineHeight: '18px',
       }
@@ -30,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     logoBox: {
       width: 220,
       height: logoSize,
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down(breakPointlimit)]: {
         width: 160,
         height: logoSizeSmall,
       }

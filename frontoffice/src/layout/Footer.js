@@ -35,7 +35,7 @@ const Footer = ({ title , theme }) => {
     <Fullwidthbox mb={{ xs: 0, sm: 3 }} className={classes.background}>
       <Largecontainer disableGutters={xs}>
         <Grid container className={classes.root} spacing={2}>
-          <Grid item xs={9}>
+          <Grid item sm={9}>
             <LogoTitle title={title} classes={classes}></LogoTitle>
             <Typography variant="subtitle2" color="secondary">
               <Link to="/About" className={classes.footerLink}>A propos de nous</Link>
@@ -50,13 +50,14 @@ const Footer = ({ title , theme }) => {
               <Link to="/SemApps" className={classes.footerLink}>Plateforme collaborative propulsée par SemApps</Link>
             </Typography>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item sm={3}>
             <Typography variant="h6" color="secondary">
                 Réseaux sociaux
             </Typography>
             <Typography variant="subtitle1" color="secondary">
                 Restez informé des dernières actualités de la Trasition en nous suivant sur :
             </Typography>
+            <br />
             <IconButton aria-label="facebook" color="secondary" href="https://www.facebook.com/Les-Chemins-de-la-Transition-103307098592299">
               <FacebookIcon />
             </IconButton>

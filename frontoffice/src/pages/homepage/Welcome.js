@@ -1,8 +1,7 @@
 import React from 'react';
-import { useMediaQuery, makeStyles, Box, Typography} from '@material-ui/core';
+import { /*useMediaQuery, */makeStyles, Box, Typography} from '@material-ui/core';
 import Fullwidthbox from '../../layout/Fullwidthbox';
 import Largecontainer from '../../layout/Largecontainer';
-import { rectangle } from 'leaflet';
 
 const welcomeHeight=600;
 const useStyles = makeStyles((theme) =>({
@@ -38,7 +37,7 @@ const ReactComment = ({ text }) => {
 
 const Welcome = ({ theme  }) => {
   const classes = useStyles();
-  const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
+  // const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
     <Box width={1} height={welcomeHeight} position="relative">
       <Box width={1} height={0.5} className={classes.background1} top={0}>

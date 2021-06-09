@@ -1,7 +1,7 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 // Allow to use breakpoints
-const defaultTheme = createMuiTheme();
+// const defaultTheme = createMuiTheme();
 
 const white = '#FFFFFF';
 const primary = '#EFBE74';
@@ -18,15 +18,15 @@ const grey30 = '#E1DFDD';
 const grey40 = '#828282';
 const overlay_light = white +'66'; //40% in HEX
 const overlay_dark = '#00000066'; /// black 40%
-const depth4_1 = white +'14'; //7,8% ~ 8% in HEX
-const depth4_2 = white +'1A'; //10,2% ~ 10% in HEX
-const depth8_1 = white +'21'; //12.9% ~ 13% in HEX
-const depth8_2 = depth4_2;
-const depth8_3 = white +'40'; //25% in HEX
-const depth16_1 = depth8_1;
-const depth16_2 = depth4_2;
-const depth64_1 = white +'38'; //21.9% ~ 22% in HEX
-const depth64_2 = white +'2E'; //18% in HEX
+// const depth4_1 = white +'14'; //7,8% ~ 8% in HEX
+// const depth4_2 = white +'1A'; //10,2% ~ 10% in HEX
+// const depth8_1 = white +'21'; //12.9% ~ 13% in HEX
+// const depth8_2 = depth4_2;
+// const depth8_3 = white +'40'; //25% in HEX
+// const depth16_1 = depth8_1;
+// const depth16_2 = depth4_2;
+// const depth64_1 = white +'38'; //21.9% ~ 22% in HEX
+// const depth64_2 = white +'2E'; //18% in HEX
 
 let theme = createMuiTheme({
   palette: {
@@ -119,6 +119,22 @@ let theme = createMuiTheme({
     fontFamily: '"Open Sans", "sans-serif"',
     fontSize: 14,
   },
+  props: {
+    MuiTypography: {
+      variantMapping: {
+        h1: 'h2',
+        h2: 'h3',
+        h3: 'h4',
+        h4: 'h5',
+        h5: 'h6',
+        h6: 'h6',
+        subtitle1: 'span',
+        subtitle2: 'span',
+        body1: 'span',
+        body2: 'span',
+      },
+    },
+  },
   overrides: {
     MuiButton: {
       outlined: {
@@ -133,22 +149,6 @@ let theme = createMuiTheme({
       outlinedSecondary: {
         color: white,
         borderColor: white,
-      },
-    },
-    props: {
-      MuiTypography: {
-        variantMapping: {
-          h1: 'h2',
-          h2: 'h3',
-          h3: 'h4',
-          h4: 'h5',
-          h5: 'h6',
-          h6: 'h6',
-          subtitle1: 'span',
-          subtitle2: 'span',
-          body1: 'span',
-          body2: 'span',
-        },
       },
     },
     // TODO check if following if needed

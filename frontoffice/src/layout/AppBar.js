@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Box, Grid, makeStyles, Typography, AppBar as MuiAppBar, useMediaQuery } from '@material-ui/core';
+import {  Box, makeStyles, Typography, AppBar as MuiAppBar /*, useMediaQuery */} from '@material-ui/core';
 import { UserMenu, LogoutButton } from '@semapps/auth-provider';
 import { Link } from 'react-router-dom';
 import LogoTitle from './LogoTitle';
@@ -68,7 +68,7 @@ const useStyles = makeStyles(theme => ({
 
 const AppBar = ({ menuItems, setSidebarOpen, title }) => {
   const classes = useStyles();
-  const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
+  // const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
     <MuiAppBar position="sticky" className={classes.appBar}>
       <Fullwidthbox>
