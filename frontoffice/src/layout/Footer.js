@@ -37,7 +37,7 @@ const Footer = ({ title , theme }) => {
         <Grid container className={classes.root} spacing={2}>
           <Grid item sm={9}>
             <LogoTitle title={title} classes={classes}></LogoTitle>
-            <Typography variant="subtitle2" color="secondary">
+            <Typography variant="body2" color="secondary">
               <Link to="/About" className={classes.footerLink}>A propos de nous</Link>
               &nbsp;-&nbsp;
               <Link to="/Contact" className={classes.footerLink}>Contactez-nous</Link>
@@ -51,10 +51,10 @@ const Footer = ({ title , theme }) => {
             </Typography>
           </Grid>
           <Grid item sm={3}>
-            <Typography variant="h6" color="secondary">
+            <Typography variant="subtitle1" color="secondary" component="h6">
                 Réseaux sociaux
             </Typography>
-            <Typography variant="subtitle1" color="secondary">
+            <Typography variant="body1" color="secondary" component="div">
                 Restez informé des dernières actualités de la Trasition en nous suivant sur :
             </Typography>
             <br />
