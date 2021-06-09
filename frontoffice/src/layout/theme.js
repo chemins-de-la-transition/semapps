@@ -27,6 +27,9 @@ const overlay_dark = '#00000066'; /// black 40%
 // const depth16_2 = depth4_2;
 // const depth64_1 = white +'38'; //21.9% ~ 22% in HEX
 // const depth64_2 = white +'2E'; //18% in HEX
+const font1 = '"Mate", "serif"'; // serif instead of Recoleta;
+const font2 = '"Montserrat", "Open Sans", "sans-serif"'; // Montserrat instead of Integral CF
+const font3 = '"Poppins", "Open Sans", "sans-serif"'; // Poppins instead of Sofia Pro
 
 let theme = createMuiTheme({
   palette: {
@@ -116,24 +119,24 @@ let theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: '"Open Sans", "sans-serif"',
+    fontFamily: font3,
     fontSize: 14,
     h1: {
-      fontFamily: '"Mate", "serif"', // Mate instead of Integral CF
+      fontFamily: font1,
       fontSize: 40,
       fontStyle: 'normal',
       fontWeight: 'bold',
       lineHeight: '54px',
     },
     h2: {
-      fontFamily: '"Mate", "serif"', // Mate instead of Integral CF
+      fontFamily: font1,
       fontSize: 32,
       fontStyle: 'normal',
       fontWeight: 'normal',
       lineHeight: '44px',
     },
     h3: {
-      fontFamily: '"Montserrat", "Open Sans", "sans-serif"', // Montserrat instead of Integral CF
+      fontFamily: font2,
       fontSize: 28,
       fontStyle: 'normal',
       fontWeight: 'normal',
@@ -141,14 +144,14 @@ let theme = createMuiTheme({
       textTransform: 'uppercase',
     },
     h4: {
-      fontFamily: '"Mate", "serif"', // Mate instead of Integral CF
+      fontFamily: font1,
       fontSize: 24,
       fontStyle: 'normal',
       fontWeight: '600',
       lineHeight: '30px',
     },
     h5: {
-      fontFamily: '"Montserrat", "Open Sans", "sans-serif"', // Montserrat instead of Integral CF
+      fontFamily: font2,
       fontSize: 14,
       fontStyle: 'normal',
       fontWeight: '600',
@@ -156,7 +159,7 @@ let theme = createMuiTheme({
       textTransform: 'uppercase',
     },
     h6: {
-      fontFamily: '"Montserrat", "Open Sans", "sans-serif"', // Montserrat instead of Integral CF
+      fontFamily: font2,
       fontSize: 12,
       fontStyle: 'normal',
       fontWeight: '600',
@@ -164,7 +167,7 @@ let theme = createMuiTheme({
       textTransform: 'uppercase',
     },
     subtitle1: {
-      fontFamily: '"Poppins", "Open Sans", "sans-serif"', // Poppins instead of Sofia Pro
+      fontFamily: font3,
       fontSize: 14,
       fontStyle: 'normal',
       fontWeight: 'bold',
@@ -172,7 +175,7 @@ let theme = createMuiTheme({
       textTransform: 'uppercase',
     },
     subtitle2: {
-      fontFamily: '"Poppins", "Open Sans", "sans-serif"', // Poppins instead of Sofia Pro
+      fontFamily: font3,
       fontSize: 12,
       fontStyle: 'normal',
       fontWeight: '600',
@@ -180,28 +183,28 @@ let theme = createMuiTheme({
       textTransform: 'uppercase',
     },
     body1: {
-      fontFamily: '"Poppins", "Open Sans", "sans-serif"', // Poppins instead of Sofia Pro
+      fontFamily: font3,
       fontSize: 16,
       fontStyle: 'normal',
       fontWeight: 'normal',
       lineHeight: '16px',
     },
     body2: {
-      fontFamily: '"Poppins", "Open Sans", "sans-serif"', // Poppins instead of Sofia Pro
+      fontFamily: font3,
       fontSize: 14,
       fontStyle: 'normal',
       fontWeight: 'normal',
       lineHeight: '16px',
     },
     body3: {
-      fontFamily: '"Poppins", "Open Sans", "sans-serif"', // Poppins instead of Sofia Pro
+      fontFamily: font3,
       fontSize: 12,
       fontStyle: 'normal',
       fontWeight: 'normal',
       lineHeight: '12px',
     },
     button1: {
-      fontFamily: '"Poppins", "Open Sans", "sans-serif"', // Poppins instead of Sofia Pro
+      fontFamily: font3,
       fontSize: 12,
       fontStyle: 'normal',
       fontWeight: '600',
@@ -209,7 +212,7 @@ let theme = createMuiTheme({
       textTransform: 'uppercase',
     },
     button2: {
-      fontFamily: '"Poppins", "Open Sans", "sans-serif"', // Poppins instead of Sofia Pro
+      fontFamily: font3,
       fontSize: '26px',
       fontStyle: 'normal',
       fontWeight: 'bold',
