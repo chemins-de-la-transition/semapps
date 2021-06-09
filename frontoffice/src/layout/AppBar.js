@@ -72,7 +72,7 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
       <Fullwidthbox>
         <Largecontainer className={classes.header}>
           <Box width={1} display="flex" alignItems="center">
-            <LogoTitle title={title} justifyContent="flex-start" classes={classes}></LogoTitle>
+            <LogoTitle title={title} justifyContent="flex-start" classes={{ menuLink: classes.menuLink}}></LogoTitle>
             <Box flexGrow={1}></Box>
               {/*{xs ? (*/}
               {/*  <IconButton*/}

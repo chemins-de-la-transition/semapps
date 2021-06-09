@@ -41,7 +41,7 @@ const LogoTitle = ({ title,classes, ...other }) => {
     const classesLogo = useStyles();
     return (
         <Box className={classesLogo.logoBox} flexShrink={0} {...other}>
-            <Link to="/" className={classes.menuLink}>
+            <Link to="/" className={(classes) ? classes.menuLink : ''}>
                 <Box display="flex" alignItems="center">
                 <img src={process.env.PUBLIC_URL + '/Logo CDLT.png'} alt="logo" className={classesLogo.logo} />
                 <Typography variant="h1" className={classesLogo.logoText} component="h1">{title}</Typography>
