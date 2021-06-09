@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormTab, TabbedForm, TextInput } from 'react-admin';
-import MarkdownInput from 'ra-input-markdown';
+import { MarkdownInput } from '@semapps/markdown-components';
 import { Edit } from '@semapps/archipelago-layout';
 import { ActorsInput, EventsInput, ThemesInput, StatusInput, TypesInput, SkillsInput, PathInput } from '../../../../pair';
 import SessionTitle from './SessionTitle';
@@ -33,12 +33,12 @@ const SessionEdit = props => (
           }}
           fullWidth
         />
-        <MarkdownInput multiline source="pair:description" fullWidth />
-        <MarkdownInput multiline source="cdlt:forWhom" fullWidth />
-        <MarkdownInput multiline source="cdlt:prerequisites" fullWidth />
-        <MarkdownInput multiline source="cdlt:learningObjectives" fullWidth />
-        <MarkdownInput multiline source="cdlt:economicalConditions" fullWidth />
-        <MarkdownInput multiline source="cdlt:practicalConditions" fullWidth />
+        <MarkdownInput source="pair:description" fullWidth />
+        <MarkdownInput source="cdlt:forWhom" fullWidth />
+        <MarkdownInput source="cdlt:prerequisites" fullWidth />
+        <MarkdownInput source="cdlt:learningObjectives" fullWidth />
+        <MarkdownInput source="cdlt:economicalConditions" fullWidth />
+        <MarkdownInput source="cdlt:practicalConditions" fullWidth />
       </FormTab>
       <FormTab label="Relations">
         <PathInput source="cdlt:sessionOf" />

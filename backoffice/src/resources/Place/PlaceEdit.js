@@ -1,17 +1,21 @@
 import React from 'react';
-import { SimpleForm, TextInput } from 'react-admin';
-import MarkdownInput from 'ra-input-markdown';
+import { ImageInput, SimpleForm, TextInput } from 'react-admin';
+import { MarkdownInput } from '@semapps/markdown-components';
 import { Edit } from '@semapps/archipelago-layout';
 import PlaceTitle from './PlaceTitle';
 import { extractContext, LocationInput } from "@semapps/geo-components";
-import {ThemesInput} from "../../pair";
+import { ImageField } from "@semapps/semantic-data-provider";
+import { ThemesInput } from "../../pair";
 
 export const PlaceEdit = props => (
   <Edit title={<PlaceTitle />} {...props}>
     <SimpleForm redirect="show">
       <TextInput source="pair:label" fullWidth />
       <TextInput source="pair:comment" fullWidth />
-      <MarkdownInput multiline source="pair:description" fullWidth />
+      <MarkdownInput source="pair:description" fullWidth />
+      <ImageInput source="pair:image" accept="image/*">
+        <ImageField source="src" />
+      </ImageInput>
       <TextInput source="pair:homePage" fullWidth />
       <ThemesInput source="pair:hasTopic" />
       <LocationInput
