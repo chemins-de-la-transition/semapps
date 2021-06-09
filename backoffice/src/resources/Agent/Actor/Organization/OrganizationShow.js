@@ -1,7 +1,8 @@
 import React from 'react';
 import { TextField, UrlField, ChipField, SingleFieldList } from 'react-admin';
-import { MainList, SideList, Hero, AvatarField, GridList, Show, MarkdownField } from '@semapps/archipelago-layout';
+import { MainList, SideList, Hero, AvatarField, GridList, Show } from '@semapps/archipelago-layout';
 import { MapField } from '@semapps/geo-components';
+import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Grid } from '@material-ui/core';
 import OrganizationTitle from './OrganizationTitle';

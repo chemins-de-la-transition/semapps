@@ -1,8 +1,9 @@
 import React from 'react';
 import { ChipField, SingleFieldList, TextField, UrlField, DateField, Datagrid, ShowButton } from 'react-admin';
 import { Grid } from '@material-ui/core';
-import { Hero, Show, MarkdownField, GridList, MainList, SideList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
+import { Hero, Show, GridList, MainList, SideList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
 import { MapList } from '@semapps/geo-components';
+import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import SessionTitle from './SessionTitle';
 import HomeIcon from '@material-ui/icons/Home';
