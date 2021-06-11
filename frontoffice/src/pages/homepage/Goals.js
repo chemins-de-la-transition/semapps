@@ -168,7 +168,7 @@ const Goals = ({ theme }) => {
               écologiques s’enracine dans notre réalité.
               </Typography>
             </Grid>
-            <Grid item sm={1}>
+            <Grid item sm={1} style={{padding:'0px'}}>
             </Grid>
             <Grid item sm={4} className={classes.goalsFirstImageContainer}>
               <img src={process.env.PUBLIC_URL + '/pexels-gary-barnes-6231809.jpg'} width="100%" className={classes.goalsFirstImage} alt="illustration de deux agricultrices qui rient"/>
@@ -222,7 +222,7 @@ const Goals = ({ theme }) => {
             </Grid>
           </Grid>
           <Grid container spacing={3}>
-            <Grid item sm={5} style={{alignSelf:'flex-end'}}>
+            <Grid item sm={5} style={{alignSelf:'flex-end',padding:'0px'}}>
             </Grid>
             <Grid item sm={3} className={classes.goalsFourthText}>
               <svg width="44" height="48" viewBox="0 0 44 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={{marginBottom: '24px'}}>

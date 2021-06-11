@@ -28,10 +28,10 @@ const useStyles = makeStyles(theme => ({
       }
     },
     logoBox: {
-      width: 220,
+      width: 240,
       height: logoSize,
       [theme.breakpoints.down(breakPointlimit)]: {
-        width: 160,
+        width: 180,
         height: logoSizeSmall,
       }
     },

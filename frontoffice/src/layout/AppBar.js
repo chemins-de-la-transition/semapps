@@ -1,5 +1,6 @@
 import React from 'react';
-import {  Box, makeStyles, Typography, AppBar as MuiAppBar /*, useMediaQuery */} from '@material-ui/core';
+import {  Box, makeStyles, Typography, AppBar as MuiAppBar , useMediaQuery, IconButton } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
 import { UserMenu, LogoutButton } from '@semapps/auth-provider';
 import { Link } from 'react-router-dom';
 import LogoTitle from './LogoTitle';
@@ -16,8 +17,6 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: 10,
   },
   openButton: {
-    padding: 5,
-    float: 'right'
   },
   menuLink: {
     textDecoration: 'none'
@@ -34,9 +33,29 @@ const useStyles = makeStyles(theme => ({
     }
   },
   loginBackground: {
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.secondary.contrastText,
-    borderRadius: 8,
+    // backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.secondary.main,
+    // borderRadius: 8,
+    '& .MuiIconButton-colorInherit':{
+      color: theme.palette.secondary.main,
+    },
+    '& .MuiIconButton-label::after':{
+      content: "'Se connecter'",
+      fontFamily: theme.typography.subtitle2.fontFamily,
+      fontSize: theme.typography.subtitle2.fontSize,
+      fontWeight: theme.typography.subtitle2.fontWeight,
+      textTransform: theme.typography.subtitle2.textTransform,
+      lineHeight: theme.typography.subtitle2.lineHeight,
+      // [theme.breakpoints.down('xs')]:{
+      [theme.breakpoints.down('700')]:{
+        content: 'none',
+      },
+    },
+    [theme.breakpoints.down('xs')]:{
+      '& .MuiIconButton-root':{
+        padding: '8px',
+      },
+    },
   },
   // userMenu: {
   //   marginTop: theme.spacing(1),
@@ -66,42 +85,50 @@ const useStyles = makeStyles(theme => ({
 
 const AppBar = ({ menuItems, setSidebarOpen, title }) => {
   const classes = useStyles();
-  // const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
+  const transition = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
     <MuiAppBar position="sticky" className={classes.appBar}>
       <Fullwidthbox>
-        <Largecontainer className={classes.header}>
-          <Box width={1} display="flex" alignItems="center">
-            <LogoTitle title={title} justifyContent="flex-start" classes={{ menuLink: classes.menuLink}}></LogoTitle>
-            <Box flexGrow={1}></Box>
-              {/*{xs ? (*/}
-              {/*  <IconButton*/}
-              {/*    color="inherit"*/}
-              {/*    onClick={() => setSidebarOpen(true)}*/}
-              {/*    className={classes.openButton}*/}
-              {/*  >*/}
-              {/*    <MenuIcon />*/}
-              {/*  </IconButton>*/}
-              {/*) : (*/}
-              
-              {/*)}*/}
-            <Box display='flex' justifyContent='center' width={1}>
-              {Object.keys(menuItems).map(link => (
-                <Box display="flex" height={48} alignItems="center" justifyContent="center" className={classes.linkBox} m={2}>
-                  <Link to={link} className={classes.menuLink}>
-                    <Typography variant="subtitle2" className={classes.menuText}>
-                      {menuItems[link]}
-                    </Typography>
-                  </Link>
-                </Box>
-              ))}
+        {transition ? (
+            <Box width={1} display="flex" alignItems="center">
+                <IconButton
+                    color="secondary"
+                    onClick={() => setSidebarOpen(true)}
+                    className={classes.openButton}
+                >
+                    <MenuIcon />
+                </IconButton>
+              <Box flexGrow={1}></Box>
+              <LogoTitle title={title} justifyContent="flex-start" classes={{ menuLink: classes.menuLink}}></LogoTitle>
+              <Box flexGrow={1}></Box>
+              <Box justifyContent="flex-end" className={classes.loginBackground}>
+                <UserMenu logout={<LogoutButton />} /> {/* classes={{ userButton: classes.userMenu }} /> */}
+              </Box>
             </Box>
-            <Box flexGrow={1}></Box>
-            <Box justifyContent="flex-end" className={classes.loginBackground}>
-              <UserMenu logout={<LogoutButton />} /> {/* classes={{ userButton: classes.userMenu }} /> */}
+
+        ) : (
+          <Largecontainer className={classes.header}>
+            <Box width={1} display="flex" alignItems="center">
+              <LogoTitle title={title} justifyContent="flex-start" classes={{ menuLink: classes.menuLink}}></LogoTitle>
+              <Box flexGrow={1}></Box>
+              <Box display='flex' justifyContent='center' width={1}>
+                {Object.keys(menuItems).map(link => (
+                  <Box display="flex" height={48} alignItems="center" justifyContent="center" className={classes.linkBox} m={2}>
+                    <Link to={link} className={classes.menuLink}>
+                      <Typography variant="subtitle2" className={classes.menuText}>
+                        {menuItems[link]}
+                      </Typography>
+                    </Link>
+                  </Box>
+                ))}
+              </Box>
+              <Box flexGrow={1}></Box>
+              <Box justifyContent="flex-end" className={classes.loginBackground}>
+                <UserMenu logout={<LogoutButton />} /> {/* classes={{ userButton: classes.userMenu }} /> */}
+              </Box>
             </Box>
-          </Box>
-        </Largecontainer>
+          </Largecontainer>
+        )}
       </Fullwidthbox>
     </MuiAppBar>
   );

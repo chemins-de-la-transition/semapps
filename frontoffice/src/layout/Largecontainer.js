@@ -2,6 +2,7 @@ import React from 'react';
 import { Container , makeStyles} from '@material-ui/core';
 
 const containerMargin = 40;
+const containerMarginAfterTransition = 12;
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -9,6 +10,10 @@ const useStyles = makeStyles(theme => ({
         marginRight: containerMargin,
         paddingLeft: 0,
         paddingRight: 0,
+        [theme.breakpoints.down('xs')]:{
+            marginLeft: containerMarginAfterTransition,
+            marginRight: containerMarginAfterTransition,
+        },
     },
 }));
 

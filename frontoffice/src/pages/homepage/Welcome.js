@@ -1,5 +1,5 @@
 import React from 'react';
-import { /*useMediaQuery, */makeStyles, Box, Typography} from '@material-ui/core';
+import { useMediaQuery, makeStyles, Box, Typography} from '@material-ui/core';
 import Fullwidthbox from '../../layout/Fullwidthbox';
 import Largecontainer from '../../layout/Largecontainer';
 
@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) =>({
     backgroundColor: theme.palette.primary.main,
     zIndex: '-1',
     position: 'absolute',
+    [theme.breakpoints.down('xs')]:{
+      position: 'initial',
+      height: '400px',
+    },
   },
   welcomeText:{
     color: theme.palette.primary.contrastText,
@@ -45,6 +49,9 @@ const useStyles = makeStyles((theme) =>({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    [theme.breakpoints.down('xs')]:{
+      margin: '0px',
+    },
   },
 }));
 
@@ -54,13 +61,18 @@ const ReactComment = ({ text }) => {
 
 const Welcome = ({ theme  }) => {
   const classes = useStyles();
-  // const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
+  const transition = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
     <Box width={1} height={welcomeHeight} position="relative">
-      <Box width={1} height={0.5} className={classes.background1} top={0}>
-      </Box>
-      <Box width={1} height={0.5} className={classes.background2} top={welcomeHeight/2}>
-      </Box>
+      { !transition ? 
+        (<>
+          <Box width={1} height={0.5} className={classes.background1} top={0}>
+          </Box>
+          <Box width={1} height={0.5} className={classes.background2} top={welcomeHeight/2}>
+          </Box>
+          </>
+        ) : ''
+      }
       <Fullwidthbox>
         <Largecontainer className={classes.welcomeContainer}>
           <ReactComment text={'Image : (Free to Use and no attribution required) Zen Chung @pexels' +
@@ -77,6 +89,13 @@ const Welcome = ({ theme  }) => {
               </Box>
         </Largecontainer>
       </Fullwidthbox>
+      { transition ? 
+        (<>
+          <Box width={1} className={classes.background2}>
+          </Box>
+         </>
+        ) : ''
+      }
     </Box>
   );
 };
