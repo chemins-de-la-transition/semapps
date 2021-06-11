@@ -225,7 +225,7 @@ const Goals = ({ theme }) => {
             <Grid item sm={5} style={{alignSelf:'flex-end'}}>
             </Grid>
             <Grid item sm={3} className={classes.goalsFourthText}>
-              <svg width="44" height="48" viewBox="0 0 44 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="44" height="48" viewBox="0 0 44 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={{marginBottom: '24px'}}>
                   <path d="M42.7661 24.2617L1.2334 24.2617" className={classes.secondaryContrastTextForIconStroke} stroke-width="2.05607" stroke-linecap="round"/>
                   <path d="M32.7729 42.0151L11.2272 6.50813" className={classes.secondaryContrastTextForIconStroke} stroke-width="2.05607" stroke-linecap="round"/>
                   <path d="M11.2278 42.0149L32.7735 6.50788" className={classes.secondaryContrastTextForIconStroke} stroke-width="2.05607" stroke-linecap="round"/>
