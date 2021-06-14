@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import HomePage from './pages/HomePage';
+import HomePage from './pages/HomePage/HomePage';
 import Aide from './pages/Aide';
 import DevenirActeurDeLaTransition from './pages/DevenirActeurDeLaTransition';
 

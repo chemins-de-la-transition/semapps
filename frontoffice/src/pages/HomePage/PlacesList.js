@@ -45,7 +45,7 @@ const PlacesList = () => {
               </Datagrid>
           </List>
       </ShowContextProvider> */}
-      </Largecontainer>
+      </LargeContainer>
     </FullWidthBox>
   );
 };
