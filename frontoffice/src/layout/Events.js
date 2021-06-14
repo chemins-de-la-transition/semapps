@@ -1,7 +1,7 @@
 import * as React from "react";
 import { /*useMediaQuery, */makeStyles } from '@material-ui/core';
 import Largecontainer from './Largecontainer';
-import Fullwidthbox from './Fullwidthbox';
+import FullWidthBox from './FullWidthBox';
 
 const useStyles = makeStyles((theme) => ({
   backgound: {
@@ -14,11 +14,11 @@ const useStyles = makeStyles((theme) => ({
 const Event = () => {
   const classes = useStyles();
   return (
-  <Fullwidthbox className={classes.backgound}>
+  <FullWidthBox className={classes.backgound}>
     <Largecontainer>
         Evènements
     </Largecontainer>
-  </Fullwidthbox>
+  </FullWidthBox>
   );
 };
 

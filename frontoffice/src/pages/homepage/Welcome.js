@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMediaQuery, makeStyles, Box, Typography} from '@material-ui/core';
-import Fullwidthbox from '../../layout/Fullwidthbox';
+import FullWidthBox from '../../layout/FullWidthBox';
 import Largecontainer from '../../layout/Largecontainer';
 
 const welcomeHeight=600;
@@ -73,7 +73,7 @@ const Welcome = () => {
           </>
         ) : ''
       }
-      <Fullwidthbox>
+      <FullWidthBox>
         <Largecontainer className={classes.welcomeContainer}>
           <ReactComment text={'Image : (Free to Use and no attribution required) Zen Chung @pexels' +
               'https://www.pexels.com/photo/anonymous-local-female-farmers-picking-vegetables-during-harvesting-season-in-garden-5529604/'} />
@@ -88,7 +88,7 @@ const Welcome = () => {
                 </Typography>
               </Box>
         </Largecontainer>
-      </Fullwidthbox>
+      </FullWidthBox>
       { transition ? 
         (<>
           <Box width={1} className={classes.background2}>

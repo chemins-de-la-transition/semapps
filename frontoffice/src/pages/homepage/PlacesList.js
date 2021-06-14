@@ -1,6 +1,6 @@
 import React from 'react';
 import { /*useMediaQuery,*/ makeStyles, Typography} from '@material-ui/core';
-import Fullwidthbox from '../../layout/Fullwidthbox';
+import FullWidthBox from '../../layout/FullWidthBox';
 import Largecontainer from '../../layout/Largecontainer';
 import {List, Datagrid, TextField, DateField, BooleanField, useShowController, ShowContextProvider} from 'react-admin';
 
@@ -22,7 +22,7 @@ const PlacesList = () => {
   // };
   // todo check these paths
   return (
-    <Fullwidthbox className={classes.background}>
+    <FullWidthBox className={classes.background}>
       <Largecontainer>
         <Typography variant="h2" style={{marginTop: '60px'}}>
           Les lieux
@@ -46,7 +46,7 @@ const PlacesList = () => {
           </List>
       </ShowContextProvider> */}
       </Largecontainer>
-    </Fullwidthbox>
+    </FullWidthBox>
   );
 };
 

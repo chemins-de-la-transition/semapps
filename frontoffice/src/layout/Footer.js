@@ -2,7 +2,7 @@ import React from 'react';
 import { IconButton, useMediaQuery, makeStyles, Typography, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import LogoTitle from './LogoTitle';
-import Fullwidthbox from './Fullwidthbox';
+import FullWidthBox from './FullWidthBox';
 import Largecontainer from './Largecontainer';
 import {
         Facebook as FacebookIcon,
@@ -40,7 +40,7 @@ const Footer = ({ title }) => {
   const classes = useStyles();
   const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
-    <Fullwidthbox className={classes.background}>
+    <FullWidthBox className={classes.background}>
       <Largecontainer disableGutters={xs}>
         <Grid container className={classes.root} spacing={2}>
           <Grid item sm={9}>
@@ -79,7 +79,7 @@ const Footer = ({ title }) => {
           </Grid>
         </Grid>
       </Largecontainer>
-    </Fullwidthbox>
+    </FullWidthBox>
   );
 };
 

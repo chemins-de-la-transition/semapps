@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Fullwidthbox = ({ children, ...other }) => {
+const FullWidthBox = ({ children, ...other }) => {
     const classes = useStyles();
     return (
         <Box width={1} classes={{ root: classes.box}} {...other}>
@@ -17,4 +17,4 @@ const Fullwidthbox = ({ children, ...other }) => {
     );
 };
 
-export default Fullwidthbox;
+export default FullWidthBox;

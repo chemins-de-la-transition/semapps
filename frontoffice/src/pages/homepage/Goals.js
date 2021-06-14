@@ -1,6 +1,6 @@
 import React from 'react';
 import { /*useMediaQuery, */makeStyles, Grid, Typography, Container } from '@material-ui/core';
-import Fullwidthbox from '../../layout/Fullwidthbox';
+import FullWidthBox from '../../layout/FullWidthBox';
 import Largecontainer from '../../layout/Largecontainer';
 
 const goalsHeight = '2100px'; // TODO determine height dynamically
@@ -133,8 +133,8 @@ const Goals = () => {
   const classes = useStyles();
   // const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
-    <Fullwidthbox  className={classes.mainBox}>
-      <Fullwidthbox className={classes.backgoundBox}>
+    <FullWidthBox  className={classes.mainBox}>
+      <FullWidthBox className={classes.backgoundBox}>
         <Container maxWidth={1} className={classes.backgroundImages}>
           <svg className={classes.rightTop1} width="402" height="749" viewBox="0 0 402 749" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M179 204.5C135.131 332.082 262.771 412.833 282.028 499.479C301.285 586.125 402 691 402 691L402 346.5L402 88.9992L0.50002 88.9993C18.8196 122.592 210.057 114.18 179 204.5Z" className={classes.rightTop1Color}/>
@@ -149,8 +149,8 @@ const Goals = () => {
             <path d="M233.68 101.916C-25.7196 -31.5288 -7.25981 84.0187 -7.2597 125.519L-7.25977 385.519C87.1055 354.401 310.741 182.019 233.68 101.916Z" className={classes.leftBottom2Color}/>
           </svg>
         </Container>
-      </Fullwidthbox>
-      <Fullwidthbox className={classes.frontBox}>
+      </FullWidthBox>
+      <FullWidthBox className={classes.frontBox}>
         <Largecontainer>
           <Grid container spacing={3}>
             <Grid item sm={4} style={{marginTop: '65px'}}>
@@ -257,8 +257,8 @@ const Goals = () => {
             </Grid>
           </Grid>
         </Largecontainer>
-      </Fullwidthbox>
-    </Fullwidthbox>
+      </FullWidthBox>
+    </FullWidthBox>
   );
 };
 

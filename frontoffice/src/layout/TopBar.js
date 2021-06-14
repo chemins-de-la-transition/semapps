@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, useMediaQuery, makeStyles, Typography, Button} from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import Fullwidthbox from './Fullwidthbox';
+import FullWidthBox from './FullWidthBox';
 import Largecontainer from './Largecontainer';
 
 const TopBarHeight = 48;
@@ -35,7 +35,7 @@ const TopBar = () => {
     return null;
   } else {
     return (
-      <Fullwidthbox className={classes.topBar}>
+      <FullWidthBox className={classes.topBar}>
         <Largecontainer >
           <Box display="flex" width={1} height={1} alignItems="center" className={classes.topBarIncluded}>
             <Typography variant="subtitle2">Le lieu pour voyager en apprenant</Typography>
@@ -54,7 +54,7 @@ const TopBar = () => {
             </Link>
           </Box>
         </Largecontainer>
-      </Fullwidthbox>
+      </FullWidthBox>
     );
   }
 };

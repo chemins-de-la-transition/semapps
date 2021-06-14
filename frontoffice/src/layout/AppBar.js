@@ -4,7 +4,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { UserMenu, LogoutButton } from '@semapps/auth-provider';
 import { Link } from 'react-router-dom';
 import LogoTitle from './LogoTitle';
-import Fullwidthbox from './Fullwidthbox';
+import FullWidthBox from './FullWidthBox';
 import Largecontainer from './Largecontainer';
 
 const useStyles = makeStyles(theme => ({
@@ -88,7 +88,7 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
   const transition = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
     <MuiAppBar position="sticky" className={classes.appBar}>
-      <Fullwidthbox>
+      <FullWidthBox>
         {transition ? (
             <Box width={1} display="flex" alignItems="center">
                 <IconButton
@@ -129,7 +129,7 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
             </Box>
           </Largecontainer>
         )}
-      </Fullwidthbox>
+      </FullWidthBox>
     </MuiAppBar>
   );
 };
