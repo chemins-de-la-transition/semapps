@@ -129,7 +129,7 @@ const ListGoals = ({ text, className }) => {
   );
 };
 
-const Goals = ({ theme }) => {
+const Goals = () => {
   const classes = useStyles();
   // const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (

@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) =>({
   },
 }));
 
-const TopBar = ({ theme }) => {
+const TopBar = () => {
   const classes = useStyles();
   const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   if (xs){

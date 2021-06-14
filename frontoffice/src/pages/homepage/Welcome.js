@@ -59,7 +59,7 @@ const ReactComment = ({ text }) => {
   return <span dangerouslySetInnerHTML={{ __html: `<!-- ${text} -->` }}/>
 }
 
-const Welcome = ({ theme  }) => {
+const Welcome = () => {
   const classes = useStyles();
   const transition = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (

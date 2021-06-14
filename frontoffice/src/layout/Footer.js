@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) =>({
   },
 }));
 
-const Footer = ({ title , theme }) => {
+const Footer = ({ title }) => {
   const classes = useStyles();
   const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (

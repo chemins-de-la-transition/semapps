@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) =>({
   }
 }));
 
-const PlacesList = ({theme}) => {
+const PlacesList = () => {
   const classes = useStyles();
   // const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
 
@@ -35,7 +35,7 @@ const PlacesList = ({theme}) => {
         </Typography>
 
         {/* <ShowContextProvider value={useShowController(config)}>
-          <List {...config}>
+          <ListBase {...config}>
               <Datagrid>
                   <TextField source="id" />
                   <TextField source="title" />

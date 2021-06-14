@@ -10,7 +10,7 @@ import Largecontainer from '../../layout/Largecontainer';
 //   }
 // }));
 
-const ParcoursList = ({ theme }) => {
+const ParcoursList = () => {
   // const classes = useStyles();
   // const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
