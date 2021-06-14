@@ -10,7 +10,7 @@ import LargeContainer from '../../layout/LargeContainer';
 //   }
 // }));
 
-const ParcoursList = () => {
+const SessionsList = () => {
   // const classes = useStyles();
   // const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
@@ -22,4 +22,4 @@ const ParcoursList = () => {
   );
 };
 
-export default ParcoursList;
+export default SessionsList;

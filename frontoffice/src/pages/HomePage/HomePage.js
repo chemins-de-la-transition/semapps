@@ -3,16 +3,16 @@ import Events from '../../layout/Events.js';
 import Welcome from './Welcome';
 import PlacesList from './PlacesList';
 import Goals from './Goals';
-import ParcoursList from './ParcoursList';
-import ParcoursTypes from './ParcoursTypes';
+import SessionsList from './SessionsList';
+import SessionsTypes from './SessionsTypes';
 
 const HomePage = () => (
   <>
     <Welcome />
     <PlacesList />
     <Goals />
-    <ParcoursList />
-    <ParcoursTypes />
+    <SessionsList />
+    <SessionsTypes />
     <Events />
   </>
 );

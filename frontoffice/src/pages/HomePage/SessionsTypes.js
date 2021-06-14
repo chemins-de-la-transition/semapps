@@ -10,7 +10,7 @@ import LargeContainer from '../../layout/LargeContainer';
 //   }
 // }));
 
-const ParcoursTypes = () => {
+const SessionsTypes = () => {
   // const classes = useStyles();
   // const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
@@ -22,4 +22,4 @@ const ParcoursTypes = () => {
   );
 };
 
-export default ParcoursTypes;
+export default SessionsTypes;
