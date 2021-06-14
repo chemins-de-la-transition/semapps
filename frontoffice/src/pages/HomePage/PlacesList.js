@@ -10,6 +10,9 @@ const useStyles = makeStyles((theme) =>({
     backgroundColor: theme.palette.secondary.contrastText,
     color: theme.palette.secondary.main,
   },
+  container: {
+    marginTop: '60px',
+  },
   cardContainer: {
     margin: '1em' ,
     display: 'flex',
@@ -56,8 +59,8 @@ const PlacesList = () => {
   const classes = useStyles();
   return (
     <FullWidthBox className={classes.background}>
-      <LargeContainer>
-        <Typography variant="h2" style={{marginTop: '60px'}}>
+      <LargeContainer className={classes.container}>
+        <Typography variant="h2">
           Les lieux
         </Typography>
         <Typography variant="h3" component="div">
