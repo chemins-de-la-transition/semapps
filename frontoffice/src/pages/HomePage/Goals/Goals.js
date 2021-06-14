@@ -1,5 +1,5 @@
 import React from 'react';
-import { /*useMediaQuery, */makeStyles, Grid, Typography, Container } from '@material-ui/core';
+import { /*useMediaQuery, */makeStyles, Grid, Typography } from '@material-ui/core';
 import FullWidthBox from '../../../layout/FullWidthBox';
 import LargeContainer from '../../../layout/LargeContainer';
 import TwoHandsIcon  from '../../../svg/TwoHandsIcon' ;

@@ -40,7 +40,8 @@ const useStyles = makeStyles(theme => ({
       color: theme.palette.secondary.main,
     },
     '& .MuiIconButton-label::after':{
-      content: "'Se connecter'",
+      marginLeft: '0.5em',
+      content: "'Se connecter'",
       fontFamily: theme.typography.subtitle2.fontFamily,
       fontSize: theme.typography.subtitle2.fontSize,
       fontWeight: theme.typography.subtitle2.fontWeight,
@@ -56,6 +57,9 @@ const useStyles = makeStyles(theme => ({
         padding: '8px',
       },
     },
+    '& .MuiIconButton-root': {
+      borderRadius: '8px',
+    }
   },
   // userMenu: {
   //   marginTop: theme.spacing(1),

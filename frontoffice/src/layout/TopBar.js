@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, useMediaQuery, makeStyles, Typography, Button} from '@material-ui/core';
+import { Box, useMediaQuery, makeStyles, Typography, Button  } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import FullWidthBox from './FullWidthBox';
 import LargeContainer from './LargeContainer';
@@ -40,18 +40,21 @@ const TopBar = () => {
           <Box display="flex" width={1} height={1} alignItems="center" className={classes.topBarIncluded}>
             <Typography variant="subtitle2">Le lieu pour voyager en apprenant</Typography>
             <Box flexGrow={1}></Box>
-            <Link to='/Aide' className={classes.topBarHelpIcon} color="inherit" component={Button} aria-label="Aide">
+            <Button to='/Aide'
+              className={classes.topBarHelpIcon}
+              color="inherit"
+              component={Link}
+              aria-label="Aide">
               ?
-            </Link>
-            <Link
+            </Button>
+            <Button
                 to='/DevenirActeurDeLaTransition' 
                 variant="outlined" 
                 color="secondary" 
-                className={classes.MuiButtonSecondary} 
-                component={Button}
+                component={Link} 
               > 
               <Typography variant="subtitle2">Devenir acteur de la Transition</Typography>
-            </Link>
+            </Button>
           </Box>
         </LargeContainer>
       </FullWidthBox>

@@ -1,11 +1,11 @@
 import React from 'react';
-import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, Avatar, useTheme} from '@material-ui/core';
-import { PlaceIcon } from '@material-ui/icons/Place';
+import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, Avatar} from '@material-ui/core';
+import  PlaceIcon  from '@material-ui/icons/Place';
 import FullWidthBox from '../../layout/FullWidthBox';
 import LargeContainer from '../../layout/LargeContainer';
-import { ListBase, useListContext , TextField } from 'react-admin';
+import { ListBase, useListContext , TextField} from 'react-admin';
 
-const useStyles = makeStyles((theme) =>({
+const useStyles = makeStyles((theme) =>({ 
   background: {
     backgroundColor: theme.palette.secondary.contrastText,
     color: theme.palette.secondary.main,

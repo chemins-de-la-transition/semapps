@@ -67,7 +67,7 @@ const Footer = ({ title }) => {
             <IconButton aria-label="facebook" color="secondary" href="https://www.facebook.com/Les-Chemins-de-la-Transition-103307098592299">
               <FacebookIcon className={classes.iconSize}/>
             </IconButton>
-            <IconButton c aria-label="instagram" color="secondary" disabled>
+            <IconButton aria-label="instagram" color="secondary" disabled>
               <InstagramIcon className={classes.iconSize}/>
             </IconButton>
             <IconButton  aria-label="twitter" color="secondary" href="https://twitter.com/CdlT_Occitanie">
