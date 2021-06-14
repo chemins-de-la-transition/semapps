@@ -1,26 +1,59 @@
 import React from 'react';
-import { /*useMediaQuery,*/ makeStyles, Typography} from '@material-ui/core';
+import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, Avatar} from '@material-ui/core';
+import { PlaceIcon } from '@material-ui/icons/Place';
 import FullWidthBox from '../../layout/FullWidthBox';
 import LargeContainer from '../../layout/LargeContainer';
-import {List, Datagrid, TextField, DateField, BooleanField, useShowController, ShowContextProvider} from 'react-admin';
+import { ListBase, useListContext , TextField } from 'react-admin';
 
 const useStyles = makeStyles((theme) =>({
   background: {
     backgroundColor: theme.palette.secondary.contrastText,
     color: theme.palette.secondary.main,
-  }
+  },
+  cardContainer: {
+    margin: '1em' ,
+    display: 'flex',
+  },
+  cardClass: {
+    flexBasis: '25%',
+    margin: '0.5em',
+    display: 'inline-block',
+    verticalAlign: 'top'
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
 }));
+
+const PlacesGrid = () => {
+  const classes = useStyles();
+  const { ids, data /*, basePath*/ } = useListContext();
+  return (
+    <div className={classes.cardContainer}>
+    {ids.map(id =>
+        <Card key={id} className={classes.cardClass}>
+            <CardHeader
+                title={<TextField record={data[id]} source="pair:label" />}
+                subheader={<TextField record={data[id]} source="pair:comment" />}
+                avatar={<Avatar icon={<PlaceIcon />} />}
+            />
+            <CardMedia
+              className={classes.media}
+              image={data[id]["pair:image"]}
+              title={data[id]["pair:label"]}
+            />
+            <CardContent>
+                <TextField record={data[id]} source="pair:description" />
+            </CardContent>
+        </Card>
+    )}
+    </div>
+  );
+};
 
 const PlacesList = () => {
   const classes = useStyles();
-  // const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
-
-  // const config = {
-  //   basePath: '/Page',
-  //   id: process.env.REACT_APP_LOCAL_GROUP_CODS + 'pages/bienvenue',
-  //   resource: 'Page'
-  // };
-  // todo check these paths
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer>
@@ -34,17 +67,15 @@ const PlacesList = () => {
           Partez à la découvertes de lieux inspirants et allez à la rencontre de personnes qui ont choisis d’être acteurs de la transition. 
         </Typography>
 
-        {/* <ShowContextProvider value={useShowController(config)}>
-          <ListBase {...config}>
-              <Datagrid>
-                  <TextField source="id" />
-                  <TextField source="title" />
-                  <DateField source="published_at" />
-                  <TextField source="category" />
-                  <BooleanField source="commentable" />
-              </Datagrid>
-          </List>
-      </ShowContextProvider> */}
+          <ListBase
+            resource="Place"
+            basePath="/Place"
+            perPage={4}
+            // filter={{ 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/en-vedette' }}
+            sort={{ field: 'published', order: 'ASC' }}
+            >
+              <PlacesGrid />
+          </ListBase>
       </LargeContainer>
     </FullWidthBox>
   );
