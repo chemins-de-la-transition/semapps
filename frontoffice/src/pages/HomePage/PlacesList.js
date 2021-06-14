@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, Avatar} from '@material-ui/core';
+import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, Avatar, useTheme} from '@material-ui/core';
 import { PlaceIcon } from '@material-ui/icons/Place';
 import FullWidthBox from '../../layout/FullWidthBox';
 import LargeContainer from '../../layout/LargeContainer';
@@ -19,6 +19,10 @@ const useStyles = makeStyles((theme) =>({
   },
   cardClass: {
     flexBasis: '25%',
+    [theme.breakpoints.down('xs')]: {
+      flexBasis: '45%',
+      flexShrink: '0',
+    },
     margin: '0.5em',
     display: 'inline-block',
     verticalAlign: 'top'
@@ -26,6 +30,9 @@ const useStyles = makeStyles((theme) =>({
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
+  },
+  ListBase: {
+    overflow: 'hidden',
   },
 }));
 
@@ -76,6 +83,7 @@ const PlacesList = () => {
             perPage={4}
             // filter={{ 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/en-vedette' }}
             sort={{ field: 'published', order: 'ASC' }}
+            className={classes.ListBase}
             >
               <PlacesGrid />
           </ListBase>
