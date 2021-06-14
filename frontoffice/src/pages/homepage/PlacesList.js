@@ -1,7 +1,7 @@
 import React from 'react';
 import { /*useMediaQuery,*/ makeStyles, Typography} from '@material-ui/core';
 import FullWidthBox from '../../layout/FullWidthBox';
-import Largecontainer from '../../layout/Largecontainer';
+import LargeContainer from '../../layout/LargeContainer';
 import {List, Datagrid, TextField, DateField, BooleanField, useShowController, ShowContextProvider} from 'react-admin';
 
 const useStyles = makeStyles((theme) =>({
@@ -23,7 +23,7 @@ const PlacesList = () => {
   // todo check these paths
   return (
     <FullWidthBox className={classes.background}>
-      <Largecontainer>
+      <LargeContainer>
         <Typography variant="h2" style={{marginTop: '60px'}}>
           Les lieux
         </Typography>

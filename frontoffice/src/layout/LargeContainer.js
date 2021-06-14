@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Largecontainer = ({ children, ...other }) => {
+const LargeContainer = ({ children, ...other }) => {
     const classesContainer = useStyles();
     return (
         <Container maxWidth="lg"  classes={{ root: classesContainer.container }} {...other}>
@@ -26,4 +26,4 @@ const Largecontainer = ({ children, ...other }) => {
     );
 };
 
-export default Largecontainer;
+export default LargeContainer;

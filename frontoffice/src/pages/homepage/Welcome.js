@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMediaQuery, makeStyles, Box, Typography} from '@material-ui/core';
 import FullWidthBox from '../../layout/FullWidthBox';
-import Largecontainer from '../../layout/Largecontainer';
+import LargeContainer from '../../layout/LargeContainer';
 
 const welcomeHeight=600;
 const useStyles = makeStyles((theme) =>({
@@ -74,7 +74,7 @@ const Welcome = () => {
         ) : ''
       }
       <FullWidthBox>
-        <Largecontainer className={classes.welcomeContainer}>
+        <LargeContainer className={classes.welcomeContainer}>
           <ReactComment text={'Image : (Free to Use and no attribution required) Zen Chung @pexels' +
               'https://www.pexels.com/photo/anonymous-local-female-farmers-picking-vegetables-during-harvesting-season-in-garden-5529604/'} />
               <Box display="flex" justifyContent="center" flexDirection="column">
@@ -87,7 +87,7 @@ const Welcome = () => {
                   et découvrez leurs savoirs-faire.
                 </Typography>
               </Box>
-        </Largecontainer>
+        </LargeContainer>
       </FullWidthBox>
       { transition ? 
         (<>

@@ -1,7 +1,7 @@
 import React from 'react';
 // import { useMediaQuery, makeStyles} from '@material-ui/core';
 import FullWidthBox from '../../layout/FullWidthBox';
-import Largecontainer from '../../layout/Largecontainer';
+import LargeContainer from '../../layout/LargeContainer';
 
 // const useStyles = makeStyles((theme) =>({
 //   background1: {
@@ -15,9 +15,9 @@ const ParcoursTypes = () => {
   // const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
     <FullWidthBox>
-      <Largecontainer>
+      <LargeContainer>
         Types de parcours
-      </Largecontainer>
+      </LargeContainer>
     </FullWidthBox>
   );
 };

@@ -5,7 +5,7 @@ import { UserMenu, LogoutButton } from '@semapps/auth-provider';
 import { Link } from 'react-router-dom';
 import LogoTitle from './LogoTitle';
 import FullWidthBox from './FullWidthBox';
-import Largecontainer from './Largecontainer';
+import LargeContainer from './LargeContainer';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -107,7 +107,7 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
             </Box>
 
         ) : (
-          <Largecontainer className={classes.header}>
+          <LargeContainer className={classes.header}>
             <Box width={1} display="flex" alignItems="center">
               <LogoTitle title={title} justifyContent="flex-start" classes={{ menuLink: classes.menuLink}}></LogoTitle>
               <Box flexGrow={1}></Box>
@@ -127,7 +127,7 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
                 <UserMenu logout={<LogoutButton />} /> {/* classes={{ userButton: classes.userMenu }} /> */}
               </Box>
             </Box>
-          </Largecontainer>
+          </LargeContainer>
         )}
       </FullWidthBox>
     </MuiAppBar>

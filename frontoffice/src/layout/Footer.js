@@ -3,7 +3,7 @@ import { IconButton, useMediaQuery, makeStyles, Typography, Grid } from '@materi
 import { Link } from 'react-router-dom';
 import LogoTitle from './LogoTitle';
 import FullWidthBox from './FullWidthBox';
-import Largecontainer from './Largecontainer';
+import LargeContainer from './LargeContainer';
 import {
         Facebook as FacebookIcon,
         Instagram as InstagramIcon, 
@@ -41,7 +41,7 @@ const Footer = ({ title }) => {
   const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
     <FullWidthBox className={classes.background}>
-      <Largecontainer disableGutters={xs}>
+      <LargeContainer disableGutters={xs}>
         <Grid container className={classes.root} spacing={2}>
           <Grid item sm={9}>
             <LogoTitle title={title} mb={'30px'} classes={{ menuLink:classes.menuLink}}></LogoTitle>
@@ -78,7 +78,7 @@ const Footer = ({ title }) => {
             </IconButton>
           </Grid>
         </Grid>
-      </Largecontainer>
+      </LargeContainer>
     </FullWidthBox>
   );
 };

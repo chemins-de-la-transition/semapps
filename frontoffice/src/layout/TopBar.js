@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, useMediaQuery, makeStyles, Typography, Button} from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import FullWidthBox from './FullWidthBox';
-import Largecontainer from './Largecontainer';
+import LargeContainer from './LargeContainer';
 
 const TopBarHeight = 48;
 const useStyles = makeStyles((theme) =>({
@@ -36,7 +36,7 @@ const TopBar = () => {
   } else {
     return (
       <FullWidthBox className={classes.topBar}>
-        <Largecontainer >
+        <LargeContainer >
           <Box display="flex" width={1} height={1} alignItems="center" className={classes.topBarIncluded}>
             <Typography variant="subtitle2">Le lieu pour voyager en apprenant</Typography>
             <Box flexGrow={1}></Box>
@@ -53,7 +53,7 @@ const TopBar = () => {
               <Typography variant="subtitle2">Devenir acteur de la Transition</Typography>
             </Link>
           </Box>
-        </Largecontainer>
+        </LargeContainer>
       </FullWidthBox>
     );
   }

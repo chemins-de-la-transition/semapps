@@ -1,7 +1,7 @@
 import React from 'react';
 import { /*useMediaQuery, */makeStyles, Grid, Typography, Container } from '@material-ui/core';
 import FullWidthBox from '../../layout/FullWidthBox';
-import Largecontainer from '../../layout/Largecontainer';
+import LargeContainer from '../../layout/LargeContainer';
 
 const goalsHeight = '2100px'; // TODO determine height dynamically
 const useStyles = makeStyles((theme) => ({
@@ -151,7 +151,7 @@ const Goals = () => {
         </Container>
       </FullWidthBox>
       <FullWidthBox className={classes.frontBox}>
-        <Largecontainer>
+        <LargeContainer>
           <Grid container spacing={3}>
             <Grid item sm={4} style={{marginTop: '65px'}}>
               <Typography variant="h2">
@@ -256,7 +256,7 @@ const Goals = () => {
               <span dangerouslySetInnerHTML={{ __html: `<!-- Image : (Free to Use and no attribution required) Gary Barnes @pexels https://www.pexels.com/photo/happy-multiethnic-female-friends-sitting-on-green-field-in-countryside-6231809/-->` }}/>
             </Grid>
           </Grid>
-        </Largecontainer>
+        </LargeContainer>
       </FullWidthBox>
     </FullWidthBox>
   );
