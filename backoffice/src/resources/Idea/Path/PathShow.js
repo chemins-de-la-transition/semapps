@@ -1,14 +1,15 @@
 import React from 'react';
 import { ChipField, Datagrid, DateField, ShowButton, SingleFieldList, TextField } from 'react-admin';
 import { Grid } from "@material-ui/core";
-import { MainList, SideList, Hero, Show, GridList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
+import { MainList, SideList, Hero, GridList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
+import { ShowWithPermissions } from "@semapps/auth-provider";
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import { MarkdownField } from '@semapps/markdown-components';
 import { MapList } from '@semapps/geo-components';
 import PathTitle from './PathTitle';
 
 const PathShow = props => (
-  <Show title={<PathTitle />} {...props}>
+  <ShowWithPermissions title={<PathTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
         <Hero>
@@ -28,7 +29,7 @@ const PathShow = props => (
           <MarkdownField source="cdlt:prerequisites" />
           <MarkdownField source="cdlt:learningObjectives" />
           <MarkdownField source="cdlt:professionalPerspectives" />
-          <ReferenceArrayField reference="Session" source="cdlt:hasSession" sort={{ field: "pair:startDate", order: 'ASC' }}>
+          <ReferenceArrayField reference="Course" source="cdlt:hasCourse" sort={{ field: "pair:startDate", order: 'ASC' }}>
             <Datagrid rowClick="show">
               <TextField source="pair:label" />
               <DateField source="pair:startDate" />
@@ -68,7 +69,7 @@ const PathShow = props => (
         </SideList>
       </Grid>
     </Grid>
-  </Show>
+  </ShowWithPermissions>
 );
 
 export default PathShow;

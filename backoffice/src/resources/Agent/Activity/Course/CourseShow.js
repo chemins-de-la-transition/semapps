@@ -1,15 +1,16 @@
 import React from 'react';
 import { ChipField, SingleFieldList, TextField, UrlField, DateField, Datagrid, ShowButton } from 'react-admin';
 import { Grid } from '@material-ui/core';
-import { Hero, Show, GridList, MainList, SideList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
+import { Hero, GridList, MainList, SideList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
+import { ShowWithPermissions } from "@semapps/auth-provider";
 import { MapList } from '@semapps/geo-components';
 import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
-import SessionTitle from './SessionTitle';
+import CourseTitle from './CourseTitle';
 import HomeIcon from '@material-ui/icons/Home';
 
-const SessionShow = props => (
-  <Show title={<SessionTitle />} {...props}>
+const CourseShow = props => (
+  <ShowWithPermissions title={<CourseTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
         <Hero>
@@ -17,7 +18,7 @@ const SessionShow = props => (
           <UrlField source="pair:aboutPage" />
           <DateField source="pair:startDate" />
           <DateField source="pair:endDate" />
-          <ReferenceField source="cdlt:sessionOf" reference="Path" link="show">
+          <ReferenceField source="cdlt:courseOn" reference="Path" link="show">
             <TextField source="pair:label" />
           </ReferenceField>
           <ReferenceArrayField source="pair:hasType" reference="Type">
@@ -89,7 +90,7 @@ const SessionShow = props => (
         </SideList>
       </Grid>
     </Grid>
-  </Show>
+  </ShowWithPermissions>
 );
 
-export default SessionShow;
+export default CourseShow;

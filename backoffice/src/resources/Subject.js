@@ -9,7 +9,7 @@ const SubjectRedirect = props => (
         Person: 'pair:Person',
         Organization: 'pair:Organization',
         Event: 'pair:Event',
-        Session: 'cdlt:Session',
+        Course: 'cdlt:Course',
         Path: 'cdlt:Path',
         Skill: 'pair:Skill',
         Place: 'pair:Place'
@@ -23,6 +23,6 @@ export default {
     show: SubjectRedirect
   },
   dataModel: {
-    types: ['pair:Organization', 'pair:Person', 'pair:Event', 'cdlt:Session', 'cdlt:Path', 'pair:Skill', 'pair:Place']
+    types: ['pair:Organization', 'pair:Person', 'pair:Event', 'cdlt:Course', 'cdlt:Path', 'pair:Skill', 'pair:Place']
   }
 };

@@ -1,10 +1,10 @@
 import React from 'react';
-import { List } from '@semapps/archipelago-layout';
+import { ListWithPermissions } from "@semapps/auth-provider";
 import { CalendarList } from '@semapps/date-components';
 import frLocale from '@fullcalendar/core/locales/fr';
 
 const EventList = props => (
-  <List perPage={1000} pagination={false} {...props}>
+  <ListWithPermissions perPage={1000} pagination={false} {...props}>
     <CalendarList
       locale={frLocale}
       label="pair:label"
@@ -12,7 +12,7 @@ const EventList = props => (
       endDate="pair:endDate"
       linkType="show"
     />
-  </List>
+  </ListWithPermissions>
 );
 
 export default EventList;

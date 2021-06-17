@@ -74,8 +74,8 @@ export const PlaceInput = ({ label, source, ...rest }) => (
   </ReferenceInput>
 );
 
-export const SessionsInput = ({ label, source }) => (
-  <ReferenceArrayInput label={label} reference="Session" source={source}>
+export const CoursesInput = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="Course" source={source}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />
   </ReferenceArrayInput>
 );

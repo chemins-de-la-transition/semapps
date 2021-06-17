@@ -1,14 +1,14 @@
 import React from 'react';
 import { ImageInput, SimpleForm, TextInput } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
-import { Edit } from '@semapps/archipelago-layout';
-import PlaceTitle from './PlaceTitle';
 import { extractContext, LocationInput } from "@semapps/geo-components";
+import { EditWithPermissions } from "@semapps/auth-provider";
 import { ImageField } from "@semapps/semantic-data-provider";
+import PlaceTitle from './PlaceTitle';
 import { ThemesInput } from "../../pair";
 
 export const PlaceEdit = props => (
-  <Edit title={<PlaceTitle />} {...props}>
+  <EditWithPermissions title={<PlaceTitle />} {...props}>
     <SimpleForm redirect="show">
       <TextInput source="pair:label" fullWidth />
       <TextInput source="pair:comment" fullWidth />
@@ -39,7 +39,7 @@ export const PlaceEdit = props => (
         fullWidth
       />
     </SimpleForm>
-  </Edit>
+  </EditWithPermissions>
 );
 
 export default PlaceEdit;

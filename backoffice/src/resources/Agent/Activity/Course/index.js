@@ -1,15 +1,15 @@
 import { PairResourceCreate } from '../../../../pair';
-import SessionEdit from './SessionEdit';
-import SessionList from './SessionList';
-import SessionShow from './SessionShow';
+import CourseEdit from './CourseEdit';
+import CourseList from './CourseList';
+import CourseShow from './CourseShow';
 import DateRangeIcon from '@material-ui/icons/DateRange';
 
 export default {
   config: {
-    list: SessionList,
-    show: SessionShow,
+    list: CourseList,
+    show: CourseShow,
     create: PairResourceCreate,
-    edit: SessionEdit,
+    edit: CourseEdit,
     icon: DateRangeIcon,
     options: {
       label: 'Parcours',
@@ -17,8 +17,8 @@ export default {
     }
   },
   dataModel: {
-    types: ['cdlt:Session'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'sessions',
+    types: ['cdlt:Course'],
+    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'courses',
     slugField: 'pair:label'
   },
   translations: {
@@ -41,7 +41,7 @@ export default {
         'cdlt:learningObjectives': 'Objectifs d\'apprentissage',
         'cdlt:economicalConditions': 'Conditions financières',
         'cdlt:practicalConditions': 'Conditions pratiques',
-        'cdlt:sessionOf': 'Est un parcours de',
+        'cdlt:courseOn': 'Est un parcours de',
         'cdlt:hasLearner': 'A pour apprenant',
         'cdlt:hasMentor': 'A pour mentor'
       }

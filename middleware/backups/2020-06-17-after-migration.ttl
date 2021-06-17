@@ -116,7 +116,7 @@
         <http://virtual-assembly.org/ontologies/pair#hasTopic>
                 <https://data.lescheminsdelatransition.org/themes/low-tech> ;
         <http://virtual-assembly.org/ontologies/pair#hasType>
-                <https://data.lescheminsdelatransition.org/types/voyage-apprenant1> ;
+                <https://data.lescheminsdelatransition.org/types/voyage-apprenant> ;
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Concevoir et fabriquer des vélos bamboo" ;
         <http://virtual-assembly.org/ontologies/pair#organizedBy>
@@ -347,15 +347,10 @@
 <https://data.lescheminsdelatransition.org/types>
         a       <http://www.w3.org/ns/ldp#BasicContainer> , <http://www.w3.org/ns/ldp#Container> ;
         <http://www.w3.org/ns/ldp#contains>
-                <https://data.lescheminsdelatransition.org/types/voyage-apprenant> , <https://data.lescheminsdelatransition.org/types/voyage-apprenant1> , <https://data.lescheminsdelatransition.org/types/compagnonage> , <https://data.lescheminsdelatransition.org/types/ecotourisme> , <https://data.lescheminsdelatransition.org/types/immersion-longue> , <https://data.lescheminsdelatransition.org/types/a-pied> , <https://data.lescheminsdelatransition.org/types/a-velo> , <https://data.lescheminsdelatransition.org/types/a-train-velo> , <https://data.lescheminsdelatransition.org/types/en-voiture> .
+                <https://data.lescheminsdelatransition.org/types/voyage-apprenant> , <https://data.lescheminsdelatransition.org/types/voyage-apprenant> , <https://data.lescheminsdelatransition.org/types/compagnonage> , <https://data.lescheminsdelatransition.org/types/ecotourisme> , <https://data.lescheminsdelatransition.org/types/immersion-longue> , <https://data.lescheminsdelatransition.org/types/a-pied> , <https://data.lescheminsdelatransition.org/types/a-velo> , <https://data.lescheminsdelatransition.org/types/a-train-velo> , <https://data.lescheminsdelatransition.org/types/en-voiture> .
 
 <https://data.lescheminsdelatransition.org/types/voyage-apprenant>
-        a       <http://virtual-assembly.org/ontologies/pair#SessionType> ;
-        <http://virtual-assembly.org/ontologies/pair#label>
-                "Voyage apprenant" .
-
-<https://data.lescheminsdelatransition.org/types/voyage-apprenant1>
-        a       <http://virtual-assembly.org/ontologies/cdlt#CourseType> ;
+        a       <http://virtual-assembly.org/ontologies/pair#CourseType> ;
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Voyage apprenant" ;
         <http://virtual-assembly.org/ontologies/pair#typeOf>
@@ -382,9 +377,7 @@
                 "Imaginés" .
 
 <https://data.lescheminsdelatransition.org/files>
-        a       <http://www.w3.org/ns/ldp#BasicContainer> , <http://www.w3.org/ns/ldp#Container> ;
-        <http://www.w3.org/ns/ldp#contains>
-                <https://data.lescheminsdelatransition.org/files/logo512.png> , <https://data.lescheminsdelatransition.org/files/logo512.png1> , <https://data.lescheminsdelatransition.org/files/logo512.png2> , <https://data.lescheminsdelatransition.org/files/logo512.png3> , <https://data.lescheminsdelatransition.org/files/altlogo_250.png> , <https://data.lescheminsdelatransition.org/files/photo-guillaume-rouyer.jpeg> , <https://data.lescheminsdelatransition.org/files/altlogo_250.png1> , <https://data.lescheminsdelatransition.org/files/srosset.jpg> , <https://data.lescheminsdelatransition.org/files/thibaud-mallet.jpeg> , <https://data.lescheminsdelatransition.org/files/laure-coplo.jpeg> , <https://data.lescheminsdelatransition.org/files/igor-louboff.jpeg> , <https://data.lescheminsdelatransition.org/files/ophelie-deyrolles.jpeg> , <https://data.lescheminsdelatransition.org/files/cheminstransition.png> , <https://data.lescheminsdelatransition.org/files/jeremyduffraisse.jpeg> , <https://data.lescheminsdelatransition.org/files/michel-foata.jpeg> , <https://data.lescheminsdelatransition.org/files/salon-rent-couleur-proche.jpeg> , <https://data.lescheminsdelatransition.org/files/dessin-priere.jpg> , <https://data.lescheminsdelatransition.org/files/103688095_915481422213032_838923985057751638_n.jpg> .
+        a       <http://www.w3.org/ns/ldp#BasicContainer> , <http://www.w3.org/ns/ldp#Container> .
 
 <https://data.lescheminsdelatransition.org/files/logo512.png>
         a       <http://semapps.org/ns/core#File> ;
@@ -503,6 +496,8 @@
                 <https://data.lescheminsdelatransition.org/organizations/assemblee-virtuelle> ;
         <http://virtual-assembly.org/ontologies/pair#firstName>
                 "Sébastien" ;
+        <http://virtual-assembly.org/ontologies/pair#e-mail>
+                "srosset81@gmail.com" ;
         <http://virtual-assembly.org/ontologies/pair#hasTopic>
                 <https://data.lescheminsdelatransition.org/themes/ecopsychologie> , <https://data.lescheminsdelatransition.org/themes/web-semantique> ;
         <http://virtual-assembly.org/ontologies/pair#image>
@@ -697,7 +692,7 @@
         <http://virtual-assembly.org/ontologies/pair#hasTopic>
                 <https://data.lescheminsdelatransition.org/themes/tiers-lieu> ;
         <http://virtual-assembly.org/ontologies/pair#hasType>
-                <https://data.lescheminsdelatransition.org/types/voyage-apprenant1> , <https://data.lescheminsdelatransition.org/types/ecotourisme> ;
+                <https://data.lescheminsdelatransition.org/types/voyage-apprenant> , <https://data.lescheminsdelatransition.org/types/ecotourisme> ;
         <http://virtual-assembly.org/ontologies/pair#label>
                 "A la rencontre des Tiers-lieux du bocage ornais" ;
         <http://virtual-assembly.org/ontologies/pair#organizedBy>
@@ -992,74 +987,6 @@
         <http://semapps.org/ns/core#mimeType>
                 "image/png" .
 
-[ a       <http://virtual-assembly.org/ontologies/pair#PostalAddress> ;
-  <http://virtual-assembly.org/ontologies/pair#addressCountry>
-          "France" ;
-  <http://virtual-assembly.org/ontologies/pair#addressLocality>
-          "Athis-Val de Rouvre" ;
-  <http://virtual-assembly.org/ontologies/pair#addressStreet>
-          " La Marchandière" ;
-  <http://virtual-assembly.org/ontologies/pair#addressZipCode>
-          "61100" ;
-  <http://virtual-assembly.org/ontologies/pair#label>
-          "La Marchandière, 61100 Athis-Val de Rouvre, France" ;
-  <http://virtual-assembly.org/ontologies/pair#latitude>
-          48.755702e0 ;
-  <http://virtual-assembly.org/ontologies/pair#longitude>
-          -0.408703e0
-] .
-
-[ a       <http://virtual-assembly.org/ontologies/pair#PostalAddress> ;
-  <http://virtual-assembly.org/ontologies/pair#addressCountry>
-          "France" ;
-  <http://virtual-assembly.org/ontologies/pair#addressLocality>
-          "Damblainville" ;
-  <http://virtual-assembly.org/ontologies/pair#addressStreet>
-          "6 Route De Falaise" ;
-  <http://virtual-assembly.org/ontologies/pair#addressZipCode>
-          "14620" ;
-  <http://virtual-assembly.org/ontologies/pair#label>
-          "6 Route De Falaise, 14620 Damblainville, France" ;
-  <http://virtual-assembly.org/ontologies/pair#latitude>
-          48.915178e0 ;
-  <http://virtual-assembly.org/ontologies/pair#longitude>
-          -0.114881e0
-] .
-
-[ a       <http://virtual-assembly.org/ontologies/pair#PostalAddress> ;
-  <http://virtual-assembly.org/ontologies/pair#addressCountry>
-          "France" ;
-  <http://virtual-assembly.org/ontologies/pair#addressLocality>
-          "Damblainville" ;
-  <http://virtual-assembly.org/ontologies/pair#addressStreet>
-          "6 Route De Falaise" ;
-  <http://virtual-assembly.org/ontologies/pair#addressZipCode>
-          "14620" ;
-  <http://virtual-assembly.org/ontologies/pair#label>
-          "6 Route De Falaise, 14620 Damblainville, France" ;
-  <http://virtual-assembly.org/ontologies/pair#latitude>
-          48.915178e0 ;
-  <http://virtual-assembly.org/ontologies/pair#longitude>
-          -0.114881e0
-] .
-
-[ a       <http://virtual-assembly.org/ontologies/pair#PostalAddress> ;
-  <http://virtual-assembly.org/ontologies/pair#addressCountry>
-          "France" ;
-  <http://virtual-assembly.org/ontologies/pair#addressLocality>
-          "Putanges-le-Lac" ;
-  <http://virtual-assembly.org/ontologies/pair#addressStreet>
-          " Le Chêne" ;
-  <http://virtual-assembly.org/ontologies/pair#addressZipCode>
-          "61210" ;
-  <http://virtual-assembly.org/ontologies/pair#label>
-          "Le Chêne, 61210 Putanges-le-Lac, France" ;
-  <http://virtual-assembly.org/ontologies/pair#latitude>
-          48.725647e0 ;
-  <http://virtual-assembly.org/ontologies/pair#longitude>
-          -0.27833e0
-] .
-
 <https://data.lescheminsdelatransition.org/users/jeremy-dufraisse>
         a       <http://virtual-assembly.org/ontologies/pair#Person> ;
         <http://virtual-assembly.org/ontologies/pair#affiliatedBy>
@@ -1088,39 +1015,6 @@
                 "Jérémy DUFRAISSE" ;
         <http://virtual-assembly.org/ontologies/pair#lastName>
                 "Dufraisse" .
-
-[ a       <http://virtual-assembly.org/ontologies/pair#Place> ;
-  <http://virtual-assembly.org/ontologies/pair#hasPostalAddress>
-          [ a       <http://virtual-assembly.org/ontologies/pair#PostalAddress> ;
-            <http://virtual-assembly.org/ontologies/pair#addressCountry>
-                    "France" ;
-            <http://virtual-assembly.org/ontologies/pair#addressLocality>
-                    "Lorient"
-          ] ;
-  <http://virtual-assembly.org/ontologies/pair#label>
-          "Lorient, Morbihan, France" ;
-  <http://virtual-assembly.org/ontologies/pair#latitude>
-          47.74583e0 ;
-  <http://virtual-assembly.org/ontologies/pair#longitude>
-          -3.36639e0
-] .
-
-[ a       <http://virtual-assembly.org/ontologies/pair#PostalAddress> ;
-  <http://virtual-assembly.org/ontologies/pair#addressCountry>
-          "France" ;
-  <http://virtual-assembly.org/ontologies/pair#addressLocality>
-          "Putanges-le-Lac" ;
-  <http://virtual-assembly.org/ontologies/pair#addressStreet>
-          " Lieu Dit Le Chenet" ;
-  <http://virtual-assembly.org/ontologies/pair#addressZipCode>
-          "61210" ;
-  <http://virtual-assembly.org/ontologies/pair#label>
-          "Lieu Dit Le Chenet, 61210 Putanges-le-Lac, France" ;
-  <http://virtual-assembly.org/ontologies/pair#latitude>
-          48.814673e0 ;
-  <http://virtual-assembly.org/ontologies/pair#longitude>
-          -0.365142e0
-] .
 
 <https://data.lescheminsdelatransition.org/files/jeremyduffraisse.jpeg>
         a       <http://semapps.org/ns/core#File> ;
@@ -1190,7 +1084,7 @@
         <http://virtual-assembly.org/ontologies/pair#hasTopic>
                 <https://data.lescheminsdelatransition.org/themes/tiers-lieu> ;
         <http://virtual-assembly.org/ontologies/pair#hasType>
-                <https://data.lescheminsdelatransition.org/types/voyage-apprenant1> ;
+                <https://data.lescheminsdelatransition.org/types/voyage-apprenant> ;
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Chemins des tiers lieux pour la convention citoyenne pour le climat" ;
         <http://virtual-assembly.org/ontologies/pair#organizedBy>
@@ -1287,23 +1181,6 @@
                 "Anne-Laure ROMANET" ;
         <http://virtual-assembly.org/ontologies/pair#lastName>
                 "Romanet" .
-
-[ a       <http://virtual-assembly.org/ontologies/pair#PostalAddress> ;
-  <http://virtual-assembly.org/ontologies/pair#addressCountry>
-          "France" ;
-  <http://virtual-assembly.org/ontologies/pair#addressLocality>
-          "Athis-Val de Rouvre" ;
-  <http://virtual-assembly.org/ontologies/pair#addressStreet>
-          " La Marchandière" ;
-  <http://virtual-assembly.org/ontologies/pair#addressZipCode>
-          "61100" ;
-  <http://virtual-assembly.org/ontologies/pair#label>
-          "La Marchandière, 61100 Athis-Val de Rouvre, France" ;
-  <http://virtual-assembly.org/ontologies/pair#latitude>
-          48.755702e0 ;
-  <http://virtual-assembly.org/ontologies/pair#longitude>
-          -0.408703e0
-] .
 
 <https://data.lescheminsdelatransition.org/places/archipel-kyosei>
         a       <http://virtual-assembly.org/ontologies/pair#Place> ;

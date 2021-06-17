@@ -1,5 +1,8 @@
 module.exports = [
   {
+    path: '/'
+  },
+  {
     path: '/organizations',
     acceptedTypes: ['pair:Organization'],
     dereference: ['pair:hasLocation/pair:hasPostalAddress']
@@ -14,8 +17,8 @@ module.exports = [
     acceptedTypes: ['cdlt:Path']
   },
   {
-    path: '/sessions',
-    acceptedTypes: ['cdlt:Session']
+    path: '/courses',
+    acceptedTypes: ['cdlt:Course']
   },
   {
     path: '/events',
