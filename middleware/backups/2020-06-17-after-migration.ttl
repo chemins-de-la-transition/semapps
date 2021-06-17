@@ -16,7 +16,7 @@
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Assemblée Virtuelle" ;
         <http://virtual-assembly.org/ontologies/pair#organizes>
-                "https://data.lescheminsdelatransition.org/sessions/chemin-lt" ;
+                "https://data.lescheminsdelatransition.org/courses/chemin-lt" ;
         <http://virtual-assembly.org/ontologies/pair#partnerOf>
                 <https://data.lescheminsdelatransition.org/organizations/agir-low-tech> .
 
@@ -80,13 +80,13 @@
         <http://www.w3.org/ns/ldp#contains>
                 <https://data.lescheminsdelatransition.org/paths/chemin-des-tiers-lieux> , <https://data.lescheminsdelatransition.org/paths/chemin-des-low-tech> , <https://data.lescheminsdelatransition.org/paths/chemin-du-web-semantique> , <https://data.lescheminsdelatransition.org/paths/chemin-des-sols-vivants> , <https://data.lescheminsdelatransition.org/paths/test-audrey> .
 
-<https://data.lescheminsdelatransition.org/sessions>
+<https://data.lescheminsdelatransition.org/courses>
         a       <http://www.w3.org/ns/ldp#BasicContainer> , <http://www.w3.org/ns/ldp#Container> ;
         <http://www.w3.org/ns/ldp#contains>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-lt> , <https://data.lescheminsdelatransition.org/sessions/chemin-des-tiers-lieux-du-bocage-ornais> , <https://data.lescheminsdelatransition.org/sessions/chemins-des-tiers-lieux-pour-la-convention-citoyenne-pour-le-climat> .
+                <https://data.lescheminsdelatransition.org/courses/chemin-lt> , <https://data.lescheminsdelatransition.org/courses/chemin-des-tiers-lieux-du-bocage-ornais> , <https://data.lescheminsdelatransition.org/courses/chemins-des-tiers-lieux-pour-la-convention-citoyenne-pour-le-climat> .
 
-<https://data.lescheminsdelatransition.org/sessions/chemin-lt>
-        a       <http://virtual-assembly.org/ontologies/cdlt#Session> ;
+<https://data.lescheminsdelatransition.org/courses/chemin-lt>
+        a       <http://virtual-assembly.org/ontologies/cdlt#Course> ;
         <http://virtual-assembly.org/ontologies/cdlt#economicalConditions>
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." ;
         <http://virtual-assembly.org/ontologies/cdlt#forWhom>
@@ -101,7 +101,7 @@
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." ;
         <http://virtual-assembly.org/ontologies/cdlt#prerequisites>
                 "- Savoir couper du bambou" ;
-        <http://virtual-assembly.org/ontologies/cdlt#sessionOf>
+        <http://virtual-assembly.org/ontologies/cdlt#courseOn>
                 <https://data.lescheminsdelatransition.org/paths/chemin-des-tiers-lieux> ;
         <http://virtual-assembly.org/ontologies/pair#comment>
                 "Développer une activité professionnelle autour du vélo bamboo" ;
@@ -140,7 +140,7 @@
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Les bases du vélo bamboo" ;
         <http://virtual-assembly.org/ontologies/pair#partOf>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-lt> ;
+                <https://data.lescheminsdelatransition.org/courses/chemin-lt> ;
         <http://virtual-assembly.org/ontologies/pair#startDate>
                 "2021-02-23T16:45:29.523Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 
@@ -153,7 +153,7 @@
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Perfectionner la technique" ;
         <http://virtual-assembly.org/ontologies/pair#partOf>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-lt> ;
+                <https://data.lescheminsdelatransition.org/courses/chemin-lt> ;
         <http://virtual-assembly.org/ontologies/pair#startDate>
                 "2021-02-26T16:46:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 
@@ -166,7 +166,7 @@
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Apprendre à former" ;
         <http://virtual-assembly.org/ontologies/pair#partOf>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-lt> ;
+                <https://data.lescheminsdelatransition.org/courses/chemin-lt> ;
         <http://virtual-assembly.org/ontologies/pair#startDate>
                 "2021-03-02T16:46:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 
@@ -293,7 +293,7 @@
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Low tech" ;
         <http://virtual-assembly.org/ontologies/pair#topicOf>
-                <https://data.lescheminsdelatransition.org/users/guillaume-rouyer> , <https://data.lescheminsdelatransition.org/sessions/chemin-lt> , <https://data.lescheminsdelatransition.org/places/el-capitan> , <https://data.lescheminsdelatransition.org/paths/chemin-des-low-tech> , <https://data.lescheminsdelatransition.org/users/abhinav-agarwal> , <https://data.lescheminsdelatransition.org/paths/chemin-des-sols-vivants> .
+                <https://data.lescheminsdelatransition.org/users/guillaume-rouyer> , <https://data.lescheminsdelatransition.org/courses/chemin-lt> , <https://data.lescheminsdelatransition.org/places/el-capitan> , <https://data.lescheminsdelatransition.org/paths/chemin-des-low-tech> , <https://data.lescheminsdelatransition.org/users/abhinav-agarwal> , <https://data.lescheminsdelatransition.org/paths/chemin-des-sols-vivants> .
 
 <https://data.lescheminsdelatransition.org/themes/web-semantique>
         a       <http://virtual-assembly.org/ontologies/pair#Theme> ;
@@ -312,28 +312,28 @@
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Mécanique vélo" ;
         <http://virtual-assembly.org/ontologies/pair#producedBy>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-lt> .
+                <https://data.lescheminsdelatransition.org/courses/chemin-lt> .
 
 <https://data.lescheminsdelatransition.org/skills/reparation-velo>
         a       <http://virtual-assembly.org/ontologies/pair#Skill> ;
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Réparation vélo" ;
         <http://virtual-assembly.org/ontologies/pair#producedBy>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-lt> .
+                <https://data.lescheminsdelatransition.org/courses/chemin-lt> .
 
 <https://data.lescheminsdelatransition.org/skills/conception-velo>
         a       <http://virtual-assembly.org/ontologies/pair#Skill> ;
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Conception vélo" ;
         <http://virtual-assembly.org/ontologies/pair#producedBy>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-lt> .
+                <https://data.lescheminsdelatransition.org/courses/chemin-lt> .
 
 <https://data.lescheminsdelatransition.org/skills/materiaux-bamboo>
         a       <http://virtual-assembly.org/ontologies/pair#Skill> ;
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Matériaux bamboo" ;
         <http://virtual-assembly.org/ontologies/pair#producedBy>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-lt> , <https://data.lescheminsdelatransition.org/paths/chemin-des-low-tech> .
+                <https://data.lescheminsdelatransition.org/courses/chemin-lt> , <https://data.lescheminsdelatransition.org/paths/chemin-des-low-tech> .
 
 <https://data.lescheminsdelatransition.org/skills/web-semantique>
         a       <http://virtual-assembly.org/ontologies/pair#Skill> ;
@@ -355,11 +355,11 @@
                 "Voyage apprenant" .
 
 <https://data.lescheminsdelatransition.org/types/voyage-apprenant1>
-        a       <http://virtual-assembly.org/ontologies/cdlt#SessionType> ;
+        a       <http://virtual-assembly.org/ontologies/cdlt#CourseType> ;
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Voyage apprenant" ;
         <http://virtual-assembly.org/ontologies/pair#typeOf>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-lt> , <https://data.lescheminsdelatransition.org/sessions/chemin-des-tiers-lieux-du-bocage-ornais> , <https://data.lescheminsdelatransition.org/sessions/chemins-des-tiers-lieux-pour-la-convention-citoyenne-pour-le-climat> .
+                <https://data.lescheminsdelatransition.org/courses/chemin-lt> , <https://data.lescheminsdelatransition.org/courses/chemin-des-tiers-lieux-du-bocage-ornais> , <https://data.lescheminsdelatransition.org/courses/chemins-des-tiers-lieux-pour-la-convention-citoyenne-pour-le-climat> .
 
 <https://data.lescheminsdelatransition.org/status>
         a       <http://www.w3.org/ns/ldp#BasicContainer> , <http://www.w3.org/ns/ldp#Container> ;
@@ -367,12 +367,12 @@
                 <https://data.lescheminsdelatransition.org/status/valide> , <https://data.lescheminsdelatransition.org/status/termine> , <https://data.lescheminsdelatransition.org/status/imagine> , <https://data.lescheminsdelatransition.org/status/valide-par-les-cdlt> , <https://data.lescheminsdelatransition.org/status/inscriptions-ouvertes> , <https://data.lescheminsdelatransition.org/status/complet> .
 
 <https://data.lescheminsdelatransition.org/status/valide>
-        a       <http://virtual-assembly.org/ontologies/cdlt#SessionStatus> ;
+        a       <http://virtual-assembly.org/ontologies/cdlt#CourseStatus> ;
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Inscriptions à venir" .
 
 <https://data.lescheminsdelatransition.org/status/termine>
-        a       <http://virtual-assembly.org/ontologies/cdlt#SessionStatus> ;
+        a       <http://virtual-assembly.org/ontologies/cdlt#CourseStatus> ;
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Terminé" .
 
@@ -444,8 +444,8 @@
         a       <http://virtual-assembly.org/ontologies/cdlt#Path> ;
         <http://virtual-assembly.org/ontologies/cdlt#forWhom>
                 "- Etudiants\n- Chômeurs" ;
-        <http://virtual-assembly.org/ontologies/cdlt#hasSession>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-lt> ;
+        <http://virtual-assembly.org/ontologies/cdlt#hasCourse>
+                <https://data.lescheminsdelatransition.org/courses/chemin-lt> ;
         <http://virtual-assembly.org/ontologies/cdlt#learningObjectives>
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." ;
         <http://virtual-assembly.org/ontologies/cdlt#prerequisites>
@@ -481,19 +481,19 @@
                 <https://data.lescheminsdelatransition.org/paths/chemin-des-tiers-lieux> .
 
 <https://data.lescheminsdelatransition.org/types/compagnonage>
-        a       <http://virtual-assembly.org/ontologies/cdlt#SessionType> ;
+        a       <http://virtual-assembly.org/ontologies/cdlt#CourseType> ;
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Compagnonage" .
 
 <https://data.lescheminsdelatransition.org/types/ecotourisme>
-        a       <http://virtual-assembly.org/ontologies/cdlt#SessionType> ;
+        a       <http://virtual-assembly.org/ontologies/cdlt#CourseType> ;
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Ecotourisme" ;
         <http://virtual-assembly.org/ontologies/pair#typeOf>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-des-tiers-lieux-du-bocage-ornais> .
+                <https://data.lescheminsdelatransition.org/courses/chemin-des-tiers-lieux-du-bocage-ornais> .
 
 <https://data.lescheminsdelatransition.org/types/immersion-longue>
-        a       <http://virtual-assembly.org/ontologies/cdlt#SessionType> ;
+        a       <http://virtual-assembly.org/ontologies/cdlt#CourseType> ;
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Immersion longue" .
 
@@ -534,7 +534,7 @@
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Voyage apprenant au coeur des Tiers lieux en Grand Est " ;
         <http://virtual-assembly.org/ontologies/pair#partOf>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-lt> ;
+                <https://data.lescheminsdelatransition.org/courses/chemin-lt> ;
         <http://virtual-assembly.org/ontologies/pair#startDate>
                 "2021-03-10T17:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 
@@ -568,7 +568,7 @@
                 "Plébiscités" .
 
 <https://data.lescheminsdelatransition.org/status/inscriptions-ouvertes>
-        a       <http://virtual-assembly.org/ontologies/cdlt#SessionStatus> ;
+        a       <http://virtual-assembly.org/ontologies/cdlt#CourseStatus> ;
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Inscriptions ouvertes" .
 
@@ -577,7 +577,7 @@
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Tiers-Lieu" ;
         <http://virtual-assembly.org/ontologies/pair#topicOf>
-                <https://data.lescheminsdelatransition.org/places/l-hermitage> , <https://data.lescheminsdelatransition.org/places/el-capitan> , <https://data.lescheminsdelatransition.org/paths/chemin-des-tiers-lieux> , <https://data.lescheminsdelatransition.org/places/le-k-rabo> , <https://data.lescheminsdelatransition.org/places/la-soupe-aux-cailloux> , <https://data.lescheminsdelatransition.org/sessions/chemin-des-tiers-lieux-du-bocage-ornais> , <https://data.lescheminsdelatransition.org/users/laure-coplo> , <https://data.lescheminsdelatransition.org/places/le-wip> , <https://data.lescheminsdelatransition.org/sessions/chemins-des-tiers-lieux-pour-la-convention-citoyenne-pour-le-climat> , <https://data.lescheminsdelatransition.org/users/abhinav-agarwal> , <https://data.lescheminsdelatransition.org/places/les-aimeraudes> , <https://data.lescheminsdelatransition.org/users/anne-laure-romanet> .
+                <https://data.lescheminsdelatransition.org/places/l-hermitage> , <https://data.lescheminsdelatransition.org/places/el-capitan> , <https://data.lescheminsdelatransition.org/paths/chemin-des-tiers-lieux> , <https://data.lescheminsdelatransition.org/places/le-k-rabo> , <https://data.lescheminsdelatransition.org/places/la-soupe-aux-cailloux> , <https://data.lescheminsdelatransition.org/courses/chemin-des-tiers-lieux-du-bocage-ornais> , <https://data.lescheminsdelatransition.org/users/laure-coplo> , <https://data.lescheminsdelatransition.org/places/le-wip> , <https://data.lescheminsdelatransition.org/courses/chemins-des-tiers-lieux-pour-la-convention-citoyenne-pour-le-climat> , <https://data.lescheminsdelatransition.org/users/abhinav-agarwal> , <https://data.lescheminsdelatransition.org/places/les-aimeraudes> , <https://data.lescheminsdelatransition.org/users/anne-laure-romanet> .
 
 <https://data.lescheminsdelatransition.org/places/le-k-rabo>
         a       <http://virtual-assembly.org/ontologies/pair#Place> ;
@@ -627,7 +627,7 @@
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Halte culturelle au [K]-Rabo" ;
         <http://virtual-assembly.org/ontologies/pair#partOf>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-des-tiers-lieux-du-bocage-ornais> ;
+                <https://data.lescheminsdelatransition.org/courses/chemin-des-tiers-lieux-du-bocage-ornais> ;
         <http://virtual-assembly.org/ontologies/pair#startDate>
                 "2021-05-13T22:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 
@@ -640,7 +640,7 @@
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Visite de la Soupe aux Cailloux" ;
         <http://virtual-assembly.org/ontologies/pair#partOf>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-des-tiers-lieux-du-bocage-ornais> , <https://data.lescheminsdelatransition.org/sessions/chemins-des-tiers-lieux-pour-la-convention-citoyenne-pour-le-climat> ;
+                <https://data.lescheminsdelatransition.org/courses/chemin-des-tiers-lieux-du-bocage-ornais> , <https://data.lescheminsdelatransition.org/courses/chemins-des-tiers-lieux-pour-la-convention-citoyenne-pour-le-climat> ;
         <http://virtual-assembly.org/ontologies/pair#startDate>
                 "2021-05-28T07:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 
@@ -666,8 +666,8 @@
         <http://virtual-assembly.org/ontologies/pair#label>
                 "La soupe aux Cailloux" .
 
-<https://data.lescheminsdelatransition.org/sessions/chemin-des-tiers-lieux-du-bocage-ornais>
-        a       <http://virtual-assembly.org/ontologies/cdlt#Session> ;
+<https://data.lescheminsdelatransition.org/courses/chemin-des-tiers-lieux-du-bocage-ornais>
+        a       <http://virtual-assembly.org/ontologies/cdlt#Course> ;
         <http://virtual-assembly.org/ontologies/cdlt#economicalConditions>
                 "- Total HT par participant et par demi-journée : 90€\n- Total HT pour le voyage apprenant : 450€" ;
         <http://virtual-assembly.org/ontologies/cdlt#forWhom>
@@ -682,7 +682,7 @@
                 "- 5 demi-journées (9h - 14h)\n- Café, croissant, présentations des gens \n- Visite et présentation du lieu \n- Déjeuner, café (Attention pour les lieux qui n’ont pas de cuisine)" ;
         <http://virtual-assembly.org/ontologies/cdlt#prerequisites>
                 "Manifester un intérêt pour les dynamiques tiers-lieux ruraux, attractivité territoriales, citoyenneté locale, interactiions citoyens / collectivités. \n\nPas de compétences spécifiques requises.  " ;
-        <http://virtual-assembly.org/ontologies/cdlt#sessionOf>
+        <http://virtual-assembly.org/ontologies/cdlt#courseOn>
                 <https://data.lescheminsdelatransition.org/paths/chemin-des-tiers-lieux> ;
         <http://virtual-assembly.org/ontologies/pair#comment>
                 "Un voyage apprenant à destination des élus et services techniques des collectivités" ;
@@ -711,8 +711,8 @@
         a       <http://virtual-assembly.org/ontologies/cdlt#Path> ;
         <http://virtual-assembly.org/ontologies/cdlt#forWhom>
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\n\n" ;
-        <http://virtual-assembly.org/ontologies/cdlt#hasSession>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-lt> ;
+        <http://virtual-assembly.org/ontologies/cdlt#hasCourse>
+                <https://data.lescheminsdelatransition.org/courses/chemin-lt> ;
         <http://virtual-assembly.org/ontologies/cdlt#learningObjectives>
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\n\n" ;
         <http://virtual-assembly.org/ontologies/cdlt#prerequisites>
@@ -779,7 +779,7 @@
                 <https://data.lescheminsdelatransition.org/places/el-capitan> .
 
 <https://data.lescheminsdelatransition.org/status/complet>
-        a       <http://virtual-assembly.org/ontologies/cdlt#SessionStatus> ;
+        a       <http://virtual-assembly.org/ontologies/cdlt#CourseStatus> ;
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Complets" .
 
@@ -882,14 +882,14 @@
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Visite du Coliving El Capitan" ;
         <http://virtual-assembly.org/ontologies/pair#partOf>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-des-tiers-lieux-du-bocage-ornais> , <https://data.lescheminsdelatransition.org/sessions/chemins-des-tiers-lieux-pour-la-convention-citoyenne-pour-le-climat> ;
+                <https://data.lescheminsdelatransition.org/courses/chemin-des-tiers-lieux-du-bocage-ornais> , <https://data.lescheminsdelatransition.org/courses/chemins-des-tiers-lieux-pour-la-convention-citoyenne-pour-le-climat> ;
         <http://virtual-assembly.org/ontologies/pair#startDate>
                 "2021-06-04T07:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 
 <https://data.lescheminsdelatransition.org/users/ophelie-deyrolles>
         a       <http://virtual-assembly.org/ontologies/pair#Person> ;
         <http://virtual-assembly.org/ontologies/cdlt#mentorOn>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-des-tiers-lieux-du-bocage-ornais> ;
+                <https://data.lescheminsdelatransition.org/courses/chemin-des-tiers-lieux-du-bocage-ornais> ;
         <http://virtual-assembly.org/ontologies/pair#firstName>
                 "Ophélie " ;
         <http://virtual-assembly.org/ontologies/pair#image>
@@ -945,7 +945,7 @@
         <http://virtual-assembly.org/ontologies/pair#label>
                 "Visite du WIP" ;
         <http://virtual-assembly.org/ontologies/pair#partOf>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-des-tiers-lieux-du-bocage-ornais> ;
+                <https://data.lescheminsdelatransition.org/courses/chemin-des-tiers-lieux-du-bocage-ornais> ;
         <http://virtual-assembly.org/ontologies/pair#startDate>
                 "2021-05-21T07:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 
@@ -956,7 +956,7 @@
         <http://virtual-assembly.org/ontologies/pair#offeredBy>
                 <https://data.lescheminsdelatransition.org/users/michel-foata-prestavoine> ;
         <http://virtual-assembly.org/ontologies/pair#producedBy>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-des-tiers-lieux-du-bocage-ornais> , <https://data.lescheminsdelatransition.org/sessions/chemins-des-tiers-lieux-pour-la-convention-citoyenne-pour-le-climat> , <https://data.lescheminsdelatransition.org/paths/chemin-des-sols-vivants> .
+                <https://data.lescheminsdelatransition.org/courses/chemin-des-tiers-lieux-du-bocage-ornais> , <https://data.lescheminsdelatransition.org/courses/chemins-des-tiers-lieux-pour-la-convention-citoyenne-pour-le-climat> , <https://data.lescheminsdelatransition.org/paths/chemin-des-sols-vivants> .
 
 <https://data.lescheminsdelatransition.org/organizations/les-chemins-de-la-transition>
         a       <http://virtual-assembly.org/ontologies/pair#Organization> ;
@@ -1134,7 +1134,7 @@
 <https://data.lescheminsdelatransition.org/users/michel-foata-prestavoine>
         a       <http://virtual-assembly.org/ontologies/pair#Person> ;
         <http://virtual-assembly.org/ontologies/cdlt#mentorOn>
-                <https://data.lescheminsdelatransition.org/sessions/chemin-lt> ;
+                <https://data.lescheminsdelatransition.org/courses/chemin-lt> ;
         <http://virtual-assembly.org/ontologies/pair#affiliatedBy>
                 <https://data.lescheminsdelatransition.org/organizations/assemblee-virtuelle> ;
         <http://virtual-assembly.org/ontologies/pair#comment>
@@ -1175,11 +1175,11 @@
         <http://semapps.org/ns/core#mimeType>
                 "image/jpeg" .
 
-<https://data.lescheminsdelatransition.org/sessions/chemins-des-tiers-lieux-pour-la-convention-citoyenne-pour-le-climat>
-        a       <http://virtual-assembly.org/ontologies/cdlt#Session> ;
+<https://data.lescheminsdelatransition.org/courses/chemins-des-tiers-lieux-pour-la-convention-citoyenne-pour-le-climat>
+        a       <http://virtual-assembly.org/ontologies/cdlt#Course> ;
         <http://virtual-assembly.org/ontologies/cdlt#hasMentor>
                 <https://data.lescheminsdelatransition.org/users/laure-coplo> ;
-        <http://virtual-assembly.org/ontologies/cdlt#sessionOf>
+        <http://virtual-assembly.org/ontologies/cdlt#courseOn>
                 <https://data.lescheminsdelatransition.org/paths/chemin-des-tiers-lieux> ;
         <http://virtual-assembly.org/ontologies/pair#endDate>
                 "2022-09-01T12:11:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
