@@ -1,12 +1,12 @@
 import React from 'react';
 import { TabbedForm, TextInput, FormTab } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
-import { Edit } from '@semapps/archipelago-layout';
-import { SessionsInput, ActorsInput, PlacesInput, StatusInput, ThemesInput, TypesInput, SkillsInput } from '../../../pair';
+import { EditWithPermissions } from "@semapps/auth-provider";
+import { CoursesInput, ActorsInput, PlacesInput, StatusInput, ThemesInput, TypesInput, SkillsInput } from '../../../pair';
 import PathTitle from './PathTitle';
 
 const PathEdit = props => (
-  <Edit title={<PathTitle />} {...props}>
+  <EditWithPermissions title={<PathTitle />} {...props}>
     <TabbedForm redirect="show">
       <FormTab label="Données">
         <TextInput source="pair:label" fullWidth />
@@ -18,7 +18,7 @@ const PathEdit = props => (
         <MarkdownInput source="cdlt:professionalPerspectives" fullWidth />
       </FormTab>
       <FormTab label="Relations">
-        <SessionsInput source="cdlt:hasSession" />
+        <CoursesInput source="cdlt:hasCourse" />
         <StatusInput source="pair:hasStatus" filter={{ a: 'cdlt:PathStatus' }} />
         <TypesInput source="pair:hasType" filter={{ a: 'cdlt:PathType' }} />
         <PlacesInput source="pair:hasLocation" />
@@ -27,7 +27,7 @@ const PathEdit = props => (
         <ThemesInput source="pair:hasTopic" />
       </FormTab>
     </TabbedForm>
-  </Edit>
+  </EditWithPermissions>
 );
 
 export default PathEdit;

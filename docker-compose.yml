@@ -26,7 +26,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
   fuseki:
-    image: stain/jena-fuseki:3.10.0
+    image: semapps/jena-fuseki-webacl
     container_name: fuseki
     volumes:
       - ./data/fuseki:/fuseki
@@ -48,7 +48,6 @@ services:
       - redis
     volumes:
       - ./middleware/logs:/app/logs
-      - ./middleware/actors:/app/actors
       - ./middleware/jwt:/app/jwt
       - ./middleware/uploads:/app/uploads
       - ./data/fuseki/backups:/app/fuseki-backups # Needed to backup fuseki datasets

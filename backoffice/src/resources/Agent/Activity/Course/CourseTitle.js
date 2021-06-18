@@ -1,7 +1,7 @@
 import React from 'react';
 
-const SessionTitle = ({ record }) => {
+const CourseTitle = ({ record }) => {
   return <span>{record?.['pair:label']}</span>;
 };
 
-export default SessionTitle;
+export default CourseTitle;

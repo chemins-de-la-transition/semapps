@@ -1,5 +1,6 @@
 import React from 'react';
 import { MultiViewsList, SimpleList } from '@semapps/archipelago-layout';
+import { ListWithPermissions } from "@semapps/auth-provider";
 import { MapList } from '@semapps/geo-components';
 import { Avatar } from '@material-ui/core';
 import MapIcon from '@material-ui/icons/Map';
@@ -8,6 +9,7 @@ import HomeIcon from '@material-ui/icons/Home';
 
 const OrganizationList = props => (
   <MultiViewsList
+    ListComponent={ListWithPermissions}
     views={{
       list: {
         label: 'Liste',

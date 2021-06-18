@@ -8,7 +8,7 @@ export default {
     }
   },
   dataModel: {
-    types: ['pair:Event', 'cdlt:Session']
+    types: ['pair:Event', 'cdlt:Course']
   },
   translations: {
     fr: {

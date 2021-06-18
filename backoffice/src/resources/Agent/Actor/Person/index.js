@@ -28,6 +28,7 @@ export default {
       fields: {
         'pair:firstName': 'Prénom',
         'pair:lastName': 'Nom de famille',
+        'pair:e-mail': 'Adresse email',
         'pair:comment': 'En deux mots',
         'pair:image': 'Photo',
         'pair:involvedIn': 'Impliqué dans',

@@ -338,109 +338,58 @@
       "@type": "xsd:dateTime"
     },
 
-    "cdlt:statusOfSession" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#statusOfSession",
+    "cdlt:statusOfCourse" : {
       "@type" : "@id"
-    },
-    "cdlt:economicalConditions" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#economicalConditions"
     },
     "cdlt:typeOfPath" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#typeOfPath",
       "@type" : "@id"
     },
-    "cdlt:introduction" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#introduction"
-    },
-    "cdlt:hasSessionStatus" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasSessionStatus",
-      "@type" : "@id"
-    },
-    "cdlt:subSessionOf" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#subSessionOf",
+    "cdlt:hasCourseStatus" : {
       "@type" : "@id"
     },
     "cdlt:organizes" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#organizes",
       "@type" : "@id"
-    },
-    "cdlt:cdltDataProperty" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#cdltDataProperty"
     },
     "cdlt:learnerOn" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#learnerOn",
       "@type" : "@id"
-    },
-    "cdlt:learningObjectives" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#learningObjectives"
     },
     "cdlt:mentorOn" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#mentorOn",
-      "@type" : "@id"
-    },
-    "cdlt:hasSubsession" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasSubsession",
       "@type" : "@id"
     },
     "cdlt:hasMentor" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasMentor",
       "@type" : "@id"
     },
     "cdlt:proposes" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#proposes",
       "@type" : "@id"
     },
-    "cdlt:prerequisites" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#prerequisites"
-    },
     "cdlt:hasSession" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasSession",
       "@type" : "@id"
     },
     "cdlt:proposedBy" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#proposedBy",
       "@type" : "@id"
     },
     "cdlt:organizedBy" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#organizedBy",
       "@type" : "@id"
     },
     "cdlt:statusOfPath" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#statusOfPath",
       "@type" : "@id"
     },
-    "cdlt:statusOf" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#statusOf",
+    "cdlt:courseOn" : {
       "@type" : "@id"
     },
-    "cdlt:forWhom" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#forWhom"
-    },
-    "cdlt:sessionOf" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#sessionOf",
-      "@type" : "@id"
-    },
-    "cdlt:hasSessionType" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasSessionType",
+    "cdlt:hasCourseType" : {
       "@type" : "@id"
     },
     "cdlt:hasPathType" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasPathType",
       "@type" : "@id"
     },
-    "cdlt:typeOfSession" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#typeOfSession",
+    "cdlt:typeOfCourse" : {
       "@type" : "@id"
-    },
-    "cdlt:practicalConditions" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#practicalConditions"
     },
     "cdlt:hasPathStatus" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasPathStatus",
       "@type" : "@id"
     },
     "cdlt:hasLearner" : {
-      "@id" : "http://virtual-assembly.org/ontologies/cdlt#hasLearner",
       "@type" : "@id"
     }
   }
