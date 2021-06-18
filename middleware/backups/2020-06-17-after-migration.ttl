@@ -44,6 +44,8 @@
                 <https://data.lescheminsdelatransition.org/organizations/assemblee-virtuelle> ;
         <http://virtual-assembly.org/ontologies/pair#firstName>
                 "Guillaume" ;
+        <http://virtual-assembly.org/ontologies/foaf#email>
+                "guillaume.rouyer@assemblee-virtuelle.org" ;
         <http://virtual-assembly.org/ontologies/pair#hasLocation>
                 [ a       <http://virtual-assembly.org/ontologies/pair#Place> ;
                   <http://virtual-assembly.org/ontologies/pair#hasPostalAddress>
@@ -496,7 +498,7 @@
                 <https://data.lescheminsdelatransition.org/organizations/assemblee-virtuelle> ;
         <http://virtual-assembly.org/ontologies/pair#firstName>
                 "Sébastien" ;
-        <http://virtual-assembly.org/ontologies/pair#e-mail>
+        <http://virtual-assembly.org/ontologies/foaf#email>
                 "srosset81@gmail.com" ;
         <http://virtual-assembly.org/ontologies/pair#hasTopic>
                 <https://data.lescheminsdelatransition.org/themes/ecopsychologie> , <https://data.lescheminsdelatransition.org/themes/web-semantique> ;
@@ -808,6 +810,8 @@
         a       <http://virtual-assembly.org/ontologies/pair#Person> ;
         <http://virtual-assembly.org/ontologies/pair#firstName>
                 "Laure" ;
+        <http://virtual-assembly.org/ontologies/foaf#email>
+                "laure@lescheminsdelatransition.org" ;
         <http://virtual-assembly.org/ontologies/pair#hasTopic>
                 <https://data.lescheminsdelatransition.org/themes/tiers-lieu> ;
         <http://virtual-assembly.org/ontologies/pair#image>
@@ -821,6 +825,8 @@
         a       <http://virtual-assembly.org/ontologies/pair#Person> ;
         <http://virtual-assembly.org/ontologies/pair#firstName>
                 "Igor" ;
+        <http://virtual-assembly.org/ontologies/foaf#email>
+                "igor.louboff@gmail.com" ;
         <http://virtual-assembly.org/ontologies/pair#image>
                 <https://data.lescheminsdelatransition.org/files/igor-louboff.jpeg> ;
         <http://virtual-assembly.org/ontologies/pair#label>
@@ -993,6 +999,8 @@
                 <https://data.lescheminsdelatransition.org/organizations/les-chemins-de-la-transition> ;
         <http://virtual-assembly.org/ontologies/pair#firstName>
                 "Jérémy" ;
+        <http://virtual-assembly.org/ontologies/foaf#email>
+                "jeremy.dufraisse@orange.fr" ;
         <http://virtual-assembly.org/ontologies/pair#hasLocation>
                 [ a       <http://virtual-assembly.org/ontologies/pair#Place> ;
                   <http://virtual-assembly.org/ontologies/pair#hasPostalAddress>
@@ -1035,6 +1043,8 @@
                 "Co-fondateur de Oseons - Glocal Low-Tech" ;
         <http://virtual-assembly.org/ontologies/pair#firstName>
                 "Michel" ;
+        <http://virtual-assembly.org/ontologies/foaf#email>
+                "oseons.tech@gmail.com" ;
         <http://virtual-assembly.org/ontologies/pair#hasLocation>
                 [ a       <http://virtual-assembly.org/ontologies/pair#Place> ;
                   <http://virtual-assembly.org/ontologies/pair#hasPostalAddress>
@@ -1155,6 +1165,8 @@
         a       <http://virtual-assembly.org/ontologies/pair#Person> ;
         <http://virtual-assembly.org/ontologies/pair#firstName>
                 "Anne-Laure" ;
+        <http://virtual-assembly.org/ontologies/foaf#email>
+                "al.romanet@gmail.com" ;
         <http://virtual-assembly.org/ontologies/pair#hasLocation>
                 [ a       <http://virtual-assembly.org/ontologies/pair#Place> ;
                   <http://virtual-assembly.org/ontologies/pair#hasPostalAddress>
