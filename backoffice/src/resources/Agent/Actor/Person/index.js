@@ -28,7 +28,6 @@ export default {
       fields: {
         'pair:firstName': 'Prénom',
         'pair:lastName': 'Nom de famille',
-        'pair:e-mail': 'Adresse email',
         'pair:comment': 'En deux mots',
         'pair:image': 'Photo',
         'pair:involvedIn': 'Impliqué dans',
@@ -36,7 +35,9 @@ export default {
         'pair:offers': 'Offre',
         'pair:hasTopic': 'A pour intérêt',
         'pair:hasLocation': 'Adresse',
-        'cdlt:mentorOn': 'Est mentor pour'
+        'pair:hasType': 'Type',
+        'cdlt:mentorOn': 'Est mentor pour',
+        'foaf:email': 'Adresse email'
       }
     }
   }

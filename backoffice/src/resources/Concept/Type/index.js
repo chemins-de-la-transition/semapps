@@ -15,7 +15,7 @@ export default {
     }
   },
   dataModel: {
-    types: ['cdlt:CourseType', 'cdlt:PathType'],
+    types: ['pair:PersonType', 'cdlt:CourseType', 'cdlt:PathType'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'types',
     slugField: 'pair:label'
   },

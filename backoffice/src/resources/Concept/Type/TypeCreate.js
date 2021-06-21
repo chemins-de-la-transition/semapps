@@ -7,6 +7,7 @@ const TypeCreate = props => (
     <SimpleForm>
       <TextInput source="pair:label" fullWidth />
       <SelectArrayInput source="@type" choices={[
+        { id: 'pair:PersonType', name: 'PersonType' },
         { id: 'cdlt:CourseType', name: 'CourseType' },
         { id: 'cdlt:PathType', name: 'PathType' }
       ]} />
