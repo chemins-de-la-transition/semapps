@@ -8,7 +8,7 @@ const primary = '#EFBE74';
 const secondary = '#323647';
 const tertiary = '#F6F6F6';
 const neutral_web_grey190 = '#201F1E';
-const theme_1 = '#E2805F';
+const theme_1 = '#BF6C3A';
 const theme_2 = '#E7AB99';
 const theme_3 = '#30717A';
 const theme_4 = '#9FC9AD';
@@ -27,7 +27,7 @@ const overlay_dark = '#00000066'; /// black 40%
 // const depth16_2 = depth4_2;
 // const depth64_1 = white +'38'; //21.9% ~ 22% in HEX
 // const depth64_2 = white +'2E'; //18% in HEX
-const font1 = '"serif"'; // serif instead of Recoleta;
+const font1 = '"Kaushan Script","serif"'; // serif in case of error;
 const font2 = '"Montserrat", "Open Sans", "sans-serif"'; // Montserrat instead of Integral CF
 const font3 = '"Poppins", "Open Sans", "sans-serif"'; // Poppins instead of Sofia Pro
 
@@ -123,17 +123,17 @@ let theme = createMuiTheme({
     fontSize: 14,
     h1: {
       fontFamily: font1,
-      fontSize: 40,
+      fontSize: 48,
       fontStyle: 'normal',
-      fontWeight: 'bold',
-      lineHeight: '54px',
+      fontWeight: 'normal',
+      lineHeight: '70px',
     },
     h2: {
       fontFamily: font1,
-      fontSize: 32,
+      fontSize: 40,
       fontStyle: 'normal',
       fontWeight: 'normal',
-      lineHeight: '44px',
+      lineHeight: '58px',
     },
     h3: {
       fontFamily: font2,
@@ -145,10 +145,10 @@ let theme = createMuiTheme({
     },
     h4: {
       fontFamily: font1,
-      fontSize: 24,
+      fontSize: 16,
       fontStyle: 'normal',
-      fontWeight: '600',
-      lineHeight: '30px',
+      fontWeight: 'normal',
+      lineHeight: '23px',
     },
     h5: {
       fontFamily: font2,
