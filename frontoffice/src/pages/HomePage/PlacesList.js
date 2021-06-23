@@ -1,9 +1,10 @@
 import React from 'react';
-import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, Avatar} from '@material-ui/core';
+import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, Avatar, Box} from '@material-ui/core';
 import  PlaceIcon  from '@material-ui/icons/Place';
 import FullWidthBox from '../../layout/FullWidthBox';
 import LargeContainer from '../../layout/LargeContainer';
 import { ListBase, useListContext , TextField} from 'react-admin';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) =>({ 
   background: {
@@ -12,6 +13,26 @@ const useStyles = makeStyles((theme) =>({
   },
   container: {
     marginTop: '60px',
+  },
+  header: {
+    display: 'flex',
+    [theme.breakpoints.down('xs')]: {
+      flexWrap: 'wrap',
+    },
+  },
+  toBottom: {
+    alignSelf: 'flex-end',
+    flexShrink: '0'
+,  },
+  stretch: {
+    flexGrow: '10',
+    minWidth: '40px',
+    [theme.breakpoints.down('800')]: {
+      minWidth: '10px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
   },
   cardContainer: {
     margin: '1em' ,
@@ -67,15 +88,28 @@ const PlacesList = () => {
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer className={classes.container}>
-        <Typography variant="h2">
-          Les lieux
-        </Typography>
-        <Typography variant="h3" component="div">
-          A visiter
-        </Typography>
-        <Typography variant="body2" component="div">
-          Partez à la découvertes de lieux inspirants et allez à la rencontre de personnes qui ont choisis d’être acteurs de la transition. 
-        </Typography>
+        <Box width={1} className={classes.header}>
+          <Box>
+            <Typography variant="h2">
+              Les lieux
+            </Typography>
+            <Typography variant="h3" component="div">
+              A visiter
+            </Typography>
+            <Typography variant="body2" component="div">
+              Partez à la découvertes de lieux inspirants et allez à la rencontre de personnes qui ont choisis d’être acteurs de la transition. 
+            </Typography>
+          </Box> 
+
+          <Box className={classes.stretch}>
+          </Box> 
+          <Link
+                to='/Place' 
+                className={classes.toBottom}
+              > 
+              <Typography variant="button2">Voir tous les lieux</Typography>
+            </Link>
+        </Box>
 
           <ListBase
             resource="Place"
