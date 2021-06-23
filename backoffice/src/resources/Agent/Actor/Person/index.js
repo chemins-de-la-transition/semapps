@@ -35,7 +35,9 @@ export default {
         'pair:offers': 'Offre',
         'pair:hasTopic': 'A pour intérêt',
         'pair:hasLocation': 'Adresse',
-        'cdlt:mentorOn': 'Est mentor pour'
+        'pair:hasType': 'Type',
+        'cdlt:mentorOn': 'Est mentor pour',
+        'foaf:email': 'Adresse email'
       }
     }
   }

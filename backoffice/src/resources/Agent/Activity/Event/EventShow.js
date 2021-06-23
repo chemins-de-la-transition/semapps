@@ -1,13 +1,15 @@
 import React from 'react';
 import { ChipField, SingleFieldList, TextField, UrlField, DateField } from 'react-admin';
 import { Grid } from "@material-ui/core";
-import { Hero, Show, MarkdownField, MainList, SideList } from '@semapps/archipelago-layout';
+import { Hero, MainList, SideList } from '@semapps/archipelago-layout';
+import { ShowWithPermissions } from "@semapps/auth-provider";
+import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import EventTitle from './EventTitle';
 
 const EventShow = props => (
-  <Show title={<EventTitle />} {...props}>
+  <ShowWithPermissions title={<EventTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
         <Hero>
@@ -32,7 +34,7 @@ const EventShow = props => (
       </Grid>
       <Grid item xs={12} sm={3}>
         <SideList>
-          <ReferenceArrayField reference="Session" source="pair:partOf">
+          <ReferenceArrayField reference="Course" source="pair:partOf">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
@@ -40,7 +42,7 @@ const EventShow = props => (
         </SideList>
       </Grid>
     </Grid>
-  </Show>
+  </ShowWithPermissions>
 );
 
 export default EventShow;

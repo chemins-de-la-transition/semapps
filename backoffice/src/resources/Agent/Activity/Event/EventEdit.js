@@ -1,18 +1,18 @@
 import React from 'react';
 import { SimpleForm, TextInput } from 'react-admin';
-import MarkdownInput from 'ra-input-markdown';
+import { MarkdownInput } from '@semapps/markdown-components';
 import frLocale from 'date-fns/locale/fr';
-import { Edit } from '@semapps/archipelago-layout';
+import { EditWithPermissions } from "@semapps/auth-provider";
 import { DateTimeInput } from '@semapps/date-components';
 import { PlaceInput } from '../../../../pair';
 import EventTitle from './EventTitle';
 
 const EventEdit = props => (
-  <Edit title={<EventTitle />} {...props}>
+  <EditWithPermissions title={<EventTitle />} {...props}>
     <SimpleForm redirect="show">
       <TextInput source="pair:label" fullWidth />
       <TextInput source="pair:comment" fullWidth />
-      <MarkdownInput multiline source="pair:description" fullWidth />
+      <MarkdownInput source="pair:description" fullWidth />
       <TextInput source="pair:aboutPage" fullWidth />
       <DateTimeInput
         source="pair:startDate"
@@ -38,7 +38,7 @@ const EventEdit = props => (
       />
       <PlaceInput source="pair:hostedIn" />
     </SimpleForm>
-  </Edit>
+  </EditWithPermissions>
 );
 
 export default EventEdit;

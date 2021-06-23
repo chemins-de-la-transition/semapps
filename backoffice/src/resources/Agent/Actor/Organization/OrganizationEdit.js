@@ -1,7 +1,7 @@
 import React from 'react';
 import { SimpleForm, TextInput, ImageInput } from 'react-admin';
-import MarkdownInput from 'ra-input-markdown';
-import { Edit } from '@semapps/archipelago-layout';
+import { MarkdownInput } from '@semapps/markdown-components';
+import { EditWithPermissions } from "@semapps/auth-provider";
 import { ImageField } from '@semapps/semantic-data-provider';
 import {
   UsersInput,
@@ -13,11 +13,11 @@ import {
 import OrganizationTitle from './OrganizationTitle';
 
 export const OrganizationEdit = props => (
-  <Edit title={<OrganizationTitle />} {...props}>
+  <EditWithPermissions title={<OrganizationTitle />} {...props}>
     <SimpleForm redirect="show">
       <TextInput source="pair:label" fullWidth />
       <TextInput source="pair:comment" fullWidth />
-      <MarkdownInput multiline source="pair:description" fullWidth />
+      <MarkdownInput source="pair:description" fullWidth />
       <TextInput source="pair:homePage" fullWidth />
       <ImageInput source="pair:image" accept="image/*">
         <ImageField source="src" />
@@ -28,7 +28,7 @@ export const OrganizationEdit = props => (
       <ThemesInput source="pair:hasTopic" />
       <PairLocationInput source="pair:hasLocation" fullWidth />
     </SimpleForm>
-  </Edit>
+  </EditWithPermissions>
 );
 
 export default OrganizationEdit;

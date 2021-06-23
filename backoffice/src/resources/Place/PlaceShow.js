@@ -6,16 +6,18 @@ import {
   SingleFieldList,
 } from 'react-admin';
 import { Grid } from "@material-ui/core";
-import { Hero, Show, MarkdownField, MainList, SideList } from '@semapps/archipelago-layout';
+import { Hero, MainList, SideList } from '@semapps/archipelago-layout';
+import { ShowWithPermissions } from "@semapps/auth-provider";
+import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import PlaceTitle from './PlaceTitle';
 
 const PlaceShow = props => (
-  <Show title={<PlaceTitle />} {...props}>
+  <ShowWithPermissions title={<PlaceTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
-        <Hero image="image">
+        <Hero image="pair:image">
           <TextField source="pair:comment" />
           <UrlField source="pair:homePage" />
         </Hero>
@@ -39,7 +41,7 @@ const PlaceShow = props => (
         </SideList>
       </Grid>
     </Grid>
-  </Show>
+  </ShowWithPermissions>
 );
 
 export default PlaceShow;

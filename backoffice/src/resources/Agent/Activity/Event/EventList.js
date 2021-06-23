@@ -1,24 +1,18 @@
 import React from 'react';
-import { DateField } from 'react-admin';
-import { List, SimpleList } from '@semapps/archipelago-layout';
-import EventIcon from '@material-ui/icons/Event';
+import { ListWithPermissions } from "@semapps/auth-provider";
+import { CalendarList } from '@semapps/date-components';
+import frLocale from '@fullcalendar/core/locales/fr';
 
 const EventList = props => (
-  <List {...props}>
-    <SimpleList
-      primaryText={record => record['pair:label']}
-      secondaryText={record => (
-        <>
-          Du&nbsp;
-          <DateField record={record} source="pair:startDate" showTime />
-          &nbsp;au&nbsp;
-          <DateField record={record} source="pair:endDate" showTime />
-        </>
-      )}
-      leftAvatar={() => <EventIcon />}
+  <ListWithPermissions perPage={1000} pagination={false} {...props}>
+    <CalendarList
+      locale={frLocale}
+      label="pair:label"
+      startDate="pair:startDate"
+      endDate="pair:endDate"
       linkType="show"
     />
-  </List>
+  </ListWithPermissions>
 );
 
 export default EventList;

@@ -1,6 +1,6 @@
 {
   "name": "cdlt-middleware",
-  "version": "0.1.44",
+  "version": "0.3.8",
   "private": true,
   "description": "Middleware for Les Chemins de la Transition",
   "keywords": [
@@ -13,20 +13,22 @@
     "link-all": "npm link @semapps/activitypub && npm link @semapps/ldp && npm link @semapps/webhooks"
   },
   "dependencies": {
-    "@semapps/backup": "0.1.44",
-    "@semapps/connector": "0.1.44",
-    "@semapps/fuseki-admin": "0.1.44",
-    "@semapps/inference": "0.1.44",
-    "@semapps/ldp": "0.1.44",
-    "@semapps/mime-types": "0.1.44",
-    "@semapps/sparql-endpoint": "0.1.44",
-    "@semapps/triplestore": "0.1.44",
-    "@semapps/webid": "0.1.44",
+    "@semapps/auth": "0.3.8",
+    "@semapps/backup": "0.3.8",
+    "@semapps/fuseki-admin": "0.3.8",
+    "@semapps/inference": "0.3.8",
+    "@semapps/ldp": "0.3.8",
+    "@semapps/jsonld": "0.3.8",
+    "@semapps/mime-types": "0.3.8",
+    "@semapps/sparql-endpoint": "0.3.8",
+    "@semapps/triplestore": "0.3.8",
+    "@semapps/webacl": "0.3.8",
+    "@semapps/webid": "0.3.8",
     "dotenv-flow": "^3.2.0",
     "ioredis": "^4.17.3",
     "moleculer": "^0.14.4",
     "moleculer-repl": "^0.6.3",
-    "moleculer-web": "^0.9.1",
+    "moleculer-web": "^0.10.0-beta1",
     "url-join": "^4.0.1"
   }
 }
