@@ -1,9 +1,9 @@
 import React from 'react';
-import { makeStyles, Typography, Box} from '@material-ui/core';
+import { makeStyles, /*Typography,*/ Box} from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 const logoHeight = 77;
-const logoWidth = 94;
+// const logoWidth = 94;
 const logoHeightSmall = 40;
 // const logoWidthSmall = 65;
 // const breakPointlimit = 'xs';
