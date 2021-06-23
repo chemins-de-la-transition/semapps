@@ -38,7 +38,7 @@ const TopBar = () => {
       <FullWidthBox className={classes.topBar}>
         <LargeContainer >
           <Box display="flex" width={1} height={1} alignItems="center" className={classes.topBarIncluded}>
-            <Typography variant="subtitle2">Le lieu pour voyager en apprenant</Typography>
+            <Typography variant="subtitle2">Le lieu pour partager et apprendre en voyageant</Typography>
             <Box flexGrow={1}></Box>
             <Button to='/Aide'
               className={classes.topBarHelpIcon}
@@ -48,12 +48,12 @@ const TopBar = () => {
               ?
             </Button>
             <Button
-                to='/DevenirActeurDeLaTransition' 
+                to='/Dons' 
                 variant="outlined" 
                 color="secondary" 
                 component={Link} 
               > 
-              <Typography variant="subtitle2">Devenir acteur de la Transition</Typography>
+              <Typography variant="subtitle2">Soutenez la plateforme avec un don</Typography>
             </Button>
           </Box>
         </LargeContainer>
