@@ -1,10 +1,11 @@
 import React from 'react';
-import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, Avatar, Box} from '@material-ui/core';
-import  PlaceIcon  from '@material-ui/icons/Place';
+import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, Box, CardActionArea} from '@material-ui/core';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import FullWidthBox from '../../layout/FullWidthBox';
 import LargeContainer from '../../layout/LargeContainer';
-import { ListBase, useListContext , TextField} from 'react-admin';
+import { ListBase, useListContext } from 'react-admin';
 import { Link } from 'react-router-dom';
+import PlaceOutlinedIcon from '@material-ui/icons/PlaceOutlined';
 
 const useStyles = makeStyles((theme) =>({ 
   background: {
@@ -20,19 +21,27 @@ const useStyles = makeStyles((theme) =>({
       flexWrap: 'wrap',
     },
   },
-  toBottom: {
+  link: {
     alignSelf: 'flex-end',
-    flexShrink: '0'
-,  },
-  stretch: {
+    flexShrink: '0',
+    textDecoration: 'none',
+    display: 'flex',
+    flewWrap: 'nowrap',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
     flexGrow: '10',
-    minWidth: '40px',
-    [theme.breakpoints.down('800')]: {
-      minWidth: '10px',
+    marginLeft: '20px',
+    marginTop: '10px',
+    '& .MuiTypography-root': {
+      color: theme.palette.secondary.main,
     },
-    [theme.breakpoints.down('xs')]: {
-      display: 'none',
-    },
+  },
+  noDecoration: {
+    textDecoration: 'none',
+  },
+  cardTitle: {
+    marginTop: '8px',
+    marginBottom: '8px',
   },
   cardContainer: {
     margin: '1em' ,
@@ -64,19 +73,36 @@ const PlacesGrid = () => {
     <div className={classes.cardContainer}>
     {ids.map(id =>
         <Card key={id} className={classes.cardClass}>
-            <CardHeader
-                title={<TextField record={data[id]} source="pair:label" />}
-                subheader={<TextField record={data[id]} source="pair:comment" />}
-                avatar={<Avatar icon={<PlaceIcon />} />}
-            />
+          <CardActionArea>
             <CardMedia
-              className={classes.media}
-              image={data[id]["pair:image"]}
-              title={data[id]["pair:label"]}
-            />
-            <CardContent>
-                <TextField record={data[id]} source="pair:description" />
-            </CardContent>
+                className={classes.media+' '+classes.noDecoration}
+                image={data[id]["pair:image"]}
+                title={data[id]["pair:label"]}
+                to={'/Place/'+encodeURIComponent(id)+'/show'}
+                component={Link}
+              />
+          </CardActionArea>
+          {
+            (data[id]["pair:hasTopic"]) 
+            ? (
+              <CardContent>
+                <Typography variant="body2">{data[id]["pair:hasTopic"]}</Typography>
+              </CardContent>)
+            : ''
+          }
+          <CardHeader
+              to={'/Place/'+encodeURIComponent(id)+'/show'}
+              className={classes.noDecoration}
+              component={Link}
+              title={<Typography className={classes.cardTitle} variant="h4" color="primary">{data[id]["pair:label"]}</Typography>}
+              subheader={<PlaceOutlinedIcon color="secondary"></PlaceOutlinedIcon>}
+          />
+          <CardContent
+            to={'/Place/'+encodeURIComponent(id)+'/show'}
+            className={classes.noDecoration}
+            component={Link}>
+              <Typography variant="body2" color="secondary">{data[id]["pair:comment"]}</Typography>
+          </CardContent>
         </Card>
     )}
     </div>
@@ -100,14 +126,12 @@ const PlacesList = () => {
               Partez à la découvertes de lieux inspirants et allez à la rencontre de personnes qui ont choisis d’être acteurs de la transition. 
             </Typography>
           </Box> 
-
-          <Box className={classes.stretch}>
-          </Box> 
           <Link
                 to='/Place' 
-                className={classes.toBottom}
+                className={classes.link}
               > 
               <Typography variant="button2">Voir tous les lieux</Typography>
+              <ChevronRightIcon></ChevronRightIcon>
             </Link>
         </Box>
 
