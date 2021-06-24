@@ -21,6 +21,31 @@ const useStyles = makeStyles((theme) =>({
       flexWrap: 'wrap',
     },
   },
+  subHeader: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  cardTheme: {
+    position: 'relative',
+    padding: '0',
+    display: 'flex',
+    justifyContent: 'center',
+    '& .MuiTypography-root':{
+      marginLeft: '16px',
+      marginRight: '16px',
+      background: theme.palette.secondary.main,
+      color: theme.palette.secondary.contrastText,
+      height: '28px',
+      borderRadius: '20px',
+      fontSize: '12px',
+      lineHeight: '12px',
+      textAlign: 'center',
+      position: 'absolute',
+      top: '-14px',
+      width: '90%',
+      overflow: 'clip',
+    },
+  },
   link: {
     alignSelf: 'flex-end',
     flexShrink: '0',
@@ -38,6 +63,16 @@ const useStyles = makeStyles((theme) =>({
   },
   noDecoration: {
     textDecoration: 'none',
+  },
+  comment:{
+    paddingTop: '8px',
+    paddingLeft: '20px',
+    paddingRight: '20px',
+    paddinBottom: '20px',
+    '& .MuiTypography-root':{
+      paddingLeft: '20px',
+      paddingRight: '20px',
+    },
   },
   cardTitle: {
     marginTop: '8px',
@@ -66,9 +101,23 @@ const useStyles = makeStyles((theme) =>({
   },
 }));
 
-const ItemsGrid = ({basePath}) => {
+const SubHeader = ({data,id}) => {
   const classes = useStyles();
-  const { ids, data /*, basePath*/ } = useListContext();
+  return (
+    <Box className={classes.subHeader}>
+      <PlaceOutlinedIcon color="secondary"></PlaceOutlinedIcon>
+      {
+        (data[id]["pair:hasPostalAddress"])
+        ? <Typography variant="body2">{data[id]["pair:hasPostalAddress"]["pair:addressZipCode"]}</Typography>
+        :''
+      }
+    </Box>
+  );
+};
+
+const ItemsGrid = () => {
+  const classes = useStyles();
+  const { ids, data , basePath } = useListContext();
   return (
     <div className={classes.cardContainer}>
     {ids.map(id =>
@@ -78,30 +127,34 @@ const ItemsGrid = ({basePath}) => {
                 className={classes.media+' '+classes.noDecoration}
                 image={data[id]["pair:image"]}
                 title={data[id]["pair:label"]}
-                to={'/Place/'+encodeURIComponent(id)+'/show'}
+                to={basePath+'/'+encodeURIComponent(id)+'/show'}
                 component={Link}
               />
           </CardActionArea>
           {
             (data[id]["pair:hasTopic"]) 
             ? (
-              <CardContent>
+              <CardContent
+                className={classes.cardTheme + ' '+classes.noDecoration}
+                component={Link}
+                to={'/theme/'+encodeURIComponent(data[id]["pair:hasTopic"])+'/show'}
+                >
                 <Typography variant="body2">{data[id]["pair:hasTopic"]}</Typography>
               </CardContent>)
             : ''
           }
           <CardHeader
-              to={'/Session/'+encodeURIComponent(id)+'/show'}
+              to={basePath+'/'+encodeURIComponent(id)+'/show'}
               className={classes.noDecoration}
               component={Link}
               title={<Typography className={classes.cardTitle} variant="h4" color="primary">{data[id]["pair:label"]}</Typography>}
-              subheader={<PlaceOutlinedIcon color="secondary"></PlaceOutlinedIcon>}
+              subheader={<SubHeader data={data} id={id}></SubHeader>}
           />
           <CardContent
-            to={'/Place/'+encodeURIComponent(id)+'/show'}
-            className={classes.noDecoration}
+            to={basePath+'/'+encodeURIComponent(id)+'/show'}
+            className={classes.noDecoration + ' '+ classes.comment}
             component={Link}>
-              <Typography variant="body2" color="secondary">{data[id]["pair:comment"]}</Typography>
+              <Typography variant="body2" color="secondary" component="div">{data[id]["pair:comment"]}</Typography>
           </CardContent>
         </Card>
     )}
@@ -140,7 +193,7 @@ const BaseList = ({resource,basePath,title,subtitle,headComment,linkText}) => {
             basePath={basePath}
             perPage={4}
             // filter={{ 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/en-vedette' }}
-            sort={{ field: 'published', order: 'ASC' }}
+            sort={{ field: 'published', order: 'DESC' }}
             className={classes.ListBase}
             >
               <ItemsGrid />
