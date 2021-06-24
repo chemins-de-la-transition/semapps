@@ -1,24 +1,17 @@
 import React from 'react';
-// import { useMediaQuery, makeStyles} from '@material-ui/core';
-import FullWidthBox from '../../layout/FullWidthBox';
-import LargeContainer from '../../layout/LargeContainer';
-
-// const useStyles = makeStyles((theme) =>({
-//   background1: {
-//     backgroundColor: theme.palette.secondary.contrastText,
-//     color: theme.palette.secondary.main,
-//   }
-// }));
+import BaseList from './BaseList';
 
 const SessionsList = () => {
-  // const classes = useStyles();
-  // const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
-    <FullWidthBox>
-      <LargeContainer>
-        Liste des parcours
-      </LargeContainer>
-    </FullWidthBox>
+    <BaseList
+      resource="Session"
+      basePath="/Session"
+      title="Nos voyages"
+      subtitle="à parcourir"
+      headComment="Tu rêves de partir sur les routes pour découvrir des savoirs faire ou même apprendre un métier sur le terrain? Découvre nos parcours."
+      linkText="Voir tous les voyages"
+    >
+    </BaseList>
   );
 };
 
