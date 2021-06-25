@@ -109,8 +109,9 @@ const useStyles = makeStyles((theme) =>({
     height: 0,
     paddingTop: '56.25%', // 16:9
   },
-  ListBase: {
-    overflow: 'hidden',
+  listBase: {
+    overflowY: 'hidden',
+    overflowX: 'scroll',
   },
 }));
 
@@ -257,17 +258,17 @@ const BaseList = ({resource,basePath,title,subtitle,headComment,linkText}) => {
               <ChevronRightIcon></ChevronRightIcon>
             </Link>
         </Box>
-
+        <Box className={classes.listBase}>
           <ListBase
             resource={resource}
             basePath={basePath}
             // perPage={4}
             // filter={{ 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/en-vedette' }}
             // sort={{ field: 'published', order: 'DESC' }}
-            className={classes.ListBase}
             >
               <ItemsGrid nb={4}/>
           </ListBase>
+        </Box>
       </LargeContainer>
     </FullWidthBox>
   );
