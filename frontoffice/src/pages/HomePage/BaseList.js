@@ -144,6 +144,7 @@ const CardBlock = ({id,data,basePath}) => {
   }
   // shuffle topics
   topics.sort(() => Math.random() - 0.5);
+  topics.sort(() => Math.random() - 0.5);
   const firstTopic = topics[0];
   const secondTopic = (topics.length > 1) ? topics[1] : null;
   return (
@@ -151,7 +152,8 @@ const CardBlock = ({id,data,basePath}) => {
       <CardActionArea>
         <CardMedia
             className={classes.media+' '+classes.noDecoration}
-            image={data[id]["pair:image"]}
+            image={data[id]["pair:image"] ?? process.env.PUBLIC_URL + '/pexels-celine-chamiotponcet-2889792.jpg'}
+            // Image : (Free to Use and no attribution required) Céline Chamiot-Poncet @pexels https://www.pexels.com/fr-fr/photo/maison-en-bois-2889792/
             title={data[id]["pair:label"]}
             to={basePath+'/'+encodeURIComponent(id)+'/show'}
             component={Link}
