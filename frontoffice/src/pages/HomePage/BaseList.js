@@ -6,6 +6,7 @@ import LargeContainer from '../../layout/LargeContainer';
 import { ListBase, useListContext,useGetOne , Loading} from 'react-admin';
 import { Link } from 'react-router-dom';
 import PlaceOutlinedIcon from '@material-ui/icons/PlaceOutlined';
+import Department from './Department';
 
 const useStyles = makeStyles((theme) =>({ 
   background: {
@@ -120,7 +121,7 @@ const SubHeader = ({data,id}) => {
       <PlaceOutlinedIcon color="secondary"></PlaceOutlinedIcon>
       {
         (data[id]["pair:hasPostalAddress"])
-        ? <Typography variant="body2">{data[id]["pair:hasPostalAddress"]["pair:addressZipCode"]}</Typography>
+        ? <Typography variant="body2"><Department postalCode={data[id]["pair:hasPostalAddress"]["pair:addressZipCode"]}></Department></Typography>
         :''
       }
     </Box>
