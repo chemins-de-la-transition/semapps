@@ -37,7 +37,7 @@ let theme = createMuiTheme({
       // light:  primary,// to not be calculated from palette.primary.main
       main: primary,
       // dark: primary ,// to not be calculated from palette.primary.main
-      contrastText: white ,// to not be calculated from palette.primary.main
+      contrastText: secondary ,// to not be calculated from palette.primary.main
     },
     secondary: {
       // light: secondary,// to not be calculated from palette.secondary.main
@@ -203,20 +203,13 @@ let theme = createMuiTheme({
       fontWeight: 'normal',
       lineHeight: '12px',
     },
-    button1: {
+    button: {
       fontFamily: font3,
       fontSize: 12,
       fontStyle: 'normal',
       fontWeight: '600',
       lineHeight: '12px',
       textTransform: 'uppercase',
-    },
-    button2: {
-      fontFamily: font3,
-      fontSize: '26px',
-      fontStyle: 'normal',
-      fontWeight: 'bold',
-      lineHeight: '20px',
     },
   },
   props: {
@@ -251,6 +244,14 @@ let theme = createMuiTheme({
         color: white,
         borderColor: white,
         backgroundColor: primary,
+        position: 'relative',
+        '& ::after':{
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          top: '20px',
+          left: '20px',
+        },
         '&:focus': {
           color: white,
           borderColor: white,
@@ -266,6 +267,9 @@ let theme = createMuiTheme({
           borderColor: grey10,
           backgroundColor: grey10,
         },
+        '&:after':{
+          backgroundColor: white,
+        }
       },
       containedSecondary: {
         color: white,
@@ -286,6 +290,9 @@ let theme = createMuiTheme({
           borderColor: grey10,
           backgroundColor: grey10,
         },
+        '&:after':{
+          backgroundColor: white,
+        }
       },
       outlined: {
         border: 1,
@@ -336,51 +343,25 @@ let theme = createMuiTheme({
         },
       },
     },
-    // TODO check if following if needed
-    // RaChipField: {
-    //   chip: {
-    //     marginLeft: 0,
-    //     marginTop: 0,
-    //     marginRight: 8,
-    //     marginBottom: 8
-    //   }
-    // },
-    // RaShow: {
-    //   card: {
-    //     padding: 25,
-    //     [defaultTheme.breakpoints.down('xs')]: {
-    //       padding: 15
-    //     }
-    //   }
-    // },
-    // RaList: {
-    //   content: {
-    //     padding: 25,
-    //     [defaultTheme.breakpoints.down('xs')]: {
-    //       padding: 15
-    //     }
-    //   }
-    // },
-    // // Hide top actions bar in mobile for list pages
-    // RaListToolbar: {
-    //   toolbar: {
-    //     [defaultTheme.breakpoints.down('xs')]: {
-    //       height: 0,
-    //       minHeight: 0
-    //     }
-    //   }
-    // },
-    // RaSingleFieldList: {
-    //   root: {
-    //     marginTop: 0,
-    //     marginBottom: 0
-    //   }
-    // },
-    // MuiTab: {
-    //   labelIcon: {
-    //     paddingTop: 0
-    //   }
-    // }
+    MuiTypography:{
+      root:{
+        ' & .button1':{
+          fontFamily: font3,
+          fontSize: 12,
+          fontStyle: 'normal',
+          fontWeight: '600',
+          lineHeight: '12px',
+          textTransform: 'uppercase',
+        },
+        '& .button2':{
+          fontFamily: font3,
+          fontSize: '26px',
+          fontStyle: 'normal',
+          fontWeight: 'bold',
+          lineHeight: '20px',
+        },
+      },
+    },
   }
 });
 

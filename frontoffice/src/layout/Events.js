@@ -22,8 +22,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
+    color: theme.palette.white.main,
     '& svg [fill]':{
-      fill: theme.palette.primary.contrastText,
+      fill: theme.palette.white.main,
     },
   },
   internalIcon: {
@@ -37,16 +38,16 @@ const useStyles = makeStyles((theme) => ({
   },
   eventListBase: {
     marginBottom: '40px',
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.contrastText,
   },
   eventTopic:{
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.contrastText,
     marginBottom: '8px',
   },
   eventLabel:{
     fontSize: '20px',
     lineHeight: '28px',
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.contrastText,
     marginBottom: '4px',
     display: 'flex',
     alignItems: 'center',
@@ -54,18 +55,18 @@ const useStyles = makeStyles((theme) => ({
   eventPlace: {
     fontSize: '16px',
     lineHeight: '20px',
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.contrastText,
     marginBottom: '4px',
   },
   eventDate: {
     fontSize: '16px',
     lineHeight: '20px',
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.contrastText,
     marginBottom: '4px',
     ' & span':{
       fontSize: '16px',
       lineHeight: '20px',
-      color: theme.palette.secondary.main,
+      color: theme.palette.primary.contrastText,
       marginBottom: '4px',
       textTransform: 'uppercase',
     },
@@ -73,8 +74,8 @@ const useStyles = makeStyles((theme) => ({
   divider:{
     marginTop: '2px',
     marginBottom: '2px',
-    color: theme.palette.secondary.main,
-    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.primary.contrastText,
     height:'1px',
   },
   imageMaxWidth: {
@@ -100,9 +101,13 @@ const GetOneResourceValue = ({id,resourceName,keyName}) => {
   const { data, loading, error} = useGetOne(resourceName, id);
   if (loading) { return <Loading />; }
   if (error) { return <p>ERROR when getting {id} on '{resourceName}'</p>; }
-  return (
-    <span>{data[keyName]}</span>
-  ) ;
+  if (data){
+    return (
+      <span>{data[keyName]}</span>
+    ) ;
+  } else {
+    return '';
+  }
 };
 const GetFirstShuffledResourceValue = ({id,resourceName,resourceName2,keyName}) => {
   let { data, loading, error} = useGetOne(resourceName, id);
@@ -214,7 +219,7 @@ const ItemsGrid = ({nb}) => {
                 ? <Divider className={classes.divider}/>
                 : ''
             }
-            <ListItem>
+            <ListItem key={id}>
               <ListItemAvatar className={classes.avatarContainer}>
                 <GetImage id={host}/>
               </ListItemAvatar>
@@ -235,7 +240,7 @@ const ItemsGrid = ({nb}) => {
                       &nbsp;-&nbsp;
                       <GetDepartment id={host} />
                     </Typography>
-                    <Typography variant="button1" component="div" className={classes.eventDate+' '+classes.noDecoration}>
+                    <Typography variant="button" component="div" className={classes.eventDate+' '+classes.noDecoration}>
                       <DateField record={eventsData[id]} source="pair:startDate" options={{ year: 'numeric', month: 'long', day: 'numeric' }}/>
                     </Typography>
                   </>
@@ -266,11 +271,11 @@ const Event = () => {
           </ListBase>
           <Button
               to='/Event' 
-              variant="outlined" 
+              variant="contained" 
               color="secondary" 
               component={Link} 
             > 
-            <Typography variant="button1">Voir Tous les évènements</Typography>
+            <Typography variant="button" className="button1">Voir Tous les évènements</Typography>
           </Button>
         </Grid>
         <Grid item sm={5} className={classes.eventIcon}>

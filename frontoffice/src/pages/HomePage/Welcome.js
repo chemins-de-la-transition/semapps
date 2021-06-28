@@ -6,7 +6,7 @@ import LargeContainer from '../../layout/LargeContainer';
 const welcomeHeight=600;
 const useStyles = makeStyles((theme) =>({
   background1: {
-    backgroundColor: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.white.main,
     zIndex: '-1',
     position: 'absolute',
   },
@@ -20,11 +20,11 @@ const useStyles = makeStyles((theme) =>({
     },
   },
   welcomeText:{
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.white.main,
     textAlign: 'center',
   },
   welcomeSubtitleText:{
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.white.main,
     textAlign: 'center',
     maxWidth: '898px',
     marginLeft: '40px',
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) =>({
   welcomeTextBar: {
     width: '51px',
     height: '2px',
-    backgroundColor: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.white.main,
     marginTop: '10px',
     marginBottom: '20px',
     marginLeft: 'auto',

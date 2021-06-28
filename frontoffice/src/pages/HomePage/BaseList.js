@@ -254,7 +254,7 @@ const BaseList = ({resource,basePath,title,subtitle,headComment,linkText}) => {
                 to={basePath}
                 className={classes.link}
               > 
-              <Typography variant="button2">{linkText}</Typography>
+              <Typography variant="button" className='button2'>{linkText}</Typography>
               <ChevronRightIcon></ChevronRightIcon>
             </Link>
         </Box>
