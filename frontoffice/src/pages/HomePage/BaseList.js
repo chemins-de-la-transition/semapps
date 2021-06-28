@@ -169,7 +169,7 @@ const CardBlock = ({id,data,basePath}) => {
               <CardContent
                 className={classes.cardTheme + ' '+classes.noDecoration}
                 >
-                <Box class="block" className={classes.noDecoration}>
+                <Box className={classes.noDecoration+' block'}>
                   <Typography variant="body2" 
                   component={Link}
                   to={'/theme/'+encodeURIComponent(firstTopic)+'/show'}>
@@ -189,7 +189,7 @@ const CardBlock = ({id,data,basePath}) => {
               component={Link}
               to={'/theme/'+encodeURIComponent(firstTopic)+'/show'}
               >
-              <Typography class="block" variant="body2"><GetOneThemeLabel id={firstTopic}></GetOneThemeLabel></Typography>
+              <Typography className="block" variant="body2"><GetOneThemeLabel id={firstTopic}></GetOneThemeLabel></Typography>
             </CardContent>
           )
         : ''
@@ -225,6 +225,7 @@ const ItemsGrid = ({nb}) => {
     {shuffledIds.map(id =>
         <CardBlock
           id={id}
+          key={id}
           data={data}
           basePath={basePath}
           ></CardBlock>

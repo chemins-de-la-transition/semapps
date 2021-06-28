@@ -214,39 +214,39 @@ const ItemsGrid = ({nb}) => {
           displayDivider = false;
         }
         return (
-          <Link to={'/event/'+encodeURIComponent(id)+'/show'} className={classes.noDecoration}>
+          <Link to={'/event/'+encodeURIComponent(id)+'/show'} className={classes.noDecoration} key={id}>
             {(displayDivider)
                 ? <Divider className={classes.divider}/>
                 : ''
             }
-            <ListItem key={id}>
-              <ListItemAvatar className={classes.avatarContainer}>
-                <GetImage id={host}/>
-              </ListItemAvatar>
-              <ListItemText
-                primary={
-                  <Typography variant="h5" className={classes.eventTopic+' '+classes.noDecoration}>
-                    <GetFirstShuffledResourceValue resourceName='Place' id={host} keyName='pair:hasTopic' resourceName2='Theme' />
-                  </Typography>}
-                secondary={
-                  <>
-                    <Typography variant="h4" className={classes.eventLabel+' '+classes.noDecoration}>
-                      {eventsData[id]['pair:label']}
-                      &nbsp;
-                      <ChevronRightIcon></ChevronRightIcon>
-                    </Typography>
-                    <Typography variant="body1" component="div" className={classes.eventPlace+' '+classes.noDecoration}>
-                      <GetOneResourceValue resourceName='Place' id={host} keyName='pair:label'/>
-                      &nbsp;-&nbsp;
-                      <GetDepartment id={host} />
-                    </Typography>
-                    <Typography variant="button" component="div" className={classes.eventDate+' '+classes.noDecoration}>
-                      <DateField record={eventsData[id]} source="pair:startDate" options={{ year: 'numeric', month: 'long', day: 'numeric' }}/>
-                    </Typography>
-                  </>
-                }>
+            <ListItem>
+                <ListItemAvatar className={classes.avatarContainer}>
+                  <GetImage id={host}/>
+                </ListItemAvatar>
+                <ListItemText
+                  primary={
+                    <Typography variant="h5" className={classes.eventTopic+' '+classes.noDecoration}>
+                      <GetFirstShuffledResourceValue resourceName='Place' id={host} keyName='pair:hasTopic' resourceName2='Theme' />
+                    </Typography>}
+                  secondary={
+                    <>
+                      <Typography variant="h4" className={classes.eventLabel+' '+classes.noDecoration}>
+                        {eventsData[id]['pair:label']}
+                        &nbsp;
+                        <ChevronRightIcon></ChevronRightIcon>
+                      </Typography>
+                      <Typography variant="body1" component="div" className={classes.eventPlace+' '+classes.noDecoration}>
+                        <GetOneResourceValue resourceName='Place' id={host} keyName='pair:label'/>
+                        &nbsp;-&nbsp;
+                        <GetDepartment id={host} />
+                      </Typography>
+                      <Typography variant="button" component="div" className={classes.eventDate+' '+classes.noDecoration}>
+                        <DateField record={eventsData[id]} source="pair:startDate" options={{ year: 'numeric', month: 'long', day: 'numeric' }}/>
+                      </Typography>
+                    </>
+                  }>
 
-              </ListItemText>
+                </ListItemText>
             </ListItem>
           </Link>
         );
