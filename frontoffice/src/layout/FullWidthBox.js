@@ -5,6 +5,7 @@ const useStyles = makeStyles(theme => ({
     box: {
         display: 'flex',
         justifyContent: 'center',
+        backgroundColor: theme.palette.white.main,
     },
 }));
 

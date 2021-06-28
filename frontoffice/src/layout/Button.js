@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Button = ({to,variant,color,component,text,typographyVariant,className}) => {
+const Button = ({to,variant,color,component,text,typographyVariant,className,href}) => {
     const classes = useStyles();
     const typographyClasName = (typographyVariant === 'button1')
         ? classes.button1
@@ -34,6 +34,7 @@ const Button = ({to,variant,color,component,text,typographyVariant,className}) =
             color={color}
             component={component} 
             className={className}
+            href={href}
         > 
             <Typography variant={typoVar} className={typographyClasName}>{text}</Typography>
         </MuiButton>

@@ -54,10 +54,9 @@ const TopBar = () => {
               >
             </Button>
             <Button
-                to='/Dons' 
                 variant="outlined" 
                 color="secondary" 
-                component={Link} 
+                href="https://lescheminsdelatransition.org/faire-un-don/"
                 text="Soutenez la plateforme avec un don"
                 typographyVariant="subtitle2"
               > 
