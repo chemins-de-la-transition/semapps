@@ -1,8 +1,9 @@
 import React from 'react';
-import { Box, useMediaQuery, makeStyles, Typography, Button  } from '@material-ui/core';
+import { Box, useMediaQuery, makeStyles, Typography  } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import FullWidthBox from './FullWidthBox';
 import LargeContainer from './LargeContainer';
+import Button from './Button';
 
 const TopBarHeight = 48;
 const useStyles = makeStyles((theme) =>({
@@ -15,16 +16,19 @@ const useStyles = makeStyles((theme) =>({
     height: TopBarHeight,
   },
   topBarHelpIcon: {
-    // TODO import font
-    /* FabricMDL / 16 */
-    fontFamily: '"Fabric MDL2 Assets",'+theme.typography.fontFamily,
+    fontFamily: 'sans-serif',
     fontSize: 16,
     lineHeight: '100%',
     width: TopBarHeight,
     height: TopBarHeight,
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    '& .MuiTypography-root':{
+      fontFamily: 'sans-serif',
+      fontSize: 16,
+      lineHeight: '100%',
+    }
   },
 }));
 
@@ -44,16 +48,19 @@ const TopBar = () => {
               className={classes.topBarHelpIcon}
               color="inherit"
               component={Link}
-              aria-label="Aide">
-              ?
+              aria-label="Aide"
+              typographyVariant="subtitle2"
+              text="?"
+              >
             </Button>
             <Button
                 to='/Dons' 
                 variant="outlined" 
                 color="secondary" 
                 component={Link} 
+                text="Soutenez la plateforme avec un don"
+                typographyVariant="subtitle2"
               > 
-              <Typography variant="subtitle2">Soutenez la plateforme avec un don</Typography>
             </Button>
           </Box>
         </LargeContainer>

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { makeStyles, Grid, Box, Typography, Button, List, ListItem, ListItemText, ListItemAvatar, Avatar, Divider } from '@material-ui/core';
+import { makeStyles, Grid, Box, Typography, List, ListItem, ListItemText, ListItemAvatar, Avatar, Divider } from '@material-ui/core';
 import { ListBase, DateField, useListContext, useGetOne,Loading } from 'react-admin';
 import { Link } from 'react-router-dom';
 import EventIcon from '@material-ui/icons/Event';
@@ -9,6 +9,7 @@ import FullWidthBox from './FullWidthBox';
 import LargeRound from '../svg/LargeRound';
 import CalendarIcon from '../svg/Calendar';
 import Department from '../pages/HomePage/Department';
+import Button from './Button';
 
 const useStyles = makeStyles((theme) => ({
   backgound: {
@@ -272,10 +273,11 @@ const Event = () => {
           <Button
               to='/Event' 
               variant="contained" 
-              color="secondary" 
+              color="primary" 
               component={Link} 
+              typographyVariant="button1"
+              text="Voir Tous les évènements"
             > 
-            <Typography variant="button" className="button1">Voir Tous les évènements</Typography>
           </Button>
         </Grid>
         <Grid item sm={5} className={classes.eventIcon}>
