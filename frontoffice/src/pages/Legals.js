@@ -2,7 +2,6 @@ import React from 'react';
 import LargeContainer from '../layout/LargeContainer';
 import FullWidthBox from '../layout/FullWidthBox';
 import { Typography, makeStyles} from '@material-ui/core';
-import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     text: {
