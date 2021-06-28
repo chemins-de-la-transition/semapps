@@ -8,12 +8,12 @@ import SideMenu from './SideMenu';
 import TopBar from './TopBar';
 
 const Layout = ({ logout, theme, children, title }) => {
-  const menuItems = {
-    '/Session': 'Nos Parcours',
-    '/Place': 'Lieux',
-    '/Event': 'Evènements',
-    '/Resource': 'Ressources',
-  };
+  const menuItems = [
+    {link:'/Session',name: 'Nos Parcours'},
+    {link:'/Place',name:  'Lieux'},
+    {link:'/Event',name:  'Evènements'},
+    {link:'/Resource',name: 'Ressources'},
+  ];
   // const xs = useMediaQuery(theme.breakpoints.down('xs'));
   const [ sidebarOpen, setSidebarOpen] = useState(false);
   return (

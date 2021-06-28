@@ -8,11 +8,11 @@ const SideMenu = ({ menuItems, sidebarOpen, setSidebarOpen }) => (
     open={sidebarOpen}
     onClose={() => setSidebarOpen(false)}
   >
-    {Object.keys(menuItems).map(link => (
+    {menuItems.map(menuItem => (
       <MenuItemLink
-        key={link}
-        to={link}
-        primaryText={menuItems[link]}
+        key={menuItem.link}
+        to={menuItem.link}
+        primaryText={menuItem.name}
       />
     ))}
   </Drawer>

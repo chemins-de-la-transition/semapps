@@ -116,11 +116,11 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
               <LogoTitle title={title} justifyContent="flex-start" classes={{ menuLink: classes.menuLink}}></LogoTitle>
               <Box flexGrow={1}></Box>
               <Box display='flex' justifyContent='center' width={1}>
-                {Object.keys(menuItems).map(link => (
-                  <Box display="flex" height={48} alignItems="center" justifyContent="center" className={classes.linkBox} m={2}>
-                    <Link to={link} className={classes.menuLink}>
+                {menuItems.map(menuItem => (
+                  <Box display="flex" height={48} alignItems="center" justifyContent="center" className={classes.linkBox} m={2} key={menuItem.link}>
+                    <Link to={menuItem.link} className={classes.menuLink}>
                       <Typography variant="subtitle2" className={classes.menuText}>
-                        {menuItems[link]}
+                        {menuItem.name}
                       </Typography>
                     </Link>
                   </Box>
