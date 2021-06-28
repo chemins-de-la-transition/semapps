@@ -8,14 +8,18 @@ const useStyles = makeStyles((theme) => ({
     text: {
         '& .MuiTypography-root':{
             marginBottom: '20px',
+            lineHeight: '1_px',
         },
+    },
+    whiteBackground:{
+        backgroundColor: theme.palette.white.main,
     },
 }));
 
 const About = () => {
     const classes = useStyles();
     return (
-        <FullWidthBox>
+        <FullWidthBox className={classes.whiteBackground}>
             <LargeContainer className={classes.text}>
                 <Typography variant="h2">Qui sommes-nous ?</Typography>
                 <Typography variant="body1" component="div">
@@ -39,8 +43,8 @@ const About = () => {
                 </Typography>
                 <Typography variant="body1"  component="div"> 
                 Ainsi naquirent les Chemins de la Transition, dont l’objectif principal est de mettre en synergie et relier différents <b>lieux 
-                et acteurs s’inscrivant dans le champ des transitions écologique, énergétique, culturelle, sociale, économique et technologique.</b> 
-                Notre association permet aux divers acteurs de la transition d’être référencés sur la carte présente sur le site, de développer 
+                et acteurs s’inscrivant dans le champ des transitions écologique, énergétique, culturelle, sociale, économique et technologique.</b> Notre
+                association permet aux divers acteurs de la transition d’être référencés sur la carte présente sur le site, de développer 
                 et mettre en avant les activités qu’ils proposent (écotourisme, formation, etc...), 
                 de partager, mutualiser des ressources et des compétences .
                 </Typography>

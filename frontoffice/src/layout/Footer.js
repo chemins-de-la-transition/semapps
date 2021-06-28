@@ -54,7 +54,7 @@ const Footer = ({ title }) => {
               &nbsp;-&nbsp;
               <Link to="/RGPD" className={classes.footerLink}>Politique de gestion des données</Link>
               <br />
-              <Link to="/SemApps" className={classes.footerLink}>Plateforme collaborative propulsée par SemApps</Link>
+              <a href="https://semapps.org/" className={classes.footerLink}>Plateforme collaborative propulsée par SemApps</a>
             </Typography>
           </Grid>
           <Grid item sm={3}>

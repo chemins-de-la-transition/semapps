@@ -9,10 +9,9 @@ import TopBar from './TopBar';
 
 const Layout = ({ logout, theme, children, title }) => {
   const menuItems = [
-    {link:'/Session',name: 'Nos Parcours'},
+    {link:'/Session',name: 'Nos Voyages'},
     {link:'/Place',name:  'Lieux'},
     {link:'/Event',name:  'Evènements'},
-    {link:'/Resource',name: 'Ressources'},
   ];
   // const xs = useMediaQuery(theme.breakpoints.down('xs'));
   const [ sidebarOpen, setSidebarOpen] = useState(false);
