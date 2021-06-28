@@ -1,13 +1,14 @@
 import * as React from "react";
-import { makeStyles, Grid, Box, Typography, Button } from '@material-ui/core';
-import { ListBase, DateField } from 'react-admin';
-import { SimpleList } from '@semapps/archipelago-layout';
+import { makeStyles, Grid, Box, Typography, Button, List, ListItem, ListItemText, ListItemAvatar, Avatar, Divider } from '@material-ui/core';
+import { ListBase, DateField, useListContext, useGetOne,Loading } from 'react-admin';
 import { Link } from 'react-router-dom';
 import EventIcon from '@material-ui/icons/Event';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import LargeContainer from './LargeContainer';
 import FullWidthBox from './FullWidthBox';
 import LargeRound from '../svg/LargeRound';
 import CalendarIcon from '../svg/Calendar';
+import Department from '../pages/HomePage/Department';
 
 const useStyles = makeStyles((theme) => ({
   backgound: {
@@ -36,8 +37,218 @@ const useStyles = makeStyles((theme) => ({
   },
   eventListBase: {
     marginBottom: '40px',
-  }
+    color: theme.palette.secondary.main,
+  },
+  eventTopic:{
+    color: theme.palette.secondary.main,
+    marginBottom: '8px',
+  },
+  eventLabel:{
+    fontSize: '20px',
+    lineHeight: '28px',
+    color: theme.palette.secondary.main,
+    marginBottom: '4px',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  eventPlace: {
+    fontSize: '16px',
+    lineHeight: '20px',
+    color: theme.palette.secondary.main,
+    marginBottom: '4px',
+  },
+  eventDate: {
+    fontSize: '16px',
+    lineHeight: '20px',
+    color: theme.palette.secondary.main,
+    marginBottom: '4px',
+    ' & span':{
+      fontSize: '16px',
+      lineHeight: '20px',
+      color: theme.palette.secondary.main,
+      marginBottom: '4px',
+      textTransform: 'uppercase',
+    },
+  },
+  divider:{
+    marginTop: '2px',
+    marginBottom: '2px',
+    color: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.main,
+    height:'1px',
+  },
+  imageMaxWidth: {
+    width: '110px',
+  },
+  avataSize: {
+    width: '60%',
+    height: '60%',
+  },
+  avatarContainer: {
+    width: '110px',
+    marginRight: '8px',
+    display: 'flex',
+    justifyContent: 'center',
+    position: 'relative',
+  },
+  noDecoration: {
+    textDecoration: 'none',
+  },
 }));
+
+const GetOneResourceValue = ({id,resourceName,keyName}) => {
+  const { data, loading, error} = useGetOne(resourceName, id);
+  if (loading) { return <Loading />; }
+  if (error) { return <p>ERROR when getting {id} on '{resourceName}'</p>; }
+  return (
+    <span>{data[keyName]}</span>
+  ) ;
+};
+const GetFirstShuffledResourceValue = ({id,resourceName,resourceName2,keyName}) => {
+  let { data, loading, error} = useGetOne(resourceName, id);
+  if (loading) { return <Loading />; }
+  if (error) { return <p>ERROR</p>; }
+
+  if (!data[keyName]) {return '';}
+
+  let keys = data[keyName];
+  if (!Array.isArray(keys)) {
+    keys = [keys];
+  }
+  // shuffle keys
+  keys.sort(() => Math.random() - 0.5);
+  keys.sort(() => Math.random() - 0.5);
+  const firstKey = keys[0];
+  if (firstKey){
+    return (
+      <GetOneResourceValue id={firstKey} keyName='pair:label' resourceName={resourceName2}/>
+    ) ;
+  } else {
+    return '';
+    // return <p>Empty value for {keyName} in {resourceName} {id}</p>;
+  }
+};
+
+function sortStartDate (firstElemId,SecondElemId,order, eventsData){
+  const eventStartDate1 = eventsData[firstElemId]['pair:startDate'];
+  const eventStartDate2 = eventsData[SecondElemId]['pair:startDate'];
+  if (eventStartDate1 === eventStartDate2){
+    return 0;
+  }
+  const eventStartDateObject1 = new Date(eventStartDate1);
+  const eventStartDateObject2 = new Date(eventStartDate2);
+  const ascResponse = (order === 'ASC') ? -1: 1;
+  return (eventStartDateObject1 < eventStartDateObject2) ? ascResponse : -ascResponse;
+}
+
+const GetDepartment = ({id}) => {
+  let { data, loading, error} = useGetOne('Place', id);
+  if (loading) { return <Loading />; }
+  if (error) { return <p>ERROR</p>; }
+  return (
+    <Department postalCode={data["pair:hasPostalAddress"]["pair:addressZipCode"]}></Department>
+  );
+};
+
+const GetImage = ({id}) => {
+  const classes = useStyles();
+  let { data, loading, error} = useGetOne('Place', id);
+  if (loading) { return <Loading />; }
+  if (error) { return <p>ERROR</p>; }
+  if (data["pair:image"]) {
+    return (<img src={data["pair:image"]} className={classes.imageMaxWidth} alt=""></img>);
+  } else {
+    return (
+      <Avatar>
+        <EventIcon />
+      </Avatar>
+    );
+  }
+};
+
+const ItemsGrid = ({nb}) => {
+  const classes = useStyles();
+  let { ids , data } = useListContext();
+  const eventsData = data;
+  // filter on startData
+  let sortedIds = ids;
+  sortedIds = sortedIds.filter(elemId => {
+      return (typeof eventsData[elemId]['pair:startDate'] !== 'undefined' && eventsData[elemId]['pair:startDate'].length !== 0) ;
+    });
+  // take those wth startDate in the future
+  let futureIds = sortedIds.filter(elemId => {
+    const eventStartDate = new Date(eventsData[elemId]['pair:startDate']);
+    const today = Date.now();
+    return (eventStartDate >= today) ;
+  });
+  futureIds = futureIds.slice(0,nb).sort((firstElemId,SecondElemId) => {
+      return sortStartDate(firstElemId,SecondElemId,'DESC',eventsData);
+    });
+  if (futureIds.length < nb){
+    // take those wth startDate in the past
+    let pastIds = sortedIds.filter(elemId => {
+      const eventStartDate = new Date(eventsData[elemId]['pair:startDate']);
+      const today = Date.now();
+      return (eventStartDate <= today) ;
+    });
+    sortedIds = futureIds.concat(pastIds.sort((firstElemId,SecondElemId) => {
+      return sortStartDate(firstElemId,SecondElemId,'DESC',eventsData);
+    }));
+    sortedIds = sortedIds.slice(0,nb);
+  } else {
+    sortedIds = futureIds ;
+  }
+  let firstItem = true;
+  return (
+    <List className={classes.list}>
+    {sortedIds.map(id => {
+        const host = eventsData[id]['pair:hostedIn'];
+        let displayDivider = true;
+        if (firstItem) {
+          firstItem = false;
+          displayDivider = false;
+        }
+        return (
+          <Link to={'/event/'+encodeURIComponent(id)+'/show'} className={classes.noDecoration}>
+            {(displayDivider)
+                ? <Divider className={classes.divider}/>
+                : ''
+            }
+            <ListItem>
+              <ListItemAvatar className={classes.avatarContainer}>
+                <GetImage id={host}/>
+              </ListItemAvatar>
+              <ListItemText
+                primary={
+                  <Typography variant="h5" className={classes.eventTopic+' '+classes.noDecoration}>
+                    <GetFirstShuffledResourceValue resourceName='Place' id={host} keyName='pair:hasTopic' resourceName2='Theme' />
+                  </Typography>}
+                secondary={
+                  <>
+                    <Typography variant="h4" className={classes.eventLabel+' '+classes.noDecoration}>
+                      {eventsData[id]['pair:label']}
+                      &nbsp;
+                      <ChevronRightIcon></ChevronRightIcon>
+                    </Typography>
+                    <Typography variant="body1" component="div" className={classes.eventPlace+' '+classes.noDecoration}>
+                      <GetOneResourceValue resourceName='Place' id={host} keyName='pair:label'/>
+                      &nbsp;-&nbsp;
+                      <GetDepartment id={host} />
+                    </Typography>
+                    <Typography variant="button1" component="div" className={classes.eventDate+' '+classes.noDecoration}>
+                      <DateField record={eventsData[id]} source="pair:startDate" options={{ year: 'numeric', month: 'long', day: 'numeric' }}/>
+                    </Typography>
+                  </>
+                }>
+
+              </ListItemText>
+            </ListItem>
+          </Link>
+        );
+      })}
+    </List>
+  );
+};
 
 const Event = () => {
   const classes = useStyles();
@@ -49,24 +260,9 @@ const Event = () => {
           <ListBase
             resource='Event'
             basePath='/Event'
-            perPage={4}
-            // filter={{ 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/en-vedette' }}
-            // sort={{ field: 'pair:startDate', order: 'ASC' }}
             className={classes.eventListBase}
             >
-            <SimpleList
-              primaryText={record => record['pair:label']}
-              secondaryText={record => (
-                <>
-                  Du&nbsp;
-                  <DateField record={record} source="pair:startDate" showTime />
-                  &nbsp;au&nbsp;
-                  <DateField record={record} source="pair:endDate" showTime />
-                </>
-              )}
-              leftAvatar={() => <EventIcon />}
-              linkType="show"
-            />
+              <ItemsGrid nb={4}/>
           </ListBase>
           <Button
               to='/Event' 
