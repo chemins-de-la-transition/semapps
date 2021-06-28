@@ -10,6 +10,8 @@ import Top1Shape from './BackgoundShapes/Top1Shape';
 import Top2Shape from './BackgoundShapes/Top2Shape';
 import Bottom1Shape from './BackgoundShapes/Bottom1Shape';
 import Bottom2Shape from './BackgoundShapes/Bottom2Shape';
+import LeftShape from './BackgoundShapes/LeftShape';
+import SnakeShape from './BackgoundShapes/SnakeShape';
 
 const useStyles = makeStyles((theme) => ({
   mainBox: {
@@ -37,6 +39,22 @@ const useStyles = makeStyles((theme) => ({
     '& path[fill]': {
       fill: theme.palette.theme_4.main,
     },
+  },
+  leftShape: {
+    top: '30%',
+    left: '-5px',
+    position: 'absolute',
+    '& path[stroke]': {
+      stroke: theme.palette.theme_3.main,
+    },
+  },
+  snakeShape: {
+    top: '30%',
+    left: '19%',
+    position: 'absolute',
+    // '& path[stroke]': {
+    //   stroke: theme.palette.theme_3.main,
+    // },
   },
   leftBottom1: {
     bottom: -187,
@@ -126,6 +144,8 @@ const Goals = () => {
       {/* shapes in the background */}
       <Top1Shape className={classes.rightTop1}/>
       <Top2Shape className={classes.rightTop2}/>
+      <LeftShape className={classes.leftShape}/>
+      <SnakeShape className={classes.snakeShape}/>
       <Bottom1Shape className={classes.leftBottom1}/>
       <Bottom2Shape className={classes.leftBottom2}/>
       <LargeContainer className={classes.frontBox}>
