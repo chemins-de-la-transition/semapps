@@ -89,11 +89,16 @@ const useStyles = makeStyles((theme) =>({
     height: 0,
     paddingTop: '56.25%', // 16:9
   },
+  smallHeigth: {
+    maxHeight: '12px',
+    overflow: 'clip',
+  },
 }));
 
 const GetOneThemeLabel = ({id}) => {
+  const classes = useStyles();
   const { data, loading, error} = useGetOne('Theme', id);
-  if (loading) { return <Loading />; }
+  if (loading) { return <Loading className={classes.smallHeigth}/>; }
   if (error) { return <p>ERROR</p>; }
   return (
     <span>{data["pair:label"]}</span>

@@ -118,11 +118,16 @@ const useStyles = makeStyles((theme) => ({
   noDecoration: {
     textDecoration: 'none',
   },
+  smallHeigth: {
+    maxHeight: '12px',
+    overflow: 'clip',
+  },
 }));
 
 const GetOneResourceValue = ({id,resourceName,keyName}) => {
+  const classes = useStyles();
   const { data, loading, error} = useGetOne(resourceName, id);
-  if (loading) { return <Loading />; }
+  if (loading) { return <Loading className={classes.smallHeigth}/>; }
   if (error) { return <p>ERROR when getting {id} on '{resourceName}'</p>; }
   if (data){
     return (
