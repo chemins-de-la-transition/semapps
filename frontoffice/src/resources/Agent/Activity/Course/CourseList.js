@@ -2,10 +2,10 @@ import React from 'react';
 import { DateField } from 'react-admin';
 import { List, SimpleList } from '@semapps/archipelago-layout';
 import DateRangeIcon from '@material-ui/icons/DateRange';
-import SessionFilterSidebar from "./SessionFilterSidebar";
+import CourseFilterSidebar from "./CourseFilterSidebar";
 
-const SessionList = props => (
-  <List aside={<SessionFilterSidebar />} {...props}>
+const CourseList = props => (
+  <List aside={<CourseFilterSidebar />} {...props}>
     <SimpleList
       primaryText={record => record['pair:label']}
       secondaryText={record => (
@@ -22,4 +22,4 @@ const SessionList = props => (
   </List>
 );
 
-export default SessionList;
+export default CourseList;

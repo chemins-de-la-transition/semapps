@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChipField, SingleFieldList, TextField } from 'react-admin';
 import { Grid } from "@material-ui/core";
-import { MainList, SideList, Hero, Show, GridList, AvatarField } from '@semapps/archipelago-layout';
+import {MainList, SideList, Hero, GridList, AvatarField, SeparatedListField, Show} from '@semapps/archipelago-layout';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MapField } from '@semapps/geo-components';
 import PersonTitle from './PersonTitle';
@@ -15,6 +15,11 @@ const PersonShow = props => (
           <TextField source="pair:firstName" />
           <TextField source="pair:lastName" />
           <TextField source="pair:comment" />
+          <ReferenceArrayField source="pair:hasType" reference="Type">
+            <SeparatedListField linkType={false}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
         </Hero>
         <MainList>
           <MapField

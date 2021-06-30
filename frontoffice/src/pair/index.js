@@ -68,14 +68,20 @@ export const TypesInput = ({ label, source, ...rest }) => (
   </ReferenceArrayInput>
 );
 
+export const TypeInput = ({ label, source, ...rest }) => (
+  <ReferenceArrayInput label={label} reference="Type" source={source} {...rest}>
+    <SelectInput optionText="pair:label" />
+  </ReferenceArrayInput>
+);
+
 export const PlaceInput = ({ label, source, ...rest }) => (
   <ReferenceInput label={label} reference="Place" source={source} {...rest}>
     <SelectInput optionText="pair:label" />
   </ReferenceInput>
 );
 
-export const SessionsInput = ({ label, source }) => (
-  <ReferenceArrayInput label={label} reference="Session" source={source}>
+export const CoursesInput = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="Course" source={source}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />
   </ReferenceArrayInput>
 );

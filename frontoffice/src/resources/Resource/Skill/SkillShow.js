@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChipField, SingleFieldList } from "react-admin";
-import { Show, AvatarField, GridList, SideList } from '@semapps/archipelago-layout';
+import { AvatarField, GridList, SideList, Show  } from '@semapps/archipelago-layout';
 import { Grid, Typography } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import SkillTitle from './SkillTitle';
@@ -13,7 +13,7 @@ const SkillShow = props => (
       </Grid>
       <Grid item xs={12} sm={3}>
         <SideList>
-          <ReferenceArrayField reference="Session" source="pair:producedBy">
+          <ReferenceArrayField reference="Course" source="pair:producedBy">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>

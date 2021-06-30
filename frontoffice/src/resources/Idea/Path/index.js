@@ -34,7 +34,7 @@ export default {
         'pair:hasType': 'Type',
         'pair:hasTopic': 'A pour thème',
         'cdlt:proposedBy': 'Proposé par',
-        'cdlt:hasSession': 'Parcours programmés',
+        'cdlt:hasCourse': 'Parcours programmés',
         'cdlt:forWhom': 'Destiné à',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:learningObjectives': 'Objectifs d\'apprentissage',
