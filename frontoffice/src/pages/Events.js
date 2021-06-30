@@ -122,6 +122,9 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '12px',
     overflow: 'clip',
   },
+  listItem: {
+    paddingLeft: '0',
+  },
 }));
 
 const GetOneResourceValue = ({id,resourceName,keyName}) => {
@@ -247,7 +250,7 @@ const ItemsGrid = ({nb}) => {
                 ? <Divider className={classes.divider}/>
                 : ''
             }
-            <ListItem>
+            <ListItem className={classes.listItem}>
                 <ListItemAvatar className={classes.avatarContainer}>
                   <GetImage id={host}/>
                 </ListItemAvatar>

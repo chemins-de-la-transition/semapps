@@ -78,6 +78,9 @@ const useStyles = makeStyles((theme) => ({
   },
   goalsFirstImageContainer :{
     marginTop: '165px',
+    [theme.breakpoints.down('md')]: {
+      marginTop: '40px',
+    },
     [theme.breakpoints.down(600)]: {
       marginTop: '20px',
       height: '80%',
@@ -85,6 +88,9 @@ const useStyles = makeStyles((theme) => ({
   },
   goalsSecondText: {
     marginTop: '200px',
+    [theme.breakpoints.down('md')]: {
+      marginTop: '40px',
+    },
     [theme.breakpoints.down(600)]: {
       marginTop: '20px',
     },
@@ -150,7 +156,7 @@ const Goals = () => {
       <Bottom2Shape className={classes.leftBottom2}/>
       <LargeContainer className={classes.frontBox}>
         <Grid container spacing={3}>
-          <Grid item sm={4} className={classes.mt65}>
+          <Grid item sm={8} md={4} className={classes.mt65}>
             <Typography variant="h2">
               Notre objectif
             </Typography>
@@ -165,13 +171,12 @@ const Goals = () => {
             écologiques s’enracine dans notre réalité.
             </Typography>
           </Grid>
-          <Grid item sm={1} className={classes.noPadding}>
-          </Grid>
+          <Grid item sm={4} md={1} className={classes.noPadding}></Grid>
           <Grid item sm={4} className={classes.goalsFirstImageContainer}>
             <img src={process.env.PUBLIC_URL + '/pexels-gary-barnes-6231809.jpg'} width="100%" className={classes.goalsFirstImage} alt="illustration de deux agricultrices qui rient"/>
             <span dangerouslySetInnerHTML={{ __html: `<!-- Image : (Free to Use and no attribution required) Gary Barnes @pexels https://www.pexels.com/photo/happy-multiethnic-female-friends-sitting-on-green-field-in-countryside-6231809/-->` }}/>
           </Grid>
-          <Grid item sm={3} className={classes.goalsSecondText}>
+          <Grid item sm={6} md={3} className={classes.goalsSecondText}>
             <TwoHandsIcon className={classes.mb24 + ' ' + classes.iconWhite} />
             <Typography variant="h5" component="div" className={classes.mb24}>
               Mailler les territoires & Valoriser les initiatives existantes
@@ -189,7 +194,7 @@ const Goals = () => {
             <img src={process.env.PUBLIC_URL + '/travel_sport_bike_cycling_bicycle_touring_pier_lake_water-685024.jpg'} className={classes.goalsSecondImage} alt="cycliste en randonnée"/>
             <span dangerouslySetInnerHTML={{ __html: `<!-- Image : Creative Commons 0 https://pxhere.com/fr/photo/685024/-->` }}/>
           </Grid>
-          <Grid item sm={3} className={classes.goalsThirdText}>
+          <Grid item sm={6} md={4} lg={3} className={classes.goalsThirdText}>
             <WalkerIcon className={classes.mb24 + ' ' + classes.iconWhite}/>
             <Typography variant="h5" component="div" className={classes.mb24}>
               Voyager en apprenant , se&nbsp;former aux&nbsp;enjeux et métiers de la&nbsp;transition
@@ -203,9 +208,9 @@ const Goals = () => {
           </Grid>
         </Grid>
         <Grid container spacing={3}>
-          <Grid item sm={5} className={classes.alignSelfFlexEnd +' '+ classes.noPadding}>
+          <Grid item sm={1} md={5} className={classes.alignSelfFlexEnd +' '+ classes.noPadding}>
           </Grid>
-          <Grid item sm={3} className={classes.goalsFourthText}>
+          <Grid item sm={6} md={3} className={classes.goalsFourthText}>
             <StarIcon className={classes.mb24 + ' ' + classes.iconWhite}/>
             <Typography variant="h5" component="div" className={classes.mb24}>
               Le voyageur comme pollinisateur de nouvelles pratiques
