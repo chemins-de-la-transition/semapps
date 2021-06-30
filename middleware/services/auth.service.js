@@ -18,7 +18,8 @@ module.exports = {
       email: authData.email,
       name: authData.given_name,
       familyName: authData.family_name
-    })
+    }),
+    registrationAllowed: false
   },
   events: {
     async 'auth.registered'(ctx) {
