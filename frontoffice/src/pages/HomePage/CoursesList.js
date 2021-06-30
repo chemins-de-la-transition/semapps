@@ -4,8 +4,8 @@ import FeaturedList from './FeaturedList/FeaturedList';
 const CoursesList = () => {
   return (
     <FeaturedList
-      resource="Session"
-      basePath="/Session"
+      resource="Course"
+      basePath="/Course"
       title="Nes parcours"
       subtitle="Thématiques & géographiques"
       headComment="Tu rêves de partir sur les routes pour découvrir des savoirs faire ou même apprendre un métier sur le terrain? Découvre nos parcours."

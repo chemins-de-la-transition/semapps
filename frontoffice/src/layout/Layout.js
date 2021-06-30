@@ -9,7 +9,7 @@ import TopBar from './TopBar';
 
 const Layout = ({ logout, theme, children, title }) => {
   const menuItems = [
-    {link:'/Session',name: 'Nos Parcours'},
+    {link:'/Course',name: 'Nos Parcours'},
     {link:'/Place',name:  'Lieux'},
     {link:'/Event',name:  'Evènements'},
   ];
