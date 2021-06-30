@@ -92,6 +92,7 @@ const useStyles = makeStyles((theme) =>({
   smallHeigth: {
     maxHeight: '12px',
     overflow: 'clip',
+    maxWidth: '90%',
   },
 }));
 
