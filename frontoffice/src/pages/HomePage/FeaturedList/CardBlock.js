@@ -1,15 +1,10 @@
 import React from 'react';
 import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, Box, CardActionArea} from '@material-ui/core';
-import { useListContext,useGetOne , Loading} from 'react-admin';
+import { useGetOne , Loading} from 'react-admin';
 import { Link } from 'react-router-dom';
-import PlaceOutlinedIcon from '@material-ui/icons/PlaceOutlined';
-import Department from '../../Department';
+import SubHeader from './SubHeader';
 
 const useStyles = makeStyles((theme) =>({ 
-  subHeader: {
-    display: 'flex',
-    alignItems: 'center',
-  },
   cardTheme: {
     position: 'relative',
     padding: '0',
@@ -28,7 +23,9 @@ const useStyles = makeStyles((theme) =>({
       textAlign: 'center',
       position: 'absolute',
       top: '-14px',
-      width: '90%',
+      // width: '90%',
+      paddingLeft: '10px',
+      paddingRight: '10px',
       overflow: 'clip',
       display: 'flex',
       justifyContent: 'center',
@@ -42,6 +39,12 @@ const useStyles = makeStyles((theme) =>({
       textAlign: 'center',
       textDecoration: 'none',
     }
+  },
+  headerContainer: {
+    paddingTop: '20px',
+    paddingLeft: '20px',
+    paddingRight: '20px',
+    paddingBottom: '0',
   },
   noDecoration: {
     textDecoration: 'none',
@@ -67,10 +70,10 @@ const useStyles = makeStyles((theme) =>({
     marginTop: '0' ,
     marginBottom: '0' ,
     '&:first-child':{
-      marginLeft:'0',
+      marginLeft:'1px',
     },
     '&:last-child':{
-      marginRight:'0',
+      marginRight:'1px',
     },
     [theme.breakpoints.down('xs')]: {
       flexBasis: '100%',
@@ -83,20 +86,6 @@ const useStyles = makeStyles((theme) =>({
     paddingTop: '56.25%', // 16:9
   },
 }));
-
-const SubHeader = ({data,id}) => {
-  const classes = useStyles();
-  return (
-    <Box className={classes.subHeader}>
-      <PlaceOutlinedIcon color="secondary"></PlaceOutlinedIcon>
-      {
-        (data[id]["pair:hasPostalAddress"])
-        ? <Typography variant="body2"><Department postalCode={data[id]["pair:hasPostalAddress"]["pair:addressZipCode"]}></Department></Typography>
-        :''
-      }
-    </Box>
-  );
-};
 
 const GetOneThemeLabel = ({id}) => {
   const { data, loading, error} = useGetOne('Theme', id);
@@ -165,7 +154,7 @@ const CardBlock = ({id,data,basePath}) => {
       }
       <CardHeader
           to={basePath+'/'+encodeURIComponent(id)+'/show'}
-          className={classes.noDecoration}
+          className={classes.noDecoration+' '+classes.headerContainer}
           component={Link}
           title={<Typography className={classes.cardTitle} variant="h4" color="primary">{data[id]["pair:label"]}</Typography>}
           subheader={<SubHeader data={data} id={id}></SubHeader>}

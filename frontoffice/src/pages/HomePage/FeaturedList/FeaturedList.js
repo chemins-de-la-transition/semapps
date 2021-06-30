@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles, Typography, Box} from '@material-ui/core';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import FullWidthBox from '../../../layout/FullWidthBox';
 import LargeContainer from '../../../layout/LargeContainer';
+import ChevronRightIcon from '../../../svg/ChevronRight';
 import { ListBase} from 'react-admin';
 import { Link } from 'react-router-dom';
 import ItemsGrid from './ItemsGrid';
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) =>({
   },
   container: {
     marginTop: '60px',
-    marginBottom: '60px',
+    marginBottom: '0',
   },
   header: {
     display: 'flex',
@@ -35,6 +35,12 @@ const useStyles = makeStyles((theme) =>({
     marginTop: '10px',
     '& .MuiTypography-root': {
       color: theme.palette.secondary.main,
+    },
+    '& svg [fill]':{
+      fill: theme.palette.secondary.main,
+    },
+    '& svg':{
+      height: '12px',
     },
   },
   listBase: {

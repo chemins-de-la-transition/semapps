@@ -7,7 +7,9 @@ const useStyles = makeStyles((theme) =>({
   cardContainer: {
     margin: '0' ,
     paddingTop: '32px',
+    marginBottom: '60px',
     display: 'flex',
+    position:'relative',
   },
 }));
 

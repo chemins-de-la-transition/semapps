@@ -11,8 +11,10 @@ const useStyles = makeStyles(theme => ({
         paddingLeft: 0,
         paddingRight: 0,
         [theme.breakpoints.down('xs')]:{
-            marginLeft: containerMarginAfterTransition,
-            marginRight: containerMarginAfterTransition,
+            marginLeft: 0,
+            marginRight: 0,
+            paddingLeft: containerMarginAfterTransition,
+            paddingRight: containerMarginAfterTransition,
         },
     },
 }));
