@@ -1,18 +1,18 @@
 import React from 'react';
 import FeaturedList from './FeaturedList/FeaturedList';
 
-const SessionsList = () => {
+const CoursesList = () => {
   return (
     <FeaturedList
       resource="Session"
       basePath="/Session"
-      title="Nos voyages"
-      subtitle="à parcourir"
+      title="Nes parcours"
+      subtitle="Thématiques & géographiques"
       headComment="Tu rêves de partir sur les routes pour découvrir des savoirs faire ou même apprendre un métier sur le terrain? Découvre nos parcours."
-      linkText="Voir tous les voyages"
+      linkText="Voir tous les parcours"
     >
     </FeaturedList>
   );
 };
 
-export default SessionsList;
+export default CoursesList;

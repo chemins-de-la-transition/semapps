@@ -3,7 +3,7 @@ import Events from '../Events.js';
 import Welcome from './Welcome';
 import PlacesList from './PlacesList';
 import Goals from './Goals/Goals';
-import SessionsList from './SessionsList';
+import CoursesList from './CoursesList';
 import SessionsTypes from './SessionsTypes';
 
 const HomePage = () => (
@@ -11,7 +11,7 @@ const HomePage = () => (
     <Welcome />
     <PlacesList />
     <Goals />
-    <SessionsList />
+    <CoursesList />
     <SessionsTypes />
     <Events />
   </>
