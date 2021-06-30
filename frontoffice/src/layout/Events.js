@@ -8,7 +8,7 @@ import LargeContainer from './LargeContainer';
 import FullWidthBox from './FullWidthBox';
 import LargeRound from '../svg/LargeRound';
 import CalendarIcon from '../svg/Calendar';
-import Department from '../pages/HomePage/Department';
+import Department from '../pages/Department';
 import Button from './Button';
 
 const useStyles = makeStyles((theme) => ({

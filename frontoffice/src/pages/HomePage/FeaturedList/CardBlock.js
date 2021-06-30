@@ -1,27 +1,11 @@
 import React from 'react';
 import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, Box, CardActionArea} from '@material-ui/core';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import FullWidthBox from '../../layout/FullWidthBox';
-import LargeContainer from '../../layout/LargeContainer';
-import { ListBase, useListContext,useGetOne , Loading} from 'react-admin';
+import { useListContext,useGetOne , Loading} from 'react-admin';
 import { Link } from 'react-router-dom';
 import PlaceOutlinedIcon from '@material-ui/icons/PlaceOutlined';
-import Department from './Department';
+import Department from '../../Department';
 
 const useStyles = makeStyles((theme) =>({ 
-  background: {
-    backgroundColor: theme.palette.secondary.contrastText,
-    color: theme.palette.secondary.main,
-  },
-  container: {
-    marginTop: '60px',
-  },
-  header: {
-    display: 'flex',
-    [theme.breakpoints.down('xs')]: {
-      flexWrap: 'wrap',
-    },
-  },
   subHeader: {
     display: 'flex',
     alignItems: 'center',
@@ -59,21 +43,6 @@ const useStyles = makeStyles((theme) =>({
       textDecoration: 'none',
     }
   },
-  link: {
-    alignSelf: 'flex-end',
-    flexShrink: '0',
-    textDecoration: 'none',
-    display: 'flex',
-    flewWrap: 'nowrap',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    flexGrow: '10',
-    marginLeft: '20px',
-    marginTop: '10px',
-    '& .MuiTypography-root': {
-      color: theme.palette.secondary.main,
-    },
-  },
   noDecoration: {
     textDecoration: 'none',
   },
@@ -91,27 +60,27 @@ const useStyles = makeStyles((theme) =>({
     marginTop: '8px',
     marginBottom: '8px',
   },
-  cardContainer: {
-    margin: '1em' ,
-    display: 'flex',
-  },
   cardClass: {
     flexBasis: '25%',
+    marginLeft:'12px',
+    marginRight:'12px',
+    marginTop: '0' ,
+    marginBottom: '0' ,
+    '&:first-child':{
+      marginLeft:'0',
+    },
+    '&:last-child':{
+      marginRight:'0',
+    },
     [theme.breakpoints.down('xs')]: {
-      flexBasis: '45%',
+      flexBasis: '100%',
       flexShrink: '0',
     },
-    margin: '0.5em',
     display: 'inline-block',
-    verticalAlign: 'top'
   },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
-  },
-  listBase: {
-    overflowY: 'hidden',
-    overflowX: 'scroll',
   },
 }));
 
@@ -211,68 +180,4 @@ const CardBlock = ({id,data,basePath}) => {
   );
 };
 
-const ItemsGrid = ({nb}) => {
-  const classes = useStyles();
-  const { ids, data , basePath } = useListContext();
-  // shuffle ids
-  let shuffledIds = ids;
-  shuffledIds.sort(() => Math.random() - 0.5);
-  shuffledIds.sort(() => Math.random() - 0.5);
-  // keep only nb
-  shuffledIds = shuffledIds.slice(0,nb);
-  return (
-    <div className={classes.cardContainer}>
-    {shuffledIds.map(id =>
-        <CardBlock
-          id={id}
-          key={id}
-          data={data}
-          basePath={basePath}
-          ></CardBlock>
-    )}
-    </div>
-  );
-};
-
-const BaseList = ({resource,basePath,title,subtitle,headComment,linkText}) => {
-  const classes = useStyles();
-  return (
-    <FullWidthBox className={classes.background}>
-      <LargeContainer className={classes.container}>
-        <Box width={1} className={classes.header}>
-          <Box>
-            <Typography variant="h2">
-              {title}
-            </Typography>
-            <Typography variant="h3" component="div">
-              {subtitle}
-            </Typography>
-            <Typography variant="body2" component="div">
-             {headComment}
-            </Typography>
-          </Box> 
-          <Link
-                to={basePath}
-                className={classes.link}
-              > 
-              <Typography variant="button" className='button2'>{linkText}</Typography>
-              <ChevronRightIcon></ChevronRightIcon>
-            </Link>
-        </Box>
-        <Box className={classes.listBase}>
-          <ListBase
-            resource={resource}
-            basePath={basePath}
-            // perPage={4}
-            // filter={{ 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/en-vedette' }}
-            // sort={{ field: 'published', order: 'DESC' }}
-            >
-              <ItemsGrid nb={4}/>
-          </ListBase>
-        </Box>
-      </LargeContainer>
-    </FullWidthBox>
-  );
-};
-
-export default BaseList;
+export default CardBlock;

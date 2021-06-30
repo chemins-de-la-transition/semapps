@@ -1,9 +1,9 @@
 import React from 'react';
-import BaseList from './BaseList';
+import FeaturedList from './FeaturedList/FeaturedList';
 
 const SessionsList = () => {
   return (
-    <BaseList
+    <FeaturedList
       resource="Session"
       basePath="/Session"
       title="Nos voyages"
@@ -11,7 +11,7 @@ const SessionsList = () => {
       headComment="Tu rêves de partir sur les routes pour découvrir des savoirs faire ou même apprendre un métier sur le terrain? Découvre nos parcours."
       linkText="Voir tous les voyages"
     >
-    </BaseList>
+    </FeaturedList>
   );
 };
 

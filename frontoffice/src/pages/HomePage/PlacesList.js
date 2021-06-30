@@ -1,9 +1,9 @@
 import React from 'react';
-import BaseList from './BaseList';
+import FeaturedList from './FeaturedList/FeaturedList';
 
 const PlacesList = () => {
   return (
-    <BaseList
+    <FeaturedList
       resource="Place"
       basePath="/Place"
       title="Les lieux"
@@ -11,7 +11,7 @@ const PlacesList = () => {
       headComment="Partez à la découvertes de lieux inspirants et allez à la rencontre de personnes qui ont choisis d’être acteurs de la transition."
       linkText="Voir tous les lieux"
     >
-    </BaseList>
+    </FeaturedList>
   );
 };
 
