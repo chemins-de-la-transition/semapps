@@ -4,12 +4,12 @@ import { ListBase, DateField, useListContext, useGetOne,Loading } from 'react-ad
 import { Link } from 'react-router-dom';
 import EventIcon from '@material-ui/icons/Event';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import LargeContainer from './LargeContainer';
-import FullWidthBox from './FullWidthBox';
+import LargeContainer from '../layout/LargeContainer';
+import FullWidthBox from '../layout/FullWidthBox';
 import LargeRound from '../svg/LargeRound';
 import CalendarIcon from '../svg/Calendar';
-import Department from '../pages/Department';
-import Button from './Button';
+import Department from './Department';
+import Button from '../layout/Button';
 
 const useStyles = makeStyles((theme) => ({
   backgound: {
@@ -36,6 +36,28 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     width: '70%',
     paddingLeft: '10%',
+    '& .MuiTypography-root':{
+      [theme.breakpoints.down('xs')]: {
+        fontSize: '48px',
+        lineHeight: '70px',
+      },
+      [theme.breakpoints.down(1000)]: {
+        fontSize: '40px',
+        lineHeight: '52px',
+      },
+      [theme.breakpoints.down(800)]: {
+        fontSize: '30px',
+        lineHeight: '40px',
+      },
+      [theme.breakpoints.down(666)]: {
+        fontSize: '20px',
+        lineHeight: '30px',
+      },
+    },
+    '& svg':{
+      width: '50%',
+      height: '50%',
+    },
   },
   eventListBase: {
     marginBottom: '40px',

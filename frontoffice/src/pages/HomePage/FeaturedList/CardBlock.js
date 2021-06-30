@@ -75,6 +75,10 @@ const useStyles = makeStyles((theme) =>({
     '&:last-child':{
       marginRight:'1px',
     },
+    [theme.breakpoints.down('sm')]: {
+      flexBasis: '33%',
+      flexShrink: '0',
+    },
     [theme.breakpoints.down('xs')]: {
       flexBasis: '100%',
       flexShrink: '0',

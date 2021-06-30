@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.contrastText,
     overflow: 'hidden',
     position: 'relative',
-    paddingBottom: '40px',
+    paddingBottom: '70px',
   },
   frontBox: {
     zIndex: '0',

@@ -1,5 +1,5 @@
 import * as React from "react";
-import Events from '../../layout/Events.js';
+import Events from '../Events.js';
 import Welcome from './Welcome';
 import PlacesList from './PlacesList';
 import Goals from './Goals/Goals';
