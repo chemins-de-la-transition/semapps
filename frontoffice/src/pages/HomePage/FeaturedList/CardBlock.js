@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) =>({
     marginRight: '16px',
     background: theme.palette.secondary.main,
     height: '28px',
-    display: 'block',
     borderRadius: '20px',
     paddingLeft: '10px',
     paddingRight: '10px',
