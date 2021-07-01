@@ -1,44 +1,58 @@
 import React from 'react';
-import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, Box, CardActionArea} from '@material-ui/core';
-import { useGetOne , Loading} from 'react-admin';
+import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, CardActionArea} from '@material-ui/core';
+import {  ReferenceField,ReferenceArrayField, TextField} from 'react-admin';
 import { Link } from 'react-router-dom';
 import SubHeader from './SubHeader';
+import ShuffledSingleFieldList from './ShuffledSingleFieldList';
 
 const useStyles = makeStyles((theme) =>({ 
-  cardTheme: {
+  cardTopics:{
     position: 'relative',
     padding: '0',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    '& .block':{
-      marginLeft: '16px',
-      marginRight: '16px',
-      background: theme.palette.secondary.main,
-      color: theme.palette.secondary.contrastText,
-      height: '28px',
-      borderRadius: '20px',
-      fontSize: '12px',
-      lineHeight: '12px',
-      textAlign: 'center',
-      position: 'absolute',
-      top: '-14px',
-      // width: '90%',
-      paddingLeft: '10px',
-      paddingRight: '10px',
-      overflow: 'clip',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    '& .MuiTypography-root':{
-      background: theme.palette.secondary.main,
+  },
+  blockTopics:{
+    position: 'absolute',
+    top: '-14px',
+  },
+  topics:{
+    marginLeft: '16px',
+    marginRight: '16px',
+    background: theme.palette.secondary.main,
+    height: '28px',
+    display: 'block',
+    borderRadius: '20px',
+    paddingLeft: '10px',
+    paddingRight: '10px',
+    overflow: 'clip',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  severalTopics:{
+    marginTop: '0',
+    marginBottom: '0',
+    flexWrap: 'none',
+    flexShrink: '0',
+    '& a:not(:first-child)::before':{
+      content: "'/'",
+      marginLeft: '2px',
+      marginRight: '2px',
       color: theme.palette.secondary.contrastText,
       fontSize: '12px',
       lineHeight: '12px',
       textAlign: 'center',
       textDecoration: 'none',
-    }
+    },
+  },
+  textTopics: {
+    color: theme.palette.secondary.contrastText,
+    fontSize: '12px',
+    lineHeight: '12px',
+    textAlign: 'center',
+    textDecoration: 'none',
   },
   headerContainer: {
     paddingTop: '20px',
@@ -89,34 +103,10 @@ const useStyles = makeStyles((theme) =>({
     height: 0,
     paddingTop: '56.25%', // 16:9
   },
-  smallHeigth: {
-    maxHeight: '12px',
-    overflow: 'clip',
-    maxWidth: '90%',
-  },
 }));
-
-const GetOneThemeLabel = ({id}) => {
-  const classes = useStyles();
-  const { data, loading, error} = useGetOne('Theme', id);
-  if (loading) { return <Loading className={classes.smallHeigth}/>; }
-  if (error) { return <p>ERROR</p>; }
-  return (
-    <span>{data["pair:label"]}</span>
-  ) ;
-};
 
 const CardBlock = ({id,data,basePath}) => {
   const classes = useStyles();
-  let topics = data[id]["pair:hasTopic"];
-  if (!Array.isArray(topics)) {
-    topics = [topics];
-  }
-  // shuffle topics
-  topics.sort(() => Math.random() - 0.5);
-  topics.sort(() => Math.random() - 0.5);
-  const firstTopic = topics[0];
-  const secondTopic = (topics.length > 1) ? topics[1] : null;
   return (
     <Card key={id} className={classes.cardClass}>
       <CardActionArea>
@@ -130,37 +120,29 @@ const CardBlock = ({id,data,basePath}) => {
           />
       </CardActionArea>
       {
-        (firstTopic) 
-        ? (
-            (secondTopic)
-            ? (
-              <CardContent
-                className={classes.cardTheme + ' '+classes.noDecoration}
-                >
-                <Box className={classes.noDecoration+' block'}>
-                  <Typography variant="body2" 
-                  component={Link}
-                  to={'/theme/'+encodeURIComponent(firstTopic)+'/show'}>
-                    <GetOneThemeLabel id={firstTopic}></GetOneThemeLabel>
-                  </Typography>
-                  <Typography variant="body2" 
-                  component={Link}
-                  to={'/theme/'+encodeURIComponent(secondTopic)+'/show'}>
-                    /<GetOneThemeLabel id={secondTopic}></GetOneThemeLabel>
-                  </Typography>
-                </Box>
-              </CardContent>
-            )
+        (data[id]["pair:hasTopic"]) ?
+        <CardContent
+          className={classes.cardTopics + ' '+classes.noDecoration}
+          >
+          {
+            (!Array.isArray(data[id]["pair:hasTopic"]))
+            ?
+            <ReferenceField source="pair:hasTopic" reference="Theme" record={data[id]} className={classes.blockTopics}>
+                <TextField source="pair:label" className={classes.topics+' '+classes.textTopics}/>
+            </ReferenceField>
             :
-            <CardContent
-              className={classes.cardTheme + ' '+classes.noDecoration}
-              component={Link}
-              to={'/theme/'+encodeURIComponent(firstTopic)+'/show'}
-              >
-              <Typography className="block" variant="body2"><GetOneThemeLabel id={firstTopic}></GetOneThemeLabel></Typography>
-            </CardContent>
-          )
-        : ''
+            <ReferenceArrayField
+              source="pair:hasTopic"
+              reference="Theme"
+              record={data[id]}
+              className={classes.topics+' '+classes.severalTopics+' '+classes.blockTopics}>
+                <ShuffledSingleFieldList nb={2}>
+                    <TextField source="pair:label" className={classes.textTopics}/>
+                </ShuffledSingleFieldList>
+            </ReferenceArrayField>
+          }
+        </CardContent>
+        :''
       }
       <CardHeader
           to={basePath+'/'+encodeURIComponent(id)+'/show'}

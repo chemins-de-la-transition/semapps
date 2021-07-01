@@ -22,7 +22,9 @@ const ItemsGrid = ({nb}) => {
   shuffledIds.sort(() => Math.random() - 0.5);
   shuffledIds.sort(() => Math.random() - 0.5);
   // keep only nb
-  shuffledIds = shuffledIds.slice(0,nb);
+  if (nb && nb > 0){
+    shuffledIds.splice(nb);
+  }
   return (
     <div className={classes.cardContainer}>
     {shuffledIds.map(id =>

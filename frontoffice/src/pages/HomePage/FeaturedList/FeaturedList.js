@@ -45,8 +45,17 @@ const useStyles = makeStyles((theme) =>({
   },
   listBase: {
     overflowY: 'hidden',
-    overflowX: 'scroll',
     margin: '0',
+    [theme.breakpoints.down('sm')]: {
+      flexBasis: '33%',
+      overflowX: 'scroll',
+      flexShrink: '0',
+    },
+    [theme.breakpoints.down('xs')]: {
+      flexBasis: '100%',
+      overflowX: 'scroll',
+      flexShrink: '0',
+    },
   },
 }));
 
