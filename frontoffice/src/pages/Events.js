@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
+    width:'100%',
     color: theme.palette.white.main,
     '& svg [fill]':{
       fill: theme.palette.white.main,
