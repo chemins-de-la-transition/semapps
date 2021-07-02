@@ -110,7 +110,7 @@ const CardBlock = ({id,data,basePath,CardSubHeaderComponent}) => {
       <CardActionArea>
         <CardMedia
             className={classes.media+' '+classes.noDecoration}
-            image={data[id]["pair:image"] ?? process.env.PUBLIC_URL + '/pexels-celine-chamiotponcet-2889792.jpg'}
+            image={data[id]["pair:isDepictedBy"] ?? process.env.PUBLIC_URL + '/pexels-celine-chamiotponcet-2889792.jpg'}
             // Image : (Free to Use and no attribution required) Céline Chamiot-Poncet @pexels https://www.pexels.com/fr-fr/photo/maison-en-bois-2889792/
             title={data[id]["pair:label"]}
             to={basePath+'/'+encodeURIComponent(id)+'/show'}

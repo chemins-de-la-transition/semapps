@@ -90,8 +90,8 @@ const useStyles = makeStyles((theme) => ({
   const ReferenceImageField = ({props}) =>{
     const classes = useStyles();
     const record = useRecordContext(props);
-    return (record['pair:image'])
-        ? <ImageField source="pair:image" className={classes.imageMaxWidth} {...props}/>
+    return (record['pair:isDepictedBy'])
+        ? <ImageField source="pair:isDepictedBy" className={classes.imageMaxWidth} {...props}/>
         : <Avatar><EventIcon /></Avatar>
         ;
   };
@@ -108,9 +108,9 @@ const ItemsGrid = ({nb}) => {
               <ListItem className={classes.listItem} button={true} component={Link} to={'/event/'+encodeURIComponent(id)+'/show'} key={id}>
                   <ListItemAvatar className={classes.avatarContainer}>
                     {
-                      (eventsData[id]["pair:image"])
+                      (eventsData[id]["pair:isDepictedBy"])
                       ?
-                        <ImageField source="pair:image" record={eventsData[id]}/>
+                        <ImageField source="pair:isDepictedBy" record={eventsData[id]}/>
                       : (
                         (eventsData[id]['pair:hostedIn'])
                         ?<ReferenceField source="pair:hostedIn" reference="Place" record={eventsData[id]} >
