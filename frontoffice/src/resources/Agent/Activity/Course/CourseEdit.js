@@ -1,18 +1,22 @@
 import React from 'react';
-import { FormTab, TabbedForm, TextInput } from 'react-admin';
+import { FormTab, ImageInput, TabbedForm, TextInput } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
-import { Edit } from '@semapps/archipelago-layout';
-import { ActorsInput, EventsInput, ThemesInput, StatusInput, TypesInput, SkillsInput, PathInput } from '../../../../pair';
+import { EditWithPermissions } from "@semapps/auth-provider";
+import { ImageField } from "@semapps/semantic-data-provider";
+import { PersonsInput, EventsInput, ThemesInput, StatusInput, TypesInput, SkillsInput, PathInput } from '../../../../pair';
 import CourseTitle from './CourseTitle';
 import { DateInput } from "@semapps/date-components";
 import frLocale from "date-fns/locale/fr";
 
 const CourseEdit = props => (
-  <Edit title={<CourseTitle />} {...props}>
+  <EditWithPermissions title={<CourseTitle />} {...props}>
     <TabbedForm redirect="show">
       <FormTab label="Données">
         <TextInput source="pair:label" fullWidth />
         <TextInput source="pair:comment" fullWidth />
+        <ImageInput source="pair:isDepictedBy" accept="image/*">
+          <ImageField source="src" />
+        </ImageInput>
         <DateInput
           source="pair:startDate"
           options={{
@@ -34,25 +38,29 @@ const CourseEdit = props => (
           fullWidth
         />
         <MarkdownInput source="pair:description" fullWidth />
-        <MarkdownInput source="cdlt:forWhom" fullWidth />
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
-        <MarkdownInput source="cdlt:learningObjectives" fullWidth />
-        <MarkdownInput source="cdlt:economicalConditions" fullWidth />
         <MarkdownInput source="cdlt:practicalConditions" fullWidth />
+        <MarkdownInput source="cdlt:learningObjectives" fullWidth />
+        <TextInput source="cdlt:priceRange" fullWidth />
+        <MarkdownInput source="cdlt:economicalConditions" fullWidth />
       </FormTab>
       <FormTab label="Relations">
         <PathInput source="cdlt:courseOn" />
-        <StatusInput source="pair:hasStatus" filter={{ a: 'cdlt:CourseStatus' }} />
-        <TypesInput source="pair:hasType" filter={{ a: 'cdlt:CourseType' }} />
-        <EventsInput source="pair:hasPart" />
-        <ActorsInput source="pair:organizedBy" />
-        <SkillsInput source="pair:produces" />
-        <ActorsInput source="cdlt:hasMentor" />
-        <ActorsInput source="cdlt:hasLearner" />
+        <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <ThemesInput source="pair:hasTopic" />
+        <EventsInput source="pair:hasPart" />
+        <SkillsInput source="pair:produces" />
+        <PersonsInput source="cdlt:organizedBy" />
+        <PersonsInput source="cdlt:hasMentor" />
+        <StatusInput source="pair:hasStatus" filter={{ a: 'cdlt:CourseStatus' }} />
+      </FormTab>
+      <FormTab label="Contact">
+        <TextInput source="pair:e-mail" fullWidth />
+        <TextInput source="pair:phone" fullWidth />
+        <TextInput source="pair:homePage" fullWidth />
       </FormTab>
     </TabbedForm>
-  </Edit>
+  </EditWithPermissions>
 );
 
 export default CourseEdit;

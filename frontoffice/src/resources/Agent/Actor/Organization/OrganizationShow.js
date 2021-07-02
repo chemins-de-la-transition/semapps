@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextField, UrlField, ChipField, SingleFieldList } from 'react-admin';
-import { MainList, SideList, Hero, AvatarField, GridList, Show  } from '@semapps/archipelago-layout';
+import { MainList, SideList, Hero, AvatarField, GridList } from '@semapps/archipelago-layout';
+import { ShowWithPermissions } from "@semapps/auth-provider";
 import { MapField } from '@semapps/geo-components';
 import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
@@ -9,7 +10,7 @@ import OrganizationTitle from './OrganizationTitle';
 import HomeIcon from "@material-ui/icons/Home";
 
 const OrganizationShow = props => (
-  <Show title={<OrganizationTitle />} {...props}>
+  <ShowWithPermissions title={<OrganizationTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
         <Hero image="pair:image">
@@ -62,7 +63,7 @@ const OrganizationShow = props => (
         </SideList>
       </Grid>
     </Grid>
-  </Show>
+  </ShowWithPermissions>
 );
 
 export default OrganizationShow;

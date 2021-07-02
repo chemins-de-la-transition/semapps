@@ -1,13 +1,13 @@
 import React from 'react';
 import { MultiViewsList, SimpleList } from '@semapps/archipelago-layout';
 import { MapList } from '@semapps/geo-components';
-import { List } from '@semapps/archipelago-layout';
+import { ListWithPermissions } from "@semapps/auth-provider";
 import MapIcon from '@material-ui/icons/Map';
 import ListIcon from '@material-ui/icons/List';
 
 const PlaceList = props => (
   <MultiViewsList
-    ListComponent={List}
+    ListComponent={ListWithPermissions}
     views={{
       map: {
         label: 'Carte',

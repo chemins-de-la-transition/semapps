@@ -1,14 +1,15 @@
 import React from 'react';
 import { ChipField, SingleFieldList, TextField } from 'react-admin';
 import { Grid } from "@material-ui/core";
-import {MainList, SideList, Hero, GridList, AvatarField, SeparatedListField, Show} from '@semapps/archipelago-layout';
+import {MainList, SideList, Hero, GridList, AvatarField, SeparatedListField} from '@semapps/archipelago-layout';
+import { ShowWithPermissions } from "@semapps/auth-provider";
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MapField } from '@semapps/geo-components';
 import PersonTitle from './PersonTitle';
 import HomeIcon from "@material-ui/icons/Home";
 
 const PersonShow = props => (
-  <Show title={<PersonTitle />} {...props}>
+  <ShowWithPermissions title={<PersonTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
         <Hero image="pair:image">
@@ -55,7 +56,7 @@ const PersonShow = props => (
         </SideList>
       </Grid>
     </Grid>
-  </Show>
+  </ShowWithPermissions>
 );
 
 export default PersonShow;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar } from "@material-ui/core";
 import { MultiViewsList, SimpleList } from '@semapps/archipelago-layout';
-import { List } from '@semapps/archipelago-layout';
+import { ListWithPermissions } from "@semapps/auth-provider";
 import { MapList } from '@semapps/geo-components';
 import MapIcon from '@material-ui/icons/Map';
 import ListIcon from '@material-ui/icons/List';
@@ -9,7 +9,7 @@ import PersonIcon from '@material-ui/icons/Person';
 
 const PersonList = props => (
   <MultiViewsList
-    ListComponent={List}
+    ListComponent={ListWithPermissions}
     views={{
       list: {
         label: 'Liste',

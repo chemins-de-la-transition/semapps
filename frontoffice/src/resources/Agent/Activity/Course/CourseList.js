@@ -1,25 +1,23 @@
 import React from 'react';
-import { DateField } from 'react-admin';
-import { List, SimpleList } from '@semapps/archipelago-layout';
-import DateRangeIcon from '@material-ui/icons/DateRange';
+import {
+  Datagrid,
+  TextField,
+  ShowButton,
+  EditButton,
+} from 'react-admin';
+import { ListWithPermissions } from "@semapps/auth-provider";
 import CourseFilterSidebar from "./CourseFilterSidebar";
+import PublishButton from "../../../../pair/PublishButton";
 
 const CourseList = props => (
-  <List aside={<CourseFilterSidebar />} {...props}>
-    <SimpleList
-      primaryText={record => record['pair:label']}
-      secondaryText={record => (
-        <>
-          Du&nbsp;
-          <DateField record={record} source="pair:startDate" />
-          &nbsp;au&nbsp;
-          <DateField record={record} source="pair:endDate" />
-        </>
-      )}
-      leftAvatar={() => <DateRangeIcon />}
-      linkType="show"
-    />
-  </List>
+  <ListWithPermissions aside={<CourseFilterSidebar />} {...props}>
+    <Datagrid rowClick="show">
+      <TextField source="pair:label" />
+      <ShowButton />
+      <EditButton />
+      <PublishButton />
+    </Datagrid>
+  </ListWithPermissions>
 );
 
 export default CourseList;

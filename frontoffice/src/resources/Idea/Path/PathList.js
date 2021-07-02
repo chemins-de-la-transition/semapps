@@ -1,16 +1,17 @@
 import React from 'react';
-import { List, SimpleList } from '@semapps/archipelago-layout';
+import { SimpleList } from '@semapps/archipelago-layout';
+import { ListWithPermissions } from "@semapps/auth-provider";
 import TimelineIcon from '@material-ui/icons/Timeline';
 import PathFilterSidebar from "./PathFilterSidebar";
 
 const PathList = props => (
-  <List aside={<PathFilterSidebar />} {...props}>
+  <ListWithPermissions aside={<PathFilterSidebar />} {...props}>
     <SimpleList
       primaryText={record => record['pair:label']}
       leftAvatar={() => <TimelineIcon />}
       linkType="show"
     />
-  </List>
+  </ListWithPermissions>
 );
 
 export default PathList;
