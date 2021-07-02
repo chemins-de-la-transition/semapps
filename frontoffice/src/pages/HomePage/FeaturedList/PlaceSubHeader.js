@@ -4,7 +4,7 @@ import Department from '../../Department';
 import PlaceIcon from '../../../svg/PlaceIcon';
 
 const useStyles = makeStyles((theme) =>({ 
-    PlaceSubHeader: {
+    placeSubHeader: {
       display: 'flex',
       alignItems: 'center',
       '& svg [fill]':{
@@ -24,7 +24,7 @@ const PlaceSubHeader = ({record}) => {
     const classes = useStyles();
     return (record["pair:hasPostalAddress"])
           ? 
-          <Box className={classes.PlaceSubHeader}>
+          <Box className={classes.placeSubHeader}>
             <PlaceIcon ></PlaceIcon>
             <Typography variant="body2" className={classes.text}><Department postalCode={record["pair:hasPostalAddress"]["pair:addressZipCode"]}></Department></Typography>
           </Box>
