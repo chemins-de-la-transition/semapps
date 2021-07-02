@@ -23,6 +23,9 @@
     "pair:image": {
       "@type": "@id"
     },
+    "pair:isDepictedBy": {
+      "@type": "@id"
+    },
 
     "pair:about": {
       "@type": "@id"

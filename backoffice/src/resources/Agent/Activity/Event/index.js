@@ -26,15 +26,25 @@ export default {
       name: 'Evénement |||| Evénements',
       fields: {
         'pair:label': 'Titre',
-        'pair:description': 'Description',
-        'pair:comment': 'Courte description',
-        'pair:hostedIn': 'Lieu',
-        'pair:aboutPage': 'Site web',
+        'pair:comment': "Phrase d'accroche",
+        'pair:isDepictedBy': 'Image',
+        'cdlt:hasCourseType': 'Type de parcours',
+        'pair:hasEventType': 'Type d\'événement',
+        'pair:hasTopic': 'Thématiques',
+        'pair:produces': 'Compétences visées',
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',
-        'pair:involves': 'Implique',
-        'pair:hasTopic': 'Thèmes',
-        'pair:partOf': 'Fait partie de'
+        'pair:description': 'Présentation',
+        'cdlt:program': 'Programme de l\'événement',
+        'pair:hostedIn': 'Lieu',
+        'cdlt:prerequisites': 'Prérequis',
+        'cdlt:practicalConditions': 'Informations pratiques',
+        'cdlt:economicalConditions': 'Conditions financières',
+        'pair:partOf': 'Fait partie de',
+        'pair:e-mail': 'Adresse e-mail',
+        'pair:phone': 'Téléphone',
+        'pair:aboutPage': 'Site web',
+        'cdlt:organizedBy': 'Organisé par'
       }
     }
   }

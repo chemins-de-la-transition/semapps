@@ -40,11 +40,11 @@ module.exports = [
   },
   {
     path: '/types',
-    acceptedTypes: ['cdlt:PathType', 'cdlt:SessionType']
+    acceptedTypes: ['cdlt:PathType', 'cdlt:CourseType', 'pair:PlaceType', 'pair:EventType', 'pair:PersonType']
   },
   {
     path: '/status',
-    acceptedTypes: ['cdlt:PathStatus', 'cdlt:SessionStatus']
+    acceptedTypes: ['cdlt:PathStatus', 'cdlt:CourseStatus']
   },
   {
     path: '/files'
