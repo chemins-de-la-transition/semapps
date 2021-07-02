@@ -20,7 +20,7 @@ const PlaceShow = props => (
       <Grid item xs={12} sm={9}>
         <Hero image="pair:isDepictedBy">
           <TextField source="pair:comment" />
-          <ReferenceArrayField source="pair:hasCourseType" reference="Type">
+          <ReferenceArrayField source="cdlt:hasCourseType" reference="Type">
             <SeparatedListField linkType={false}>
               <TextField source="pair:label" />
             </SeparatedListField>

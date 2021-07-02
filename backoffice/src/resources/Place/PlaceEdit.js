@@ -43,7 +43,7 @@ export const PlaceEdit = props => (
       <FormTab label="Relations">
         <PersonsInput source="cdlt:proposedBy" />
         <ThemesInput source="pair:hasTopic" />
-        <TypeInput source="pair:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
+        <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <TypeInput source="pair:hasPlaceType" filter={{ a: 'pair:PlaceType' }} />
         <EventsInput source="pair:hosts" fullWidth />
         <SkillsInput source="pair:produces" fullWidth />
