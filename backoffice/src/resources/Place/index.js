@@ -27,17 +27,21 @@ export default {
       name: 'Lieu |||| Lieux',
       fields: {
         'pair:label': 'Nom',
-        'pair:comment': 'Courte description',
-        'pair:description': 'Description',
-        'pair:homePage': 'Site web',
-        image: 'Logo',
-        'pair:affiliates': 'Membres',
-        'pair:partnerOf': 'Partenaires',
-        'pair:involvedIn': 'Participe à',
+        'pair:comment': "Phrase d'accroche",
+        'pair:isDepictedBy': 'Image',
         'pair:hasTopic': 'Thèmes',
-        'pair:documentedBy': 'Documents',
-        'pair:hasPostalAddress': 'Adresse',
-        'pair:image': 'Image'
+        'pair:hasCourseType': 'Type de parcours',
+        'pair:hasPlaceType': 'Type de lieu',
+        'pair:description': 'A propos du lieu',
+        'cdlt:activities': 'Activités',
+        'pair:hosts': 'Evénements sur le lieu',
+        'pair:produces': 'Compétences / Savoir-faire',
+        'cdlt:practicalConditions': "Modalité d'accueil",
+        'pair:hasPostalAddress': 'Localisation',
+        'cdlt:proposedBy': 'Proposé par',
+        'pair:e-mail': 'Adresse e-mail',
+        'pair:phone': 'Téléphone',
+        'pair:homePage': 'Site web',
       }
     }
   }
