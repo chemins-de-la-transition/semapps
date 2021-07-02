@@ -1,6 +1,6 @@
 import * as React from "react";
 import Events from '../Events/Events.js';
-import Welcome from './Welcome';
+import Welcome from './Welcome/Welcome';
 import PlacesList from './PlacesList';
 import Goals from './Goals/Goals';
 import CoursesList from './CoursesList';

@@ -10,14 +10,17 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'uppercase',
   },
   button2:{
-    fontSize: '26px',
+    fontSize: '16px',
     fontStyle: 'normal',
     fontWeight: 'bold',
     lineHeight: '20px',
   },
+  outlinedInversed:{
+    
+  },
 }));
 
-const Button = ({to,variant,color,component,text,typographyVariant,className,href}) => {
+const Button = ({to,variant,color,component,text,typographyVariant,className,href,disabled}) => {
     const classes = useStyles();
     const typographyClasName = (typographyVariant === 'button1')
         ? classes.button1
@@ -27,14 +30,16 @@ const Button = ({to,variant,color,component,text,typographyVariant,className,hre
             :''
         );
     const typoVar = (typographyVariant === 'button1' || typographyVariant === 'button2') ? 'button' : typographyVariant;
+    const formattedVar = (variant === 'outlinedInversed') ? 'outlined' : variant;
     return (
         <MuiButton
             to={to} 
-            variant={variant} 
+            variant={formattedVar} 
             color={color}
             component={component} 
             className={className}
             href={href}
+            disabled={disabled}
         > 
             <Typography variant={typoVar} className={typographyClasName}>{text}</Typography>
         </MuiButton>

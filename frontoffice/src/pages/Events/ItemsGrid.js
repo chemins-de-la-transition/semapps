@@ -1,5 +1,5 @@
 import * as React from "react";
-import { makeStyles, Typography, List, ListItem, ListItemText, ListItemAvatar, Avatar } from '@material-ui/core';
+import { makeStyles, Typography, List, ListItem, ListItemText, ListItemAvatar, Avatar, Box } from '@material-ui/core';
 import { DateField, useListContext, ReferenceField, TextField , useRecordContext, ImageField} from 'react-admin';
 import { Link } from 'react-router-dom';
 import EventIcon from '@material-ui/icons/Event';
@@ -138,11 +138,11 @@ const ItemsGrid = ({nb}) => {
                           <ChevronRightIcon></ChevronRightIcon>
                         </Typography>
                         <ReferenceField source="pair:hostedIn" reference="Place" record={eventsData[id]} >
-                          <div className={classes.eventPlace}>
-                            <TextField source="pair:label" variant="body1"className={classes.noDecoration}/>
+                          <Box className={classes.eventPlace}>
+                            <TextField source="pair:label" variant="body1" className={classes.noDecoration}/>
                             &nbsp;-&nbsp;
                             <GetDepartment />
-                          </div>
+                          </Box>
                         </ReferenceField>
                         <Typography variant="button" component="div" className={classes.eventDate+' '+classes.noDecoration}>
                           <DateField record={eventsData[id]} source="pair:startDate" options={{ year: 'numeric', month: 'long', day: 'numeric' }}/>
