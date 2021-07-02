@@ -92,6 +92,12 @@ export const CoursesInput = ({ label, source }) => (
   </ReferenceArrayInput>
 );
 
+export const CourseInput = ({ label, source, ...rest }) => (
+  <ReferenceArrayInput label={label} reference="Course" source={source} {...rest}>
+    <SelectInput optionText="pair:label" />
+  </ReferenceArrayInput>
+);
+
 export const PathInput = ({ label, source, ...rest }) => (
   <ReferenceInput label={label} reference="Path" source={source} {...rest}>
     <SelectInput optionText="pair:label" />

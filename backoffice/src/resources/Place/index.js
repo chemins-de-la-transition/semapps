@@ -29,7 +29,7 @@ export default {
         'pair:label': 'Nom',
         'pair:comment': "Phrase d'accroche",
         'pair:isDepictedBy': 'Image',
-        'pair:hasTopic': 'Thèmes',
+        'pair:hasTopic': 'Thématiques',
         'pair:hasCourseType': 'Type de parcours',
         'pair:hasPlaceType': 'Type de lieu',
         'pair:description': 'A propos du lieu',
