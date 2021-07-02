@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) =>({
   },
 }));
 
-const FeaturedList = ({resource,basePath,title,subtitle,headComment,linkText}) => {
+const FeaturedList = ({resource,basePath,title,subtitle,headComment,linkText,CardSubHeaderComponent}) => {
   const classes = useStyles();
   return (
     <FullWidthBox className={classes.background}>
@@ -89,7 +89,7 @@ const FeaturedList = ({resource,basePath,title,subtitle,headComment,linkText}) =
             resource={resource}
             basePath={basePath}
             >
-              <ItemsGrid nb={4}/>
+              <ItemsGrid nb={4} CardSubHeaderComponent={CardSubHeaderComponent}/>
           </ListBase>
         </Box>
       </LargeContainer>

@@ -63,7 +63,7 @@ const LocalGridItem = ({title, text, image,icon}) => {
   );
 };
 
-const SessionsTypes = () => {
+const CoursesTypes = () => {
   const classes = useStyles();
   return (
     <FullWidthBox className={classes.mainBox}>
@@ -105,4 +105,4 @@ const SessionsTypes = () => {
   );
 };
 
-export default SessionsTypes;
+export default CoursesTypes;

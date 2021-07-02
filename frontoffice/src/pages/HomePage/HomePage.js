@@ -4,7 +4,7 @@ import Welcome from './Welcome';
 import PlacesList from './PlacesList';
 import Goals from './Goals/Goals';
 import CoursesList from './CoursesList';
-import SessionsTypes from './SessionsTypes';
+import CoursesTypes from './CoursesTypes';
 
 const HomePage = () => (
   <>
@@ -12,7 +12,7 @@ const HomePage = () => (
     <PlacesList />
     <Goals />
     <CoursesList />
-    <SessionsTypes />
+    <CoursesTypes />
     <Events />
   </>
 );

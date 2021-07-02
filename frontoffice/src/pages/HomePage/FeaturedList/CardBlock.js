@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, CardActionArea} from '@material-ui/core';
 import {  ReferenceField,ReferenceArrayField, TextField} from 'react-admin';
 import { Link } from 'react-router-dom';
-import SubHeader from './SubHeader';
 import ShuffledSingleFieldList from './ShuffledSingleFieldList';
 
 const useStyles = makeStyles((theme) =>({ 
@@ -104,7 +103,7 @@ const useStyles = makeStyles((theme) =>({
   },
 }));
 
-const CardBlock = ({id,data,basePath}) => {
+const CardBlock = ({id,data,basePath,CardSubHeaderComponent}) => {
   const classes = useStyles();
   return (
     <Card key={id} className={classes.cardClass}>
@@ -148,7 +147,7 @@ const CardBlock = ({id,data,basePath}) => {
           className={classes.noDecoration+' '+classes.headerContainer}
           component={Link}
           title={<Typography className={classes.cardTitle} variant="h4" color="primary">{data[id]["pair:label"]}</Typography>}
-          subheader={<SubHeader data={data} id={id}></SubHeader>}
+          subheader={(CardSubHeaderComponent) ? <CardSubHeaderComponent record={data[id]}></CardSubHeaderComponent> : ''}
       />
       <CardContent
         to={basePath+'/'+encodeURIComponent(id)+'/show'}

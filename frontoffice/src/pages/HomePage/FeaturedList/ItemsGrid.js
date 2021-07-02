@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) =>({
 }));
 
 
-const ItemsGrid = ({nb}) => {
+const ItemsGrid = ({nb,CardSubHeaderComponent}) => {
   const classes = useStyles();
   const { ids, data , basePath } = useListContext();
   // shuffle ids
@@ -33,6 +33,7 @@ const ItemsGrid = ({nb}) => {
           key={id}
           data={data}
           basePath={basePath}
+          CardSubHeaderComponent={CardSubHeaderComponent}
           ></CardBlock>
     )}
     </div>

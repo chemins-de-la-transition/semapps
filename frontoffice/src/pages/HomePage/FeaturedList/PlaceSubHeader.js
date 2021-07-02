@@ -4,7 +4,7 @@ import Department from '../../Department';
 import PlaceIcon from '../../../svg/PlaceIcon';
 
 const useStyles = makeStyles((theme) =>({ 
-    subHeader: {
+    PlaceSubHeader: {
       display: 'flex',
       alignItems: 'center',
       '& svg [fill]':{
@@ -20,18 +20,15 @@ const useStyles = makeStyles((theme) =>({
     },
 }));
 
-const SubHeader = ({data,id}) => {
+const PlaceSubHeader = ({record}) => {
     const classes = useStyles();
-    return (
-      <Box className={classes.subHeader}>
-        <PlaceIcon ></PlaceIcon>
-        {
-          (data[id]["pair:hasPostalAddress"])
-          ? <Typography variant="body2" className={classes.text}><Department postalCode={data[id]["pair:hasPostalAddress"]["pair:addressZipCode"]}></Department></Typography>
-          :''
-        }
-      </Box>
-    );
+    return (record["pair:hasPostalAddress"])
+          ? 
+          <Box className={classes.PlaceSubHeader}>
+            <PlaceIcon ></PlaceIcon>
+            <Typography variant="body2" className={classes.text}><Department postalCode={record["pair:hasPostalAddress"]["pair:addressZipCode"]}></Department></Typography>
+          </Box>
+          :'';
   };
 
-export default SubHeader;
+export default PlaceSubHeader;

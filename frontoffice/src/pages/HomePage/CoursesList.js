@@ -10,6 +10,7 @@ const CoursesList = () => {
       subtitle="Thématiques & géographiques"
       headComment="Tu rêves de partir sur les routes pour découvrir des savoirs faire ou même apprendre un métier sur le terrain? Découvre nos parcours."
       linkText="Voir tous les parcours"
+      // CardSubHeaderComponent={} 
     >
     </FeaturedList>
   );

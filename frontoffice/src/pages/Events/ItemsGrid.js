@@ -9,7 +9,7 @@ import sortAndFilterOnDate from './SortAndFilterOnDate';
 
 
 const useStyles = makeStyles((theme) => ({
-    eventCourseType:{
+    eventType:{
       color: theme.palette.primary.contrastText,
       marginBottom: '8px',
     },
@@ -122,13 +122,13 @@ const ItemsGrid = ({nb}) => {
                   </ListItemAvatar>
                   <ListItemText
                     primary={
-                      (eventsData[id]['cdlt:hasCourseType'])
-                      ?<ReferenceField source="cdlt:hasCourseType" reference="CourseType" record={eventsData[id]} >
-                        <TextField source="pair:label" variant="h5" className={classes.eventCourseType+' '+classes.noDecoration}/>
+                      (eventsData[id]['cdlt:hasEventType'])
+                      ?<ReferenceField source="cdlt:hasEventType" reference="EventType" record={eventsData[id]} >
+                        <TextField source="pair:label" variant="h5" className={classes.eventType+' '+classes.noDecoration}/>
                       </ReferenceField>
                       :
-                      <Typography variant="h5" className={classes.eventCourseType+' '+classes.noDecoration}>
-                        Type de parcours non défini
+                      <Typography variant="h5" className={classes.eventType+' '+classes.noDecoration}>
+                        Type non défini
                       </Typography>}
                     secondary={
                       <>
