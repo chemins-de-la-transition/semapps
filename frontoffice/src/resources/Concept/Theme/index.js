@@ -13,13 +13,13 @@ export default {
     icon: LocalOfferIcon,
     options: {
       label: 'Thèmes',
-      parent: 'Concept'
-    }
+      parent: 'Concept',
+    },
   },
   dataModel: {
     types: ['pair:Theme'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'themes',
-    slugField: 'pair:label'
+    slugField: 'pair:label',
   },
   translations: {
     fr: {
@@ -28,8 +28,8 @@ export default {
         'pair:label': 'Titre',
         'pair:comment': 'Courte description',
         'pair:description': 'Description',
-        'pair:topicOf': 'Est un sujet de'
-      }
-    }
-  }
+        'pair:topicOf': 'Est un sujet de',
+      },
+    },
+  },
 };

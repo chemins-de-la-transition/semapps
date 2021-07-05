@@ -2,13 +2,13 @@ import React from 'react';
 import { TabbedForm, FormTab, TextInput, ImageInput } from 'react-admin';
 import frLocale from 'date-fns/locale/fr';
 import { MarkdownInput } from '@semapps/markdown-components';
-import { EditWithPermissions } from "@semapps/auth-provider";
+import { EditWithPermissions } from '@semapps/auth-provider';
 import { DateTimeInput } from '@semapps/date-components';
-import { ImageField } from "@semapps/semantic-data-provider";
+import { ImageField } from '@semapps/semantic-data-provider';
 import { PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput } from '../../../../pair';
 import EventTitle from './EventTitle';
 
-const EventEdit = props => (
+const EventEdit = (props) => (
   <EditWithPermissions title={<EventTitle />} {...props}>
     <TabbedForm redirect="show">
       <FormTab label="Données">
@@ -18,10 +18,10 @@ const EventEdit = props => (
           source="pair:startDate"
           options={{
             format: 'dd/MM/yyyy à HH:mm',
-            ampm: false
+            ampm: false,
           }}
           providerOptions={{
-            locale: frLocale
+            locale: frLocale,
           }}
           fullWidth
         />
@@ -29,10 +29,10 @@ const EventEdit = props => (
           source="pair:endDate"
           options={{
             format: 'dd/MM/yyyy à HH:mm',
-            ampm: false
+            ampm: false,
           }}
           providerOptions={{
-            locale: frLocale
+            locale: frLocale,
           }}
           fullWidth
         />

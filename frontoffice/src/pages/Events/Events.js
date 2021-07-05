@@ -1,5 +1,5 @@
-import * as React from "react";
-import { makeStyles, Grid, Box, Typography  } from '@material-ui/core';
+import * as React from 'react';
+import { makeStyles, Grid, Box, Typography } from '@material-ui/core';
 import { ListBase } from 'react-admin';
 import { Link } from 'react-router-dom';
 import LargeContainer from '../../layout/LargeContainer';
@@ -7,7 +7,7 @@ import FullWidthBox from '../../layout/FullWidthBox';
 import LargeRound from '../../svg/LargeRound';
 import CalendarIcon from '../../svg/Calendar';
 import Button from '../../layout/Button';
-import ItemsGrid from "./ItemsGrid";
+import ItemsGrid from './ItemsGrid';
 
 const useStyles = makeStyles((theme) => ({
   backgound: {
@@ -17,13 +17,13 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: '60px',
   },
   eventIcon: {
-    display:'flex',
+    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
-    width:'100%',
+    width: '100%',
     color: theme.palette.white.main,
-    '& svg [fill]':{
+    '& svg [fill]': {
       fill: theme.palette.white.main,
     },
   },
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     width: '70%',
     paddingLeft: '10%',
-    '& .MuiTypography-root':{
+    '& .MuiTypography-root': {
       [theme.breakpoints.down('xs')]: {
         fontSize: '48px',
         lineHeight: '70px',
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '30px',
       },
     },
-    '& svg':{
+    '& svg': {
       width: '50%',
       height: '50%',
     },
@@ -67,39 +67,34 @@ const useStyles = makeStyles((theme) => ({
 const Event = () => {
   const classes = useStyles();
   return (
-  <FullWidthBox className={classes.backgound}>
-    <LargeContainer>
-      <Grid container spacing={3}>
-        <Grid item sm={7} className={classes.eventList}>
-          <ListBase
-            resource='Event'
-            basePath='/Event'
-            className={classes.eventListBase}
-            >
-              <ItemsGrid nb={4}/>
-          </ListBase>
-          <Button
-              to='/Event' 
-              variant="contained" 
-              color="primary" 
-              component={Link} 
+    <FullWidthBox className={classes.backgound}>
+      <LargeContainer>
+        <Grid container spacing={3}>
+          <Grid item sm={7} className={classes.eventList}>
+            <ListBase resource="Event" basePath="/Event" className={classes.eventListBase}>
+              <ItemsGrid nb={4} />
+            </ListBase>
+            <Button
+              to="/Event"
+              variant="contained"
+              color="primary"
+              component={Link}
               typographyVariant="button1"
               text="Voir Tous les évènements"
-            > 
-          </Button>
+            ></Button>
+          </Grid>
+          <Grid item sm={5} className={classes.eventIcon}>
+            <LargeRound />
+            <Box className={classes.internalIcon}>
+              <Typography variant="h1" component="div">
+                L’agenda des évènements
+              </Typography>
+              <CalendarIcon />
+            </Box>
+          </Grid>
         </Grid>
-        <Grid item sm={5} className={classes.eventIcon}>
-          <LargeRound />
-          <Box className={classes.internalIcon}>
-            <Typography variant="h1" component="div">
-              L’agenda des évènements
-            </Typography>
-            <CalendarIcon />
-          </Box>
-        </Grid>
-      </Grid>
-    </LargeContainer>
-  </FullWidthBox>
+      </LargeContainer>
+    </FullWidthBox>
   );
 };
 

@@ -1,22 +1,22 @@
 import React from 'react';
-import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, CardActionArea} from '@material-ui/core';
-import {  ReferenceField,ReferenceArrayField, TextField} from 'react-admin';
+import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, CardActionArea } from '@material-ui/core';
+import { ReferenceField, ReferenceArrayField, TextField } from 'react-admin';
 import { Link } from 'react-router-dom';
 import ShuffledSingleFieldList from './ShuffledSingleFieldList';
 
-const useStyles = makeStyles((theme) =>({ 
-  cardTopics:{
+const useStyles = makeStyles((theme) => ({
+  cardTopics: {
     position: 'relative',
     padding: '0',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  blockTopics:{
+  blockTopics: {
     position: 'absolute',
     top: '-14px',
   },
-  topics:{
+  topics: {
     marginLeft: '16px',
     marginRight: '16px',
     background: theme.palette.secondary.main,
@@ -29,12 +29,12 @@ const useStyles = makeStyles((theme) =>({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  severalTopics:{
+  severalTopics: {
     marginTop: '0',
     marginBottom: '0',
     flexWrap: 'none',
     flexShrink: '0',
-    '& a:not(:first-child)::before':{
+    '& a:not(:first-child)::before': {
       content: "'/'",
       marginLeft: '2px',
       marginRight: '2px',
@@ -61,12 +61,12 @@ const useStyles = makeStyles((theme) =>({
   noDecoration: {
     textDecoration: 'none',
   },
-  comment:{
+  comment: {
     paddingTop: '8px',
     paddingLeft: '20px',
     paddingRight: '20px',
     paddinBottom: '20px',
-    '& .MuiTypography-root':{
+    '& .MuiTypography-root': {
       paddingLeft: '20px',
       paddingRight: '20px',
     },
@@ -77,15 +77,15 @@ const useStyles = makeStyles((theme) =>({
   },
   cardClass: {
     flexBasis: '25%',
-    marginLeft:'12px',
-    marginRight:'12px',
-    marginTop: '0' ,
-    marginBottom: '0' ,
-    '&:first-child':{
-      marginLeft:'1px',
+    marginLeft: '12px',
+    marginRight: '12px',
+    marginTop: '0',
+    marginBottom: '0',
+    '&:first-child': {
+      marginLeft: '1px',
     },
-    '&:last-child':{
-      marginRight:'1px',
+    '&:last-child': {
+      marginRight: '1px',
     },
     [theme.breakpoints.down('sm')]: {
       flexBasis: '33%',
@@ -103,57 +103,61 @@ const useStyles = makeStyles((theme) =>({
   },
 }));
 
-const CardBlock = ({id,data,basePath,CardSubHeaderComponent}) => {
+const CardBlock = ({ id, data, basePath, CardSubHeaderComponent }) => {
   const classes = useStyles();
   return (
     <Card key={id} className={classes.cardClass}>
       <CardActionArea>
         <CardMedia
-            className={classes.media+' '+classes.noDecoration}
-            image={data[id]["pair:isDepictedBy"] ?? process.env.PUBLIC_URL + '/pexels-celine-chamiotponcet-2889792.jpg'}
-            // Image : (Free to Use and no attribution required) Céline Chamiot-Poncet @pexels https://www.pexels.com/fr-fr/photo/maison-en-bois-2889792/
-            title={data[id]["pair:label"]}
-            to={basePath+'/'+encodeURIComponent(id)+'/show'}
-            component={Link}
-          />
+          className={classes.media + ' ' + classes.noDecoration}
+          image={data[id]['pair:isDepictedBy'] ?? process.env.PUBLIC_URL + '/pexels-celine-chamiotponcet-2889792.jpg'}
+          // Image : (Free to Use and no attribution required) Céline Chamiot-Poncet @pexels https://www.pexels.com/fr-fr/photo/maison-en-bois-2889792/
+          title={data[id]['pair:label']}
+          to={basePath + '/' + encodeURIComponent(id) + '/show'}
+          component={Link}
+        />
       </CardActionArea>
-      {
-        (data[id]["pair:hasTopic"]) ?
-        <CardContent
-          className={classes.cardTopics + ' '+classes.noDecoration}
-          >
-          {
-            (!Array.isArray(data[id]["pair:hasTopic"]))
-            ?
+      {data[id]['pair:hasTopic'] ? (
+        <CardContent className={classes.cardTopics + ' ' + classes.noDecoration}>
+          {!Array.isArray(data[id]['pair:hasTopic']) ? (
             <ReferenceField source="pair:hasTopic" reference="Theme" record={data[id]} className={classes.blockTopics}>
-                <TextField source="pair:label" className={classes.topics+' '+classes.textTopics}/>
+              <TextField source="pair:label" className={classes.topics + ' ' + classes.textTopics} />
             </ReferenceField>
-            :
+          ) : (
             <ReferenceArrayField
               source="pair:hasTopic"
               reference="Theme"
               record={data[id]}
-              className={classes.topics+' '+classes.severalTopics+' '+classes.blockTopics}>
-                <ShuffledSingleFieldList nb={2}>
-                    <TextField source="pair:label" className={classes.textTopics}/>
-                </ShuffledSingleFieldList>
+              className={classes.topics + ' ' + classes.severalTopics + ' ' + classes.blockTopics}
+            >
+              <ShuffledSingleFieldList nb={2}>
+                <TextField source="pair:label" className={classes.textTopics} />
+              </ShuffledSingleFieldList>
             </ReferenceArrayField>
-          }
+          )}
         </CardContent>
-        :''
-      }
+      ) : (
+        ''
+      )}
       <CardHeader
-          to={basePath+'/'+encodeURIComponent(id)+'/show'}
-          className={classes.noDecoration+' '+classes.headerContainer}
-          component={Link}
-          title={<Typography className={classes.cardTitle} variant="h4" color="primary">{data[id]["pair:label"]}</Typography>}
-          subheader={(CardSubHeaderComponent) ? <CardSubHeaderComponent record={data[id]}></CardSubHeaderComponent> : ''}
+        to={basePath + '/' + encodeURIComponent(id) + '/show'}
+        className={classes.noDecoration + ' ' + classes.headerContainer}
+        component={Link}
+        title={
+          <Typography className={classes.cardTitle} variant="h4" color="primary">
+            {data[id]['pair:label']}
+          </Typography>
+        }
+        subheader={CardSubHeaderComponent ? <CardSubHeaderComponent record={data[id]}></CardSubHeaderComponent> : ''}
       />
       <CardContent
-        to={basePath+'/'+encodeURIComponent(id)+'/show'}
-        className={classes.noDecoration + ' '+ classes.comment}
-        component={Link}>
-          <Typography variant="body2" color="secondary" component="div">{data[id]["pair:comment"]}</Typography>
+        to={basePath + '/' + encodeURIComponent(id) + '/show'}
+        className={classes.noDecoration + ' ' + classes.comment}
+        component={Link}
+      >
+        <Typography variant="body2" color="secondary" component="div">
+          {data[id]['pair:comment']}
+        </Typography>
       </CardContent>
     </Card>
   );

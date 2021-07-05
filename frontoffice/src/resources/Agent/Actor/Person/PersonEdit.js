@@ -1,19 +1,26 @@
 import React from 'react';
 import { ImageInput, SimpleForm, TextInput } from 'react-admin';
-import { EditWithPermissions } from "@semapps/auth-provider";
+import { EditWithPermissions } from '@semapps/auth-provider';
 import {
   ActivitiesInput,
   OrganizationsInput,
   PairLocationInput,
   SkillsInput,
   ThemesInput,
-  TypeInput
+  TypeInput,
 } from '../../../../pair';
 import { ImageField } from '@semapps/semantic-data-provider';
 import PersonTitle from './PersonTitle';
 
-export const PersonEdit = props => (
-  <EditWithPermissions title={<PersonTitle />} transform={data => ({ ...data, 'pair:label': `${data['pair:firstName']} ${data['pair:lastName']?.toUpperCase()}`})} {...props}>
+export const PersonEdit = (props) => (
+  <EditWithPermissions
+    title={<PersonTitle />}
+    transform={(data) => ({
+      ...data,
+      'pair:label': `${data['pair:firstName']} ${data['pair:lastName']?.toUpperCase()}`,
+    })}
+    {...props}
+  >
     <SimpleForm redirect="show">
       <TextInput source="pair:firstName" fullWidth />
       <TextInput source="pair:lastName" fullWidth />

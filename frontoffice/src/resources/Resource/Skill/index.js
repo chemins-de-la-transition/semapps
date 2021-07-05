@@ -13,13 +13,13 @@ export default {
     icon: PanToolIcon,
     options: {
       label: 'Compétences',
-      parent: 'Resource'
-    }
+      parent: 'Resource',
+    },
   },
   dataModel: {
     types: ['pair:Skill'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'skills',
-    slugField: 'pair:label'
+    slugField: 'pair:label',
   },
   translations: {
     fr: {
@@ -27,8 +27,8 @@ export default {
       fields: {
         'pair:label': 'Titre',
         'pair:offeredBy': 'Proposé par',
-        'pair:producedBy': 'Produit par'
-      }
-    }
-  }
+        'pair:producedBy': 'Produit par',
+      },
+    },
+  },
 };

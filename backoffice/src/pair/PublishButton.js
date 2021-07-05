@@ -17,26 +17,27 @@ const PublishButton = ({ basePath, resource, record, ...rest }) => {
 
   const isPublished = record['pair:hasStatus'] === PUBLISHED_STATUS;
 
-  const publish = e => {
+  const publish = (e) => {
     e.stopPropagation();
     update(resource, record.id, { ...record, 'pair:hasStatus': PUBLISHED_STATUS }, record);
-    authProvider.addPermission(record.id, ANONYMOUS_AGENT, CLASS_AGENT, ACL_READ)
+    authProvider.addPermission(record.id, ANONYMOUS_AGENT, CLASS_AGENT, ACL_READ);
     notify('Le parcours a bien été publié');
-  }
+  };
 
-  const unpublish = e => {
+  const unpublish = (e) => {
     e.stopPropagation();
     update(resource, record.id, { ...record, 'pair:hasStatus': UNPUBLISHED_STATUS }, record);
-    authProvider.removePermission(record.id, ANONYMOUS_AGENT, CLASS_AGENT, ACL_READ)
+    authProvider.removePermission(record.id, ANONYMOUS_AGENT, CLASS_AGENT, ACL_READ);
     notify('Le parcours a été dépublié');
-  }
+  };
 
   return (
     <Button
       color="primary"
       startIcon={isPublished ? <GetAppIcon /> : <PublishIcon />}
       size="small"
-      onClick={isPublished ? unpublish : publish}>
+      onClick={isPublished ? unpublish : publish}
+    >
       {isPublished ? 'Dépublier' : 'Publier'}
     </Button>
   );

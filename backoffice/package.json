@@ -25,7 +25,8 @@
     "@testing-library/user-event": "^7.1.2",
     "react-scripts": "3.4.0",
     "source-map-explorer": "^2.5.2",
-    "vercel": "^21.1.0"
+    "vercel": "^21.1.0",
+    "prettier": "^2.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,7 +35,8 @@
     "eject": "react-scripts eject",
     "bootstrap": "lerna bootstrap",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "deploy": "vercel"
+    "deploy": "vercel",
+    "prettier": "prettier --single-quote --print-width 120 --write '**/*.js'"
   },
   "eslintConfig": {
     "extends": "react-app"

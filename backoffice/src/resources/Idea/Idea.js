@@ -4,15 +4,15 @@ export default {
   config: {
     icon: EmojiObjectsIcon,
     options: {
-      label: 'Idées'
-    }
+      label: 'Idées',
+    },
   },
   dataModel: {
-    types: ['cdlt:Path']
+    types: ['cdlt:Path'],
   },
   translations: {
     fr: {
-      name: 'Idée |||| Idées'
-    }
-  }
+      name: 'Idée |||| Idées',
+    },
+  },
 };

@@ -1,14 +1,14 @@
 import React from 'react';
 import { ChipField, SingleFieldList, TextField } from 'react-admin';
-import { Grid } from "@material-ui/core";
-import {MainList, SideList, Hero, GridList, AvatarField, SeparatedListField} from '@semapps/archipelago-layout';
-import { ShowWithPermissions } from "@semapps/auth-provider";
+import { Grid } from '@material-ui/core';
+import { MainList, SideList, Hero, GridList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
+import { ShowWithPermissions } from '@semapps/auth-provider';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MapField } from '@semapps/geo-components';
 import PersonTitle from './PersonTitle';
-import HomeIcon from "@material-ui/icons/Home";
+import HomeIcon from '@material-ui/icons/Home';
 
-const PersonShow = props => (
+const PersonShow = (props) => (
   <ShowWithPermissions title={<PersonTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
@@ -24,8 +24,8 @@ const PersonShow = props => (
         </Hero>
         <MainList>
           <MapField
-            latitude={record => record?.['pair:hasLocation']?.['pair:latitude']}
-            longitude={record => record?.['pair:hasLocation']?.['pair:longitude']}
+            latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
+            longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
           />
         </MainList>
       </Grid>

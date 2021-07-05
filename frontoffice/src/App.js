@@ -6,9 +6,9 @@ import i18nProvider from './config/i18nProvider';
 import dataProvider from './config/dataProvider';
 import * as resources from './resources';
 
-import HomePage from "./pages/HomePage/HomePage";
-import Layout from "./layout/Layout";
-import theme from "./layout/theme";
+import HomePage from './pages/HomePage/HomePage';
+import Layout from './layout/Layout';
+import theme from './layout/theme';
 import customRoutes from './customRoutes';
 
 const history = createBrowserHistory();

@@ -4,15 +4,15 @@ export default {
   config: {
     icon: LanguageIcon,
     options: {
-      label: 'Concepts'
-    }
+      label: 'Concepts',
+    },
   },
   dataModel: {
-    types: ['pair:Theme']
+    types: ['pair:Theme'],
   },
   translations: {
     fr: {
-      name: 'Concept |||| Concepts'
-    }
-  }
+      name: 'Concept |||| Concepts',
+    },
+  },
 };

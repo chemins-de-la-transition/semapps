@@ -1,14 +1,14 @@
 import React from 'react';
 import { ChipField, SingleFieldList, TextField, UrlField, DateField, EmailField } from 'react-admin';
-import { Grid } from "@material-ui/core";
+import { Grid } from '@material-ui/core';
 import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } from '@semapps/archipelago-layout';
-import { ShowWithPermissions } from "@semapps/auth-provider";
+import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import EventTitle from './EventTitle';
 
-const EventShow = props => (
+const EventShow = (props) => (
   <ShowWithPermissions title={<EventTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
@@ -40,9 +40,13 @@ const EventShow = props => (
           <MarkdownField source="cdlt:economicalConditions" addLabel />
           <MapField
             source="pair:hostedIn"
-            address={record => record?.['pair:hostedIn']?.['pair:label'] + ', ' + record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:label']}
-            latitude={record => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:latitude']}
-            longitude={record => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
+            address={(record) =>
+              record?.['pair:hostedIn']?.['pair:label'] +
+              ', ' +
+              record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:label']
+            }
+            latitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:latitude']}
+            longitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
           />
         </MainList>
       </Grid>

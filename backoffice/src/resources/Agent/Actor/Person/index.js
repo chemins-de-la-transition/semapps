@@ -13,14 +13,14 @@ export default {
     icon: PersonIcon,
     options: {
       label: 'Personnes',
-      parent: 'Actor'
-    }
+      parent: 'Actor',
+    },
   },
   dataModel: {
     types: ['pair:Person'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'users',
     dereference: ['pair:hasLocation/pair:hasPostalAddress'],
-    slugField: ['pair:firstName', 'pair:lastName']
+    slugField: ['pair:firstName', 'pair:lastName'],
   },
   translations: {
     fr: {
@@ -37,8 +37,8 @@ export default {
         'pair:hasLocation': 'Adresse',
         'pair:hasType': 'Type',
         'cdlt:mentorOn': 'Est mentor pour',
-        'foaf:email': 'Adresse email'
-      }
-    }
-  }
+        'foaf:email': 'Adresse email',
+      },
+    },
+  },
 };

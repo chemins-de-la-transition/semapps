@@ -4,15 +4,15 @@ export default {
   config: {
     icon: ExploreIcon,
     options: {
-      label: 'Voyages'
-    }
+      label: 'Voyages',
+    },
   },
   dataModel: {
-    types: ['pair:Event', 'cdlt:Course']
+    types: ['pair:Event', 'cdlt:Course'],
   },
   translations: {
     fr: {
-      name: 'Activité |||| Activités'
-    }
-  }
+      name: 'Activité |||| Activités',
+    },
+  },
 };

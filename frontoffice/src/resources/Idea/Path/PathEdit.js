@@ -1,11 +1,19 @@
 import React from 'react';
 import { TabbedForm, TextInput, FormTab } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
-import { EditWithPermissions } from "@semapps/auth-provider";
-import { CoursesInput, ActorsInput, PlacesInput, StatusInput, ThemesInput, TypesInput, SkillsInput } from '../../../pair';
+import { EditWithPermissions } from '@semapps/auth-provider';
+import {
+  CoursesInput,
+  ActorsInput,
+  PlacesInput,
+  StatusInput,
+  ThemesInput,
+  TypesInput,
+  SkillsInput,
+} from '../../../pair';
 import PathTitle from './PathTitle';
 
-const PathEdit = props => (
+const PathEdit = (props) => (
   <EditWithPermissions title={<PathTitle />} {...props}>
     <TabbedForm redirect="show">
       <FormTab label="Données">

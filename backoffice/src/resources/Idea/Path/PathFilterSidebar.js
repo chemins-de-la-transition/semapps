@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, makeStyles } from '@material-ui/core';
 import { ReferenceFilter } from '@semapps/archipelago-layout';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   card: {
     paddingTop: 0,
     [theme.breakpoints.up('sm')]: {
@@ -14,8 +14,8 @@ const useStyles = makeStyles(theme => ({
     },
   },
   cardContent: {
-    paddingTop: 0
-  }
+    paddingTop: 0,
+  },
 }));
 
 const ProjectFilterSidebar = () => {
@@ -29,6 +29,6 @@ const ProjectFilterSidebar = () => {
       </CardContent>
     </Card>
   );
-}
+};
 
 export default ProjectFilterSidebar;

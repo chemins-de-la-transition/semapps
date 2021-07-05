@@ -1,12 +1,12 @@
 import React from 'react';
-import { ChipField, SingleFieldList } from "react-admin";
+import { ChipField, SingleFieldList } from 'react-admin';
 import { AvatarField, GridList, SideList } from '@semapps/archipelago-layout';
-import { ShowWithPermissions } from "@semapps/auth-provider";
+import { ShowWithPermissions } from '@semapps/auth-provider';
 import { Grid, Typography } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import SkillTitle from './SkillTitle';
 
-const SkillShow = props => (
+const SkillShow = (props) => (
   <ShowWithPermissions title={<SkillTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>

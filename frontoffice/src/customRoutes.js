@@ -7,8 +7,8 @@ import Contact from './pages/Contact';
 import Legals from './pages/Legals';
 
 export default [
-  <Route exact path="/" component={ HomePage }/>,
-  <Route exact path="/About" component={ About }/>,
-  <Route exact path="/Contact" component={ Contact }/>,
-  <Route exact path="/Legals" component={ Legals }/>,
+  <Route exact path="/" component={HomePage} />,
+  <Route exact path="/About" component={About} />,
+  <Route exact path="/Contact" component={Contact} />,
+  <Route exact path="/Legals" component={Legals} />,
 ];

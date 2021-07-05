@@ -4,15 +4,15 @@ export default {
   config: {
     icon: NaturePeopleIcon,
     options: {
-      label: 'Ressources'
-    }
+      label: 'Ressources',
+    },
   },
   dataModel: {
-    types: ['pair:Skill']
+    types: ['pair:Skill'],
   },
   translations: {
     fr: {
-      name: 'Ressource |||| Ressources'
-    }
-  }
+      name: 'Ressource |||| Ressources',
+    },
+  },
 };

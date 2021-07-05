@@ -13,13 +13,13 @@ export default {
     icon: EventIcon,
     options: {
       label: 'Événements',
-      parent: 'Activity'
-    }
+      parent: 'Activity',
+    },
   },
   dataModel: {
     types: ['pair:Event'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'events',
-    slugField: 'pair:label'
+    slugField: 'pair:label',
   },
   translations: {
     fr: {
@@ -29,13 +29,13 @@ export default {
         'pair:comment': "Phrase d'accroche",
         'pair:isDepictedBy': 'Image',
         'cdlt:hasCourseType': 'Type de parcours',
-        'pair:hasEventType': 'Type d\'événement',
+        'pair:hasEventType': "Type d'événement",
         'pair:hasTopic': 'Thématiques',
         'pair:produces': 'Compétences visées',
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',
         'pair:description': 'Présentation',
-        'cdlt:program': 'Programme de l\'événement',
+        'cdlt:program': "Programme de l'événement",
         'pair:hostedIn': 'Lieu',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
@@ -44,8 +44,8 @@ export default {
         'pair:e-mail': 'Adresse e-mail',
         'pair:phone': 'Téléphone',
         'pair:aboutPage': 'Site web',
-        'cdlt:organizedBy': 'Organisé par'
-      }
-    }
-  }
+        'cdlt:organizedBy': 'Organisé par',
+      },
+    },
+  },
 };

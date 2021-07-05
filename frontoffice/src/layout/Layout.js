@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Notification } from 'react-admin';
-import { Box, /* useMediaQuery, */ThemeProvider } from '@material-ui/core';
+import { Box, /* useMediaQuery, */ ThemeProvider } from '@material-ui/core';
 import AppBar from './AppBar';
 import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
@@ -9,12 +9,12 @@ import TopBar from './TopBar';
 
 const Layout = ({ logout, theme, children, title }) => {
   const menuItems = [
-    {link:'/Course',name: 'Nos Parcours'},
-    {link:'/Place',name:  'Lieux'},
-    {link:'/Event',name:  'Evènements'},
+    { link: '/Course', name: 'Nos Parcours' },
+    { link: '/Place', name: 'Lieux' },
+    { link: '/Event', name: 'Evènements' },
   ];
   // const xs = useMediaQuery(theme.breakpoints.down('xs'));
-  const [ sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <ThemeProvider theme={theme}>
       <ScrollToTop />
@@ -22,8 +22,8 @@ const Layout = ({ logout, theme, children, title }) => {
       <TopBar />
       <AppBar title={title} logout={logout} menuItems={menuItems} setSidebarOpen={setSidebarOpen} />
 
-        {/*<Typography variant="h4" color="primary" className={classes.title} id="react-admin-title" component="h1" />*/}
-      <Box >{children}</Box>
+      {/*<Typography variant="h4" color="primary" className={classes.title} id="react-admin-title" component="h1" />*/}
+      <Box>{children}</Box>
       <Footer title={title} />
       {/* Required for react-admin optimistic update */}
       <Notification />

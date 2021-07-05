@@ -2,7 +2,7 @@ import React from 'react';
 import { Show } from 'react-admin';
 import { RedirectByType } from '@semapps/archipelago-layout';
 
-const SubjectRedirect = props => (
+const SubjectRedirect = (props) => (
   <Show {...props}>
     <RedirectByType
       typesMap={{
@@ -12,7 +12,7 @@ const SubjectRedirect = props => (
         Course: 'cdlt:Course',
         Path: 'cdlt:Path',
         Skill: 'pair:Skill',
-        Place: 'pair:Place'
+        Place: 'pair:Place',
       }}
     />
   </Show>
@@ -20,9 +20,9 @@ const SubjectRedirect = props => (
 
 export default {
   config: {
-    show: SubjectRedirect
+    show: SubjectRedirect,
   },
   dataModel: {
-    types: ['pair:Organization', 'pair:Person', 'pair:Event', 'cdlt:Course', 'cdlt:Path', 'pair:Skill', 'pair:Place']
-  }
+    types: ['pair:Organization', 'pair:Person', 'pair:Event', 'cdlt:Course', 'cdlt:Path', 'pair:Skill', 'pair:Place'],
+  },
 };

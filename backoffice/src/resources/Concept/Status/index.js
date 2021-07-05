@@ -11,21 +11,21 @@ export default {
     icon: VisibilityIcon,
     options: {
       label: 'Statuts',
-      parent: 'Concept'
-    }
+      parent: 'Concept',
+    },
   },
   dataModel: {
     types: ['cdlt:CourseStatus', 'cdlt:PathStatus'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'status',
-    slugField: 'pair:label'
+    slugField: 'pair:label',
   },
   translations: {
     fr: {
       name: 'Statut |||| Statuts',
       fields: {
         '@type': 'Classe',
-        'pair:label': 'Nom'
-      }
-    }
-  }
+        'pair:label': 'Nom',
+      },
+    },
+  },
 };

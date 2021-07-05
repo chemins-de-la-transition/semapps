@@ -1,14 +1,14 @@
 import React from 'react';
 import { DateField } from 'react-admin';
 import { SimpleList } from '@semapps/archipelago-layout';
-import { ListWithPermissions } from "@semapps/auth-provider";
+import { ListWithPermissions } from '@semapps/auth-provider';
 import EventIcon from '@material-ui/icons/Event';
 
-const EventList = props => (
+const EventList = (props) => (
   <ListWithPermissions perPage={1000} pagination={false} {...props}>
     <SimpleList
-      primaryText={record => record['pair:label']}
-      secondaryText={record => (
+      primaryText={(record) => record['pair:label']}
+      secondaryText={(record) => (
         <>
           Du&nbsp;
           <DateField record={record} source="pair:startDate" showTime />

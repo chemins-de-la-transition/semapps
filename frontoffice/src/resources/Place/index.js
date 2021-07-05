@@ -13,14 +13,14 @@ export default {
     icon: PlaceIcon,
     options: {
       label: 'Lieux',
-      parent: 'Activity'
-    }
+      parent: 'Activity',
+    },
   },
   dataModel: {
     types: ['pair:Place'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'places',
     dereference: ['pair:hasPostalAddress'],
-    slugField: 'pair:label'
+    slugField: 'pair:label',
   },
   translations: {
     fr: {
@@ -42,7 +42,7 @@ export default {
         'pair:e-mail': 'Adresse e-mail',
         'pair:phone': 'Téléphone',
         'pair:homePage': 'Site web',
-      }
-    }
-  }
+      },
+    },
+  },
 };

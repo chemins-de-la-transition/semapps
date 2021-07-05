@@ -13,13 +13,13 @@ export default {
     icon: DateRangeIcon,
     options: {
       label: 'Parcours',
-      parent: 'Activity'
-    }
+      parent: 'Activity',
+    },
   },
   dataModel: {
     types: ['cdlt:Course'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'courses',
-    slugField: 'pair:label'
+    slugField: 'pair:label',
   },
   translations: {
     fr: {
@@ -42,12 +42,12 @@ export default {
         'pair:e-mail': 'Adresse e-mail',
         'pair:phone': 'Téléphone',
         'pair:homePage': 'Site web',
-        'pair:comment': 'Phrase d\'accroche',
+        'pair:comment': "Phrase d'accroche",
         'cdlt:hasMentor': 'A pour mentor',
         'cdlt:organizedBy': 'Organisé par',
         'pair:hasStatus': 'Statut',
-        'cdlt:courseOn': 'Est un parcours de'
-      }
-    }
-  }
+        'cdlt:courseOn': 'Est un parcours de',
+      },
+    },
+  },
 };

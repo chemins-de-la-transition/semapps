@@ -1,20 +1,14 @@
 import React from 'react';
-import {
-  TextField,
-  UrlField,
-  EmailField,
-  ChipField,
-  SingleFieldList,
-} from 'react-admin';
-import { Grid } from "@material-ui/core";
-import {AvatarField, GridList, Hero, MainList, SeparatedListField, SideList} from '@semapps/archipelago-layout';
-import { ShowWithPermissions } from "@semapps/auth-provider";
+import { TextField, UrlField, EmailField, ChipField, SingleFieldList } from 'react-admin';
+import { Grid } from '@material-ui/core';
+import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } from '@semapps/archipelago-layout';
+import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import PlaceTitle from './PlaceTitle';
 
-const PlaceShow = props => (
+const PlaceShow = (props) => (
   <ShowWithPermissions title={<PlaceTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
@@ -40,9 +34,9 @@ const PlaceShow = props => (
           <MarkdownField source="cdlt:practicalConditions" addLabel />
           <MapField
             source="pair:hasPostalAddress"
-            address={record => record?.['pair:hasPostalAddress']?.['pair:label']}
-            latitude={record => record?.['pair:hasPostalAddress']?.['pair:latitude']}
-            longitude={record => record?.['pair:hasPostalAddress']?.['pair:longitude']}
+            address={(record) => record?.['pair:hasPostalAddress']?.['pair:label']}
+            latitude={(record) => record?.['pair:hasPostalAddress']?.['pair:latitude']}
+            longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
           />
         </MainList>
       </Grid>

@@ -4,13 +4,13 @@ import { AutocompleteArrayInput, SelectInput } from 'react-admin';
 
 export const OrganizationsInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Organization" source={source}>
-    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={value => value.length > 1} fullWidth />
+    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
   </ReferenceArrayInput>
 );
 
 export const ActorsInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Actor" source={source}>
-    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={value => value.length > 1} fullWidth />
+    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
   </ReferenceArrayInput>
 );
 
@@ -22,13 +22,13 @@ export const PersonsInput = ({ label, source }) => (
 
 export const ActivitiesInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Activity" source={source}>
-    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={value => value.length > 1} fullWidth />
+    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
   </ReferenceArrayInput>
 );
 
 export const EventsInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Event" source={source}>
-    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={value => value.length > 1} fullWidth />
+    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
   </ReferenceArrayInput>
 );
 
@@ -52,13 +52,13 @@ export const ThemesInput = ({ label, source }) => (
 
 export const UsersInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Person" source={source}>
-    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={value => value.length > 1} fullWidth />
+    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
   </ReferenceArrayInput>
 );
 
 export const AgentsInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Agent" source={source}>
-    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={value => value.length > 1} fullWidth />
+    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
   </ReferenceArrayInput>
 );
 

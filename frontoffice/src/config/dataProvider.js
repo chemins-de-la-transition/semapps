@@ -8,7 +8,7 @@ const dataProvider = semanticDataProvider({
   resources: Object.fromEntries(Object.entries(resources).map(([k, v]) => [k, v.dataModel])),
   ontologies,
   jsonContext: process.env.REACT_APP_MIDDLEWARE_URL + 'context.json',
-  uploadsContainerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'files'
+  uploadsContainerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'files',
 });
 
 export default dataProvider;

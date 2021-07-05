@@ -7,11 +7,11 @@ import {
   DateField,
   Datagrid,
   ShowButton,
-  EmailField
+  EmailField,
 } from 'react-admin';
 import { Grid } from '@material-ui/core';
 import { Hero, GridList, MainList, SideList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
-import { ShowWithPermissions } from "@semapps/auth-provider";
+import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MapList } from '@semapps/geo-components';
 import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
@@ -20,7 +20,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import FullWidthBox from '../../../../layout/FullWidthBox';
 import LargeContainer from '../../../../layout/LargeContainer';
 
-const CourseShow = props => (
+const CourseShow = (props) => (
   <ShowWithPermissions title={<CourseTitle />} {...props}>
     <FullWidthBox>
       <LargeContainer>
@@ -52,7 +52,12 @@ const CourseShow = props => (
               <MarkdownField source="cdlt:practicalConditions" />
               <MarkdownField source="cdlt:learningObjectives" />
               <MarkdownField source="cdlt:economicalConditions" />
-              <ReferenceArrayField label="Déroulé" reference="Event" source="pair:hasPart" sort={{ field: "pair:startDate", order: 'ASC' }}>
+              <ReferenceArrayField
+                label="Déroulé"
+                reference="Event"
+                source="pair:hasPart"
+                sort={{ field: 'pair:startDate', order: 'ASC' }}
+              >
                 <Datagrid rowClick="show">
                   <TextField source="pair:label" />
                   <DateField source="pair:startDate" />
@@ -60,12 +65,17 @@ const CourseShow = props => (
                   <ShowButton />
                 </Datagrid>
               </ReferenceArrayField>
-              <ReferenceArrayField label="Itinéraire" reference="Event" source="pair:hasPart" sort={{ field: "pair:startDate", order: 'ASC' }}>
+              <ReferenceArrayField
+                label="Itinéraire"
+                reference="Event"
+                source="pair:hasPart"
+                sort={{ field: 'pair:startDate', order: 'ASC' }}
+              >
                 <MapList
-                  latitude={record => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:latitude']}
-                  longitude={record => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
-                  label={record => record?.['pair:label']}
-                  description={record => record?.['pair:comment']}
+                  latitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:latitude']}
+                  longitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
+                  label={(record) => record?.['pair:label']}
+                  description={(record) => record?.['pair:comment']}
                   connectMarkers
                   boundToMarkers
                   scrollWheelZoom

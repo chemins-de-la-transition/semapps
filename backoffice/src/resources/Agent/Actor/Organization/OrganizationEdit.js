@@ -1,18 +1,12 @@
 import React from 'react';
 import { SimpleForm, TextInput, ImageInput } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
-import { EditWithPermissions } from "@semapps/auth-provider";
+import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
-import {
-  UsersInput,
-  OrganizationsInput,
-  ActivitiesInput,
-  ThemesInput,
-  PairLocationInput
-} from '../../../../pair';
+import { UsersInput, OrganizationsInput, ActivitiesInput, ThemesInput, PairLocationInput } from '../../../../pair';
 import OrganizationTitle from './OrganizationTitle';
 
-export const OrganizationEdit = props => (
+export const OrganizationEdit = (props) => (
   <EditWithPermissions title={<OrganizationTitle />} {...props}>
     <SimpleForm redirect="show">
       <TextInput source="pair:label" fullWidth />

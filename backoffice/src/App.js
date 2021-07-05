@@ -12,8 +12,8 @@ import * as resources from './resources';
 
 const history = createBrowserHistory();
 
-const AppBarWithUserMenu = props => <AppBar userMenu={<UserMenu />} {...props} />;
-const LayoutWithUserMenu = props => <Layout {...props} appBar={AppBarWithUserMenu} />;
+const AppBarWithUserMenu = (props) => <AppBar userMenu={<UserMenu />} {...props} />;
+const LayoutWithUserMenu = (props) => <Layout {...props} appBar={AppBarWithUserMenu} />;
 
 const App = () => (
   <Admin

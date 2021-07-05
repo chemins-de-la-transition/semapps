@@ -13,13 +13,13 @@ export default {
     icon: TimelineIcon,
     options: {
       label: 'Chemins',
-      parent: 'Activity'
-    }
+      parent: 'Activity',
+    },
   },
   dataModel: {
     types: ['cdlt:Path'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'paths',
-    slugField: 'pair:label'
+    slugField: 'pair:label',
   },
   translations: {
     fr: {
@@ -28,7 +28,7 @@ export default {
         'pair:label': 'Titre',
         'pair:description': 'Description',
         'pair:comment': 'Courte description',
-        'pair:produces': 'Permet d\'apprendre',
+        'pair:produces': "Permet d'apprendre",
         'pair:hasLocation': 'Composez votre parcours',
         'pair:hasStatus': 'Statut',
         'pair:hasType': 'Type',
@@ -37,10 +37,10 @@ export default {
         'cdlt:hasCourse': 'Parcours programmés',
         'cdlt:forWhom': 'Destiné à',
         'cdlt:prerequisites': 'Prérequis',
-        'cdlt:learningObjectives': 'Objectifs d\'apprentissage',
+        'cdlt:learningObjectives': "Objectifs d'apprentissage",
         'cdlt:economicalConditions': 'Conditions financières',
         'cdlt:professionalPerspectives': 'Perspectives professionnelles',
-      }
-    }
-  }
+      },
+    },
+  },
 };

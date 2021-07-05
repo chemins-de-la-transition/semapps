@@ -11,21 +11,21 @@ export default {
     icon: StyleIcon,
     options: {
       label: 'Types',
-      parent: 'Concept'
-    }
+      parent: 'Concept',
+    },
   },
   dataModel: {
     types: ['pair:PersonType', 'pair:PlaceType', 'pair:EventType', 'cdlt:CourseType', 'cdlt:PathType'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'types',
-    slugField: 'pair:label'
+    slugField: 'pair:label',
   },
   translations: {
     fr: {
       name: 'Type |||| Types',
       fields: {
         '@type': 'Classe',
-        'pair:label': 'Nom'
-      }
-    }
-  }
+        'pair:label': 'Nom',
+      },
+    },
+  },
 };

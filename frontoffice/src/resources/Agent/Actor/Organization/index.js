@@ -13,14 +13,14 @@ export default {
     icon: HomeIcon,
     options: {
       label: 'Organisations',
-      parent: 'Actor'
-    }
+      parent: 'Actor',
+    },
   },
   dataModel: {
     types: ['pair:Organization'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'organizations',
     dereference: ['pair:hasLocation/pair:hasPostalAddress'],
-    slugField: 'pair:label'
+    slugField: 'pair:label',
   },
   translations: {
     fr: {
@@ -35,8 +35,8 @@ export default {
         'pair:partnerOf': 'A pour partenaires',
         'pair:organizes': 'Organise',
         'pair:hasTopic': 'A pour thème',
-        'pair:hasLocation': 'Adresse'
-      }
-    }
-  }
+        'pair:hasLocation': 'Adresse',
+      },
+    },
+  },
 };

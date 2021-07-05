@@ -3,12 +3,12 @@ import { Show } from 'react-admin';
 import { RedirectByType } from '@semapps/archipelago-layout';
 import PersonIcon from '@material-ui/icons/Person';
 
-const ActorRedirect = props => (
+const ActorRedirect = (props) => (
   <Show {...props}>
     <RedirectByType
       typesMap={{
         Person: 'pair:Person',
-        Organization: 'pair:Organization'
+        Organization: 'pair:Organization',
       }}
     />
   </Show>
@@ -19,15 +19,15 @@ export default {
     icon: PersonIcon,
     show: ActorRedirect,
     options: {
-      label: 'Acteurs'
-    }
+      label: 'Acteurs',
+    },
   },
   dataModel: {
-    types: ['pair:Organization', 'pair:Person']
+    types: ['pair:Organization', 'pair:Person'],
   },
   translations: {
     fr: {
-      name: 'Acteur |||| Acteurs'
-    }
-  }
+      name: 'Acteur |||| Acteurs',
+    },
+  },
 };

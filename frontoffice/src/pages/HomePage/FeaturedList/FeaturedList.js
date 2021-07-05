@@ -1,13 +1,13 @@
 import React from 'react';
-import { makeStyles, Typography, Box} from '@material-ui/core';
+import { makeStyles, Typography, Box } from '@material-ui/core';
 import FullWidthBox from '../../../layout/FullWidthBox';
 import LargeContainer from '../../../layout/LargeContainer';
 import ChevronRightIcon from '../../../svg/ChevronRight';
-import { ListBase} from 'react-admin';
+import { ListBase } from 'react-admin';
 import { Link } from 'react-router-dom';
 import ItemsGrid from './ItemsGrid';
 
-const useStyles = makeStyles((theme) =>({ 
+const useStyles = makeStyles((theme) => ({
   background: {
     backgroundColor: theme.palette.secondary.contrastText,
     color: theme.palette.secondary.main,
@@ -36,10 +36,10 @@ const useStyles = makeStyles((theme) =>({
     '& .MuiTypography-root': {
       color: theme.palette.secondary.main,
     },
-    '& svg [fill]':{
+    '& svg [fill]': {
       fill: theme.palette.secondary.main,
     },
-    '& svg':{
+    '& svg': {
       height: '12px',
     },
   },
@@ -59,37 +59,31 @@ const useStyles = makeStyles((theme) =>({
   },
 }));
 
-const FeaturedList = ({resource,basePath,title,subtitle,headComment,linkText,CardSubHeaderComponent}) => {
+const FeaturedList = ({ resource, basePath, title, subtitle, headComment, linkText, CardSubHeaderComponent }) => {
   const classes = useStyles();
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer className={classes.container}>
         <Box width={1} className={classes.header}>
           <Box>
-            <Typography variant="h2">
-              {title}
-            </Typography>
+            <Typography variant="h2">{title}</Typography>
             <Typography variant="h3" component="div">
               {subtitle}
             </Typography>
             <Typography variant="body2" component="div">
-             {headComment}
+              {headComment}
             </Typography>
-          </Box> 
-          <Link
-                to={basePath}
-                className={classes.link}
-              > 
-              <Typography variant="button" className='button2'>{linkText}</Typography>
-              <ChevronRightIcon></ChevronRightIcon>
-            </Link>
+          </Box>
+          <Link to={basePath} className={classes.link}>
+            <Typography variant="button" className="button2">
+              {linkText}
+            </Typography>
+            <ChevronRightIcon></ChevronRightIcon>
+          </Link>
         </Box>
         <Box className={classes.listBase}>
-          <ListBase
-            resource={resource}
-            basePath={basePath}
-            >
-              <ItemsGrid nb={4} CardSubHeaderComponent={CardSubHeaderComponent}/>
+          <ListBase resource={resource} basePath={basePath}>
+            <ItemsGrid nb={4} CardSubHeaderComponent={CardSubHeaderComponent} />
           </ListBase>
         </Box>
       </LargeContainer>

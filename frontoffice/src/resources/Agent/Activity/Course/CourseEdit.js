@@ -1,14 +1,22 @@
 import React from 'react';
 import { FormTab, ImageInput, TabbedForm, TextInput } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
-import { EditWithPermissions } from "@semapps/auth-provider";
-import { ImageField } from "@semapps/semantic-data-provider";
-import { PersonsInput, EventsInput, ThemesInput, StatusInput, TypesInput, SkillsInput, PathInput } from '../../../../pair';
+import { EditWithPermissions } from '@semapps/auth-provider';
+import { ImageField } from '@semapps/semantic-data-provider';
+import {
+  PersonsInput,
+  EventsInput,
+  ThemesInput,
+  StatusInput,
+  TypesInput,
+  SkillsInput,
+  PathInput,
+} from '../../../../pair';
 import CourseTitle from './CourseTitle';
-import { DateInput } from "@semapps/date-components";
-import frLocale from "date-fns/locale/fr";
+import { DateInput } from '@semapps/date-components';
+import frLocale from 'date-fns/locale/fr';
 
-const CourseEdit = props => (
+const CourseEdit = (props) => (
   <EditWithPermissions title={<CourseTitle />} {...props}>
     <TabbedForm redirect="show">
       <FormTab label="Données">
@@ -20,20 +28,20 @@ const CourseEdit = props => (
         <DateInput
           source="pair:startDate"
           options={{
-            format: 'dd/MM/yyyy'
+            format: 'dd/MM/yyyy',
           }}
           providerOptions={{
-            locale: frLocale
+            locale: frLocale,
           }}
           fullWidth
         />
         <DateInput
           source="pair:endDate"
           options={{
-            format: 'dd/MM/yyyy'
+            format: 'dd/MM/yyyy',
           }}
           providerOptions={{
-            locale: frLocale
+            locale: frLocale,
           }}
           fullWidth
         />
