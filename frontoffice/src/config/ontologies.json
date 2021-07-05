@@ -1,0 +1,52 @@
+[
+  {
+    "prefix": "as",
+    "owl": "",
+    "url": "https://www.w3.org/ns/activitystreams#"
+  },
+  {
+    "prefix": "rdf",
+    "owl": "",
+    "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  },
+  {
+    "prefix": "xsd",
+    "owl": "",
+    "url": "http://www.w3.org/2001/XMLSchema#"
+  },
+  {
+    "prefix": "ldp",
+    "owl": "",
+    "url": "http://www.w3.org/ns/ldp#"
+  },
+  {
+    "prefix": "schema",
+    "owl": "",
+    "url": "http://schema.org/"
+  },
+  {
+    "prefix": "foaf",
+    "owl": "",
+    "url": "http://xmlns.com/foaf/0.1/"
+  },
+  {
+    "prefix": "pair",
+    "owl": "",
+    "url": "http://virtual-assembly.org/ontologies/pair#"
+  },
+  {
+    "prefix": "pairv1",
+    "owl": "",
+    "url": "http://virtual-assembly.org/pair#"
+  },
+  {
+    "prefix": "skos",
+    "owl": "",
+    "url": "http://www.w3.org/2004/02/skos/core#"
+  },
+  {
+    "prefix": "cdlt",
+    "owl": "https://gist.githubusercontent.com/srosset81/54036f8b3ff8805f6131af60fcf1c3f1/raw/878af6f5dc1867b2c4b687abe3c1fc286fef568a/cdlt-ontology.owl",
+    "url": "http://virtual-assembly.org/ontologies/cdlt#"
+  }
+]
