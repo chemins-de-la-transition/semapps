@@ -12,8 +12,14 @@ module.exports = {
     containers,
     defaultContainerOptions: {
       jsonContext: urlJoin(CONFIG.HOME_URL, 'context.json'),
-      allowAnonymousEdit: true,
-      allowAnonymousDelete: true
+      newResourcesPermissions: {
+        anon: {
+          read: true
+        },
+        anyUser: {
+          read: true
+        }
+      }
     }
   }
 };

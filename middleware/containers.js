@@ -1,3 +1,17 @@
+const writePermissionsToCreator = creatorUri => ({
+  anon : {
+    read: true
+  },
+  anyUser: {
+    read: true
+  },
+  user: {
+    uri: creatorUri,
+    read: true,
+    write: true
+  }
+});
+
 module.exports = [
   {
     path: '/'
@@ -18,17 +32,21 @@ module.exports = [
   },
   {
     path: '/courses',
-    acceptedTypes: ['cdlt:Course']
+    acceptedTypes: ['cdlt:Course'],
+    // By default, no read rights to new courses
+    newResourcesPermissions: {}
   },
   {
     path: '/events',
     acceptedTypes: ['pair:Event'],
-    dereference: ['pair:hostedIn/pair:hasPostalAddress']
+    dereference: ['pair:hostedIn/pair:hasPostalAddress'],
+    newResourcesPermissions: writePermissionsToCreator
   },
   {
     path: '/places',
     acceptedTypes: ['pair:Place'],
-    dereference: ['pair:hasPostalAddress']
+    dereference: ['pair:hasPostalAddress'],
+    newResourcesPermissions: writePermissionsToCreator
   },
   {
     path: '/themes',
