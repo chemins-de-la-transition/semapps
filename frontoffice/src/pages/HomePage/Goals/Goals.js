@@ -6,12 +6,12 @@ import TwoHandsIcon from '../../../svg/TwoHandsIcon';
 import WalkerIcon from '../../../svg/WalkerIcon';
 import StarIcon from '../../../svg/StarIcon';
 import ListGoalsItem from './ListGoalsItem';
-import Top1Shape from './BackgoundShapes/Top1Shape';
-import Top2Shape from './BackgoundShapes/Top2Shape';
-import Bottom1Shape from './BackgoundShapes/Bottom1Shape';
-import Bottom2Shape from './BackgoundShapes/Bottom2Shape';
-import LeftShape from './BackgoundShapes/LeftShape';
-import SnakeShape from './BackgoundShapes/SnakeShape';
+import Top1Shape from './BackgroundShapes/Top1Shape';
+import Top2Shape from './BackgroundShapes/Top2Shape';
+import Bottom1Shape from './BackgroundShapes/Bottom1Shape';
+import Bottom2Shape from './BackgroundShapes/Bottom2Shape';
+import LeftShape from './BackgroundShapes/LeftShape';
+import SnakeShape from './BackgroundShapes/SnakeShape';
 
 const useStyles = makeStyles((theme) => ({
   mainBox: {
@@ -102,6 +102,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '65px',
   },
   iconWhite: {
+    fontSize: '3rem',
     '& path[fill]': {
       fill: theme.palette.secondary.contrastText,
     },

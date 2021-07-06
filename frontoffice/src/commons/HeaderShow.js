@@ -93,7 +93,7 @@ const HeaderShow = ({ subheaderSource, subheaderDefault, linkToListText, basePat
           </Typography>
         )}
         <TextField source="pair:label" variant="h1" />
-        <Box p={1}>
+        <Box display="flex" pt={2} pb={2}>
           <IconsList />
         </Box>
       </LargeContainer>

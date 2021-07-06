@@ -24,7 +24,7 @@ const StickyCard = () => {
             Crémaillière dantesque
           </Typography>
         </Box>
-        <Box className={classes.block} p={1}>
+        <Box className={classes.block} p={2}>
           <IconsList orientation="vertical" />
         </Box>
       </Card>

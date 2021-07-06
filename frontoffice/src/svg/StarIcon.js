@@ -1,15 +1,9 @@
 import React from 'react';
+import { SvgIcon } from '@material-ui/core';
 
-const StarIcon = ({ className }) => {
+const StarIcon = props => {
   return (
-    <svg
-      className={className}
-      width="44"
-      height="48"
-      viewBox="0 0 44 48"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <SvgIcon viewBox="0 0 44 48" {...props}>
       <path d="M42.7661 24.2617L1.2334 24.2617" stroke="white" strokeWidth="2.05607" strokeLinecap="round" />
       <path d="M32.7729 42.0151L11.2272 6.50813" stroke="white" strokeWidth="2.05607" strokeLinecap="round" />
       <path d="M11.2278 42.0149L32.7735 6.50788" stroke="white" strokeWidth="2.05607" strokeLinecap="round" />
@@ -29,7 +23,7 @@ const StarIcon = ({ className }) => {
       {/* <path d="M35.9811 16.0468L8.22412 32.3567" stroke="white" stroke-width="2.05607" stroke-linecap="round"/>
             <path d="M8.22419 16.0468L35.9812 32.3567" stroke="white" stroke-width="2.05607" stroke-linecap="round"/>
             <path d="M22.1434 8.10476L22.0625 40.2988" stroke="white" stroke-width="2.05607" stroke-linecap="round"/> */}
-    </svg>
+    </SvgIcon>
   );
 };
 

@@ -1,32 +1,42 @@
 import React from "react";
 import { List, ListItem, ListItemAvatar, ListItemText, Divider, makeStyles } from "@material-ui/core";
-import RoomIcon from "@material-ui/icons/Room";
+import ThemeIcon from "../svg/ThemeIcon";
+import CourseIcon from "../svg/CourseIcon";
+import CalendarIcon from "../svg/Calendar";
+import PlaceIcon from "../svg/PlaceIcon";
+import ClockIcon from "../svg/ClockIcon";
 
 const useStyles = makeStyles(theme => ({
-  horizontal: {
+  root: props => ({
     display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'flex-start',
+    flexDirection: props.isVertical ? 'column' : 'row',
+    alignItems: props.isVertical ? undefined : 'flex-start',
     padding: 0
-  },
-  vertical: {
-    padding: 0
-  },
-  item: {
-    padding: 8,
-    // float: 'left',
-    // display: 'block'
-  },
+  }),
+  item: props => ({
+    flexGrow: 1,
+    padding: props.isVertical ? "8px 0 8px 0" : "0 16px 0 16px",
+    '&:first-child': {
+      padding: props.isVertical ? "0 0 8px 0" : "0 16px 0 0",
+    },
+    '&:last-child': {
+      padding: props.isVertical ? "8px 0 0 0" : "0 0 0 16px",
+    }
+  }),
   avatar: {
-    minWidth: 42
+    minWidth: 40
+  },
+  icon: {
+    fontSize: '1.8rem'
   },
   divider: {
     backgroundColor: 'white'
   },
-  secondary: {
+  secondary: props => ({
     paddingTop: 2,
-    fontSize: 14
-  }
+    fontSize: 14,
+    whiteSpace: props.isVertical ? undefined : 'nowrap'
+  })
 }));
 
 const primaryTypographyProps = {
@@ -38,31 +48,45 @@ const secondaryTypographyProps = {
 };
 
 const IconsList = ({ orientation }) => {
-  const classes = useStyles();
   const isVertical = orientation === 'vertical';
+  const classes = useStyles({ isVertical });
   const dividerOrientation = isVertical ? 'horizontal' : 'vertical';
 
   return (
-    <List className={isVertical ? classes.vertical : classes.horizontal}>
-      <ListItem className={classes.item}>
+    <List className={classes.root}>
+      <ListItem className={classes.item} p={2}>
         <ListItemAvatar className={classes.avatar}>
-          <RoomIcon fontSize="large" />
+          <CourseIcon className={classes.icon} />
         </ListItemAvatar>
         <ListItemText primary="Type de voyage" secondary="Voyage Découverte" primaryTypographyProps={primaryTypographyProps} secondaryTypographyProps={secondaryTypographyProps} classes={{ secondary: classes.secondary }} />
       </ListItem>
       <Divider orientation={dividerOrientation} className={classes.divider} flexItem={!isVertical} />
       <ListItem className={classes.item}>
         <ListItemAvatar className={classes.avatar}>
-          <RoomIcon fontSize="large" />
+          <ThemeIcon className={classes.icon} />
         </ListItemAvatar>
-        <ListItemText primary="Type de lieu" secondary="Hébergement / Ferme / Co-working" primaryTypographyProps={primaryTypographyProps} secondaryTypographyProps={secondaryTypographyProps} classes={{ secondary: classes.secondary }} />
+        <ListItemText primary="Thématique" secondary="Gouvernance et Mode d'organisation" primaryTypographyProps={primaryTypographyProps} secondaryTypographyProps={secondaryTypographyProps} classes={{ secondary: classes.secondary }} />
       </ListItem>
       <Divider orientation={dividerOrientation} className={classes.divider} flexItem={!isVertical} />
       <ListItem className={classes.item}>
         <ListItemAvatar className={classes.avatar}>
-          <RoomIcon fontSize="large" />
+          <PlaceIcon className={classes.icon} />
         </ListItemAvatar>
         <ListItemText primary="Région" secondary="Charente Maritime-17" primaryTypographyProps={primaryTypographyProps} secondaryTypographyProps={secondaryTypographyProps} classes={{ secondary: classes.secondary }} />
+      </ListItem>
+      <Divider orientation={dividerOrientation} className={classes.divider} flexItem={!isVertical} />
+      <ListItem className={classes.item}>
+        <ListItemAvatar className={classes.avatar}>
+          <CalendarIcon className={classes.icon} />
+        </ListItemAvatar>
+        <ListItemText primary="Date" secondary="24 octobre 2021" primaryTypographyProps={primaryTypographyProps} secondaryTypographyProps={secondaryTypographyProps} classes={{ secondary: classes.secondary }} />
+      </ListItem>
+      <Divider orientation={dividerOrientation} className={classes.divider} flexItem={!isVertical} />
+      <ListItem className={classes.item}>
+        <ListItemAvatar className={classes.avatar}>
+          <ClockIcon className={classes.icon} />
+        </ListItemAvatar>
+        <ListItemText primary="Durée" secondary="1 mois" primaryTypographyProps={primaryTypographyProps} secondaryTypographyProps={secondaryTypographyProps} classes={{ secondary: classes.secondary }} />
       </ListItem>
     </List>
   );

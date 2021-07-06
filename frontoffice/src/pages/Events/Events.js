@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { makeStyles, Grid, Box, Typography } from '@material-ui/core';
+import { makeStyles, Grid, Box, Typography, Hidden } from '@material-ui/core';
 import { ListBase } from 'react-admin';
 import { Link } from 'react-router-dom';
 import LargeContainer from '../../layout/LargeContainer';
@@ -10,7 +10,7 @@ import Button from '../../layout/Button';
 import ItemsGrid from './ItemsGrid';
 
 const useStyles = makeStyles((theme) => ({
-  backgound: {
+  background: {
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.primary.contrastText,
     paddingTop: '60px',
@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     width: '100%',
     color: theme.palette.white.main,
-    '& svg [fill]': {
-      fill: theme.palette.white.main,
-    },
+    '& svg': {
+      fontSize: '32rem'
+    }
   },
   internalIcon: {
     display: 'flex',
@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
 const Event = () => {
   const classes = useStyles();
   return (
-    <FullWidthBox className={classes.backgound}>
+    <FullWidthBox className={classes.background}>
       <LargeContainer>
         <Grid container spacing={3}>
           <Grid item sm={7} className={classes.eventList}>
@@ -81,17 +81,19 @@ const Event = () => {
               component={Link}
               typographyVariant="button1"
               text="Voir Tous les évènements"
-            ></Button>
+            />
           </Grid>
-          <Grid item sm={5} className={classes.eventIcon}>
-            <LargeRound />
-            <Box className={classes.internalIcon}>
-              <Typography variant="h1" component="div">
-                L’agenda des évènements
-              </Typography>
-              <CalendarIcon />
-            </Box>
-          </Grid>
+          <Hidden xsDown>
+            <Grid item sm={5} className={classes.eventIcon}>
+              <LargeRound />
+              <Box className={classes.internalIcon}>
+                <Typography variant="h1" component="div">
+                  L’agenda des évènements
+                </Typography>
+                <CalendarIcon />
+              </Box>
+            </Grid>
+          </Hidden>
         </Grid>
       </LargeContainer>
     </FullWidthBox>
