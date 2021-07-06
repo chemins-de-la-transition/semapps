@@ -6,17 +6,17 @@ import HeaderShow from '../../../../commons/HeaderShow';
 import Events from "../../../../pages/Events/Events";
 import StickyCard from "../../../../commons/StickyCard";
 import BodyList from "../../../../commons/BodyList/BodyList";
+import EventDetails from "./EventDetails";
 
 const EventShow = (props) => (
   <ShowBase {...props}>
     <>
       <HeaderShow
-        subheaderSource="pair:hasEventType"
-        subheaderDefault="Pas de type défini"
+        type="pair:hasEventType"
         linkToListText="Liste des évènements"
-        {...props}
+        details={<EventDetails />}
       />
-      <BodyList aside={<StickyCard />}>
+      <BodyList aside={<StickyCard><EventDetails orientation="vertical" /></StickyCard>}>
         <MarkdownField source="pair:description" />
         <MarkdownField source="cdlt:program" />
         <MarkdownField source="cdlt:prerequisites" />

@@ -1,10 +1,6 @@
 import React from "react";
 import { List, ListItem, ListItemAvatar, ListItemText, Divider, makeStyles } from "@material-ui/core";
-import ThemeIcon from "../svg/ThemeIcon";
-import CourseIcon from "../svg/CourseIcon";
-import CalendarIcon from "../svg/Calendar";
-import PlaceIcon from "../svg/PlaceIcon";
-import ClockIcon from "../svg/ClockIcon";
+import { getFieldLabelTranslationArgs, useShowContext, useTranslate } from "react-admin";
 
 const useStyles = makeStyles(theme => ({
   root: props => ({
@@ -32,6 +28,9 @@ const useStyles = makeStyles(theme => ({
   divider: {
     backgroundColor: 'white'
   },
+  primary: props => ({
+    whiteSpace: props.isVertical ? undefined : 'nowrap'
+  }),
   secondary: props => ({
     paddingTop: 2,
     fontSize: 14,
@@ -47,47 +46,53 @@ const secondaryTypographyProps = {
   color: 'white'
 };
 
-const IconsList = ({ orientation }) => {
+const IconsList = ({ orientation, children }) => {
   const isVertical = orientation === 'vertical';
+  const translate = useTranslate();
   const classes = useStyles({ isVertical });
+  const { basePath, loaded, record, resource } = useShowContext();
+
+  if (!loaded) return null;
+
+  const fields = React.Children.toArray(children).filter(field => field && record[field.props.source] && React.isValidElement(field));
+
   const dividerOrientation = isVertical ? 'horizontal' : 'vertical';
 
   return (
     <List className={classes.root}>
-      <ListItem className={classes.item} p={2}>
-        <ListItemAvatar className={classes.avatar}>
-          <CourseIcon className={classes.icon} />
-        </ListItemAvatar>
-        <ListItemText primary="Type de voyage" secondary="Voyage Découverte" primaryTypographyProps={primaryTypographyProps} secondaryTypographyProps={secondaryTypographyProps} classes={{ secondary: classes.secondary }} />
-      </ListItem>
-      <Divider orientation={dividerOrientation} className={classes.divider} flexItem={!isVertical} />
-      <ListItem className={classes.item}>
-        <ListItemAvatar className={classes.avatar}>
-          <ThemeIcon className={classes.icon} />
-        </ListItemAvatar>
-        <ListItemText primary="Thématique" secondary="Gouvernance et Mode d'organisation" primaryTypographyProps={primaryTypographyProps} secondaryTypographyProps={secondaryTypographyProps} classes={{ secondary: classes.secondary }} />
-      </ListItem>
-      <Divider orientation={dividerOrientation} className={classes.divider} flexItem={!isVertical} />
-      <ListItem className={classes.item}>
-        <ListItemAvatar className={classes.avatar}>
-          <PlaceIcon className={classes.icon} />
-        </ListItemAvatar>
-        <ListItemText primary="Région" secondary="Charente Maritime-17" primaryTypographyProps={primaryTypographyProps} secondaryTypographyProps={secondaryTypographyProps} classes={{ secondary: classes.secondary }} />
-      </ListItem>
-      <Divider orientation={dividerOrientation} className={classes.divider} flexItem={!isVertical} />
-      <ListItem className={classes.item}>
-        <ListItemAvatar className={classes.avatar}>
-          <CalendarIcon className={classes.icon} />
-        </ListItemAvatar>
-        <ListItemText primary="Date" secondary="24 octobre 2021" primaryTypographyProps={primaryTypographyProps} secondaryTypographyProps={secondaryTypographyProps} classes={{ secondary: classes.secondary }} />
-      </ListItem>
-      <Divider orientation={dividerOrientation} className={classes.divider} flexItem={!isVertical} />
-      <ListItem className={classes.item}>
-        <ListItemAvatar className={classes.avatar}>
-          <ClockIcon className={classes.icon} />
-        </ListItemAvatar>
-        <ListItemText primary="Durée" secondary="1 mois" primaryTypographyProps={primaryTypographyProps} secondaryTypographyProps={secondaryTypographyProps} classes={{ secondary: classes.secondary }} />
-      </ListItem>
+      {fields.map((field, i) => {
+        const label = translate(
+          ...getFieldLabelTranslationArgs({
+            label: field.props.label,
+            resource,
+            source: field.props.source
+          })
+        );
+        const value = React.cloneElement(field, {
+          record,
+          resource,
+          basePath
+        });
+        return (
+          <>
+            <ListItem key={field.props.source} className={classes.item} p={2}>
+              <ListItemAvatar className={classes.avatar}>
+                {React.cloneElement(field.props.icon, {
+                  className: classes.icon,
+                })}
+              </ListItemAvatar>
+              <ListItemText
+                primary={label}
+                secondary={value}
+                classes={{ primary: classes.primary, secondary: classes.secondary }}
+                primaryTypographyProps={primaryTypographyProps}
+                secondaryTypographyProps={secondaryTypographyProps}
+              />
+            </ListItem>
+            {i < fields.length-1 && <Divider orientation={dividerOrientation} className={classes.divider} flexItem={!isVertical} />}
+          </>
+        )
+      })}
     </List>
   );
 };

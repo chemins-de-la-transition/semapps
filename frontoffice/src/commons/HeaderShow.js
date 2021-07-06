@@ -2,10 +2,8 @@ import React from 'react';
 import { makeStyles, Typography, Box, Breadcrumbs } from '@material-ui/core';
 import FullWidthBox from '../layout/FullWidthBox';
 import LargeContainer from '../layout/LargeContainer';
-import { TextField, useRecordContext, ReferenceField, ImageField } from 'react-admin';
-import { Link } from 'react-router-dom';
+import { TextField, useShowContext, ReferenceField, ImageField, Link } from 'react-admin';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import IconsList from './IconsList';
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -22,6 +20,13 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 0,
     paddingRight: 8,
   },
+  breadcrumbs: {
+    paddingTop: 15,
+    paddingBottom: 10
+  },
+  type: {
+    paddingTop: 15
+  },
   basePath: {
     color: theme.palette.theme_3.contrastText,
   },
@@ -30,10 +35,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
   },
   chevronIcon: {
-    marginLeft: 8,
-    marginRight: 8,
-    width: 12,
-    height: 12,
+    color: 'white'
   },
   noDecoration: {
     textDecoration: 'none',
@@ -53,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
     '& img': {
       width: '100%',
       display: 'block',
+      borderRadius: 8,
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
@@ -63,14 +66,14 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const HeaderShow = ({ subheaderSource, subheaderDefault, linkToListText, basePath }) => {
+const HeaderShow = ({ type, linkToListText, details }) => {
   const classes = useStyles();
-  const record = useRecordContext();
+  const { basePath, record } = useShowContext();
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer>
-        <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} className={classes.basePathLinks}>
-          <Link to={basePath} className={classes.basePath + ' ' + classes.noDecoration}>
+        <Breadcrumbs separator={<NavigateNextIcon fontSize="small" className={classes.chevronIcon} />} className={classes.breadcrumbs}>
+          <Link to={basePath} underline="none" color="inherit" className={classes.basePath}>
             <Typography variant="body2">{linkToListText}</Typography>
           </Link>
           <TextField source="pair:label" variant="body2" className={classes.placeLink + ' ' + classes.noDecoration} />
@@ -78,23 +81,19 @@ const HeaderShow = ({ subheaderSource, subheaderDefault, linkToListText, basePat
         <Box className={classes.images}>
           <ImageField source="pair:isDepictedBy" />
         </Box>
-        {record && record[subheaderSource] ? (
-          <ReferenceField source={subheaderSource} reference="Type" linkType="show">
+        {record && record[type] && (
+          <ReferenceField source={type} reference="Type" linkType={false}>
             <TextField
               source="pair:label"
               variant="subtitle2"
               component="div"
-              className={classes.basePath + ' ' + classes.noDecoration}
+              className={classes.type}
             />
           </ReferenceField>
-        ) : (
-          <Typography variant="subtitle2" component="div">
-            {subheaderDefault}
-          </Typography>
         )}
         <TextField source="pair:label" variant="h1" />
         <Box display="flex" pt={2} pb={2}>
-          <IconsList />
+          {details}
         </Box>
       </LargeContainer>
     </FullWidthBox>

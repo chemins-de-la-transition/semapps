@@ -56,9 +56,7 @@ const Duration = ({ record }) => {
     <Typography variant="body2" className={classes.text}>
       {duration}
     </Typography>
-  ) : (
-    ''
-  );
+  ) : null;
 };
 
 const CourseSubHeader = ({ record, ...rest }) => {
@@ -70,9 +68,7 @@ const CourseSubHeader = ({ record, ...rest }) => {
           <DurationIcon />
           <Duration record={record} {...rest} />
         </>
-      ) : (
-        ''
-      )}
+      ) : null}
       {record['pair:hasCourseType'] ? (
         <>
           <CourseIcon />
@@ -80,9 +76,7 @@ const CourseSubHeader = ({ record, ...rest }) => {
             <TextField source="pair:label" className={classes.text} />
           </ReferenceField>
         </>
-      ) : (
-        ''
-      )}
+      ) : null}
     </Box>
   );
 };
