@@ -123,14 +123,14 @@ let theme = createMuiTheme({
     fontSize: 14,
     h1: {
       fontFamily: font1,
-      fontSize: 48,
+      fontSize: 40,
       fontStyle: 'normal',
       fontWeight: 'normal',
       lineHeight: '70px',
     },
     h2: {
       fontFamily: font1,
-      fontSize: 40,
+      fontSize: 24,
       fontStyle: 'normal',
       fontWeight: 'normal',
       lineHeight: '58px',
