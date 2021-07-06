@@ -22,10 +22,10 @@ const useStyles = makeStyles((theme) => ({
   },
   breadcrumbs: {
     paddingTop: 15,
-    paddingBottom: 10
+    paddingBottom: 10,
   },
   type: {
-    paddingTop: 15
+    paddingTop: 15,
   },
   basePath: {
     color: theme.palette.theme_3.contrastText,
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
   },
   chevronIcon: {
-    color: 'white'
+    color: 'white',
   },
   noDecoration: {
     textDecoration: 'none',
@@ -61,9 +61,9 @@ const useStyles = makeStyles((theme) => ({
       backgroundPosition: 'center',
       objectFit: 'cover',
       margin: '5px 0 10px 0',
-      maxHeight: '15rem'
-    }
-  }
+      maxHeight: '15rem',
+    },
+  },
 }));
 
 const HeaderShow = ({ type, linkToListText, details }) => {
@@ -72,7 +72,10 @@ const HeaderShow = ({ type, linkToListText, details }) => {
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer>
-        <Breadcrumbs separator={<NavigateNextIcon fontSize="small" className={classes.chevronIcon} />} className={classes.breadcrumbs}>
+        <Breadcrumbs
+          separator={<NavigateNextIcon fontSize="small" className={classes.chevronIcon} />}
+          className={classes.breadcrumbs}
+        >
           <Link to={basePath} underline="none" color="inherit" className={classes.basePath}>
             <Typography variant="body2">{linkToListText}</Typography>
           </Link>
@@ -83,12 +86,7 @@ const HeaderShow = ({ type, linkToListText, details }) => {
         </Box>
         {record && record[type] && (
           <ReferenceField source={type} reference="Type" linkType={false}>
-            <TextField
-              source="pair:label"
-              variant="subtitle2"
-              component="div"
-              className={classes.type}
-            />
+            <TextField source="pair:label" variant="subtitle2" component="div" className={classes.type} />
           </ReferenceField>
         )}
         <TextField source="pair:label" variant="h1" />

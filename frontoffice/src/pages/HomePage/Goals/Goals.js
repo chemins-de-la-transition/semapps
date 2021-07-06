@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   snakeShape: {
     top: '30%',
     left: '19%',
-    position: 'absolute'
+    position: 'absolute',
   },
   leftBottom1: {
     bottom: -187,

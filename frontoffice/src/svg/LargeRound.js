@@ -1,7 +1,7 @@
 import React from 'react';
 import { SvgIcon } from '@material-ui/core';
 
-const LargeRound = props => {
+const LargeRound = (props) => {
   return (
     <SvgIcon viewBox="0 0 449 482" {...props}>
       <path

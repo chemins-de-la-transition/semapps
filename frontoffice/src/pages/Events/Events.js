@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     color: theme.palette.white.main,
     '& svg': {
-      fontSize: '32rem'
-    }
+      fontSize: '32rem',
+    },
   },
   internalIcon: {
     display: 'flex',

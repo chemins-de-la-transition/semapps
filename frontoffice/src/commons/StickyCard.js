@@ -1,8 +1,8 @@
-import React from "react";
-import StickyBox from "react-sticky-box";
-import { useRecordContext, TextField } from "react-admin";
+import React from 'react';
+import StickyBox from 'react-sticky-box';
+import { useRecordContext, TextField } from 'react-admin';
 import { makeStyles, Box, Card } from '@material-ui/core';
-import Button from "../layout/Button";
+import Button from '../layout/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,11 +11,11 @@ const useStyles = makeStyles((theme) => ({
   },
   block: {
     backgroundColor: theme.palette.theme_3.main,
-    color: theme.palette.theme_3.contrastText
+    color: theme.palette.theme_3.contrastText,
   },
   button: {
     backgroundColor: theme.palette.theme_3.main,
-    textAlign: 'center'
+    textAlign: 'center',
   },
 }));
 
@@ -35,16 +35,11 @@ const StickyCard = ({ children }) => {
           {children}
         </Box>
         <Box className={classes.button} pb={3} pr={2} pl={2}>
-          <Button
-            variant="contained"
-            color="tertiary"
-            typographyVariant="button1"
-            text="Je candidate"
-          />
+          <Button variant="contained" color="tertiary" typographyVariant="button1" text="Je candidate" />
         </Box>
       </Card>
     </StickyBox>
   );
-}
+};
 
 export default StickyCard;

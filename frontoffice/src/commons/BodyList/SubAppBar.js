@@ -2,8 +2,8 @@ import React from 'react';
 import { Scrollchor } from 'react-scrollchor';
 import { useTranslate, getFieldLabelTranslationArgs, useShowContext } from 'react-admin';
 import { makeStyles, AppBar as MuiAppBar, Tabs, Tab, useMediaQuery } from '@material-ui/core';
-import FullWidthBox from "../../layout/FullWidthBox";
-import LargeContainer from "../../layout/LargeContainer";
+import FullWidthBox from '../../layout/FullWidthBox';
+import LargeContainer from '../../layout/LargeContainer';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -11,18 +11,18 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: 'none',
   },
   positionSticky: {
-    top: 100
+    top: 100,
   },
   positionStickyMobile: {
-    top: 48
+    top: 48,
   },
   tab: {
     minWidth: 0,
   },
   link: {
     textDecoration: 'none',
-    color: 'black'
-  }
+    color: 'black',
+  },
 }));
 
 const SubAppBar = ({ fields }) => {
@@ -35,7 +35,10 @@ const SubAppBar = ({ fields }) => {
   const subAppBarHeight = 48;
 
   return (
-    <MuiAppBar position="sticky" classes={{ root: classes.appBar, positionSticky: xs ? classes.positionStickyMobile : classes.positionSticky }}>
+    <MuiAppBar
+      position="sticky"
+      classes={{ root: classes.appBar, positionSticky: xs ? classes.positionStickyMobile : classes.positionSticky }}
+    >
       <FullWidthBox>
         <LargeContainer>
           <Tabs
@@ -43,17 +46,21 @@ const SubAppBar = ({ fields }) => {
             textColor="primary"
             variant="scrollable" /*value={value} onChange={handleChange} aria-label="simple tabs example"*/
           >
-            {fields.map(field => {
-              if( !field.props.addLabel ) return null;
+            {fields.map((field) => {
+              if (!field.props.addLabel) return null;
               const label = translate(
                 ...getFieldLabelTranslationArgs({
                   label: field.props.label,
                   resource,
-                  source: field.props.source
-                }
-              ));
+                  source: field.props.source,
+                })
+              );
               return (
-                <Scrollchor to={field.props.source} animate={{ offset: -appBarHeight-subAppBarHeight  }} className={classes.link}>
+                <Scrollchor
+                  to={field.props.source}
+                  animate={{ offset: -appBarHeight - subAppBarHeight }}
+                  className={classes.link}
+                >
                   <Tab label={label} className={classes.tab} />
                 </Scrollchor>
               );

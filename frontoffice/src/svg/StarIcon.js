@@ -1,7 +1,7 @@
 import React from 'react';
 import { SvgIcon } from '@material-ui/core';
 
-const StarIcon = props => {
+const StarIcon = (props) => {
   return (
     <SvgIcon viewBox="0 0 44 48" {...props}>
       <path d="M42.7661 24.2617L1.2334 24.2617" stroke="white" strokeWidth="2.05607" strokeLinecap="round" />

@@ -1,17 +1,17 @@
 import React from 'react';
 import { DateField, TextField } from 'react-admin';
-import { ReferenceField, ReferenceArrayField } from "@semapps/semantic-data-provider";
-import { SeparatedListField } from "@semapps/archipelago-layout";
-import IconsList from "../../../../commons/IconsList";
-import ThemeIcon from "../../../../svg/ThemeIcon";
-import CourseIcon from "../../../../svg/CourseIcon";
-import CalendarIcon from "../../../../svg/Calendar";
-import PlaceIcon from "../../../../svg/PlaceIcon";
-import DepartmentField from "../../../../commons/DepartmentField";
-import DurationField from "../../../../commons/DurationField";
-import DurationIcon from "../../../../svg/DurationIcon";
+import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { SeparatedListField } from '@semapps/archipelago-layout';
+import IconsList from '../../../../commons/IconsList';
+import ThemeIcon from '../../../../svg/ThemeIcon';
+import CourseIcon from '../../../../svg/CourseIcon';
+import CalendarIcon from '../../../../svg/Calendar';
+import PlaceIcon from '../../../../svg/PlaceIcon';
+import DepartmentField from '../../../../commons/DepartmentField';
+import DurationField from '../../../../commons/DurationField';
+import DurationIcon from '../../../../svg/DurationIcon';
 
-const EventDetails = props => (
+const EventDetails = (props) => (
   <IconsList {...props}>
     <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
       <SeparatedListField linkType={false}>
@@ -24,7 +24,7 @@ const EventDetails = props => (
       </SeparatedListField>
     </ReferenceArrayField>
     <ReferenceField label="Région" source="pair:hostedIn" reference="Place" icon={<PlaceIcon />} link={false}>
-      <DepartmentField postalCode={record => record?.['pair:hasPostalAddress']?.['pair:addressZipCode']} />
+      <DepartmentField postalCode={(record) => record?.['pair:hasPostalAddress']?.['pair:addressZipCode']} />
     </ReferenceField>
     <DateField
       label="Date"

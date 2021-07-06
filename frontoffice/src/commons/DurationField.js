@@ -1,6 +1,6 @@
-import React from "react";
-import { useRecordContext } from "react-admin";
-import { Typography } from "@material-ui/core";
+import React from 'react';
+import { useRecordContext } from 'react-admin';
+import { Typography } from '@material-ui/core';
 
 const DurationField = ({ startDate, endDate, ...rest }) => {
   const record = useRecordContext(rest);
@@ -30,11 +30,7 @@ const DurationField = ({ startDate, endDate, ...rest }) => {
     duration = Math.ceil(interval / (30 * 24 * 60 * 60 * 1000)) + '  mois';
   }
 
-  return duration ? (
-    <Typography {...rest}>
-      {duration}
-    </Typography>
-  ) : null;
+  return duration ? <Typography {...rest}>{duration}</Typography> : null;
 };
 
 export default DurationField;

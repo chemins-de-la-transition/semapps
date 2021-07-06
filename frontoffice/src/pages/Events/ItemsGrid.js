@@ -91,7 +91,7 @@ const ReferenceImageField = ({ props }) => {
     <ImageField source="pair:isDepictedBy" className={classes.imageMaxWidth} {...props} />
   ) : (
     <Avatar>
-    <CalendarIcon />
+      <CalendarIcon />
     </Avatar>
   );
 };

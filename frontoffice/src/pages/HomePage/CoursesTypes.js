@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
       '& [fill]': {
         fill: theme.palette.secondary.contrastText,
       },
-      fontSize: '3rem'
+      fontSize: '3rem',
     },
   },
 }));
