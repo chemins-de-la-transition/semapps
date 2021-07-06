@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShowBase } from 'react-admin';
 import { MarkdownField } from '@semapps/markdown-components';
+import { ReferenceField } from '@semapps/semantic-data-provider';
 import { MapField } from '@semapps/geo-components';
 import HeaderShow from '../../../../commons/HeaderShow';
 import Events from "../../../../pages/Events/Events";
@@ -22,16 +23,17 @@ const EventShow = (props) => (
         <MarkdownField source="cdlt:prerequisites" />
         <MarkdownField source="cdlt:practicalConditions" />
         <MarkdownField source="cdlt:economicalConditions" />
-        <MapField
-          source="pair:hostedIn"
-          address={(record) =>
-            record?.['pair:hostedIn']?.['pair:label'] +
-            ', ' +
-            record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:label']
-          }
-          latitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:latitude']}
-          longitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
-        />
+        <ReferenceField reference="Place" source="pair:hostedIn" link={false}>
+          <MapField
+            address={(record) =>
+              record?.['pair:label'] +
+              ', ' +
+              record?.['pair:hasPostalAddress']?.['pair:label']
+            }
+            latitude={(record) => record?.['pair:hasPostalAddress']?.['pair:latitude']}
+            longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
+          />
+        </ReferenceField>
       </BodyList>
       <Events />
     </>
