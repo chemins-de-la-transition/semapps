@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Typography, Box, Breadcrumbs } from '@material-ui/core';
+import { makeStyles, Typography, Box, Breadcrumbs, useMediaQuery } from '@material-ui/core';
 import FullWidthBox from '../layout/FullWidthBox';
 import LargeContainer from '../layout/LargeContainer';
 import { TextField, useShowContext, ReferenceField, ImageField, Link } from 'react-admin';
@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
   },
   type: {
     paddingTop: 15,
+    paddingBottom: 10,
+  },
+  title: {
+    lineHeight: 1.15,
   },
   basePath: {
     color: theme.palette.theme_3.contrastText,
@@ -69,6 +73,7 @@ const useStyles = makeStyles((theme) => ({
 const HeaderShow = ({ type, linkToListText, details }) => {
   const classes = useStyles();
   const { basePath, record } = useShowContext();
+  const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer>
@@ -89,9 +94,9 @@ const HeaderShow = ({ type, linkToListText, details }) => {
             <TextField source="pair:label" variant="subtitle2" component="div" className={classes.type} />
           </ReferenceField>
         )}
-        <TextField source="pair:label" variant="h1" />
-        <Box display="flex" pt={2} pb={2}>
-          {details}
+        <TextField source="pair:label" variant="h1" className={classes.title} />
+        <Box display={xs ? 'block' : 'flex'} pt={2} pb={2}>
+          {React.cloneElement(details, { orientation: xs ? 'vertical' : 'horizontal' })}
         </Box>
       </LargeContainer>
     </FullWidthBox>
