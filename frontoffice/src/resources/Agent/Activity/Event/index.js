@@ -35,7 +35,7 @@ export default {
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',
         'pair:description': 'Présentation',
-        'cdlt:program': "Programme de l'événement",
+        'cdlt:program': 'Programme',
         'pair:hostedIn': 'Lieu',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',

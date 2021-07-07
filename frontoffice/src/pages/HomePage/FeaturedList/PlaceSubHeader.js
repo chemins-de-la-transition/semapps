@@ -7,6 +7,9 @@ const useStyles = makeStyles((theme) => ({
   placeSubHeader: {
     display: 'flex',
     alignItems: 'center',
+    '& svg': {
+      fontSize: '1rem',
+    },
     '& svg [fill]': {
       fill: theme.palette.secondary.main,
     },
@@ -24,9 +27,9 @@ const PlaceSubHeader = ({ record }) => {
   const classes = useStyles();
   return record['pair:hasPostalAddress'] ? (
     <Box className={classes.placeSubHeader}>
-      <PlaceIcon></PlaceIcon>
+      <PlaceIcon />
       <Typography variant="body2" className={classes.text}>
-        <Department postalCode={record['pair:hasPostalAddress']['pair:addressZipCode']}></Department>
+        <Department postalCode={record['pair:hasPostalAddress']['pair:addressZipCode']} />
       </Typography>
     </Box>
   ) : (

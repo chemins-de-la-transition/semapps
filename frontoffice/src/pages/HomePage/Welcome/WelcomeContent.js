@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
   welcomeText: {
     color: theme.palette.white.main,
     textAlign: 'center',
+    fontSize: 48,
   },
   welcomeSubtitleText: {
     color: theme.palette.white.main,
@@ -65,10 +66,10 @@ const WelcomeContent = () => {
           }
         />
         <Box display="flex" justifyContent="center" flexDirection="column" justifySelf="center">
-          <Typography variant="h1" className={classes.welcomeText}>
+          <Typography variant="h2" className={classes.welcomeText}>
             Apprendre en voyageant
           </Typography>
-          <div className={classes.welcomeTextBar}></div>
+          <div className={classes.welcomeTextBar} />
           <Typography variant="body1" className={classes.welcomeSubtitleText} component="div">
             Pour les curieux qui souhaitent découvrir une région et apprendre en voyageant, nous vous proposons des
             itinéraires éco-touristiques autour des métiers de la transition, conçus pour être parcourus à pied ou à

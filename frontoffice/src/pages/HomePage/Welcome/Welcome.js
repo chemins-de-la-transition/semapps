@@ -39,18 +39,18 @@ const useStyles = makeStyles((theme) => ({
 
 const Welcome = () => {
   const classes = useStyles();
-  const transition = useMediaQuery((theme) => theme.breakpoints.down('xs'));
+  const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
   return (
     <>
-      {transition ? (
+      {xs ? (
         <Box width={1} position="relative">
           <WelcomeContent classesNames={classes} />
-          <Box width={1} className={classes.background2}></Box>
+          <Box width={1} className={classes.background2} />
         </Box>
       ) : (
         <Box width={1} className={classes.background} position="relative">
-          <Box width={1} className={classes.background1} top={0}></Box>
-          <Box width={1} className={classes.background2} top={welcomeHeight / 2}></Box>
+          <Box width={1} className={classes.background1} top={0} />
+          <Box width={1} className={classes.background2} top={welcomeHeight / 2} />
           <WelcomeContent />
         </Box>
       )}
