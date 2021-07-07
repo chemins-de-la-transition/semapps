@@ -90,7 +90,7 @@ const HeaderShow = ({ type, linkToListText, details }) => {
           <ImageField source="pair:isDepictedBy" />
         </Box>
         {record && record[type] && (
-          <ReferenceField source={type} reference="Type" linkType={false}>
+          <ReferenceField source={type} reference="Type" link={false}>
             <TextField source="pair:label" variant="subtitle2" component="div" className={classes.type} />
           </ReferenceField>
         )}

@@ -8,7 +8,7 @@ import * as resources from './resources';
 
 import HomePage from './pages/HomePage/HomePage';
 import Layout from './layout/Layout';
-import theme from './layout/theme';
+import theme from './config/theme';
 import customRoutes from './customRoutes';
 
 const history = createBrowserHistory();

@@ -32,9 +32,7 @@ const PlaceSubHeader = ({ record }) => {
         <Department postalCode={record['pair:hasPostalAddress']['pair:addressZipCode']} />
       </Typography>
     </Box>
-  ) : (
-    ''
-  );
+  ) : null;
 };
 
 export default PlaceSubHeader;

@@ -5,7 +5,7 @@ import { SeparatedListField } from '@semapps/archipelago-layout';
 import IconsList from '../../../../commons/IconsList';
 import ThemeIcon from '../../../../svg/ThemeIcon';
 import CourseIcon from '../../../../svg/CourseIcon';
-import CalendarIcon from '../../../../svg/Calendar';
+import CalendarIcon from '../../../../svg/CalendarIcon';
 import PlaceIcon from '../../../../svg/PlaceIcon';
 import DepartmentField from '../../../../commons/DepartmentField';
 import DurationField from '../../../../commons/DurationField';

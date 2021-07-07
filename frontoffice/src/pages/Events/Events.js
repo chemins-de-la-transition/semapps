@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import LargeContainer from '../../layout/LargeContainer';
 import FullWidthBox from '../../layout/FullWidthBox';
 import LargeRound from '../../svg/LargeRound';
-import CalendarIcon from '../../svg/Calendar';
+import CalendarIcon from '../../svg/CalendarIcon';
 import Button from '../../layout/Button';
 import ItemsGrid from './ItemsGrid';
 

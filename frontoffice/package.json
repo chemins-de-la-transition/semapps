@@ -14,9 +14,9 @@
     "leaflet.markercluster": "^1.4.1",
     "prop-types": "^15.7.2",
     "ra-input-markdown": "^1.1.7",
-    "ra-language-french": "^3.12.4",
+    "ra-language-french": "^3.16.5",
     "react": "^16.13.1",
-    "react-admin": "^3.13.1",
+    "react-admin": "^3.16.6",
     "react-dom": "^16.13.1",
     "react-scrollchor": "^7.0.1",
     "react-sticky-box": "^0.9.3"
