@@ -12,7 +12,7 @@ const PlacesList = () => {
       headComment="Partez à la découvertes de lieux inspirants et allez à la rencontre de personnes qui ont choisis d’être acteurs de la transition."
       linkText="Voir tous les lieux"
       CardSubHeaderComponent={PlaceSubHeader}
-    ></FeaturedList>
+    />
   );
 };
 

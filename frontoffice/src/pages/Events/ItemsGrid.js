@@ -2,7 +2,7 @@ import * as React from 'react';
 import { makeStyles, Typography, List, ListItem, ListItemText, ListItemAvatar, Avatar, Box } from '@material-ui/core';
 import { DateField, useListContext, ReferenceField, TextField, useRecordContext, ImageField } from 'react-admin';
 import { Link } from 'react-router-dom';
-import EventIcon from '@material-ui/icons/Event';
+import CalendarIcon from '../../svg/Calendar';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Department from '../Department';
 import sortAndFilterOnDate from './SortAndFilterOnDate';
@@ -79,9 +79,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const GetDepartment = ({ props }) => {
+const DepartmentField = ({ props }) => {
   const record = useRecordContext(props);
-  return <Department postalCode={record['pair:hasPostalAddress']['pair:addressZipCode']}></Department>;
+  return <Department postalCode={record['pair:hasPostalAddress']['pair:addressZipCode']} />;
 };
 
 const ReferenceImageField = ({ props }) => {
@@ -91,7 +91,7 @@ const ReferenceImageField = ({ props }) => {
     <ImageField source="pair:isDepictedBy" className={classes.imageMaxWidth} {...props} />
   ) : (
     <Avatar>
-      <EventIcon />
+      <CalendarIcon />
     </Avatar>
   );
 };
@@ -120,9 +120,7 @@ const ItemsGrid = ({ nb }) => {
                   <ReferenceImageField />
                 </ReferenceField>
               ) : (
-                <Avatar>
-                  <EventIcon />
-                </Avatar>
+                <CalendarIcon />
               )}
             </ListItemAvatar>
             <ListItemText
@@ -146,13 +144,13 @@ const ItemsGrid = ({ nb }) => {
                   <Typography variant="h4" className={classes.eventLabel + ' ' + classes.noDecoration}>
                     {eventsData[id]['pair:label']}
                     &nbsp;
-                    <ChevronRightIcon></ChevronRightIcon>
+                    <ChevronRightIcon />
                   </Typography>
                   <ReferenceField source="pair:hostedIn" reference="Place" record={eventsData[id]}>
                     <Box className={classes.eventPlace}>
                       <TextField source="pair:label" variant="body1" className={classes.noDecoration} />
                       &nbsp;-&nbsp;
-                      <GetDepartment />
+                      <DepartmentField />
                     </Box>
                   </ReferenceField>
                   <Typography
@@ -168,7 +166,7 @@ const ItemsGrid = ({ nb }) => {
                   </Typography>
                 </>
               }
-            ></ListItemText>
+            />
           </ListItem>
         );
       })}

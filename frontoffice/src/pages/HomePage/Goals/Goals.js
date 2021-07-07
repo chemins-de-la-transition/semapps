@@ -6,12 +6,12 @@ import TwoHandsIcon from '../../../svg/TwoHandsIcon';
 import WalkerIcon from '../../../svg/WalkerIcon';
 import StarIcon from '../../../svg/StarIcon';
 import ListGoalsItem from './ListGoalsItem';
-import Top1Shape from './BackgoundShapes/Top1Shape';
-import Top2Shape from './BackgoundShapes/Top2Shape';
-import Bottom1Shape from './BackgoundShapes/Bottom1Shape';
-import Bottom2Shape from './BackgoundShapes/Bottom2Shape';
-import LeftShape from './BackgoundShapes/LeftShape';
-import SnakeShape from './BackgoundShapes/SnakeShape';
+import Top1Shape from './BackgroundShapes/Top1Shape';
+import Top2Shape from './BackgroundShapes/Top2Shape';
+import Bottom1Shape from './BackgroundShapes/Bottom1Shape';
+import Bottom2Shape from './BackgroundShapes/Bottom2Shape';
+import LeftShape from './BackgroundShapes/LeftShape';
+import SnakeShape from './BackgroundShapes/SnakeShape';
 
 const useStyles = makeStyles((theme) => ({
   mainBox: {
@@ -52,9 +52,6 @@ const useStyles = makeStyles((theme) => ({
     top: '30%',
     left: '19%',
     position: 'absolute',
-    // '& path[stroke]': {
-    //   stroke: theme.palette.theme_3.main,
-    // },
   },
   leftBottom1: {
     bottom: -187,
@@ -105,6 +102,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '65px',
   },
   iconWhite: {
+    fontSize: '3rem',
     '& path[fill]': {
       fill: theme.palette.secondary.contrastText,
     },
@@ -169,7 +167,7 @@ const Goals = () => {
               s’enracine dans notre réalité.
             </Typography>
           </Grid>
-          <Grid item sm={4} md={1} className={classes.noPadding}></Grid>
+          <Grid item sm={4} md={1} className={classes.noPadding} />
           <Grid item sm={4} className={classes.goalsFirstImageContainer}>
             <img
               src={process.env.PUBLIC_URL + '/pexels-gary-barnes-6231809.jpg'}
@@ -189,22 +187,10 @@ const Goals = () => {
               Mailler les territoires & Valoriser les initiatives existantes
             </Typography>
             <ul className={classes.ulStyle}>
-              <ListGoalsItem
-                text={
-                  'Promouvoir et dynamiser l’attractivité des zones rurales grâce à une nouvelle dynamique de tourisme.'
-                }
-              ></ListGoalsItem>
-              <ListGoalsItem
-                text={
-                  'Référencer les lieux inspirationnels et les initiatives qui contribuent à la transition (écologique, énergétique, social, culturelle, économique,...)'
-                }
-              ></ListGoalsItem>
-              <ListGoalsItem
-                text={
-                  'Interconnecter les acteurs de la transition et leur donner de la visibilité. Créer des synergies inter-projets / inter-territoires'
-                }
-              ></ListGoalsItem>
-              <ListGoalsItem text={'Accélérer des projets grâce à l’aide apportée par les voyageurs'}></ListGoalsItem>
+              <ListGoalsItem text="Promouvoir et dynamiser l’attractivité des zones rurales grâce à une nouvelle dynamique de tourisme." />
+              <ListGoalsItem text="Référencer les lieux inspirationnels et les initiatives qui contribuent à la transition (écologique, énergétique, social, culturelle, économique,..." />
+              <ListGoalsItem text="Interconnecter les acteurs de la transition et leur donner de la visibilité. Créer des synergies inter-projets / inter-territoires" />
+              <ListGoalsItem text="Accélérer des projets grâce à l’aide apportée par les voyageurs" />
             </ul>
           </Grid>
         </Grid>
@@ -227,52 +213,26 @@ const Goals = () => {
               Voyager en apprenant , se&nbsp;former aux&nbsp;enjeux et métiers de la&nbsp;transition
             </Typography>
             <ul className={classes.ulStyle}>
-              <ListGoalsItem
-                text={
-                  'Des parcours immersifs thématiques pour accéder facilement aux pratiques émergentes dans tous les domaines de la transition.'
-                }
-              ></ListGoalsItem>
-              <ListGoalsItem
-                text={'Des parcours avec plusieurs niveaux de découverte et d’apprentissage en faisant.'}
-              ></ListGoalsItem>
-              <ListGoalsItem
-                text={
-                  'Liberté de créer ses propres chemins selon ses centres d’intérêts, ses disponibilités, le degré recherché d’apprentissage (découvrir, apprendre par le faire, se former aux métiers).'
-                }
-              ></ListGoalsItem>
-              <ListGoalsItem
-                text={
-                  'Permettre la découverte, l’apprentissage des métiers de la transition au contact d’acteurs passionnés et engagés.'
-                }
-              ></ListGoalsItem>
+              <ListGoalsItem text="Des parcours immersifs thématiques pour accéder facilement aux pratiques émergentes dans tous les domaines de la transition." />
+              <ListGoalsItem text="Des parcours avec plusieurs niveaux de découverte et d’apprentissage en faisant." />
+              <ListGoalsItem text="Liberté de créer ses propres chemins selon ses centres d’intérêts, ses disponibilités, le degré recherché d’apprentissage (découvrir, apprendre par le faire, se former aux métiers)." />
+              <ListGoalsItem text="Permettre la découverte, l’apprentissage des métiers de la transition au contact d’acteurs passionnés et engagés." />
             </ul>
           </Grid>
         </Grid>
         <Grid container spacing={3}>
-          <Grid item sm={1} md={5} className={classes.alignSelfFlexEnd + ' ' + classes.noPadding}></Grid>
+          <Grid item sm={1} md={5} className={classes.alignSelfFlexEnd + ' ' + classes.noPadding} />
           <Grid item sm={6} md={3} className={classes.goalsFourthText}>
             <StarIcon className={classes.mb24 + ' ' + classes.iconWhite} />
             <Typography variant="h5" component="div" className={classes.mb24}>
               Le voyageur comme pollinisateur de nouvelles pratiques
             </Typography>
             <ul className={classes.ulStyle}>
-              <ListGoalsItem
-                text={
-                  'Contribuer à l’essaimage de projets à fort impact local et faire grandir l’écosystème de la transition.'
-                }
-              ></ListGoalsItem>
-              <ListGoalsItem text={'Stimuler l’émergence de nouvelles initiatives'}></ListGoalsItem>
-              <ListGoalsItem
-                text={'Créer du lien grâce un espace d’échange et de partage d’informations, d’idées, de projets. '}
-              ></ListGoalsItem>
-              <ListGoalsItem
-                text={
-                  'Amplifier la transition écologique, par l’implication des citoyens dans la mise en œuvre des actions de transition'
-                }
-              ></ListGoalsItem>
-              <ListGoalsItem
-                text={'Accroître la résilience du territoire grâce au développement de solutions locales.'}
-              ></ListGoalsItem>
+              <ListGoalsItem text="Contribuer à l’essaimage de projets à fort impact local et faire grandir l’écosystème de la transition." />
+              <ListGoalsItem text="Stimuler l’émergence de nouvelles initiatives" />
+              <ListGoalsItem text="Créer du lien grâce un espace d’échange et de partage d’informations, d’idées, de projets." />
+              <ListGoalsItem text="Amplifier la transition écologique, par l’implication des citoyens dans la mise en œuvre des actions de transition" />
+              <ListGoalsItem text="Accroître la résilience du territoire grâce au développement de solutions locales." />
             </ul>
           </Grid>
           <Grid item sm={4} className={classes.alignSelfFlexEnd}>

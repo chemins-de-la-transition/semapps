@@ -4,10 +4,11 @@
   "dependencies": {
     "@semapps/archipelago-layout": "0.3.2",
     "@semapps/auth-provider": "0.3.2",
-    "@semapps/geo-components": "0.3.2",
     "@semapps/date-components": "0.3.2",
+    "@semapps/geo-components": "0.3.2",
     "@semapps/markdown-components": "0.3.2",
     "@semapps/semantic-data-provider": "0.3.2",
+    "date-fns": "~2.8.1",
     "history": "4.10.1",
     "leaflet": "^1.7.1",
     "leaflet.markercluster": "^1.4.1",
@@ -17,16 +18,17 @@
     "react": "^16.13.1",
     "react-admin": "^3.13.1",
     "react-dom": "^16.13.1",
-    "date-fns": "~2.8.1"
+    "react-scrollchor": "^7.0.1",
+    "react-sticky-box": "^0.9.3"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "prettier": "^2.3.2",
     "react-scripts": "3.4.0",
     "source-map-explorer": "^2.5.2",
-    "vercel": "^21.1.0",
-    "prettier": "^2.3.2"
+    "vercel": "^21.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

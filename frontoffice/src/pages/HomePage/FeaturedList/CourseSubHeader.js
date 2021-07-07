@@ -2,12 +2,15 @@ import React from 'react';
 import { makeStyles, Typography, Box } from '@material-ui/core';
 import { ReferenceField, TextField } from 'react-admin';
 import DurationIcon from '../../../svg/DurationIcon';
-import VoyageIcon from '../../../svg/VoyageIcon';
+import CourseIcon from '../../../svg/CourseIcon';
 
 const useStyles = makeStyles((theme) => ({
   courseSubHeader: {
     display: 'flex',
     alignItems: 'center',
+    '& svg': {
+      fontSize: '1rem',
+    },
     '& svg [fill]': {
       fill: theme.palette.secondary.main,
     },
@@ -53,9 +56,7 @@ const Duration = ({ record }) => {
     <Typography variant="body2" className={classes.text}>
       {duration}
     </Typography>
-  ) : (
-    ''
-  );
+  ) : null;
 };
 
 const CourseSubHeader = ({ record, ...rest }) => {
@@ -64,22 +65,18 @@ const CourseSubHeader = ({ record, ...rest }) => {
     <Box className={classes.courseSubHeader}>
       {record['pair:startDate'] && record['pair:endDate'] ? (
         <>
-          <DurationIcon></DurationIcon>
+          <DurationIcon />
           <Duration record={record} {...rest} />
         </>
-      ) : (
-        ''
-      )}
+      ) : null}
       {record['pair:hasCourseType'] ? (
         <>
-          <VoyageIcon></VoyageIcon>
+          <CourseIcon />
           <ReferenceField source="pair:hasCourseType" reference="CourseType" record={record} {...rest}>
             <TextField source="pair:label" className={classes.text} />
           </ReferenceField>
         </>
-      ) : (
-        ''
-      )}
+      ) : null}
     </Box>
   );
 };

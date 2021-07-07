@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
       '& [fill]': {
         fill: theme.palette.secondary.contrastText,
       },
+      fontSize: '3rem',
     },
   },
 }));
@@ -50,7 +51,7 @@ const LocalGridItem = ({ title, text, image, icon }) => {
   return (
     <Grid item sm={3} className={classes.item}>
       <Box className={classes.iconContainer}>
-        <img src={image} alt="" aria-label="icône"></img>
+        <img src={image} alt="" aria-label="icône" />
         {icon}
       </Box>
       <Typography variant="h6" className={classes.itemTitle}>
@@ -68,7 +69,7 @@ const CoursesTypes = () => {
   return (
     <FullWidthBox className={classes.mainBox}>
       <LargeContainer className={classes.container}>
-        <Typography variant="h2" className={classes.title}>
+        <Typography variant="h1" className={classes.title}>
           Apprendre en voyageant
         </Typography>
         <Typography variant="h3" className={classes.subTitle}>
