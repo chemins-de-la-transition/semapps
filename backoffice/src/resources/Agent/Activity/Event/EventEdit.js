@@ -51,7 +51,7 @@ const EventEdit = (props) => (
         <CourseInput source="pair:partOf" />
         <ThemesInput source="pair:hasTopic" />
         <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
-        <TypeInput source="pair:hasEventType" filter={{ a: 'pair:EventType' }} />
+        <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} />
         <SkillsInput source="pair:produces" fullWidth />
       </FormTab>
       <FormTab label="Contact">

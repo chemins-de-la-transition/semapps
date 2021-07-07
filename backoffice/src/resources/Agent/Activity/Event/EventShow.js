@@ -24,7 +24,7 @@ const EventShow = (props) => (
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
-          <ReferenceArrayField source="pair:hasEventType" reference="Type">
+          <ReferenceArrayField source="pair:hasType" reference="Type">
             <SeparatedListField linkType={false}>
               <TextField source="pair:label" />
             </SeparatedListField>
