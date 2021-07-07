@@ -29,7 +29,7 @@ export default {
         'pair:comment': "Phrase d'accroche",
         'pair:isDepictedBy': 'Image',
         'cdlt:hasCourseType': 'Type de parcours',
-        'pair:hasEventType': "Type d'événement",
+        'pair:hasType': "Type d'événement",
         'pair:hasTopic': 'Thématiques',
         'pair:produces': 'Compétences visées',
         'pair:startDate': 'Date de début',
