@@ -17,7 +17,7 @@ const EventList = (props) => (
       filters={[
         <Filter reference="Theme" source="pair:hasTopic" inverseSource="pair:topicOf" label="Thématique" />,
         <Filter reference="Type" source="cdlt:hasCourseType" /*inverseSource="cdlt:typeOfCourse"*/ filter={{ a: 'cdlt:CourseType' }} label="Type de parcours" />,
-        <Filter reference="Type" source="pair:hasEventType" /*inverseSource="cdlt:typeOfEvent"*/ filter={{ a: 'pair:EventType' }} label="Type d'événement" />
+        <Filter reference="Type" source="pair:hasType" /*inverseSource="cdlt:typeOfEvent"*/ filter={{ a: 'pair:EventType' }} label="Type d'événement" />
       ]}
       views={{
         calendar: {
