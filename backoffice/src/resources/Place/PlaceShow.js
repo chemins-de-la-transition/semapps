@@ -5,7 +5,7 @@ import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } f
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import PlaceTitle from './PlaceTitle';
 
 const PlaceShow = (props) => (
@@ -14,6 +14,9 @@ const PlaceShow = (props) => (
       <Grid item xs={12} sm={9}>
         <Hero image="pair:isDepictedBy">
           <TextField source="pair:comment" />
+          <ReferenceField source="pair:hasLocation" reference="Region" link={false}>
+            <TextField source="pair:label" />
+          </ReferenceField>
           <ReferenceArrayField source="cdlt:hasCourseType" reference="Type">
             <SeparatedListField linkType={false}>
               <TextField source="pair:label" />

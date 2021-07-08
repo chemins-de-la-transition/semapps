@@ -7,7 +7,6 @@ import ThemeIcon from '../../../../svg/ThemeIcon';
 import CourseIcon from '../../../../svg/CourseIcon';
 import CalendarIcon from '../../../../svg/CalendarIcon';
 import PlaceIcon from '../../../../svg/PlaceIcon';
-import DepartmentField from '../../../../commons/DepartmentField';
 import DurationField from '../../../../commons/DurationField';
 import DurationIcon from '../../../../svg/DurationIcon';
 
@@ -23,8 +22,8 @@ const EventDetails = (props) => (
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceField label="Région" source="pair:hostedIn" reference="Place" icon={<PlaceIcon />} link={false}>
-      <DepartmentField postalCode={(record) => record?.['pair:hasPostalAddress']?.['pair:addressZipCode']} />
+    <ReferenceField label="Région" reference="Region" source="pair:hasLocation" icon={<PlaceIcon />} link={false}>
+      <TextField source="pair:label" />
     </ReferenceField>
     <DateField
       label="Date"

@@ -32,9 +32,7 @@ const Filter = ({ reference, source, inverseSource, limit, sort, filter, label }
 
   const changeFilter = useCallback(e => {
     setFilters({ ...filterValues, [source]: e.target.value }, null, false);
-  }, [filterValues, setFilters])
-
-  console.log('filterValues', filterValues);
+  }, [filterValues, setFilters, source])
 
   return (
     <FormControl className={classes.formControl}>

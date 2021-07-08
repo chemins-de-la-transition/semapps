@@ -29,6 +29,7 @@ export default {
         'pair:isDepictedBy': 'Image',
         'cdlt:hasCourseType': 'Type de parcours',
         'pair:hasTopic': 'Thématiques',
+        'pair:hasLocation': 'Région(s)',
         'pair:produces': 'Compétences visées',
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',
