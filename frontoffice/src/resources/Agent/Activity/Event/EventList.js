@@ -3,13 +3,13 @@ import { ListBase } from 'react-admin';
 import { Box } from '@material-ui/core';
 import frLocale from '@fullcalendar/core/locales/fr';
 import { CalendarList } from '@semapps/date-components';
-import { MapList } from "@semapps/geo-components";
-import MultiViewsFilterList from "../../../../commons/MultiViewsFilterList";
-import Calendar from "../../../../svg/CalendarIcon";
-import MapIcon from "../../../../svg/MapIcon";
-import ListIcon from "@material-ui/icons/List";
-import Filter from "../../../../commons/Filter";
-import CardsList from "../../../../commons/CardsList";
+import { MapList } from '@semapps/geo-components';
+import MultiViewsFilterList from '../../../../commons/MultiViewsFilterList';
+import Calendar from '../../../../svg/CalendarIcon';
+import MapIcon from '../../../../svg/MapIcon';
+import ListIcon from '@material-ui/icons/List';
+import Filter from '../../../../commons/Filter';
+import CardsList from '../../../../commons/CardsList';
 
 const EventList = (props) => (
   <ListBase perPage={1000} {...props}>
@@ -17,8 +17,18 @@ const EventList = (props) => (
       filters={[
         <Filter reference="Region" source="pair:hasLocation" inverseSource="pair:locationOf" label="Région" />,
         <Filter reference="Theme" source="pair:hasTopic" inverseSource="pair:topicOf" label="Thématique" />,
-        <Filter reference="Type" source="cdlt:hasCourseType" /*inverseSource="cdlt:typeOfCourse"*/ filter={{ a: 'cdlt:CourseType' }} label="Type de parcours" />,
-        <Filter reference="Type" source="pair:hasType" /*inverseSource="cdlt:typeOfEvent"*/ filter={{ a: 'pair:EventType' }} label="Type d'événement" />
+        <Filter
+          reference="Type"
+          source="cdlt:hasCourseType"
+          /*inverseSource="cdlt:typeOfCourse"*/ filter={{ a: 'cdlt:CourseType' }}
+          label="Type de parcours"
+        />,
+        <Filter
+          reference="Type"
+          source="pair:hasType"
+          /*inverseSource="cdlt:typeOfEvent"*/ filter={{ a: 'pair:EventType' }}
+          label="Type d'événement"
+        />,
       ]}
       views={{
         calendar: {
@@ -34,7 +44,7 @@ const EventList = (props) => (
                 linkType="show"
               />
             </Box>
-          )
+          ),
         },
         map: {
           label: 'Carte',
@@ -47,7 +57,7 @@ const EventList = (props) => (
               label={(record) => record?.['pair:label']}
               description={(record) => record?.['pair:comment']}
             />
-          )
+          ),
         },
         list: {
           label: 'Liste',
@@ -56,8 +66,8 @@ const EventList = (props) => (
             <Box p={3}>
               <CardsList />
             </Box>
-          )
-        }
+          ),
+        },
       }}
     />
   </ListBase>

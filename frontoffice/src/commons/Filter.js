@@ -1,7 +1,7 @@
-import React, {useCallback} from "react";
+import React, { useCallback } from 'react';
 import { useGetList, getResources, useListFilterContext } from 'react-admin';
 import { shallowEqual, useSelector } from 'react-redux';
-import { FormControl, InputLabel, makeStyles, MenuItem, Select } from "@material-ui/core";
+import { FormControl, InputLabel, makeStyles, MenuItem, Select } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -9,30 +9,33 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 30,
     color: 'white',
     '& label': {
-      color: 'white'
+      color: 'white',
     },
     '& .MuiInput-underline:before': {
-      borderBottomColor: 'white'
+      borderBottomColor: 'white',
     },
     '& .MuiInput-input': {
-      color: 'white'
+      color: 'white',
     },
     '& svg': {
-      color: 'white'
-    }
-  }
+      color: 'white',
+    },
+  },
 }));
 
 const Filter = ({ reference, source, inverseSource, limit, sort, filter, label }) => {
   const classes = useStyles();
   const { data, ids } = useGetList(reference, { page: 1, perPage: limit }, sort, filter);
   const resources = useSelector(getResources, shallowEqual);
-  const currentResource = resources.filter(r => r?.name === reference)[0];
+  const currentResource = resources.filter((r) => r?.name === reference)[0];
   const { filterValues, setFilters } = useListFilterContext();
 
-  const changeFilter = useCallback(e => {
-    setFilters({ ...filterValues, [source]: e.target.value }, null, false);
-  }, [filterValues, setFilters, source])
+  const changeFilter = useCallback(
+    (e) => {
+      setFilters({ ...filterValues, [source]: e.target.value }, null, false);
+    },
+    [filterValues, setFilters, source]
+  );
 
   return (
     <FormControl className={classes.formControl}>
@@ -40,8 +43,8 @@ const Filter = ({ reference, source, inverseSource, limit, sort, filter, label }
       <Select labelId="region" value={filterValues[source]} onChange={changeFilter}>
         <MenuItem>---</MenuItem>
         {ids
-          .filter(id => !inverseSource || data[id][inverseSource])
-          .map(id => (
+          .filter((id) => !inverseSource || data[id][inverseSource])
+          .map((id) => (
             <MenuItem value={id}>{data[id]['pair:label']}</MenuItem>
           ))}
       </Select>
@@ -50,7 +53,7 @@ const Filter = ({ reference, source, inverseSource, limit, sort, filter, label }
 };
 
 Filter.defaultProps = {
-  limit: 500
+  limit: 500,
 };
 
 export default Filter;
