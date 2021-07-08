@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useListContext, Link } from 'react-admin';
 import { useLocation } from 'react-router';
 import { Box, Grid, Typography, IconButton, makeStyles } from '@material-ui/core';
-import Filter from "./Filter";
 
 const useStyles = makeStyles((theme) => ({
   filters: {

@@ -65,6 +65,10 @@ module.exports = [
     acceptedTypes: ['cdlt:PathStatus', 'cdlt:CourseStatus']
   },
   {
+    path: '/regions',
+    acceptedTypes: ['pair:Place']
+  },
+  {
     path: '/files'
   }
 ];

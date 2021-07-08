@@ -37,6 +37,7 @@ export default {
         'pair:description': 'Présentation',
         'cdlt:program': "Programme de l'événement",
         'pair:hostedIn': 'Lieu',
+        'pair:hasLocation': 'Région',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
         'cdlt:economicalConditions': 'Conditions financières',

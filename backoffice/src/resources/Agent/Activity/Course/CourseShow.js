@@ -35,6 +35,11 @@ const CourseShow = (props) => (
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
+          <ReferenceArrayField source="pair:hasLocation" reference="Region">
+            <SeparatedListField linkType={false}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
           <EmailField source="pair:e-mail" />
           <TextField source="pair:phone" />
           <UrlField source="pair:homePage" />
