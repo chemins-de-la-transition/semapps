@@ -19,6 +19,7 @@ export default {
   dataModel: {
     types: ['pair:Event'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'events',
+    dereference: ['pair:hostedIn/pair:hasPostalAddress'],
     slugField: 'pair:label',
   },
   translations: {

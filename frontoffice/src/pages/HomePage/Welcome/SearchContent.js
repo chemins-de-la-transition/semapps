@@ -76,8 +76,9 @@ const SearchContent = () => {
             >
               <FormControl className={classes.formControl}>
                 <InputLabel id="demo-select-eventtype-label">Type d'évènement</InputLabel>
-                <Select labelId="demo-select-eventtype-label" id="demo-select-eventtype" disabled>
-                  <MenuItem value=""></MenuItem>
+                <Select labelId="demo-select-eventtype-label" id="demo-select-eventtype">
+                  <MenuItem value="Test">Test</MenuItem>
+                  <MenuItem value="Test2">Test2</MenuItem>
                 </Select>
               </FormControl>
               <FormControl className={classes.formControl}>
@@ -93,14 +94,13 @@ const SearchContent = () => {
                 </Select>
               </FormControl>
               <Button
-                variant="outlinedInversed"
+                variant="contained"
                 color="secondary"
                 href="#"
                 text="Rechercher"
                 typographyVariant="button2"
                 className={classes.button}
-                disabled
-              ></Button>
+              />
             </Box>
           </Box>
         </LargeContainer>
