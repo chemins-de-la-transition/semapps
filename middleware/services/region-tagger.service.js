@@ -17,8 +17,6 @@ module.exports = {
         if( regionUri ) regionsUris.push(regionUri);
       }
 
-      console.log('regionsUris', zipCodes, regionsUris);
-
       await this.broker.call('ldp.resource.put', {
         resource: {
           ...oldData,
@@ -55,8 +53,6 @@ module.exports = {
           }
         }
 
-        console.log('zipCodes', zipCodes, courseUri);
-
         if( zipCodes.length ) {
           await this.tag(courseUri, zipCodes, course);
         }
@@ -71,17 +67,13 @@ module.exports = {
     },
     async getRegionUriFromZip(zip) {
       const regionName = this.getRegionNameFromZip(zip);
-      console.log('regionName', regionName, zip);
 
       if( regionName ) {
         const regionSlug = createSlug(regionName, {lang: 'fr', custom: {'.': '.'}});
         const regionUri = urlJoin(CONFIG.HOME_URL, 'regions', regionSlug);
 
-        console.log('regionSlug', zip, regionName, regionSlug, regionUri);
-
         // Create region if it doesn't exist yet
         const regionExists = await this.broker.call('ldp.resource.exist', {resourceUri: regionUri});
-        console.log('regionExists', regionExists);
         if (!regionExists) {
           await this.broker.call('ldp.resource.post', {
             resource: {
@@ -97,8 +89,6 @@ module.exports = {
             webId: 'system'
           });
         }
-
-
 
         return regionUri;
       }
