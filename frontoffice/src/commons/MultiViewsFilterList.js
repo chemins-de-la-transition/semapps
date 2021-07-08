@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import StickyBox from 'react-sticky-box';
 import { useListContext, Link } from 'react-admin';
 import { useLocation } from 'react-router';
 import { Box, Grid, Typography, IconButton, makeStyles } from '@material-ui/core';
@@ -44,9 +45,11 @@ const MultiViewsFilterList = ({ views, filters }) => {
         <Box p={2} className={classes.filtersTitle}>
           <Typography variant="subtitle1" bold>Filtres:</Typography>
         </Box>
-        <Box p={2}>
-          {filters}
-        </Box>
+          <StickyBox offsetTop={100}>
+            <Box p={2}>
+              {filters}
+            </Box>
+          </StickyBox>
       </Grid>
       <Grid item xs={8} className={classes.results}>
       <Box bgcolor="primary.main" maxHeight={50}>

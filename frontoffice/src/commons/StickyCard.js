@@ -27,9 +27,6 @@ const StickyCard = ({ children }) => {
       <Card>
         <Box pl={2} pr={2}>
           <TextField record={record} source="pair:label" variant="h2" />
-          {/*<Typography variant="h2">*/}
-          {/*  Crémaillière dantesque*/}
-          {/*</Typography>*/}
         </Box>
         <Box className={classes.block} p={2}>
           {children}
