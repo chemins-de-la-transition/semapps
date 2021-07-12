@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Filter = ({ reference, source, inverseSource, limit, sort, filter, label }) => {
+const Filter = ({ reference, source, inverseSource, limit, sort, filter, label, onSelect }) => {
   const classes = useStyles();
   const { data, ids } = useGetList(reference, { page: 1, perPage: limit }, sort, filter);
   const resources = useSelector(getResources, shallowEqual);
@@ -33,8 +33,9 @@ const Filter = ({ reference, source, inverseSource, limit, sort, filter, label }
   const changeFilter = useCallback(
     (e) => {
       setFilters({ ...filterValues, [source]: e.target.value }, null, false);
+      if (onSelect) onSelect(e.target.value);
     },
-    [filterValues, setFilters, source]
+    [filterValues, setFilters, source, onSelect]
   );
 
   return (
@@ -45,7 +46,9 @@ const Filter = ({ reference, source, inverseSource, limit, sort, filter, label }
         {ids
           .filter((id) => !inverseSource || data[id][inverseSource])
           .map((id) => (
-            <MenuItem value={id}>{data[id]['pair:label']}</MenuItem>
+            <MenuItem key={id} value={id}>
+              {data[id]['pair:label']}
+            </MenuItem>
           ))}
       </Select>
     </FormControl>

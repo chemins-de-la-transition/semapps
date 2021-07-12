@@ -13,9 +13,6 @@ const useStyles = makeStyles((theme) => ({
   positionSticky: {
     top: 100,
   },
-  positionStickyMobile: {
-    top: 48,
-  },
   tab: {
     minWidth: 0,
   },
@@ -31,14 +28,11 @@ const SubAppBar = ({ fields }) => {
   const { resource } = useShowContext();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
 
-  const appBarHeight = xs ? 48 : 100;
+  const appBarHeight = 100;
   const subAppBarHeight = 48;
 
-  return (
-    <MuiAppBar
-      position="sticky"
-      classes={{ root: classes.appBar, positionSticky: xs ? classes.positionStickyMobile : classes.positionSticky }}
-    >
+  return xs ? null : (
+    <MuiAppBar position="sticky" classes={{ root: classes.appBar, positionSticky: classes.positionSticky }}>
       <FullWidthBox>
         <LargeContainer>
           <Tabs

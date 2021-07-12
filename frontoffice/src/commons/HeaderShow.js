@@ -4,6 +4,7 @@ import FullWidthBox from '../layout/FullWidthBox';
 import LargeContainer from '../layout/LargeContainer';
 import { TextField, useShowContext, ReferenceField, ImageField, Link } from 'react-admin';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import Button from '../layout/Button';
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -68,12 +69,15 @@ const useStyles = makeStyles((theme) => ({
       maxHeight: '15rem',
     },
   },
+  button: {
+    backgroundColor: theme.palette.theme_3.main,
+  },
 }));
 
 const HeaderShow = ({ type, linkToListText, details }) => {
   const classes = useStyles();
   const { basePath, record } = useShowContext();
-  const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
+  const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer>
@@ -98,6 +102,11 @@ const HeaderShow = ({ type, linkToListText, details }) => {
         <Box display={xs ? 'block' : 'flex'} pt={2} pb={2}>
           {React.cloneElement(details, { orientation: xs ? 'vertical' : 'horizontal' })}
         </Box>
+        {xs && (
+          <Box className={classes.button} pb={3}>
+            <Button variant="contained" color="tertiary" typographyVariant="button1" text="Je candidate" />
+          </Box>
+        )}
       </LargeContainer>
     </FullWidthBox>
   );

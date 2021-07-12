@@ -17,13 +17,23 @@ const useStyles = makeStyles((theme) => ({
   details: {
     display: 'flex',
     marginBottom: 15,
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+    },
   },
   image: {
     width: 180,
     minHeight: 145,
+    backgroundColor: theme.palette.grey['300'],
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+    },
   },
   content: {
     flex: '1 0 auto',
+    [theme.breakpoints.down('xs')]: {
+      padding: 10,
+    },
   },
   title: {
     fontSize: 20,
@@ -46,9 +56,11 @@ const CardsList = () => {
     <Loading loadingPrimary="ra.page.loading" loadingSecondary="ra.message.loading" className={classes.loading} />
   ) : (
     ids.map((id) => (
-      <Link to={linkToRecord(basePath, id) + '/show'} className={classes.root}>
+      <Link key={id} to={linkToRecord(basePath, id) + '/show'} className={classes.root}>
         <Card key={id} className={classes.details}>
-          <CardMedia className={classes.image} image="/pexels-celine-chamiotponcet-2889792.jpg" />
+          {data[id]?.['pair:isDepictedBy'] && (
+            <CardMedia className={classes.image} image={data[id]?.['pair:isDepictedBy']} />
+          )}
           <CardContent className={classes.content}>
             <TextField variant="h2" record={data[id]} source="pair:label" className={classes.title} />
             {data[id]['cdlt:hasCourseType'] && (
