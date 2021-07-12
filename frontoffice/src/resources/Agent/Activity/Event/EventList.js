@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListBase } from 'react-admin';
+import { ListBase, ShowButton } from 'react-admin';
 import { Box, useMediaQuery } from '@material-ui/core';
 import frLocale from '@fullcalendar/core/locales/fr';
 import { CalendarList } from '@semapps/date-components';
@@ -10,6 +10,7 @@ import MapIcon from '../../../../svg/MapIcon';
 import ListIcon from '@material-ui/icons/List';
 import Filter from '../../../../commons/Filter';
 import CardsList from '../../../../commons/CardsList';
+import EventCard from "./EventCard";
 
 const EventList = (props) => {
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
@@ -60,6 +61,12 @@ const EventList = (props) => {
                 longitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
                 label={(record) => record?.['pair:label']}
                 description={(record) => record?.['pair:comment']}
+                popupContent={({ record, basePath }) => (
+                  <>
+                    <EventCard record={record} variant="compact" />
+                    <ShowButton record={record} basePath={basePath} variant="containedPrimary" />
+                  </>
+                )}
               />
             ),
           },
@@ -68,7 +75,7 @@ const EventList = (props) => {
             icon: ListIcon,
             list: (
               <Box p={xs ? 2 : 3}>
-                <CardsList />
+                <CardsList CardComponent={EventCard} />
               </Box>
             ),
           },

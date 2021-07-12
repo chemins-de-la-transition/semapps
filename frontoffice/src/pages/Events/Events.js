@@ -6,7 +6,7 @@ import LargeContainer from '../../layout/LargeContainer';
 import FullWidthBox from '../../layout/FullWidthBox';
 import LargeRound from '../../svg/LargeRound';
 import CalendarIcon from '../../svg/CalendarIcon';
-import Button from '../../layout/Button';
+import Button from '../../commons/Button';
 import ItemsGrid from './ItemsGrid';
 
 const useStyles = makeStyles((theme) => ({
@@ -80,8 +80,9 @@ const Event = () => {
               color="primary"
               component={Link}
               typographyVariant="button1"
-              text="Voir Tous les évènements"
-            />
+            >
+              Voir tous les évènements
+            </Button>
           </Grid>
           <Hidden xsDown>
             <Grid item sm={5} className={classes.eventIcon}>

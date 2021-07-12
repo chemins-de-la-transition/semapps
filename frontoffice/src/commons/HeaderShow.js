@@ -1,25 +1,19 @@
-import React from 'react';
-import { makeStyles, Typography, Box, Breadcrumbs, useMediaQuery } from '@material-ui/core';
+import React, { useRef } from 'react';
+import { makeStyles, Typography, Box, Breadcrumbs, Drawer, useMediaQuery, useScrollTrigger } from '@material-ui/core';
 import FullWidthBox from '../layout/FullWidthBox';
 import LargeContainer from '../layout/LargeContainer';
 import { TextField, useShowContext, ReferenceField, ImageField, Link } from 'react-admin';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import Button from '../layout/Button';
+import Button from './Button';
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    backgroundColor: theme.palette.theme_3.main,
-    color: theme.palette.theme_3.contrastText,
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
   },
   container: {
     display: 'flex',
     flexDirection: 'column',
-  },
-  basePathLinks: {
-    paddingTop: 6,
-    paddingBottom: 6,
-    paddingLeft: 0,
-    paddingRight: 8,
   },
   breadcrumbs: {
     paddingTop: 15,
@@ -41,10 +35,6 @@ const useStyles = makeStyles((theme) => ({
   },
   chevronIcon: {
     color: 'white',
-  },
-  noDecoration: {
-    textDecoration: 'none',
-    lineHeight: '24px',
   },
   images: {
     // display: 'flex',
@@ -69,18 +59,29 @@ const useStyles = makeStyles((theme) => ({
       maxHeight: '15rem',
     },
   },
-  button: {
-    backgroundColor: theme.palette.theme_3.main,
+  drawer: {
+    backgroundColor: theme.palette.primary.main,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 }));
 
-const HeaderShow = ({ type, linkToListText, details }) => {
+const HeaderShow = ({ type, linkToListText, details, actionLabel }) => {
   const classes = useStyles();
   const { basePath, record } = useShowContext();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
+
+  // Calculate header height
+  const headerRef = useRef(null);
+  const headerHeight = headerRef?.current?.clientHeight;
+
+  // Trigger drawer when we pass beyond header height
+  const showDrawer = useScrollTrigger({ threshold: headerHeight, disableHysteresis: true });
+
   return (
     <FullWidthBox className={classes.background}>
-      <LargeContainer>
+      <LargeContainer ref={headerRef}>
         <Breadcrumbs
           separator={<NavigateNextIcon fontSize="small" className={classes.chevronIcon} />}
           className={classes.breadcrumbs}
@@ -88,7 +89,7 @@ const HeaderShow = ({ type, linkToListText, details }) => {
           <Link to={basePath} underline="none" color="inherit" className={classes.basePath}>
             <Typography variant="body2">{linkToListText}</Typography>
           </Link>
-          <TextField source="pair:label" variant="body2" className={classes.placeLink + ' ' + classes.noDecoration} />
+          <TextField source="pair:label" variant="body2" className={classes.placeLink} />
         </Breadcrumbs>
         <Box className={classes.images}>
           <ImageField source="pair:isDepictedBy" />
@@ -103,10 +104,27 @@ const HeaderShow = ({ type, linkToListText, details }) => {
           {React.cloneElement(details, { orientation: xs ? 'vertical' : 'horizontal' })}
         </Box>
         {xs && (
-          <Box className={classes.button} pb={3}>
-            <Button variant="contained" color="tertiary" typographyVariant="button1" text="Je candidate" />
+          <Box pb={3}>
+            <Button
+              variant="contained"
+              color="primary"
+              typographyVariant="button1"
+            >
+              {actionLabel}
+            </Button>
           </Box>
         )}
+        <Drawer anchor="bottom" open={xs && showDrawer} hideBackdrop disableScrollLock>
+          <Box className={classes.drawer} pt={1} pb={2}>
+            <Button
+              variant="contained"
+              color="primary"
+              typographyVariant="button1"
+            >
+              {actionLabel}
+            </Button>
+          </Box>
+        </Drawer>
       </LargeContainer>
     </FullWidthBox>
   );

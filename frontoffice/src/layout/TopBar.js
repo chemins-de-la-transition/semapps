@@ -3,7 +3,7 @@ import { Box, useMediaQuery, makeStyles, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import FullWidthBox from './FullWidthBox';
 import LargeContainer from './LargeContainer';
-import Button from './Button';
+import Button from '../commons/Button';
 
 const TopBarHeight = 48;
 const useStyles = makeStyles((theme) => ({
@@ -43,7 +43,7 @@ const TopBar = () => {
         <LargeContainer>
           <Box display="flex" width={1} height={1} alignItems="center" className={classes.topBarIncluded}>
             <Typography variant="subtitle2">Le lieu pour partager et apprendre en voyageant</Typography>
-            <Box flexGrow={1}></Box>
+            <Box flexGrow={1} />
             <Button
               to="/Aide"
               className={classes.topBarHelpIcon}
@@ -51,15 +51,17 @@ const TopBar = () => {
               component={Link}
               aria-label="Aide"
               typographyVariant="subtitle2"
-              text="?"
-            ></Button>
+            >
+              ?
+            </Button>
             <Button
               variant="outlined"
               color="secondary"
               href="https://lescheminsdelatransition.org/faire-un-don/"
-              text="Soutenez la plateforme avec un don"
               typographyVariant="subtitle2"
-            ></Button>
+            >
+              Soutenez la plateforme avec un don
+            </Button>
           </Box>
         </LargeContainer>
       </FullWidthBox>

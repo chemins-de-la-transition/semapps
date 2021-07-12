@@ -12,10 +12,10 @@ import EventDetails from './EventDetails';
 const EventShow = (props) => (
   <ShowBase {...props}>
     <>
-      <HeaderShow type="pair:hasEventType" linkToListText="Liste des évènements" details={<EventDetails />} />
+      <HeaderShow type="pair:hasEventType" linkToListText="Liste des évènements" details={<EventDetails />} actionLabel="Je candidate" />
       <BodyList
         aside={
-          <StickyCard>
+          <StickyCard actionLabel="Je candidate">
             <EventDetails orientation="vertical" />
           </StickyCard>
         }

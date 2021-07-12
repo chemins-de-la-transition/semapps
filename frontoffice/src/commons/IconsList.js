@@ -76,8 +76,8 @@ const IconsList = ({ orientation, children }) => {
           basePath,
         });
         return (
-          <>
-            <ListItem key={field.props.source} className={classes.item} p={2}>
+          <React.Fragment key={i}>
+            <ListItem className={classes.item} p={2}>
               <ListItemAvatar className={classes.avatar}>
                 {React.cloneElement(field.props.icon, {
                   className: classes.icon,
@@ -94,7 +94,7 @@ const IconsList = ({ orientation, children }) => {
             {i < fields.length - 1 && (
               <Divider orientation={dividerOrientation} className={classes.divider} flexItem={!isVertical} />
             )}
-          </>
+          </React.Fragment>
         );
       })}
     </List>

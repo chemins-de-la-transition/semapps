@@ -8,10 +8,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const FullWidthBox = ({ children, ...other }) => {
+const FullWidthBox = ({ children, ...rest }) => {
   const classes = useStyles();
   return (
-    <Box width={1} classes={{ root: classes.box }} {...other}>
+    <Box width={1} classes={{ root: classes.box }} {...rest}>
       {children}
     </Box>
   );

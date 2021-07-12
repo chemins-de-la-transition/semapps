@@ -19,13 +19,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LargeContainer = ({ children, ...other }) => {
+const LargeContainer = React.forwardRef(({ children, ...rest }, ref) => {
   const classesContainer = useStyles();
   return (
-    <Container maxWidth="lg" classes={{ root: classesContainer.container }} {...other}>
+    <Container ref={ref} maxWidth="lg" classes={{ root: classesContainer.container }} {...rest}>
       {children}
     </Container>
   );
-};
+});
 
 export default LargeContainer;

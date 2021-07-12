@@ -4,8 +4,8 @@ import { createMuiTheme /*, responsiveFontSizes*/ } from '@material-ui/core/styl
 // const defaultTheme = createMuiTheme();
 
 const white = '#FFFFFF';
-const primary = '#EFBE74';
-const secondary = '#323647';
+const primary = '#D4A24C';
+const secondary = '#203142';
 const tertiary = '#F6F6F6';
 const neutral_web_grey190 = '#201F1E';
 const theme_1 = '#BF6C3A';
@@ -37,7 +37,7 @@ let theme = createMuiTheme({
       // light:  primary,// to not be calculated from palette.primary.main
       main: primary,
       // dark: primary ,// to not be calculated from palette.primary.main
-      contrastText: secondary, // to not be calculated from palette.primary.main
+      contrastText: white, // to not be calculated from palette.primary.main
     },
     secondary: {
       // light: secondary,// to not be calculated from palette.secondary.main
@@ -243,20 +243,20 @@ let theme = createMuiTheme({
         boxShadow: '7px 7px ' + white,
       },
       containedPrimary: {
-        color: secondary,
-        borderColor: secondary,
-        boxShadow: '7px 7px ' + secondary,
+        color: white,
+        borderColor: white,
+        boxShadow: '7px 7px ' + white,
         backgroundColor: primary,
         position: 'relative',
         '&:focus': {
-          color: secondary,
-          borderColor: secondary,
+          color: white,
+          borderColor: white,
           backgroundColor: primary,
           boxShadow: 'none',
         },
         '&:hover': {
-          color: secondary,
-          borderColor: secondary,
+          color: white,
+          borderColor: white,
           backgroundColor: primary,
           boxShadow: 'none',
         },
