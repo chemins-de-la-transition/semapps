@@ -1,8 +1,16 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    marginTop: 15,
+    lineHeight: 1.3
+  },
+}));
 
 const BodyLabel = ({ children }) => {
-  return <Typography variant="h2">{children}</Typography>;
+  const classes = useStyles();
+  return <Typography variant="h2" color="secondary" className={classes.root}>{children}</Typography>;
 };
 
 export default BodyLabel;

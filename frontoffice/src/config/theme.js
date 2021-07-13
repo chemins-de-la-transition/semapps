@@ -5,7 +5,7 @@ import { createMuiTheme /*, responsiveFontSizes*/ } from '@material-ui/core/styl
 
 const white = '#FFFFFF';
 const primary = '#D4A24C';
-const secondary = '#203142';
+const secondary = '#323647';
 const tertiary = '#F6F6F6';
 const neutral_web_grey190 = '#201F1E';
 const theme_1 = '#BF6C3A';
@@ -221,10 +221,10 @@ let theme = createMuiTheme({
         h4: 'h5',
         h5: 'h6',
         h6: 'h6',
-        subtitle1: 'span',
-        subtitle2: 'span',
-        body1: 'span',
-        body2: 'span',
+        subtitle1: 'p',
+        subtitle2: 'p',
+        body1: 'p',
+        body2: 'p',
         button: 'span',
       },
     },

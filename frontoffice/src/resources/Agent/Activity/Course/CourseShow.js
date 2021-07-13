@@ -1,14 +1,15 @@
 import React from 'react';
-import { ShowBase, Datagrid, TextField, DateField, ShowButton } from 'react-admin';
-import { MarkdownField } from '@semapps/markdown-components';
+import { ShowBase, TextField } from 'react-admin';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MapList } from '@semapps/geo-components';
 import HeaderShow from '../../../../commons/HeaderShow';
+import MarkdownField from '../../../../commons/fields/MarkdownField';
 import Events from '../../../../pages/Events/Events';
 import StickyCard from '../../../../commons/StickyCard';
 import BodyList from '../../../../commons/lists/BodyList/BodyList';
 import CourseDetails from './CourseDetails';
 import BulletPointsField from "../../../../commons/fields/BulletPointsField";
+import TimelineList from "../../../../commons/lists/TimelineList";
 
 const CourseShow = (props) => (
   <ShowBase {...props}>
@@ -28,12 +29,7 @@ const CourseShow = (props) => (
           source="pair:hasPart"
           sort={{ field: 'pair:startDate', order: 'ASC' }}
         >
-          <Datagrid rowClick="show">
-            <TextField source="pair:label" />
-            <DateField source="pair:startDate" />
-            <DateField source="pair:endDate" />
-            <ShowButton />
-          </Datagrid>
+          <TimelineList />
         </ReferenceArrayField>
         <ReferenceArrayField reference="Skill" source="pair:produces">
           <BulletPointsField linkType={false}>
