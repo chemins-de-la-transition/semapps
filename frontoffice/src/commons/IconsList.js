@@ -78,11 +78,13 @@ const IconsList = ({ orientation, children }) => {
         return (
           <React.Fragment key={i}>
             <ListItem className={classes.item} p={2}>
-              <ListItemAvatar className={classes.avatar}>
-                {React.cloneElement(field.props.icon, {
-                  className: classes.icon,
-                })}
-              </ListItemAvatar>
+              {field.props.icon &&
+                <ListItemAvatar className={classes.avatar}>
+                  {React.cloneElement(field.props.icon, {
+                    className: classes.icon,
+                  })}
+                </ListItemAvatar>
+              }
               <ListItemText
                 primary={label}
                 secondary={value}
