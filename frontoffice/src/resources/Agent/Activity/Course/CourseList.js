@@ -1,10 +1,10 @@
 import React from 'react';
 import { ListBase } from 'react-admin';
 import { Box, useMediaQuery } from '@material-ui/core';
-import MultiViewsFilterList from '../../../../commons/MultiViewsFilterList';
+import MultiViewsFilterList from '../../../../commons/lists/MultiViewsFilterList';
 import ListIcon from '@material-ui/icons/List';
 import Filter from '../../../../commons/Filter';
-import CardsList from '../../../../commons/CardsList';
+import CardsList from '../../../../commons/lists/CardsList';
 import CourseCard from "./CourseCard";
 
 const CourseList = (props) => {

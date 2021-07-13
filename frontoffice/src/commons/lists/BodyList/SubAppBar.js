@@ -2,8 +2,8 @@ import React from 'react';
 import { Scrollchor } from 'react-scrollchor';
 import { useTranslate, getFieldLabelTranslationArgs, useShowContext } from 'react-admin';
 import { makeStyles, AppBar as MuiAppBar, Tabs, Tab, useMediaQuery } from '@material-ui/core';
-import FullWidthBox from '../../layout/FullWidthBox';
-import LargeContainer from '../../layout/LargeContainer';
+import FullWidthBox from '../../FullWidthBox';
+import LargeContainer from '../../LargeContainer';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {

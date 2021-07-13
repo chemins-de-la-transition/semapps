@@ -1,7 +1,7 @@
 import React from 'react';
 import { /*useMediaQuery, */ makeStyles, Grid, Typography } from '@material-ui/core';
-import FullWidthBox from '../../../layout/FullWidthBox';
-import LargeContainer from '../../../layout/LargeContainer';
+import FullWidthBox from '../../../commons/FullWidthBox';
+import LargeContainer from '../../../commons/LargeContainer';
 import TwoHandsIcon from '../../../svg/TwoHandsIcon';
 import WalkerIcon from '../../../svg/WalkerIcon';
 import StarIcon from '../../../svg/StarIcon';

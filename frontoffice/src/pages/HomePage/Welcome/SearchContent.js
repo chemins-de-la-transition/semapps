@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, Box, Typography, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-import LargeContainer from '../../../layout/LargeContainer';
-import FullWidthBox from '../../../layout/FullWidthBox';
+import LargeContainer from '../../../commons/LargeContainer';
+import FullWidthBox from '../../../commons/FullWidthBox';
 import Button from '../../../commons/Button';
 
 const useStyles = makeStyles((theme) => ({

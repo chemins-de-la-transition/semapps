@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, useMediaQuery, makeStyles, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import FullWidthBox from './FullWidthBox';
-import LargeContainer from './LargeContainer';
+import FullWidthBox from '../commons/FullWidthBox';
+import LargeContainer from '../commons/LargeContainer';
 import Button from '../commons/Button';
 
 const TopBarHeight = 48;

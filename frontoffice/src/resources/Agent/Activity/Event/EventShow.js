@@ -6,7 +6,7 @@ import { MapField } from '@semapps/geo-components';
 import HeaderShow from '../../../../commons/HeaderShow';
 import Events from '../../../../pages/Events/Events';
 import StickyCard from '../../../../commons/StickyCard';
-import BodyList from '../../../../commons/BodyList/BodyList';
+import BodyList from '../../../../commons/lists/BodyList/BodyList';
 import EventDetails from './EventDetails';
 
 const EventShow = (props) => (

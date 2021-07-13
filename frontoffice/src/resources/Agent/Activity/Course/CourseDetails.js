@@ -2,14 +2,14 @@ import React from 'react';
 import { TextField } from 'react-admin';
 import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
-import IconsList from '../../../../commons/IconsList';
+import IconsList from '../../../../commons/lists/IconsList';
 import ThemeIcon from '../../../../svg/ThemeIcon';
 import CourseIcon from '../../../../svg/CourseIcon';
 import CalendarIcon from '../../../../svg/CalendarIcon';
 import PlaceIcon from '../../../../svg/PlaceIcon';
 import PriceIcon from "../../../../svg/PriceIcon";
-import DurationField from '../../../../commons/DurationField';
-import DateToDateField from "../../../../commons/DateToDateField";
+import DurationField from '../../../../commons/fields/DurationField';
+import DateToDateField from "../../../../commons/fields/DateToDateField";
 import DurationIcon from '../../../../svg/DurationIcon';
 
 const EventDetails = (props) => (

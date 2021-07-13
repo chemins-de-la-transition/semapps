@@ -6,9 +6,9 @@ import { MapList } from '@semapps/geo-components';
 import HeaderShow from '../../../../commons/HeaderShow';
 import Events from '../../../../pages/Events/Events';
 import StickyCard from '../../../../commons/StickyCard';
-import BodyList from '../../../../commons/BodyList/BodyList';
+import BodyList from '../../../../commons/lists/BodyList/BodyList';
 import CourseDetails from './CourseDetails';
-import BulletPointsField from "../../../../commons/BulletPointsField";
+import BulletPointsField from "../../../../commons/fields/BulletPointsField";
 
 const CourseShow = (props) => (
   <ShowBase {...props}>

@@ -2,8 +2,8 @@ import React from 'react';
 import { IconButton, useMediaQuery, makeStyles, Typography, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import LogoTitle from './LogoTitle';
-import FullWidthBox from './FullWidthBox';
-import LargeContainer from './LargeContainer';
+import FullWidthBox from '../commons/FullWidthBox';
+import LargeContainer from '../commons/LargeContainer';
 import {
   Facebook as FacebookIcon,
   Instagram as InstagramIcon,

@@ -2,8 +2,8 @@ import React from 'react';
 import { useTranslate, getFieldLabelTranslationArgs, useShowContext } from 'react-admin';
 import { Grid, Hidden, makeStyles } from '@material-ui/core';
 import BodyLabel from './BodyLabel';
-import FullWidthBox from '../../layout/FullWidthBox';
-import LargeContainer from '../../layout/LargeContainer';
+import FullWidthBox from '../../FullWidthBox';
+import LargeContainer from '../../LargeContainer';
 import SubAppBar from './SubAppBar';
 
 const useStyles = makeStyles((theme) => ({

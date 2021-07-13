@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, Box, Typography } from '@material-ui/core';
-import FullWidthBox from '../../../layout/FullWidthBox';
-import LargeContainer from '../../../layout/LargeContainer';
+import FullWidthBox from '../../../commons/FullWidthBox';
+import LargeContainer from '../../../commons/LargeContainer';
 import SearchContent from './SearchContent';
 
 const useStyles = makeStyles((theme) => ({

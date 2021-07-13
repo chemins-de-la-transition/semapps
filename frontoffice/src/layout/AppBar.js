@@ -4,8 +4,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { UserMenu, LogoutButton } from '@semapps/auth-provider';
 import { Link } from 'react-router-dom';
 import LogoTitle from './LogoTitle';
-import FullWidthBox from './FullWidthBox';
-import LargeContainer from './LargeContainer';
+import FullWidthBox from '../commons/FullWidthBox';
+import LargeContainer from '../commons/LargeContainer';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {

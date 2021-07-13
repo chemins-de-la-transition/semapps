@@ -7,8 +7,8 @@ import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import PlaceTitle from './PlaceTitle';
-import FullWidthBox from '../../layout/FullWidthBox';
-import LargeContainer from '../../layout/LargeContainer';
+import FullWidthBox from '../../commons/FullWidthBox';
+import LargeContainer from '../../commons/LargeContainer';
 
 const PlaceShow = (props) => (
   <ShowWithPermissions title={<PlaceTitle />} {...props}>

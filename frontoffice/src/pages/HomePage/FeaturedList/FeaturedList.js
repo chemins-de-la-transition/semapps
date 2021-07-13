@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, Typography, Box } from '@material-ui/core';
-import FullWidthBox from '../../../layout/FullWidthBox';
-import LargeContainer from '../../../layout/LargeContainer';
+import FullWidthBox from '../../../commons/FullWidthBox';
+import LargeContainer from '../../../commons/LargeContainer';
 import ChevronRightIcon from '../../../svg/ChevronRightIcon';
 import { ListBase } from 'react-admin';
 import { Link } from 'react-router-dom';

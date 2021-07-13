@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, Typography, Grid, Box } from '@material-ui/core';
-import FullWidthBox from '../../layout/FullWidthBox';
-import LargeContainer from '../../layout/LargeContainer';
+import FullWidthBox from '../../commons/FullWidthBox';
+import LargeContainer from '../../commons/LargeContainer';
 import DiscoverIcon from '../../svg/DiscoverIcon';
 import FarmerIcon from '../../svg/FarmerIcon';
 import IdeaIcon from '../../svg/IdeaIcon';

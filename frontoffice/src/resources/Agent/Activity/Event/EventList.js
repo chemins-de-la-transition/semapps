@@ -4,12 +4,12 @@ import { Box, useMediaQuery } from '@material-ui/core';
 import frLocale from '@fullcalendar/core/locales/fr';
 import { CalendarList } from '@semapps/date-components';
 import { MapList } from '@semapps/geo-components';
-import MultiViewsFilterList from '../../../../commons/MultiViewsFilterList';
+import MultiViewsFilterList from '../../../../commons/lists/MultiViewsFilterList';
 import Calendar from '../../../../svg/CalendarIcon';
 import MapIcon from '../../../../svg/MapIcon';
 import ListIcon from '@material-ui/icons/List';
 import Filter from '../../../../commons/Filter';
-import CardsList from '../../../../commons/CardsList';
+import CardsList from '../../../../commons/lists/CardsList';
 import EventCard from "./EventCard";
 
 const EventList = (props) => {
