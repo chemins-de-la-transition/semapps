@@ -9,7 +9,7 @@ import Events from '../../pages/Events/Events';
 import StickyCard from '../../commons/StickyCard';
 import BodyList from '../../commons/lists/BodyList/BodyList';
 import PlaceDetails from './PlaceDetails';
-import EventCard from "../Agent/Activity/Event/EventCard";
+import EventCard from "../Activity/Event/EventCard";
 import CardsList from "../../commons/lists/CardsList";
 import BulletPointsField from "../../commons/fields/BulletPointsField";
 
