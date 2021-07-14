@@ -1,8 +1,8 @@
 import React from 'react';
 import { ShowBase } from 'react-admin';
-import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceField } from '@semapps/semantic-data-provider';
 import { MapField } from '@semapps/geo-components';
+import MarkdownField from "../../../../commons/fields/MarkdownField";
 import HeaderShow from '../../../../commons/HeaderShow';
 import Events from '../../../../pages/Events/Events';
 import StickyCard from '../../../../commons/StickyCard';
@@ -30,6 +30,7 @@ const EventShow = (props) => (
             address={(record) => record?.['pair:label'] + ', ' + record?.['pair:hasPostalAddress']?.['pair:label']}
             latitude={(record) => record?.['pair:hasPostalAddress']?.['pair:latitude']}
             longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
+            typographyProps={{ variant: 'body2', color: 'secondary' }}
           />
         </ReferenceField>
       </BodyList>

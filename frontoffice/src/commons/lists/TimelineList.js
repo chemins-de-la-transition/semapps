@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { useListContext, Link, linkToRecord } from 'react-admin';
+import { useListContext, Link, linkToRecord, TextField, RecordContextProvider } from 'react-admin';
 import { Icon, Box, makeStyles, Typography } from '@material-ui/core';
 import RoundIcon from "../../svg/RoundIcon";
+import DateToDateField from "../fields/DateToDateField";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,25 +36,27 @@ const TimelineList = () => {
           <Icon className={classes.roundIcon} color="secondary">
             <RoundIcon />
           </Icon>
-          <Typography variant="subtitle1" color="primary" paragraph>
-            Du 11 mai au 12 mai
-          </Typography>
-          <Link to={linkToRecord(basePath, id, 'show')} onClick={e => e.stopPropagation()}>
-            <Typography variant="body2" color="secondary" paragraph>
-              <strong>{data[id]['pair:label']}</strong>
-            </Typography>
-          </Link>
-          <Typography variant="body2" paragraph>
-            {data[id]['pair:comment']}
-          </Typography>
-          <Link to={linkToRecord('/Place', data[id]['pair:hostedIn'].id, 'show')} onClick={e => e.stopPropagation()}>
-            <Typography variant="body2" color="secondary" paragraph>
-              <strong>Lieu: {data[id]['pair:hostedIn']['pair:label']}</strong>
-            </Typography>
-          </Link>
-          <Typography variant="body2" paragraph>
-            {data[id]['pair:hostedIn']['pair:comment']}
-          </Typography>
+          <RecordContextProvider value={data[id]} key={id}>
+            <p>
+              <DateToDateField startDate="pair:startDate" endDate="pair:endDate" variant="subtitle1" color="primary" />
+            </p>
+            <Link to={linkToRecord(basePath, id, 'show')} onClick={e => e.stopPropagation()}>
+              <Typography variant="body2" color="secondary" paragraph>
+                <strong>{data[id]['pair:label']}</strong>
+              </Typography>
+            </Link>
+            <p>
+              <TextField source="pair:comment" variant="body2" />
+            </p>
+            <Link to={linkToRecord('/Place', data[id]['pair:hostedIn'].id, 'show')} onClick={e => e.stopPropagation()}>
+              <Typography variant="body2" color="secondary" paragraph>
+                <strong>Lieu: {data[id]['pair:hostedIn']['pair:label']}</strong>
+              </Typography>
+            </Link>
+            <p>
+              <TextField source="pair:hostedIn.pair:comment" variant="body2" />
+            </p>
+          </RecordContextProvider>
         </Box>
       ))}
     </Box>
