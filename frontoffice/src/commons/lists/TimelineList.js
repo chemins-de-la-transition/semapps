@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 const TimelineList = () => {
   const classes = useStyles();
-  const { ids, data, basePath, loading } = useListContext();
+  const { ids, data, basePath } = useListContext();
   return (
     <Box className={classes.root}>
       {ids.map((id) => (
