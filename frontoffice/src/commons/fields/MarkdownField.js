@@ -1,7 +1,6 @@
 import React from 'react';
 import { Typography, makeStyles } from '@material-ui/core';
 import { MarkdownField as SemAppsMarkdownField } from '@semapps/markdown-components';
-import BodyLabel from "../lists/BodyList/BodyLabel";
 
 const useStyles = makeStyles(theme => ({
   p: {
@@ -12,9 +11,9 @@ const useStyles = makeStyles(theme => ({
       marginTop: 10
     }
   },
-  h2: {
+  h: {
     marginTop: 15,
-    marginBottom: 7
+    marginBottom: 5
   }
 }));
 
@@ -25,8 +24,8 @@ const MarkdownField = (props) => {
       overrides={{
         p: props => <Typography variant="body2" color="secondary" {...props} className={classes.p} />,
         span: props => <Typography variant="body2" color="secondary" {...props} className={classes.p} />,
-        h1: BodyLabel,
-        h2: props => <Typography variant="subtitle1" color="primary"  paragraph {...props} className={classes.h2} />,
+        h1: props => <Typography variant="subtitle1" color="primary" paragraph {...props} className={classes.h} />,
+        h2: props => <Typography variant="subtitle2" color="secondary" paragraph {...props} className={classes.h} />,
         li: props => <li><Typography variant="body2" color="secondary" {...props} className={classes.p} /></li>,
       }}
       className={classes.root}

@@ -26,9 +26,10 @@ const EventDetails = (props) => (
       <TextField source="pair:label" />
     </ReferenceField>
     <DateField
+      showTime
       label="Date"
       source="pair:startDate"
-      options={{ year: 'numeric', month: 'long', day: 'numeric' }}
+      options={{ year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }}
       icon={<CalendarIcon />}
     />
     <DurationField

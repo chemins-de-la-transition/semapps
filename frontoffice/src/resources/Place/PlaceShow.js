@@ -1,72 +1,53 @@
 import React from 'react';
-import { TextField, UrlField, EmailField, ChipField, SingleFieldList } from 'react-admin';
-import { Grid } from '@material-ui/core';
-import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } from '@semapps/archipelago-layout';
-import { ShowWithPermissions } from '@semapps/auth-provider';
-import { MarkdownField } from '@semapps/markdown-components';
+import {ShowBase, TextField} from 'react-admin';
 import { MapField } from '@semapps/geo-components';
+import { Box } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
-import PlaceTitle from './PlaceTitle';
-import FullWidthBox from '../../commons/FullWidthBox';
-import LargeContainer from '../../commons/LargeContainer';
+import MarkdownField from "../../commons/fields/MarkdownField";
+import HeaderShow from '../../commons/HeaderShow';
+import Events from '../../pages/Events/Events';
+import StickyCard from '../../commons/StickyCard';
+import BodyList from '../../commons/lists/BodyList/BodyList';
+import PlaceDetails from './PlaceDetails';
+import EventCard from "../Agent/Activity/Event/EventCard";
+import CardsList from "../../commons/lists/CardsList";
+import BulletPointsField from "../../commons/fields/BulletPointsField";
 
 const PlaceShow = (props) => (
-  <ShowWithPermissions title={<PlaceTitle />} {...props}>
-    <FullWidthBox>
-      <LargeContainer>
-        <Grid container spacing={5}>
-          <Grid item xs={12} sm={9}>
-            <Hero image="pair:isDepictedBy">
-              <TextField source="pair:comment" />
-              <ReferenceArrayField source="cdlt:hasCourseType" reference="Type">
-                <SeparatedListField linkType={false}>
-                  <TextField source="pair:label" />
-                </SeparatedListField>
-              </ReferenceArrayField>
-              <ReferenceArrayField source="pair:hasPlaceType" reference="Type">
-                <SeparatedListField linkType={false}>
-                  <TextField source="pair:label" />
-                </SeparatedListField>
-              </ReferenceArrayField>
-              <EmailField source="pair:e-mail" />
-              <TextField source="pair:phone" />
-              <UrlField source="pair:homePage" />
-            </Hero>
-            <MainList>
-              <MarkdownField source="pair:description" addLabel />
-              <MarkdownField source="cdlt:activities" addLabel />
-              <MarkdownField source="cdlt:practicalConditions" addLabel />
-              <MapField
-                source="pair:hasPostalAddress"
-                address={(record) => record?.['pair:hasPostalAddress']?.['pair:label']}
-                latitude={(record) => record?.['pair:hasPostalAddress']?.['pair:latitude']}
-                longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
-              />
-            </MainList>
-          </Grid>
-          <Grid item xs={12} sm={3}>
-            <SideList>
-              <ReferenceArrayField reference="Person" source="cdlt:proposedBy">
-                <GridList xs={6} linkType="show">
-                  <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
-                </GridList>
-              </ReferenceArrayField>
-              <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-                <SingleFieldList linkType="show">
-                  <ChipField source="pair:label" />
-                </SingleFieldList>
-              </ReferenceArrayField>
-              <ReferenceArrayField reference="Skill" source="pair:produces">
-                <SingleFieldList linkType="show">
-                  <ChipField source="pair:label" />
-                </SingleFieldList>
-              </ReferenceArrayField>
-            </SideList>
-          </Grid>
-        </Grid>
-      </LargeContainer>
-    </FullWidthBox>
-  </ShowWithPermissions>
+  <ShowBase {...props}>
+    <>
+      <HeaderShow type="pair:hasType" linkToListText="Liste des lieux" details={<PlaceDetails />} actionLabel="Contacter le lieu" />
+      <BodyList
+        aside={
+          <StickyCard actionLabel="Contacter le lieu">
+            <PlaceDetails orientation="vertical" />
+          </StickyCard>
+        }
+      >
+        <MarkdownField source="pair:description" />
+        <MarkdownField source="cdlt:activities" />
+        <ReferenceArrayField source="pair:hosts" reference="Event">
+          <Box pt={1}>
+            <CardsList CardComponent={EventCard} />
+          </Box>
+        </ReferenceArrayField>
+        <ReferenceArrayField reference="Skill" source="pair:produces">
+          <BulletPointsField linkType={false}>
+            <TextField source="pair:label" />
+          </BulletPointsField>
+        </ReferenceArrayField>
+        <MarkdownField source="cdlt:practicalConditions" />
+        <MapField
+          source="pair:hasPostalAddress"
+          address={(record) => record?.['pair:hasPostalAddress']?.['pair:label']}
+          latitude={(record) => record?.['pair:hasPostalAddress']?.['pair:latitude']}
+          longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
+          typographyProps={{ variant: 'body2', color: 'secondary' }}
+        />
+      </BodyList>
+      <Events />
+    </>
+  </ShowBase>
 );
 
 export default PlaceShow;

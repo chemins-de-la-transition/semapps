@@ -29,7 +29,7 @@ const EventList = (props) => {
           <Filter
             reference="Type"
             source="pair:hasType"
-            /*inverseSource="cdlt:typeOfEvent"*/ filter={{ a: 'pair:EventType' }}
+            /*inverseSource="cdlt:typeOf"*/ filter={{ a: 'pair:EventType' }}
             label="Type d'événement"
           />,
         ]}
@@ -59,8 +59,6 @@ const EventList = (props) => {
                 height={xs ? 'calc(100vh - 146px)' : 'calc(100vh - 198px)'}
                 latitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:latitude']}
                 longitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
-                label={(record) => record?.['pair:label']}
-                description={(record) => record?.['pair:comment']}
                 popupContent={({ record, basePath }) => (
                   <>
                     <EventCard record={record} variant="compact" />

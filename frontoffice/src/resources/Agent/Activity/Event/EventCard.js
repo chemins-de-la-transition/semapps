@@ -1,10 +1,12 @@
 import React from "react";
-import { TextField } from "react-admin";
+import { DateField, TextField } from "react-admin";
 import Chip from "../../../../commons/Chip";
-import CourseIcon from "../../../../svg/CourseIcon";
 import { ReferenceArrayField } from "@semapps/semantic-data-provider";
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { makeStyles } from "@material-ui/core";
+import ThemeIcon from "../../../../svg/ThemeIcon";
+import TypeIcon from "../../../../svg/TypeIcon";
+import CalendarIcon from "../../../../svg/CalendarIcon";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -26,10 +28,27 @@ const EventCard = ({ record, variant }) => {
   return (
     <>
       <TextField variant="h2" record={record} source="pair:label" className={classes.title} />
-      {record['cdlt:hasCourseType'] && (
-        <Chip icon={<CourseIcon />}>
-          <ReferenceArrayField record={record} source="cdlt:hasCourseType" reference="Type">
-            <SeparatedListField separator=" / " linkType={false}>
+      <Chip icon={<CalendarIcon />}>
+        <DateField
+          record={record}
+          source="pair:startDate"
+          options={{ year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }}
+          showTime
+        />
+      </Chip>
+      {record['pair:hasType'] && (
+        <Chip icon={<TypeIcon />}>
+          <ReferenceArrayField record={record} reference="Type" source="pair:hasType">
+            <SeparatedListField linkType={false} separator=" /">
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+        </Chip>
+      )}
+      {record['pair:hasTopic'] && (
+        <Chip icon={<ThemeIcon />}>
+          <ReferenceArrayField record={record} reference="Theme" source="pair:hasTopic">
+            <SeparatedListField linkType={false} separator=" /">
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
