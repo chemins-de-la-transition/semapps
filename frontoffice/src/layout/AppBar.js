@@ -1,11 +1,12 @@
 import React from 'react';
 import { Box, makeStyles, Typography, AppBar as MuiAppBar, useMediaQuery, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import { UserMenu, LogoutButton } from '@semapps/auth-provider';
+import { LogoutButton } from '@semapps/auth-provider';
 import { Link } from 'react-router-dom';
 import LogoTitle from './LogoTitle';
 import FullWidthBox from '../commons/FullWidthBox';
 import LargeContainer from '../commons/LargeContainer';
+import UserMenu from './UserMenu';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -88,27 +89,27 @@ const useStyles = makeStyles((theme) => ({
 
 const AppBar = ({ menuItems, setSidebarOpen, title }) => {
   const classes = useStyles();
-  const transition = useMediaQuery((theme) => theme.breakpoints.down('xs'));
+  const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
   return (
     <MuiAppBar position="sticky" className={classes.appBar}>
       <FullWidthBox>
-        {transition ? (
+        {xs ? (
           <Box width={1} display="flex" alignItems="center">
             <IconButton color="secondary" onClick={() => setSidebarOpen(true)} className={classes.openButton}>
               <MenuIcon />
             </IconButton>
-            <Box flexGrow={1}></Box>
-            <LogoTitle title={title} justifyContent="flex-start" classes={{ menuLink: classes.menuLink }}></LogoTitle>
-            <Box flexGrow={1}></Box>
+            <Box flexGrow={1} />
+            <LogoTitle title={title} justifyContent="flex-start" classes={{ menuLink: classes.menuLink }} />
+            <Box flexGrow={1} />
             <Box justifyContent="flex-end" className={classes.loginBackground}>
-              <UserMenu logout={<LogoutButton />} /> {/* classes={{ userButton: classes.userMenu }} /> */}
+              <UserMenu logout={<LogoutButton />} />
             </Box>
           </Box>
         ) : (
           <LargeContainer className={classes.header}>
             <Box width={1} display="flex" alignItems="center">
-              <LogoTitle title={title} justifyContent="flex-start" classes={{ menuLink: classes.menuLink }}></LogoTitle>
-              <Box flexGrow={1}></Box>
+              <LogoTitle title={title} justifyContent="flex-start" classes={{ menuLink: classes.menuLink }} />
+              <Box flexGrow={1} />
               <Box display="flex" justifyContent="center" width={1}>
                 {menuItems.map((menuItem) => (
                   <Box
@@ -130,7 +131,7 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
               </Box>
               <Box flexGrow={1}></Box>
               <Box justifyContent="flex-end" className={classes.loginBackground}>
-                <UserMenu logout={<LogoutButton />} /> {/* classes={{ userButton: classes.userMenu }} /> */}
+                <UserMenu logout={<LogoutButton />} />
               </Box>
             </Box>
           </LargeContainer>

@@ -33,14 +33,14 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const CardsList = ({ CardComponent }) => {
+const CardsList = ({ CardComponent, link }) => {
   const classes = useStyles();
   const { ids, data, basePath, loading } = useListContext();
   return loading ? (
     <Loading loadingPrimary="ra.page.loading" loadingSecondary="ra.message.loading" className={classes.loading} />
   ) : (
     ids.map((id) => (
-      <Link key={id} to={linkToRecord(basePath, id) + '/show'} className={classes.root}>
+      <Link key={id} to={linkToRecord(basePath, id, link)} className={classes.root}>
         <Card key={id} className={classes.details}>
           {data[id]?.['pair:isDepictedBy'] && (
             <CardMedia className={classes.image} image={data[id]?.['pair:isDepictedBy']} />
@@ -52,6 +52,10 @@ const CardsList = ({ CardComponent }) => {
       </Link>
     ))
   );
+};
+
+CardsList.defaultProps = {
+  link: 'show'
 };
 
 export default CardsList;

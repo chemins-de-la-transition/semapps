@@ -2,9 +2,9 @@ import * as React from 'react';
 import { makeStyles, Typography, List, ListItem, ListItemText, ListItemAvatar, Avatar, Box } from '@material-ui/core';
 import { DateField, useListContext, ReferenceField, TextField, useRecordContext, ImageField } from 'react-admin';
 import { Link } from 'react-router-dom';
-import CalendarIcon from '../../svg/CalendarIcon';
+import CalendarIcon from '../../../svg/CalendarIcon';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import Department from '../Department';
+import Department from '../../../pages/Department';
 import sortAndFilterOnDate from './SortAndFilterOnDate';
 
 const useStyles = makeStyles((theme) => ({

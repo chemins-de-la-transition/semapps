@@ -1,6 +1,6 @@
 import React from 'react';
-import { Edit } from 'react-admin';
-import { usePermissionsWithRefetch } from '@semapps/auth-provider';
+import { Create } from 'react-admin';
+import { useCheckPermissions } from '@semapps/auth-provider';
 import FullWidthBox from "../../../commons/FullWidthBox";
 import LargeContainer from "../../../commons/LargeContainer";
 import HeaderTitle from "../../../commons/HeaderTitle";
@@ -12,16 +12,16 @@ const actions = [
   <Button to="/MyEvents">Mes événements</Button>,
 ];
 
-const EventEdit = (props) => {
-  usePermissionsWithRefetch(props.id, 'edit', props.basePath);
+const EventCreate = (props) => {
+  useCheckPermissions(props.resource, 'create');
   return(
     <>
-      <HeaderTitle actions={actions} />
+      <HeaderTitle actions={actions}>Ajouter un événement</HeaderTitle>
       <FullWidthBox>
         <LargeContainer>
-          <Edit title={<EventTitle />} actions={null} {...props}>
+          <Create title={<EventTitle />} actions={null} {...props}>
             <EventForm />
-          </Edit>
+          </Create>
         </LargeContainer>
       </FullWidthBox>
       <br />
@@ -29,4 +29,4 @@ const EventEdit = (props) => {
   );
 }
 
-export default EventEdit;
+export default EventCreate;

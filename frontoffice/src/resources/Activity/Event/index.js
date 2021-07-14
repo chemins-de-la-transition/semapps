@@ -1,14 +1,14 @@
-import { PairResourceCreate } from '../../../pair';
 import EventEdit from './EventEdit';
 import EventList from './EventList';
 import EventShow from './EventShow';
 import EventIcon from '@material-ui/icons/Event';
+import EventCreate from "./EventCreate";
 
 export default {
   config: {
     list: EventList,
     show: EventShow,
-    create: PairResourceCreate,
+    create: EventCreate,
     edit: EventEdit,
     icon: EventIcon,
     options: {
@@ -30,7 +30,7 @@ export default {
         'pair:comment': "Phrase d'accroche",
         'pair:isDepictedBy': 'Image',
         'cdlt:hasCourseType': 'Type de parcours',
-        'pair:hasEventType': "Type d'événement",
+        'pair:hasType': "Type d'événement",
         'pair:hasTopic': 'Thématiques',
         'pair:produces': 'Compétences visées',
         'pair:startDate': 'Date de début',

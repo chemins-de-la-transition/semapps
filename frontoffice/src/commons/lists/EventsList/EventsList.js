@@ -2,11 +2,11 @@ import * as React from 'react';
 import { makeStyles, Grid, Box, Typography, Hidden } from '@material-ui/core';
 import { ListBase } from 'react-admin';
 import { Link } from 'react-router-dom';
-import LargeContainer from '../../commons/LargeContainer';
-import FullWidthBox from '../../commons/FullWidthBox';
-import LargeRound from '../../svg/LargeRound';
-import CalendarIcon from '../../svg/CalendarIcon';
-import Button from '../../commons/Button';
+import LargeContainer from '../../LargeContainer';
+import FullWidthBox from '../../FullWidthBox';
+import LargeRound from '../../../svg/LargeRound';
+import CalendarIcon from '../../../svg/CalendarIcon';
+import Button from '../../Button';
 import ItemsGrid from './ItemsGrid';
 
 const useStyles = makeStyles((theme) => ({
@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Event = () => {
+const EventsList = () => {
   const classes = useStyles();
   return (
     <FullWidthBox className={classes.background}>
@@ -101,4 +101,4 @@ const Event = () => {
   );
 };
 
-export default Event;
+export default EventsList;

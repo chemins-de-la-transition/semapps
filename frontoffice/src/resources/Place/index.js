@@ -1,4 +1,4 @@
-import { PairResourceCreate } from '../../pair';
+import PlaceCreate from './PlaceCreate';
 import PlaceEdit from './PlaceEdit';
 import PlaceList from './PlaceList';
 import PlaceShow from './PlaceShow';
@@ -8,7 +8,7 @@ export default {
   config: {
     list: PlaceList,
     show: PlaceShow,
-    create: PairResourceCreate,
+    create: PlaceCreate,
     edit: PlaceEdit,
     icon: PlaceIcon,
     options: {

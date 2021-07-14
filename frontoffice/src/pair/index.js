@@ -69,4 +69,3 @@ export const CourseInput = ({ label, source, ...rest }) => (
 );
 
 export { default as PairLocationInput } from './PairLocationInput';
-export { default as PairResourceCreate } from './PairResourceCreate';

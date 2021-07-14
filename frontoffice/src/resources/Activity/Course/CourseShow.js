@@ -4,7 +4,7 @@ import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MapList } from '@semapps/geo-components';
 import HeaderShow from '../../../commons/HeaderShow';
 import MarkdownField from '../../../commons/fields/MarkdownField';
-import Events from '../../../pages/Events/Events';
+import Events from '../../../commons/lists/EventsList/EventsList';
 import StickyCard from '../../../commons/StickyCard';
 import BodyList from '../../../commons/lists/BodyList/BodyList';
 import CourseDetails from './CourseDetails';

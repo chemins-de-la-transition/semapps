@@ -1,5 +1,5 @@
 import React from 'react';
-import { Edit } from 'react-admin';
+import { Create } from 'react-admin';
 import { useCheckPermissions } from '@semapps/auth-provider';
 import FullWidthBox from "../../commons/FullWidthBox";
 import LargeContainer from "../../commons/LargeContainer";
@@ -12,16 +12,16 @@ const actions = [
   <Button to="/MyPlaces">Mes lieux</Button>,
 ];
 
-const PlaceEdit = (props) => {
-  useCheckPermissions(props.id, 'edit', props.basePath);
+const PlaceCreate = (props) => {
+  useCheckPermissions(props.resource, 'create');
   return(
     <>
-      <HeaderTitle actions={actions} />
+      <HeaderTitle actions={actions}>Ajouter un lieu</HeaderTitle>
       <FullWidthBox>
         <LargeContainer>
-          <Edit title={<PlaceTitle />} actions={null} {...props}>
+          <Create title={<PlaceTitle />} actions={null} {...props}>
             <PlaceForm />
-          </Edit>
+          </Create>
         </LargeContainer>
       </FullWidthBox>
       <br />
@@ -29,4 +29,4 @@ const PlaceEdit = (props) => {
   );
 }
 
-export default PlaceEdit;
+export default PlaceCreate;

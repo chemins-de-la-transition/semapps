@@ -4,7 +4,7 @@ import { ReferenceField } from '@semapps/semantic-data-provider';
 import { MapField } from '@semapps/geo-components';
 import MarkdownField from "../../../commons/fields/MarkdownField";
 import HeaderShow from '../../../commons/HeaderShow';
-import Events from '../../../pages/Events/Events';
+import Events from '../../../commons/lists/EventsList/EventsList';
 import StickyCard from '../../../commons/StickyCard';
 import BodyList from '../../../commons/lists/BodyList/BodyList';
 import EventDetails from './EventDetails';

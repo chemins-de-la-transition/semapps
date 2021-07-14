@@ -1,20 +1,10 @@
-import { PairResourceCreate } from '../../../pair';
-import CourseEdit from './CourseEdit';
 import CourseList from './CourseList';
 import CourseShow from './CourseShow';
-import DateRangeIcon from '@material-ui/icons/DateRange';
 
 export default {
   config: {
     list: CourseList,
-    show: CourseShow,
-    create: PairResourceCreate,
-    edit: CourseEdit,
-    icon: DateRangeIcon,
-    options: {
-      label: 'Parcours',
-      parent: 'Activity',
-    },
+    show: CourseShow
   },
   dataModel: {
     types: ['cdlt:Course'],
