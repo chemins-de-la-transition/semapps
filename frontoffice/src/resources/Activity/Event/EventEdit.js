@@ -20,7 +20,7 @@ const EventEdit = (props) => {
       <FullWidthBox>
         <LargeContainer>
           <Edit title={<EventTitle />} actions={null} {...props}>
-            <EventForm />
+            <EventForm mode="edit" />
           </Edit>
         </LargeContainer>
       </FullWidthBox>

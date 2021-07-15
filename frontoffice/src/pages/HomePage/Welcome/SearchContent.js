@@ -84,23 +84,24 @@ const SearchContent = () => {
               <FormControl className={classes.formControl}>
                 <InputLabel id="demo-select-area-label">Région</InputLabel>
                 <Select labelId="demo-select-area-label" id="demo-select-area" disabled>
-                  <MenuItem value=""></MenuItem>
+                  <MenuItem value=""/>
                 </Select>
               </FormControl>
               <FormControl className={classes.formControl}>
                 <InputLabel id="demo-select-topic-label">Thématique</InputLabel>
                 <Select labelId="demo-select-topic-label" id="demo-select-topic" disabled>
-                  <MenuItem value=""></MenuItem>
+                  <MenuItem value=""/>
                 </Select>
               </FormControl>
               <Button
                 variant="contained"
                 color="secondary"
                 href="#"
-                text="Rechercher"
                 typographyVariant="button2"
                 className={classes.button}
-              />
+              >
+                Rechercher
+              </Button>
             </Box>
           </Box>
         </LargeContainer>

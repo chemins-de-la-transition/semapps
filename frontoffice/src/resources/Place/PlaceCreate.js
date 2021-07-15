@@ -20,7 +20,7 @@ const PlaceCreate = (props) => {
       <FullWidthBox>
         <LargeContainer>
           <Create title={<PlaceTitle />} actions={null} {...props}>
-            <PlaceForm />
+            <PlaceForm mode="create" />
           </Create>
         </LargeContainer>
       </FullWidthBox>

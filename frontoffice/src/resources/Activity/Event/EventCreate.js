@@ -20,7 +20,7 @@ const EventCreate = (props) => {
       <FullWidthBox>
         <LargeContainer>
           <Create title={<EventTitle />} actions={null} {...props}>
-            <EventForm />
+            <EventForm mode="create" />
           </Create>
         </LargeContainer>
       </FullWidthBox>

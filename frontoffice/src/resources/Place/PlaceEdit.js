@@ -20,7 +20,7 @@ const PlaceEdit = (props) => {
       <FullWidthBox>
         <LargeContainer>
           <Edit title={<PlaceTitle />} actions={null} {...props}>
-            <PlaceForm />
+            <PlaceForm mode="edit" />
           </Edit>
         </LargeContainer>
       </FullWidthBox>
