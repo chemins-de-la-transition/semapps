@@ -105,22 +105,14 @@ const HeaderShow = ({ type, linkToListText, details, actionLabel }) => {
         </Box>
         {xs && (
           <Box pb={3}>
-            <Button
-              variant="contained"
-              color="primary"
-              typographyVariant="button1"
-            >
+            <Button variant="contained" color="primary" typographyVariant="button1">
               {actionLabel}
             </Button>
           </Box>
         )}
         <Drawer anchor="bottom" open={xs && showDrawer} hideBackdrop disableScrollLock>
           <Box className={classes.drawer} pt={1} pb={2}>
-            <Button
-              variant="contained"
-              color="primary"
-              typographyVariant="button1"
-            >
+            <Button variant="contained" color="primary" typographyVariant="button1">
               {actionLabel}
             </Button>
           </Box>

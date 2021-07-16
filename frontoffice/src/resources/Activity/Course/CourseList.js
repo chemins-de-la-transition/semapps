@@ -5,7 +5,7 @@ import MultiViewsFilterList from '../../../commons/lists/MultiViewsFilterList';
 import ListIcon from '@material-ui/icons/List';
 import Filter from '../../../commons/Filter';
 import CardsList from '../../../commons/lists/CardsList';
-import CourseCard from "./CourseCard";
+import CourseCard from './CourseCard';
 
 const CourseList = (props) => {
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
@@ -31,7 +31,7 @@ const CourseList = (props) => {
                 <CardsList CardComponent={CourseCard} />
               </Box>
             ),
-          }
+          },
         }}
       />
     </ListBase>

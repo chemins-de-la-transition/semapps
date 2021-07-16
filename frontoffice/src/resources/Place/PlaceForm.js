@@ -8,7 +8,11 @@ import { ThemesInput, TypeInput, SkillsInput } from '../../pair';
 const PlaceForm = ({ mode, ...rest }) => {
   const { identity } = useGetIdentity();
   return (
-    <SimpleForm initialValues={ mode === 'create' ? { 'cdlt:proposedBy': identity?.id } : undefined } {...rest} redirect="/MyPlaces">
+    <SimpleForm
+      initialValues={mode === 'create' ? { 'cdlt:proposedBy': identity?.id } : undefined}
+      {...rest}
+      redirect="/MyPlaces"
+    >
       <TextInput source="pair:label" fullWidth validate={[required()]} />
       <TextInput source="pair:comment" fullWidth validate={[required()]} />
       <ImageInput source="pair:isDepictedBy" accept="image/*">
@@ -27,8 +31,7 @@ const PlaceForm = ({ mode, ...rest }) => {
         parse={(value) => ({
           type: 'pair:PostalAddress',
           'pair:label': value.place_name,
-          'pair:addressLocality':
-            value.place_type[0] === 'place' ? value.text : extractContext(value.context, 'place'),
+          'pair:addressLocality': value.place_type[0] === 'place' ? value.text : extractContext(value.context, 'place'),
           'pair:addressStreet': value.place_type[0] === 'address' ? [value.address, value.text].join(' ') : undefined,
           'pair:addressZipCode': extractContext(value.context, 'postcode'),
           'pair:addressCountry': extractContext(value.context, 'country'),
@@ -48,6 +51,6 @@ const PlaceForm = ({ mode, ...rest }) => {
       <TextInput source="pair:homePage" fullWidth />
     </SimpleForm>
   );
-}
+};
 
 export default PlaceForm;

@@ -4,12 +4,16 @@ import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { DateTimeInput } from '@semapps/date-components';
 import { ThemesInput, TypeInput, SkillsInput } from '../../../pair';
-import frLocale from "date-fns/locale/fr";
+import frLocale from 'date-fns/locale/fr';
 
 const EventForm = ({ mode, ...rest }) => {
   const { identity } = useGetIdentity();
   return (
-    <SimpleForm initialValues={mode === 'create' ? { 'cdlt:organizedBy': identity?.id } : undefined } {...rest} redirect="/MyEvents">
+    <SimpleForm
+      initialValues={mode === 'create' ? { 'cdlt:organizedBy': identity?.id } : undefined}
+      {...rest}
+      redirect="/MyEvents"
+    >
       <TextInput source="pair:label" fullWidth validate={[required()]} />
       <TextInput source="pair:comment" fullWidth validate={[required()]} />
       <DateTimeInput
@@ -53,6 +57,6 @@ const EventForm = ({ mode, ...rest }) => {
       <TextInput source="pair:aboutPage" fullWidth />
     </SimpleForm>
   );
-}
+};
 
 export default EventForm;

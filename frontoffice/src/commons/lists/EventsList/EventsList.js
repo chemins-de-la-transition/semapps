@@ -74,13 +74,7 @@ const EventsList = () => {
             <ListBase resource="Event" basePath="/Event" className={classes.eventListBase}>
               <ItemsGrid nb={4} />
             </ListBase>
-            <Button
-              to="/Event"
-              variant="contained"
-              color="primary"
-              component={Link}
-              typographyVariant="button1"
-            >
+            <Button to="/Event" variant="contained" color="primary" component={Link} typographyVariant="button1">
               Voir tous les évènements
             </Button>
           </Grid>

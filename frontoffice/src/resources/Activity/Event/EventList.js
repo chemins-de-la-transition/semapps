@@ -10,7 +10,7 @@ import MapIcon from '../../../svg/MapIcon';
 import ListIcon from '@material-ui/icons/List';
 import Filter from '../../../commons/Filter';
 import CardsList from '../../../commons/lists/CardsList';
-import EventCard from "./EventCard";
+import EventCard from './EventCard';
 
 const EventList = (props) => {
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });

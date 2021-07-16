@@ -1,16 +1,14 @@
 import React from 'react';
 import { ListBase } from 'react-admin';
 import { useCheckAuthenticated } from '@semapps/auth-provider';
-import CardsList from "../commons/lists/CardsList";
-import PlaceCard from "../resources/Place/PlaceCard";
-import FullWidthBox from "../commons/FullWidthBox";
-import LargeContainer from "../commons/LargeContainer";
-import HeaderTitle from "../commons/HeaderTitle";
+import CardsList from '../commons/lists/CardsList';
+import PlaceCard from '../resources/Place/PlaceCard';
+import FullWidthBox from '../commons/FullWidthBox';
+import LargeContainer from '../commons/LargeContainer';
+import HeaderTitle from '../commons/HeaderTitle';
 import Button from '../commons/Button';
 
-const actions = [
-  <Button to="/Place/create">Ajouter un lieu</Button>
-];
+const actions = [<Button to="/Place/create">Ajouter un lieu</Button>];
 
 const MyPlacesPage = () => {
   const { identity } = useCheckAuthenticated();
@@ -27,6 +25,6 @@ const MyPlacesPage = () => {
       </FullWidthBox>
     </>
   );
-}
+};
 
 export default MyPlacesPage;

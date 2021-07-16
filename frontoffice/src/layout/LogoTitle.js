@@ -46,7 +46,6 @@ const LogoTitle = ({ title, classes, ...other }) => {
       <Link to="/" className={classes ? classes.menuLink : ''}>
         <Box display="flex" alignItems="center">
           <img src={process.env.PUBLIC_URL + '/logoCut512.png'} alt="logo" className={classesLogo.logo} />
-          {/* <Typography variant="h1" className={classesLogo.logoText} component="h1">{title}</Typography> */}
         </Box>
       </Link>
     </Box>

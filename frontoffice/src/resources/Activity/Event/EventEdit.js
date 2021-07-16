@@ -1,20 +1,18 @@
 import React from 'react';
 import { Edit } from 'react-admin';
 import { usePermissionsWithRefetch } from '@semapps/auth-provider';
-import FullWidthBox from "../../../commons/FullWidthBox";
-import LargeContainer from "../../../commons/LargeContainer";
-import HeaderTitle from "../../../commons/HeaderTitle";
+import FullWidthBox from '../../../commons/FullWidthBox';
+import LargeContainer from '../../../commons/LargeContainer';
+import HeaderTitle from '../../../commons/HeaderTitle';
 import EventTitle from './EventTitle';
-import EventForm from "./EventForm";
-import Button from "../../../commons/Button";
+import EventForm from './EventForm';
+import Button from '../../../commons/Button';
 
-const actions = [
-  <Button to="/MyEvents">Mes événements</Button>,
-];
+const actions = [<Button to="/MyEvents">Mes événements</Button>];
 
 const EventEdit = (props) => {
   usePermissionsWithRefetch(props.id, 'edit', props.basePath);
-  return(
+  return (
     <>
       <HeaderTitle actions={actions} />
       <FullWidthBox>
@@ -27,6 +25,6 @@ const EventEdit = (props) => {
       <br />
     </>
   );
-}
+};
 
 export default EventEdit;

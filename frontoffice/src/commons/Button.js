@@ -25,10 +25,7 @@ const Button = ({ variant, children, typographyVariant, ...rest }) => {
   const typoVar = typographyVariant === 'button1' || typographyVariant === 'button2' ? 'button' : typographyVariant;
   const formattedVar = variant === 'outlinedInversed' ? 'outlined' : variant;
   return (
-    <MuiButton
-      variant={formattedVar}
-      {...rest}
-    >
+    <MuiButton variant={formattedVar} {...rest}>
       <Typography variant={typoVar} className={typographyClassName}>
         {children}
       </Typography>

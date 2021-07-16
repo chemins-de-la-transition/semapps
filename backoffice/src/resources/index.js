@@ -26,6 +26,9 @@ export { default as Type } from './Concept/Type';
 export { default as Region } from './Concept/Region';
 export { default as Concept } from './Concept/Concept';
 
+// Pages
+export { default as Page } from './Page';
+
 // Put this at the end, otherwise it will load as the homepage
 export { default as Agent } from './Agent/Agent';
 export { default as Subject } from './Subject';

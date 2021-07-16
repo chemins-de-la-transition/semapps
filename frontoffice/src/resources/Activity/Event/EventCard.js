@@ -1,12 +1,12 @@
-import React from "react";
-import { DateField, TextField } from "react-admin";
-import Chip from "../../../commons/Chip";
-import { ReferenceArrayField } from "@semapps/semantic-data-provider";
+import React from 'react';
+import { DateField, TextField } from 'react-admin';
+import Chip from '../../../commons/Chip';
+import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
-import { makeStyles } from "@material-ui/core";
-import ThemeIcon from "../../../svg/ThemeIcon";
-import TypeIcon from "../../../svg/TypeIcon";
-import CalendarIcon from "../../../svg/CalendarIcon";
+import { makeStyles } from '@material-ui/core';
+import ThemeIcon from '../../../svg/ThemeIcon';
+import TypeIcon from '../../../svg/TypeIcon';
+import CalendarIcon from '../../../svg/CalendarIcon';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     '& span': {
       fontSize: '14px',
     },
-  }
+  },
 }));
 
 const EventCard = ({ record, variant }) => {
@@ -54,18 +54,18 @@ const EventCard = ({ record, variant }) => {
           </ReferenceArrayField>
         </Chip>
       )}
-      {variant === 'full' &&
+      {variant === 'full' && (
         <div className={classes.description}>
           <strong>Description: </strong>
-          <TextField record={record} source="pair:comment"/>
+          <TextField record={record} source="pair:comment" />
         </div>
-      }
+      )}
     </>
-  )
+  );
 };
 
 EventCard.defaultProps = {
-  variant: 'full'
-}
+  variant: 'full',
+};
 
 export default EventCard;

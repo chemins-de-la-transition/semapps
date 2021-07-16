@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 1.15,
   },
   button: {
-    marginRight: 10
-  }
+    marginRight: 10,
+  },
 }));
 
 const HeaderTitle = ({ children, actions }) => {
@@ -31,16 +31,17 @@ const HeaderTitle = ({ children, actions }) => {
             </Grid>
             <Grid item xs={4}>
               <Box textAlign="right">
-                {actions && actions.map((action, i) =>
-                  React.cloneElement(action, {
-                    key: i,
-                    component: Link,
-                    variant: 'contained',
-                    color: 'primary',
-                    typographyVariant: 'button1',
-                    className: classes.button
-                  }
-                ))}
+                {actions &&
+                  actions.map((action, i) =>
+                    React.cloneElement(action, {
+                      key: i,
+                      component: Link,
+                      variant: 'contained',
+                      color: 'primary',
+                      typographyVariant: 'button1',
+                      className: classes.button,
+                    })
+                  )}
               </Box>
             </Grid>
           </Grid>

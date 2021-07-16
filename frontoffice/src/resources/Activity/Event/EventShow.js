@@ -2,7 +2,7 @@ import React from 'react';
 import { ShowBase } from 'react-admin';
 import { ReferenceField } from '@semapps/semantic-data-provider';
 import { MapField } from '@semapps/geo-components';
-import MarkdownField from "../../../commons/fields/MarkdownField";
+import MarkdownField from '../../../commons/fields/MarkdownField';
 import HeaderShow from '../../../commons/HeaderShow';
 import Events from '../../../commons/lists/EventsList/EventsList';
 import StickyCard from '../../../commons/StickyCard';
@@ -12,7 +12,12 @@ import EventDetails from './EventDetails';
 const EventShow = (props) => (
   <ShowBase {...props}>
     <>
-      <HeaderShow type="pair:hasEventType" linkToListText="Liste des évènements" details={<EventDetails />} actionLabel="Je candidate" />
+      <HeaderShow
+        type="pair:hasEventType"
+        linkToListText="Liste des évènements"
+        details={<EventDetails />}
+        actionLabel="Je candidate"
+      />
       <BodyList
         aside={
           <StickyCard actionLabel="Je candidate">

@@ -4,7 +4,7 @@ import { DateField, useListContext, ReferenceField, TextField, useRecordContext,
 import { Link } from 'react-router-dom';
 import CalendarIcon from '../../../svg/CalendarIcon';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import Department from '../../../pages/Department';
+import Department from '../../Department';
 import sortAndFilterOnDate from './SortAndFilterOnDate';
 
 const useStyles = makeStyles((theme) => ({

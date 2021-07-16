@@ -4,7 +4,7 @@ import { Chip as MuiChip, makeStyles } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: 'unset',
-    height: 20
+    height: 20,
   },
   icon: {
     width: 14,
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     '& span': {
       fontSize: '12px',
       fontWeight: 'bold',
-      color: theme.palette.secondary.main
+      color: theme.palette.secondary.main,
     },
   },
 }));

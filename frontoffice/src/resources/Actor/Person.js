@@ -4,5 +4,5 @@ export default {
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'users',
     dereference: ['pair:hasLocation/pair:hasPostalAddress'],
     slugField: ['pair:firstName', 'pair:lastName'],
-  }
+  },
 };

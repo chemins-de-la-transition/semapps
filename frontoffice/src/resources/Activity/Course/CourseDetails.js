@@ -7,9 +7,9 @@ import ThemeIcon from '../../../svg/ThemeIcon';
 import CourseIcon from '../../../svg/CourseIcon';
 import CalendarIcon from '../../../svg/CalendarIcon';
 import PlaceIcon from '../../../svg/PlaceIcon';
-import PriceIcon from "../../../svg/PriceIcon";
+import PriceIcon from '../../../svg/PriceIcon';
 import DurationField from '../../../commons/fields/DurationField';
-import DateToDateField from "../../../commons/fields/DateToDateField";
+import DateToDateField from '../../../commons/fields/DateToDateField';
 import DurationIcon from '../../../svg/DurationIcon';
 
 const EventDetails = (props) => (

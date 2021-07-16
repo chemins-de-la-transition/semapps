@@ -35,11 +35,7 @@ const StickyCard = ({ children, actionLabel }) => {
           {children}
         </Box>
         <Box className={classes.button} pb={3} pr={2} pl={2}>
-          <Button
-            variant="contained"
-            color="primary"
-            typographyVariant="button1"
-          >
+          <Button variant="contained" color="primary" typographyVariant="button1">
             {actionLabel}
           </Button>
         </Box>

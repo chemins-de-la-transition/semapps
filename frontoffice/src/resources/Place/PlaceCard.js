@@ -1,11 +1,11 @@
-import React from "react";
-import { TextField } from "react-admin";
-import { ReferenceField, ReferenceArrayField } from "@semapps/semantic-data-provider";
+import React from 'react';
+import { TextField } from 'react-admin';
+import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
-import { makeStyles, Typography } from "@material-ui/core";
-import Chip from "../../commons/Chip";
-import PlaceIcon from "../../svg/PlaceIcon";
-import ThemeIcon from "../../svg/ThemeIcon";
+import { makeStyles, Typography } from '@material-ui/core';
+import Chip from '../../commons/Chip';
+import PlaceIcon from '../../svg/PlaceIcon';
+import ThemeIcon from '../../svg/ThemeIcon';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.main,
   },
   description: {
-    marginTop: 10
-  }
+    marginTop: 10,
+  },
 }));
 
 const PlaceCard = ({ record, variant }) => {
@@ -39,18 +39,18 @@ const PlaceCard = ({ record, variant }) => {
           </ReferenceArrayField>
         </Chip>
       )}
-      {variant === 'full' &&
+      {variant === 'full' && (
         <Typography variant="body2" color="secondary" className={classes.description}>
           <strong>Description: </strong>
           <TextField record={record} source="pair:comment" variant="body2" color="secondary" />
         </Typography>
-      }
+      )}
     </>
-  )
+  );
 };
 
 PlaceCard.defaultProps = {
-  variant: 'full'
-}
+  variant: 'full',
+};
 
 export default PlaceCard;

@@ -4,7 +4,7 @@ import CourseShow from './CourseShow';
 export default {
   config: {
     list: CourseList,
-    show: CourseShow
+    show: CourseShow,
   },
   dataModel: {
     types: ['cdlt:Course'],

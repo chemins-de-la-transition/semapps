@@ -8,8 +8,8 @@ import Events from '../../../commons/lists/EventsList/EventsList';
 import StickyCard from '../../../commons/StickyCard';
 import BodyList from '../../../commons/lists/BodyList/BodyList';
 import CourseDetails from './CourseDetails';
-import BulletPointsField from "../../../commons/fields/BulletPointsField";
-import TimelineList from "../../../commons/lists/TimelineList";
+import BulletPointsField from '../../../commons/fields/BulletPointsField';
+import TimelineList from '../../../commons/lists/TimelineList';
 
 const CourseShow = (props) => (
   <ShowBase {...props}>

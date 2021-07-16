@@ -5,23 +5,23 @@ import classnames from 'classnames';
 import { LinearProgress } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     // display: 'flex',
     // flexWrap: 'wrap'
   },
-  link: {}
+  link: {},
 }));
 
 // useful to prevent click bubbling in a datagrid with rowClick
-const stopPropagation = e => e.stopPropagation();
+const stopPropagation = (e) => e.stopPropagation();
 
 // Our handleClick does nothing as we wrap the children inside a Link but it is
 // required by ChipField, which uses a Chip from material-ui.
 // The material-ui Chip requires an onClick handler to behave like a clickable element.
 const handleClick = () => {};
 
-const BulletPointsField = props => {
+const BulletPointsField = (props) => {
   const { classes: classesOverride, className, children, linkType = 'edit', ...rest } = props;
   const { ids, data, loaded, resource, basePath } = useListContext(props);
 
@@ -45,7 +45,7 @@ const BulletPointsField = props => {
                   resource,
                   basePath,
                   // Workaround to force ChipField to be clickable
-                  onClick: handleClick
+                  onClick: handleClick,
                 })}
               </Link>
             </span>
@@ -57,7 +57,7 @@ const BulletPointsField = props => {
             {cloneElement(Children.only(children), {
               record: data[id],
               resource,
-              basePath
+              basePath,
             })}
           </li>
         );

@@ -1,16 +1,14 @@
 import React from 'react';
 import { ListBase } from 'react-admin';
 import { useCheckAuthenticated } from '@semapps/auth-provider';
-import CardsList from "../commons/lists/CardsList";
-import EventCard from "../resources/Activity/Event/EventCard";
-import FullWidthBox from "../commons/FullWidthBox";
-import LargeContainer from "../commons/LargeContainer";
-import HeaderTitle from "../commons/HeaderTitle";
-import Button from "../commons/Button";
+import CardsList from '../commons/lists/CardsList';
+import EventCard from '../resources/Activity/Event/EventCard';
+import FullWidthBox from '../commons/FullWidthBox';
+import LargeContainer from '../commons/LargeContainer';
+import HeaderTitle from '../commons/HeaderTitle';
+import Button from '../commons/Button';
 
-const actions = [
-  <Button to="/Event/create">Ajouter un événement</Button>
-];
+const actions = [<Button to="/Event/create">Ajouter un événement</Button>];
 
 const MyEventsPage = () => {
   const { identity } = useCheckAuthenticated();
@@ -27,6 +25,6 @@ const MyEventsPage = () => {
       </FullWidthBox>
     </>
   );
-}
+};
 
 export default MyEventsPage;

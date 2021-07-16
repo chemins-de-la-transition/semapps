@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, Typography, Box } from '@material-ui/core';
-import Department from '../../Department';
+import Department from '../../../commons/Department';
 import PlaceIcon from '../../../svg/PlaceIcon';
 
 const useStyles = makeStyles((theme) => ({

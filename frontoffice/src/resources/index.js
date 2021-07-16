@@ -15,4 +15,5 @@ export { default as Type } from './Concept/Type';
 export { default as Region } from './Concept/Region';
 
 // Other
+export { default as Page } from './Page';
 export { default as Place } from './Place';

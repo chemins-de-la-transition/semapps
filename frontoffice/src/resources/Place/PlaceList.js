@@ -7,7 +7,7 @@ import MapIcon from '../../svg/MapIcon';
 import ListIcon from '@material-ui/icons/List';
 import Filter from '../../commons/Filter';
 import CardsList from '../../commons/lists/CardsList';
-import PlaceCard from "./PlaceCard";
+import PlaceCard from './PlaceCard';
 
 const PlaceList = (props) => (
   <ListBase perPage={1000} {...props}>

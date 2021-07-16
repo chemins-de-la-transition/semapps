@@ -4,13 +4,17 @@ import { makeStyles, Typography } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: 15,
-    lineHeight: 1.3
+    lineHeight: 1.3,
   },
 }));
 
 const BodyLabel = ({ children }) => {
   const classes = useStyles();
-  return <Typography variant="h2" color="secondary" className={classes.root}>{children}</Typography>;
+  return (
+    <Typography variant="h2" color="secondary" className={classes.root}>
+      {children}
+    </Typography>
+  );
 };
 
 export default BodyLabel;

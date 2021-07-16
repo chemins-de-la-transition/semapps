@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       padding: 10,
     },
-  }
+  },
 }));
 
 const CardsList = ({ CardComponent, link }) => {
@@ -55,7 +55,7 @@ const CardsList = ({ CardComponent, link }) => {
 };
 
 CardsList.defaultProps = {
-  link: 'show'
+  link: 'show',
 };
 
 export default CardsList;

@@ -44,21 +44,21 @@ const Footer = ({ title }) => {
       <LargeContainer disableGutters={xs}>
         <Grid container className={classes.root} spacing={2}>
           <Grid item sm={9}>
-            <LogoTitle title={title} mb={'30px'} classes={{ menuLink: classes.menuLink }}></LogoTitle>
+            <LogoTitle title={title} mb={'30px'} classes={{ menuLink: classes.menuLink }} />
             <Typography variant="body2" color="secondary">
-              <Link to="/About" className={classes.footerLink}>
+              <Link to="/Page/qui-sommes-nous/show" className={classes.footerLink}>
                 A propos de nous
               </Link>
               &nbsp;-&nbsp;
-              <Link to="/Contact" className={classes.footerLink}>
+              <Link to="/Page/contact/show" className={classes.footerLink}>
                 Contactez-nous
               </Link>
               &nbsp;-&nbsp;
-              <Link to="/Legals" className={classes.footerLink}>
+              <Link to="/Page/mentions-legales/show" className={classes.footerLink}>
                 Mentions légales
               </Link>
               &nbsp;-&nbsp;
-              <Link to="/RGPD" className={classes.footerLink}>
+              <Link to="/Page/rgpd/show" className={classes.footerLink}>
                 Politique de gestion des données
               </Link>
               <br />
