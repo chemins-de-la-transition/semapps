@@ -69,6 +69,9 @@ module.exports = [
     acceptedTypes: ['pair:Place']
   },
   {
+    path: '/pages'
+  },
+  {
     path: '/files'
   }
 ];
