@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const StickyCard = ({ children, actionLabel }) => {
+const StickyCard = ({ children, actionLabel, actionClick }) => {
   const classes = useStyles();
   const record = useRecordContext();
   return (
@@ -35,7 +35,7 @@ const StickyCard = ({ children, actionLabel }) => {
           {children}
         </Box>
         <Box className={classes.button} pb={3} pr={2} pl={2}>
-          <Button variant="contained" color="primary" typographyVariant="button1">
+          <Button variant="contained" color="primary" typographyVariant="button1" onClick={actionClick}>
             {actionLabel}
           </Button>
         </Box>

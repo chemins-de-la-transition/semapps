@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const HeaderShow = ({ type, linkToListText, details, actionLabel }) => {
+const HeaderShow = ({ type, linkToListText, details, actionLabel, actionClick }) => {
   const classes = useStyles();
   const { basePath, record } = useShowContext();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
@@ -112,7 +112,7 @@ const HeaderShow = ({ type, linkToListText, details, actionLabel }) => {
         )}
         <Drawer anchor="bottom" open={xs && showDrawer} hideBackdrop disableScrollLock>
           <Box className={classes.drawer} pt={1} pb={2}>
-            <Button variant="contained" color="primary" typographyVariant="button1">
+            <Button variant="contained" color="primary" typographyVariant="button1" onClick={actionClick}>
               {actionLabel}
             </Button>
           </Box>
