@@ -19,8 +19,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'sans-serif',
     fontSize: 16,
     lineHeight: '100%',
-    width: TopBarHeight,
     height: TopBarHeight,
+    width: TopBarHeight,
+    minWidth: TopBarHeight,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -30,43 +31,46 @@ const useStyles = makeStyles((theme) => ({
       lineHeight: '100%',
     },
   },
+  topBarButton: {
+    flexShrink: 0,
+  }
 }));
 
 const TopBar = () => {
   const classes = useStyles();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
-  if (xs) {
-    return null;
-  } else {
-    return (
-      <FullWidthBox className={classes.topBar}>
-        <LargeContainer>
-          <Box display="flex" width={1} height={1} alignItems="center" className={classes.topBarIncluded}>
-            <Typography variant="subtitle2">Le lieu pour partager et apprendre en voyageant</Typography>
-            <Box flexGrow={1} />
-            <Button
-              to="/Aide"
-              className={classes.topBarHelpIcon}
-              color="inherit"
-              component={Link}
-              aria-label="Aide"
-              typographyVariant="subtitle2"
-            >
-              ?
-            </Button>
-            <Button
-              variant="outlined"
-              color="secondary"
-              href="https://lescheminsdelatransition.org/faire-un-don/"
-              typographyVariant="subtitle2"
-            >
-              Soutenez la plateforme avec un don
-            </Button>
-          </Box>
-        </LargeContainer>
-      </FullWidthBox>
-    );
-  }
+  return (
+    <FullWidthBox className={classes.topBar}>
+      <LargeContainer>
+        <Box display="flex" width={1} height={1} alignItems="center" className={classes.topBarIncluded}>
+          {
+            (xs) ? ''
+            : <Typography variant="subtitle2">Le lieu pour partager et apprendre en voyageant</Typography>
+          }
+          <Box flexGrow={1} />
+          <Button
+            to="/Aide"
+            className={classes.topBarHelpIcon}
+            color="inherit"
+            component={Link}
+            aria-label="Aide"
+            typographyVariant="subtitle2"
+          >
+            ?
+          </Button>
+          <Button
+            className={classes.topBarButton}
+            variant="outlined"
+            color="secondary"
+            href="https://lescheminsdelatransition.org/faire-un-don/"
+            typographyVariant="button1"
+          >
+            Soutenez la plateforme avec un don
+          </Button>
+        </Box>
+      </LargeContainer>
+    </FullWidthBox>
+  );
 };
 
 export default TopBar;
