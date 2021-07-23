@@ -26,6 +26,15 @@ const useStyles = makeStyles((theme) => ({
     '& svg': {
       fontSize: '32rem',
     },
+    '& > .MuiSvgIcon-root': {
+      fill: 'inherit',
+      width: 'inherit',
+      height: 'inherit',
+      display: 'inherit',
+      fontSize: 'inherit',
+      transition: 'inherit',
+      flexShrink: 'inherit',
+    },
   },
   internalIcon: {
     display: 'flex',
@@ -56,6 +65,9 @@ const useStyles = makeStyles((theme) => ({
     '& svg': {
       width: '50%',
       height: '50%',
+      '& path':{
+        fill: theme.palette.primary.contrastText,
+      }
     },
   },
   eventListBase: {

@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 const LocalGridItem = ({ title, text, image, icon }) => {
   const classes = useStyles();
   return (
-    <Grid item sm={3} className={classes.item}>
+    <Grid item sm={6} md={3} className={classes.item}>
       <Box className={classes.iconContainer}>
         <img src={image} alt="" aria-label="icône" />
         {icon}
