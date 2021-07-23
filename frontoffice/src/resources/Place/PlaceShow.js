@@ -54,7 +54,7 @@ const PlaceShow = (props) => {
             typographyProps={{ variant: 'body2', color: 'secondary' }}
           />
         </BodyList>
-        <Events />
+        <Events filter={(record)=>({ 'pair.hasTopic': record?.['pair.hasTopic'] })}/>
         <ContactDialog
           open={showDialog}
           onClose={() => setShowDialog(false)}

@@ -76,14 +76,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const EventsList = () => {
+const EventsList = ({filter}) => {
   const classes = useStyles();
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer>
         <Grid container spacing={3}>
           <Grid item sm={7} className={classes.eventList}>
-            <ListBase resource="Event" basePath="/Event" className={classes.eventListBase}>
+            <ListBase resource="Event" basePath="/Event" className={classes.eventListBase} filter={filter}>
               <ItemsGrid nb={4} />
             </ListBase>
             <Button to="/Event" variant="contained" color="primary" component={Link} typographyVariant="button1">
