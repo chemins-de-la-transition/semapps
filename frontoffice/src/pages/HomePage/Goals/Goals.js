@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     position: 'absolute',
     '& path[fill]': {
-      fill: theme.palette.theme_3.main,
+      fill: theme.palette.primary.main,
     },
   },
   rightTop2: {
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     right: 45,
     position: 'absolute',
     '& path[fill]': {
-      fill: theme.palette.theme_4.main,
+      fill: theme.palette.theme_2.main,
     },
   },
   leftShape: {
@@ -45,20 +45,23 @@ const useStyles = makeStyles((theme) => ({
     left: '-5px',
     position: 'absolute',
     '& path[stroke]': {
-      stroke: theme.palette.theme_3.main,
+      stroke: theme.palette.theme_5.main,
     },
   },
   snakeShape: {
     top: '30%',
     left: '19%',
     position: 'absolute',
+    '& path[stroke]': {
+      stroke: theme.palette.primary.main,
+    },
   },
   leftBottom1: {
     bottom: -187,
     left: 0,
     position: 'absolute',
     '& path[fill]': {
-      fill: theme.palette.theme_1.main,
+      fill: theme.palette.primary.main,
     },
   },
   leftBottom2: {

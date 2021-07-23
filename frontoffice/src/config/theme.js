@@ -5,13 +5,17 @@ import { createMuiTheme /*, responsiveFontSizes*/ } from '@material-ui/core/styl
 
 const white = '#FFFFFF';
 const primary = '#D4A24C';
-const secondary = '#323647';
+const secondary = '#203142';
 const tertiary = '#F6F6F6';
 const neutral_web_grey190 = '#201F1E';
-const theme_1 = '#BF6C3A';
-const theme_2 = '#E7AB99';
-const theme_3 = '#30717A';
-const theme_4 = '#9FC9AD';
+const theme_1 = '#8D3431';
+const theme_2 = '#9B471F';
+const theme_3 = '#88534D';
+const theme_4 = '#897171';
+const theme_5 = '#4C7788';
+const theme_6 = '#1E5544';
+const theme_7 = '#069782';
+const theme_8 = '#AEBDA5';
 const grey10 = '#FAF9F8';
 const grey20 = '#F3F2F1';
 const grey30 = '#E1DFDD';
@@ -80,6 +84,30 @@ let theme = createMuiTheme({
       main: theme_4,
       // dark: theme_4 ,// to not be calculated from palette.theme_4.main
       contrastText: tertiary, // to not be calculated from palette.theme_4.main
+    },
+    theme_5: {
+      // light: theme_5,
+      main: theme_5,
+      // dark: theme_5 ,
+      contrastText: tertiary
+    },
+    theme_6: {
+      // light: theme_6,
+      main: theme_6,
+      // dark: theme_6,
+      contrastText: tertiary
+    },
+    theme_7: {
+      // light: theme_7,
+      main: theme_7,
+      // dark: theme_7 
+      contrastText: tertiary
+    },
+    theme_8: {
+      // light: theme_8,
+      main: theme_8,
+      // dark: theme__ 
+      contrastText: tertiary
     },
     grey10: {
       // light: grey10,// to not be calculated from palette.grey10.main
