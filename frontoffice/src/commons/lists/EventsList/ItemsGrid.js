@@ -125,23 +125,22 @@ const ItemsGrid = ({ nb }) => {
             </ListItemAvatar>
             <ListItemText
               primary={
-                eventsData[id]['cdlt:hasEventType'] ? (
-                  <ReferenceField source="cdlt:hasEventType" reference="EventType" record={eventsData[id]}>
-                    <TextField
-                      source="pair:label"
-                      variant="h5"
-                      className={classes.eventType + ' ' + classes.noDecoration}
-                    />
-                  </ReferenceField>
-                ) : (
-                  <Typography variant="h5" className={classes.eventType + ' ' + classes.noDecoration}>
-                    Type non défini
-                  </Typography>
-                )
-              }
-              secondary={
                 <>
-                  <Typography variant="h4" className={classes.eventLabel + ' ' + classes.noDecoration}>
+                  {eventsData[id]['cdlt:hasEventType'] ? (
+                    <ReferenceField source="cdlt:hasEventType" reference="EventType" record={eventsData[id]}>
+                      <TextField
+                        source="pair:label"
+                        variant="h5"
+                        component="div"
+                        className={classes.eventType + ' ' + classes.noDecoration}
+                      />
+                    </ReferenceField>
+                  ) : (
+                    <Typography variant="h5" className={classes.eventType + ' ' + classes.noDecoration}>
+                      Type non défini
+                    </Typography>
+                  )}
+                  <Typography variant="h4" component="div" className={classes.eventLabel + ' ' + classes.noDecoration}>
                     {eventsData[id]['pair:label']}
                     &nbsp;
                     <ChevronRightIcon />
@@ -166,6 +165,7 @@ const ItemsGrid = ({ nb }) => {
                   </Typography>
                 </>
               }
+              disableTypography={true}
             />
           </ListItem>
         );
