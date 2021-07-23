@@ -130,7 +130,6 @@ const CardBlock = ({ id, data, basePath, CardSubHeaderComponent }) => {
               reference="Theme"
               record={data[id]}
               className={classes.topics + ' ' + classes.severalTopics + ' ' + classes.blockTopics}
-              link={(record) => `Place?filter={"pair%3AhasTopic"%3A"${encodeURIComponent(record.id)}"}`}
             >
               <ShuffledSingleFieldList nb={2} parentBasePath={basePath}>
                 <TextField source="pair:label" className={classes.textTopics}/>
