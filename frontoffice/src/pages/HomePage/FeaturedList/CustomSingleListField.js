@@ -2,27 +2,17 @@ import * as React from 'react';
 import {
     cloneElement,
     Children,
-    HtmlHTMLAttributes,
-    FC,
-    ComponentType,
 } from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import {
     sanitizeListRestProps,
     useListContext,
     useResourceContext,
-    Record,
-    RecordMap,
-    Identifier,
     RecordContextProvider,
-    ComponentPropType,
 } from 'ra-core';
 
 import { Link } from 'react-admin';
-import { ClassesOverride } from 'react-admin';
 
 const useStyles = makeStyles(
     theme => ({
@@ -77,7 +67,7 @@ const handleClick = () => {};
  *     </SingleFieldList>
  * </ReferenceManyField>
  */
-const CustomSingleListField: FC<CustomSingleListFieldProps> = props => {
+const CustomSingleListField = props => {
     const {
         classes: classesOverride,
         className,
@@ -99,7 +89,7 @@ const CustomSingleListField: FC<CustomSingleListFieldProps> = props => {
 
     return (
         <Component
-            className={classnames(classes.root, className)}
+            className={classes.root+' '+className}
             {...sanitizeListRestProps(rest)}
         >
             {ids.map(id => {
@@ -142,34 +132,5 @@ const CustomSingleListField: FC<CustomSingleListFieldProps> = props => {
         </Component>
     );
 };
-
-CustomSingleListField.propTypes = {
-    basePath: PropTypes.string,
-    children: PropTypes.element.isRequired,
-    classes: PropTypes.object,
-    className: PropTypes.string,
-    parentBasePath: PropTypes.string,
-    component: ComponentPropType,
-    data: PropTypes.any,
-    ids: PropTypes.array,
-    // @ts-ignore
-    linkType: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    resource: PropTypes.string,
-};
-
-export interface CustomSingleListFieldProps<RecordType extends Record = Record>
-    extends HtmlHTMLAttributes<HTMLDivElement> {
-    className?: string;
-    parentBasePath?: string;
-    classes?: ClassesOverride<typeof useStyles>;
-    component?: string | ComponentType<any>;
-    linkType?: string | false;
-    children: React.ReactElement;
-    // can be injected when using the component without context
-    basePath?: string;
-    data?: RecordMap<RecordType>;
-    ids?: Identifier[];
-    loaded?: boolean;
-}
 
 export default CustomSingleListField;

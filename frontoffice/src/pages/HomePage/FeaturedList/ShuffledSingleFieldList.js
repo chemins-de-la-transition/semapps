@@ -1,6 +1,6 @@
 import React from 'react';
 import { /*SingleFieldList, */ useListContext } from 'react-admin';
-import CustomSingleListField  from './CustomSingleListField.tsx';
+import CustomSingleListField  from './CustomSingleListField.js';
 
 const ShuffledSingleFieldList = ({ children, nb, ...props }) => {
   const { ids } = useListContext(props);
