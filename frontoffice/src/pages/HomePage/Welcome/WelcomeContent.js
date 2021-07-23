@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '898px',
     marginLeft: '40px',
     marginRight: '40px',
+    fontWeight: 'bold',
   },
   welcomeTextBar: {
     width: '51px',
@@ -66,7 +67,7 @@ const WelcomeContent = () => {
           }
         />
         <Box display="flex" justifyContent="center" flexDirection="column" justifySelf="center">
-          <Typography variant="h2" className={classes.welcomeText}>
+          <Typography variant="h1" className={classes.welcomeText}>
             Apprendre en voyageant
           </Typography>
           <div className={classes.welcomeTextBar} />

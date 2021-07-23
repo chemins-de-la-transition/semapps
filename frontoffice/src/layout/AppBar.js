@@ -61,30 +61,6 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: '8px',
     },
   },
-  // userMenu: {
-  //   marginTop: theme.spacing(1),
-  //   marginRight: theme.spacing(1),
-  //   borderColor: theme.palette.secondary.main,
-  //   outlineColor: theme.palette.secondary.main,
-  //   color: theme.palette.secondary.main,
-  //   '& button': {
-  //     padding: '6px 12px'
-  //   }
-  // },
-  // title: {
-  //   position: 'absolute',
-  //   top: 180,
-  //   textOverflow: 'ellipsis',
-  //   whiteSpace: 'nowrap',
-  //   overflow: 'hidden',
-  //   [theme.breakpoints.down('sm')]: {
-  //     top: 70,
-  //     left: 15,
-  //     right: 50,
-  //     fontSize: 22,
-  //     zIndex: 10
-  //   }
-  // },
 }));
 
 const AppBar = ({ menuItems, setSidebarOpen, title }) => {

@@ -1,7 +1,8 @@
 import { createMuiTheme /*, responsiveFontSizes*/ } from '@material-ui/core/styles';
 
 // Allow to use breakpoints
-// const defaultTheme = createMuiTheme();
+const defaultTheme = createMuiTheme();
+const smallScreenTreshold = 'xs';
 
 const white = '#FFFFFF';
 const primary = '#D4A24C';
@@ -32,7 +33,7 @@ const overlay_dark = '#00000066'; /// black 40%
 // const depth64_1 = white +'38'; //21.9% ~ 22% in HEX
 // const depth64_2 = white +'2E'; //18% in HEX
 const font1 = '"Kaushan Script","serif"'; // serif in case of error;
-const font2 = '"Montserrat", "Open Sans", "sans-serif"'; // Montserrat instead of Integral CF
+const font2 = '"Roboto", "Open Sans", "sans-serif"';
 const font3 = '"Poppins", "Open Sans", "sans-serif"'; // Poppins instead of Sofia Pro
 
 let theme = createMuiTheme({
@@ -151,24 +152,36 @@ let theme = createMuiTheme({
     fontSize: 14,
     h1: {
       fontFamily: font1,
-      fontSize: 40,
+      fontSize: 48,
       fontStyle: 'normal',
       fontWeight: 'normal',
       lineHeight: '70px',
+      [defaultTheme.breakpoints.down(smallScreenTreshold)]: {
+        fontSize: 32,
+        lineHeight: '46px',
+      },
     },
     h2: {
       fontFamily: font1,
-      fontSize: 24,
+      fontSize: 40,
       fontStyle: 'normal',
       fontWeight: 'normal',
       lineHeight: '58px',
+      [defaultTheme.breakpoints.down(smallScreenTreshold)]: {
+        fontSize: 28,
+        lineHeight: '41px',
+      },
     },
     h3: {
       fontFamily: font2,
       fontSize: 28,
       fontStyle: 'normal',
-      fontWeight: 'normal',
-      lineHeight: '34px',
+      fontWeight: '900',
+      lineHeight: '33px',
+      [defaultTheme.breakpoints.down(smallScreenTreshold)]: {
+        fontSize: 20,
+        lineHeight: '23px',
+      },
       textTransform: 'uppercase',
     },
     h4: {
@@ -182,17 +195,20 @@ let theme = createMuiTheme({
       fontFamily: font2,
       fontSize: 14,
       fontStyle: 'normal',
-      fontWeight: '600',
+      fontWeight: '900',
       lineHeight: '16px',
       textTransform: 'uppercase',
     },
     h6: {
-      fontFamily: font2,
-      fontSize: 12,
+      fontFamily: font1,
+      fontSize: 30,
       fontStyle: 'normal',
-      fontWeight: '600',
-      lineHeight: '14px',
-      textTransform: 'uppercase',
+      fontWeight: 'normal',
+      lineHeight: '44px',
+      [defaultTheme.breakpoints.down(smallScreenTreshold)]: {
+        fontSize: 18,
+        lineHeight: '26px',
+      },
     },
     subtitle1: {
       fontFamily: font3,
@@ -206,19 +222,19 @@ let theme = createMuiTheme({
       fontFamily: font3,
       fontSize: 12,
       fontStyle: 'normal',
-      fontWeight: '600',
-      lineHeight: '12px',
+      fontWeight: '500',
+      lineHeight: '14px',
       textTransform: 'uppercase',
     },
     body1: {
-      fontFamily: font3,
+      fontFamily: font2,
       fontSize: 16,
       fontStyle: 'normal',
       fontWeight: 'normal',
-      lineHeight: '16px',
+      lineHeight: '19px',
     },
     body2: {
-      fontFamily: font3,
+      fontFamily: font2,
       fontSize: 14,
       fontStyle: 'normal',
       fontWeight: 'normal',
@@ -229,14 +245,14 @@ let theme = createMuiTheme({
       fontSize: 12,
       fontStyle: 'normal',
       fontWeight: 'normal',
-      lineHeight: '12px',
+      lineHeight: '14px',
     },
     button: {
       fontFamily: font3,
       fontSize: 12,
       fontStyle: 'normal',
-      fontWeight: '600',
-      lineHeight: '12px',
+      fontWeight: '500',
+      lineHeight: '14px',
       textTransform: 'uppercase',
     },
   },
