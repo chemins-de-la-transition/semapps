@@ -120,7 +120,8 @@ const CardBlock = ({ id, data, basePath, CardSubHeaderComponent }) => {
       {data[id]['pair:hasTopic'] ? (
         <CardContent className={classes.cardTopics + ' ' + classes.noDecoration}>
           {!Array.isArray(data[id]['pair:hasTopic']) ? (
-            <ReferenceField source="pair:hasTopic" reference="Theme" record={data[id]} className={classes.blockTopics}>
+            <ReferenceField source="pair:hasTopic" reference="Theme" record={data[id]} className={classes.blockTopics}
+              link={(record) => `${basePath}?filter={"pair%3AhasTopic"%3A"${record?.['pair:hasTopic']}"}`}>
               <TextField source="pair:label" className={classes.topics + ' ' + classes.textTopics} />
             </ReferenceField>
           ) : (
@@ -129,9 +130,10 @@ const CardBlock = ({ id, data, basePath, CardSubHeaderComponent }) => {
               reference="Theme"
               record={data[id]}
               className={classes.topics + ' ' + classes.severalTopics + ' ' + classes.blockTopics}
+              link={(record) => `Place?filter={"pair%3AhasTopic"%3A"${encodeURIComponent(record.id)}"}`}
             >
-              <ShuffledSingleFieldList nb={2}>
-                <TextField source="pair:label" className={classes.textTopics} />
+              <ShuffledSingleFieldList nb={2} parentBasePath={basePath}>
+                <TextField source="pair:label" className={classes.textTopics}/>
               </ShuffledSingleFieldList>
             </ReferenceArrayField>
           )}

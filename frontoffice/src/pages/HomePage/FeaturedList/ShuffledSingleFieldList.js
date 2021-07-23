@@ -1,5 +1,6 @@
 import React from 'react';
-import { SingleFieldList, useListContext } from 'react-admin';
+import { /*SingleFieldList, */ useListContext } from 'react-admin';
+import CustomSingleListField  from './CustomSingleListField.tsx';
 
 const ShuffledSingleFieldList = ({ children, nb, ...props }) => {
   const { ids } = useListContext(props);
@@ -10,9 +11,9 @@ const ShuffledSingleFieldList = ({ children, nb, ...props }) => {
     newIds.splice(nb);
   }
   return (
-    <SingleFieldList ids={newIds} {...props}>
+    <CustomSingleListField ids={newIds} {...props}>
       {children}
-    </SingleFieldList>
+    </CustomSingleListField>
   );
 };
 
