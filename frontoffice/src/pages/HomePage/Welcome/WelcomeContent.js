@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     [theme.breakpoints.down('xs')]: {
       margin: '0px',
+      height: '400px',
     },
   },
 }));
