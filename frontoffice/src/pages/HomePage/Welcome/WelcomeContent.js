@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '40px',
     marginRight: '40px',
     fontWeight: 'bold',
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: '0px',
+      marginRight: '0px',
+    },
   },
   welcomeTextBar: {
     width: '51px',

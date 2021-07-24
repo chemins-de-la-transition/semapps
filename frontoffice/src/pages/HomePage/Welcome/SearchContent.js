@@ -69,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       color: theme.palette.secondary.main,
       position: 'relative',
+      minWidth: '100%',
       marginTop: '4px',
       marginBottom: '4px',
       '&:before': {
