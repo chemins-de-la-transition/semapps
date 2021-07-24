@@ -3,6 +3,8 @@ import { makeStyles, Box, Typography, FormControl, InputLabel, Select, MenuItem,
 import LargeContainer from '../../../commons/LargeContainer';
 import FullWidthBox from '../../../commons/FullWidthBox';
 import Button from '../../../commons/Button';
+import  { useHistory } from 'react-router-dom';
+import { useGetList } from 'react-admin';
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -97,8 +99,45 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const SelectItems = ({reference,inverseSource}) =>{
+  const { data , ids } = useGetList(reference);
+  return (
+    <>
+      {ids
+      .filter((id) => !inverseSource || data[id][inverseSource])
+      .map((id) => (
+        <MenuItem key={id} value={id}>
+          {data[id]['pair:label']}
+        </MenuItem>
+      ))}
+    </>
+  );
+};
+
 const FormBox = () => {
   const classes = useStyles();
+  const history = useHistory();
+  const objectInput = React.createRef(); 
+  const areaInput = React.createRef(); 
+  const topicInput = React.createRef(); 
+
+  const startSearch = (event) => {
+    const objectTypeValue = objectInput.current.getElementsByTagName('input')[0].value;
+    const areaValue = areaInput.current.getElementsByTagName('input')[0].value;
+    const topicValue = topicInput.current.getElementsByTagName('input')[0].value;
+
+    const basePath = (objectTypeValue && objectTypeValue.length > 0 && objectTypeValue === "places") ? '/Place' : '/Event';
+    let url = basePath;
+    if (areaValue && areaValue.length >0 && !(topicValue && topicValue.length>0)){
+      url = url + '?filter={"pair%3AhasLocation"%3A"'+areaValue+'"}';
+    } else if(!(areaValue && areaValue.length >0)&& (topicValue && topicValue.length>0)){
+      url = url + '?filter={"pair%3AhasTopic"%3A"'+topicValue+'"}';
+    } else if (areaValue && areaValue.length >0 && topicValue && topicValue.length>0){
+      url = url + '?filter={"pair%3AhasLocation"%3A"'+areaValue+'"%2C"pair%3AhasTopic"%3A"'+topicValue+'"}';
+    }
+    history.push(url);
+  };
+
   return (
     <Box
       display="flex"
@@ -108,30 +147,33 @@ const FormBox = () => {
       className={classes.formContainer}
     >
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-select-eventtype-label">Type d'évènement</InputLabel>
-        <Select labelId="demo-select-eventtype-label" id="demo-select-eventtype">
-          <MenuItem value="Test">Test</MenuItem>
-          <MenuItem value="Test2">Test2</MenuItem>
+        <InputLabel id="demo-select-objecttype-label"></InputLabel>
+        <Select labelId="demo-select-objecttype-label" id="demo-select-objecttype" defaultValue="events" ref={objectInput}>
+          <MenuItem key="value" value="events">Évènements</MenuItem>
+          <MenuItem key="places" value="places">Lieux</MenuItem>
         </Select>
       </FormControl>
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-select-area-label">Région</InputLabel>
-        <Select labelId="demo-select-area-label" id="demo-select-area" disabled>
-          <MenuItem value="" />
-        </Select>
+          <Select labelId="demo-select-area-label" id="demo-select-area" ref={areaInput}>
+            <MenuItem value="">Choisir</MenuItem>/>
+            <SelectItems reference="Region" inverseSource="pair:locationOf" />
+          </Select>
       </FormControl>
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-select-topic-label">Thématique</InputLabel>
-        <Select labelId="demo-select-topic-label" id="demo-select-topic" disabled>
-          <MenuItem value="" />
-        </Select>
+          <Select labelId="demo-select-topic-label" id="demo-select-topic" ref={topicInput}>
+            <MenuItem value="">Choisir</MenuItem>/>
+            <SelectItems reference="Theme" inverseSource="pair:topicOf" />
+          </Select>
       </FormControl>
       <Button
         variant="contained"
         color="secondary"
-        href="#"
         typographyVariant="button2"
         className={classes.button}
+        onClick={startSearch}
+        href="#"
       >
         Rechercher
       </Button>
