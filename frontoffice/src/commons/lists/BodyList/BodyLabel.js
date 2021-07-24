@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
 const BodyLabel = ({ children }) => {
   const classes = useStyles();
   return (
-    <Typography variant="h2" color="secondary" className={classes.root}>
+    <Typography variant="h6" color="secondary" className={classes.root}>
       {children}
     </Typography>
   );

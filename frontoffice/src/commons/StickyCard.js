@@ -29,7 +29,7 @@ const StickyCard = ({ children, actionLabel, actionClick }) => {
     <StickyBox offsetTop={168} className={classes.root}>
       <Card>
         <Box p={2}>
-          <TextField record={record} source="pair:label" variant="h2" className={classes.title} />
+          <TextField record={record} source="pair:label" variant="h6" className={classes.title} />
         </Box>
         <Box className={classes.block} p={2}>
           {children}
