@@ -57,6 +57,10 @@ module.exports = [
     acceptedTypes: ['pair:Skill']
   },
   {
+    path: '/documents',
+    acceptedTypes: ['pair:Document']
+  },
+  {
     path: '/types',
     acceptedTypes: ['cdlt:PathType', 'cdlt:CourseType', 'pair:PlaceType', 'pair:EventType', 'pair:PersonType']
   },
