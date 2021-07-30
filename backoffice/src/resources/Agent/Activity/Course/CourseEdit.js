@@ -9,8 +9,7 @@ import {
   ThemesInput,
   StatusInput,
   TypesInput,
-  SkillsInput,
-  PathInput,
+  SkillsInput
 } from '../../../../pair';
 import CourseTitle from './CourseTitle';
 import { DateInput } from '@semapps/date-components';
@@ -53,7 +52,7 @@ const CourseEdit = (props) => (
         <MarkdownInput source="cdlt:economicalConditions" fullWidth />
       </FormTab>
       <FormTab label="Relations">
-        <PathInput source="cdlt:courseOn" />
+        {/*<PathInput source="cdlt:courseOn" />*/}
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <ThemesInput source="pair:hasTopic" />
         <EventsInput source="pair:hasPart" />

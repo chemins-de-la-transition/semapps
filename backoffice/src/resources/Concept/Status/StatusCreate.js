@@ -10,7 +10,7 @@ const StatusCreate = (props) => (
         source="@type"
         choices={[
           { id: 'cdlt:CourseStatus', name: 'CourseStatus' },
-          { id: 'cdlt:PathStatus', name: 'PathStatus' },
+          // { id: 'cdlt:PathStatus', name: 'PathStatus' },
         ]}
       />
     </SimpleForm>

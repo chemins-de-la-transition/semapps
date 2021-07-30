@@ -27,9 +27,9 @@ const CourseShow = (props) => (
           <DateField source="pair:startDate" />
           <DateField source="pair:endDate" />
           <TextField source="cdlt:priceRange" />
-          <ReferenceField source="cdlt:courseOn" reference="Path" link="show">
-            <TextField source="pair:label" />
-          </ReferenceField>
+          {/*<ReferenceField source="cdlt:courseOn" reference="Path" link="show">*/}
+          {/*  <TextField source="pair:label" />*/}
+          {/*</ReferenceField>*/}
           <ReferenceArrayField source="pair:hasCourseType" reference="Type">
             <SeparatedListField linkType={false}>
               <TextField source="pair:label" />

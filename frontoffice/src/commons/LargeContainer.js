@@ -20,9 +20,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LargeContainer = React.forwardRef(({ children, ...rest }, ref) => {
-  const classesContainer = useStyles();
+  const classes = useStyles();
   return (
-    <Container ref={ref} maxWidth="lg" classes={{ root: classesContainer.container }} {...rest}>
+    <Container ref={ref} maxWidth="lg" classes={{ root: classes.container }} {...rest}>
       {children}
     </Container>
   );
