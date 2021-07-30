@@ -47,6 +47,7 @@ export default {
         'cdlt:hasMentor': 'A pour mentor',
         'cdlt:organizedBy': 'Organisé par',
         'pair:hasStatus': 'Statut',
+        'pair:documentedBy': 'Documents',
         'cdlt:courseOn': 'Est un parcours de',
       },
     },

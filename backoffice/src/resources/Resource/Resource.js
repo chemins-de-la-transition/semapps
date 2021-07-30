@@ -8,7 +8,7 @@ export default {
     },
   },
   dataModel: {
-    types: ['pair:Skill'],
+    types: ['pair:Skill', 'pair:Document'],
   },
   translations: {
     fr: {

@@ -17,6 +17,7 @@ export { default as Actor } from './Agent/Actor/Actor';
 
 // Resources
 export { default as Skill } from './Resource/Skill';
+export { default as Document } from './Resource/Document';
 export { default as Resource } from './Resource/Resource';
 
 // Concepts

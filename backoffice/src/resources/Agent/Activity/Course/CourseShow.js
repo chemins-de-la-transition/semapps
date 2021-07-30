@@ -82,6 +82,17 @@ const CourseShow = (props) => (
               scrollWheelZoom
             />
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Document" source="pair:documentedBy">
+            <SingleFieldList linkType="show">
+              <Datagrid rowClick="show">
+                <TextField source="pair:label" />
+                <ReferenceField reference="Type" source="pair:hasType" link={false}>
+                  <TextField source="pair:label" />
+                </ReferenceField>
+                <ShowButton />
+              </Datagrid>
+            </SingleFieldList>
+          </ReferenceArrayField>
         </MainList>
       </Grid>
       <Grid item xs={12} sm={3}>

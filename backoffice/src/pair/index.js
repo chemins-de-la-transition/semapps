@@ -38,6 +38,12 @@ export const PlacesInput = ({ label, source }) => (
   </ReferenceArrayInput>
 );
 
+export const DocumentsType = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="Document" source={source}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  </ReferenceArrayInput>
+);
+
 export const SkillsInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Skill" source={source}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />
