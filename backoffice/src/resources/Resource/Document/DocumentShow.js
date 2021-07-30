@@ -1,7 +1,7 @@
 import React from 'react';
-import { SingleFieldList, ChipField } from 'react-admin';
+import { SingleFieldList, ChipField, DateField } from 'react-admin';
 import { Grid, Typography } from '@material-ui/core';
-import { MainList, SideList } from '@semapps/archipelago-layout';
+import {AvatarField, GridList, MainList, SideList} from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MarkdownField } from '@semapps/markdown-components';
@@ -28,6 +28,13 @@ const DocumentShow = props => (
               <ChipField source="pair:label" color="secondary" />
             </SingleFieldList>
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Person" source="dc:creator">
+            <GridList xs={6} linkType="show">
+              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+            </GridList>
+          </ReferenceArrayField>
+          <DateField source="dc:created" showTime />
+          <DateField source="dc:modified" showTime />
         </SideList>
       </Grid>
     </Grid>

@@ -82,16 +82,18 @@ const CourseShow = (props) => (
               scrollWheelZoom
             />
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Document" source="pair:documentedBy">
-            <SingleFieldList linkType="show">
-              <Datagrid rowClick="show">
+          <ReferenceArrayField label="Documents liés" reference="Document" source="pair:documentedBy" sort={{ field: 'dc:created', order: 'DESC' }}>
+            <Datagrid rowClick="show">
+              <DateField label="Date" source="dc:created" />
+              <TextField source="pair:label" />
+              <ReferenceField reference="Type" source="pair:hasType" link={false}>
                 <TextField source="pair:label" />
-                <ReferenceField reference="Type" source="pair:hasType" link={false}>
-                  <TextField source="pair:label" />
-                </ReferenceField>
-                <ShowButton />
-              </Datagrid>
-            </SingleFieldList>
+              </ReferenceField>
+              <ReferenceField reference="Person" source="dc:creator" link={false}>
+                <TextField source="pair:label" />
+              </ReferenceField>
+              <ShowButton />
+            </Datagrid>
           </ReferenceArrayField>
         </MainList>
       </Grid>

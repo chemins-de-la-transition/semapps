@@ -25,6 +25,9 @@ export default {
     fr: {
       name: 'Document |||| Documents',
       fields: {
+        'dc:creator': 'Créateur',
+        'dc:created': 'Créé le',
+        'dc:modified': 'Mis à jour',
         'pair:label': 'Titre',
         'pair:description': 'Description',
         'pair:comment': 'Courte description',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormTab, SelectInput, SimpleForm, TextInput } from 'react-admin';
+import { SelectInput, SimpleForm, TextInput } from 'react-admin';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ReferenceInput } from '@semapps/semantic-data-provider';
 import { MarkdownInput } from '@semapps/markdown-components';
