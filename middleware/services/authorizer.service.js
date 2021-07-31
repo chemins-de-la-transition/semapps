@@ -11,6 +11,14 @@ module.exports = {
           write: true
         },
         users: record => record['cdlt:organizedBy']
+      },
+      {
+        match: { type: 'pair:Place' },
+        rights: {
+          read: true,
+          write: true
+        },
+        users: record => record['cdlt:proposedBy']
       }
     ]
   }
