@@ -24,7 +24,7 @@ const EventDetails = (props) => (
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceField label="Région" reference="Region" source="pair:hasLocation" icon={<PlaceIcon />} link={false}>
+    <ReferenceField label="Région" reference="Region" source="pair:hasLocation" icon={<PlaceIcon />} link={record => `/Course?filter=${encodeURIComponent(JSON.stringify({ 'pair:hasLocation': record['pair:hasLocation'] }))}`}>
       <TextField source="pair:label" />
     </ReferenceField>
     <DateToDateField

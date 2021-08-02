@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 2,
     fontSize: 14,
     whiteSpace: props.isVertical ? undefined : 'nowrap',
+    '& a, & span': {
+      color: 'white'
+    }
   }),
 }));
 

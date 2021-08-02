@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { makeStyles, Typography, Box, Grid, Breadcrumbs, Drawer, useMediaQuery, useScrollTrigger } from '@material-ui/core';
-import { TextField, useShowContext, ReferenceField, ImageField, Link, FunctionField, useRecordContext } from 'react-admin';
+import { TextField, useShowContext, ReferenceField, Link, useRecordContext } from 'react-admin';
 import FullWidthBox from './FullWidthBox';
 import LargeContainer from './LargeContainer';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
