@@ -15,7 +15,7 @@ const PlaceForm = ({ mode, ...rest }) => {
     >
       <TextInput source="pair:label" fullWidth validate={[required()]} />
       <TextInput source="pair:comment" fullWidth validate={[required()]} />
-      <ImageInput source="pair:isDepictedBy" accept="image/*">
+      <ImageInput source="pair:isDepictedBy" accept="image/*" multiple>
         <ImageField source="src" />
       </ImageInput>
       <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />

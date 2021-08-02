@@ -39,18 +39,21 @@ const CardsList = ({ CardComponent, link }) => {
   return loading ? (
     <Loading loadingPrimary="ra.page.loading" loadingSecondary="ra.message.loading" className={classes.loading} />
   ) : (
-    ids.map((id) => (
-      <Link key={id} to={linkToRecord(basePath, id, link)} className={classes.root}>
-        <Card key={id} className={classes.details}>
-          {data[id]?.['pair:isDepictedBy'] && (
-            <CardMedia className={classes.image} image={data[id]?.['pair:isDepictedBy']} />
-          )}
-          <CardContent className={classes.content}>
-            <CardComponent record={data[id]} />
-          </CardContent>
-        </Card>
-      </Link>
-    ))
+    ids.map((id) => {
+      const image = data[id]?.['pair:isDepictedBy'];
+      return (
+        <Link key={id} to={linkToRecord(basePath, id, link)} className={classes.root}>
+          <Card key={id} className={classes.details}>
+            {data[id]?.['pair:isDepictedBy'] && (
+              <CardMedia className={classes.image} image={Array.isArray(image) ? image[0] : image} />
+            )}
+            <CardContent className={classes.content}>
+              <CardComponent record={data[id]} />
+            </CardContent>
+          </Card>
+        </Link>
+      )
+    })
   );
 };
 

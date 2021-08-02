@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
-import { makeStyles, Typography, Box, Breadcrumbs, Drawer, useMediaQuery, useScrollTrigger } from '@material-ui/core';
+import { makeStyles, Typography, Box, Grid, Breadcrumbs, Drawer, useMediaQuery, useScrollTrigger } from '@material-ui/core';
+import { TextField, useShowContext, ReferenceField, ImageField, Link, FunctionField, useRecordContext } from 'react-admin';
 import FullWidthBox from './FullWidthBox';
 import LargeContainer from './LargeContainer';
-import { TextField, useShowContext, ReferenceField, ImageField, Link } from 'react-admin';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Button from './Button';
 
@@ -37,16 +37,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
   },
   images: {
-    // display: 'flex',
-    // justifyContent: 'center',
-    // marginTop: 12,
-    // marginBottom: 35,
-    // '& >:not(:first-child)': {
-    //   marginLeft: 12,
-    // },
-    // '& >:not(:last-child)': {
-    //   marginRight: 12,
-    // },
+    marginBottom: 15,
     '& img': {
       width: '100%',
       display: 'block',
@@ -56,7 +47,11 @@ const useStyles = makeStyles((theme) => ({
       backgroundPosition: 'center',
       objectFit: 'cover',
       margin: '5px 0 10px 0',
+      height: '100%',
       maxHeight: '15rem',
+      [theme.breakpoints.down('xs')]: {
+        maxHeight: '8rem',
+      }
     },
   },
   drawer: {
@@ -66,6 +61,27 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
 }));
+
+const MultipleImagesField = ({ source, max = 2 }) => {
+  const record = useRecordContext();
+  if( !record ) return null;
+
+  if( Array.isArray(record[source]) ) {
+    return(
+      <Grid container spacing={2}>
+        {record[source].slice(0,max).map(url => (
+          <Grid item xs={6}>
+            <img src={url} alt={record['pair:label']} />
+          </Grid>
+        ))}
+      </Grid>
+    )
+  } else {
+    return(
+      <img src={record[source]} alt={record['pair:label']} />
+    )
+  }
+};
 
 const HeaderShow = ({ type, linkToListText, details, actionLabel, actionClick }) => {
   const classes = useStyles();
@@ -92,7 +108,7 @@ const HeaderShow = ({ type, linkToListText, details, actionLabel, actionClick })
           <TextField source="pair:label" variant="body2" className={classes.placeLink} />
         </Breadcrumbs>
         <Box className={classes.images}>
-          <ImageField source="pair:isDepictedBy" />
+          <MultipleImagesField source="pair:isDepictedBy" max={2} />
         </Box>
         {type && record && record[type] && (
           <ReferenceField source={type} reference="Type" link={false}>

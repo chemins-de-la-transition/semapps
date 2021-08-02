@@ -40,7 +40,7 @@ const EventForm = ({ mode, ...rest }) => {
         fullWidth
         validate={[required()]}
       />
-      <ImageInput source="pair:isDepictedBy" accept="image/*">
+      <ImageInput source="pair:isDepictedBy" accept="image/*" multiple>
         <ImageField source="src" />
       </ImageInput>
       <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />
