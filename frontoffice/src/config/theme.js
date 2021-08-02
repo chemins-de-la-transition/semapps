@@ -277,6 +277,7 @@ let theme = createMuiTheme({
     MuiButton: {
       contained: {
         border: 1,
+        color: 'white !important',
         borderStyle: 'solid',
         boxSizing: 'border-box',
         borderRadius: 8,
