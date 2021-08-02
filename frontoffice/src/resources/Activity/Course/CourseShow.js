@@ -10,6 +10,7 @@ import BodyList from '../../../commons/lists/BodyList/BodyList';
 import CourseDetails from './CourseDetails';
 import BulletPointsField from '../../../commons/fields/BulletPointsField';
 import TimelineList from '../../../commons/lists/TimelineList';
+import ContactField from "../../../commons/fields/ContactField";
 
 const CourseShow = (props) => (
   <ShowBase {...props}>
@@ -57,6 +58,11 @@ const CourseShow = (props) => (
             scrollWheelZoom
           />
         </ReferenceArrayField>
+        <ContactField
+          source="pair:phone"
+          phone="pair:phone"
+          website="pair:homePage"
+        />
       </BodyList>
       <Events />
     </>

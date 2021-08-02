@@ -13,6 +13,7 @@ import EventCard from '../Activity/Event/EventCard';
 import CardsList from '../../commons/lists/CardsList';
 import BulletPointsField from '../../commons/fields/BulletPointsField';
 import ContactDialog from "../../commons/ContactDialog";
+import ContactField from "../../commons/fields/ContactField";
 
 const PlaceShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
@@ -52,6 +53,11 @@ const PlaceShow = (props) => {
             latitude={(record) => record?.['pair:hasPostalAddress']?.['pair:latitude']}
             longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
             typographyProps={{ variant: 'body2', color: 'secondary' }}
+          />
+          <ContactField
+            source="pair:phone"
+            phone="pair:phone"
+            website="pair:homePage"
           />
         </BodyList>
         <Events filter={(record)=>({ 'pair.hasTopic': record?.['pair.hasTopic'] })}/>

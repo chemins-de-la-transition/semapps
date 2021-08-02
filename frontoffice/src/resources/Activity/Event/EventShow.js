@@ -8,6 +8,7 @@ import Events from '../../../commons/lists/EventsList/EventsList';
 import StickyCard from '../../../commons/StickyCard';
 import BodyList from '../../../commons/lists/BodyList/BodyList';
 import EventDetails from './EventDetails';
+import ContactField from "../../../commons/fields/ContactField";
 
 const EventShow = (props) => (
   <ShowBase {...props}>
@@ -38,6 +39,11 @@ const EventShow = (props) => (
             typographyProps={{ variant: 'body2', color: 'secondary' }}
           />
         </ReferenceField>
+        <ContactField
+          source="pair:phone"
+          phone="pair:phone"
+          website="pair:homePage"
+        />
       </BodyList>
       <Events />
     </>
