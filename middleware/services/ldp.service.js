@@ -1,5 +1,4 @@
-const { LdpService } = require('@semapps/ldp');
-const DocumentTaggerMixin = require('../mixins/document-tagger');
+const { LdpService, DocumentTaggerMixin } = require('@semapps/ldp');
 const urlJoin = require('url-join');
 const ontologies = require('../ontologies');
 const CONFIG = require('../config');
