@@ -38,7 +38,12 @@ const PersonShow = (props) => (
               </AvatarField>
             </GridList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Event" source="cdlt:mentorOn">
+          <ReferenceArrayField reference="Place" source="cdlt:proposes">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Event" source="cdlt:organizes">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>

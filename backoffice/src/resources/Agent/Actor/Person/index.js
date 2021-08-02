@@ -37,6 +37,8 @@ export default {
         'pair:hasLocation': 'Adresse',
         'pair:hasType': 'Type',
         'cdlt:mentorOn': 'Est mentor pour',
+        'cdlt:organizes': 'Evénements',
+        'cdlt:proposes': 'Lieux',
         'foaf:email': 'Adresse email',
       },
     },
