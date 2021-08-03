@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles, Box, Typography, FormControl, InputLabel, Select, MenuItem, useMediaQuery } from '@material-ui/core';
 import LargeContainer from '../../../commons/LargeContainer';
 import FullWidthBox from '../../../commons/FullWidthBox';
@@ -99,10 +99,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SelectItems = ({reference,inverseSource}) =>{
-  const { data , ids } = useGetList(reference);
+const SelectResources = ({ reference, inverseSource, ...rest }) =>{
+  const { data, ids } = useGetList(reference);
   return (
-    <>
+    <Select {...rest}>
+      <MenuItem value="">Choisir...</MenuItem>/>
       {ids
       .filter((id) => !inverseSource || data[id][inverseSource])
       .map((id) => (
@@ -110,32 +111,24 @@ const SelectItems = ({reference,inverseSource}) =>{
           {data[id]['pair:label']}
         </MenuItem>
       ))}
-    </>
+    </Select>
   );
 };
 
 const FormBox = () => {
   const classes = useStyles();
   const history = useHistory();
-  const objectInput = React.createRef(); 
-  const areaInput = React.createRef(); 
-  const topicInput = React.createRef(); 
 
-  const startSearch = (event) => {
-    const objectTypeValue = objectInput.current.getElementsByTagName('input')[0].value;
-    const areaValue = areaInput.current.getElementsByTagName('input')[0].value;
-    const topicValue = topicInput.current.getElementsByTagName('input')[0].value;
+  const [type, setType] = useState("");
+  const [region, setRegion] = useState("");
+  console.log('region', region);
+  const [theme, setTheme] = useState("");
 
-    const basePath = (objectTypeValue && objectTypeValue.length > 0 && objectTypeValue === "places") ? '/Place' : '/Event';
-    let url = basePath;
-    if (areaValue && areaValue.length >0 && !(topicValue && topicValue.length>0)){
-      url = url + '?filter={"pair%3AhasLocation"%3A"'+areaValue+'"}';
-    } else if(!(areaValue && areaValue.length >0)&& (topicValue && topicValue.length>0)){
-      url = url + '?filter={"pair%3AhasTopic"%3A"'+topicValue+'"}';
-    } else if (areaValue && areaValue.length >0 && topicValue && topicValue.length>0){
-      url = url + '?filter={"pair%3AhasLocation"%3A"'+areaValue+'"%2C"pair%3AhasTopic"%3A"'+topicValue+'"}';
-    }
-    history.push(url);
+  const search = () => {
+    let filters = {};
+    if( region ) filters['pair:hasLocation'] = region;
+    if( theme ) filters['pair:hasTopic'] = theme;
+    history.push(`/${type}?filter=${encodeURIComponent(JSON.stringify(filters))}&view=list`);
   };
 
   return (
@@ -147,32 +140,39 @@ const FormBox = () => {
       className={classes.formContainer}
     >
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-select-objecttype-label"></InputLabel>
-        <Select labelId="demo-select-objecttype-label" id="demo-select-objecttype" defaultValue="events" ref={objectInput}>
-          <MenuItem key="value" value="events">Évènements</MenuItem>
-          <MenuItem key="places" value="places">Lieux</MenuItem>
+        <InputLabel id="demo-select-objecttype-label">Type</InputLabel>
+        <Select labelId="demo-select-objecttype-label" value={type} onChange={e => setType(e.target.value)}>
+          <MenuItem key="Course" value="Course">Parcours</MenuItem>
+          <MenuItem key="Event" value="Event">Évènements</MenuItem>
+          <MenuItem key="Place" value="Place">Lieux</MenuItem>
         </Select>
       </FormControl>
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-select-area-label">Région</InputLabel>
-          <Select labelId="demo-select-area-label" id="demo-select-area" ref={areaInput}>
-            <MenuItem value="">Choisir</MenuItem>/>
-            <SelectItems reference="Region" inverseSource="pair:locationOf" />
-          </Select>
+        <SelectResources
+          reference="Region"
+          inverseSource="pair:locationOf"
+          labelId="demo-select-area-label"
+          value={region}
+          onChange={e => setRegion(e.target.value)}
+        />
       </FormControl>
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-select-topic-label">Thématique</InputLabel>
-          <Select labelId="demo-select-topic-label" id="demo-select-topic" ref={topicInput}>
-            <MenuItem value="">Choisir</MenuItem>/>
-            <SelectItems reference="Theme" inverseSource="pair:topicOf" />
-          </Select>
+        <SelectResources
+          reference="Theme"
+          inverseSource="pair:topicOf"
+          labelId="demo-select-topic-label"
+          value={theme}
+          onChange={e => setTheme(e.target.value)}
+        />
       </FormControl>
       <Button
         variant="contained"
         color="secondary"
         typographyVariant="button2"
         className={classes.button}
-        onClick={startSearch}
+        onClick={search}
         href="#"
       >
         Rechercher
