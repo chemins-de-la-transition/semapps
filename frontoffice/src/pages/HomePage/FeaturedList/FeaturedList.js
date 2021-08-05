@@ -78,11 +78,11 @@ const FeaturedList = ({ resource, basePath, title, subtitle, headComment, linkTe
             <Typography variant="button" className="button2">
               {linkText}
             </Typography>
-            <ChevronRightIcon></ChevronRightIcon>
+            <ChevronRightIcon />
           </Link>
         </Box>
         <Box className={classes.listBase}>
-          <ListBase resource={resource} basePath={basePath}>
+          <ListBase resource={resource} basePath={basePath} perPage={4} sort={{ field: 'dc:created', order: 'ASC' }}>
             <ItemsGrid nb={4} CardSubHeaderComponent={CardSubHeaderComponent} />
           </ListBase>
         </Box>

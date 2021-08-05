@@ -13,12 +13,13 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 2,
   },
   label: {
+    paddingLeft: '4px',
     '& span': {
       fontSize: '12px',
       fontWeight: 'bold',
       color: theme.palette.secondary.main,
-    },
-  },
+    }
+  }
 }));
 
 const Chip = ({ children, ...rest }) => {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { makeStyles, Box, Typography, FormControl, InputLabel, Select, MenuItem, useMediaQuery } from '@material-ui/core';
+import { makeStyles, Grid, Box, Typography, FormControl, InputLabel, Select, MenuItem, useMediaQuery } from '@material-ui/core';
 import LargeContainer from '../../../commons/LargeContainer';
 import FullWidthBox from '../../../commons/FullWidthBox';
 import Button from '../../../commons/Button';
@@ -25,10 +25,10 @@ const useStyles = makeStyles((theme) => ({
   searchBackground: {
     backgroundColor: theme.palette.secondary.contrastText,
     color: theme.palette.secondary.main,
-    marginLeft: '40px',
-    marginRight: '40px',
+    marginLeft: 40,
+    marginRight: 40,
     padding: '20px 24px 24px',
-    borderRadius: '4px',
+    borderRadius: 4,
   },
   commonsSearch: {
     display: 'flex',
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   formContainer: {
     width: '100%',
     '& :not(:first-child)': {
-      marginLeft: '6px',
+      marginLeft: 6,
       [theme.breakpoints.up('xs')]: {
         marginLeft: '0px',
       },
@@ -61,41 +61,41 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   formControl: {
-    minWidth: '25%',
-    [theme.breakpoints.down('md')]: {
-      minWidth: '30%',
-    },
-    [theme.breakpoints.down('sm')]: {
-      minWidth: '80%',
-    },
     [theme.breakpoints.down('xs')]: {
       color: theme.palette.secondary.main,
       position: 'relative',
       minWidth: '100%',
-      marginTop: '4px',
-      marginBottom: '4px',
+      marginTop: 4,
+      marginBottom: 4,
       '&:before': {
         backgroundColor: theme.palette.secondary.contrastText,
-        borderRadius: '4px',
+        borderRadius: 4,
         content: "' '",
         width: '100%',
         height: '100%',
         position: 'absolute',
       },
       '& .MuiInputLabel-formControl':{
-        left: '4px',
+        left: 4,
+        top: 2
       }
     },
   },
   button: {
     [theme.breakpoints.down('md')]: {
-      marginTop: '20px',
+      marginTop: 20,
+    },
+    marginTop: 7,
+    padding: '10px 18px',
+    [theme.breakpoints.up('sm')]: {
+      width: '100%'
     },
   },
   searchTitle:{
     [theme.breakpoints.down('xs')]: {
-      marginBottom: '18px',
+      marginBottom: 18,
     },
+    marginBottom: 14
   },
 }));
 
@@ -119,9 +119,8 @@ const FormBox = () => {
   const classes = useStyles();
   const history = useHistory();
 
-  const [type, setType] = useState("");
+  const [type, setType] = useState("Place");
   const [region, setRegion] = useState("");
-  console.log('region', region);
   const [theme, setTheme] = useState("");
 
   const search = () => {
@@ -132,52 +131,57 @@ const FormBox = () => {
   };
 
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      flexWrap="wrap"
-      alignItems="center"
-      className={classes.formContainer}
-    >
-      <FormControl className={classes.formControl}>
-        <InputLabel id="demo-select-objecttype-label">Type</InputLabel>
-        <Select labelId="demo-select-objecttype-label" value={type} onChange={e => setType(e.target.value)}>
-          <MenuItem key="Course" value="Course">Parcours</MenuItem>
-          <MenuItem key="Event" value="Event">Évènements</MenuItem>
-          <MenuItem key="Place" value="Place">Lieux</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControl className={classes.formControl}>
-        <InputLabel id="demo-select-area-label">Région</InputLabel>
-        <SelectResources
-          reference="Region"
-          inverseSource="pair:locationOf"
-          labelId="demo-select-area-label"
-          value={region}
-          onChange={e => setRegion(e.target.value)}
-        />
-      </FormControl>
-      <FormControl className={classes.formControl}>
-        <InputLabel id="demo-select-topic-label">Thématique</InputLabel>
-        <SelectResources
-          reference="Theme"
-          inverseSource="pair:topicOf"
-          labelId="demo-select-topic-label"
-          value={theme}
-          onChange={e => setTheme(e.target.value)}
-        />
-      </FormControl>
-      <Button
-        variant="contained"
-        color="secondary"
-        typographyVariant="button2"
-        className={classes.button}
-        onClick={search}
-        href="#"
-      >
-        Rechercher
-      </Button>
-    </Box>
+    <Grid container spacing={2}>
+      <Grid item xs={12} sm={10}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={4}>
+            <FormControl className={classes.formControl} fullWidth>
+              <InputLabel id="demo-select-objecttype-label">Type</InputLabel>
+              <Select labelId="demo-select-objecttype-label" value={type} onChange={e => setType(e.target.value)}>
+                <MenuItem key="Place" value="Place">Lieux</MenuItem>
+                <MenuItem key="Event" value="Event">Évènements</MenuItem>
+                <MenuItem key="Course" value="Course">Parcours</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <FormControl className={classes.formControl} fullWidth>
+              <InputLabel id="demo-select-area-label">Région</InputLabel>
+              <SelectResources
+                reference="Region"
+                inverseSource="pair:locationOf"
+                labelId="demo-select-area-label"
+                value={region}
+                onChange={e => setRegion(e.target.value)}
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <FormControl className={classes.formControl} fullWidth>
+              <InputLabel id="demo-select-topic-label">Thématique</InputLabel>
+              <SelectResources
+                reference="Theme"
+                inverseSource="pair:topicOf"
+                labelId="demo-select-topic-label"
+                value={theme}
+                onChange={e => setTheme(e.target.value)}
+              />
+            </FormControl>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item xs={12} sm={2}>
+        <Button
+          variant="contained"
+          color="secondary"
+          typographyVariant="button2"
+          className={classes.button}
+          onClick={search}
+        >
+          Rechercher
+        </Button>
+      </Grid>
+    </Grid>
   );
 };
 

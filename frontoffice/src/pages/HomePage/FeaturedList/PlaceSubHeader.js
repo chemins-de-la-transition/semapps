@@ -1,7 +1,9 @@
 import React from 'react';
 import { makeStyles, Typography, Box } from '@material-ui/core';
-import Department from '../../../commons/Department';
+import { TextField } from "react-admin";
 import PlaceIcon from '../../../svg/PlaceIcon';
+import Chip from "../../../commons/Chip";
+import { ReferenceField } from "@semapps/semantic-data-provider";
 
 const useStyles = makeStyles((theme) => ({
   placeSubHeader: {
@@ -25,13 +27,12 @@ const useStyles = makeStyles((theme) => ({
 
 const PlaceSubHeader = ({ record }) => {
   const classes = useStyles();
-  return record['pair:hasPostalAddress'] ? (
-    <Box className={classes.placeSubHeader}>
-      <PlaceIcon />
-      <Typography variant="body2" className={classes.text}>
-        <Department postalCode={record['pair:hasPostalAddress']['pair:addressZipCode']} />
-      </Typography>
-    </Box>
+  return record['pair:hasLocation'] ? (
+    <Chip icon={<PlaceIcon />}>
+      <ReferenceField record={record} source="pair:hasLocation" reference="Region" link={false}>
+        <TextField source="pair:label" />
+      </ReferenceField>
+    </Chip>
   ) : null;
 };
 

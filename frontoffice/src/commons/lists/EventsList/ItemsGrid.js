@@ -1,38 +1,38 @@
 import * as React from 'react';
 import { makeStyles, Typography, List, ListItem, ListItemText, ListItemAvatar, Avatar, Box } from '@material-ui/core';
-import { DateField, useListContext, ReferenceField, TextField, useRecordContext, ImageField } from 'react-admin';
+import { DateField, useListContext, TextField, useRecordContext, ImageField } from 'react-admin';
 import { Link } from 'react-router-dom';
+import { ReferenceField } from '@semapps/semantic-data-provider';
 import CalendarIcon from '../../../svg/CalendarIcon';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import Department from '../../Department';
 import sortAndFilterOnDate from './SortAndFilterOnDate';
 
 const useStyles = makeStyles((theme) => ({
   eventType: {
     color: theme.palette.primary.contrastText,
-    marginBottom: '8px',
+    marginBottom: '4px',
   },
   eventLabel: {
-    fontSize: '20px',
-    lineHeight: '28px',
+    fontSize: 30,
+    lineHeight: '43px',
     color: theme.palette.primary.contrastText,
     marginBottom: '4px',
     display: 'flex',
     alignItems: 'center',
   },
   eventPlace: {
-    fontSize: '16px',
+    fontSize: 14,
     lineHeight: '20px',
     color: theme.palette.primary.contrastText,
     marginBottom: '4px',
   },
   eventDate: {
-    fontSize: '16px',
+    fontSize: 14,
     lineHeight: '20px',
     color: theme.palette.primary.contrastText,
     marginBottom: '4px',
-    ' & span': {
-      fontSize: '16px',
+    '& span': {
+      fontSize: 14,
       lineHeight: '20px',
       color: theme.palette.primary.contrastText,
       marginBottom: '4px',
@@ -65,100 +65,79 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   avatarContainer: {
-    width: '110px',
-    marginRight: '8px',
+    width: 110,
+    height: 110,
+    marginRight: 12,
     display: 'flex',
     justifyContent: 'center',
-    position: 'relative',
-  },
-  noDecoration: {
-    textDecoration: 'none',
+    alignItems: 'center',
+    backgroundColor: theme.palette.grey['400'],
+    '& img': {
+      width: 110,
+      height: 110,
+      objectFit: 'cover',
+      margin: 0
+    }
   },
   listItem: {
     paddingLeft: '0',
   },
 }));
 
-const DepartmentField = ({ props }) => {
-  const record = useRecordContext(props);
-  return <Department postalCode={record['pair:hasPostalAddress']['pair:addressZipCode']} />;
-};
-
-const ReferenceImageField = ({ props }) => {
-  const classes = useStyles();
-  const record = useRecordContext(props);
-  return record['pair:isDepictedBy'] ? (
-    <ImageField source="pair:isDepictedBy" className={classes.imageMaxWidth} {...props} />
-  ) : (
-    <Avatar>
-      <CalendarIcon />
-    </Avatar>
-  );
-};
-
-const ItemsGrid = ({ nb }) => {
+const ItemsGrid = () => {
   const classes = useStyles();
   let { ids, data } = useListContext();
-  const eventsData = data;
-  let sortedIds = sortAndFilterOnDate(ids, eventsData, nb);
+  ids = sortAndFilterOnDate(ids, data, 4);
   return (
     <List className={classes.list + ' ' + classes.divider}>
-      {sortedIds.map((id) => {
+      {ids.map((id) => {
         return (
           <ListItem
             className={classes.listItem}
             button={true}
             component={Link}
-            to={'/event/' + encodeURIComponent(id) + '/show'}
+            to={'/Event/' + encodeURIComponent(id) + '/show'}
             key={id}
           >
             <ListItemAvatar className={classes.avatarContainer}>
-              {eventsData[id]['pair:isDepictedBy'] ? (
-                <ImageField source="pair:isDepictedBy" record={eventsData[id]} />
-              ) : eventsData[id]['pair:hostedIn'] ? (
-                <ReferenceField source="pair:hostedIn" reference="Place" record={eventsData[id]}>
-                  <ReferenceImageField />
-                </ReferenceField>
-              ) : (
-                <CalendarIcon />
+              {data[id]['pair:isDepictedBy'] && Array.isArray(data[id]['pair:isDepictedBy']) ? (
+                <ImageField source="pair:isDepictedBy.0" record={data[id]} />
+              ) : data[id]['pair:isDepictedBy'] && !Array.isArray(data[id]['pair:isDepictedBy']) ? (
+                <ImageField source="pair:isDepictedBy" record={data[id]} />
+              ): (
+                <CalendarIcon fontSize="large" />
               )}
             </ListItemAvatar>
             <ListItemText
               primary={
                 <>
-                  {eventsData[id]['cdlt:hasEventType'] ? (
-                    <ReferenceField source="cdlt:hasEventType" reference="EventType" record={eventsData[id]}>
+                  {data[id]['pair:hasType'] && (
+                    <ReferenceField source="pair:hasType" reference="Type" record={data[id]} linkType={false}>
                       <TextField
                         source="pair:label"
                         variant="h5"
                         component="div"
-                        className={classes.eventType + ' ' + classes.noDecoration}
+                        className={classes.eventType}
                       />
                     </ReferenceField>
-                  ) : (
-                    <Typography variant="h5" className={classes.eventType + ' ' + classes.noDecoration}>
-                      Type non défini
-                    </Typography>
                   )}
-                  <Typography variant="h4" component="div" className={classes.eventLabel + ' ' + classes.noDecoration}>
-                    {eventsData[id]['pair:label']}
+                  <Typography variant="h4" component="div" className={classes.eventLabel}>
+                    {data[id]['pair:label']}
                     &nbsp;
                     <ChevronRightIcon />
                   </Typography>
-                  <ReferenceField source="pair:hostedIn" reference="Place" record={eventsData[id]}>
+                  <ReferenceField source="pair:hasLocation" reference="Region" record={data[id]} linkType={false}>
                     <Box className={classes.eventPlace}>
-                      <TextField source="pair:label" variant="body1" className={classes.noDecoration} />
-                      &nbsp;-&nbsp;
-                      <DepartmentField />
+                      <TextField source="pair:label" variant="body1" />
                     </Box>
                   </ReferenceField>
                   <Typography
                     variant="button"
                     component="div"
-                    className={classes.eventDate + ' ' + classes.noDecoration}
+                    className={classes.eventDate}
                   >
                     <DateField
-                      record={eventsData[id]}
+                      record={data[id]}
                       source="pair:startDate"
                       options={{ year: 'numeric', month: 'long', day: 'numeric' }}
                     />

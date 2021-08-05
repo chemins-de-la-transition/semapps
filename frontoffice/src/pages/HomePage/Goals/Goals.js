@@ -173,15 +173,10 @@ const Goals = () => {
           <Grid item sm={4} md={1} className={classes.noPadding} />
           <Grid item sm={4} className={classes.goalsFirstImageContainer}>
             <img
-              src={process.env.PUBLIC_URL + '/pexels-gary-barnes-6231809.jpg'}
+              src={process.env.PUBLIC_URL + '/images/goal1.jpg'}
               width="100%"
               className={classes.goalsFirstImage}
-              alt="illustration de deux agricultrices qui rient"
-            />
-            <span
-              dangerouslySetInnerHTML={{
-                __html: `<!-- Image : (Free to Use and no attribution required) Gary Barnes @pexels https://www.pexels.com/photo/happy-multiethnic-female-friends-sitting-on-green-field-in-countryside-6231809/-->`,
-              }}
+              alt="illustration objectif 1"
             />
           </Grid>
           <Grid item sm={6} md={3} className={classes.goalsSecondText}>
@@ -200,14 +195,9 @@ const Goals = () => {
         <Grid container spacing={3}>
           <Grid item sm={4} className={classes.alignSelfFlexEnd}>
             <img
-              src={process.env.PUBLIC_URL + '/travel_sport_bike_cycling_bicycle_touring_pier_lake_water-685024.jpg'}
+              src={process.env.PUBLIC_URL + '/images/goal2.jpg'}
               className={classes.goalsSecondImage}
-              alt="cycliste en randonnée"
-            />
-            <span
-              dangerouslySetInnerHTML={{
-                __html: `<!-- Image : Creative Commons 0 https://pxhere.com/fr/photo/685024/-->`,
-              }}
+              alt="objectif 2"
             />
           </Grid>
           <Grid item sm={6} md={4} lg={3} className={classes.goalsThirdText}>
@@ -240,15 +230,10 @@ const Goals = () => {
           </Grid>
           <Grid item sm={4} className={classes.alignSelfFlexEnd}>
             <img
-              src={process.env.PUBLIC_URL + '/pexels-gary-barnes-6231809.jpg'}
+              src={process.env.PUBLIC_URL + '/images/goal3.jpg'}
               width="100%"
               className={classes.goalsFirstImage}
-              alt="illustration de deux agricultrices qui rient"
-            />
-            <span
-              dangerouslySetInnerHTML={{
-                __html: `<!-- Image : (Free to Use and no attribution required) Gary Barnes @pexels https://www.pexels.com/photo/happy-multiethnic-female-friends-sitting-on-green-field-in-countryside-6231809/-->`,
-              }}
+              alt="objectif 3"
             />
           </Grid>
         </Grid>

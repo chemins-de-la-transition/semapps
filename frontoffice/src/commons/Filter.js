@@ -47,7 +47,7 @@ const Filter = ({ reference, source, inverseSource, limit, sort, filter, label, 
           .filter((id) => !inverseSource || data[id][inverseSource])
           .map((id) => (
             <MenuItem key={id} value={id}>
-              {data[id]['pair:label']}
+              {data[id]?.['pair:label']}
             </MenuItem>
           ))}
       </Select>

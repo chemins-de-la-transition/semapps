@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, makeStyles, Typography, AppBar as MuiAppBar, useMediaQuery, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { LogoutButton } from '@semapps/auth-provider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import LogoTitle from './LogoTitle';
 import FullWidthBox from '../commons/FullWidthBox';
 import LargeContainer from '../commons/LargeContainer';
@@ -31,6 +31,13 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
     },
+  },
+  linkBoxSelected: {
+    [theme.breakpoints.down('md')]: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+    },
+    borderBottom: 'black 2px solid'
   },
   loginBackground: {
     // backgroundColor: theme.palette.secondary.main,
@@ -66,6 +73,7 @@ const useStyles = makeStyles((theme) => ({
 const AppBar = ({ menuItems, setSidebarOpen, title }) => {
   const classes = useStyles();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
+  const location = useLocation();
   return (
     <MuiAppBar position="sticky" className={classes.appBar}>
       <FullWidthBox>
@@ -90,10 +98,10 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
                 {menuItems.map((menuItem) => (
                   <Box
                     display="flex"
-                    height={48}
+                    height={40}
                     alignItems="center"
                     justifyContent="center"
-                    className={classes.linkBox}
+                    className={location.pathname.startsWith(menuItem.link) ? classes.linkBoxSelected : classes.linkBox}
                     m={2}
                     key={menuItem.link}
                   >
@@ -105,7 +113,7 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
                   </Box>
                 ))}
               </Box>
-              <Box flexGrow={1}></Box>
+              <Box flexGrow={1} />
               <Box justifyContent="flex-end" className={classes.loginBackground}>
                 <UserMenu logout={<LogoutButton />} />
               </Box>

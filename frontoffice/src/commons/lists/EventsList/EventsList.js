@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const EventsList = ({filter}) => {
+const EventsList = ({ filter }) => {
   const classes = useStyles();
   return (
     <FullWidthBox className={classes.background}>

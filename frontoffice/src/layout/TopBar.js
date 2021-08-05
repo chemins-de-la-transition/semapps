@@ -58,15 +58,16 @@ const TopBar = () => {
           >
             ?
           </Button>
-          <Button
-            className={classes.topBarButton}
-            variant="outlined"
-            color="secondary"
-            href="https://lescheminsdelatransition.org/faire-un-don/"
-            typographyVariant="button1"
-          >
-            Soutenez la plateforme avec un don
-          </Button>
+          <a href="https://lescheminsdelatransition.org/faire-un-don/" target="_blank" rel="noopener noreferrer">
+            <Button
+              className={classes.topBarButton}
+              variant="outlined"
+              color="secondary"
+              typographyVariant="button1"
+            >
+              Soutenez la plateforme avec un don
+            </Button>
+          </a>
         </Box>
       </LargeContainer>
     </FullWidthBox>

@@ -3,6 +3,9 @@ import { makeStyles, Typography, Box } from '@material-ui/core';
 import { ReferenceField, TextField } from 'react-admin';
 import DurationIcon from '../../../svg/DurationIcon';
 import CourseIcon from '../../../svg/CourseIcon';
+import DurationField from "../../../commons/fields/DurationField";
+import Chip from "../../../commons/Chip";
+import PlaceIcon from "../../../svg/PlaceIcon";
 
 const useStyles = makeStyles((theme) => ({
   courseSubHeader: {
@@ -24,59 +27,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Duration = ({ record }) => {
-  const classes = useStyles();
-  let startDate = new Date(record['pair:startDate']);
-  let endDate = new Date(record['pair:endDate']);
-  const interval = endDate - startDate;
-  let duration = null;
-  // TODO find librairy to extract duration
-  if (interval <= 0) {
-    duration = null;
-  } else if (interval < 60 * 1000) {
-    // less than 1 hour
-    duration = '1 minute';
-  } else if (interval < 60 * 60 * 1000) {
-    // less than 1 hour
-    duration = Math.ceil(interval / (60 * 1000)) + ' minutes';
-  } else if (interval === 60 * 60 * 1000) {
-    // 1 hour
-    duration = '1 heure';
-  } else if (interval < 24 * 60 * 60 * 1000) {
-    // less than 1 day
-    duration = Math.ceil(interval / (60 * 60 * 1000)) + ' heures';
-  } else if (interval < 30 * 24 * 60 * 60 * 1000) {
-    // less than 1 month
-    duration = Math.ceil(interval / (24 * 60 * 60 * 1000)) + ' jours';
-  } else {
-    duration = Math.ceil(interval / (30 * 24 * 60 * 60 * 1000)) + '  mois';
-  }
-
-  return duration ? (
-    <Typography variant="body2" className={classes.text}>
-      {duration}
-    </Typography>
-  ) : null;
-};
-
-const CourseSubHeader = ({ record, ...rest }) => {
+const CourseSubHeader = ({ record }) => {
   const classes = useStyles();
   return (
     <Box className={classes.courseSubHeader}>
-      {record['pair:startDate'] && record['pair:endDate'] ? (
-        <>
-          <DurationIcon />
-          <Duration record={record} {...rest} />
-        </>
-      ) : null}
-      {record['pair:hasCourseType'] ? (
-        <>
-          <CourseIcon />
-          <ReferenceField source="pair:hasCourseType" reference="CourseType" record={record} {...rest}>
-            <TextField source="pair:label" className={classes.text} />
+      {record['pair:hasLocation'] && (
+        <Chip icon={<PlaceIcon />}>
+          <ReferenceField record={record} source="pair:hasLocation" reference="Region" link={false}>
+            <TextField source="pair:label" />
           </ReferenceField>
-        </>
-      ) : null}
+        </Chip>
+      )}
+      {record['pair:startDate'] && record['pair:endDate'] && (
+        <Chip icon={<DurationIcon />}>
+          <DurationField record={record} startDate="pair:startDate" endDate="pair:endDate" component="span" />
+        </Chip>
+      )}
+      {record['pair:hasCourseType'] && (
+        <Chip icon={<CourseIcon />}>
+          <ReferenceField source="pair:hasCourseType" reference="CourseType" record={record}>
+            <TextField source="pair:label" />
+          </ReferenceField>
+        </Chip>
+      )}
     </Box>
   );
 };

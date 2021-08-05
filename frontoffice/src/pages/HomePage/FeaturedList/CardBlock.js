@@ -1,8 +1,9 @@
 import React from 'react';
-import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, CardActionArea } from '@material-ui/core';
-import { ReferenceField, ReferenceArrayField, TextField } from 'react-admin';
+import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, CardActionArea, Chip } from '@material-ui/core';
+import { TextField } from 'react-admin';
+import { SeparatedListField } from '@semapps/archipelago-layout';
+import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Link } from 'react-router-dom';
-import ShuffledSingleFieldList from './ShuffledSingleFieldList';
 
 const useStyles = makeStyles((theme) => ({
   cardTopics: {
@@ -15,6 +16,13 @@ const useStyles = makeStyles((theme) => ({
   blockTopics: {
     position: 'absolute',
     top: '-14px',
+  },
+  topicChip: {
+    padding: 0,
+    '& span': {
+      fontSize: 12,
+      fontWeight: 'bold'
+    }
   },
   topics: {
     marginLeft: '16px',
@@ -100,64 +108,57 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
+    backgroundColor: theme.palette.grey['400']
   },
 }));
 
-const CardBlock = ({ id, data, basePath, CardSubHeaderComponent }) => {
+const CardBlock = ({ record, basePath, CardSubHeaderComponent }) => {
   const classes = useStyles();
   return (
-    <Card key={id} className={classes.cardClass}>
+    <Card key={record.id} className={classes.cardClass}>
       <CardActionArea>
         <CardMedia
           className={classes.media + ' ' + classes.noDecoration}
-          image={data[id]['pair:isDepictedBy'] ?? process.env.PUBLIC_URL + '/pexels-celine-chamiotponcet-2889792.jpg'}
-          // Image : (Free to Use and no attribution required) Céline Chamiot-Poncet @pexels https://www.pexels.com/fr-fr/photo/maison-en-bois-2889792/
-          title={data[id]['pair:label']}
-          to={basePath + '/' + encodeURIComponent(id) + '/show'}
+          image={Array.isArray(record['pair:isDepictedBy']) ? record['pair:isDepictedBy'][0] : record['pair:isDepictedBy']}
+          title={record['pair:label']}
+          to={basePath + '/' + encodeURIComponent(record.id) + '/show'}
           component={Link}
         />
       </CardActionArea>
-      {data[id]['pair:hasTopic'] ? (
+      {record['pair:hasTopic'] && (
         <CardContent className={classes.cardTopics + ' ' + classes.noDecoration}>
-          {!Array.isArray(data[id]['pair:hasTopic']) ? (
-            <ReferenceField source="pair:hasTopic" reference="Theme" record={data[id]} className={classes.blockTopics}
-              link={(record) => `${basePath}?filter={"pair%3AhasTopic"%3A"${record?.['pair:hasTopic']}"}`}>
-              <TextField source="pair:label" className={classes.topics + ' ' + classes.textTopics} />
-            </ReferenceField>
-          ) : (
-            <ReferenceArrayField
-              source="pair:hasTopic"
-              reference="Theme"
-              record={data[id]}
-              className={classes.topics + ' ' + classes.severalTopics + ' ' + classes.blockTopics}
-            >
-              <ShuffledSingleFieldList nb={2} parentBasePath={basePath}>
-                <TextField source="pair:label" className={classes.textTopics}/>
-              </ShuffledSingleFieldList>
-            </ReferenceArrayField>
-          )}
+          <ReferenceArrayField
+            source="pair:hasTopic"
+            reference="Theme"
+            record={record}
+            className={classes.topics + ' ' + classes.severalTopics + ' ' + classes.blockTopics}
+          >
+            <Chip color="primary" label={
+              <SeparatedListField separator=" / " linkType={false}>
+                <TextField source="pair:label" />
+              </SeparatedListField>
+            } classes={{ label: classes.topicChip }} />
+          </ReferenceArrayField>
         </CardContent>
-      ) : (
-        ''
       )}
       <CardHeader
-        to={basePath + '/' + encodeURIComponent(id) + '/show'}
+        to={basePath + '/' + encodeURIComponent(record.id) + '/show'}
         className={classes.noDecoration + ' ' + classes.headerContainer}
         component={Link}
         title={
           <Typography className={classes.cardTitle} variant="h4" color="primary">
-            {data[id]['pair:label']}
+            {record['pair:label']}
           </Typography>
         }
-        subheader={CardSubHeaderComponent ? <CardSubHeaderComponent record={data[id]}></CardSubHeaderComponent> : ''}
+        subheader={CardSubHeaderComponent ? <CardSubHeaderComponent record={record} /> : ''}
       />
       <CardContent
-        to={basePath + '/' + encodeURIComponent(id) + '/show'}
+        to={basePath + '/' + encodeURIComponent(record.id) + '/show'}
         className={classes.noDecoration + ' ' + classes.comment}
         component={Link}
       >
         <Typography variant="body2" color="secondary" component="div">
-          {data[id]['pair:comment']}
+          {record['pair:comment']}
         </Typography>
       </CardContent>
     </Card>

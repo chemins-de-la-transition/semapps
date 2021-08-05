@@ -15,6 +15,7 @@ const iconHeight = '33px';
 const useStyles = makeStyles((theme) => ({
   footerLink: {
     color: theme.palette.secondary.main,
+    fontWeight: 'bold',
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
@@ -30,9 +31,8 @@ const useStyles = makeStyles((theme) => ({
   menuLink: {
     textDecoration: 'none',
   },
-  iconSize: {
-    height: iconHeight,
-    width: iconHeight,
+  icon: {
+    paddingLeft: 0
   },
 }));
 
@@ -44,27 +44,24 @@ const Footer = ({ title }) => {
       <LargeContainer disableGutters={xs}>
         <Grid container className={classes.root} spacing={2}>
           <Grid item sm={9}>
-            <LogoTitle title={title} mb={'30px'} classes={{ menuLink: classes.menuLink }} />
+            <LogoTitle title={title} mb={3} classes={{ menuLink: classes.menuLink }} />
             <Typography variant="body2" color="secondary">
               <Link to="/Page/qui-sommes-nous/show" className={classes.footerLink}>
                 A propos de nous
               </Link>
-              &nbsp;-&nbsp;
+              &nbsp;&nbsp;-&nbsp;&nbsp;
               <Link to="/Page/contact/show" className={classes.footerLink}>
                 Contactez-nous
               </Link>
-              &nbsp;-&nbsp;
+              &nbsp;&nbsp;-&nbsp;&nbsp;
               <Link to="/Page/mentions-legales/show" className={classes.footerLink}>
                 Mentions légales
               </Link>
-              &nbsp;-&nbsp;
+              &nbsp;&nbsp;-&nbsp;&nbsp;
               <Link to="/Page/rgpd/show" className={classes.footerLink}>
                 Politique de gestion des données
               </Link>
-              <br />
-              <a href="https://semapps.org/" className={classes.footerLink}>
-                Plateforme collaborative propulsée par SemApps
-              </a>
+              <br /><br /><br />
             </Typography>
           </Grid>
           <Grid item sm={3}>
@@ -78,17 +75,18 @@ const Footer = ({ title }) => {
               aria-label="facebook"
               color="secondary"
               href="https://www.facebook.com/Les-Chemins-de-la-Transition-103307098592299"
+              className={classes.icon}
             >
-              <FacebookIcon className={classes.iconSize} />
+              <FacebookIcon fontSize="large" />
             </IconButton>
             <IconButton aria-label="instagram" color="secondary" disabled>
-              <InstagramIcon className={classes.iconSize} />
+              <InstagramIcon fontSize="large" />
             </IconButton>
             <IconButton aria-label="twitter" color="secondary" href="https://twitter.com/CdlT_Occitanie">
-              <TwitterIcon className={classes.iconSize} />
+              <TwitterIcon fontSize="large" />
             </IconButton>
             <IconButton aria-label="youtube" color="secondary" disabled>
-              <YoutubeIcon className={classes.iconSize} />
+              <YoutubeIcon fontSize="large" />
             </IconButton>
           </Grid>
         </Grid>
