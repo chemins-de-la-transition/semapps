@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Typography, Box } from '@material-ui/core';
+import { makeStyles, Box } from '@material-ui/core';
 import { ReferenceField, TextField } from 'react-admin';
 import DurationIcon from '../../../svg/DurationIcon';
 import CourseIcon from '../../../svg/CourseIcon';

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { makeStyles, Typography, List, ListItem, ListItemText, ListItemAvatar, Avatar, Box } from '@material-ui/core';
-import { DateField, useListContext, TextField, useRecordContext, ImageField } from 'react-admin';
+import { makeStyles, Typography, List, ListItem, ListItemText, ListItemAvatar, Box } from '@material-ui/core';
+import { DateField, useListContext, TextField, ImageField } from 'react-admin';
 import { Link } from 'react-router-dom';
 import { ReferenceField } from '@semapps/semantic-data-provider';
 import CalendarIcon from '../../../svg/CalendarIcon';

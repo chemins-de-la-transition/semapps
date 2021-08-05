@@ -11,7 +11,6 @@ import {
   YouTube as YoutubeIcon,
 } from '@material-ui/icons';
 
-const iconHeight = '33px';
 const useStyles = makeStyles((theme) => ({
   footerLink: {
     color: theme.palette.secondary.main,
