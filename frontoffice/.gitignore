@@ -23,6 +23,3 @@ yarn-debug.log*
 yarn-error.log*
 
 .vercel
-
-# images (because of rigths)
-/public/images
