@@ -1,4 +1,5 @@
 const path = require('path');
+const urlJoin = require('url-join');
 const MailerService = require('moleculer-mail');
 const { MIME_TYPES } = require('@semapps/mime-types');
 const CONFIG = require('../config');
@@ -59,6 +60,14 @@ module.exports = {
           contentWithBr: content.replace(/\r\n|\r|\n/g, '<br />')
         }
       });
+    }
+  },
+  events: {
+    async 'ldp.resource.created'(ctx) {
+      const { resourceUri, newData } = ctx.params;
+      if( newData.type === 'pair:Person' && newData['pair:hasType'] === urlJoin(CONFIG.HOME_URL, 'types', 'actor')) {
+
+      }
     }
   }
 };

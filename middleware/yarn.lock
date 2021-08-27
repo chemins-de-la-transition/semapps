@@ -1154,6 +1154,12 @@ dicer@0.3.0:
   dependencies:
     streamsearch "0.1.2"
 
+dicer@RolandHeinze/dicer#header-parser-bug:
+  version "0.3.0"
+  resolved "https://codeload.github.com/RolandHeinze/dicer/tar.gz/8003224f899d36aa240d9eb971e7a17366b8af86"
+  dependencies:
+    streamsearch "0.1.2"
+
 dom-serializer@0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-0.2.2.tgz#1afb81f533717175d478655debc5e332d9f9bb51"
