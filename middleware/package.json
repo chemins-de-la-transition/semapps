@@ -23,7 +23,6 @@
     "@semapps/triplestore": "0.3.11",
     "@semapps/webacl": "0.3.11",
     "@semapps/webid": "0.3.11",
-    "dicer": "RolandHeinze/dicer#header-parser-bug",
     "dotenv-flow": "^3.2.0",
     "ioredis": "^4.17.3",
     "handlebars": "^4.7.7",
