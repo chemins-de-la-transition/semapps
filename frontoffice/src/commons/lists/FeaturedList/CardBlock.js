@@ -18,10 +18,13 @@ const useStyles = makeStyles((theme) => ({
     top: '-14px',
   },
   topicChip: {
+    backgroundColor: 'unset',
+  },
+  topicChipLabel: {
     padding: 0,
     '& span': {
-      fontSize: 12,
-      fontWeight: 'bold'
+      color: 'white',
+      fontSize: 12
     }
   },
   topics: {
@@ -127,18 +130,23 @@ const CardBlock = ({ record, basePath, CardSubHeaderComponent }) => {
       </CardActionArea>
       {record['pair:hasTopic'] && (
         <CardContent className={classes.cardTopics + ' ' + classes.noDecoration}>
-          <ReferenceArrayField
-            source="pair:hasTopic"
-            reference="Theme"
-            record={record}
-            className={classes.topics + ' ' + classes.severalTopics + ' ' + classes.blockTopics}
-          >
-            <Chip color="primary" label={
-              <SeparatedListField separator=" / " linkType={false}>
-                <TextField source="pair:label" />
-              </SeparatedListField>
-            } classes={{ label: classes.topicChip }} />
-          </ReferenceArrayField>
+          <div className={classes.topics + ' ' + classes.severalTopics + ' ' + classes.blockTopics}>
+            <Chip
+              classes={{ root: classes.topicChip, label: classes.topicChipLabel }}
+              label={
+                <ReferenceArrayField
+                  source="pair:hasTopic"
+                  reference="Theme"
+                  record={record}
+
+                >
+                  <SeparatedListField separator=" / " link={false}>
+                    <TextField source="pair:label" />
+                  </SeparatedListField>
+                </ReferenceArrayField>
+              }
+            />
+          </div>
         </CardContent>
       )}
       <CardHeader

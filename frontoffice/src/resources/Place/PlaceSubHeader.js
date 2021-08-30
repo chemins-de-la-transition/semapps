@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextField } from "react-admin";
-import PlaceIcon from '../../../svg/PlaceIcon';
-import Chip from "../../../commons/Chip";
+import PlaceIcon from '../../svg/PlaceIcon';
+import Chip from "../../commons/Chip";
 import { ReferenceField } from "@semapps/semantic-data-provider";
 
 const PlaceSubHeader = ({ record }) => {

@@ -5,7 +5,6 @@ import { Box } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../commons/fields/MarkdownField';
 import HeaderShow from '../../commons/HeaderShow';
-import Events from '../../commons/lists/EventsList/EventsList';
 import StickyCard from '../../commons/StickyCard';
 import BodyList from '../../commons/lists/BodyList/BodyList';
 import PlaceDetails from './PlaceDetails';
@@ -14,6 +13,8 @@ import CardsList from '../../commons/lists/CardsList';
 import BulletPointsField from '../../commons/fields/BulletPointsField';
 import ContactDialog from "../../commons/ContactDialog";
 import ContactField from "../../commons/fields/ContactField";
+import PlaceSubHeader from "./PlaceSubHeader";
+import SimilarList from "../../commons/lists/FeaturedList/SimilarList";
 
 const PlaceShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
@@ -60,7 +61,15 @@ const PlaceShow = (props) => {
             website="pair:homePage"
           />
         </BodyList>
-        <Events filter={(record)=>({ 'pair.hasTopic': record?.['pair.hasTopic'] })}/>
+        <SimilarList
+          resource="Place"
+          basePath="/Place"
+          title="Les lieux"
+          subtitle="Similaires"
+          headComment="Partez à la découvertes de lieux inspirants et allez à la rencontre de personnes qui ont choisis d’être acteurs de la transition."
+          linkText="Voir tous les lieux"
+          CardSubHeaderComponent={PlaceSubHeader}
+        />
         <ContactDialog
           open={showDialog}
           onClose={() => setShowDialog(false)}

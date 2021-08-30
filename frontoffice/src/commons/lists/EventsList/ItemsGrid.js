@@ -1,11 +1,11 @@
-import * as React from 'react';
+import React, { useMemo } from 'react';
 import { makeStyles, Typography, List, ListItem, ListItemText, ListItemAvatar, Box } from '@material-ui/core';
 import { DateField, useListContext, TextField, ImageField } from 'react-admin';
 import { Link } from 'react-router-dom';
 import { ReferenceField } from '@semapps/semantic-data-provider';
+import { sortBySimilarity } from "../../../utils";
 import CalendarIcon from '../../../svg/CalendarIcon';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import sortAndFilterOnDate from './SortAndFilterOnDate';
 
 const useStyles = makeStyles((theme) => ({
   eventType: {
@@ -84,13 +84,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ItemsGrid = () => {
+const ItemsGrid = ({ similarRecord }) => {
   const classes = useStyles();
   let { ids, data } = useListContext();
-  ids = sortAndFilterOnDate(ids, data, 4);
+
+  const sortedIds = useMemo(() => {
+    if( !similarRecord ) return ids;
+    return ids
+      .filter(id => id !== similarRecord.id )
+      .sort(sortBySimilarity(data, similarRecord, 'pair:hasType'))
+      .sort(sortBySimilarity(data, similarRecord, 'cdlt:hasCourseType'))
+      .sort(sortBySimilarity(data, similarRecord, 'pair:hasLocation'))
+      .slice(0, 4);
+  }, [ids, data, similarRecord]);
+
   return (
     <List className={classes.list + ' ' + classes.divider}>
-      {ids.map((id) => {
+      {sortedIds.map((id) => {
         return (
           <ListItem
             className={classes.listItem}
@@ -112,7 +122,7 @@ const ItemsGrid = () => {
               primary={
                 <>
                   {data[id]['pair:hasType'] && (
-                    <ReferenceField source="pair:hasType" reference="Type" record={data[id]} linkType={false}>
+                    <ReferenceField source="pair:hasType" reference="Type" record={data[id]} link={false}>
                       <TextField
                         source="pair:label"
                         variant="h5"
@@ -126,7 +136,7 @@ const ItemsGrid = () => {
                     &nbsp;
                     <ChevronRightIcon />
                   </Typography>
-                  <ReferenceField source="pair:hasLocation" reference="Region" record={data[id]} linkType={false}>
+                  <ReferenceField source="pair:hasLocation" reference="Region" record={data[id]} link={false}>
                     <Box className={classes.eventPlace}>
                       <TextField source="pair:label" variant="body1" />
                     </Box>

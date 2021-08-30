@@ -45,13 +45,14 @@ const EventForm = ({ mode, ...rest }) => {
       </ImageInput>
       <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />
       <MarkdownInput source="cdlt:program" fullWidth />
+      <SkillsInput source="pair:produces" fullWidth />
       <MarkdownInput source="cdlt:prerequisites" fullWidth />
       <MarkdownInput source="cdlt:practicalConditions" fullWidth />
+      <MarkdownInput source="cdlt:learningObjectives" fullWidth />
       <MarkdownInput source="cdlt:economicalConditions" fullWidth />
       <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />
       <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} />
       <ThemesInput source="pair:hasTopic" />
-      <SkillsInput source="pair:produces" fullWidth />
       <TextInput source="pair:e-mail" fullWidth validate={[required(), email()]} />
       <TextInput source="pair:phone" fullWidth />
       <TextInput source="pair:aboutPage" fullWidth />

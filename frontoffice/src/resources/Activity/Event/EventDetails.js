@@ -2,6 +2,7 @@ import React from 'react';
 import { DateField, TextField } from 'react-admin';
 import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
+import { linkToFilteredList } from "../../../utils";
 import IconsList from '../../../commons/lists/IconsList';
 import ThemeIcon from '../../../svg/ThemeIcon';
 import CourseIcon from '../../../svg/CourseIcon';
@@ -13,16 +14,16 @@ import DurationIcon from '../../../svg/DurationIcon';
 const EventDetails = (props) => (
   <IconsList {...props}>
     <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
-      <SeparatedListField linkType={false}>
+      <SeparatedListField link={linkToFilteredList( 'Event', 'cdlt:hasCourseType')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
     <ReferenceArrayField reference="Theme" source="pair:hasTopic" icon={<ThemeIcon />}>
-      <SeparatedListField linkType={false}>
+      <SeparatedListField link={linkToFilteredList( 'Event', 'pair:hasTopic')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceField label="Région" reference="Region" source="pair:hasLocation" icon={<PlaceIcon />} link={false}>
+    <ReferenceField label="Région" reference="Region" source="pair:hasLocation" icon={<PlaceIcon />} link={linkToFilteredList( 'Event', 'pair:hasLocation')} separator=" / ">
       <TextField source="pair:label" />
     </ReferenceField>
     <DateField

@@ -1,9 +1,28 @@
 import React, { useRef } from 'react';
-import { makeStyles, Typography, Box, Grid, Breadcrumbs, Drawer, useMediaQuery, useScrollTrigger } from '@material-ui/core';
-import { TextField, useShowContext, ReferenceField, Link, useRecordContext } from 'react-admin';
+import {
+  makeStyles,
+  Typography,
+  Box,
+  Grid,
+  Breadcrumbs,
+  Drawer,
+  useMediaQuery,
+  useScrollTrigger,
+  IconButton
+} from '@material-ui/core';
+import {
+  TextField,
+  useShowContext,
+  ReferenceField,
+  Link,
+  useRecordContext,
+  usePermissionsOptimized,
+  linkToRecord
+} from 'react-admin';
 import FullWidthBox from './FullWidthBox';
 import LargeContainer from './LargeContainer';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import EditIcon from '@material-ui/icons/Edit';
 import Button from './Button';
 
 const useStyles = makeStyles((theme) => ({
@@ -20,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 10,
   },
   type: {
-    paddingTop: 15,
+    paddingTop: 10,
     paddingBottom: 10,
   },
   title: {
@@ -60,6 +79,14 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  editIcon: {
+    position: 'absolute',
+    top: 5,
+    right: 0,
+    padding: 6,
+    backgroundColor: 'white',
+    borderRadius: 5
+  }
 }));
 
 const MultipleImagesField = ({ source, max = 2 }) => {
@@ -69,8 +96,8 @@ const MultipleImagesField = ({ source, max = 2 }) => {
   if( Array.isArray(record[source]) ) {
     return(
       <Grid container spacing={2}>
-        {record[source].slice(0,max).map(url => (
-          <Grid item xs={6}>
+        {record[source].slice(0,max).map((url, i) => (
+          <Grid item xs={6} key={i}>
             <img src={url} alt={record['pair:label']} />
           </Grid>
         ))}
@@ -85,7 +112,8 @@ const MultipleImagesField = ({ source, max = 2 }) => {
 
 const HeaderShow = ({ type, linkToListText, details, actionLabel, actionClick }) => {
   const classes = useStyles();
-  const { basePath, record } = useShowContext();
+  const { basePath, hasEdit, record } = useShowContext();
+  const { permissions } = usePermissionsOptimized(record?.id);
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
 
   // Calculate header height
@@ -110,22 +138,31 @@ const HeaderShow = ({ type, linkToListText, details, actionLabel, actionClick })
         <Box className={classes.images}>
           <MultipleImagesField source="pair:isDepictedBy" max={2} />
         </Box>
-        {type && record && record[type] && (
-          <ReferenceField source={type} reference="Type" link={false}>
-            <TextField source="pair:label" variant="subtitle2" component="div" className={classes.type} />
-          </ReferenceField>
-        )}
-        <TextField source="pair:label" variant="h1" className={classes.title} />
-        <Box display={xs ? 'block' : 'flex'} pt={2} pb={2}>
-          {React.cloneElement(details, { orientation: xs ? 'vertical' : 'horizontal' })}
-        </Box>
-        {xs && (
-          <Box pb={3}>
-            <Button variant="contained" color="primary" typographyVariant="button1">
-              {actionLabel}
-            </Button>
+        <Box position="relative">
+          {!xs && hasEdit && !!permissions && permissions.some(p => ['acl:Append', 'acl:Write'].includes(p['acl:mode'])) &&
+            <Link to={linkToRecord(basePath, record?.id, 'edit')}>
+              <IconButton className={classes.editIcon}>
+                <EditIcon />
+              </IconButton>
+            </Link>
+          }
+          {type && record && record[type] && (
+            <ReferenceField source={type} reference="Type" link={false}>
+              <TextField source="pair:label" variant="subtitle2" component="div" className={classes.type} />
+            </ReferenceField>
+          )}
+          <TextField source="pair:label" variant="h1" className={classes.title} />
+          <Box display={xs ? 'block' : 'flex'} pt={2} pb={2}>
+            {React.cloneElement(details, { orientation: xs ? 'vertical' : 'horizontal' })}
           </Box>
-        )}
+          {xs && (
+            <Box pb={3}>
+              <Button variant="contained" color="primary" typographyVariant="button1">
+                {actionLabel}
+              </Button>
+            </Box>
+          )}
+        </Box>
         <Drawer anchor="bottom" open={xs && showDrawer} hideBackdrop disableScrollLock>
           <Box className={classes.drawer} pt={1} pb={2}>
             <Button variant="contained" color="primary" typographyVariant="button1" onClick={actionClick}>

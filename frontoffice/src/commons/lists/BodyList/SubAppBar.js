@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: 'none',
   },
   positionSticky: {
-    top: 100,
+    top: 97,
   },
   tab: {
     minWidth: 0,
@@ -28,7 +28,7 @@ const SubAppBar = ({ fields }) => {
   const { resource } = useShowContext();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
 
-  const appBarHeight = 100;
+  const appBarHeight = 97;
   const subAppBarHeight = 48;
 
   return xs ? null : (
@@ -38,9 +38,9 @@ const SubAppBar = ({ fields }) => {
           <Tabs
             indicatorColor="primary"
             textColor="primary"
-            variant="scrollable" /*value={value} onChange={handleChange} aria-label="simple tabs example"*/
+            variant="scrollable"
           >
-            {fields.map((field) => {
+            {fields.map((field, i) => {
               if (!field.props.addLabel) return null;
               const label = translate(
                 ...getFieldLabelTranslationArgs({
@@ -51,6 +51,7 @@ const SubAppBar = ({ fields }) => {
               );
               return (
                 <Scrollchor
+                  key={i}
                   to={field.props.source}
                   animate={{ offset: -appBarHeight - subAppBarHeight }}
                   className={classes.link}

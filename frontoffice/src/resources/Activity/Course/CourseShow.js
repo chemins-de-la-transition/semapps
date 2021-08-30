@@ -4,13 +4,14 @@ import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MapList } from '@semapps/geo-components';
 import HeaderShow from '../../../commons/HeaderShow';
 import MarkdownField from '../../../commons/fields/MarkdownField';
-import Events from '../../../commons/lists/EventsList/EventsList';
 import StickyCard from '../../../commons/StickyCard';
 import BodyList from '../../../commons/lists/BodyList/BodyList';
 import CourseDetails from './CourseDetails';
 import BulletPointsField from '../../../commons/fields/BulletPointsField';
 import TimelineList from '../../../commons/lists/TimelineList';
 import ContactField from "../../../commons/fields/ContactField";
+import SimilarList from "../../../commons/lists/FeaturedList/SimilarList";
+import CourseSubHeader from "./CourseSubHeader";
 
 const CourseShow = (props) => (
   <ShowBase {...props}>
@@ -64,7 +65,15 @@ const CourseShow = (props) => (
           website="pair:homePage"
         />
       </BodyList>
-      <Events />
+      <SimilarList
+        resource="Course"
+        basePath="/Course"
+        title="Les parcours"
+        subtitle="Similaires"
+        headComment="Tu rêves de partir sur les routes pour découvrir des savoirs faire ou même apprendre un métier sur le terrain? Découvre nos parcours."
+        linkText="Voir tous les parcours"
+        CardSubHeaderComponent={CourseSubHeader}
+      />
     </>
   </ShowBase>
 );

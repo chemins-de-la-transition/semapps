@@ -24,7 +24,7 @@ const CourseList = (props) => {
         ]}
         views={{
           list: {
-            label: 'Liste',
+            label: 'Vue liste',
             icon: ListIcon,
             list: (
               <Box p={xs ? 2 : 3}>

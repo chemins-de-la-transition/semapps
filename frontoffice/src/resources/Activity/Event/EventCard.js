@@ -39,7 +39,7 @@ const EventCard = ({ record, variant }) => {
       {record['pair:hasType'] && (
         <Chip icon={<TypeIcon />}>
           <ReferenceArrayField record={record} reference="Type" source="pair:hasType">
-            <SeparatedListField linkType={false} separator=" /">
+            <SeparatedListField link={false} separator=" /">
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
@@ -48,7 +48,7 @@ const EventCard = ({ record, variant }) => {
       {record['pair:hasTopic'] && (
         <Chip icon={<ThemeIcon />}>
           <ReferenceArrayField record={record} reference="Theme" source="pair:hasTopic">
-            <SeparatedListField linkType={false} separator=" /">
+            <SeparatedListField link={false} separator=" /">
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>

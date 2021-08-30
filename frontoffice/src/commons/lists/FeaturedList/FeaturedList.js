@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, Typography, Box } from '@material-ui/core';
-import FullWidthBox from '../../../commons/FullWidthBox';
-import LargeContainer from '../../../commons/LargeContainer';
+import FullWidthBox from '../../FullWidthBox';
+import LargeContainer from '../../LargeContainer';
 import ChevronRightIcon from '../../../svg/ChevronRightIcon';
 import { ListBase } from 'react-admin';
 import { Link } from 'react-router-dom';
@@ -83,7 +83,7 @@ const FeaturedList = ({ resource, basePath, title, subtitle, headComment, linkTe
         </Box>
         <Box className={classes.listBase}>
           <ListBase resource={resource} basePath={basePath} perPage={4} sort={{ field: 'dc:created', order: 'ASC' }}>
-            <ItemsGrid nb={4} CardSubHeaderComponent={CardSubHeaderComponent} />
+            <ItemsGrid CardSubHeaderComponent={CardSubHeaderComponent} />
           </ListBase>
         </Box>
       </LargeContainer>

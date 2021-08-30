@@ -17,7 +17,7 @@ const PersonShow = (props) => (
           <TextField source="pair:lastName" />
           <TextField source="pair:comment" />
           <ReferenceArrayField source="pair:hasType" reference="Type">
-            <SeparatedListField linkType={false}>
+            <SeparatedListField link={false}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>

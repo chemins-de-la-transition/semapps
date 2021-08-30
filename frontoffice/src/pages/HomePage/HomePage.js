@@ -1,19 +1,36 @@
-import * as React from 'react';
-import Events from '../../commons/lists/EventsList/EventsList.js';
+import React from 'react';
+import NextEvents from '../../commons/lists/EventsList/NextEvents.js';
 import Welcome from './Welcome/Welcome';
-import PlacesList from './PlacesList';
+import FeaturedList from '../../commons/lists/FeaturedList/FeaturedList';
+import PlaceSubHeader from '../../resources/Place/PlaceSubHeader';
 import Goals from './Goals/Goals';
-import CoursesList from './CoursesList';
 import CoursesTypes from './CoursesTypes';
+import CourseSubHeader from "../../resources/Activity/Course/CourseSubHeader";
 
 const HomePage = () => (
   <>
     <Welcome />
-    <PlacesList />
+    <FeaturedList
+      resource="Place"
+      basePath="/Place"
+      title="Les lieux"
+      subtitle="A visiter"
+      headComment="Partez à la découvertes de lieux inspirants et allez à la rencontre de personnes qui ont choisis d’être acteurs de la transition."
+      linkText="Voir tous les lieux"
+      CardSubHeaderComponent={PlaceSubHeader}
+    />
     <Goals />
-    <CoursesList />
+    <FeaturedList
+      resource="Course"
+      basePath="/Course"
+      title="Les parcours"
+      subtitle="Thématiques & géographiques"
+      headComment="Tu rêves de partir sur les routes pour découvrir des savoirs faire ou même apprendre un métier sur le terrain? Découvre nos parcours."
+      linkText="Voir tous les parcours"
+      CardSubHeaderComponent={CourseSubHeader}
+    />
     <CoursesTypes />
-    <Events />
+    <NextEvents />
   </>
 );
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { TextField } from 'react-admin';
 import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
+import { linkToFilteredList } from "../../../utils";
 import IconsList from '../../../commons/lists/IconsList';
 import ThemeIcon from '../../../svg/ThemeIcon';
 import CourseIcon from '../../../svg/CourseIcon';
@@ -15,16 +16,16 @@ import DurationIcon from '../../../svg/DurationIcon';
 const EventDetails = (props) => (
   <IconsList {...props}>
     <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
-      <SeparatedListField linkType={false}>
+      <SeparatedListField link={linkToFilteredList( 'Course', 'cdlt:hasCourseType')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
     <ReferenceArrayField reference="Theme" source="pair:hasTopic" icon={<ThemeIcon />}>
-      <SeparatedListField linkType={false}>
+      <SeparatedListField link={linkToFilteredList( 'Course', 'pair:hasTopic')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceField label="Région" reference="Region" source="pair:hasLocation" icon={<PlaceIcon />} link={record => `/Course?filter=${encodeURIComponent(JSON.stringify({ 'pair:hasLocation': record['pair:hasLocation'] }))}`}>
+    <ReferenceField label="Région" reference="Region" source="pair:hasLocation" icon={<PlaceIcon />} link={linkToFilteredList( 'Course', 'pair:hasLocation')}>
       <TextField source="pair:label" />
     </ReferenceField>
     <DateToDateField
@@ -32,6 +33,7 @@ const EventDetails = (props) => (
       source="pair:startDate"
       startDate="pair:startDate"
       endDate="pair:endDate"
+      variant="body2"
       icon={<CalendarIcon />}
     />
     <DurationField
@@ -39,6 +41,7 @@ const EventDetails = (props) => (
       source="pair:startDate"
       startDate="pair:startDate"
       endDate="pair:endDate"
+      variant="body2"
       icon={<DurationIcon />}
     />
     <TextField source="cdlt:priceRange" icon={<PriceIcon />} />

@@ -996,7 +996,7 @@ core-util-is@1.0.2, core-util-is@~1.0.0:
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
 
-cron@^1.8.2:
+cron@^1.3.0, cron@^1.8.2:
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/cron/-/cron-1.8.2.tgz#4ac5e3c55ba8c163d84f3407bde94632da8370ce"
   integrity sha512-Gk2c4y6xKEO8FSAUTklqtfSr7oTq0CiPQeLBG5Fl0qoXpZyMcj1SG59YL+hqq04bu6/IuEA7lMkYDAplQNKkyg==
@@ -1151,12 +1151,6 @@ dicer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/dicer/-/dicer-0.3.0.tgz#eacd98b3bfbf92e8ab5c2fdb71aaac44bb06b872"
   integrity sha512-MdceRRWqltEG2dZqO769g27N/3PXfcKl04VhYnBlo2YhH7zPi88VebsjTKclaOyiuMaGU72hTfw3VkUitGcVCA==
-  dependencies:
-    streamsearch "0.1.2"
-
-dicer@RolandHeinze/dicer#header-parser-bug:
-  version "0.3.0"
-  resolved "https://codeload.github.com/RolandHeinze/dicer/tar.gz/8003224f899d36aa240d9eb971e7a17366b8af86"
   dependencies:
     streamsearch "0.1.2"
 
@@ -2455,6 +2449,13 @@ minimist@~0.0.1:
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
   integrity sha1-3j+YVD2/lggr5IrRoMfNqDYwHc8=
+
+moleculer-cron@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/moleculer-cron/-/moleculer-cron-0.0.2.tgz#0fd12eb82d504ed2a8a9ccd2b3699373afc7cfcb"
+  integrity sha512-PChQ1Sw+AIK85dIsKWxuG8M3YMG8qwLWcCV5vSBWhfGOBZ8VBnxAaISAdd4NxkCyaInK2IpoQOXzRNL0JwL3+w==
+  dependencies:
+    cron "^1.3.0"
 
 moleculer-mail@^1.2.5:
   version "1.2.5"

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import StickyBox from 'react-sticky-box';
-import { useListContext, Link } from 'react-admin';
+import { useListContext, Link, usePermissionsOptimized } from 'react-admin';
 import { useLocation } from 'react-router';
 import { Box, Grid, Typography, IconButton, makeStyles, useMediaQuery, Button, Drawer } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   filters: {
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.secondary.contrastText,
-    minHeight: 'calc(100vh - 148px)',
+    minHeight: 'calc(100vh - 145px)',
   },
   filtersTitle: {
     backgroundColor: '#23252E',
@@ -38,26 +38,42 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
   },
   results: {
-    minHeight: 'calc(100vh - 148px)',
+    minHeight: 'calc(100vh - 145px)',
   },
   icons: {
-    paddingTop: 12,
-    paddingRight: 12,
+    paddingTop: 8,
+    paddingRight: 8,
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: 10,
+      paddingRight: 10,
+    },
   },
   icon: {
     marginLeft: 8,
   },
   iconSelected: {
     marginLeft: 8,
+    color: 'white',
     '& svg': {
       color: 'white',
     },
   },
+  addButton: {
+    backgroundColor: 'white',
+    color: 'black',
+    radius: 3,
+    padding: '8px 20px',
+    fontSize: 12,
+    fontWeight: 500,
+    fontFamily: 'Roboto',
+    marginRight: 16
+  }
 }));
 
 const MultiViewsFilterList = ({ views, filters }) => {
   const classes = useStyles();
-  const { ids } = useListContext();
+  const { resource, basePath, hasCreate, ids } = useListContext();
+  const { permissions } = usePermissionsOptimized(resource);
   const [areFiltersOpen, openFilters] = useState(false);
   const query = new URLSearchParams(useLocation().search);
   const activatedViews = Object.keys(views).filter((key) => views[key]);
@@ -107,18 +123,33 @@ const MultiViewsFilterList = ({ views, filters }) => {
             </Grid>
             <Grid item xs={6}>
               <Box textAlign="right" className={classes.icons}>
+                {!xs && hasCreate && !!permissions && permissions.some(p => ['acl:Append', 'acl:Write'].includes(p['acl:mode'])) &&
+                  <Link to={`${basePath}/create`}>
+                    <Button className={classes.addButton}>Ajouter</Button>
+                  </Link>
+                }
                 {activatedViews.map((key) => {
                   query.set('view', key);
                   return (
                     <Link key={key} to={'?' + query.toString()}>
-                      <IconButton
-                        size="small"
-                        color="secondary"
-                        onClick={() => setView(key)}
-                        className={key === currentView ? classes.iconSelected : classes.icon}
-                      >
-                        {React.createElement(views[key].icon, { fontSize: 'small' })}
-                      </IconButton>
+                      {xs ?
+                        <IconButton
+                          size="small"
+                          color="secondary"
+                          onClick={() => setView(key)}
+                          className={key === currentView ? classes.iconSelected : classes.icon}
+                        >
+                          {React.createElement(views[key].icon, { fontSize: 'small' })}
+                        </IconButton>
+                        :
+                        <Button
+                          startIcon={React.createElement(views[key].icon)}
+                          onClick={() => setView(key)}
+                          className={key === currentView ? classes.iconSelected : classes.icon}
+                        >
+                          {views[key].label}
+                        </Button>
+                      }
                     </Link>
                   );
                 })}

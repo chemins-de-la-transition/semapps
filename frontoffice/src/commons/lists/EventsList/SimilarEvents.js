@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { makeStyles, Grid, Box, Typography, Hidden } from '@material-ui/core';
-import { ListBase } from 'react-admin';
+import { ListBase, useShowContext } from 'react-admin';
 import { Link } from 'react-router-dom';
 import LargeContainer from '../../LargeContainer';
 import FullWidthBox from '../../FullWidthBox';
@@ -24,17 +24,17 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     color: theme.palette.white.main,
     '& svg': {
-      fontSize: '32rem',
+      fontSize: '20rem',
     },
-    '& > .MuiSvgIcon-root': {
-      fill: 'inherit',
-      width: 'inherit',
-      height: 'inherit',
-      display: 'inherit',
-      fontSize: 'inherit',
-      transition: 'inherit',
-      flexShrink: 'inherit',
-    },
+    // '& > .MuiSvgIcon-root': {
+    //   fill: 'inherit',
+    //   width: 'inherit',
+    //   height: 'inherit',
+    //   display: 'inherit',
+    //   fontSize: 'inherit',
+    //   transition: 'inherit',
+    //   flexShrink: 'inherit',
+    // },
   },
   internalIcon: {
     display: 'flex',
@@ -42,33 +42,33 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     textAlign: 'center',
     position: 'absolute',
-    width: '70%',
+    width: '40%',
     paddingLeft: '10%',
-    '& .MuiTypography-root': {
-      [theme.breakpoints.down('xs')]: {
-        fontSize: '48px',
-        lineHeight: '70px',
-      },
-      [theme.breakpoints.down(1000)]: {
-        fontSize: '40px',
-        lineHeight: '52px',
-      },
-      [theme.breakpoints.down(800)]: {
-        fontSize: '30px',
-        lineHeight: '40px',
-      },
-      [theme.breakpoints.down(666)]: {
-        fontSize: '20px',
-        lineHeight: '30px',
-      },
-    },
-    '& svg': {
-      width: '50%',
-      height: '50%',
-      '& path':{
-        fill: theme.palette.primary.contrastText,
-      }
-    },
+    // '& .MuiTypography-root': {
+    //   [theme.breakpoints.down('xs')]: {
+    //     fontSize: '48px',
+    //     lineHeight: '70px',
+    //   },
+    //   [theme.breakpoints.down(1000)]: {
+    //     fontSize: '40px',
+    //     lineHeight: '52px',
+    //   },
+    //   [theme.breakpoints.down(800)]: {
+    //     fontSize: '30px',
+    //     lineHeight: '40px',
+    //   },
+    //   [theme.breakpoints.down(666)]: {
+    //     fontSize: '20px',
+    //     lineHeight: '30px',
+    //   },
+    // },
+    // '& svg': {
+    //   width: '50%',
+    //   height: '50%',
+    //   '& path':{
+    //     fill: theme.palette.primary.contrastText,
+    //   }
+    // },
   },
   eventListBase: {
     marginBottom: '40px',
@@ -76,28 +76,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const EventsList = ({ filter }) => {
+const SimilarEvents = () => {
   const classes = useStyles();
+  const { record } = useShowContext();
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer>
         <Grid container spacing={3}>
-          <Grid item sm={7} className={classes.eventList}>
-            <ListBase resource="Event" basePath="/Event" className={classes.eventListBase} filter={filter}>
-              <ItemsGrid nb={4} />
+          <Grid item sm={8} className={classes.eventList}>
+            <ListBase resource="Event" basePath="/Event" className={classes.eventListBase} filter={{ 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/open' }} sort={{ field: 'pair:startDate', order: 'ASC'}}>
+              <ItemsGrid similarRecord={record} />
             </ListBase>
             <Button to="/Event" variant="contained" color="primary" component={Link} typographyVariant="button1">
               Voir tous les évènements
             </Button>
           </Grid>
           <Hidden xsDown>
-            <Grid item sm={5} className={classes.eventIcon}>
+            <Grid item sm={4} className={classes.eventIcon}>
               <LargeRound />
               <Box className={classes.internalIcon}>
                 <Typography variant="h1" component="div">
-                  L’agenda des évènements
+                  Evénements similaires
                 </Typography>
-                <CalendarIcon />
               </Box>
             </Grid>
           </Hidden>
@@ -107,4 +107,4 @@ const EventsList = ({ filter }) => {
   );
 };
 
-export default EventsList;
+export default SimilarEvents;

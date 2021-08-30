@@ -33,6 +33,7 @@ export default {
         'pair:hasTopic': 'Thématiques',
         'cdlt:hasCourseType': 'Type de parcours',
         'pair:hasType': 'Type de lieu',
+        'pair:hasStatus': 'Statut',
         'pair:description': 'A propos du lieu',
         'cdlt:activities': 'Activités',
         'pair:hosts': 'Evénements sur le lieu',

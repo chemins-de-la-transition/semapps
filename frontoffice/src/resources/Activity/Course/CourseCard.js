@@ -29,7 +29,7 @@ const CourseCard = ({ record, variant }) => {
       {record['cdlt:hasCourseType'] && (
         <Chip icon={<CourseIcon />}>
           <ReferenceArrayField record={record} source="cdlt:hasCourseType" reference="Type">
-            <SeparatedListField separator=" / " linkType={false}>
+            <SeparatedListField separator=" / " link={false}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
