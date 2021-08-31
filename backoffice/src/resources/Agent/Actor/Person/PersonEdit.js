@@ -8,6 +8,7 @@ import {
   SkillsInput,
   ThemesInput,
   TypeInput,
+  StatusInput
 } from '../../../../pair';
 import { ImageField } from '@semapps/semantic-data-provider';
 import PersonTitle from './PersonTitle';
@@ -31,6 +32,7 @@ export const PersonEdit = (props) => (
       </ImageInput>
       <ActivitiesInput source="cdlt:mentorOn" />
       <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
+      <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
       <OrganizationsInput source="pair:affiliatedBy" />
       <SkillsInput source="pair:offers" />
       <ThemesInput source="pair:hasTopic" />

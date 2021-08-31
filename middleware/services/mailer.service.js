@@ -60,14 +60,19 @@ module.exports = {
           contentWithBr: content.replace(/\r\n|\r|\n/g, '<br />')
         }
       });
-    }
-  },
-  events: {
-    async 'ldp.resource.created'(ctx) {
-      const { resourceUri, newData } = ctx.params;
-      if( newData.type === 'pair:Person' && newData['pair:hasType'] === urlJoin(CONFIG.HOME_URL, 'types', 'actor')) {
+    },
+    async inviteActor(ctx) {
+      let { userData } = ctx.params;
 
-      }
+      await ctx.call('mailer.send', {
+        to: userData['foaf:email'],
+        replyTo: this.settings.from,
+        template: 'invite-actor',
+        data: {
+          userData,
+          loginUri: `https://app.lescheminsdelatransition.org/login`
+        }
+      });
     }
   }
 };
