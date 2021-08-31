@@ -4,21 +4,23 @@ import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MapList } from '@semapps/geo-components';
 import HeaderShow from '../../../commons/HeaderShow';
 import MarkdownField from '../../../commons/fields/MarkdownField';
-import Events from '../../../commons/lists/EventsList/EventsList';
 import StickyCard from '../../../commons/StickyCard';
 import BodyList from '../../../commons/lists/BodyList/BodyList';
 import CourseDetails from './CourseDetails';
 import BulletPointsField from '../../../commons/fields/BulletPointsField';
 import TimelineList from '../../../commons/lists/TimelineList';
 import ContactField from "../../../commons/fields/ContactField";
+import SimilarList from "../../../commons/lists/FeaturedList/SimilarList";
+import CourseSubHeader from "./CourseSubHeader";
+import ApplyButton from "../../../commons/buttons/ApplyButton";
 
 const CourseShow = (props) => (
   <ShowBase {...props}>
     <>
-      <HeaderShow linkToListText="Liste des parcours" details={<CourseDetails />} actionLabel="Je candidate" />
+      <HeaderShow linkToListText="Liste des parcours" details={<CourseDetails />} actionButton={<ApplyButton />} />
       <BodyList
         aside={
-          <StickyCard actionLabel="Je candidate">
+          <StickyCard actionButton={<ApplyButton />}>
             <CourseDetails orientation="vertical" />
           </StickyCard>
         }
@@ -64,7 +66,15 @@ const CourseShow = (props) => (
           website="pair:homePage"
         />
       </BodyList>
-      <Events />
+      <SimilarList
+        resource="Course"
+        basePath="/Course"
+        title="Les parcours"
+        subtitle="Similaires"
+        headComment="Tu rêves de partir sur les routes pour découvrir des savoirs faire ou même apprendre un métier sur le terrain? Découvre nos parcours."
+        linkText="Voir tous les parcours"
+        CardSubHeaderComponent={CourseSubHeader}
+      />
     </>
   </ShowBase>
 );

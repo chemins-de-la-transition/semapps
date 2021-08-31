@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 10,
     paddingBottom: 10,
   },
-  openButton: {},
   menuLink: {
     textDecoration: 'none',
   },
@@ -40,9 +39,7 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: 'black 2px solid'
   },
   loginBackground: {
-    // backgroundColor: theme.palette.secondary.main,
     color: theme.palette.secondary.main,
-    // borderRadius: 8,
     '& .MuiIconButton-colorInherit': {
       color: theme.palette.secondary.main,
     },
@@ -52,9 +49,8 @@ const useStyles = makeStyles((theme) => ({
       fontFamily: theme.typography.subtitle2.fontFamily,
       fontSize: theme.typography.subtitle2.fontSize,
       fontWeight: theme.typography.subtitle2.fontWeight,
-      textTransform: theme.typography.subtitle2.textTransform,
+      // textTransform: theme.typography.subtitle2.textTransform,
       lineHeight: theme.typography.subtitle2.lineHeight,
-      // [theme.breakpoints.down('xs')]:{
       [theme.breakpoints.down('700')]: {
         content: 'none',
       },

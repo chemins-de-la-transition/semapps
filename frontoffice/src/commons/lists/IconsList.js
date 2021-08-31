@@ -35,19 +35,12 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 2,
     fontSize: 14,
     whiteSpace: props.isVertical ? undefined : 'nowrap',
+    color: 'white',
     '& a, & span': {
       color: 'white'
     }
   }),
 }));
-
-const primaryTypographyProps = {
-  variant: 'subtitle2',
-};
-const secondaryTypographyProps = {
-  variant: 'body',
-  color: 'white',
-};
 
 const IconsList = ({ orientation, children }) => {
   const isVertical = orientation === 'vertical';
@@ -92,8 +85,7 @@ const IconsList = ({ orientation, children }) => {
                 primary={label}
                 secondary={value}
                 classes={{ primary: classes.primary, secondary: classes.secondary }}
-                primaryTypographyProps={primaryTypographyProps}
-                secondaryTypographyProps={secondaryTypographyProps}
+                primaryTypographyProps={{ variant: 'subtitle2' }}
               />
             </ListItem>
             {i < fields.length - 1 && (

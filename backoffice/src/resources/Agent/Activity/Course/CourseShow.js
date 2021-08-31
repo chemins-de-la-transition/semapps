@@ -31,12 +31,12 @@ const CourseShow = (props) => (
           {/*  <TextField source="pair:label" />*/}
           {/*</ReferenceField>*/}
           <ReferenceArrayField source="pair:hasCourseType" reference="Type">
-            <SeparatedListField linkType={false}>
+            <SeparatedListField link={false}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
           <ReferenceArrayField source="pair:hasLocation" reference="Region">
-            <SeparatedListField linkType={false}>
+            <SeparatedListField link={false}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>

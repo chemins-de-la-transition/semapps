@@ -1,5 +1,5 @@
 import React from 'react';
-import { /*useMediaQuery, */ makeStyles, Grid, Typography } from '@material-ui/core';
+import { /*useMediaQuery, */ makeStyles, Grid, Typography, Hidden} from '@material-ui/core';
 import FullWidthBox from '../../../commons/FullWidthBox';
 import LargeContainer from '../../../commons/LargeContainer';
 import TwoHandsIcon from '../../../svg/TwoHandsIcon';
@@ -72,33 +72,75 @@ const useStyles = makeStyles((theme) => ({
       fill: theme.palette.theme_2.main,
     },
   },
-  goalsFirstImage: {
+  firstImage: {
     objectFit: 'cover',
     objectPosition: 'center',
+    width: '100%',
+    [theme.breakpoints.down(600)]: {
+      maxHeight: 275,
+    }
   },
-  goalsFirstImageContainer: {
+  firstImageContainer: {
     marginTop: '165px',
     [theme.breakpoints.down('md')]: {
       marginTop: '40px',
     },
     [theme.breakpoints.down(600)]: {
-      marginTop: '20px',
-      height: '80%',
+      marginTop: '0px',
+      width: '100%'
     },
   },
-  goalsSecondText: {
+  secondText: {
     marginTop: '200px',
     [theme.breakpoints.down('md')]: {
       marginTop: '40px',
     },
     [theme.breakpoints.down(600)]: {
-      marginTop: '20px',
+      marginTop: '0px',
     },
+  },
+  secondImage: {
+    objectFit: 'cover',
+    objectPosition: 'center',
+    width: '100%',
+    [theme.breakpoints.down(600)]: {
+      maxHeight: 275,
+    }
+  },
+  secondImageContainer: {
+    alignSelf: 'flex-end',
+    [theme.breakpoints.down(600)]: {
+      width: '100%'
+    },
+  },
+  thirdText: {
+    alignSelf: 'flex-end',
+    [theme.breakpoints.down(600)]: {
+      marginTop: '0px',
+    },
+  },
+  thirdImage: {
+    objectFit: 'cover',
+    objectPosition: 'center',
+    width: '100%',
+    [theme.breakpoints.down(600)]: {
+      maxHeight: 275,
+    }
+  },
+  thirdImageContainer: {
+    alignSelf: 'flex-end',
+    [theme.breakpoints.down(600)]: {
+      width: '100%',
+      order: -1
+    }
+  },
+  fourthText: {
+    alignSelf: 'flex-end'
   },
   mb24: {
     marginBottom: '24px',
   },
-  mb40: {
+  mtb40: {
     marginBottom: '40px',
   },
   mt65: {
@@ -122,30 +164,11 @@ const useStyles = makeStyles((theme) => ({
   },
   alignSelfFlexEnd: {
     alignSelf: 'flex-end',
-  },
-  goalsThirdText: {
-    // marginTop: '100px',
-    alignSelf: 'flex-end',
-    [theme.breakpoints.down(600)]: {
-      marginTop: '20px',
-    },
-  },
-  goalsFourthText: {
-    alignSelf: 'flex-end',
-    [theme.breakpoints.down(600)]: {
-      marginTop: '20px',
-    },
-  },
-  goalsSecondImage: {
-    objectFit: 'cover',
-    objectPosition: 'center',
-    width: '100%',
-  },
+  }
 }));
 
 const Goals = () => {
   const classes = useStyles();
-  // const xs = useMediaQuery(theme => theme.breakpoints.down('xs'));
   return (
     <FullWidthBox className={classes.mainBox}>
       {/* shapes in the background */}
@@ -170,16 +193,17 @@ const Goals = () => {
               s’enracine dans notre réalité.
             </Typography>
           </Grid>
-          <Grid item sm={4} md={1} className={classes.noPadding} />
-          <Grid item sm={4} className={classes.goalsFirstImageContainer}>
+          <Hidden xsDown>
+            <Grid item sm={4} md={1} className={classes.noPadding} />
+          </Hidden>
+          <Grid item sm={4} className={classes.firstImageContainer}>
             <img
               src={process.env.PUBLIC_URL + '/images/goal1.jpg'}
-              width="100%"
-              className={classes.goalsFirstImage}
+              className={classes.firstImage}
               alt="illustration objectif 1"
             />
           </Grid>
-          <Grid item sm={6} md={3} className={classes.goalsSecondText}>
+          <Grid item sm={6} md={3} className={classes.secondText}>
             <TwoHandsIcon className={classes.mb24 + ' ' + classes.iconWhite} />
             <Typography variant="h5" component="div" className={classes.mb24}>
               Mailler les territoires & Valoriser les initiatives existantes
@@ -193,14 +217,14 @@ const Goals = () => {
           </Grid>
         </Grid>
         <Grid container spacing={3}>
-          <Grid item sm={4} className={classes.alignSelfFlexEnd}>
+          <Grid item sm={4} className={classes.secondImageContainer}>
             <img
               src={process.env.PUBLIC_URL + '/images/goal2.jpg'}
-              className={classes.goalsSecondImage}
+              className={classes.secondImage}
               alt="objectif 2"
             />
           </Grid>
-          <Grid item sm={6} md={4} lg={3} className={classes.goalsThirdText}>
+          <Grid item sm={6} md={4} lg={3} className={classes.thirdText}>
             <WalkerIcon className={classes.mb24 + ' ' + classes.iconWhite} />
             <Typography variant="h5" component="div" className={classes.mb24}>
               Voyager en apprenant , se&nbsp;former aux&nbsp;enjeux et métiers de la&nbsp;transition
@@ -214,8 +238,10 @@ const Goals = () => {
           </Grid>
         </Grid>
         <Grid container spacing={3}>
-          <Grid item sm={1} md={5} className={classes.alignSelfFlexEnd + ' ' + classes.noPadding} />
-          <Grid item sm={6} md={3} className={classes.goalsFourthText}>
+          <Hidden xsDown>
+            <Grid item sm={1} md={5} className={classes.alignSelfFlexEnd + ' ' + classes.noPadding} />
+          </Hidden>
+          <Grid item sm={6} md={3} className={classes.fourthText}>
             <StarIcon className={classes.mb24 + ' ' + classes.iconWhite} />
             <Typography variant="h5" component="div" className={classes.mb24}>
               Le voyageur comme pollinisateur de nouvelles pratiques
@@ -228,11 +254,10 @@ const Goals = () => {
               <ListGoalsItem text="Accroître la résilience du territoire grâce au développement de solutions locales." />
             </ul>
           </Grid>
-          <Grid item sm={4} className={classes.alignSelfFlexEnd}>
+          <Grid item sm={4} className={classes.thirdImageContainer}>
             <img
               src={process.env.PUBLIC_URL + '/images/goal3.jpg'}
-              width="100%"
-              className={classes.goalsFirstImage}
+              className={classes.thirdImage}
               alt="objectif 3"
             />
           </Grid>

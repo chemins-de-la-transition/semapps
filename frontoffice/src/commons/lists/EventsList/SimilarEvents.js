@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { makeStyles, Grid, Box, Typography, Hidden } from '@material-ui/core';
-import { ListBase } from 'react-admin';
+import { ListBase, useShowContext } from 'react-admin';
 import { Link } from 'react-router-dom';
 import LargeContainer from '../../LargeContainer';
 import FullWidthBox from '../../FullWidthBox';
 import LargeRound from '../../../svg/LargeRound';
-import CalendarIcon from '../../../svg/CalendarIcon';
 import Button from '../../Button';
 import ItemsGrid from './ItemsGrid';
 
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     color: theme.palette.white.main,
     '& svg': {
-      fontSize: '32rem',
+      fontSize: '24rem',
     },
     '& > .MuiSvgIcon-root': {
       fill: 'inherit',
@@ -76,28 +75,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const EventsList = ({ filter }) => {
+const SimilarEvents = () => {
   const classes = useStyles();
+  const { record } = useShowContext();
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer>
         <Grid container spacing={3}>
-          <Grid item sm={7} className={classes.eventList}>
-            <ListBase resource="Event" basePath="/Event" className={classes.eventListBase} filter={filter}>
-              <ItemsGrid nb={4} />
+          <Grid item sm={7}>
+            <Hidden smUp>
+              <Box mb={2}>
+                <Typography variant="h1" component="div">
+                  Evénements similaires
+                </Typography>
+              </Box>
+            </Hidden>
+            <ListBase resource="Event" basePath="/Event" className={classes.eventListBase} filter={{ 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/open' }}>
+              <ItemsGrid similarRecord={record} />
             </ListBase>
             <Button to="/Event" variant="contained" color="primary" component={Link} typographyVariant="button1">
               Voir tous les évènements
             </Button>
           </Grid>
           <Hidden xsDown>
-            <Grid item sm={5} className={classes.eventIcon}>
+            <Grid item sm={1} />
+            <Grid item sm={4} className={classes.eventIcon}>
               <LargeRound />
               <Box className={classes.internalIcon}>
                 <Typography variant="h1" component="div">
-                  L’agenda des évènements
+                  Evénements similaires
                 </Typography>
-                <CalendarIcon />
               </Box>
             </Grid>
           </Hidden>
@@ -107,4 +114,4 @@ const EventsList = ({ filter }) => {
   );
 };
 
-export default EventsList;
+export default SimilarEvents;

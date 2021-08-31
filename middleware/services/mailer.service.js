@@ -1,4 +1,5 @@
 const path = require('path');
+const urlJoin = require('url-join');
 const MailerService = require('moleculer-mail');
 const { MIME_TYPES } = require('@semapps/mime-types');
 const CONFIG = require('../config');
@@ -57,6 +58,19 @@ module.exports = {
           email,
           content,
           contentWithBr: content.replace(/\r\n|\r|\n/g, '<br />')
+        }
+      });
+    },
+    async inviteActor(ctx) {
+      let { userData } = ctx.params;
+
+      await ctx.call('mailer.send', {
+        to: userData['foaf:email'],
+        replyTo: this.settings.from,
+        template: 'invite-actor',
+        data: {
+          userData,
+          loginUri: `https://app.lescheminsdelatransition.org/login`
         }
       });
     }

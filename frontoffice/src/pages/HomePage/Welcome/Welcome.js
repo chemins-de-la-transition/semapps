@@ -45,7 +45,6 @@ const Welcome = () => {
       {xs ? (
         <Box width={1} position="relative">
           <WelcomeContent classesNames={classes} />
-          {/* <Box width={1} className={classes.background2} /> */}
         </Box>
       ) : (
         <Box width={1} className={classes.background} position="relative">

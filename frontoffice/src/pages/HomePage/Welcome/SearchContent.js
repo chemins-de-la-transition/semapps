@@ -63,28 +63,28 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     [theme.breakpoints.down('xs')]: {
       color: theme.palette.secondary.main,
+      backgroundColor: theme.palette.secondary.contrastText,
       position: 'relative',
       minWidth: '100%',
-      marginTop: 4,
-      marginBottom: 4,
-      '&:before': {
-        backgroundColor: theme.palette.secondary.contrastText,
-        borderRadius: 4,
-        content: "' '",
-        width: '100%',
-        height: '100%',
-        position: 'absolute',
+      '& .MuiFormLabel-filled':{
+        visibility: 'hidden'
       },
-      '& .MuiInputLabel-formControl':{
-        left: 4,
-        top: 2
+      '& .MuiInputLabel-formControl': {
+        top: 12,
+        left: 10,
+        transform: 'unset'
+      }
+    },
+  },
+  select: {
+    [theme.breakpoints.down('xs')]: {
+      borderRadius: 0,
+      '& .MuiSelect-root': {
+        padding: '10px !important',
       }
     },
   },
   button: {
-    [theme.breakpoints.down('md')]: {
-      marginTop: 20,
-    },
     marginTop: 7,
     padding: '10px 18px',
     [theme.breakpoints.up('sm')]: {
@@ -118,6 +118,7 @@ const SelectResources = ({ reference, inverseSource, ...rest }) =>{
 const FormBox = () => {
   const classes = useStyles();
   const history = useHistory();
+  const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
 
   const [type, setType] = useState("Place");
   const [region, setRegion] = useState("");
@@ -137,7 +138,7 @@ const FormBox = () => {
           <Grid item xs={12} sm={4}>
             <FormControl className={classes.formControl} fullWidth>
               <InputLabel id="demo-select-objecttype-label">Type</InputLabel>
-              <Select labelId="demo-select-objecttype-label" value={type} onChange={e => setType(e.target.value)}>
+              <Select labelId="demo-select-objecttype-label" value={type} onChange={e => setType(e.target.value)} className={classes.select} variant={xs ? 'outlined' : 'standard'}>
                 <MenuItem key="Place" value="Place">Lieux</MenuItem>
                 <MenuItem key="Event" value="Event">Évènements</MenuItem>
                 <MenuItem key="Course" value="Course">Parcours</MenuItem>
@@ -153,6 +154,8 @@ const FormBox = () => {
                 labelId="demo-select-area-label"
                 value={region}
                 onChange={e => setRegion(e.target.value)}
+                variant={xs ? 'outlined' : 'standard'}
+                className={classes.select}
               />
             </FormControl>
           </Grid>
@@ -165,21 +168,25 @@ const FormBox = () => {
                 labelId="demo-select-topic-label"
                 value={theme}
                 onChange={e => setTheme(e.target.value)}
+                variant={xs ? 'outlined' : 'standard'}
+                className={classes.select}
               />
             </FormControl>
           </Grid>
         </Grid>
       </Grid>
       <Grid item xs={12} sm={2}>
-        <Button
-          variant="contained"
-          color="secondary"
-          typographyVariant="button2"
-          className={classes.button}
-          onClick={search}
-        >
-          Rechercher
+        <Box display="flex" alignItems="center" justifyContent="center">
+          <Button
+            variant="contained"
+            color="secondary"
+            typographyVariant="button2"
+            className={classes.button}
+            onClick={search}
+          >
+            Rechercher
         </Button>
+        </Box>
       </Grid>
     </Grid>
   );
@@ -193,7 +200,7 @@ const SearchContent = () => {
       <FullWidthBox className={classes.searchBackgroundXs}>
         <LargeContainer className={classes.commonsSearch + ' ' + classes.containerXs}>
           <Typography variant="subtitle1" className={classes.searchTitle}>
-            Quel voyage recherchez vous ?
+            Que recherchez-vous ?
           </Typography>
           <FormBox />
         </LargeContainer>

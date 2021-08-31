@@ -5,37 +5,40 @@ import LargeContainer from '../../../commons/LargeContainer';
 import SearchContent from './SearchContent';
 
 const useStyles = makeStyles((theme) => ({
-  box: {
+  root: {
     flexDirection: 'column',
     alignItems: 'center',
   },
-  welcomeText: {
+  text: {
     color: theme.palette.white.main,
     textAlign: 'center',
     fontSize: 48,
   },
-  welcomeSubtitleText: {
+  subtitleText: {
     color: theme.palette.white.main,
     textAlign: 'center',
-    maxWidth: '898px',
-    marginLeft: '40px',
-    marginRight: '40px',
+    maxWidth: 898,
+    marginLeft: 40,
+    marginRight: 40,
     fontWeight: 'bold',
     [theme.breakpoints.down('xs')]: {
-      marginLeft: '0px',
-      marginRight: '0px',
+      marginLeft: 0,
+      marginRight: 0,
     },
   },
-  welcomeTextBar: {
+  textBar: {
     width: '51px',
     height: '2px',
     backgroundColor: theme.palette.white.main,
-    marginTop: '10px',
-    marginBottom: '20px',
+    marginTop: 10,
+    marginBottom: 20,
     marginLeft: 'auto',
     marginRight: 'auto',
+    [theme.breakpoints.down('xs')]: {
+      marginTop: 20,
+    },
   },
-  welcomeContainer: {
+  container: {
     zIndex: 0,
     backgroundImage:
       "linear-gradient(180deg, rgba(0, 0, 0, 0.56) 0%,rgba(0, 0, 0, 0) 100%),url('" +
@@ -44,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundClip: 'padding-box',
     backgroundPosition: 'center -40px',
     backgroundRepeat: 'no-repeat',
-    height: '539px',
+    height: 539,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -56,27 +59,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ReactComment = ({ text }) => {
-  return <span dangerouslySetInnerHTML={{ __html: `<!-- ${text} -->` }} />;
-};
-
 const WelcomeContent = () => {
   const classes = useStyles();
   return (
-    <FullWidthBox className={classes.box}>
-      <LargeContainer className={classes.welcomeContainer}>
-        <ReactComment
-          text={
-            'Image : (Free to Use and no attribution required) Zen Chung @pexels' +
-            'https://www.pexels.com/photo/anonymous-local-female-farmers-picking-vegetables-during-harvesting-season-in-garden-5529604/'
-          }
-        />
+    <FullWidthBox className={classes.root}>
+      <LargeContainer className={classes.container}>
         <Box display="flex" justifyContent="center" flexDirection="column" justifySelf="center">
-          <Typography variant="h1" className={classes.welcomeText}>
+          <Typography variant="h1" className={classes.text}>
             Apprendre en voyageant
           </Typography>
-          <div className={classes.welcomeTextBar} />
-          <Typography variant="body1" className={classes.welcomeSubtitleText} component="div">
+          <div className={classes.textBar} />
+          <Typography variant="body1" className={classes.subtitleText} component="div">
             Pour les curieux qui souhaitent découvrir une région et apprendre en voyageant, nous vous proposons des
             itinéraires éco-touristiques autour des métiers de la transition, conçus pour être parcourus à pied ou à
             vélo. Partez à la rencontre des acteurs de lieux inspirationnels et découvrez leurs savoirs-faire.

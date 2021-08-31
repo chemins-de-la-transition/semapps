@@ -32,7 +32,7 @@ const PlaceList = (props) => {
         ]}
         views={{
           map: {
-            label: 'Carte',
+            label: 'Vue carte',
             icon: MapIcon,
             list: (
               <MapList
@@ -51,7 +51,7 @@ const PlaceList = (props) => {
             ),
           },
           list: {
-            label: 'Liste',
+            label: 'Vue liste',
             icon: ListIcon,
             list: (
               <Box p={{ xs: 2, sm: 3 }}>

@@ -49,7 +49,7 @@ const TopBar = () => {
           }
           <Box flexGrow={1} />
           <Button
-            to="/Aide"
+            to="/Page/aide/show"
             className={classes.topBarHelpIcon}
             color="inherit"
             component={Link}

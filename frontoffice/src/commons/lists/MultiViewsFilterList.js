@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import StickyBox from 'react-sticky-box';
-import { useListContext, Link } from 'react-admin';
+import {useListContext, Link, usePermissionsOptimized, useListFilterContext} from 'react-admin';
 import { useLocation } from 'react-router';
 import { Box, Grid, Typography, IconButton, makeStyles, useMediaQuery, Button, Drawer } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   filters: {
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.secondary.contrastText,
-    minHeight: 'calc(100vh - 148px)',
+    minHeight: 'calc(100vh - 145px)',
   },
   filtersTitle: {
     backgroundColor: '#23252E',
@@ -38,26 +38,45 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
   },
   results: {
-    minHeight: 'calc(100vh - 148px)',
+    minHeight: 'calc(100vh - 145px)',
   },
   icons: {
-    paddingTop: 12,
-    paddingRight: 12,
+    paddingTop: 8,
+    paddingRight: 8,
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: 10,
+      paddingRight: 10,
+    },
   },
   icon: {
     marginLeft: 8,
   },
   iconSelected: {
     marginLeft: 8,
+    color: 'white',
     '& svg': {
       color: 'white',
     },
   },
+  addButton: {
+    backgroundColor: 'white',
+    color: 'black',
+    radius: 3,
+    padding: '8px 20px',
+    fontSize: 12,
+    fontWeight: 500,
+    fontFamily: 'Roboto',
+    marginRight: 16
+  },
+  removeFiltersButton: {
+    padding: '8px 20px',
+  }
 }));
 
 const MultiViewsFilterList = ({ views, filters }) => {
   const classes = useStyles();
-  const { ids } = useListContext();
+  const { resource, basePath, hasCreate, ids, loading } = useListContext();
+  const { permissions } = usePermissionsOptimized(resource);
   const [areFiltersOpen, openFilters] = useState(false);
   const query = new URLSearchParams(useLocation().search);
   const activatedViews = Object.keys(views).filter((key) => views[key]);
@@ -65,6 +84,7 @@ const MultiViewsFilterList = ({ views, filters }) => {
     query.has('view') && activatedViews.includes(query.get('view')) ? query.get('view') : activatedViews[0];
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
   const [currentView, setView] = useState(initialView);
+  const { filterValues, setFilters } = useListFilterContext();
 
   return (
     <Grid container>
@@ -107,18 +127,33 @@ const MultiViewsFilterList = ({ views, filters }) => {
             </Grid>
             <Grid item xs={6}>
               <Box textAlign="right" className={classes.icons}>
+                {!xs && hasCreate && !!permissions && permissions.some(p => ['acl:Append', 'acl:Write'].includes(p['acl:mode'])) &&
+                  <Link to={`${basePath}/create`}>
+                    <Button className={classes.addButton}>Ajouter</Button>
+                  </Link>
+                }
                 {activatedViews.map((key) => {
                   query.set('view', key);
                   return (
                     <Link key={key} to={'?' + query.toString()}>
-                      <IconButton
-                        size="small"
-                        color="secondary"
-                        onClick={() => setView(key)}
-                        className={key === currentView ? classes.iconSelected : classes.icon}
-                      >
-                        {React.createElement(views[key].icon, { fontSize: 'small' })}
-                      </IconButton>
+                      {xs ?
+                        <IconButton
+                          size="small"
+                          color="secondary"
+                          onClick={() => setView(key)}
+                          className={key === currentView ? classes.iconSelected : classes.icon}
+                        >
+                          {React.createElement(views[key].icon, { fontSize: 'small' })}
+                        </IconButton>
+                        :
+                        <Button
+                          startIcon={React.createElement(views[key].icon)}
+                          onClick={() => setView(key)}
+                          className={key === currentView ? classes.iconSelected : classes.icon}
+                        >
+                          {views[key].label}
+                        </Button>
+                      }
                     </Link>
                   );
                 })}
@@ -126,7 +161,17 @@ const MultiViewsFilterList = ({ views, filters }) => {
             </Grid>
           </Grid>
         </Box>
-        {views[currentView] && views[currentView].list}
+        {!loading && ids.length === 0 ?
+          <Box display="flex" alignItems="center" justifyContent="center" height={400} flexDirection="column">
+            <Typography variant="h6" component="div">Aucun résultat trouvé</Typography>
+            <br />
+            {Object.keys(filterValues).length > 0 &&
+              <Button variant="contained" color="primary" className={classes.removeFiltersButton} onClick={() => setFilters({})}>Enlever tous les filtres</Button>
+            }
+          </Box>
+          :
+          views[currentView] && views[currentView].list
+        }
       </Grid>
     </Grid>
   );

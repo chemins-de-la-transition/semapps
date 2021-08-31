@@ -20,27 +20,5 @@ module.exports = {
       familyName: authData.family_name
     }),
     registrationAllowed: false
-  },
-  events: {
-    async 'auth.registered'(ctx) {
-      const { webId, profileData } = ctx.params;
-
-      await ctx.call(
-        'ldp.resource.patch',
-        {
-          resource: {
-            '@context': urlJoin(CONFIG.HOME_URL, 'context.json'),
-            '@id': webId,
-            '@type': ['pair:Person', 'foaf:Person'],
-            'pair:label': `${profileData.name} ${profileData.familyName.toUpperCase()}`,
-            'pair:firstName': profileData.name,
-            'pair:lastName': profileData.familyName,
-            'pair:e-mail': profileData.email
-          },
-          contentType: MIME_TYPES.JSON
-        },
-        { meta: { webId: 'system' } }
-      );
-    }
   }
 };

@@ -18,12 +18,17 @@ const PlaceShow = (props) => (
             <TextField source="pair:label" />
           </ReferenceField>
           <ReferenceArrayField source="cdlt:hasCourseType" reference="Type">
-            <SeparatedListField linkType={false}>
+            <SeparatedListField link={false}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
           <ReferenceArrayField source="pair:hasType" reference="Type">
-            <SeparatedListField linkType={false}>
+            <SeparatedListField link={false}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+          <ReferenceArrayField source="pair:hasStatus" reference="Status">
+            <SeparatedListField link={false}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>

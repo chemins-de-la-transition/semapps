@@ -1,7 +1,7 @@
 import React from 'react';
 import { Admin, Resource } from 'react-admin';
 import { createBrowserHistory } from 'history';
-import { LoginPage, LogoutButton } from '@semapps/auth-provider';
+import { SsoLoginPage, LogoutButton } from '@semapps/auth-provider';
 
 import authProvider from './config/authProvider';
 import dataProvider from './config/dataProvider';
@@ -14,6 +14,7 @@ import theme from './config/theme';
 import customRoutes from './customRoutes';
 
 const history = createBrowserHistory();
+const LoginPageWithText = props => <SsoLoginPage text="Si vous avez été invité en tant qu'acteur sur la plateforme, vous pouvez vous connecter ci-dessous. Si vous souhaitez devenir acteur, merci de nous contacter." {...props} />;
 
 const App = () => (
   <Admin
@@ -22,7 +23,7 @@ const App = () => (
     authProvider={authProvider}
     dataProvider={dataProvider}
     i18nProvider={i18nProvider}
-    loginPage={LoginPage}
+    loginPage={LoginPageWithText}
     logoutButton={LogoutButton}
     dashboard={HomePage}
     layout={Layout}

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { makeStyles } from '@material-ui/core';
 import { useListContext } from 'react-admin';
 import CardBlock from './CardBlock';
+import { sortBySimilarity } from "../../../utils";
 
 const useStyles = makeStyles((theme) => ({
   cardContainer: {
@@ -13,12 +14,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ItemsGrid = ({ CardSubHeaderComponent }) => {
+const ItemsGrid = ({ similarRecord, CardSubHeaderComponent }) => {
   const classes = useStyles();
   const { ids, data, basePath } = useListContext();
+
+  const sortedIds = useMemo(() => {
+    if( !similarRecord ) return ids;
+    return ids
+      .filter(id => id !== similarRecord.id )
+      .sort(sortBySimilarity(data, similarRecord, 'pair:hasTopic'))
+      .sort(sortBySimilarity(data, similarRecord, 'pair:hasLocation'))
+      .slice(0, 4);
+  }, [ids, data, similarRecord]);
+
   return (
     <div className={classes.cardContainer}>
-      {ids.map((id) => (
+      {sortedIds.map((id) => (
         <CardBlock
           key={id}
           record={data[id]}

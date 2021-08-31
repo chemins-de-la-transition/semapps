@@ -10,6 +10,9 @@ const StatusCreate = (props) => (
         source="@type"
         choices={[
           { id: 'cdlt:CourseStatus', name: 'CourseStatus' },
+          { id: 'pair:AgentStatus', name: 'AgentStatus' },
+          { id: 'pair:EventStatus', name: 'EventStatus' },
+          { id: 'pair:Status', name: 'Status' },
           // { id: 'cdlt:PathStatus', name: 'PathStatus' },
         ]}
       />

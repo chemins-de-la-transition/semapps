@@ -1,7 +1,6 @@
 import React from 'react';
-import { IconButton, useMediaQuery, makeStyles, Typography, Grid } from '@material-ui/core';
+import { IconButton, useMediaQuery, makeStyles, Typography, Grid, Box } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import LogoTitle from './LogoTitle';
 import FullWidthBox from '../commons/FullWidthBox';
 import LargeContainer from '../commons/LargeContainer';
 import {
@@ -12,10 +11,16 @@ import {
 } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
+  links: {
+    [theme.breakpoints.down('xs')]: {
+      order: 3
+    }
+  },
   footerLink: {
     color: theme.palette.secondary.main,
     fontWeight: 'bold',
     textDecoration: 'none',
+    lineHeight: '28px',
     '&:hover': {
       textDecoration: 'underline',
     },
@@ -27,8 +32,17 @@ const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: '40px',
   },
-  menuLink: {
-    textDecoration: 'none',
+  logo: {
+    height: 77,
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: 20
+    },
+  },
+  socialLinksText: {
+    marginBottom: 12,
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: 0
+    },
   },
   icon: {
     paddingLeft: 0
@@ -41,35 +55,40 @@ const Footer = ({ title }) => {
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer disableGutters={xs}>
-        <Grid container className={classes.root} spacing={2}>
+        <Grid container className={classes.root}>
           <Grid item sm={9}>
-            <LogoTitle title={title} mb={3} classes={{ menuLink: classes.menuLink }} />
-            <Typography variant="body2" color="secondary">
-              <Link to="/Page/qui-sommes-nous/show" className={classes.footerLink}>
-                A propos de nous
-              </Link>
-              &nbsp;&nbsp;-&nbsp;&nbsp;
-              <Link to="/Page/contact/show" className={classes.footerLink}>
-                Contactez-nous
-              </Link>
-              &nbsp;&nbsp;-&nbsp;&nbsp;
-              <Link to="/Page/mentions-legales/show" className={classes.footerLink}>
-                Mentions légales
-              </Link>
-              &nbsp;&nbsp;-&nbsp;&nbsp;
-              <Link to="/Page/rgpd/show" className={classes.footerLink}>
-                Politique de gestion des données
-              </Link>
-              <br /><br /><br />
-            </Typography>
+            <img src={process.env.PUBLIC_URL + '/logoCut512.png'} alt="logo" className={classes.logo} />
           </Grid>
           <Grid item sm={3}>
-            <Typography variant="subtitle1" color="secondary" component="h6" style={{ marginBottom: '12px' }}>
+            <Typography variant="subtitle1" color="secondary" component="h6" className={classes.socialLinksText}>
               Réseaux sociaux
             </Typography>
-            <Typography variant="body1" color="secondary" component="div" style={{ marginBottom: '12px' }}>
-              Restez informé des dernières actualités de la Trasition en nous suivant sur :
+            <Typography variant="body1" color="secondary" component="div" className={classes.socialLinksText}>
+              Restez informé des dernières actualités de la Transition en nous suivant sur :
             </Typography>
+          </Grid>
+          <Grid item sm={9} className={classes.links}>
+            <Box pt={3} pb={5}>
+              <Typography variant="body2" color="secondary">
+                <Link to="/Page/qui-sommes-nous/show" className={classes.footerLink}>
+                  A propos de nous
+                </Link>
+                {" "}{" "}-{" "}{" "}
+                <Link to="/Page/contact/show" className={classes.footerLink}>
+                  Contactez-nous
+                </Link>
+                {" "}{" "}-{" "}{" "}
+                <Link to="/Page/mentions-legales/show" className={classes.footerLink}>
+                  Mentions&nbsp;légales
+                </Link>
+                {" "}{" "}-{" "}{" "}
+                <Link to="/Page/rgpd/show" className={classes.footerLink}>
+                  Politique de gestion des données
+                </Link>
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item sm={3}>
             <IconButton
               aria-label="facebook"
               color="secondary"

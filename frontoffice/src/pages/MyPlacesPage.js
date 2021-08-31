@@ -8,7 +8,7 @@ import LargeContainer from '../commons/LargeContainer';
 import HeaderTitle from '../commons/HeaderTitle';
 import Button from '../commons/Button';
 
-const actions = [<Button to="/Place/create">Ajouter un lieu</Button>];
+const actions = [<Button to="/Place/create">Ajouter</Button>];
 
 const MyPlacesPage = () => {
   const { identity } = useCheckAuthenticated();

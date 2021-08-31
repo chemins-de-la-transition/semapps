@@ -15,7 +15,7 @@ const PersonCreate = (props) => (
       <TextInput source="pair:firstName" label="Prénom" fullWidth />
       <TextInput source="pair:lastName" label="Nom de famille" fullWidth />
       <TextInput source="foaf:email" fullWidth />
-      <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
+      <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} fullWidth helperText="Si vous créer un utilisateur de type Acteur, il recevra automatiquement une invitation à son adresse mail"  />
     </SimpleForm>
   </Create>
 );
