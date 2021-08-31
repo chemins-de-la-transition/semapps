@@ -30,6 +30,7 @@ export default {
         'pair:isDepictedBy': 'Image',
         'cdlt:hasCourseType': 'Type de parcours',
         'pair:hasType': "Type d'événement",
+        'pair:hasStatus': "Statut",
         'pair:hasTopic': 'Thématiques',
         'pair:produces': 'Compétences visées',
         'pair:startDate': 'Date de début',

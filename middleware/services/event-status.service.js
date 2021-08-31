@@ -23,7 +23,7 @@ module.exports = {
           }
           WHERE {
             <${this.settings.containerUri}> ldp:contains ?eventUri .
-            ?eventUri pair:hasStatus ?status .
+            OPTIONAL { ?eventUri pair:hasStatus ?status . }
             ?eventUri pair:endDate ?endDate .
             FILTER(NOW() < ?endDate) .
           }
@@ -43,7 +43,7 @@ module.exports = {
           }
           WHERE {
             <${this.settings.containerUri}> ldp:contains ?eventUri .
-            ?eventUri pair:hasStatus ?status .
+            OPTIONAL { ?eventUri pair:hasStatus ?status . }
             ?eventUri pair:endDate ?endDate .
             FILTER(NOW() > ?endDate) .
           }
