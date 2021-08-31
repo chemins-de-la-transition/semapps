@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     color: theme.palette.white.main,
     '& svg': {
-      fontSize: '32rem',
+      fontSize: '24rem',
     },
     '& > .MuiSvgIcon-root': {
       fill: 'inherit',
@@ -82,7 +82,14 @@ const NextEvents = () => {
     <FullWidthBox className={classes.background}>
       <LargeContainer>
         <Grid container spacing={3}>
-          <Grid item sm={7} className={classes.eventList}>
+          <Grid item sm={7}>
+            <Hidden smUp>
+              <Box mb={2}>
+                <Typography variant="h1" component="div">
+                  L’agenda des évènements
+                </Typography>
+              </Box>
+            </Hidden>
             <ListBase resource="Event" basePath="/Event" className={classes.eventListBase} perPage={4} filter={{ 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/open' }} sort={{ field: 'pair:startDate', order: 'ASC'}}>
               <ItemsGrid />
             </ListBase>
@@ -91,7 +98,8 @@ const NextEvents = () => {
             </Button>
           </Grid>
           <Hidden xsDown>
-            <Grid item sm={5} className={classes.eventIcon}>
+            <Grid item sm={1} />
+            <Grid item sm={4} className={classes.eventIcon}>
               <LargeRound />
               <Box className={classes.internalIcon}>
                 <Typography variant="h1" component="div">

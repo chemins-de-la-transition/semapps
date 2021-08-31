@@ -1,39 +1,21 @@
 import React from 'react';
-import { makeStyles, /*Typography,*/ Box } from '@material-ui/core';
+import { makeStyles, Box } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 const logoHeight = 77;
-// const logoWidth = 94;
 const logoHeightSmall = 40;
-// const logoWidthSmall = 65;
-// const breakPointlimit = 'xs';
 const breakPointlimit = 720;
 const useStyles = makeStyles((theme) => ({
   logo: {
-    // width: logoWidth,
     height: logoHeight,
     verticalAlign: 'middle',
     [theme.breakpoints.down(breakPointlimit)]: {
-      // width: logoWidthSmall,
       height: logoHeightSmall,
     },
   },
-  // logoText: {
-  //   fontSize: 20,
-  //   lineHeight: '27px',
-  //   fontWeight: '900',
-  //   color: theme.palette.secondary.main,
-  //   paddingLeft: theme.spacing(1),
-  //   [theme.breakpoints.down(breakPointlimit)]: {
-  //     fontSize: 14,
-  //     lineHeight: '18px',
-  //   }
-  // },
   logoBox: {
-    // width: 240,
     height: logoHeight,
     [theme.breakpoints.down(breakPointlimit)]: {
-      // width: 180,
       height: logoHeightSmall,
     },
   },

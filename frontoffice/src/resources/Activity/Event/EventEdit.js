@@ -8,7 +8,7 @@ import EventTitle from './EventTitle';
 import EventForm from './EventForm';
 import Button from '../../../commons/Button';
 
-const actions = [<Button to="/MyEvents">Mes événements</Button>];
+const actions = [<Button to="/MyEvents">Liste</Button>];
 
 const EventEdit = (props) => {
   usePermissionsWithRefetch(props.id, 'edit', props.basePath);

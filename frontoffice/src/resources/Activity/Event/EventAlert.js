@@ -4,7 +4,13 @@ import {TextField, useShowContext} from "react-admin";
 import { makeStyles, Box } from "@material-ui/core";
 import { ReferenceField } from "@semapps/semantic-data-provider";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
+  root: {
+    backgroundColor: 'rgba(212,162,76,0.2)',
+  },
+  icon: {
+    color: theme.palette.primary.main + ' !important',
+  },
   message: {
     paddingTop: 10
   }
@@ -17,7 +23,7 @@ const EventAlert = () => {
     if( Array.isArray(record['pair:partOf']) ) record['pair:partOf'] = record['pair:partOf'][0];
     return (
       <Box pt={3} pb={1}>
-        <Alert severity="warning" classes={{ message: classes.message }}>
+        <Alert severity="warning" classes={classes}>
           Cet événement fait partie du parcours&nbsp;
           <ReferenceField record={record} reference="Course" source="pair:partOf" link="show">
             <TextField source="pair:label" />

@@ -18,7 +18,7 @@ const EventList = (props) => {
 
   // Filter out finished events only for non-calendar view
   const query = new URLSearchParams(useLocation().search);
-  const view = query.has('view') ? query.get('view') : 'calendar';
+  const view = query.has('view') ? query.get('view') : xs ? 'map' : 'calendar';
   const filter = view === 'calendar' ? undefined : { 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/open' };
 
   return (

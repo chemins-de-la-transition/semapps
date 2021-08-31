@@ -8,7 +8,7 @@ import LargeContainer from '../commons/LargeContainer';
 import HeaderTitle from '../commons/HeaderTitle';
 import Button from '../commons/Button';
 
-const actions = [<Button to="/Event/create">Ajouter un événement</Button>];
+const actions = [<Button to="/Event/create">Ajouter</Button>];
 
 const MyEventsPage = () => {
   const { identity } = useCheckAuthenticated();

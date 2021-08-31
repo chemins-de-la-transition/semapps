@@ -8,7 +8,7 @@ import EventTitle from './EventTitle';
 import EventForm from './EventForm';
 import Button from '../../../commons/Button';
 
-const actions = [<Button to="/MyEvents">Mes événements</Button>];
+const actions = [<Button to="/MyEvents">Liste</Button>];
 
 const EventCreate = (props) => {
   useCheckPermissions(props.resource, 'create');

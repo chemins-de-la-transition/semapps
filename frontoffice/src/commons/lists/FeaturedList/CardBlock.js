@@ -103,7 +103,7 @@ const useStyles = makeStyles((theme) => ({
       flexShrink: '0',
     },
     [theme.breakpoints.down('xs')]: {
-      flexBasis: '100%',
+      flexBasis: '80%',
       flexShrink: '0',
     },
     display: 'inline-block',

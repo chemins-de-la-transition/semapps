@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { makeStyles, Typography, List, ListItem, ListItemText, ListItemAvatar, Box } from '@material-ui/core';
+import {makeStyles, Typography, List, ListItem, ListItemText, ListItemAvatar, Box, Hidden} from '@material-ui/core';
 import { DateField, useListContext, TextField, ImageField } from 'react-admin';
 import { Link } from 'react-router-dom';
 import { ReferenceField } from '@semapps/semantic-data-provider';
@@ -10,15 +10,20 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 const useStyles = makeStyles((theme) => ({
   eventType: {
     color: theme.palette.primary.contrastText,
-    marginBottom: '4px',
+    marginBottom: 4,
+    marginTop: 3
   },
   eventLabel: {
     fontSize: 30,
     lineHeight: '43px',
     color: theme.palette.primary.contrastText,
-    marginBottom: '4px',
+    marginBottom: 4,
     display: 'flex',
     alignItems: 'center',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 20,
+      lineHeight: '23px',
+    },
   },
   eventPlace: {
     fontSize: 14,
@@ -30,12 +35,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     lineHeight: '20px',
     color: theme.palette.primary.contrastText,
-    marginBottom: '4px',
     '& span': {
       fontSize: 14,
       lineHeight: '20px',
+      fontWeight: 'bold',
       color: theme.palette.primary.contrastText,
-      marginBottom: '4px',
       textTransform: 'uppercase',
     },
   },
@@ -65,9 +69,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   avatarContainer: {
-    width: 110,
-    height: 110,
+    width: 120,
+    height: 120,
     marginRight: 12,
+    marginTop: 6,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -77,10 +82,15 @@ const useStyles = makeStyles((theme) => ({
       height: 110,
       objectFit: 'cover',
       margin: 0
-    }
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: 75,
+      height: 75
+    },
   },
   listItem: {
     paddingLeft: '0',
+    alignItems: 'flex-start'
   },
 }));
 
@@ -100,65 +110,65 @@ const ItemsGrid = ({ similarRecord }) => {
 
   return (
     <List className={classes.list + ' ' + classes.divider}>
-      {sortedIds.map((id) => {
-        return (
-          <ListItem
-            className={classes.listItem}
-            button={true}
-            component={Link}
-            to={'/Event/' + encodeURIComponent(id) + '/show'}
-            key={id}
-          >
-            <ListItemAvatar className={classes.avatarContainer}>
-              {data[id]['pair:isDepictedBy'] && Array.isArray(data[id]['pair:isDepictedBy']) ? (
-                <ImageField source="pair:isDepictedBy.0" record={data[id]} />
-              ) : data[id]['pair:isDepictedBy'] && !Array.isArray(data[id]['pair:isDepictedBy']) ? (
-                <ImageField source="pair:isDepictedBy" record={data[id]} />
-              ): (
-                <CalendarIcon fontSize="large" />
-              )}
-            </ListItemAvatar>
-            <ListItemText
-              primary={
-                <>
-                  {data[id]['pair:hasType'] && (
-                    <ReferenceField source="pair:hasType" reference="Type" record={data[id]} link={false}>
-                      <TextField
-                        source="pair:label"
-                        variant="h5"
-                        component="div"
-                        className={classes.eventType}
-                      />
-                    </ReferenceField>
-                  )}
-                  <Typography variant="h4" component="div" className={classes.eventLabel}>
-                    {data[id]['pair:label']}
+      {sortedIds.map((id) => (
+        <ListItem
+          className={classes.listItem}
+          button={true}
+          component={Link}
+          to={'/Event/' + encodeURIComponent(id) + '/show'}
+          key={id}
+        >
+          <ListItemAvatar className={classes.avatarContainer}>
+            {data[id]['pair:isDepictedBy'] && Array.isArray(data[id]['pair:isDepictedBy']) ? (
+              <ImageField source="pair:isDepictedBy.0" record={data[id]} />
+            ) : data[id]['pair:isDepictedBy'] && !Array.isArray(data[id]['pair:isDepictedBy']) ? (
+              <ImageField source="pair:isDepictedBy" record={data[id]} />
+            ): (
+              <CalendarIcon fontSize="large" />
+            )}
+          </ListItemAvatar>
+          <ListItemText
+            primary={
+              <>
+                {data[id]['pair:hasType'] && (
+                  <ReferenceField source="pair:hasType" reference="Type" record={data[id]} link={false}>
+                    <TextField
+                      source="pair:label"
+                      variant="h5"
+                      component="div"
+                      className={classes.eventType}
+                    />
+                  </ReferenceField>
+                )}
+                <Typography variant="h4" component="div" className={classes.eventLabel}>
+                  {data[id]['pair:label']}
+                  <Hidden xsDown>
                     &nbsp;
                     <ChevronRightIcon />
-                  </Typography>
-                  <ReferenceField source="pair:hasLocation" reference="Region" record={data[id]} link={false}>
-                    <Box className={classes.eventPlace}>
-                      <TextField source="pair:label" variant="body1" />
-                    </Box>
-                  </ReferenceField>
-                  <Typography
-                    variant="button"
-                    component="div"
-                    className={classes.eventDate}
-                  >
-                    <DateField
-                      record={data[id]}
-                      source="pair:startDate"
-                      options={{ year: 'numeric', month: 'long', day: 'numeric' }}
-                    />
-                  </Typography>
-                </>
-              }
-              disableTypography={true}
-            />
-          </ListItem>
-        );
-      })}
+                  </Hidden>
+                </Typography>
+                <ReferenceField source="pair:hasLocation" reference="Region" record={data[id]} link={false}>
+                  <Box className={classes.eventPlace}>
+                    <TextField source="pair:label" variant="body1" />
+                  </Box>
+                </ReferenceField>
+                <Typography
+                  variant="button"
+                  component="div"
+                  className={classes.eventDate}
+                >
+                  <DateField
+                    record={data[id]}
+                    source="pair:startDate"
+                    options={{ year: 'numeric', month: 'long', day: 'numeric' }}
+                  />
+                </Typography>
+              </>
+            }
+            disableTypography={true}
+          />
+        </ListItem>
+      ))}
     </List>
   );
 };

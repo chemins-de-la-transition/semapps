@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 10,
     paddingBottom: 10,
   },
-  openButton: {},
   menuLink: {
     textDecoration: 'none',
   },

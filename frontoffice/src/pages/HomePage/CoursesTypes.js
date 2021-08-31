@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Typography, Grid, Box } from '@material-ui/core';
+import {makeStyles, Typography, Grid, Box, useMediaQuery} from '@material-ui/core';
 import FullWidthBox from '../../commons/FullWidthBox';
 import LargeContainer from '../../commons/LargeContainer';
 import DiscoverIcon from '../../svg/DiscoverIcon';
@@ -18,19 +18,28 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     flexDirection: 'column',
     textAlign: 'center',
-    paddingBottom: '40px',
+    paddingBottom: 40,
+    [theme.breakpoints.down('xs')]: {
+      textAlign: 'left'
+    },
   },
   title: {
-    marginTop: '40px',
+    marginTop: 40,
   },
   subTitle: {
-    marginBottom: '40px',
+    marginBottom: 40,
   },
   itemTitle: {
-    marginBottom: '8px'
+    marginBottom: 8
   },
   iconContainer: {
     position: 'relative',
+    width: 150,
+    height: 150,
+    '& img': {
+      width: '100%',
+      height: 'auto'
+    },
     '& svg': {
       position: 'absolute',
       top: '50%',
@@ -39,25 +48,32 @@ const useStyles = makeStyles((theme) => ({
       '& [fill]': {
         fill: theme.palette.secondary.contrastText,
       },
-      fontSize: '3rem',
+      fontSize: '3rem'
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: 100,
+      height: 100
     },
   },
 }));
 
 const LocalGridItem = ({ title, text, image, icon }) => {
   const classes = useStyles();
+  const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
   return (
-    <Grid item sm={6} md={3} className={classes.item}>
-      <Box className={classes.iconContainer}>
-        <img src={image} alt="" aria-label="icône" />
-        {icon}
+    <Grid item sm={6} md={3}>
+      <Box display="flex" alignItems={xs ? 'flex-start' : 'center'} justifyContent="center" flexDirection="column">
+        <Box className={classes.iconContainer}>
+          <img src={image} alt="" aria-label="icône" />
+          {icon}
+        </Box>
+        <Typography variant="h6" className={classes.itemTitle}>
+          {title}
+        </Typography>
+        <Typography variant="body2" component="div">
+          {text}
+        </Typography>
       </Box>
-      <Typography variant="h6" className={classes.itemTitle}>
-        {title}
-      </Typography>
-      <Typography variant="body2" component="div">
-        {text}
-      </Typography>
     </Grid>
   );
 };

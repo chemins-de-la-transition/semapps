@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.main,
   },
   container: {
-    marginTop: '60px',
+    marginTop: 60,
     marginBottom: '0',
   },
   header: {
@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'flex-end',
     flexGrow: '10',
-    marginLeft: '20px',
-    marginTop: '10px',
+    marginLeft: 20,
+    marginTop: 10,
     '& .MuiTypography-root': {
       color: theme.palette.secondary.main,
     },
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     },
     '& svg': {
       height: '12px',
-    },
+    }
   },
   listBase: {
     overflowY: 'hidden',

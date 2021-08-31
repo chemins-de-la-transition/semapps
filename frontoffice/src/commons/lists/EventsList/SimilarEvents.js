@@ -23,17 +23,17 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     color: theme.palette.white.main,
     '& svg': {
-      fontSize: '20rem',
+      fontSize: '24rem',
     },
-    // '& > .MuiSvgIcon-root': {
-    //   fill: 'inherit',
-    //   width: 'inherit',
-    //   height: 'inherit',
-    //   display: 'inherit',
-    //   fontSize: 'inherit',
-    //   transition: 'inherit',
-    //   flexShrink: 'inherit',
-    // },
+    '& > .MuiSvgIcon-root': {
+      fill: 'inherit',
+      width: 'inherit',
+      height: 'inherit',
+      display: 'inherit',
+      fontSize: 'inherit',
+      transition: 'inherit',
+      flexShrink: 'inherit',
+    },
   },
   internalIcon: {
     display: 'flex',
@@ -41,33 +41,33 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     textAlign: 'center',
     position: 'absolute',
-    width: '40%',
+    width: '70%',
     paddingLeft: '10%',
-    // '& .MuiTypography-root': {
-    //   [theme.breakpoints.down('xs')]: {
-    //     fontSize: '48px',
-    //     lineHeight: '70px',
-    //   },
-    //   [theme.breakpoints.down(1000)]: {
-    //     fontSize: '40px',
-    //     lineHeight: '52px',
-    //   },
-    //   [theme.breakpoints.down(800)]: {
-    //     fontSize: '30px',
-    //     lineHeight: '40px',
-    //   },
-    //   [theme.breakpoints.down(666)]: {
-    //     fontSize: '20px',
-    //     lineHeight: '30px',
-    //   },
-    // },
-    // '& svg': {
-    //   width: '50%',
-    //   height: '50%',
-    //   '& path':{
-    //     fill: theme.palette.primary.contrastText,
-    //   }
-    // },
+    '& .MuiTypography-root': {
+      [theme.breakpoints.down('xs')]: {
+        fontSize: '48px',
+        lineHeight: '70px',
+      },
+      [theme.breakpoints.down(1000)]: {
+        fontSize: '40px',
+        lineHeight: '52px',
+      },
+      [theme.breakpoints.down(800)]: {
+        fontSize: '30px',
+        lineHeight: '40px',
+      },
+      [theme.breakpoints.down(666)]: {
+        fontSize: '20px',
+        lineHeight: '30px',
+      },
+    },
+    '& svg': {
+      width: '50%',
+      height: '50%',
+      '& path':{
+        fill: theme.palette.primary.contrastText,
+      }
+    },
   },
   eventListBase: {
     marginBottom: '40px',
@@ -82,8 +82,15 @@ const SimilarEvents = () => {
     <FullWidthBox className={classes.background}>
       <LargeContainer>
         <Grid container spacing={3}>
-          <Grid item sm={8} className={classes.eventList}>
-            <ListBase resource="Event" basePath="/Event" className={classes.eventListBase} filter={{ 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/open' }} sort={{ field: 'pair:startDate', order: 'ASC'}}>
+          <Grid item sm={7}>
+            <Hidden smUp>
+              <Box mb={2}>
+                <Typography variant="h1" component="div">
+                  Evénements similaires
+                </Typography>
+              </Box>
+            </Hidden>
+            <ListBase resource="Event" basePath="/Event" className={classes.eventListBase} filter={{ 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/open' }}>
               <ItemsGrid similarRecord={record} />
             </ListBase>
             <Button to="/Event" variant="contained" color="primary" component={Link} typographyVariant="button1">
@@ -91,6 +98,7 @@ const SimilarEvents = () => {
             </Button>
           </Grid>
           <Hidden xsDown>
+            <Grid item sm={1} />
             <Grid item sm={4} className={classes.eventIcon}>
               <LargeRound />
               <Box className={classes.internalIcon}>
