@@ -1,7 +1,6 @@
 import React from 'react';
 import { IconButton, useMediaQuery, makeStyles, Typography, Grid, Box } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import LogoTitle from './LogoTitle';
 import FullWidthBox from '../commons/FullWidthBox';
 import LargeContainer from '../commons/LargeContainer';
 import {
