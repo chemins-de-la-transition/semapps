@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BodyList = ({ children, aside }) => {
+const BodyList = ({ children, aside, alert }) => {
   const translate = useTranslate();
   const classes = useStyles();
   const { basePath, loaded, record, resource } = useShowContext();
@@ -34,6 +34,7 @@ const BodyList = ({ children, aside }) => {
         <LargeContainer>
           <Grid container spacing={2}>
             <Grid item sm={9} xs={12}>
+              {alert && React.cloneElement(alert)}
               {fields.map((field) => (
                 <div key={field.props.source} id={field.props.source} className={classes.divider}>
                   {field.props.addLabel ? (

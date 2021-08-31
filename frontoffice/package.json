@@ -2,6 +2,7 @@
   "name": "cdlt-frontend",
   "private": true,
   "dependencies": {
+    "@material-ui/lab": "^4.0.0-alpha.50",
     "@semapps/archipelago-layout": "0.3.4",
     "@semapps/auth-provider": "0.3.4",
     "@semapps/date-components": "0.3.4",

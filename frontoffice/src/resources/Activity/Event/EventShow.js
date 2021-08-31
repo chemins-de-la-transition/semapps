@@ -10,6 +10,8 @@ import EventDetails from './EventDetails';
 import ContactField from "../../../commons/fields/ContactField";
 import BulletPointsField from "../../../commons/fields/BulletPointsField";
 import SimilarEvents from "../../../commons/lists/EventsList/SimilarEvents";
+import ApplyButton from "../../../commons/buttons/ApplyButton";
+import EventAlert from "./EventAlert";
 
 const EventShow = (props) => (
   <ShowBase {...props}>
@@ -18,14 +20,15 @@ const EventShow = (props) => (
         type="pair:hasType"
         linkToListText="Liste des évènements"
         details={<EventDetails />}
-        actionLabel="Je candidate"
+        actionButton={<ApplyButton />}
       />
       <BodyList
         aside={
-          <StickyCard actionLabel="Je candidate">
+          <StickyCard actionButton={<ApplyButton />}>
             <EventDetails orientation="vertical" />
           </StickyCard>
         }
+        alert={<EventAlert />}
       >
         <MarkdownField source="pair:description" />
         <MarkdownField source="cdlt:program" />

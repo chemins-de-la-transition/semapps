@@ -2,7 +2,6 @@ import React from 'react';
 import StickyBox from 'react-sticky-box';
 import { useRecordContext, TextField } from 'react-admin';
 import { makeStyles, Box, Card } from '@material-ui/core';
-import Button from './Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const StickyCard = ({ children, actionLabel, actionClick }) => {
+const StickyCard = ({ children, actionButton }) => {
   const classes = useStyles();
   const record = useRecordContext();
   return (
@@ -35,9 +34,7 @@ const StickyCard = ({ children, actionLabel, actionClick }) => {
           {children}
         </Box>
         <Box className={classes.button} pb={3} pr={2} pl={2}>
-          <Button variant="contained" color="primary" typographyVariant="button1" onClick={actionClick}>
-            {actionLabel}
-          </Button>
+          {actionButton && React.cloneElement(actionButton)}
         </Box>
       </Card>
     </StickyBox>

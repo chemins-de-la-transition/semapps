@@ -12,14 +12,15 @@ import TimelineList from '../../../commons/lists/TimelineList';
 import ContactField from "../../../commons/fields/ContactField";
 import SimilarList from "../../../commons/lists/FeaturedList/SimilarList";
 import CourseSubHeader from "./CourseSubHeader";
+import ApplyButton from "../../../commons/buttons/ApplyButton";
 
 const CourseShow = (props) => (
   <ShowBase {...props}>
     <>
-      <HeaderShow linkToListText="Liste des parcours" details={<CourseDetails />} actionLabel="Je candidate" />
+      <HeaderShow linkToListText="Liste des parcours" details={<CourseDetails />} actionButton={<ApplyButton />} />
       <BodyList
         aside={
-          <StickyCard actionLabel="Je candidate">
+          <StickyCard actionButton={<ApplyButton />}>
             <CourseDetails orientation="vertical" />
           </StickyCard>
         }

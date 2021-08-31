@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import StickyBox from 'react-sticky-box';
-import { useListContext, Link, usePermissionsOptimized } from 'react-admin';
+import {useListContext, Link, usePermissionsOptimized, useListFilterContext} from 'react-admin';
 import { useLocation } from 'react-router';
 import { Box, Grid, Typography, IconButton, makeStyles, useMediaQuery, Button, Drawer } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
@@ -67,12 +67,15 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 500,
     fontFamily: 'Roboto',
     marginRight: 16
+  },
+  removeFiltersButton: {
+    padding: '8px 20px',
   }
 }));
 
 const MultiViewsFilterList = ({ views, filters }) => {
   const classes = useStyles();
-  const { resource, basePath, hasCreate, ids } = useListContext();
+  const { resource, basePath, hasCreate, ids, loading } = useListContext();
   const { permissions } = usePermissionsOptimized(resource);
   const [areFiltersOpen, openFilters] = useState(false);
   const query = new URLSearchParams(useLocation().search);
@@ -81,6 +84,7 @@ const MultiViewsFilterList = ({ views, filters }) => {
     query.has('view') && activatedViews.includes(query.get('view')) ? query.get('view') : activatedViews[0];
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
   const [currentView, setView] = useState(initialView);
+  const { filterValues, setFilters } = useListFilterContext();
 
   return (
     <Grid container>
@@ -157,7 +161,17 @@ const MultiViewsFilterList = ({ views, filters }) => {
             </Grid>
           </Grid>
         </Box>
-        {views[currentView] && views[currentView].list}
+        {!loading && ids.length === 0 ?
+          <Box display="flex" alignItems="center" justifyContent="center" height={400} flexDirection="column">
+            <Typography variant="h6" component="div">Aucun résultat trouvé</Typography>
+            <br />
+            {Object.keys(filterValues).length > 0 &&
+              <Button variant="contained" color="primary" className={classes.removeFiltersButton} onClick={() => setFilters({})}>Enlever tous les filtres</Button>
+            }
+          </Box>
+          :
+          views[currentView] && views[currentView].list
+        }
       </Grid>
     </Grid>
   );

@@ -15,6 +15,7 @@ import ContactDialog from "../../commons/ContactDialog";
 import ContactField from "../../commons/fields/ContactField";
 import PlaceSubHeader from "./PlaceSubHeader";
 import SimilarList from "../../commons/lists/FeaturedList/SimilarList";
+import ContactButton from "../../commons/buttons/ContactButton";
 
 const PlaceShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
@@ -25,12 +26,11 @@ const PlaceShow = (props) => {
           type="pair:hasType"
           linkToListText="Liste des lieux"
           details={<PlaceDetails />}
-          actionLabel="Contacter le lieu"
-          actionClick={() => setShowDialog(true)}
+          actionButton={<ContactButton />}
         />
         <BodyList
           aside={
-            <StickyCard actionLabel="Contacter le lieu" actionClick={() => setShowDialog(true)}>
+            <StickyCard actionButton={<ContactButton />}>
               <PlaceDetails orientation="vertical" />
             </StickyCard>
           }

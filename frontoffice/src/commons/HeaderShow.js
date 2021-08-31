@@ -23,7 +23,6 @@ import FullWidthBox from './FullWidthBox';
 import LargeContainer from './LargeContainer';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import EditIcon from '@material-ui/icons/Edit';
-import Button from './Button';
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -110,7 +109,7 @@ const MultipleImagesField = ({ source, max = 2 }) => {
   }
 };
 
-const HeaderShow = ({ type, linkToListText, details, actionLabel, actionClick }) => {
+const HeaderShow = ({ type, linkToListText, details, actionButton }) => {
   const classes = useStyles();
   const { basePath, hasEdit, record } = useShowContext();
   const { permissions } = usePermissionsOptimized(record?.id);
@@ -157,17 +156,13 @@ const HeaderShow = ({ type, linkToListText, details, actionLabel, actionClick })
           </Box>
           {xs && (
             <Box pb={3}>
-              <Button variant="contained" color="primary" typographyVariant="button1">
-                {actionLabel}
-              </Button>
+              {actionButton && React.cloneElement(actionButton)}
             </Box>
           )}
         </Box>
         <Drawer anchor="bottom" open={xs && showDrawer} hideBackdrop disableScrollLock>
           <Box className={classes.drawer} pt={1} pb={2}>
-            <Button variant="contained" color="primary" typographyVariant="button1" onClick={actionClick}>
-              {actionLabel}
-            </Button>
+            {actionButton && React.cloneElement(actionButton)}
           </Box>
         </Drawer>
       </LargeContainer>
