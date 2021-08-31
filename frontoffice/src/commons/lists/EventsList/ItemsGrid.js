@@ -68,7 +68,27 @@ const useStyles = makeStyles((theme) => ({
       margin: '0',
     },
   },
-  avatarContainer: {
+  imageContainer: {
+    width: 120,
+    height: 120,
+    marginRight: 12,
+    marginTop: 6,
+    '& img': {
+      width: 120,
+      height: 120,
+      objectFit: 'cover',
+      margin: 0
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: 75,
+      height: 75,
+      '& img': {
+        width: 75,
+        height: 75
+      },
+    },
+  },
+  iconContainer: {
     width: 120,
     height: 120,
     marginRight: 12,
@@ -77,15 +97,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: theme.palette.grey['400'],
-    '& img': {
-      width: 110,
-      height: 110,
-      objectFit: 'cover',
-      margin: 0
-    },
     [theme.breakpoints.down('xs')]: {
       width: 75,
-      height: 75
+      height: 75,
     },
   },
   listItem: {
@@ -118,15 +132,19 @@ const ItemsGrid = ({ similarRecord }) => {
           to={'/Event/' + encodeURIComponent(id) + '/show'}
           key={id}
         >
-          <ListItemAvatar className={classes.avatarContainer}>
-            {data[id]['pair:isDepictedBy'] && Array.isArray(data[id]['pair:isDepictedBy']) ? (
+          {data[id]['pair:isDepictedBy'] && Array.isArray(data[id]['pair:isDepictedBy']) ? (
+            <ListItemAvatar className={classes.imageContainer}>
               <ImageField source="pair:isDepictedBy.0" record={data[id]} />
-            ) : data[id]['pair:isDepictedBy'] && !Array.isArray(data[id]['pair:isDepictedBy']) ? (
+            </ListItemAvatar>
+          ) : data[id]['pair:isDepictedBy'] && !Array.isArray(data[id]['pair:isDepictedBy']) ? (
+            <ListItemAvatar className={classes.imageContainer}>
               <ImageField source="pair:isDepictedBy" record={data[id]} />
-            ): (
+            </ListItemAvatar>
+          ): (
+            <ListItemAvatar className={classes.iconContainer}>
               <CalendarIcon fontSize="large" />
-            )}
-          </ListItemAvatar>
+            </ListItemAvatar>
+          )}
           <ListItemText
             primary={
               <>

@@ -160,7 +160,7 @@ const HeaderShow = ({ type, linkToListText, details, actionButton }) => {
             </Box>
           )}
         </Box>
-        <Drawer anchor="bottom" open={xs && showDrawer} hideBackdrop disableScrollLock>
+        <Drawer anchor="bottom" open={xs && showDrawer} hideBackdrop disableScrollLock variant="persistent">
           <Box className={classes.drawer} pt={1} pb={2}>
             {actionButton && React.cloneElement(actionButton)}
           </Box>
