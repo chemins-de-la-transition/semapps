@@ -2,13 +2,13 @@ import * as React from 'react';
 import { cloneElement, Children } from 'react';
 import { linkToRecord, sanitizeListRestProps, useListContext, Link } from 'react-admin';
 import classnames from 'classnames';
-import { LinearProgress } from '@material-ui/core';
+import { LinearProgress, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    // display: 'flex',
-    // flexWrap: 'wrap'
+  li: {
+    whiteSpace: 'pre-wrap',
+    marginTop: 10,
   },
   link: {},
 }));
@@ -38,7 +38,7 @@ const BulletPointsField = (props) => {
 
         if (resourceLinkPath) {
           return (
-            <span key={id}>
+            <li key={id} className={classes.li}>
               <Link classes={classes.link} to={resourceLinkPath} onClick={stopPropagation}>
                 {cloneElement(Children.only(children), {
                   record: data[id],
@@ -48,12 +48,12 @@ const BulletPointsField = (props) => {
                   onClick: handleClick,
                 })}
               </Link>
-            </span>
+            </li>
           );
         }
 
         return (
-          <li key={id}>
+          <li key={id} className={classes.li}>
             {cloneElement(Children.only(children), {
               record: data[id],
               resource,

@@ -36,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
   breadcrumbs: {
     paddingTop: 15,
     paddingBottom: 10,
+    '& a:hover': {
+      color: 'white'
+    }
   },
   type: {
     paddingTop: 10,

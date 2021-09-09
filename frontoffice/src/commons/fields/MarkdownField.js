@@ -8,8 +8,12 @@ const useStyles = makeStyles((theme) => ({
     // See https://github.com/remarkjs/react-markdown/issues/273#issuecomment-683754992
     whiteSpace: 'pre-wrap',
     '&:first-of-type': {
-      marginTop: 10,
+      marginTop: 20,
     },
+    marginBottom: 10
+  },
+  li: {
+    marginBottom: 10
   },
   h: {
     marginTop: 15,
@@ -28,7 +32,7 @@ const MarkdownField = (props) => {
         h2: (props) => <Typography variant="subtitle2" color="secondary" paragraph {...props} className={classes.h} />,
         li: (props) => (
           <li>
-            <Typography variant="body2" color="secondary" {...props} className={classes.p} />
+            <Typography variant="body2" color="secondary" {...props} className={classes.li} />
           </li>
         ),
       }}

@@ -13,6 +13,11 @@ code {
     monospace;
 }
 
-a, a:hover, a:active {
+a, a:active {
+  color: #D4A24C;
+  text-decoration: none;
+}
+
+a:hover {
   color: #D4A24C;
 }

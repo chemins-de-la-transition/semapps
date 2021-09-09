@@ -44,7 +44,7 @@ const PlaceShow = (props) => {
           </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:produces">
             <BulletPointsField linkType={false}>
-              <TextField source="pair:label" />
+              <TextField variant="body2" color="secondary" source="pair:label" />
             </BulletPointsField>
           </ReferenceArrayField>
           <MarkdownField source="cdlt:practicalConditions" />

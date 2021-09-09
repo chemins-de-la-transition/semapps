@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
       flexWrap: 'wrap',
     },
   },
+  subTitle: {
+    marginTop: -5,
+    marginBottom: 5
+  },
   link: {
     alignSelf: 'flex-end',
     flexShrink: '0',
@@ -33,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: '10',
     marginLeft: 20,
     marginTop: 10,
+    color: theme.palette.secondary.main,
     '& .MuiTypography-root': {
       color: theme.palette.secondary.main,
     },
@@ -67,7 +72,7 @@ const FeaturedList = ({ resource, basePath, title, subtitle, headComment, linkTe
         <Box width={1} className={classes.header}>
           <Box>
             <Typography variant="h2">{title}</Typography>
-            <Typography variant="h3" component="div">
+            <Typography variant="h3" component="div" className={classes.subTitle}>
               {subtitle}
             </Typography>
             <Typography variant="body2" component="div">
