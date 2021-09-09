@@ -2,7 +2,7 @@ import * as React from 'react';
 import { cloneElement, Children } from 'react';
 import { linkToRecord, sanitizeListRestProps, useListContext, Link } from 'react-admin';
 import classnames from 'classnames';
-import { LinearProgress, Typography } from '@material-ui/core';
+import { LinearProgress } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
