@@ -15,12 +15,15 @@ const ContactField = ({ phone, website, ...rest }) => {
   const record = useRecordContext(rest);
   return(
     <ul>
-      <li><Typography variant="body2" color="secondary"  className={classes.p}>{record[phone]}</Typography></li>
+      <li><Typography variant="body2" color="secondary"  className={classes.p}>Téléphone: {record[phone]}</Typography></li>
       {record[website] &&
         <li>
-          <a href={record[website]} target="_blank" rel="noopener noreferrer">
-            <Typography variant="body2" color="secondary"  className={classes.p}>{record[website]}</Typography>
-          </a>
+          <Typography variant="body2" color="secondary" className={classes.p}>
+            Site web:{" "}
+            <a href={record[website]} target="_blank" rel="noopener noreferrer">
+              {record[website]}
+            </a>
+          </Typography>
         </li>
       }
     </ul>

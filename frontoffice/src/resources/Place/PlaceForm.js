@@ -46,8 +46,8 @@ const PlaceForm = ({ mode, ...rest }) => {
       <TypeInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} validate={[required()]} />
       <ThemesInput source="pair:hasTopic" />
       <SkillsInput source="pair:produces" fullWidth />
-      <TextInput source="pair:e-mail" fullWidth validate={[required(), email()]} />
-      <TextInput source="pair:phone" fullWidth />
+      <TextInput source="pair:e-mail" fullWidth validate={[required(), email()]} helperText="Ne sera pas visible, mais on pourra vous contacter via un formulaire" />
+      <TextInput source="pair:phone" fullWidth helperText="Si vous entrez un numéro de téléphone, il sera visible sur la page de votre lieu" />
       <TextInput source="pair:homePage" fullWidth />
     </SimpleForm>
   );
