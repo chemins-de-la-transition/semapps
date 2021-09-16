@@ -1,3 +1,5 @@
 /.idea
 /data
 /letsencrypt
+middleware/logs/err.log
+middleware/logs/out.log
