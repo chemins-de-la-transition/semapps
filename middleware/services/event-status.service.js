@@ -60,7 +60,7 @@ module.exports = {
   },
   crons: [
     {
-      cronTime: '*/1 * * * *',
+      cronTime: '0 */3 * * *',
       onTick: function() {
         this.call('event-status.tagEvents');
       },
