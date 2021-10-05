@@ -209,10 +209,10 @@ const Goals = () => {
               Mailler les territoires & Valoriser les initiatives existantes
             </Typography>
             <ul className={classes.ulStyle}>
-              <ListGoalsItem text="Référencer les lieux inspirationnels et les initiatives ouvertes à la transmission qui contribuent à la transition (écologique, énergétique, sociale, culturelle, économique...)" />
+              <ListGoalsItem text="Référencer les lieux inspirationnels et les initiatives ouvertes à la transmission qui contribuent à la transition (écologique, énergétique, sociale, culturelle, économique...)." />
               <ListGoalsItem text="Promouvoir et dynamiser l'attractivité des zones rurales grâce à une nouvelle dynamique de flux axés sur la découverte des acteurs de transition locaux." />
-              <ListGoalsItem text="Interconnecter les acteurs de la transition et leur donner de la visibilité. Créer des synergies inter-projets / inter-territoires" />
-              <ListGoalsItem text="Accélérer des projets grâce à l’aide apportée par les voyageurs" />
+              <ListGoalsItem text="Interconnecter les acteurs de la transition et leur donner de la visibilité. Créer des synergies inter-projets / inter-territoires." />
+              <ListGoalsItem text="Accélérer des projets grâce à l’aide apportée par les voyageurs." />
             </ul>
           </Grid>
         </Grid>
