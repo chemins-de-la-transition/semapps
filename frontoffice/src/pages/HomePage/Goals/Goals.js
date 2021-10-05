@@ -248,9 +248,9 @@ const Goals = () => {
             </Typography>
             <ul className={classes.ulStyle}>
               <ListGoalsItem text="Contribuer à l’essaimage de projets à fort impact local et faire grandir l’écosystème de la transition." />
-              <ListGoalsItem text="Stimuler l’émergence de nouvelles initiatives" />
+              <ListGoalsItem text="Stimuler l’émergence de nouvelles initiatives." />
               <ListGoalsItem text="Créer du lien grâce à un espace d’échange et de partage d’informations, d’idées, de projets." />
-              <ListGoalsItem text="Amplifier la transition socio-écologique, par l’implication des citoyens dans la mise en œuvre des actions de transition" />
+              <ListGoalsItem text="Amplifier la transition socio-écologique, par l’implication des citoyens dans la mise en œuvre des actions de transition." />
               <ListGoalsItem text="Accroître la résilience du territoire grâce au développement de solutions locales." />
             </ul>
           </Grid>
