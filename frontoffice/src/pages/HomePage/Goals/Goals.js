@@ -227,7 +227,7 @@ const Goals = () => {
           <Grid item sm={6} md={4} lg={3} className={classes.thirdText}>
             <WalkerIcon className={classes.mb24 + ' ' + classes.iconWhite} />
             <Typography variant="h5" component="div" className={classes.mb24}>
-              Voyager en apprenant , se&nbsp;former aux&nbsp;enjeux et métiers de la&nbsp;transition
+              Voyager en apprenant, se&nbsp;former aux&nbsp;enjeux et métiers de la&nbsp;transition
             </Typography>
             <ul className={classes.ulStyle}>
               <ListGoalsItem text="Des parcours immersifs thématiques pour accéder facilement aux pratiques émergentes dans tous les domaines de la transition." />
