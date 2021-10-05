@@ -209,8 +209,8 @@ const Goals = () => {
               Mailler les territoires & Valoriser les initiatives existantes
             </Typography>
             <ul className={classes.ulStyle}>
-              <ListGoalsItem text="Promouvoir et dynamiser l’attractivité des zones rurales grâce à une nouvelle dynamique de tourisme." />
-              <ListGoalsItem text="Référencer les lieux inspirationnels et les initiatives qui contribuent à la transition (écologique, énergétique, social, culturelle, économique,..." />
+              <ListGoalsItem text="Référencer les lieux inspirationnels et les initiatives ouvertes à la transmission qui contribuent à la transition (écologique, énergétique, sociale, culturelle, économique...)" />
+              <ListGoalsItem text="Promouvoir et dynamiser l'attractivité des zones rurales grâce à une nouvelle dynamique de flux axés sur la découverte des acteurs de transition locaux." />
               <ListGoalsItem text="Interconnecter les acteurs de la transition et leur donner de la visibilité. Créer des synergies inter-projets / inter-territoires" />
               <ListGoalsItem text="Accélérer des projets grâce à l’aide apportée par les voyageurs" />
             </ul>
@@ -232,7 +232,7 @@ const Goals = () => {
             <ul className={classes.ulStyle}>
               <ListGoalsItem text="Des parcours immersifs thématiques pour accéder facilement aux pratiques émergentes dans tous les domaines de la transition." />
               <ListGoalsItem text="Des parcours avec plusieurs niveaux de découverte et d’apprentissage en faisant." />
-              <ListGoalsItem text="Liberté de créer ses propres chemins selon ses centres d’intérêts, ses disponibilités, le degré recherché d’apprentissage (découvrir, apprendre par le faire, se former aux métiers)." />
+              <ListGoalsItem text="La liberté de créer ses propres chemins selon ses centres d’intérêts, ses disponibilités, le degré recherché d’apprentissage (découvrir, apprendre par le faire, se former aux métiers)." />
               <ListGoalsItem text="Permettre la découverte, l’apprentissage des métiers de la transition au contact d’acteurs passionnés et engagés." />
             </ul>
           </Grid>
@@ -249,8 +249,8 @@ const Goals = () => {
             <ul className={classes.ulStyle}>
               <ListGoalsItem text="Contribuer à l’essaimage de projets à fort impact local et faire grandir l’écosystème de la transition." />
               <ListGoalsItem text="Stimuler l’émergence de nouvelles initiatives" />
-              <ListGoalsItem text="Créer du lien grâce un espace d’échange et de partage d’informations, d’idées, de projets." />
-              <ListGoalsItem text="Amplifier la transition écologique, par l’implication des citoyens dans la mise en œuvre des actions de transition" />
+              <ListGoalsItem text="Créer du lien grâce à un espace d’échange et de partage d’informations, d’idées, de projets." />
+              <ListGoalsItem text="Amplifier la transition socio-écologique, par l’implication des citoyens dans la mise en œuvre des actions de transition" />
               <ListGoalsItem text="Accroître la résilience du territoire grâce au développement de solutions locales." />
             </ul>
           </Grid>
