@@ -10,7 +10,7 @@ import TopBar from './TopBar';
 const Layout = ({ logout, theme, children, title }) => {
   const menuItems = [
     { link: '/Place', name: 'Lieux' },
-    { link: '/Event', name: 'Evènements' },
+    { link: '/Event', name: 'Événements' },
     { link: '/Course', name: 'Parcours' },
   ];
   // const xs = useMediaQuery(theme.breakpoints.down('xs'));

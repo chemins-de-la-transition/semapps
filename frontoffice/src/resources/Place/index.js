@@ -37,7 +37,7 @@ export default {
         'cdlt:activities': 'Activités',
         'pair:hosts': 'Evénements',
         'pair:produces': 'Compétences / savoir-faire',
-        'cdlt:practicalConditions': "Modalité d'accueil",
+        'cdlt:practicalConditions': "Modalités d'accueil",
         'pair:hasPostalAddress': 'Localisation',
         'cdlt:proposedBy': 'Proposé par',
         'pair:e-mail': 'Adresse e-mail',
