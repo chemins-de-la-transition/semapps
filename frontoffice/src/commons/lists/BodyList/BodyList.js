@@ -33,7 +33,7 @@ const BodyList = ({ children, aside, alert }) => {
       <FullWidthBox>
         <LargeContainer>
           <Grid container spacing={2}>
-            <Grid item sm={9} xs={12}>
+            <Grid item md={9} sm={12} xs={12}>
               {alert && React.cloneElement(alert)}
               {fields.map((field) => (
                 <div key={field.props.source} id={field.props.source} className={classes.divider}>
@@ -66,8 +66,8 @@ const BodyList = ({ children, aside, alert }) => {
                 </div>
               ))}
             </Grid>
-            <Hidden xsDown>
-              <Grid item sm={3}>
+            <Hidden smDown>
+              <Grid item md={3}>
                 {aside}
               </Grid>
             </Hidden>
