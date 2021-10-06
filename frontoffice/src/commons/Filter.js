@@ -57,6 +57,7 @@ const Filter = ({ reference, source, inverseSource, limit, sort, filter, label, 
 
 Filter.defaultProps = {
   limit: 500,
+  sort: { field: 'pair:label', order: 'ASC' }
 };
 
 export default Filter;

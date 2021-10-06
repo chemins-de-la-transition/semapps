@@ -100,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SelectResources = ({ reference, inverseSource, ...rest }) =>{
-  const { data, ids } = useGetList(reference);
+  const { data, ids } = useGetList(reference, undefined, { field: 'pair:label', order: 'ASC' });
   return (
     <Select {...rest}>
       <MenuItem value="">Choisir...</MenuItem>/>
