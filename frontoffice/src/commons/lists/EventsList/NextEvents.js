@@ -4,8 +4,6 @@ import { ListBase } from 'react-admin';
 import { Link } from 'react-router-dom';
 import LargeContainer from '../../LargeContainer';
 import FullWidthBox from '../../FullWidthBox';
-import LargeRound from '../../../svg/LargeRound';
-import CalendarIcon from '../../../svg/CalendarIcon';
 import Button from '../../Button';
 import ItemsGrid from './ItemsGrid';
 
@@ -16,59 +14,9 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '60px',
     paddingBottom: '60px',
   },
-  eventIcon: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'relative',
-    width: '100%',
-    color: theme.palette.white.main,
-    '& svg': {
-      fontSize: '24rem',
-    },
-    '& > .MuiSvgIcon-root': {
-      fill: 'inherit',
-      width: 'inherit',
-      height: 'inherit',
-      display: 'inherit',
-      fontSize: 'inherit',
-      transition: 'inherit',
-      flexShrink: 'inherit',
-    },
-  },
-  internalIcon: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    textAlign: 'center',
-    position: 'absolute',
-    width: '70%',
-    paddingLeft: '10%',
-    '& .MuiTypography-root': {
-      [theme.breakpoints.down('xs')]: {
-        fontSize: '48px',
-        lineHeight: '70px',
-      },
-      [theme.breakpoints.down(1000)]: {
-        fontSize: '40px',
-        lineHeight: '52px',
-      },
-      [theme.breakpoints.down(800)]: {
-        fontSize: '30px',
-        lineHeight: '40px',
-      },
-      [theme.breakpoints.down(666)]: {
-        fontSize: '20px',
-        lineHeight: '30px',
-      },
-    },
-    '& svg': {
-      width: '50%',
-      height: '50%',
-      '& path':{
-        fill: theme.palette.primary.contrastText,
-      }
-    },
+  allEventsImage: {
+    maxWidth: '100%',
+    marginTop: 20
   },
   eventListBase: {
     marginBottom: '40px',
@@ -99,13 +47,9 @@ const NextEvents = () => {
           </Grid>
           <Hidden xsDown>
             <Grid item sm={1} />
-            <Grid item sm={4} className={classes.eventIcon}>
-              <LargeRound />
-              <Box className={classes.internalIcon}>
-                <Typography variant="h1" component="div">
-                  L’agenda des évènements
-                </Typography>
-                <CalendarIcon />
+            <Grid item sm={4}>
+              <Box display="flex" alignItems="center" justifyContent="center" >
+                <img src={process.env.PUBLIC_URL + '/next-events.png'} alt="L'agenda des événements"  className={classes.allEventsImage} />
               </Box>
             </Grid>
           </Hidden>
