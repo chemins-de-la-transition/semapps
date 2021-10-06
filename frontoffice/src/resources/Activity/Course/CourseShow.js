@@ -57,7 +57,7 @@ const CourseShow = (props) => (
             groupClusters={false}
             connectMarkers
             boundToMarkers
-            scrollWheelZoom
+            scrollWheelZoom={false}
           />
         </ReferenceArrayField>
         <ContactField
