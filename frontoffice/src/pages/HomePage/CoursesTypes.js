@@ -62,7 +62,7 @@ const LocalGridItem = ({ title, text, image, icon }) => {
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
   return (
     <Grid item sm={6} md={3}>
-      <Box display="flex" alignItems={xs ? 'flex-start' : 'center'} justifyContent="center" flexDirection="column">
+      <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column">
         <Box className={classes.iconContainer}>
           <img src={image} alt="" aria-label="icône" />
           {icon}
@@ -70,7 +70,7 @@ const LocalGridItem = ({ title, text, image, icon }) => {
         <Typography variant="h6" className={classes.itemTitle}>
           {title}
         </Typography>
-        <Typography variant="body2" component="div">
+        <Typography variant="body2" component="div" align="center">
           {text}
         </Typography>
       </Box>

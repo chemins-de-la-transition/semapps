@@ -56,20 +56,22 @@ const Footer = ({ title }) => {
     <FullWidthBox className={classes.background}>
       <LargeContainer disableGutters={xs}>
         <Grid container className={classes.root}>
-          <Grid item sm={9}>
-            <img src={process.env.PUBLIC_URL + '/logoCut512.png'} alt="logo" className={classes.logo} />
+          <Grid item sm={9} xs={12}>
+            <Typography align={xs ? "center" : undefined}>
+              <img src={process.env.PUBLIC_URL + '/logoCut512.png'} alt="logo" className={classes.logo} />
+            </Typography>
           </Grid>
           <Grid item sm={3}>
-            <Typography variant="subtitle1" color="secondary" component="h6" className={classes.socialLinksText}>
+            <Typography variant="subtitle1" color="secondary" component="h6" align={xs ? "center" : undefined} className={classes.socialLinksText}>
               Réseaux sociaux
             </Typography>
-            <Typography variant="body1" color="secondary" component="div" className={classes.socialLinksText}>
+            <Typography variant="body1" color="secondary" component="div" align={xs ? "center" : undefined} className={classes.socialLinksText}>
               Restez informé des dernières actualités de la Transition en nous suivant sur :
             </Typography>
           </Grid>
-          <Grid item sm={9} className={classes.links}>
-            <Box pt={3} pb={5}>
-              <Typography variant="body2" color="secondary">
+          <Grid item sm={9} xs={12} className={classes.links}>
+            <Box pt={3} pb={{ sm: 5, xs: 3 }}>
+              <Typography variant="body2" color="secondary" align={xs ? "center" : undefined}>
                 <Link to="/Page/qui-sommes-nous/show" className={classes.footerLink}>
                   A propos de nous
                 </Link>
@@ -88,24 +90,26 @@ const Footer = ({ title }) => {
               </Typography>
             </Box>
           </Grid>
-          <Grid item sm={3}>
-            <IconButton
-              aria-label="facebook"
-              color="secondary"
-              href="https://www.facebook.com/Les-Chemins-de-la-Transition-103307098592299"
-              className={classes.icon}
-            >
-              <FacebookIcon fontSize="large" />
-            </IconButton>
-            <IconButton aria-label="instagram" color="secondary" disabled>
-              <InstagramIcon fontSize="large" />
-            </IconButton>
-            <IconButton aria-label="twitter" color="secondary" href="https://twitter.com/CdlT_Occitanie">
-              <TwitterIcon fontSize="large" />
-            </IconButton>
-            <IconButton aria-label="youtube" color="secondary" disabled>
-              <YoutubeIcon fontSize="large" />
-            </IconButton>
+          <Grid item sm={3} xs={12}>
+            <Typography align={xs ? "center" : undefined}>
+              <IconButton
+                aria-label="facebook"
+                color="secondary"
+                href="https://www.facebook.com/Les-Chemins-de-la-Transition-103307098592299"
+                className={classes.icon}
+              >
+                <FacebookIcon fontSize="large" />
+              </IconButton>
+              <IconButton aria-label="instagram" color="secondary" disabled>
+                <InstagramIcon fontSize="large" />
+              </IconButton>
+              <IconButton aria-label="twitter" color="secondary" href="https://twitter.com/CdlT_Occitanie">
+                <TwitterIcon fontSize="large" />
+              </IconButton>
+              <IconButton aria-label="youtube" color="secondary" disabled>
+                <YoutubeIcon fontSize="large" />
+              </IconButton>
+            </Typography>
           </Grid>
         </Grid>
       </LargeContainer>
