@@ -49,7 +49,7 @@ const CardsList = ({ CardComponent, link }) => {
               <CardMedia className={classes.image} image={Array.isArray(image) ? image[0] : image} />
             )}
             <CardContent className={classes.content}>
-              <CardComponent record={data[id]} />
+              <CardComponent record={data[id]} basePath={basePath} />
             </CardContent>
           </Card>
         </Link>

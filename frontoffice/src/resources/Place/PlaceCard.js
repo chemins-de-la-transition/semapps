@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField } from 'react-admin';
+import { TextField, Link, linkToRecord } from 'react-admin';
 import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { makeStyles, Typography } from '@material-ui/core';
@@ -19,11 +19,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PlaceCard = ({ record, variant }) => {
+const PlaceCard = ({ record, basePath, variant }) => {
   const classes = useStyles();
   return (
     <>
-      <TextField variant="h2" component="div" record={record} source="pair:label" className={classes.title} />
+      <Link to={linkToRecord(basePath, record.id, 'show')}>
+        <TextField variant="h2" component="div" record={record} source="pair:label" className={classes.title} />
+      </Link>
       {record['pair:hasLocation'] && (
         <Chip icon={<PlaceIcon />}>
           <ReferenceField record={record} source="pair:hasLocation" reference="Region" link={false}>

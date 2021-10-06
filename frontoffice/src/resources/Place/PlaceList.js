@@ -42,7 +42,7 @@ const PlaceList = (props) => {
                 scrollWheelZoom
                 popupContent={({ record, basePath }) => (
                   <>
-                    <PlaceCard record={record} variant="compact" />
+                    <PlaceCard record={record} basePath={basePath} variant="compact" />
                     <br />
                     <ShowButton record={record} basePath={basePath} variant="contained" />
                   </>

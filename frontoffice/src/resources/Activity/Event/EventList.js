@@ -77,7 +77,7 @@ const EventList = (props) => {
                 longitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
                 popupContent={({ record, basePath }) => (
                   <>
-                    <EventCard record={record} variant="compact" />
+                    <EventCard record={record} basePath={basePath} variant="compact" />
                     <br />
                     <ShowButton record={record} basePath={basePath} variant="contained" />
                   </>
