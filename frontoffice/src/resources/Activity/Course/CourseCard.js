@@ -9,7 +9,8 @@ import { makeStyles } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: 20,
-    lineHeight: 1.8,
+    lineHeight: 1.2,
+    marginBottom: 8,
     color: theme.palette.primary.main,
   },
   description: {
@@ -25,7 +26,7 @@ const CourseCard = ({ record, variant }) => {
   const classes = useStyles();
   return (
     <>
-      <TextField variant="h2" record={record} source="pair:label" className={classes.title} />
+      <TextField variant="h2" component="div" record={record} source="pair:label" className={classes.title} />
       {record['cdlt:hasCourseType'] && (
         <Chip icon={<CourseIcon />}>
           <ReferenceArrayField record={record} source="cdlt:hasCourseType" reference="Type">

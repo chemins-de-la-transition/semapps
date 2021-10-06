@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     width: 180,
+    minWidth: 180,
     minHeight: 145,
     backgroundColor: theme.palette.grey['300'],
     [theme.breakpoints.down('xs')]: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   content: {
-    flex: '1 0 auto',
+    // flex: '1 0 auto',
     [theme.breakpoints.down('xs')]: {
       padding: 10,
     },

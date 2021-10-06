@@ -11,7 +11,8 @@ import CalendarIcon from '../../../svg/CalendarIcon';
 const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: 20,
-    lineHeight: 1.8,
+    lineHeight: 1.2,
+    marginBottom: 8,
     color: theme.palette.primary.main,
   },
   description: {
@@ -27,7 +28,7 @@ const EventCard = ({ record, variant }) => {
   const classes = useStyles();
   return (
     <>
-      <TextField variant="h2" record={record} source="pair:label" className={classes.title} />
+      <TextField variant="h2" record={record} component="div" source="pair:label" className={classes.title} />
       <Chip icon={<CalendarIcon />}>
         <DateField
           record={record}
