@@ -18,6 +18,7 @@ export default {
   },
   dataModel: {
     types: ['pair:Place'],
+    fetchContainer: true,
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'places',
     dereference: ['pair:hasPostalAddress'],
     slugField: 'pair:label',

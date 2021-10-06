@@ -87,7 +87,7 @@ const FeaturedList = ({ resource, basePath, title, subtitle, headComment, linkTe
           </Link>
         </Box>
         <Box className={classes.listBase}>
-          <ListBase resource={resource} basePath={basePath} perPage={4} sort={{ field: 'dc:created', order: 'ASC' }}>
+          <ListBase resource={resource} basePath={basePath} perPage={4} sort={{ field: 'dc:created', order: 'DESC' }}>
             <ItemsGrid CardSubHeaderComponent={CardSubHeaderComponent} />
           </ListBase>
         </Box>
