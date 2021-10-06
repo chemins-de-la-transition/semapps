@@ -83,6 +83,7 @@ const MultiViewsFilterList = ({ views, filters }) => {
   const initialView =
     query.has('view') && activatedViews.includes(query.get('view')) ? query.get('view') : activatedViews[0];
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
+  const sm = useMediaQuery((theme) => theme.breakpoints.down('sm'), { noSsr: true });
   const [currentView, setView] = useState(initialView);
   const { filterValues, setFilters } = useListFilterContext();
 
@@ -136,7 +137,7 @@ const MultiViewsFilterList = ({ views, filters }) => {
                   query.set('view', key);
                   return (
                     <Link key={key} to={'?' + query.toString()}>
-                      {xs ?
+                      {xs || sm ?
                         <IconButton
                           size="small"
                           color="secondary"
