@@ -120,12 +120,12 @@ const MultiViewsFilterList = ({ views, filters }) => {
       <Grid item xs={12} sm={8} className={classes.results}>
         <Box bgcolor="primary.main" maxHeight={50}>
           <Grid container>
-            <Grid item xs={6}>
+            <Grid item xs={4}>
               <Box p={2}>
                 <Typography variant="body2">{ids.length} résultat(s)</Typography>
               </Box>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={8}>
               <Box textAlign="right" className={classes.icons}>
                 {!xs && hasCreate && !!permissions && permissions.some(p => ['acl:Append', 'acl:Write'].includes(p['acl:mode'])) &&
                   <Link to={`${basePath}/create`}>
