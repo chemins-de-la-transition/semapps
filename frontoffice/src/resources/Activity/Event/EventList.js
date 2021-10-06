@@ -41,6 +41,15 @@ const EventList = (props) => {
           />,
         ]}
         views={{
+          list: {
+            label: 'Vue liste',
+            icon: ListIcon,
+            list: (
+              <Box p={xs ? 2 : 3}>
+                <CardsList CardComponent={EventCard} />
+              </Box>
+            ),
+          },
           calendar: xs
             ? undefined
             : {
@@ -75,16 +84,7 @@ const EventList = (props) => {
                 )}
               />
             ),
-          },
-          list: {
-            label: 'Vue liste',
-            icon: ListIcon,
-            list: (
-              <Box p={xs ? 2 : 3}>
-                <CardsList CardComponent={EventCard} />
-              </Box>
-            ),
-          },
+          }
         }}
       />
     </ListBase>
