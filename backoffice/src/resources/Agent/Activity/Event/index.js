@@ -41,6 +41,7 @@ export default {
         'pair:hasLocation': 'Région',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
+        'cdlt:learningObjectives': 'Objectifs pédagogiques',
         'cdlt:economicalConditions': 'Conditions financières',
         'pair:partOf': 'Fait partie de',
         'pair:e-mail': 'Adresse e-mail',
