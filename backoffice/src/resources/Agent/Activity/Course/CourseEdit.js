@@ -61,7 +61,7 @@ const CourseEdit = (props) => (
         <SkillsInput source="pair:produces" />
         <PersonsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
-        <DocumentsType source="pair:produces" />
+        <DocumentsType source="pair:documentedBy" />
       </FormTab>
       <FormTab label="Contact">
         <TextInput source="pair:e-mail" fullWidth />
