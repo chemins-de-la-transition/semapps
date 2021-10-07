@@ -35,7 +35,7 @@ export default {
         'pair:endDate': 'Date de fin',
         'cdlt:priceRange': 'Coût',
         'pair:description': 'Présentation',
-        'pair:hasPart': 'Programme du parcours',
+        'pair:hasPart': 'Evénements constitutifs du parcours',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
