@@ -70,7 +70,7 @@ export const AgentsInput = ({ label, source }) => (
 
 export const StatusInput = ({ label, source, ...rest }) => (
   <ReferenceInput label={label} reference="Status" source={source} {...rest}>
-    <SelectInput optionText="pair:label" />
+    <SelectInput optionText="pair:label" allowEmpty />
   </ReferenceInput>
 );
 
@@ -82,7 +82,7 @@ export const TypesInput = ({ label, source, ...rest }) => (
 
 export const TypeInput = ({ label, source, ...rest }) => (
   <ReferenceArrayInput label={label} reference="Type" source={source} {...rest}>
-    <SelectInput optionText="pair:label" />
+    <SelectInput optionText="pair:label" allowEmpty />
   </ReferenceArrayInput>
 );
 
@@ -100,13 +100,13 @@ export const CoursesInput = ({ label, source }) => (
 
 export const CourseInput = ({ label, source, ...rest }) => (
   <ReferenceArrayInput label={label} reference="Course" source={source} {...rest}>
-    <AutocompleteInput optionText="pair:label" />
+    <AutocompleteInput optionText="pair:label" allowEmpty />
   </ReferenceArrayInput>
 );
 
 export const PathInput = ({ label, source, ...rest }) => (
   <ReferenceInput label={label} reference="Path" source={source} {...rest}>
-    <AutocompleteInput optionText="pair:label" />
+    <AutocompleteInput optionText="pair:label" allowEmpty />
   </ReferenceInput>
 );
 
