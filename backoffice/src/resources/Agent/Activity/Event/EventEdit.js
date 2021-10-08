@@ -47,7 +47,6 @@ const EventEdit = (props) => (
         <MarkdownInput source="cdlt:economicalConditions" fullWidth />
       </FormTab>
       <FormTab label="Relations">
-        <StatusInput source="pair:hasStatus" filter={{ a: 'pair:EventStatus' }} />
         <PersonsInput source="cdlt:organizedBy" />
         <PlaceInput source="pair:hostedIn" />
         <CourseInput source="pair:partOf" />
