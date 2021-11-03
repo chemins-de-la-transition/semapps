@@ -15,7 +15,7 @@ import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MapList } from '@semapps/geo-components';
 import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
-import JotformButton from './JotformButton';
+import JotformButton from '../../../JotformButton';
 import CourseTitle from './CourseTitle';
 import HomeIcon from '@material-ui/icons/Home';
 
@@ -47,8 +47,8 @@ const CourseShow = (props) => (
           <ReferenceField source="pair:hasStatus" reference="Status" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
-          <JotformButton />
         </Hero>
+        <JotformButton />
         <MainList>
           <MarkdownField source="pair:description" />
           <MarkdownField source="cdlt:prerequisites" />

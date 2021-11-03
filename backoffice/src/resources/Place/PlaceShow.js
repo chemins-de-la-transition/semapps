@@ -7,6 +7,7 @@ import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import PlaceTitle from './PlaceTitle';
+import JotformButton from '../JotformButton';
 
 const PlaceShow = (props) => (
   <ShowWithPermissions title={<PlaceTitle />} {...props}>
@@ -36,6 +37,7 @@ const PlaceShow = (props) => (
           <TextField source="pair:phone" />
           <UrlField source="pair:homePage" />
         </Hero>
+        <JotformButton />
         <MainList>
           <MarkdownField source="pair:description" addLabel />
           <MarkdownField source="cdlt:activities" addLabel />

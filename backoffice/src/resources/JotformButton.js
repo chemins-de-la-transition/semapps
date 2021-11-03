@@ -20,36 +20,42 @@ const JotformButton = (props) => {
   const record = useRecordContext(props);
 
   const id = record.id;
-  const startDate = new Date(record["pair:startDate"]);
-  const endDate = new Date(record["pair:endDate"]);
+  const startDate = record["pair:startDate"] ? new Date(record["pair:startDate"]) : null;
+  const endDate = record["pair:endDate"] ? new Date(record["pair:endDate"]) : null;
   const priceRange = record["cdlt:priceRange"];
   const label = record["pair:label"];
   const hasType = record["pair:hasType"];
 
   useEffect(() => {
+    if (!hasType) return;
     Promise.all(hasType.map((t) => axios.get(t).then((r) => r.data))).then(
       setTypes
     );
   }, [hasType]);
 
   return (
+    <>
     <Button
       variant="outlined"
       color="primary"
       onClick={() => {
         setClicked(true);
-        const query = qs.stringify({
-          "dateArrivee[day]": lightFormat(startDate, "dd"),
-          "dateArrivee[month]": lightFormat(startDate, "MM"),
-          "dateArrivee[year]": lightFormat(startDate, "yyyy"),
-          "dateDepart[day]": lightFormat(endDate, "dd"),
-          "dateDepart[month]": lightFormat(endDate, "MM"),
-          "dateDepart[year]": lightFormat(endDate, "yyyy"),
-          typeVoyage: types.map((t) => t["pair:label"]).join(", "),
+        const query = qs.stringify(Object.assign({},
+          startDate && {
+            "dateArrivee[day]": lightFormat(startDate, "dd"),
+            "dateArrivee[month]": lightFormat(startDate, "MM"),
+            "dateArrivee[year]": lightFormat(startDate, "yyyy")
+          },
+          endDate && {
+            "dateDepart[day]": lightFormat(endDate, "dd"),
+            "dateDepart[month]": lightFormat(endDate, "MM"),
+            "dateDepart[year]": lightFormat(endDate, "yyyy")
+          },
+          types && {typeVoyage: types.map((t) => t["pair:label"]).join(", ")},
           label,
-          LEPId: id,
-          prix: priceRange.replace(/[^0-9]/g, ""),
-        });
+          {LEPId: id},
+          priceRange && {prix: priceRange.replace(/[^0-9]/g, "")},
+        ));
 
         navigator.clipboard.writeText(
           "https://form.jotform.com/212243252835046?" + query
@@ -61,6 +67,7 @@ const JotformButton = (props) => {
         ? "Copié dans le presse-papier ✅"
         : "🔗 Lien vers formulaire Jotform"}
     </Button>
+    </>
   );
 };
 
