@@ -14,8 +14,6 @@ RUN mkdir ~/.ssh && touch ~/.ssh/known_hosts && ssh-keyscan gateways.storage.gra
 COPY ./middleware /app
 COPY ./ecosystem.config.js /app
 
-RUN ./initialize.sh
-
 RUN yarn install
 
 EXPOSE 3000
