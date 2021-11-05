@@ -197,16 +197,16 @@
   resolved "https://registry.yarnpkg.com/@panva/asn1.js/-/asn1.js-1.0.0.tgz#dd55ae7b8129e02049f009408b97c61ccf9032f6"
   integrity sha512-UdkG3mLEqXgnlKsWanWcgb6dOjUzJ+XC5f+aWw30qrtjxeNUSfKX1cd5FBzOaXQumoe9nIqeZUvrRJS03HCCtw==
 
-"@semapps/auth@0.3.13":
-  version "0.3.13"
-  resolved "https://registry.yarnpkg.com/@semapps/auth/-/auth-0.3.13.tgz#d45bb3c14ab0e1e29abfed2021a061df3887ab7b"
-  integrity sha512-fKf94Xze3+NNyRr0Zq4mGEaSgvyud1A64IntY21vZ6qiRLa+hKdxazY7FwfpBtu8OXmZdjnAQNziPeWVbD5xwA==
+"@semapps/auth@0.3.17":
+  version "0.3.17"
+  resolved "https://registry.yarnpkg.com/@semapps/auth/-/auth-0.3.17.tgz#53afd4f60a412d56df978fc6c68f45b3727a2dd6"
+  integrity sha512-qMeyu6kgM4lKM8yUuuisBKuJww5hyvRg742gsmM1FRn4zvzQGR4O/8x/uv7Yin3skvzkImS3sb8MUJWAsrzD7A==
   dependencies:
-    "@semapps/mime-types" "0.3.13"
+    "@semapps/mime-types" "0.3.17"
     bcrypt "^5.0.1"
     express-session "^1.17.0"
     jsonwebtoken "^8.5.1"
-    moleculer "^0.14.3"
+    moleculer "^0.14.17"
     moleculer-web "^0.10.0-beta1"
     openid-client "^4.7.4"
     passport "^0.4.1"
@@ -214,120 +214,120 @@
     passport-local "^1.0.0"
     url-join "^4.0.1"
 
-"@semapps/backup@0.3.13":
-  version "0.3.13"
-  resolved "https://registry.yarnpkg.com/@semapps/backup/-/backup-0.3.13.tgz#05fe75afb6c960c10ff92a30dd2f4f272b1b2903"
-  integrity sha512-S99QALDzxbx5Z6/8jUMrgWF978A8ecMqWeCaqnn8NljFQZUgM/IWmWMVatz05mtnfeLFTBqU1nRhZl/86U31og==
+"@semapps/backup@0.3.17":
+  version "0.3.17"
+  resolved "https://registry.yarnpkg.com/@semapps/backup/-/backup-0.3.17.tgz#4f92d9bd29bdbd18f9b5ee5fd8e9e4f65f0e5993"
+  integrity sha512-yO3D+DTEw/VoB3EexZ+Qxte6P1JUQn327RXZFDLTEP//USNXiCbHRjv8mz9RK4u/etMfBdRzznf7ZtzFJwYAIw==
   dependencies:
     cron "^1.8.2"
     rsync "^0.6.1"
 
-"@semapps/fuseki-admin@0.3.13":
-  version "0.3.13"
-  resolved "https://registry.yarnpkg.com/@semapps/fuseki-admin/-/fuseki-admin-0.3.13.tgz#51c07e87ea32db759f9a1f728db28734e0d2a6be"
-  integrity sha512-Ol/vARTNLBS3iOB7UB/RpwkKyiOrq3Dt7LMjU6zS0XrlJwiV4VKtbX3bDi63wxTHegxryqPMkPVwdsPRbB+3AQ==
+"@semapps/fuseki-admin@0.3.17":
+  version "0.3.17"
+  resolved "https://registry.yarnpkg.com/@semapps/fuseki-admin/-/fuseki-admin-0.3.17.tgz#5c5ea226d2e06b48be871de515b8da52ff016c73"
+  integrity sha512-IWO+2jP/LIlGtSbeEplQhcAkIDf8YPyDc4v9gljKfx/jzd0k+Q5TC4m9zJ0GsTE0Yv7euJW19ZUqS1TyqEGkNA==
   dependencies:
     node-fetch "^2.6.0"
     string-template "^1.0.0"
 
-"@semapps/inference@0.3.13":
-  version "0.3.13"
-  resolved "https://registry.yarnpkg.com/@semapps/inference/-/inference-0.3.13.tgz#dd6c6482debf83af09dfcc052207a111ad680bf6"
-  integrity sha512-EiT3u0KmtobIId6yGPU4b5zb2NVzvacVr5w5E406hE4shil3KxuXvgDZozH53tCZz7D2z+X94oJkEkooGeaNDQ==
+"@semapps/inference@0.3.17":
+  version "0.3.17"
+  resolved "https://registry.yarnpkg.com/@semapps/inference/-/inference-0.3.17.tgz#d294511edff8ce3f76fe881a4e94140cc131658b"
+  integrity sha512-TsYGGwXyKCqcy7FfHTrPIqbJ6uvKQG5ifVqCVH6ZvLHjD9jnQ5DlAA9KrDifCkSFiKp5iKG1nMMFAECSP5/JyQ==
   dependencies:
     n3 "^1.6.3"
     request "^2.88.2"
 
-"@semapps/jsonld@0.3.13":
-  version "0.3.13"
-  resolved "https://registry.yarnpkg.com/@semapps/jsonld/-/jsonld-0.3.13.tgz#ba41c418627f65f9a3fbd2a77fc2afdaa0157ca0"
-  integrity sha512-BM3mzOsYZddTu7SD2RM6Lmp1uUDkodvG0YdKoXmp31i/stcxrZCXYfR+cA/z/jgh8yIcE1Jm/AsIx56Ohca2BQ==
+"@semapps/jsonld@0.3.17":
+  version "0.3.17"
+  resolved "https://registry.yarnpkg.com/@semapps/jsonld/-/jsonld-0.3.17.tgz#4e0a767186023e5e556c52bae66acc23bf51d7e1"
+  integrity sha512-FKliUAQIm2UB5o3I13/b9z7wT0IpR83wPOY+GTfRJBFJAdGIoyyZ1s7r3i6dDmDaGQJD7ZWDyUUkiqeGUubD6w==
   dependencies:
     jsonld "^5.2.0"
     lru-cache "^6.0.0"
     url-join "^4.0.1"
 
-"@semapps/ldp@0.3.13":
-  version "0.3.13"
-  resolved "https://registry.yarnpkg.com/@semapps/ldp/-/ldp-0.3.13.tgz#8410bcbae14a98a7feb6dd9c7270b2a3176d062c"
-  integrity sha512-nJeKR/EdThzEF+q6b4hh0ayneofrCVZdZ6nGB2XaaS0NL3jI0fufH0UZaUBmkBMjjI/ZLmzowAeS83zCgydl4Q==
+"@semapps/ldp@0.3.17":
+  version "0.3.17"
+  resolved "https://registry.yarnpkg.com/@semapps/ldp/-/ldp-0.3.17.tgz#5769ec5bbba66c5e4b3c73718b2551df5ec9b5c0"
+  integrity sha512-3cogobV6dOd7Dzl4UZzNBz+yB4yQQqjndD+eVZvHm/GadbChpjDhRwlXi7gb6gjaFffFUUY2X3XcI23YvVOvIQ==
   dependencies:
-    "@semapps/middlewares" "0.3.13"
-    "@semapps/mime-types" "0.3.13"
-    "@semapps/triplestore" "0.3.13"
+    "@semapps/middlewares" "0.3.17"
+    "@semapps/mime-types" "0.3.17"
+    "@semapps/triplestore" "0.3.17"
     bson "^4.0.4"
-    moleculer "^0.14.3"
+    moleculer "^0.14.17"
     rdf-data-model "^1.0.0"
     rdf-parse "^1.7.0"
     speakingurl "^14.0.1"
     streamify-string "^1.0.1"
     url-join "^4.0.1"
 
-"@semapps/middlewares@0.3.13":
-  version "0.3.13"
-  resolved "https://registry.yarnpkg.com/@semapps/middlewares/-/middlewares-0.3.13.tgz#5dbfcd0cc9aea54582cf4f4dc8b2291b04f4b65c"
-  integrity sha512-wUSOa32uG5toaglM+NZuA05GgFR1elQGYUZKaydOlx/cE0Y4GuPltgitLjr4WeKa/hQ8XqRBcA0TOzWJF87zmg==
+"@semapps/middlewares@0.3.17":
+  version "0.3.17"
+  resolved "https://registry.yarnpkg.com/@semapps/middlewares/-/middlewares-0.3.17.tgz#c604b9a0bc5a4960f9878380979ba96dd7f5f918"
+  integrity sha512-4XKdAD2IPZ1OTZB6LTYFAJONCb/Q5qViMkc/yvkAudHankqTr37BF6INKvSDKJOoYVOosTSxrJ1dVmneCc5NEw==
   dependencies:
-    "@semapps/mime-types" "0.3.13"
+    "@semapps/mime-types" "0.3.17"
     busboy "^0.3.1"
     memory-streams "^0.1.3"
-    moleculer "^0.14.3"
+    moleculer "^0.14.17"
 
-"@semapps/mime-types@0.3.13":
-  version "0.3.13"
-  resolved "https://registry.yarnpkg.com/@semapps/mime-types/-/mime-types-0.3.13.tgz#e6be23dc4c3c680ca48ef81b83aae3f4e77f709f"
-  integrity sha512-6KI15mHgFkIZkz9yIIIS1BzbcfjCaJ1BRIgoMGhR26TS0AJE7TeSA5zZhBxmH++m5rFRAL1JRF7al88kDVEMrQ==
+"@semapps/mime-types@0.3.17":
+  version "0.3.17"
+  resolved "https://registry.yarnpkg.com/@semapps/mime-types/-/mime-types-0.3.17.tgz#1f07449444a2e2d5e2ffcf666b14d8bd4d156cdb"
+  integrity sha512-cEmV8rifO1LiezYxgQvTNc40cyNN7BJfcycDmMbZGoCrVlvJFnpT7DVoapbpTDjBt5ezLmLveYPagZJrOnMxWw==
   dependencies:
-    moleculer "^0.14.3"
+    moleculer "^0.14.17"
     negotiator "^0.6.2"
 
-"@semapps/sparql-endpoint@0.3.13":
-  version "0.3.13"
-  resolved "https://registry.yarnpkg.com/@semapps/sparql-endpoint/-/sparql-endpoint-0.3.13.tgz#cc6ec8eeeb1e90359f7719dc1962d26fc4c04842"
-  integrity sha512-QXx35+JiCpRpi4MQ9dKOcR1fvnzmEr4HV+8hcScehUVNA/tIDzZyo6OcQWqezrQllsrXPtgcrpYq/r4YZ4ZDGw==
+"@semapps/sparql-endpoint@0.3.17":
+  version "0.3.17"
+  resolved "https://registry.yarnpkg.com/@semapps/sparql-endpoint/-/sparql-endpoint-0.3.17.tgz#2a745468ca2cafc9d45d391cf25ba404ca8514f0"
+  integrity sha512-2ZRH6GOvMQ9GMC9hNkLZPTN55dnmfiJS8CfOZ3ZIVLbZKg0BT6f43wuIFLmCGEz/+Iz59AM6cDR4E36cnChJcA==
   dependencies:
-    "@semapps/middlewares" "0.3.13"
-    "@semapps/mime-types" "0.3.13"
-    "@semapps/triplestore" "0.3.13"
-    moleculer "^0.14.3"
+    "@semapps/middlewares" "0.3.17"
+    "@semapps/mime-types" "0.3.17"
+    "@semapps/triplestore" "0.3.17"
+    moleculer "^0.14.17"
 
-"@semapps/triplestore@0.3.13":
-  version "0.3.13"
-  resolved "https://registry.yarnpkg.com/@semapps/triplestore/-/triplestore-0.3.13.tgz#87d3e634611116033ce045b477a443761817d45a"
-  integrity sha512-nZWipb6z/mQksrBm7bY9+h7uxhsal8byX3tszWR/W8GZEyJVXDAkCq4nmins1JcpB+VyUd2f9yntPz1zdgFO8w==
+"@semapps/triplestore@0.3.17":
+  version "0.3.17"
+  resolved "https://registry.yarnpkg.com/@semapps/triplestore/-/triplestore-0.3.17.tgz#8644aee34c542d160869e6b971f8222c957b7c59"
+  integrity sha512-/HcGM8do6wNEI8QyU7LtxjQPWgytOdBrg2/qC2HmSH1KJfbjQUUcq4NwMCQ4YQkZGKeimaSvlsUhX42sU8BjSA==
   dependencies:
-    "@semapps/middlewares" "0.3.13"
-    "@semapps/mime-types" "0.3.13"
+    "@semapps/middlewares" "0.3.17"
+    "@semapps/mime-types" "0.3.17"
     negotiator "^0.6.2"
     node-fetch "^2.6.0"
     sparqljson-parse "^1.5.1"
 
-"@semapps/webacl@0.3.13":
-  version "0.3.13"
-  resolved "https://registry.yarnpkg.com/@semapps/webacl/-/webacl-0.3.13.tgz#69599319650b768f248b1c8e244602ee5cd9deb9"
-  integrity sha512-szpXMNjxuO61xDOrbGeitnf2gQPZMftb+e/x7K4UpC58+VZSY+0Lh7Gvy5/CkNW+3WO0/JKjwakD8xDiuCBFkw==
+"@semapps/webacl@0.3.17":
+  version "0.3.17"
+  resolved "https://registry.yarnpkg.com/@semapps/webacl/-/webacl-0.3.17.tgz#24dfc5a0886313f6cb32defaf12914cfd2beebca"
+  integrity sha512-G3DOz49cRHFMCftEMuaO57Nr+n7IDpafrHVUwKy9sxgAGb7ysdcAWO7HmoTH4SdZHn6h42KoWRCw+Q1A4U8X2w==
   dependencies:
-    "@semapps/middlewares" "0.3.13"
-    "@semapps/mime-types" "0.3.13"
-    "@semapps/triplestore" "0.3.13"
+    "@semapps/middlewares" "0.3.17"
+    "@semapps/mime-types" "0.3.17"
+    "@semapps/triplestore" "0.3.17"
     ioredis "^4.17.3"
     jsonld-streaming-serializer "^1.2.0"
-    moleculer "^0.14.3"
+    moleculer "^0.14.17"
     n3 "^1.8.0"
     rdf-parse "^1.7.0"
     speakingurl "^14.0.1"
     streamify-string "^1.0.1"
     url-join "^4.0.1"
 
-"@semapps/webid@0.3.13":
-  version "0.3.13"
-  resolved "https://registry.yarnpkg.com/@semapps/webid/-/webid-0.3.13.tgz#55a409b5c9dbc08dfcbfc229b40c67eeb7fcaf77"
-  integrity sha512-GWiwH/jvr8g0Fvzgd6kpVwDLyvmF0n2NCO/6x7QqyPHpbXJFLqnzwuhr/+f+Vf+KnOq8Skb4KzM4PK3h9iAZ/g==
+"@semapps/webid@0.3.17":
+  version "0.3.17"
+  resolved "https://registry.yarnpkg.com/@semapps/webid/-/webid-0.3.17.tgz#7cb4e185c3e8a45ce3a36f8471cddcf76751a9a9"
+  integrity sha512-jokAd7hsx8Js5oWdV/rGawQ4L6C5+2RH75poRO8xMxkobJAjmTpoNZ8DfCdQd8CXq1lxJ4vRLgcoOgE8qMShhg==
   dependencies:
-    "@semapps/ldp" "0.3.13"
-    "@semapps/middlewares" "0.3.13"
-    "@semapps/mime-types" "0.3.13"
-    "@semapps/triplestore" "0.3.13"
+    "@semapps/ldp" "0.3.17"
+    "@semapps/middlewares" "0.3.17"
+    "@semapps/mime-types" "0.3.17"
+    "@semapps/triplestore" "0.3.17"
 
 "@sindresorhus/is@^4.0.0":
   version "4.0.1"
@@ -1406,15 +1406,15 @@ event-target-shim@^5.0.0:
   resolved "https://registry.yarnpkg.com/event-target-shim/-/event-target-shim-5.0.1.tgz#5d4d3ebdf9583d63a5333ce2deb7480ab2b05789"
   integrity sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==
 
-eventemitter2@^6.4.3:
-  version "6.4.3"
-  resolved "https://registry.yarnpkg.com/eventemitter2/-/eventemitter2-6.4.3.tgz#35c563619b13f3681e7eb05cbdaf50f56ba58820"
-  integrity sha512-t0A2msp6BzOf+QAcI6z9XMktLj52OjGQg+8SJH6v5+3uxNpWYRR3wQmfA+6xtMU9kOC59qk9licus5dYcrYkMQ==
-
 eventemitter2@^6.4.4:
   version "6.4.4"
   resolved "https://registry.yarnpkg.com/eventemitter2/-/eventemitter2-6.4.4.tgz#aa96e8275c4dbeb017a5d0e03780c65612a1202b"
   integrity sha512-HLU3NDY6wARrLCEwyGKRBvuWYyvW6mHYv72SJJAH3iJN3a6eVUvkjFkcxah1bcTgGVBBrFdIopBJPhCQFMLyXw==
+
+eventemitter2@^6.4.5:
+  version "6.4.5"
+  resolved "https://registry.yarnpkg.com/eventemitter2/-/eventemitter2-6.4.5.tgz#97380f758ae24ac15df8353e0cc27f8b95644655"
+  integrity sha512-bXE7Dyc1i6oQElDG0jMRZJrRAn9QR2xyyFGmBdZleNmyQX0FqGYmhZIrIrpPfm/w//LTo4tVQGOGQcGCb5q9uw==
 
 express-session@^1.17.0:
   version "1.17.1"
@@ -1476,10 +1476,10 @@ fastest-validator@^1.11.0:
   resolved "https://registry.yarnpkg.com/fastest-validator/-/fastest-validator-1.11.0.tgz#7716f4c47b8c78205ca7dbdacca223c39227261e"
   integrity sha512-iF4Gj2Viz2T8D3aLcRt5doTDwCJYBe9LgNv36j2lpoGoKvOroGKxG2oOGWcHoxGREsMVlNDrbUQOU9fDMmO7jw==
 
-fastest-validator@^1.9.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/fastest-validator/-/fastest-validator-1.10.0.tgz#8455306fdd573cf50c12e18fdf240ab8306ffb76"
-  integrity sha512-qNspEkJiwD2OHRrZukvAIxBQkOJjFTdlQ2NYNn2Gv4hudhYL37MTqe5hsdM3hrYonZGzbZADSddcMhYN1slBuA==
+fastest-validator@^1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/fastest-validator/-/fastest-validator-1.12.0.tgz#9d77b3cc1ef9179f06ad4580fdf3308e4cb5113d"
+  integrity sha512-Qc7oCVO9hAPz5GUONmToIoa95YWzoe7SLsrjIXTfCFf6HFQXxxWePXe8D+Kp/XCrr5H/pMJwP2xprW07wYv/BQ==
 
 fetch-blob@^2.1.1:
   version "2.1.2"
@@ -1599,10 +1599,10 @@ glob@^7.1.3, glob@^7.1.7:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-glob@^7.1.6:
-  version "7.1.6"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.6.tgz#141f33b81a7c2492e125594307480c46679278a6"
-  integrity sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
+glob@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-7.2.0.tgz#d15535af7732e02e948f4c41628bd910293f6023"
+  integrity sha512-lmLf6gtyrPq8tTjSmrO94wBeQbFR3HbLHbuyD69wuyQkImp2hWqMGB47OX65FBkPffO641IP9jWa1z4ivqG26Q==
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
@@ -1914,11 +1914,6 @@ ioredis@^4.17.3:
     redis-parser "^3.0.0"
     standard-as-callback "^2.0.1"
 
-ipaddr.js@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-2.0.0.tgz#77ccccc8063ae71ab65c55f21b090698e763fc6e"
-  integrity sha512-S54H9mIj0rbxRIyrDMEuuER86LdlgUg9FSeZ8duQb6CUG2iRrA36MYVQBSprTF/ZeAwvyQ5mDGuNvIPM0BIl3w==
-
 ipaddr.js@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-2.0.1.tgz#eca256a7a877e917aeb368b0a7497ddf42ef81c0"
@@ -2134,7 +2129,7 @@ keyv@^4.0.0:
   dependencies:
     json-buffer "3.0.1"
 
-kleur@^4.1.3, kleur@^4.1.4:
+kleur@^4.1.4:
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-4.1.4.tgz#8c202987d7e577766d039a8cd461934c01cda04d"
   integrity sha512-8QADVssbrFjivHWQU7KkMgptGTl6WAcSdlbBPY4uNF+mWr6DGcKrvY2w4FQJoXch7+fKMjj0dRrL75vk3k23OA==
@@ -2513,20 +2508,18 @@ moleculer-web@^0.10.0-beta1:
     qs "^6.9.6"
     serve-static "^1.14.1"
 
-moleculer@^0.14.3:
-  version "0.14.12"
-  resolved "https://registry.yarnpkg.com/moleculer/-/moleculer-0.14.12.tgz#d08a4bbb73230b2fa249835b3c0fc82450384652"
-  integrity sha512-FLoznJIwYPcBZ28b/oSddmNypAfxzwXoQL1zWvOgQvQX74PgsuLIGTeADU5LB0G2ALvQPnojTiDNv0igF6WYHQ==
+moleculer@^0.14.17:
+  version "0.14.18"
+  resolved "https://registry.yarnpkg.com/moleculer/-/moleculer-0.14.18.tgz#88f82d8aedb66d5df72f09579e95c5424df7dbd5"
+  integrity sha512-5+bVT0TC1MfKq3YkOKQxCr9KbdCBmfs+9AZKJBYyO+ewEIiElHZBs3NuFeHLO+wO8ti0qMh2R31r28vEyCI2tA==
   dependencies:
     args "^5.0.1"
-    es6-error "^4.1.1"
-    eventemitter2 "^6.4.3"
-    fastest-validator "^1.9.0"
-    fn-args "^5.0.0"
-    glob "^7.1.6"
-    ipaddr.js "^2.0.0"
-    kleur "^4.1.3"
-    lodash "^4.17.20"
+    eventemitter2 "^6.4.5"
+    fastest-validator "^1.12.0"
+    glob "^7.2.0"
+    ipaddr.js "^2.0.1"
+    kleur "^4.1.4"
+    lodash "^4.17.21"
     lru-cache "^6.0.0"
     node-fetch "^2.6.1"
     recursive-watch "^1.1.4"
