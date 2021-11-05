@@ -1,5 +1,5 @@
 import React from 'react';
-import {makeStyles, Typography, Grid, Box, useMediaQuery} from '@material-ui/core';
+import { makeStyles, Typography, Grid, Box } from '@material-ui/core';
 import FullWidthBox from '../../commons/FullWidthBox';
 import LargeContainer from '../../commons/LargeContainer';
 import DiscoverIcon from '../../svg/DiscoverIcon';
@@ -59,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
 
 const LocalGridItem = ({ title, text, image, icon }) => {
   const classes = useStyles();
-  const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
   return (
     <Grid item sm={6} md={3}>
       <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column">

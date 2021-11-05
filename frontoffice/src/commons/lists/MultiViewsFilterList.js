@@ -123,11 +123,6 @@ const MultiViewsFilterList = ({ views, filters }) => {
           <Grid container>
             <Grid item xs={8}>
               <Box className={classes.icons}>
-                {!xs && hasCreate && !!permissions && permissions.some(p => ['acl:Append', 'acl:Write'].includes(p['acl:mode'])) &&
-                  <Link to={`${basePath}/create`}>
-                    <Button className={classes.addButton}>Ajouter</Button>
-                  </Link>
-                }
                 {activatedViews.map((key) => {
                   query.set('view', key);
                   return (
@@ -153,6 +148,11 @@ const MultiViewsFilterList = ({ views, filters }) => {
                     </Link>
                   );
                 })}
+                {!xs && hasCreate && !!permissions && permissions.some(p => ['acl:Append', 'acl:Write'].includes(p['acl:mode'])) &&
+                  <Link to={`${basePath}/create`}>
+                    <Button className={classes.addButton}>Ajouter</Button>
+                  </Link>
+                }
               </Box>
             </Grid>
             <Grid item xs={4}>
