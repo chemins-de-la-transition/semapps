@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   ChipField,
   SingleFieldList,
@@ -15,6 +15,7 @@ import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MapList } from '@semapps/geo-components';
 import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
+import JotformButton from '../../../JotformButton';
 import CourseTitle from './CourseTitle';
 import HomeIcon from '@material-ui/icons/Home';
 
@@ -47,6 +48,7 @@ const CourseShow = (props) => (
             <TextField source="pair:label" />
           </ReferenceField>
         </Hero>
+        <JotformButton />
         <MainList>
           <MarkdownField source="pair:description" />
           <MarkdownField source="cdlt:prerequisites" />

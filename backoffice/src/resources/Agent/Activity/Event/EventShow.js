@@ -6,6 +6,7 @@ import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
+import JotformButton from '../../../JotformButton';
 import EventTitle from './EventTitle';
 
 const EventShow = (props) => (
@@ -41,6 +42,7 @@ const EventShow = (props) => (
           <TextField source="pair:phone" />
           <UrlField source="pair:aboutPage" />
         </Hero>
+        <JotformButton />
         <MainList>
           <MarkdownField source="pair:description" />
           <MarkdownField source="cdlt:program" addLabel />

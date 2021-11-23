@@ -73,6 +73,30 @@ module.exports = {
           loginUri: `https://app.lescheminsdelatransition.org/login`
         }
       });
+    },
+    async notifyOrganizer(ctx) {
+      let { to, lep } = ctx.params;
+
+      await ctx.call('mailer.send', {
+        to,
+        replyTo: this.settings.from,
+        template: 'notify-organizer',
+        data: {
+          lep
+        },
+      });
+    },
+    async notifyVisitor(ctx) {
+      let { to, lep, prenom, nom } = ctx.params;
+
+      await ctx.call('mailer.send', {
+        to,
+        replyTo: this.settings.from,
+        template: 'notify-visitor',
+        data: {
+          lep, prenom, nom
+        },
+      });
     }
   }
 };
