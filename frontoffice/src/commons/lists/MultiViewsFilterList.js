@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import StickyBox from 'react-sticky-box';
-import {useListContext, Link, usePermissionsOptimized, useListFilterContext} from 'react-admin';
+import { useListContext, Link, usePermissionsOptimized, useListFilterContext } from 'react-admin';
+import { useCreateContainer } from '@semapps/semantic-data-provider';
 import { useLocation } from 'react-router';
 import { Box, Grid, Typography, IconButton, makeStyles, useMediaQuery, Button, Drawer } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
@@ -76,7 +77,8 @@ const useStyles = makeStyles((theme) => ({
 const MultiViewsFilterList = ({ views, filters }) => {
   const classes = useStyles();
   const { resource, basePath, hasCreate, ids, loading } = useListContext();
-  const { permissions } = usePermissionsOptimized(resource);
+  const createContainerUri = useCreateContainer(resource);
+  const { permissions } = usePermissionsOptimized(createContainerUri);
   const [areFiltersOpen, openFilters] = useState(false);
   const query = new URLSearchParams(useLocation().search);
   const activatedViews = Object.keys(views).filter((key) => views[key]);
