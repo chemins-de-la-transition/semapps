@@ -14,8 +14,7 @@ const authProvider = semappsAuthProvider({
       ? userData['pair:hasType'].includes(ACTOR_TYPE_URL) || userData['pair:hasType'].includes(ADMIN_TYPE_URL)
       : userData['pair:hasType'] === ACTOR_TYPE_URL || userData['pair:hasType'] === ADMIN_TYPE_URL,
   httpClient,
-  checkPermissions: true,
-  resources: Object.fromEntries(Object.entries(resources).map(([k, v]) => [k, v.dataModel])),
+  checkPermissions: true
 });
 
 export default authProvider;
