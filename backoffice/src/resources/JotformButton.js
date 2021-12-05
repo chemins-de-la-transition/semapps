@@ -52,7 +52,7 @@ const JotformButton = (props) => {
             "dateDepart[year]": lightFormat(endDate, "yyyy")
           },
           types && {typeVoyage: types.map((t) => t["pair:label"]).join(", ")},
-          label,
+          {label},
           {LEPId: id},
           priceRange && {prix: priceRange.replace(/[^0-9]/g, "")},
         ));
