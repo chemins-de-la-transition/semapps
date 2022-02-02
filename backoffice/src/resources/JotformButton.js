@@ -39,38 +39,43 @@ const JotformButton = (props) => {
 
   return (
     <>
-    <Button
-      variant="outlined"
-      color="primary"
-      onClick={() => {
-        setClicked(true);
-        const query = qs.stringify(Object.assign({},
-          startDate && {
-            "dateArrivee[day]": lightFormat(startDate, "dd"),
-            "dateArrivee[month]": lightFormat(startDate, "MM"),
-            "dateArrivee[year]": lightFormat(startDate, "yyyy")
-          },
-          endDate && {
-            "dateDepart[day]": lightFormat(endDate, "dd"),
-            "dateDepart[month]": lightFormat(endDate, "MM"),
-            "dateDepart[year]": lightFormat(endDate, "yyyy")
-          },
-          types && {typeVoyage: types.map((t) => t["pair:label"]).join(", ")},
-          {label},
-          {LEPId: id},
-          priceRange && {prix: priceRange.replace(/[^0-9]/g, "")},
-        ));
+      <Button
+        variant="outlined"
+        color="primary"
+        onClick={() => {
+          setClicked(true);
+          const query = qs.stringify(
+            Object.assign(
+              {},
+              startDate && {
+                "dateArrivee[day]": lightFormat(startDate, "dd"),
+                "dateArrivee[month]": lightFormat(startDate, "MM"),
+                "dateArrivee[year]": lightFormat(startDate, "yyyy"),
+              },
+              endDate && {
+                "dateDepart[day]": lightFormat(endDate, "dd"),
+                "dateDepart[month]": lightFormat(endDate, "MM"),
+                "dateDepart[year]": lightFormat(endDate, "yyyy"),
+              },
+              types && {
+                typeVoyage: types.map((t) => t["pair:label"]).join(", "),
+              },
+              { label },
+              { LEPId: id },
+              priceRange && { prix: priceRange.replace(/[^0-9]/g, "") }
+            )
+          );
 
-        navigator.clipboard.writeText(
-          "https://form.jotform.com/212243252835046?" + query
-        );
-      }}
-      disabled={clicked}
-    >
-      {clicked
-        ? "Copié dans le presse-papier ✅"
-        : "🔗 Lien vers formulaire Jotform"}
-    </Button>
+          navigator.clipboard.writeText(
+            "https://form.jotform.com/212722469132048?" + query
+          );
+        }}
+        disabled={clicked}
+      >
+        {clicked
+          ? "Copié dans le presse-papier ✅"
+          : "🔗 Lien vers formulaire Jotform"}
+      </Button>
     </>
   );
 };
