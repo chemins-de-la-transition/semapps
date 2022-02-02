@@ -8,6 +8,7 @@ import {
   Datagrid,
   ShowButton,
   EmailField,
+  BooleanField
 } from 'react-admin';
 import { Grid } from '@material-ui/core';
 import { Hero, GridList, MainList, SideList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
@@ -47,6 +48,7 @@ const CourseShow = (props) => (
           <ReferenceField source="pair:hasStatus" reference="Status" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
+          <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
         <JotformButton />
         <MainList>

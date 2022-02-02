@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageInput, TabbedForm, FormTab, TextInput } from 'react-admin';
+import { ImageInput, TabbedForm, FormTab, TextInput, BooleanInput } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { extractContext, LocationInput } from '@semapps/geo-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
@@ -40,6 +40,7 @@ export const PlaceEdit = (props) => (
           optionText={(resource) => resource['pair:label']}
           fullWidth
         />
+        <BooleanInput source="cdlt:directRegistration" fullWidth />
       </FormTab>
       <FormTab label="Relations">
         <PersonsInput source="cdlt:proposedBy" />

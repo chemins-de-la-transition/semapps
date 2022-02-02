@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, UrlField, EmailField, ChipField, SingleFieldList } from 'react-admin';
+import { TextField, UrlField, EmailField, ChipField, SingleFieldList, BooleanField } from 'react-admin';
 import { Grid } from '@material-ui/core';
 import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
@@ -36,6 +36,7 @@ const PlaceShow = (props) => (
           <EmailField source="pair:e-mail" />
           <TextField source="pair:phone" />
           <UrlField source="pair:homePage" />
+          <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
         <JotformButton />
         <MainList>

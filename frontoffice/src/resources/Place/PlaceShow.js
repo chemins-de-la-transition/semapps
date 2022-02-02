@@ -26,11 +26,13 @@ const PlaceShow = (props) => {
           type="pair:hasType"
           linkToListText="Liste des lieux"
           details={<PlaceDetails />}
-          actionButton={<ContactButton />}
+          actionButton={<ContactButton label="Contacter le lieu" />}
         />
         <BodyList
           aside={
-            <StickyCard actionButton={<ContactButton />}>
+            <StickyCard
+              actionButton={<ContactButton label="Contacter le lieu" />}
+            >
               <PlaceDetails orientation="vertical" />
             </StickyCard>
           }
@@ -71,13 +73,10 @@ const PlaceShow = (props) => {
           linkText="Voir tous les lieux"
           CardSubHeaderComponent={PlaceSubHeader}
         />
-        <ContactDialog
-          open={showDialog}
-          onClose={() => setShowDialog(false)}
-        />
+        <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
       </>
     </ShowBase>
   );
-}
+};
 
 export default PlaceShow;

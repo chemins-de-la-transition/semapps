@@ -20,8 +20,12 @@ const JotformButton = (props) => {
   const record = useRecordContext(props);
 
   const id = record.id;
-  const startDate = record["pair:startDate"] ? new Date(record["pair:startDate"]) : null;
-  const endDate = record["pair:endDate"] ? new Date(record["pair:endDate"]) : null;
+  const startDate = record["pair:startDate"]
+    ? new Date(record["pair:startDate"])
+    : null;
+  const endDate = record["pair:endDate"]
+    ? new Date(record["pair:endDate"])
+    : null;
   const priceRange = record["cdlt:priceRange"];
   const label = record["pair:label"];
   const hasType = record["pair:hasType"];
