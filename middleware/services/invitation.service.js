@@ -25,7 +25,6 @@ module.exports = {
     async 'auth.connected'(ctx) {
       const { webId } = ctx.params;
 
-      // Mark actor as connected
       const userData = await ctx.call('ldp.resource.get', {
         resourceUri: webId,
         accept: MIME_TYPES.JSON
