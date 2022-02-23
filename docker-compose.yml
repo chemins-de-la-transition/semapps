@@ -26,6 +26,8 @@ services:
   fuseki:
     image: semapps/jena-fuseki-webacl
     container_name: fuseki
+    depends_on:
+      - fuseki_compact # Force database compacting on every restart
     volumes:
       - ./data/fuseki:/fuseki
       - ./data/staging:/staging
