@@ -15,8 +15,6 @@ services:
       - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
       - "--certificatesresolvers.myresolver.acme.email=srosset81@gmail.com"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
-    networks:
-      - semapps
     ports:
       - "80:80"
       - "443:443"
@@ -35,10 +33,16 @@ services:
       - "3030:3030"
     expose:
       - "3030"
-    networks:
-      - semapps
     environment:
       ADMIN_PASSWORD: "admin"
+      JAVA_MX_RAM: "4G"
+
+  fuseki_compact:
+    image: semapps/jena-fuseki-webacl
+    container_name: fuseki_compact
+    volumes:
+      - ./data/fuseki:/fuseki
+    entrypoint: /docker-compact-entrypoint.sh
 
   middleware:
     build: .
@@ -51,8 +55,6 @@ services:
       - ./middleware/jwt:/app/jwt
       - ./middleware/uploads:/app/uploads
       - ./data/fuseki/backups:/app/fuseki-backups # Needed to backup fuseki datasets
-    networks:
-      - semapps
     ports:
       - "3000:3000"
     expose:
@@ -70,8 +72,6 @@ services:
   #        - SELECTED_BRANCH=master
   #        - SELECTED_DIR=src/frontend/boilerplates/archipelago
   #    container_name: frontend
-  #    networks:
-  #      - semapps
   #    ports:
   #      - "5000:5000"
   #    expose:
@@ -84,10 +84,4 @@ services:
       - "6379"
     volumes:
       - ./data/redis:/data
-    networks:
-      - semapps
     command: ["redis-server", "--appendonly", "yes"]
-
-networks:
-  semapps:
-    name: semapps_network
