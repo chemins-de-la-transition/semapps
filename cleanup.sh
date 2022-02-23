@@ -1,4 +1,7 @@
-# On each restart, Fuseki will compact
+# To call this script every night at 4am, call "crontab -e" and enter this line :
+# 0 4 * * * /home/ubuntu/semapps/cleanup.sh
+
+# On each restart, Fuseki will compact its databases
 docker-compose down
 docker-compose up -d
 
