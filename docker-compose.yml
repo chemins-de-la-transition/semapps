@@ -67,17 +67,33 @@ services:
       - "traefik.http.routers.middleware.entrypoints=websecure"
       - "traefik.http.routers.middleware.tls.certresolver=myresolver"
 
-  #  frontend:
-  #    build:
-  #      context: ./frontend
-  #      args:
-  #        - SELECTED_BRANCH=master
-  #        - SELECTED_DIR=src/frontend/boilerplates/archipelago
-  #    container_name: frontend
-  #    ports:
-  #      - "5000:5000"
-  #    expose:
-  #      - "5000"
+  frontoffice:
+    build:
+      context: ./frontoffice
+    container_name: frontoffice
+    ports:
+      - "4000:4000"
+    expose:
+      - "4000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontoffice.rule=Host(`app.lescheminsdelatransition.org`)"
+      - "traefik.http.routers.frontoffice.entrypoints=websecure"
+      - "traefik.http.routers.frontoffice.tls.certresolver=myresolver"
+
+  backoffice:
+    build:
+      context: ./backoffice
+    container_name: backoffice
+    ports:
+      - "5000:5000"
+    expose:
+      - "5000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backoffice.rule=Host(`admin.lescheminsdelatransition.org`)"
+      - "traefik.http.routers.backoffice.entrypoints=websecure"
+      - "traefik.http.routers.backoffice.tls.certresolver=myresolver"
 
   redis:
     image: redis
