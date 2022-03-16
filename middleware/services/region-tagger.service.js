@@ -75,7 +75,7 @@ module.exports = {
         // Create region if it doesn't exist yet
         const regionExists = await this.broker.call('ldp.resource.exist', {resourceUri: regionUri});
         if (!regionExists) {
-          await this.broker.call('ldp.resource.post', {
+          await this.broker.call('ldp.container.post', {
             resource: {
               '@context': {
                 '@vocab': 'http://virtual-assembly.org/ontologies/pair#'
