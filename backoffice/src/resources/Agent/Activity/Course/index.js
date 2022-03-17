@@ -18,8 +18,9 @@ export default {
   },
   dataModel: {
     types: ['cdlt:Course'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'courses',
-    slugField: 'pair:label',
+    fieldsMapping: {
+      title: 'pair:label'
+    }
   },
   translations: {
     fr: {

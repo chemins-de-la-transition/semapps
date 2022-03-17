@@ -18,8 +18,9 @@ export default {
   },
   dataModel: {
     types: ['cdlt:Path'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'paths',
-    slugField: 'pair:label',
+    fieldsMapping: {
+      title: 'pair:label'
+    }
   },
   translations: {
     fr: {
