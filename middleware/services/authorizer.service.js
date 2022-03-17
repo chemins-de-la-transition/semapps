@@ -19,6 +19,15 @@ module.exports = {
           write: true
         },
         users: record => record['cdlt:proposedBy']
+      },
+      {
+        match: { type: 'pair:Person' },
+        rights: {
+          read: true,
+          write: true,
+          control: true
+        },
+        users: record => record.id || record['@id']
       }
     ]
   }

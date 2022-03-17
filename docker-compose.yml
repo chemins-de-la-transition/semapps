@@ -15,8 +15,6 @@ services:
       - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
       - "--certificatesresolvers.myresolver.acme.email=srosset81@gmail.com"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
-    networks:
-      - semapps
     ports:
       - "80:80"
       - "443:443"
@@ -28,6 +26,8 @@ services:
   fuseki:
     image: semapps/jena-fuseki-webacl
     container_name: fuseki
+    depends_on:
+      - fuseki_compact # Force database compacting on every restart
     volumes:
       - ./data/fuseki:/fuseki
       - ./data/staging:/staging
@@ -35,10 +35,16 @@ services:
       - "3030:3030"
     expose:
       - "3030"
-    networks:
-      - semapps
     environment:
       ADMIN_PASSWORD: "admin"
+      JAVA_MX_RAM: "4G"
+
+  fuseki_compact:
+    image: semapps/jena-fuseki-webacl
+    container_name: fuseki_compact
+    volumes:
+      - ./data/fuseki:/fuseki
+    entrypoint: /docker-compact-entrypoint.sh
 
   middleware:
     build: .
@@ -51,8 +57,6 @@ services:
       - ./middleware/jwt:/app/jwt
       - ./middleware/uploads:/app/uploads
       - ./data/fuseki/backups:/app/fuseki-backups # Needed to backup fuseki datasets
-    networks:
-      - semapps
     ports:
       - "3000:3000"
     expose:
@@ -63,19 +67,33 @@ services:
       - "traefik.http.routers.middleware.entrypoints=websecure"
       - "traefik.http.routers.middleware.tls.certresolver=myresolver"
 
-  #  frontend:
-  #    build:
-  #      context: ./frontend
-  #      args:
-  #        - SELECTED_BRANCH=master
-  #        - SELECTED_DIR=src/frontend/boilerplates/archipelago
-  #    container_name: frontend
-  #    networks:
-  #      - semapps
-  #    ports:
-  #      - "5000:5000"
-  #    expose:
-  #      - "5000"
+  frontoffice:
+    build:
+      context: ./frontoffice
+    container_name: frontoffice
+    ports:
+      - "4000:4000"
+    expose:
+      - "4000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontoffice.rule=Host(`app.lescheminsdelatransition.org`)"
+      - "traefik.http.routers.frontoffice.entrypoints=websecure"
+      - "traefik.http.routers.frontoffice.tls.certresolver=myresolver"
+
+  backoffice:
+    build:
+      context: ./backoffice
+    container_name: backoffice
+    ports:
+      - "5000:5000"
+    expose:
+      - "5000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backoffice.rule=Host(`admin.lescheminsdelatransition.org`)"
+      - "traefik.http.routers.backoffice.entrypoints=websecure"
+      - "traefik.http.routers.backoffice.tls.certresolver=myresolver"
 
   redis:
     image: redis
@@ -84,10 +102,4 @@ services:
       - "6379"
     volumes:
       - ./data/redis:/data
-    networks:
-      - semapps
     command: ["redis-server", "--appendonly", "yes"]
-
-networks:
-  semapps:
-    name: semapps_network

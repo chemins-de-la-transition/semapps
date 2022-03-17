@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabbedForm, FormTab, TextInput, ImageInput } from 'react-admin';
+import { TabbedForm, FormTab, TextInput, ImageInput, BooleanInput } from 'react-admin';
 import frLocale from 'date-fns/locale/fr';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
@@ -45,6 +45,7 @@ const EventEdit = (props) => (
         <MarkdownInput source="cdlt:practicalConditions" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <MarkdownInput source="cdlt:economicalConditions" fullWidth />
+        <BooleanInput source="cdlt:directRegistration" fullWidth />
       </FormTab>
       <FormTab label="Relations">
         <PersonsInput source="cdlt:organizedBy" />

@@ -1,11 +1,12 @@
 import React from 'react';
-import { ChipField, SingleFieldList, TextField, UrlField, DateField, EmailField } from 'react-admin';
+import { ChipField, SingleFieldList, TextField, UrlField, DateField, EmailField, BooleanField } from 'react-admin';
 import { Grid } from '@material-ui/core';
 import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
+import JotformButton from '../../../JotformButton';
 import EventTitle from './EventTitle';
 
 const EventShow = (props) => (
@@ -40,7 +41,9 @@ const EventShow = (props) => (
           <EmailField source="pair:e-mail" />
           <TextField source="pair:phone" />
           <UrlField source="pair:aboutPage" />
+          <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
+        <JotformButton />
         <MainList>
           <MarkdownField source="pair:description" />
           <MarkdownField source="cdlt:program" addLabel />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormTab, ImageInput, TabbedForm, TextInput } from 'react-admin';
+import { FormTab, ImageInput, TabbedForm, TextInput, BooleanInput } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
@@ -51,6 +51,7 @@ const CourseEdit = (props) => (
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <TextInput source="cdlt:priceRange" fullWidth />
         <MarkdownInput source="cdlt:economicalConditions" fullWidth />
+        <BooleanInput source="cdlt:directRegistration" fullWidth />
       </FormTab>
       <FormTab label="Relations">
         {/*<PathInput source="cdlt:courseOn" />*/}

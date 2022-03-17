@@ -32,6 +32,7 @@
     "moleculer-mail": "^1.2.5",
     "moleculer-repl": "^0.6.3",
     "moleculer-web": "^0.10.0-beta1",
+    "multiparty": "^4.2.2",
     "speakingurl": "^14.0.1",
     "url-join": "^4.0.1"
   }

@@ -62,7 +62,7 @@ module.exports = {
     {
       cronTime: '0 */3 * * *',
       onTick: function() {
-        this.call('event-status.tagEvents');
+        // this.call('event-status.tagEvents');
       },
       timeZone: 'Europe/Paris'
     },

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SimpleForm, ImageInput, TextInput, useGetIdentity, email, required } from 'react-admin';
+import { BooleanInput, SimpleForm, ImageInput, TextInput, useGetIdentity, email, required } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { extractContext, LocationInput } from '@semapps/geo-components';
@@ -42,6 +42,7 @@ const PlaceForm = ({ mode, ...rest }) => {
         validate={[required()]}
         fullWidth
       />
+      <BooleanInput source="cdlt:directRegistration" fullWidth />
       <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />
       <TypeInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} validate={[required()]} />
       <ThemesInput source="pair:hasTopic" />

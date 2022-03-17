@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   ChipField,
   SingleFieldList,
@@ -8,6 +8,7 @@ import {
   Datagrid,
   ShowButton,
   EmailField,
+  BooleanField
 } from 'react-admin';
 import { Grid } from '@material-ui/core';
 import { Hero, GridList, MainList, SideList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
@@ -15,6 +16,7 @@ import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MapList } from '@semapps/geo-components';
 import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
+import JotformButton from '../../../JotformButton';
 import CourseTitle from './CourseTitle';
 import HomeIcon from '@material-ui/icons/Home';
 
@@ -46,7 +48,9 @@ const CourseShow = (props) => (
           <ReferenceField source="pair:hasStatus" reference="Status" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
+          <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
+        <JotformButton />
         <MainList>
           <MarkdownField source="pair:description" />
           <MarkdownField source="cdlt:prerequisites" />

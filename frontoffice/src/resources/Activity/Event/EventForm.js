@@ -1,5 +1,5 @@
 import React from 'react';
-import { SimpleForm, ImageInput, TextInput, useGetIdentity, required, email } from 'react-admin';
+import { BooleanInput, SimpleForm, ImageInput, TextInput, useGetIdentity, required, email } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { DateTimeInput } from '@semapps/date-components';
@@ -50,6 +50,7 @@ const EventForm = ({ mode, ...rest }) => {
       <MarkdownInput source="cdlt:practicalConditions" fullWidth />
       <MarkdownInput source="cdlt:learningObjectives" fullWidth />
       <MarkdownInput source="cdlt:economicalConditions" fullWidth />
+      <BooleanInput source="cdlt:directRegistration" fullWidth />
       <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />
       <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} />
       <ThemesInput source="pair:hasTopic" />
