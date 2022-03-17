@@ -18,9 +18,12 @@ export default {
   },
   dataModel: {
     types: ['pair:Organization'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'organizations',
-    dereference: ['pair:hasLocation/pair:hasPostalAddress'],
-    slugField: 'pair:label',
+    list: {
+      dereference: ['pair:hasLocation/pair:hasPostalAddress'],
+    },
+    fieldsMapping: {
+      title: ['pair:label']
+    }
   },
   translations: {
     fr: {

@@ -16,8 +16,9 @@ export default {
   },
   dataModel: {
     types: ['pair:AgentStatus', 'pair:EventStatus', 'pair:Status', 'cdlt:CourseStatus'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'status',
-    slugField: 'pair:label',
+    fieldsMapping: {
+      title: 'pair:label'
+    }
   },
   translations: {
     fr: {

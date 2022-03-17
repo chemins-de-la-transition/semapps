@@ -18,10 +18,18 @@ export default {
   },
   dataModel: {
     types: ['pair:Place'],
-    fetchContainer: true,
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'places',
-    dereference: ['pair:hasPostalAddress'],
-    slugField: 'pair:label',
+    create: {
+      container: '/places'
+    },
+    list: {
+      containers: {
+        cdlt: ['/places']
+      },
+      dereference: ['pair:hasPostalAddress'],
+    },
+    fieldsMapping: {
+      title: 'pair:label'
+    }
   },
   translations: {
     fr: {
