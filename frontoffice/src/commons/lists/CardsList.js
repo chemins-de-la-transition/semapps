@@ -41,6 +41,7 @@ const CardsList = ({ CardComponent, link }) => {
     <Loading loadingPrimary="ra.page.loading" loadingSecondary="ra.message.loading" className={classes.loading} />
   ) : (
     ids.map((id) => {
+      if( !data[id] ) return null;
       const image = data[id]?.['pair:isDepictedBy'];
       return (
         <Link key={id} to={linkToRecord(basePath, id, link)} className={classes.root}>

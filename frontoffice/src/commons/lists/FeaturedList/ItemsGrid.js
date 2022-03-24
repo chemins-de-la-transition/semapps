@@ -21,7 +21,7 @@ const ItemsGrid = ({ similarRecord, CardSubHeaderComponent }) => {
   const sortedIds = useMemo(() => {
     if( !similarRecord ) return ids;
     return ids
-      .filter(id => id !== similarRecord.id )
+      .filter(id => data[id] && id !== similarRecord.id )
       .sort(sortBySimilarity(data, similarRecord, 'pair:hasTopic'))
       .sort(sortBySimilarity(data, similarRecord, 'pair:hasLocation'))
       .slice(0, 4);

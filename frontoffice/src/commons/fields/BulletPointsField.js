@@ -34,6 +34,7 @@ const BulletPointsField = (props) => {
   return (
     <ul className={classnames(classes.root, className)} {...sanitizeListRestProps(rest)}>
       {ids.map((id, i) => {
+        if( !data[id] ) return null;
         const resourceLinkPath = !linkType ? false : linkToRecord(basePath, id, linkType);
 
         if (resourceLinkPath) {
