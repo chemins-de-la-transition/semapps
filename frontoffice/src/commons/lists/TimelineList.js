@@ -31,37 +31,40 @@ const TimelineList = () => {
   const { ids, data, basePath } = useListContext();
   return (
     <Box className={classes.root}>
-      {ids.map((id) => (
-        <Box position="relative" className={classes.event}>
-          <Icon className={classes.roundIcon} color="secondary">
-            <RoundIcon />
-          </Icon>
-          <RecordContextProvider value={data[id]} key={id}>
-            <p>
-              <DateToDateField startDate="pair:startDate" endDate="pair:endDate" variant="subtitle1" color="primary" />
-            </p>
-            <Link to={linkToRecord(basePath, id, 'show')} onClick={(e) => e.stopPropagation()}>
-              <Typography variant="body2" color="secondary" paragraph>
-                <strong>{data[id]['pair:label']}</strong>
-              </Typography>
-            </Link>
-            <p>
-              <TextField source="pair:comment" variant="body2" />
-            </p>
-            <Link
-              to={linkToRecord('/Place', data[id]['pair:hostedIn'].id, 'show')}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Typography variant="body2" color="secondary" paragraph>
-                <strong>Lieu: {data[id]['pair:hostedIn']['pair:label']}</strong>
-              </Typography>
-            </Link>
-            <p>
-              <TextField source="pair:hostedIn.pair:comment" variant="body2" />
-            </p>
-          </RecordContextProvider>
-        </Box>
-      ))}
+      {ids.map((id) => {
+        if( !data[id] ) return null;
+        return (
+          <Box position="relative" className={classes.event}>
+            <Icon className={classes.roundIcon} color="secondary">
+              <RoundIcon />
+            </Icon>
+            <RecordContextProvider value={data[id]} key={id}>
+              <p>
+                <DateToDateField startDate="pair:startDate" endDate="pair:endDate" variant="subtitle1" color="primary" />
+              </p>
+              <Link to={linkToRecord(basePath, id, 'show')} onClick={(e) => e.stopPropagation()}>
+                <Typography variant="body2" color="secondary" paragraph>
+                  <strong>{data[id]['pair:label']}</strong>
+                </Typography>
+              </Link>
+              <p>
+                <TextField source="pair:comment" variant="body2" />
+              </p>
+              <Link
+                to={linkToRecord('/Place', data[id]['pair:hostedIn'].id, 'show')}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Typography variant="body2" color="secondary" paragraph>
+                  <strong>Lieu: {data[id]['pair:hostedIn']['pair:label']}</strong>
+                </Typography>
+              </Link>
+              <p>
+                <TextField source="pair:hostedIn.pair:comment" variant="body2" />
+              </p>
+            </RecordContextProvider>
+          </Box>
+        )
+      })}
     </Box>
   );
 };

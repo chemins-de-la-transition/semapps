@@ -115,7 +115,7 @@ const ItemsGrid = ({ similarRecord }) => {
   const sortedIds = useMemo(() => {
     if( !similarRecord ) return ids;
     return ids
-      .filter(id => id !== similarRecord.id )
+      .filter(id => data[id] && id !== similarRecord.id )
       .sort(sortBySimilarity(data, similarRecord, 'pair:hasType'))
       .sort(sortBySimilarity(data, similarRecord, 'cdlt:hasCourseType'))
       .sort(sortBySimilarity(data, similarRecord, 'pair:hasLocation'))
