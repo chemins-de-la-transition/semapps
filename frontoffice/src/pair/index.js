@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReferenceArrayInput, ReferenceInput } from '@semapps/semantic-data-provider';
-import { AutocompleteArrayInput, SelectInput } from 'react-admin';
+import { AutocompleteInput, AutocompleteArrayInput, SelectInput } from 'react-admin';
 
 export const PersonsInput = (props) => (
   <ReferenceArrayInput reference="Person" {...props}>
@@ -52,7 +52,7 @@ export const TypeInput = (props) => (
 
 export const PlaceInput = (props) => (
   <ReferenceInput reference="Place" {...props}>
-    <SelectInput optionText="pair:label" />
+    <AutocompleteInput optionText="pair:label" />
   </ReferenceInput>
 );
 
