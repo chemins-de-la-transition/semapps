@@ -10,6 +10,7 @@ import Calendar from '../../../svg/CalendarIcon';
 import MapIcon from '../../../svg/MapIcon';
 import ListIcon from '@material-ui/icons/List';
 import Filter from '../../../commons/Filter';
+import UpcomingFilter from '../../../commons/UpcomingFilter';
 import CardsList from '../../../commons/lists/CardsList';
 import EventCard from './EventCard';
 
@@ -25,6 +26,7 @@ const EventList = (props) => {
     <ListBase perPage={1000} filter={filter} sort={{ field: 'pair:startDate', order: 'ASC' }} {...props}>
       <MultiViewsFilterList
         filters={[
+          <UpcomingFilter initialChecked={true} source="http://virtual-assembly.org/ontologies/pair#endDate" label="N'afficher que les événements à venir" />,
           <Filter reference="Region" source="pair:hasLocation" inverseSource="pair:locationOf" label="Région" />,
           <Filter reference="Theme" source="pair:hasTopic" inverseSource="pair:topicOf" label="Thématique" />,
           <Filter
