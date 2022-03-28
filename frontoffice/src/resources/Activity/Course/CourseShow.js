@@ -58,6 +58,7 @@ const CourseShow = (props) => (
             connectMarkers
             boundToMarkers
             scrollWheelZoom={false}
+            dragging={false}
           />
         </ReferenceArrayField>
         <ContactField

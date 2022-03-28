@@ -57,6 +57,7 @@ const PlaceShow = (props) => {
             longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
             typographyProps={{ variant: 'body2', color: 'secondary' }}
             scrollWheelZoom={false}
+            dragging={false}
           />
           <ContactField
             source="pair:phone"
