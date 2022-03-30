@@ -1,23 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useListFilterContext } from 'react-admin';
 import { Checkbox, FormControlLabel, FormGroup, makeStyles } from '@material-ui/core';
-import DataFactory from '@rdfjs/data-model';
-const { literal, namedNode, triple, variable } = DataFactory;
-
-// https://stackoverflow.com/questions/21732299/javascript-json-stringify-doesnt-handle-prototype-correctly
 
 const useStyles = makeStyles((theme) => ({
-  formControl: {
+  formGroup: {
     width: '100%',
-    marginBottom: 30,
+    marginTop: 14,
+    marginBottom: 16,
     color: 'white',
     '& label': {
-      color: 'white',
-    },
-    '& .MuiInput-underline:before': {
-      borderBottomColor: 'white',
-    },
-    '& .MuiInput-input': {
       color: 'white',
     },
     '& svg': {
@@ -48,7 +39,6 @@ const UpcomingFilter = ({ initialChecked, source, limit, sort, filter, label, on
         type:"operation",
         operator:">",
         args:[
-          //variable('endDate'),
           {
             termType: "Variable",
             value: "endDate"
@@ -90,7 +80,7 @@ const UpcomingFilter = ({ initialChecked, source, limit, sort, filter, label, on
   );
 
   return (
-      <FormGroup className={classes.formControl}>
+      <FormGroup className={classes.formGroup}>
         <FormControlLabel control={<Checkbox checked={checked} />} label={label} onChange={changeFilter}/>
       </FormGroup>
   );
