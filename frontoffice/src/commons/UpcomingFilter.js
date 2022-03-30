@@ -44,13 +44,12 @@ const UpcomingFilter = ({ initialChecked, source, limit, sort, filter, label, on
             value: "endDate"
           },
           {
-            termType: "litteral",
+            termType: "Literal",
             datatype: {
               termType:"NamedNode",
               value:"http://www.w3.org/2001/XMLSchema#dateTime"
             },
             language: "",
-            termType: "Literal",
             // value: "2022-11-17T10:20:13+05:30"
             value: now.toISOString()
           }

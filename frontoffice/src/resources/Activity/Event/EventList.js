@@ -26,7 +26,7 @@ const EventList = (props) => {
     <ListBase perPage={1000} filter={filter} sort={{ field: 'pair:startDate', order: 'ASC' }} {...props}>
       <MultiViewsFilterList
         filters={[
-          <UpcomingFilter initialChecked={true} source="http://virtual-assembly.org/ontologies/pair#endDate" label="N'afficher que les événements à venir" />,
+          <UpcomingFilter initialChecked source="http://virtual-assembly.org/ontologies/pair#endDate" label="N'afficher que les événements à venir" />,
           <Filter reference="Region" source="pair:hasLocation" inverseSource="pair:locationOf" label="Région" />,
           <Filter reference="Theme" source="pair:hasTopic" inverseSource="pair:topicOf" label="Thématique" />,
           <Filter
