@@ -8,6 +8,11 @@ export default {
   },
   dataModel: {
     types: ['cdlt:Course'],
+    list: {
+      filter: {
+        'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/valide'
+      }
+    },
     fieldsMapping: {
       title: 'pair:label'
     }

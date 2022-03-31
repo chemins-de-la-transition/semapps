@@ -62,14 +62,20 @@ module.exports = {
       });
     },
     async inviteActor(ctx) {
-      let { userData } = ctx.params;
+      let { actorUri, accountData } = ctx.params;
+
+      const actor = await ctx.call('ldp.resource.get', {
+        resourceUri: actorUri,
+        accept: MIME_TYPES.JSON
+      });
 
       await ctx.call('mailer.send', {
-        to: userData['foaf:email'],
+        to: accountData.email,
         replyTo: this.settings.from,
         template: 'invite-actor',
         data: {
-          userData,
+          actor,
+          account: accountData,
           loginUri: `https://app.lescheminsdelatransition.org/login`
         }
       });
