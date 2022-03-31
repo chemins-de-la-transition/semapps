@@ -62,7 +62,7 @@ const UpcomingFilter = ({ initialChecked, source, limit, sort, filter, label, on
     if (checked) {
       setFilters({ ...filterValues, 'sparqlWhere': sparqlWhere }, null, false);
     }
-  },[])
+  },[checked, setFilters, filterValues, sparqlWhere])
 
   const changeFilter = useCallback(
     (e) => {
