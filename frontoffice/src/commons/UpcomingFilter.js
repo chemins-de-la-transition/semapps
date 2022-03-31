@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useMemo } from 'react';
 import { useListFilterContext } from 'react-admin';
 import { Checkbox, FormControlLabel, FormGroup, makeStyles } from '@material-ui/core';
 
@@ -17,27 +17,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UpcomingFilter = ({ initialChecked, source, limit, sort, filter, label, onSelect }) => {
+const UpcomingFilter = ({ initialChecked, source, label }) => {
   const classes = useStyles();
   const { filterValues, setFilters } = useListFilterContext();
   const [checked, setChecked] = useState(initialChecked);
 
-  const now = new Date();
-  const sparqlWhere = [
-    {
-      type: "bgp",
-      triples: [
-        {
-          "subject": {"termType":"Variable","value":"s1"},
-          "predicate": {"termType":"NameNode","value":source},
-          "object": {"termType":"Variable","value":"endDate"}
-        }
-      ]
-    },{
+  const sparqlWhere = useMemo(() => {
+    const now = new Date();
+    return [
+      {
+        type: "bgp",
+        triples: [
+          {
+            "subject": { termType: "Variable", value:"s1" },
+            "predicate": { termType:"NameNode", value: source },
+            "object": { termType:"Variable", value: "endDate" }
+          }
+        ]
+      },{
       type: "filter",
       expression:{
-        type:"operation",
-        operator:">",
+        type: "operation",
+        operator: ">",
         args:[
           {
             termType: "Variable",
@@ -56,13 +57,14 @@ const UpcomingFilter = ({ initialChecked, source, limit, sort, filter, label, on
         ]
       }
     }
-  ];
+    ]
+  }, [source]);
   
   useEffect(() => {
     if (checked) {
       setFilters({ ...filterValues, 'sparqlWhere': sparqlWhere }, null, false);
     }
-  },[])
+  },[checked, filterValues, setFilters, sparqlWhere])
 
   const changeFilter = useCallback(
     (e) => {
@@ -79,15 +81,10 @@ const UpcomingFilter = ({ initialChecked, source, limit, sort, filter, label, on
   );
 
   return (
-      <FormGroup className={classes.formGroup}>
-        <FormControlLabel control={<Checkbox checked={checked} />} label={label} onChange={changeFilter}/>
-      </FormGroup>
+    <FormGroup className={classes.formGroup}>
+      <FormControlLabel control={<Checkbox checked={checked} />} label={label} onChange={changeFilter}/>
+    </FormGroup>
   );
-};
-
-UpcomingFilter.defaultProps = {
-  limit: 500,
-  sort: { field: 'pair:label', order: 'ASC' }
 };
 
 export default UpcomingFilter;
