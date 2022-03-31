@@ -22,11 +22,6 @@ module.exports = [
     dereference: ['pair:hasLocation/pair:hasPostalAddress']
   },
   {
-    path: '/users',
-    acceptedTypes: ['pair:Person'],
-    dereference: ['pair:hasLocation/pair:hasPostalAddress']
-  },
-  {
     path: '/paths',
     acceptedTypes: ['cdlt:Path']
   },

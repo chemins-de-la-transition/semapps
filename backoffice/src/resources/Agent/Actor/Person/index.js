@@ -17,7 +17,7 @@ export default {
     },
   },
   dataModel: {
-    types: ['pair:Person'],
+    types: ['pair:Person', 'foaf:Person'],
     list: {
       dereference: ['pair:hasLocation/pair:hasPostalAddress'],
     },

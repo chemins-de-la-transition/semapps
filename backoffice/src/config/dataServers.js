@@ -11,6 +11,7 @@ const dataServers = {
         'pair:Event': ['/events'],
         'pair:Organization': ['/organizations'],
         'pair:Person': ['/users'],
+        'foaf:Person': ['/users'],
         'pair:Place': ['/places', '/regions'],
         'pair:Skill': ['/skills'],
         'pair:Status': ['/status'],
