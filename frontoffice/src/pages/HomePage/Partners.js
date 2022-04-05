@@ -76,16 +76,19 @@ const Partners = () => {
             <Typography variant="h3" component="div" className={classes.subTitle}>nos partenaires</Typography>
             <ul className={classes.partnersList}>
               {ids.map(id => {
-                const label = data[id]['pair:label'];
-                const imgSrc = data[id]['pair:image'];
-                const homePage = data[id]['pair:homePage'];
-                return (
-                  <li key={id}>
-                    <a href={homePage} target="_blank" rel="noopener noreferrer">
-                      <img src={imgSrc} alt={label}/>
-                    </a>
-                  </li>
-              )})}
+                if ( data[id] && data[id]['pair:label'] && data[id]['pair:image'] ) {
+                  const label = data[id]['pair:label'];
+                  const imgSrc = data[id]['pair:image'];
+                  const homePage = data[id]['pair:homePage'];
+                  return (
+                    <li key={id}>
+                      <a href={homePage} target="_blank" rel="noopener noreferrer">
+                        <img src={imgSrc} alt={label}/>
+                      </a>
+                    </li>
+                  )
+                }
+              })}
             </ul>
           </Box>
         }
