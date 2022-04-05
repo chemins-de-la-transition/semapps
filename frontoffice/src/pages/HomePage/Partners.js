@@ -1,9 +1,9 @@
 import React from 'react';
 import { useGetList, Loading } from 'react-admin';
 import { makeStyles, Typography, Box } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import FullWidthBox from '../../commons/FullWidthBox';
 import LargeContainer from '../../commons/LargeContainer';
-import ErrorIcon from '@material-ui/icons/Report';
 
 const useStyles = makeStyles((theme) => ({
   mainBox: {
@@ -19,11 +19,10 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 20,
   },
   errorContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    '& span': {
-      marginLeft: 8
+    '& .MuiAlert-message': {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
     }
   },
   subTitle: {
@@ -68,7 +67,7 @@ const Partners = () => {
           <Loading />
         }
         { ! loading && error &&
-          <Box className={classes.errorContainer}><ErrorIcon/><span>Un problème est survenu</span></Box>
+          <Alert severity="error" className={classes.errorContainer}>Un problème est survenu</Alert>
         }
         { ! loading && ! error &&
           <Box>
