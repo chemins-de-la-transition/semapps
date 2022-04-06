@@ -3,6 +3,7 @@ export { default as Course } from './Activity/Course';
 export { default as Event } from './Activity/Event';
 
 // Actors
+export { default as Organization } from './Actor/Organization';
 export { default as Person } from './Actor/Person';
 
 // Resources

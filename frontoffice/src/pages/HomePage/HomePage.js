@@ -6,6 +6,7 @@ import PlaceSubHeader from '../../resources/Place/PlaceSubHeader';
 import Goals from './Goals/Goals';
 import CoursesTypes from './CoursesTypes';
 import CourseSubHeader from "../../resources/Activity/Course/CourseSubHeader";
+import Partners from './Partners';
 
 const HomePage = () => (
   <>
@@ -31,6 +32,7 @@ const HomePage = () => (
     />
     <CoursesTypes />
     <NextEvents />
+    <Partners />
   </>
 );
 
