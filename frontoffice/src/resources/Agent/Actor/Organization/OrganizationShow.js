@@ -11,7 +11,7 @@ import HomeIcon from '@material-ui/icons/Home';
 
 const OrganizationShow = (props) => (
   <ShowWithPermissions title={<OrganizationTitle />} {...props}>
-    <Container maxWidth="md"></Container>
+    <Container maxWidth="xl">
       <Grid container spacing={5}>
         <Grid item xs={12} sm={9}>
           <Hero image="pair:image">
