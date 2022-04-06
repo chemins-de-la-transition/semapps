@@ -9,7 +9,7 @@ module.exports = {
   name: 'region-tagger',
   dependencies: ['ldp'],
   methods: {
-    async tag(resourceUri, zipCodes, oldData) {
+    async tag(resourceUri, zipCodes) {
       let regionsUris = [];
 
       for( let zipCode of zipCodes ) {
@@ -17,23 +17,24 @@ module.exports = {
         if( regionUri ) regionsUris.push(regionUri);
       }
 
-      await this.broker.call('ldp.resource.put', {
-        resource: {
-          ...oldData,
-          'pair:hasLocation': regionsUris
-        },
-        contentType: MIME_TYPES.JSON,
+      await this.broker.call('triplestore.update', {
+        query: `
+          PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>
+          DELETE { <${resourceUri}> pair:hasLocation ?regions }
+          INSERT { <${resourceUri}> pair:hasLocation ${regionsUris.map(uri => `<${uri}>`).join(', ')} }
+          WHERE { <${resourceUri}> pair:hasLocation ?regions }
+        `,
         webId: 'system'
       });
     },
     async tagPlace(courseUri, place) {
       if( place['pair:hasPostalAddress'] ) {
-        await this.tag(courseUri, [place['pair:hasPostalAddress']['pair:addressZipCode']], place);
+        await this.tag(courseUri, [place['pair:hasPostalAddress']['pair:addressZipCode']]);
       }
     },
     async tagEvent(eventUri, event) {
       if( event['pair:hostedIn'] && event['pair:hostedIn']['pair:hasPostalAddress'] ) {
-        await this.tag(eventUri, [event['pair:hostedIn']['pair:hasPostalAddress']['pair:addressZipCode']], event);
+        await this.tag(eventUri, [event['pair:hostedIn']['pair:hasPostalAddress']['pair:addressZipCode']]);
       }
     },
     async tagCourse(courseUri, course) {
@@ -54,7 +55,7 @@ module.exports = {
         }
 
         if( zipCodes.length ) {
-          await this.tag(courseUri, zipCodes, course);
+          await this.tag(courseUri, zipCodes);
         }
       }
     },
