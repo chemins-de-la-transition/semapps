@@ -1,30 +1,33 @@
 import React from 'react';
-import { ImageInput, FormTab, TabbedForm, TextInput } from 'react-admin';
+import { ImageInput, SimpleForm, TextInput } from 'react-admin';
+import { Container } from '@material-ui/core';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { MarkdownInput } from '@semapps/markdown-components';
 import {
+  /*
   ActivitiesInput,
   OrganizationsInput,
+  */
   PairLocationInput,
+  /*
   SkillsInput,
   ThemesInput,
-  TypeInput,
-  StatusInput
+  */
 } from '../../../../pair';
 import { ImageField } from '@semapps/semantic-data-provider';
 import PersonTitle from './PersonTitle';
 
 export const PersonEdit = (props) => (
-  <EditWithPermissions
-    title={<PersonTitle />}
-    transform={(data) => ({
-      ...data,
-      'pair:label': `${data['pair:firstName']} ${data['pair:lastName']?.toUpperCase()}`,
-    })}
-    {...props}
-  >
-    <TabbedForm redirect="show">
-      <FormTab label="Principal">
+  <Container maxWidth="xl">
+    <EditWithPermissions
+      title={<PersonTitle />}
+      transform={(data) => ({
+        ...data,
+        'pair:label': `${data['pair:firstName']} ${data['pair:lastName']?.toUpperCase()}`,
+      })}
+      {...props}
+    >
+      <SimpleForm redirect="show">
         <TextInput source="pair:firstName" fullWidth />
         <TextInput source="pair:lastName" fullWidth />
         <TextInput source="pair:comment" fullWidth />
@@ -33,19 +36,16 @@ export const PersonEdit = (props) => (
           <ImageField source="src" />
         </ImageInput>
         <TextInput source="pair:phone" fullWidth />
+        {/*
         <ActivitiesInput source="cdlt:mentorOn" />
-        <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
-        <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
         <OrganizationsInput source="pair:affiliatedBy" />
         <SkillsInput source="pair:offers" />
         <ThemesInput source="pair:hasTopic" />
+        */}
         <PairLocationInput source="pair:hasLocation" fullWidth />
-      </FormTab>
-      <FormTab label="Relations">
-        
-      </FormTab>
-    </TabbedForm>
-  </EditWithPermissions>
+      </SimpleForm>
+    </EditWithPermissions>
+  </Container>
 );
 
 export default PersonEdit;

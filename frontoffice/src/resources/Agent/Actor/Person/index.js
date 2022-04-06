@@ -1,13 +1,9 @@
-import PersonCreate from './PersonCreate';
 import PersonEdit from './PersonEdit';
-import PersonList from './PersonList';
 import PersonShow from './PersonShow';
 import PersonIcon from '@material-ui/icons/Person';
 
 export default {
   config: {
-    create: PersonCreate,
-    list: PersonList,
     show: PersonShow,
     edit: PersonEdit,
     icon: PersonIcon,

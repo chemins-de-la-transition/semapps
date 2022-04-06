@@ -3,6 +3,7 @@ import { ChipField, SingleFieldList, TextField, EmailField } from 'react-admin';
 import { Grid } from '@material-ui/core';
 import { MainList, SideList, Hero, GridList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
+import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MapField } from '@semapps/geo-components';
 import PersonTitle from './PersonTitle';
@@ -16,7 +17,9 @@ const PersonShow = (props) => (
           <TextField source="pair:firstName" />
           <TextField source="pair:lastName" />
           <TextField source="pair:comment" />
+          <MarkdownField source="pair:description" />
           <EmailField source="foaf:email" />
+          <TextField source="pair:phone" />
           <ReferenceArrayField source="pair:hasType" reference="Type">
             <SeparatedListField link={false}>
               <TextField source="pair:label" />
