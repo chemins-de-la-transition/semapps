@@ -7,13 +7,19 @@ const anonReadPermission = {
   }
 };
 
-const writePermissionToCreator = creatorUri => ({
-  ...anonReadPermission,
-  user: {
-    uri: creatorUri,
-    write: true
+const writePermissionToCreator = creatorUri => {
+  if( creatorUri !== 'system' ) {
+    return({
+      ...anonReadPermission,
+      user: {
+        uri: creatorUri,
+        write: true
+      }
+    });
+  } else {
+    return anonReadPermission;
   }
-});
+}
 
 const writePermissionToActors = {
   group: {
