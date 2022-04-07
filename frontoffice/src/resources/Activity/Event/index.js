@@ -41,6 +41,8 @@ export default {
         'pair:description': 'Présentation',
         'cdlt:program': 'Programme',
         'pair:hostedIn': 'Lieu',
+        'pair:hasLocation': 'Localisation',
+        'cdlt:hasRegion': 'Région',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
