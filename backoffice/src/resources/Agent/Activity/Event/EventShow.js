@@ -50,16 +50,16 @@ const EventShow = (props) => (
           <MarkdownField source="cdlt:practicalConditions" addLabel />
           <MarkdownField source="cdlt:learningObjectives" addLabel />
           <MarkdownField source="cdlt:economicalConditions" addLabel />
-          <MapField
-            source="pair:hostedIn"
-            address={(record) =>
-              record?.['pair:hostedIn']?.['pair:label'] +
-              ', ' +
-              record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:label']
-            }
-            latitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:latitude']}
-            longitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
-          />
+          <ReferenceField reference="Place" source="pair:hostedIn" link={false}>
+            <MapField
+              address={(record) => record?.['pair:label'] + ', ' + record?.['pair:hasPostalAddress']?.['pair:label']}
+              latitude={(record) => record?.['pair:hasPostalAddress']?.['pair:latitude']}
+              longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
+              typographyProps={{ variant: 'body2', color: 'secondary' }}
+              scrollWheelZoom={false}
+              dragging={false}
+            />
+          </ReferenceField>
         </MainList>
       </Grid>
       <Grid item xs={12} sm={3}>
