@@ -86,6 +86,8 @@ const Partners = () => {
                       </a>
                     </li>
                   )
+                } else {
+                  return null
                 }
               })}
             </ul>
