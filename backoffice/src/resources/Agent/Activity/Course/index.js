@@ -28,9 +28,9 @@ export default {
       fields: {
         'pair:label': 'Titre',
         'pair:isDepictedBy': 'Image',
-        'cdlt:hasCourseType': 'Type de parcours',
+        'pair:hasType': 'Type de parcours',
         'pair:hasTopic': 'Thématiques',
-        'pair:hasLocation': 'Région(s)',
+        'cdlt:hasRegion': 'Région(s)',
         'pair:produces': 'Compétences visées',
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',

@@ -13,7 +13,7 @@ const CourseList = (props) => {
     <ListBase perPage={1000} {...props}>
       <MultiViewsFilterList
         filters={[
-          <Filter reference="Region" source="pair:hasLocation" inverseSource="pair:locationOf" label="Région" />,
+          <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label="Région" />,
           <Filter reference="Theme" source="pair:hasTopic" inverseSource="pair:topicOf" label="Thématique" />,
           <Filter
             reference="Type"

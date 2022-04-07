@@ -25,7 +25,7 @@ const EventDetails = (props) => (
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceField label="Région" reference="Region" source="pair:hasLocation" icon={<PlaceIcon />} link={linkToFilteredList( 'Course', 'pair:hasLocation')}>
+    <ReferenceField label="Région" reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList( 'Course', 'cdlt:hasRegion')}>
       <TextField source="pair:label" />
     </ReferenceField>
     <DateToDateField

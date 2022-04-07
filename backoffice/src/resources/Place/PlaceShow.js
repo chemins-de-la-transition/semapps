@@ -15,7 +15,7 @@ const PlaceShow = (props) => (
       <Grid item xs={12} sm={9}>
         <Hero image="pair:isDepictedBy">
           <TextField source="pair:comment" />
-          <ReferenceField source="pair:hasLocation" reference="Region" link={false}>
+          <ReferenceField source="cdlt:hasRegion" reference="Region" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
           <ReferenceArrayField source="cdlt:hasCourseType" reference="Type">

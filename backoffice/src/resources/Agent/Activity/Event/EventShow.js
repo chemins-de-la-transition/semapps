@@ -20,7 +20,7 @@ const EventShow = (props) => (
           <ReferenceField source="pair:hostedIn" reference="Place" link="show">
             <TextField source="pair:label" />
           </ReferenceField>
-          <ReferenceField source="pair:hasLocation" reference="Region" link={false}>
+          <ReferenceField source="cdlt:hasRegion" reference="Region" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
           <ReferenceArrayField source="cdlt:hasCourseType" reference="Type">

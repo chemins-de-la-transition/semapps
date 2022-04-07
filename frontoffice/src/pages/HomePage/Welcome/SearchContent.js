@@ -126,7 +126,7 @@ const FormBox = () => {
 
   const search = () => {
     let filters = {};
-    if( region ) filters['pair:hasLocation'] = region;
+    if( region ) filters['cdlt:hasRegion'] = region;
     if( theme ) filters['pair:hasTopic'] = theme;
     history.push(`/${type}?filter=${encodeURIComponent(JSON.stringify(filters))}&view=list`);
   };
@@ -150,7 +150,7 @@ const FormBox = () => {
               <InputLabel id="demo-select-area-label">Région</InputLabel>
               <SelectResources
                 reference="Region"
-                inverseSource="pair:locationOf"
+                inverseSource="cdlt:RegionOf"
                 labelId="demo-select-area-label"
                 value={region}
                 onChange={e => setRegion(e.target.value)}

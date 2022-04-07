@@ -19,10 +19,10 @@ module.exports = {
 
       await this.broker.call('triplestore.update', {
         query: `
-          PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>
-          DELETE { <${resourceUri}> pair:hasLocation ?regions }
-          INSERT { <${resourceUri}> pair:hasLocation ${regionsUris.map(uri => `<${uri}>`).join(', ')} }
-          WHERE { <${resourceUri}> pair:hasLocation ?regions }
+          PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
+          DELETE { ?s1 cdlt:hasRegion ?regions }
+          INSERT { ?s1 cdlt:hasRegion ${regionsUris.map(uri => `<${uri}>`).join(', ')} }
+          WHERE { BIND(<${resourceUri}> AS ?s1) }
         `,
         webId: 'system'
       });
@@ -32,8 +32,17 @@ module.exports = {
         await this.tag(courseUri, [place['pair:hasPostalAddress']['pair:addressZipCode']]);
       }
     },
+    checkFullAddress(data, predicate) {
+      if (! data) return false
+      if (! data[predicate]) return false
+      if (! data[predicate]['pair:hasPostalAddress']) return false
+      if (! data[predicate]['pair:hasPostalAddress']['pair:addressZipCode']) return false
+      return true
+    },
     async tagEvent(eventUri, event) {
-      if( event['pair:hostedIn'] && event['pair:hostedIn']['pair:hasPostalAddress'] ) {
+      if (this.checkFullAddress(event, 'pair:hasLocation')) {
+        await this.tag(eventUri, [event['pair:hasLocation']['pair:hasPostalAddress']['pair:addressZipCode']]);
+      } else if (this.checkFullAddress(event, 'pair:hostedIn')) {
         await this.tag(eventUri, [event['pair:hostedIn']['pair:hasPostalAddress']['pair:addressZipCode']]);
       }
     },

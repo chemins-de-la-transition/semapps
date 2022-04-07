@@ -38,7 +38,7 @@ export default {
         'pair:label': 'Nom',
         'pair:comment': "Phrase d'accroche",
         'pair:isDepictedBy': 'Image',
-        'pair:hasLocation': 'Région',
+        'cdlt:hasRegion': 'Région',
         'pair:hasTopic': 'Thématiques',
         'cdlt:hasCourseType': 'Type de parcours',
         'pair:hasType': 'Type de lieu',

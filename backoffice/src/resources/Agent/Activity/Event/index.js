@@ -19,7 +19,7 @@ export default {
   dataModel: {
     types: ['pair:Event'],
     list: {
-      dereference: ['pair:hostedIn/pair:hasPostalAddress'],
+      dereference: ['pair:hostedIn/pair:hasPostalAddress', 'pair:hasLocation/pair:hasPostalAddress'],
     },
     fieldsMapping: {
       title: 'pair:label'
@@ -42,7 +42,8 @@ export default {
         'pair:description': 'Présentation',
         'cdlt:program': "Programme de l'événement",
         'pair:hostedIn': 'Lieu',
-        'pair:hasLocation': 'Région',
+        'pair:hasLocation': 'Localisation',
+        'cdlt:hasRegion': 'Région',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
         'cdlt:learningObjectives': 'Objectifs pédagogiques',

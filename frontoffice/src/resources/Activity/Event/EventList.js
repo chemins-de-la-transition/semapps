@@ -71,7 +71,7 @@ const EventList = (props) => {
       <MultiViewsFilterList
         filters={[
           <SparqlFilter initialChecked sparqlWhere={sparqlWhere} label="N'afficher que les événements à venir" />,
-          <Filter reference="Region" source="pair:hasLocation" inverseSource="pair:locationOf" label="Région" />,
+          <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label="Région" />,
           <Filter reference="Theme" source="pair:hasTopic" inverseSource="pair:topicOf" label="Thématique" />,
           <Filter
             reference="Type"
