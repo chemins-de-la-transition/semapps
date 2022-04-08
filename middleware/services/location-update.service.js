@@ -66,8 +66,7 @@ module.exports = {
       const newAddress = newData['pair:hasPostalAddress'];
       
       console.log('newAddress', newAddress);
-      
-    
+
       await this.broker.call('triplestore.update', {
         query: `
           PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>

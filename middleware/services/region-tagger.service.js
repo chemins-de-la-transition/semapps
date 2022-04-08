@@ -16,11 +16,20 @@ module.exports = {
         const regionUri = await this.getRegionUriFromZip(zipCode);
         if( regionUri ) regionsUris.push(regionUri);
       }
+      
+      console.log('regionsUris', zipCodes, regionsUris);
 
       await this.broker.call('triplestore.update', {
         query: `
           PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
           DELETE { ?s1 cdlt:hasRegion ?regions }
+          WHERE { BIND(<${resourceUri}> AS ?s1) . ?s1 cdlt:hasRegion ?regions }
+        `,
+        webId: 'system'
+      });
+      await this.broker.call('triplestore.update', {
+        query: `
+          PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
           INSERT { ?s1 cdlt:hasRegion ${regionsUris.map(uri => `<${uri}>`).join(', ')} }
           WHERE { BIND(<${resourceUri}> AS ?s1) }
         `,
@@ -28,6 +37,9 @@ module.exports = {
       });
     },
     async tagPlace(courseUri, place) {
+      
+      console.log('tagPlace', courseUri, place);
+      
       if( place['pair:hasPostalAddress'] ) {
         await this.tag(courseUri, [place['pair:hasPostalAddress']['pair:addressZipCode']]);
       }
@@ -40,6 +52,9 @@ module.exports = {
       return true
     },
     async tagEvent(eventUri, event) {
+      
+      console.log('tagEvent', eventUri, event);
+
       if (this.checkFullAddress(event, 'pair:hasLocation')) {
         await this.tag(eventUri, [event['pair:hasLocation']['pair:hasPostalAddress']['pair:addressZipCode']]);
       } else if (this.checkFullAddress(event, 'pair:hostedIn')) {
