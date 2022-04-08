@@ -4,10 +4,10 @@ import { Grid } from '@material-ui/core';
 import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
-import { MapField } from '@semapps/geo-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import JotformButton from '../../../JotformButton';
 import EventTitle from './EventTitle';
+import EventMapField from "./EventMapField";
 
 const EventShow = (props) => (
   <ShowWithPermissions title={<EventTitle />} {...props}>
@@ -50,16 +50,7 @@ const EventShow = (props) => (
           <MarkdownField source="cdlt:practicalConditions" addLabel />
           <MarkdownField source="cdlt:learningObjectives" addLabel />
           <MarkdownField source="cdlt:economicalConditions" addLabel />
-          <ReferenceField reference="Place" source="pair:hostedIn" link={false}>
-            <MapField
-              address={(record) => record?.['pair:label'] + ', ' + record?.['pair:hasPostalAddress']?.['pair:label']}
-              latitude={(record) => record?.['pair:hasPostalAddress']?.['pair:latitude']}
-              longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
-              typographyProps={{ variant: 'body2', color: 'secondary' }}
-              scrollWheelZoom={false}
-              dragging={false}
-            />
-          </ReferenceField>
+          <EventMapField source={"pair:hasLocation"} />
         </MainList>
       </Grid>
       <Grid item xs={12} sm={3}>
