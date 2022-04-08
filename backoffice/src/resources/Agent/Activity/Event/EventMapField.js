@@ -25,7 +25,7 @@ const EventMapField = () => {
           record = {record}
           source="pair:hasLocation"
           address={(record) => record?.['pair:label'] + ', ' + record?.['pair:hasLocation']?.['pair:label']}
-          latitude={(record) => { console.log('---map2',record);return record?.['pair:hasLocation']?.['pair:latitude']}}
+          latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
           longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
           typographyProps={{ variant: 'body2', color: 'secondary' }}
           scrollWheelZoom={false}
