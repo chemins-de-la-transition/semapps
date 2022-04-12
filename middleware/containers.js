@@ -68,7 +68,7 @@ module.exports = [
   {
     path: '/events',
     acceptedTypes: ['pair:Event'],
-    dereference: ['pair:hostedIn/pair:hasPostalAddress', 'pair:hostedIn/pair:hasPostalAddress'],
+    dereference: ['pair:hasLocation/pair:hasPostalAddress', 'pair:hostedIn/pair:hasPostalAddress'],
     permissions: {
       ...anonReadPermission,
       ...writePermissionToActors,
