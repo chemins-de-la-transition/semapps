@@ -26,6 +26,12 @@ yarn install
 yarn run dev
 ```
 
+Import the types (actor, administrator, contributor):
+
+```bash
+call importer.types.freshImport
+```
+
 ### Launch the front office
 
 Ask a develop for the Mapbox access token and add it in a new `.env.local` file in the /frontoffice directory:

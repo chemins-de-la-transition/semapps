@@ -19,7 +19,9 @@ export default {
   dataModel: {
     types: ['pair:Place'],
     create: {
-      container: '/places'
+      container: {
+        cdlt: '/places'
+      }
     },
     list: {
       containers: {

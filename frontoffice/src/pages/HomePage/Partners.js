@@ -51,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Partners = () => {
-
   const { data, ids, loading, error } = useGetList(
     'Organization',
     { page: 1, perPage: 99 },
@@ -87,7 +86,7 @@ const Partners = () => {
                     </li>
                   )
                 } else {
-                  return null
+                  return null;
                 }
               })}
             </ul>

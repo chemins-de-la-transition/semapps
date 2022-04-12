@@ -12,7 +12,13 @@ module.exports = {
         groupSlug: 'superadmins'
       },
       {
-        match: { 'pair:hasType': urlJoin(CONFIG.HOME_URL, 'types', 'actor') },
+        match: { 'pair:hasType': urlJoin(CONFIG.HOME_URL, 'types', 'contributor') },
+        groupSlug: 'contributors'
+      },
+      {
+        match: record =>
+          record['pair:hasType'] === urlJoin(CONFIG.HOME_URL, 'types', 'actor') ||
+          record['pair:hasType'] === urlJoin(CONFIG.HOME_URL, 'types', 'contributor'),
         groupSlug: 'actors'
       }
     ]
