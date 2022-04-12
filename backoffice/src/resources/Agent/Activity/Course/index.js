@@ -28,7 +28,7 @@ export default {
       fields: {
         'pair:label': 'Titre',
         'pair:isDepictedBy': 'Image',
-        'pair:hasType': 'Type de parcours',
+        'cdlt:hasCourseType': 'Type de parcours',
         'pair:hasTopic': 'Thématiques',
         'cdlt:hasRegion': 'Région(s)',
         'pair:produces': 'Compétences visées',

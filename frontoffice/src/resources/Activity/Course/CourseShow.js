@@ -50,8 +50,8 @@ const CourseShow = (props) => (
           sort={{ field: 'pair:startDate', order: 'ASC' }}
         >
           <MapList
-            latitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:latitude']}
-            longitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
+            latitude={(record) => record?.['pair:hasLocation']?.['pair:hasPostalAddress']?.['pair:latitude']}
+            longitude={(record) => record?.['pair:hasLocation']?.['pair:hasPostalAddress']?.['pair:longitude']}
             label={(record) => record?.['pair:label']}
             description={(record) => record?.['pair:comment']}
             groupClusters={false}
