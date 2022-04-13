@@ -58,7 +58,7 @@ const CourseEdit = (props) => (
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'cdlt:CourseStatus' }} />
         <ThemesInput source="pair:hasTopic" />
-        <EventsInput source="pair:hasPart" />
+        {/*<EventsInput source="pair:hasPart" />*/}
         <SkillsInput source="pair:produces" />
         <PersonsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />

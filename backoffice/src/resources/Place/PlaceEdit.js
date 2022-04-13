@@ -48,7 +48,7 @@ export const PlaceEdit = (props) => (
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <TypeInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:PlaceStatus' }} />
-        <EventsInput source="pair:hosts" fullWidth />
+        {/*<EventsInput source="pair:hosts" fullWidth />*/}
         <SkillsInput source="pair:produces" fullWidth />
       </FormTab>
       <FormTab label="Contact">
