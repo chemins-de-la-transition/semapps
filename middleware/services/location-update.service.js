@@ -7,7 +7,7 @@ module.exports = {
   dependencies: ['ldp'],
   methods: {
     async onPlaceUpdate(resourceUri, oldData, newData) {
-      console.log('===> onPlaceUpdate');
+
       if ( ! newData['pair:hasPostalAddress'] ) {
         return
       }
@@ -35,14 +35,21 @@ module.exports = {
         webId: 'system'
       });
       
-      if (! events || ! events['@graph'] || events['@graph'].length ===0) {
+      if (! events ) {
         return
       }
       
-      formatedEvents = events['@graph'].map(event => '<' + event['@id'] + '>');
+      let formatedEvents = null;
+      if ( events['@graph'] ) {
+        formatedEvents = events['@graph'].map(event => '<' + event['@id'] + '>');
+      } else if ( events['@id'] ) {
+        formatedEvents = ['<' + events['@id'] + '>'];
+      } else {
+        return
+      }
       
       console.log('===> formatedEvents', formatedEvents);
-      
+
       await this.broker.call('triplestore.update', {
         query: `
           PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>
@@ -60,12 +67,9 @@ module.exports = {
         webId: 'system'
       });
       
+      const newLocation = newData['pair:hasPostalAddress'];
       
-      
-      
-      const newAddress = newData['pair:hasPostalAddress'];
-      
-      console.log('newAddress', newAddress);
+      console.log('newLocation', newLocation);
 
       await this.broker.call('triplestore.update', {
         query: `
@@ -74,14 +78,14 @@ module.exports = {
           INSERT { 
             ?event pair:hasLocation ?hasLocation .
             ?hasLocation pair:hasPostalAddress ?hasPostalAddress .
-            ?hasLocation  pair:label '''${newAddress['pair:label']}''' .
-            ?hasLocation  pair:longitude '${newAddress['pair:longitude']}'^^<http://www.w3.org/2001/XMLSchema#double> .
-            ?hasLocation  pair:latitude '${newAddress['pair:latitude']}'^^<http://www.w3.org/2001/XMLSchema#double> .
+            ?hasLocation  pair:label '''${newLocation['pair:label']}''' .
+            ?hasLocation  pair:longitude '${newLocation['pair:longitude']}'^^<http://www.w3.org/2001/XMLSchema#double> .
+            ?hasLocation  pair:latitude '${newLocation['pair:latitude']}'^^<http://www.w3.org/2001/XMLSchema#double> .
             ?hasLocation <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> pair:Place .
-            ?hasPostalAddress pair:addressCountry '''${newAddress['pair:addressCountry']}''' . 
-            ?hasPostalAddress pair:addressLocality '''${newAddress['pair:addressLocality']}''' . 
-            ?hasPostalAddress pair:addressStreet '''${newAddress['pair:addressStreet']}''' . 
-            ?hasPostalAddress pair:addressZipCode '''${newAddress['pair:addressZipCode']}''' . 
+            ?hasPostalAddress pair:addressCountry '''${newLocation['pair:addressCountry']}''' . 
+            ?hasPostalAddress pair:addressLocality '''${newLocation['pair:addressLocality']}''' . 
+            ?hasPostalAddress pair:addressStreet '''${newLocation['pair:addressStreet']}''' . 
+            ?hasPostalAddress pair:addressZipCode '''${newLocation['pair:addressZipCode']}''' . 
             ?hasPostalAddress <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> pair:PostalAddress . 
           }
           WHERE { 
@@ -93,10 +97,20 @@ module.exports = {
         `,
         webId: 'system'
       });
+      
+      if (newLocation['pair:addressZipCode']) {
+        const zipCode = newLocation['pair:addressZipCode'];
+        await formatedEvents.forEach(event => {
+            const resourceUri = event.replace('<','').replace('>','')
+            this.broker.call('region-tagger.actionTagEvent', {resourceUri: resourceUri, zipCode: zipCode})
+          }
+        );
+      }
+
 
     },
     async onEventUpdate(resourceUri, oldData, newData) {
-      console.log('===> onEventUpdate');
+      
       if ( ! newData['pair:hostedIn'] ) {
         return
       }
@@ -106,7 +120,7 @@ module.exports = {
       }
       console.log('===> onEventUpdate', resourceUri, oldData['pair:hostedIn'], newData['pair:hostedIn'], newData['pair:hasLocation']);
       
-      let newAddress = await this.broker.call('triplestore.query', {
+      let newLocation = await this.broker.call('triplestore.query', {
         query: `
           PREFIX ldp: <http://www.w3.org/ns/ldp#>
           PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>
@@ -126,9 +140,9 @@ module.exports = {
         webId: 'system'
       });
       
-      console.log('===> newAddress', newAddress);
+      console.log('===> newLocation', newLocation);
     
-      if (newAddress) {
+      if (newLocation) {
         await this.broker.call('triplestore.update', {
           query: `
             PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>
@@ -152,14 +166,14 @@ module.exports = {
             INSERT { 
               ?event pair:hasLocation ?hasLocation .
               ?hasLocation pair:hasPostalAddress ?hasPostalAddress .
-              ?hasLocation  pair:label '''${newAddress.label}''' .
-              ?hasLocation  pair:longitude '${newAddress['pair:longitude']}'^^<http://www.w3.org/2001/XMLSchema#double> .
-              ?hasLocation  pair:latitude '${newAddress['pair:latitude']}'^^<http://www.w3.org/2001/XMLSchema#double> .
+              ?hasLocation  pair:label '''${newLocation.label}''' .
+              ?hasLocation  pair:longitude '${newLocation['pair:longitude']}'^^<http://www.w3.org/2001/XMLSchema#double> .
+              ?hasLocation  pair:latitude '${newLocation['pair:latitude']}'^^<http://www.w3.org/2001/XMLSchema#double> .
               ?hasLocation <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> pair:Place .
-              ?hasPostalAddress pair:addressCountry '''${newAddress.addressCountry}''' . 
-              ?hasPostalAddress pair:addressLocality '''${newAddress.addressLocality}''' . 
-              ?hasPostalAddress pair:addressStreet '''${newAddress.addressStreet}''' . 
-              ?hasPostalAddress pair:addressZipCode '''${newAddress.addressZipCode}''' . 
+              ?hasPostalAddress pair:addressCountry '''${newLocation.addressCountry}''' . 
+              ?hasPostalAddress pair:addressLocality '''${newLocation.addressLocality}''' . 
+              ?hasPostalAddress pair:addressStreet '''${newLocation.addressStreet}''' . 
+              ?hasPostalAddress pair:addressZipCode '''${newLocation.addressZipCode}''' . 
               ?hasPostalAddress <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> pair:PostalAddress . 
             }
             WHERE { 
@@ -171,6 +185,10 @@ module.exports = {
           `,
           webId: 'system'
         });
+        
+        if (newLocation.addressZipCode) {
+          await this.broker.call('region-tagger.actionTagEvent', {resourceUri: resourceUri, zipCode: newLocation.addressZipCode})
+        }
       }
     },
   },

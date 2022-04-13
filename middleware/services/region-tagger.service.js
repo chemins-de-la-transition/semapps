@@ -8,6 +8,20 @@ const departments = require('../departments.json');
 module.exports = {
   name: 'region-tagger',
   dependencies: ['ldp'],
+  actions: {
+    async actionTagPlace(ctx) {
+      const { resourceUri, newData } = ctx.params;
+      await this.tagPlace(resourceUri, newData);
+    },
+    async actionTagEvent(ctx) {
+      const { resourceUri, zipCode } = ctx.params;
+      await this.tag(resourceUri, [zipCode]);
+    },
+    async actionTagCourse(ctx) {
+      const { resourceUri, newData } = ctx.params;
+      await this.tagCourse(resourceUri, newData);
+    }
+  },
   methods: {
     async tag(resourceUri, zipCodes) {
       let regionsUris = [];
@@ -57,11 +71,13 @@ module.exports = {
 
       if (this.checkFullAddress(event, 'pair:hasLocation')) {
         await this.tag(eventUri, [event['pair:hasLocation']['pair:hasPostalAddress']['pair:addressZipCode']]);
-      } else if (this.checkFullAddress(event, 'pair:hostedIn')) {
-        await this.tag(eventUri, [event['pair:hostedIn']['pair:hasPostalAddress']['pair:addressZipCode']]);
       }
+      // location-update.service updates hasLocation when hostedIn is changed : no need to check hostedIn here
     },
     async tagCourse(courseUri, course) {
+      
+      console.log('tagCourse', courseUri, course);
+      
       if( course['pair:hasPart'] ) {
         let zipCodes = [];
 
