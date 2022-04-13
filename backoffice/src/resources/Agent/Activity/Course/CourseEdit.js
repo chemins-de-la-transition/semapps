@@ -5,7 +5,7 @@ import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
 import {
   PersonsInput,
-  EventsInput,
+  /*EventsInput,*/
   ThemesInput,
   StatusInput,
   TypesInput,
