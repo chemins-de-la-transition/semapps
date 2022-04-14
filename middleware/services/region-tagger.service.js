@@ -89,8 +89,8 @@ module.exports = {
             webId: 'system'
           });
 
-          if( event['pair:hostedIn'] && event['pair:hostedIn']['pair:hasPostalAddress'] ) {
-            zipCodes.push(event['pair:hostedIn']['pair:hasPostalAddress']['pair:addressZipCode']);
+          if( event['pair:hasLocation'] && event['pair:hasLocation']['pair:hasPostalAddress'] ) {
+            zipCodes.push(event['pair:hasLocation']['pair:hasPostalAddress']['pair:addressZipCode']);
           }
         }
 
