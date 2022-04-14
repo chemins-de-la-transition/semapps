@@ -82,7 +82,7 @@ module.exports = {
         let zipCodes = [];
 
         // Gather the zip code of all events in this course
-        for (let eventUri of course['pair:hasPart']) {
+        for (let eventUri of [].concat(course['pair:hasPart'])) {
           const event = await this.broker.call('ldp.resource.get', {
             resourceUri: eventUri,
             accept: MIME_TYPES.JSON,
