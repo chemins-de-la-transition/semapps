@@ -50,7 +50,7 @@ const EventShow = (props) => (
           <MarkdownField source="cdlt:practicalConditions" addLabel />
           <MarkdownField source="cdlt:learningObjectives" addLabel />
           <MarkdownField source="cdlt:economicalConditions" addLabel />
-          <EventMapField source={"pair:hasLocation"} />
+          <EventMapField source="pair:hasLocation" />
         </MainList>
       </Grid>
       <Grid item xs={12} sm={3}>
