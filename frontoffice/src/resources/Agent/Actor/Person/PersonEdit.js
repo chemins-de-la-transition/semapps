@@ -12,8 +12,8 @@ import {
   SectorInput,
   SkillsInput,
   ThemesInput,
-  TypeInput,
-  StatusInput
+  // TypeInput,
+  // StatusInput
 } from '../../../../pair';
 import { ImageField } from '@semapps/semantic-data-provider';
 import PersonTitle from './PersonTitle';
@@ -38,8 +38,10 @@ export const PersonEdit = (props) => (
             <ImageField source="src" />
           </ImageInput>
           <TextInput source="pair:phone" fullWidth />
+          {/*
           <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
           <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
+          */}
           <SectorInput source="pair:hasSector" />
           <PairLocationInput source="pair:hasLocation" fullWidth />
         </FormTab>
