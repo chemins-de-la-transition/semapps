@@ -7,6 +7,7 @@ import {
   IntentionInput,
   OrganizationsInput,
   PairLocationInput,
+  PlacesInput,
   SkillsInput,
   ThemesInput,
   TypeInput,
@@ -34,13 +35,15 @@ export const PersonEdit = (props) => (
           <ImageField source="src" />
         </ImageInput>
         <TextInput source="pair:phone" fullWidth />
-        <ActivitiesInput source="cdlt:mentorOn" />
         <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
         <PairLocationInput source="pair:hasLocation" fullWidth />
       </FormTab>
       <FormTab label="Relations">
         <OrganizationsInput source="pair:affiliatedBy" />
+        <PlacesInput source="cdlt:proposes" />
+        <ActivitiesInput source="cdlt:mentorOn" />
+        <ActivitiesInput source="cdlt:organizes" />
         <SkillsInput source="pair:offers" />
         <ThemesInput source="pair:hasTopic" />
         <IntentionInput source="pair:aims" />

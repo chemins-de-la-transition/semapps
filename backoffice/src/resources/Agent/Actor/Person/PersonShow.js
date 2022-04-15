@@ -33,8 +33,10 @@ const PersonShow = (props) => (
         </Hero>
         <MainList>
           <MapField
+            source="pair:hasLocation"
             latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
             longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
+            scrollWheelZoom={false}
           />
           <ReferenceArrayField reference="Theme" source="pair:hasTopic">
             <SingleFieldList linkType="show">

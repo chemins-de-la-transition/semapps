@@ -23,6 +23,7 @@ const OrganizationShow = (props) => (
             source="pair:hasLocation"
             latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
             longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
+            scrollWheelZoom={false}
           />
         </MainList>
       </Grid>
