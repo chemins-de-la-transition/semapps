@@ -8,6 +8,7 @@ const dataServers = {
     containers: {
       cdlt: {
         'pair:Document': ['/documents'],
+        'pair:Intention': ['/intentions'],
         'pair:Event': ['/events'],
         'pair:Organization': ['/organizations'],
         'pair:Person': ['/users'],

@@ -37,10 +37,11 @@ export default {
         'pair:involvedIn': 'Impliqué dans',
         'pair:hasStatus': 'Statut',
         'pair:affiliatedBy': 'Membre de',
-        'pair:offers': 'Offre',
+        'pair:offers': 'Offre', /*Skill*/
         'pair:hasTopic': 'A pour intérêt',
         'pair:hasLocation': 'Adresse',
         'pair:hasType': 'Type',
+        'pair:aims': 'Intention',
         'cdlt:mentorOn': 'Est mentor pour',
         'cdlt:organizes': 'Evénements',
         'cdlt:proposes': 'Lieux',

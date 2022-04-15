@@ -48,6 +48,10 @@ module.exports = [
     acceptedTypes: ['pair:Theme']
   },
   {
+    path: '/intentions',
+    acceptedTypes: ['pair:Intention']
+  },
+  {
     path: '/skills',
     acceptedTypes: ['pair:Skill']
   },
