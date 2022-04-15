@@ -84,12 +84,12 @@ const PersonShow = (props) => (
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Event" source="cdlt:organizes">
+          <ReferenceArrayField reference="Activity" source="cdlt:organizes">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Course" source="cdlt:mentorOn">
+          <ReferenceArrayField reference="Activity" source="cdlt:mentorOn">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
