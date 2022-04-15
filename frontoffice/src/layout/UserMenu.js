@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import { UserMenu as RaUserMenu, MenuItemLink, useGetIdentity } from 'react-admin';
 import PlaceIcon from '../svg/PlaceIcon';
 import EventIcon from '@material-ui/icons/Event';
+import EditIcon from '@material-ui/icons/Edit';
 
 const MyPlacesMenu = forwardRef(({ onClick }, ref) => (
   <MenuItemLink ref={ref} to="/MyPlaces" primaryText="Mes lieux" leftIcon={<PlaceIcon />} onClick={onClick} />
@@ -15,6 +16,16 @@ const LoginMenu = forwardRef(({ onClick }, ref) => (
   <MenuItemLink ref={ref} to="/login" primaryText="Se connecter" onClick={onClick} />
 ));
 
+const EditProfileMenu = forwardRef(({ onClick, webId }, ref) => (
+  <MenuItemLink
+    ref={ref}
+    to={`/Person/${encodeURIComponent(webId)}/edit`}
+    primaryText="Editer mon profil"
+    leftIcon={<EditIcon />}
+    onClick={onClick}
+  />
+));
+
 const UserMenu = ({ logout, ...otherProps }) => {
   const { identity } = useGetIdentity();
   return (
@@ -23,6 +34,7 @@ const UserMenu = ({ logout, ...otherProps }) => {
         [
           <MyPlacesMenu key="my-places" />,
           <MyEventsMenu key="my-events" />,
+          <EditProfileMenu webId={identity.id} key="edit" />,
           React.cloneElement(logout, { key: 'logout' }),
         ]
       ) : (
