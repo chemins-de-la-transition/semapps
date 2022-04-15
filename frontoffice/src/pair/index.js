@@ -32,7 +32,7 @@ export const PlacesInput = (props) => (
   </ReferenceArrayInput>
 );
 
-export const IntentionInput = ({ label, source }) => (
+export const IntentionsInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Intention" source={source}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />
   </ReferenceArrayInput>

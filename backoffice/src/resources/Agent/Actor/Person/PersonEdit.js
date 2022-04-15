@@ -4,7 +4,7 @@ import { EditWithPermissions } from '@semapps/auth-provider';
 import { MarkdownInput } from '@semapps/markdown-components';
 import {
   ActivitiesInput,
-  IntentionInput,
+  IntentionsInput,
   OrganizationsInput,
   PairLocationInput,
   PlacesInput,
@@ -48,10 +48,10 @@ export const PersonEdit = (props) => (
         <ActivitiesInput source="cdlt:organizes" />
         <SkillsInput source="pair:offers" />
         <ThemesInput source="pair:hasTopic" />
-        <IntentionInput source="pair:aims" />
-        <IntentionInput source="cdlt:aimsAsHost" />
-        <IntentionInput source="cdlt:aimsAsOrganizer" />
-        <IntentionInput source="cdlt:aimsAsMentor" />
+        <IntentionsInput source="pair:aims" />
+        <IntentionsInput source="cdlt:aimsAsHost" />
+        <IntentionsInput source="cdlt:aimsAsOrganizer" />
+        <IntentionsInput source="cdlt:aimsAsMentor" />
       </FormTab>
     </TabbedForm>
   </EditWithPermissions>
