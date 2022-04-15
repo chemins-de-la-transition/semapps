@@ -36,13 +36,12 @@ export const PersonEdit = (props) => (
         <ActivitiesInput source="cdlt:mentorOn" />
         <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
-        <OrganizationsInput source="pair:affiliatedBy" />
-        <SkillsInput source="pair:offers" />
-        <ThemesInput source="pair:hasTopic" />
         <PairLocationInput source="pair:hasLocation" fullWidth />
       </FormTab>
       <FormTab label="Relations">
-        
+        <OrganizationsInput source="pair:affiliatedBy" />
+        <SkillsInput source="pair:offers" />
+        <ThemesInput source="pair:hasTopic" />
       </FormTab>
     </TabbedForm>
   </EditWithPermissions>
