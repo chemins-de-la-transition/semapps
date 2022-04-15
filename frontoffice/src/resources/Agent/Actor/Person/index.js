@@ -30,7 +30,6 @@ export default {
         'pair:comment': 'En deux mots',
         'pair:description': 'Description',
         'pair:image': 'Photo',
-        'pair:involvedIn': 'Impliqué dans',
         'pair:hasStatus': 'Statut',
         'pair:affiliatedBy': 'Membre de',
         'pair:offers': 'Offre',
