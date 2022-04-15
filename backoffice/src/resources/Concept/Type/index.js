@@ -21,7 +21,6 @@ export default {
       'pair:PlaceType',
       'pair:EventType',
       'pair:DocumentType',
-      'pair:IntentionType',
       'cdlt:CourseType',
       'cdlt:PathType'
     ],

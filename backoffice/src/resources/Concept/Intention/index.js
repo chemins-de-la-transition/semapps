@@ -25,7 +25,6 @@ export default {
       name: 'Intention |||| Intentions',
       fields: {
         'pair:label': 'Intention',
-//        'pair:hasType': 'En tant que',
       },
     },
   },

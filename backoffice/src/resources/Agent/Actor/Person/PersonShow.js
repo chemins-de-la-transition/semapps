@@ -36,6 +36,36 @@ const PersonShow = (props) => (
             latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
             longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
           />
+          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Skill" source="pair:offers">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Intention" source="pair:aims">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Intention" source="cdlt:aimsAsHost">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Intention" source="cdlt:aimsAsMentor">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Intention" source="cdlt:aimsAsOrganizer">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
         </MainList>
       </Grid>
       <Grid item xs={12} sm={3}>
@@ -57,12 +87,7 @@ const PersonShow = (props) => (
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-            <SingleFieldList linkType="show">
-              <ChipField source="pair:label" />
-            </SingleFieldList>
-          </ReferenceArrayField>
-          <ReferenceArrayField reference="Skill" source="pair:offers">
+          <ReferenceArrayField reference="Course" source="cdlt:mentorOn">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>

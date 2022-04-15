@@ -35,13 +35,16 @@ export default {
         'pair:description': 'Description',
         'pair:image': 'Photo',
         'pair:hasStatus': 'Statut',
-        'pair:affiliatedBy': 'Membre de',
+        'pair:affiliatedBy': 'Membre de', /*Organization*/
         'pair:offers': 'Offre', /*Skill*/
-        'pair:hasTopic': 'A pour intérêt',
+        'pair:hasTopic': 'A pour intérêt', /*Theme*/
         'pair:hasLocation': 'Adresse',
         'pair:hasType': 'Type',
-        'pair:aims': 'Intention',
-        'cdlt:mentorOn': 'Est mentor pour',
+        'pair:aims': 'Intention en tant que voyageur',
+        'cdlt:aimsAsMentor': 'Intention en tant que mentor',
+        'cdlt:aimsAsOrganizer': 'Intention en tant qu\'organisateur',
+        'cdlt:aimsAsHost': 'Intention en tant qu\'hôte',
+        'cdlt:mentorOn': 'Est mentor pour', /*Parcours*/
         'cdlt:organizes': 'Evénements',
         'cdlt:proposes': 'Lieux',
         'foaf:email': 'Adresse email',
