@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextField, UrlField, ChipField, SingleFieldList } from 'react-admin';
-import { MainList, SideList, Hero, AvatarField, GridList } from '@semapps/archipelago-layout';
+import { MainList, SideList, Hero, AvatarField, GridList, SeparatedListField } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MapField } from '@semapps/geo-components';
 import { MarkdownField } from '@semapps/markdown-components';
@@ -16,6 +16,11 @@ const OrganizationShow = (props) => (
         <Hero image="pair:image">
           <TextField source="pair:comment" />
           <UrlField source="pair:homePage" />
+          <ReferenceArrayField source="pair:hasSector" reference="Sector">
+            <SeparatedListField link={false}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
         </Hero>
         <MainList>
           <MarkdownField source="pair:description" />
@@ -62,6 +67,11 @@ const OrganizationShow = (props) => (
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Document" source="pair:documentedBy">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Activity" source="cdlt:organizes">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>

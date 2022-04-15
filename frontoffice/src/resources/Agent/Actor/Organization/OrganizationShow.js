@@ -1,22 +1,40 @@
 import React from 'react';
 import { TextField, UrlField, ChipField, SingleFieldList } from 'react-admin';
-import { MainList, SideList, Hero, AvatarField, GridList } from '@semapps/archipelago-layout';
+import { MainList, SideList, Hero, AvatarField, GridList, SeparatedListField } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MapField } from '@semapps/geo-components';
 import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
-import { Container, Grid } from '@material-ui/core';
+import { Container, Grid, makeStyles } from '@material-ui/core';
 import OrganizationTitle from './OrganizationTitle';
 import HomeIcon from '@material-ui/icons/Home';
 
-const OrganizationShow = (props) => (
-  <ShowWithPermissions title={<OrganizationTitle />} {...props}>
-    <Container maxWidth="xl">
+const useStyles = makeStyles((theme) => ({
+  mainContainer: {
+    '& .MuiPaper-root': {
+      padding: '1rem',
+      [theme.breakpoints.up('sm')]: {
+        padding: '2rem',
+      },
+    }
+  },
+}));
+
+const OrganizationShow = (props) => {
+  const classes = useStyles();
+  return (
+  <Container className={classes.mainContainer} maxWidth="xl">
+    <ShowWithPermissions title={<OrganizationTitle />} {...props}>
       <Grid container spacing={5}>
         <Grid item xs={12} sm={9}>
           <Hero image="pair:image">
             <TextField source="pair:comment" />
             <UrlField source="pair:homePage" />
+            <ReferenceArrayField source="pair:hasSector" reference="Sector">
+              <SeparatedListField link={false}>
+                <TextField source="pair:label" />
+              </SeparatedListField>
+            </ReferenceArrayField>
           </Hero>
           <MainList>
             <MarkdownField source="pair:description" />
@@ -24,6 +42,7 @@ const OrganizationShow = (props) => (
               source="pair:hasLocation"
               latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
               longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
+              scrollWheelZoom={false}
             />
           </MainList>
         </Grid>
@@ -66,11 +85,17 @@ const OrganizationShow = (props) => (
                 <ChipField source="pair:label" />
               </SingleFieldList>
             </ReferenceArrayField>
+            <ReferenceArrayField reference="Activity" source="cdlt:organizes">
+              <SingleFieldList linkType="show">
+                <ChipField source="pair:label" />
+              </SingleFieldList>
+            </ReferenceArrayField>
           </SideList>
         </Grid>
       </Grid>
-    </Container>
-  </ShowWithPermissions>
-);
+    </ShowWithPermissions>
+  </Container>
+  );
+}
 
 export default OrganizationShow;

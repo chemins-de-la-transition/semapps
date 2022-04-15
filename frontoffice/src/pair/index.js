@@ -56,6 +56,12 @@ export const ThemesInput = (props) => (
   </ReferenceArrayInput>
 );
 
+export const UsersInput = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="Person" source={source}>
+    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
+  </ReferenceArrayInput>
+);
+
 export const StatusInput = (props) => (
   <ReferenceInput reference="Status" {...props}>
     <SelectInput optionText="pair:label" />
