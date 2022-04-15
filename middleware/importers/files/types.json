@@ -1,0 +1,17 @@
+[
+  {
+    "type": "pair:PersonType",
+    "slug": "admin",
+    "pair:label": "Administrateur"
+  },
+  {
+    "type": "pair:PersonType",
+    "slug": "contributor",
+    "pair:label": "Contributeur"
+  },
+  {
+    "type": "pair:PersonType",
+    "slug": "actor",
+    "pair:label": "Acteur"
+  }
+]

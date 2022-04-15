@@ -3,4 +3,5 @@
 /jwt/*.key
 /jwt/*.key.pub
 /uploads
+/logs
 node_modules
