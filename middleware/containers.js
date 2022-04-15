@@ -95,7 +95,15 @@ module.exports = [
   },
   {
     path: '/intentions',
-    acceptedTypes: ['pair:Intention']
+    acceptedTypes: ['pair:Intention'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator,
+  },
+  {
+    path: '/sectors',
+    acceptedTypes: ['pair:Sector'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator,
   },
   {
     path: '/skills',

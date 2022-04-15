@@ -38,6 +38,7 @@ export default {
         'pair:hasStatus': 'Statut',
         'pair:offers': 'Offre', /*Skill*/
         'pair:hasTopic': 'A pour intérêt', /*Theme*/
+        'pair:hasSector': 'Secteur d\'activité',
         'pair:hasLocation': 'Adresse',
         'pair:aims': 'Intention en tant que voyageur',
         'cdlt:aimsAsMentor': 'Intention en tant que mentor',

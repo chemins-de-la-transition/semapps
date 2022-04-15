@@ -22,6 +22,7 @@ export { default as Resource } from './Resource/Resource';
 
 // Concepts
 export { default as Intention } from './Concept/Intention';
+export { default as Sector } from './Concept/Sector';
 export { default as Status } from './Concept/Status';
 export { default as Theme } from './Concept/Theme';
 export { default as Type } from './Concept/Type';

@@ -8,6 +8,7 @@ import {
   OrganizationsInput,
   PairLocationInput,
   PlacesInput,
+  SectorInput,
   SkillsInput,
   ThemesInput,
   TypeInput,
@@ -37,6 +38,7 @@ export const PersonEdit = (props) => (
         <TextInput source="pair:phone" fullWidth />
         <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
+        <SectorInput source="pair:hasSector" />
         <PairLocationInput source="pair:hasLocation" fullWidth />
       </FormTab>
       <FormTab label="Relations">

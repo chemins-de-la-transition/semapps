@@ -38,6 +38,12 @@ export const IntentionInput = ({ label, source }) => (
   </ReferenceArrayInput>
 );
 
+export const SectorInput = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="Sector" source={source}>
+    <SelectInput optionText="pair:label" allowEmpty fullWidth/>
+  </ReferenceArrayInput>
+);
+
 export const SkillsInput = (props) => (
   <ReferenceArrayInput reference="Skill" {...props}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />

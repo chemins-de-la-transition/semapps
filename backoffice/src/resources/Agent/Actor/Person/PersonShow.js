@@ -30,6 +30,11 @@ const PersonShow = (props) => (
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
+          <ReferenceArrayField source="pair:hasSector" reference="Sector">
+            <SeparatedListField link={false}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
         </Hero>
         <MainList>
           <MapField
