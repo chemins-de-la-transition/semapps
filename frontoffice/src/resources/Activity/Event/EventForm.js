@@ -72,7 +72,10 @@ const EventForm = ({ mode, ...rest }) => {
   }, [setChosenEvent]);
     
   useEffect(() => {
-    getAllEvents();
+    if (mode === 'create') {
+      console.log('getAllEvents');
+      getAllEvents();
+    }    
   }, [getAllEvents]);
   
   const getFormatedEvent = useCallback((chosenEvent) => {
@@ -116,36 +119,38 @@ const EventForm = ({ mode, ...rest }) => {
     >
       <TextInput source="pair:label" fullWidth validate={[required()]} />
     
-      <Box className={classes.duplicateContainer}>
-        { eventsListIsLoading &&
-          <LinearProgress className={classes.duplicateLoading}/>
-        }
-        { ! eventsListIsLoading &&
-          <>
-            <FormControlLabel control={
-                <Switch 
-                    color="primary"
-                    checked={duplicateIsOpen}
-                    onClick={ handleClickToggleDuplicate(duplicateIsOpen) }
-                />
+      { ['create', 'duplicate'].includes(mode)  &&
+        <Box className={classes.duplicateContainer}>
+          { eventsListIsLoading &&
+            <LinearProgress className={classes.duplicateLoading}/>
+          }
+          { ! eventsListIsLoading &&
+            <>
+              <FormControlLabel control={
+                  <Switch 
+                      color="primary"
+                      checked={duplicateIsOpen}
+                      onClick={ handleClickToggleDuplicate(duplicateIsOpen) }
+                  />
+                }
+                label={"Dupliquer un événement existant ?"}
+                fullWidth
+              />
+              { duplicateIsOpen && ! eventsListIsLoading && eventsListIsOnError &&
+                <Alert severity="error" className={classes.errorContainer}>Un problème est survenu</Alert>
               }
-              label={"Dupliquer un événement existant ?"}
-              fullWidth
-            />
-            { duplicateIsOpen && ! eventsListIsLoading && eventsListIsOnError &&
-              <Alert severity="error" className={classes.errorContainer}>Un problème est survenu</Alert>
-            }
-            { duplicateIsOpen && ! eventsListIsLoading && ! eventsListIsOnError &&
-              <Grow in={duplicateIsOpen} fullWidth>
-                <SelectInput label="Choisissez un événement" source="eventsList" fullWidth 
-                  choices={ eventsList.map(event => ({ id: event.id, name: event["pair:label"] })) }
-                  onChange={ handleChangeSelectEvent(eventsList) }
-                />
-              </Grow>
-            }
-          </>
-        }
-      </Box>
+              { duplicateIsOpen && ! eventsListIsLoading && ! eventsListIsOnError &&
+                <Grow in={duplicateIsOpen} fullWidth>
+                  <SelectInput label="Choisissez un événement" source="eventsList" fullWidth 
+                    choices={ eventsList.map(event => ({ id: event.id, name: event["pair:label"] })) }
+                    onChange={ handleChangeSelectEvent(eventsList) }
+                  />
+                </Grow>
+              }
+            </>
+          }
+        </Box>
+      }
 
       <TextInput source="pair:comment" fullWidth validate={[required()]} />
       <DateTimeInput
