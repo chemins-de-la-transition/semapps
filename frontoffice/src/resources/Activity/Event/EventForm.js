@@ -1,10 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import {
   BooleanInput,
-  Error,
   ImageInput,
-  Link,
-  Loading,
   SelectInput,
   SimpleForm,
   TextInput,
@@ -18,7 +15,24 @@ import { ImageField } from '@semapps/semantic-data-provider';
 import { DateTimeInput } from '@semapps/date-components';
 import { ThemesInput, TypeInput, SkillsInput } from '../../../pair';
 import frLocale from 'date-fns/locale/fr';
-// import { Grow } from '@material-ui/core';
+import { Box, FormControlLabel, Grow, LinearProgress, makeStyles, Switch } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
+
+const useStyles = makeStyles((theme) => ({
+  duplicateContainer: {
+    marginBottom: 16,
+  },
+  duplicateLoading: {
+    width: 200,
+  },
+  errorContainer: {
+    '& .MuiAlert-message': {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }
+  },
+}));
 
 const EventForm = ({ mode, ...rest }) => {
   const { identity } = useGetIdentity();
@@ -54,7 +68,6 @@ const EventForm = ({ mode, ...rest }) => {
     const eventId = e.target.value;
     const chosenEvent = eventsList.find( event => event.id === eventId )
     setChosenEvent(chosenEvent)
-    setDuplicateIsOpen(false)
   }, [setChosenEvent]);
     
   useEffect(() => {
@@ -83,6 +96,7 @@ const EventForm = ({ mode, ...rest }) => {
     mode = 'duplicate';
   }
 
+  const classes = useStyles();
   return (
     <SimpleForm
       initialValues={ initalValues(mode) }
@@ -90,24 +104,37 @@ const EventForm = ({ mode, ...rest }) => {
       redirect="/MyEvents"
     >
       <TextInput source="pair:label" fullWidth validate={[required()]} />
-      
-      <Link onClick={ handleClickToggleDuplicate(duplicateIsOpen) }>Dupliquer un événement existant ?</Link>
-      { duplicateIsOpen && eventsListIsLoading &&
-        /*todo*/
-        <Loading/>
-      }
-      { duplicateIsOpen && ! eventsListIsLoading && eventsListIsOnError &&
-        /*todo*/
-        <Error/>
-      }
-      { duplicateIsOpen && ! eventsListIsLoading && ! eventsListIsOnError &&
-        <>
-          <SelectInput label="Choisissez un événement" source="eventsList" fullWidth 
-            choices={ eventsList.map(event => ({ id: event.id, name: event["pair:label"] })) }
-            onChange={ handleChangeSelectEvent(eventsList) }
-          />
-        </>
-      }
+    
+      <Box className={classes.duplicateContainer} fullWidth>
+        { eventsListIsLoading &&
+          <LinearProgress className={classes.duplicateLoading}/>
+        }
+        { ! eventsListIsLoading &&
+          <>
+            <FormControlLabel control={
+                <Switch 
+                    color="primary"
+                    checked={duplicateIsOpen}
+                    onClick={ handleClickToggleDuplicate(duplicateIsOpen) }
+                />
+              }
+              label={"Dupliquer un événement existant ?"}
+              fullWidth
+            />
+            { duplicateIsOpen && ! eventsListIsLoading && eventsListIsOnError &&
+              <Alert severity="error" className={classes.errorContainer}>Un problème est survenu</Alert>
+            }
+            { duplicateIsOpen && ! eventsListIsLoading && ! eventsListIsOnError &&
+              <Grow in={duplicateIsOpen} fullWidth>
+                <SelectInput label="Choisissez un événement" source="eventsList" fullWidth 
+                  choices={ eventsList.map(event => ({ id: event.id, name: event["pair:label"] })) }
+                  onChange={ handleChangeSelectEvent(eventsList) }
+                />
+              </Grow>
+            }
+          </>
+        }
+      </Box>
 
       <TextInput source="pair:comment" fullWidth validate={[required()]} />
       <DateTimeInput
