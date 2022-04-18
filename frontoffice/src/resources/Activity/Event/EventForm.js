@@ -21,9 +21,10 @@ import Alert from '@material-ui/lab/Alert';
 const useStyles = makeStyles((theme) => ({
   duplicateContainer: {
     marginBottom: 16,
+    width: '100%'
   },
   duplicateLoading: {
-    width: 200,
+    width: 160,
   },
   errorContainer: {
     '& .MuiAlert-message': {
@@ -77,11 +78,21 @@ const EventForm = ({ mode, ...rest }) => {
   const getFormatedEvent = useCallback((chosenEvent) => {
     let formatedEvent = {};  
     for (const property in chosenEvent) {
-      if (! ['pair:label'].includes(property)) {
-        formatedEvent = { ...formatedEvent, [property]: chosenEvent[property] };
+      if (! ['id','dc','type'].includes(property.split(':')[0])) {
+        if ( ! [
+          'cdlt:organizedBy',
+          'pair:label',
+          /*
+          'cdlt:hasCourseType',
+          'pair:hasType',
+          */
+        ].includes(property)) {
+          console.log('property-ok:', property);
+          formatedEvent = { ...formatedEvent, [property]: chosenEvent[property] };
+        }
       }
     }
-    return formatedEvent
+    return { ...formatedEvent, 'cdlt:organizedBy': identity?.id }
   }, []);
   
   const initalValues = (mode) => {
@@ -105,7 +116,7 @@ const EventForm = ({ mode, ...rest }) => {
     >
       <TextInput source="pair:label" fullWidth validate={[required()]} />
     
-      <Box className={classes.duplicateContainer} fullWidth>
+      <Box className={classes.duplicateContainer}>
         { eventsListIsLoading &&
           <LinearProgress className={classes.duplicateLoading}/>
         }
