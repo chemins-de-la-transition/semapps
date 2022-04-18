@@ -15,7 +15,7 @@ import { ImageField } from '@semapps/semantic-data-provider';
 import { DateTimeInput } from '@semapps/date-components';
 import { ThemesInput, TypeInput, SkillsInput } from '../../../pair';
 import frLocale from 'date-fns/locale/fr';
-import { Box, FormControlLabel, Grow, LinearProgress, makeStyles, Switch } from '@material-ui/core';
+import { Box, FormControlLabel, Slide, LinearProgress, makeStyles, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
@@ -139,12 +139,14 @@ const EventForm = ({ mode, ...rest }) => {
                 <Alert severity="error" className={classes.errorContainer}>Un problème est survenu</Alert>
               }
               { duplicateIsOpen && ! eventsListIsLoading && ! eventsListIsOnError &&
-                <Grow in={duplicateIsOpen} fullWidth>
-                  <SelectInput label="Choisissez un événement" source="eventsList" fullWidth 
-                    choices={ eventsList.map(event => ({ id: event.id, name: event["pair:label"] })) }
-                    onChange={ handleChangeSelectEvent(eventsList) }
-                  />
-                </Grow>
+                <Slide direction="up" in={duplicateIsOpen} mountOnEnter unmountOnExit>
+                  <div>
+                    <SelectInput label="Choisissez un événement" source="eventsList" fullWidth 
+                      choices={ eventsList.map(event => ({ id: event.id, name: event["pair:label"] })) }
+                      onChange={ handleChangeSelectEvent(eventsList) }
+                    />
+                  </div>
+                </Slide>
               }
             </>
           }
