@@ -75,7 +75,7 @@ const EventForm = ({ mode, ...rest }) => {
     if (mode === 'create') {
       getAllEvents();
     }    
-  }, [getAllEvents]);
+  }, [mode, getAllEvents]);
   
   const getFormatedEvent = useCallback((chosenEvent) => {
     let formatedEvent = {};  
@@ -89,13 +89,12 @@ const EventForm = ({ mode, ...rest }) => {
           'pair:hasType',
           */
         ].includes(property)) {
-          console.log('property-ok:', property);
           formatedEvent = { ...formatedEvent, [property]: chosenEvent[property] };
         }
       }
     }
     return { ...formatedEvent, 'cdlt:organizedBy': identity?.id }
-  }, []);
+  }, [identity]);
   
   const initalValues = (mode) => {
     switch (mode) {
@@ -133,7 +132,6 @@ const EventForm = ({ mode, ...rest }) => {
                   />
                 }
                 label={"Dupliquer un événement existant ?"}
-                fullWidth
               />
               { duplicateIsOpen && ! eventsListIsLoading && eventsListIsOnError &&
                 <Alert severity="error" className={classes.errorContainer}>Un problème est survenu</Alert>
