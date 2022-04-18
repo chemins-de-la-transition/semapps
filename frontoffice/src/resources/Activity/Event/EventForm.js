@@ -73,7 +73,6 @@ const EventForm = ({ mode, ...rest }) => {
     
   useEffect(() => {
     if (mode === 'create') {
-      console.log('getAllEvents');
       getAllEvents();
     }    
   }, [getAllEvents]);
