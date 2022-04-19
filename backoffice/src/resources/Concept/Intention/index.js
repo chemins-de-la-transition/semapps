@@ -1,14 +1,14 @@
 import { PairResourceCreate } from '../../../pair';
 import IntentionEdit from './IntentionEdit';
 import IntentionList from './IntentionList';
-import VisibilityIcon from '@material-ui/icons/Visibility';
+import StyleIcon from '@material-ui/icons/Style';
 
 export default {
   config: {
     list: IntentionList,
     create: PairResourceCreate,
     edit: IntentionEdit,
-    icon: VisibilityIcon,
+    icon: StyleIcon,
     options: {
       label: 'Intentions',
       parent: 'Concept',

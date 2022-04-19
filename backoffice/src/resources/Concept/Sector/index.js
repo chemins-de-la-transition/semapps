@@ -1,14 +1,14 @@
 import { PairResourceCreate } from '../../../pair';
 import SectorEdit from './SectorEdit';
 import SectorList from './SectorList';
-import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+import StyleIcon from '@material-ui/icons/Style';
 
 export default {
   config: {
     list: SectorList,
     create: PairResourceCreate,
     edit: SectorEdit,
-    icon: LocalOfferIcon,
+    icon: StyleIcon,
     options: {
       label: 'Secteur d\'activité',
       parent: 'Concept',
