@@ -51,12 +51,6 @@ const PersonShow = (props) => {
             </ReferenceArrayField>
           </Hero>
           <MainList>
-            <MapField
-              source="pair:hasLocation"
-              latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
-              longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
-              scrollWheelZoom={false}
-            />
             <ReferenceArrayField reference="Theme" source="pair:hasTopic">
               <SingleFieldList linkType="show">
                 <ChipField source="pair:label" />
@@ -87,6 +81,12 @@ const PersonShow = (props) => {
                 <ChipField source="pair:label" />
               </SingleFieldList>
             </ReferenceArrayField>
+            <MapField
+              source="pair:hasLocation"
+              latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
+              longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
+              scrollWheelZoom={false}
+            />
           </MainList>
         </Grid>
         <Grid item xs={12} sm={3}>
