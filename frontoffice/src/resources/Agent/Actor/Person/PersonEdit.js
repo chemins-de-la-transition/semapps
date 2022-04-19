@@ -9,7 +9,7 @@ import {
   OrganizationsInput,
   PairLocationInput,
   PlacesInput,
-  SectorInput,
+  SectorsInput,
   SkillsInput,
   ThemesInput,
   // TypeInput,
@@ -42,7 +42,6 @@ export const PersonEdit = (props) => (
           <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
           <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
           */}
-          <SectorInput source="pair:hasSector" />
           <PairLocationInput source="pair:hasLocation" fullWidth />
         </FormTab>
         <FormTab label="Relations">
@@ -50,8 +49,9 @@ export const PersonEdit = (props) => (
           <PlacesInput source="cdlt:proposes" />
           <ActivitiesInput source="cdlt:mentorOn" />
           <ActivitiesInput source="cdlt:organizes" />
-          <SkillsInput source="pair:offers" />
+          <SectorsInput source="pair:hasSector" />
           <ThemesInput source="pair:hasTopic" />
+          <SkillsInput source="pair:offers" />
           <IntentionsInput source="pair:aims" />
           <IntentionsInput source="cdlt:aimsAsHost" />
           <IntentionsInput source="cdlt:aimsAsOrganizer" />

@@ -36,7 +36,7 @@ export default {
         'pair:image': 'Logo',
         'pair:affiliates': 'A pour membres', /*Person*/
         'pair:partnerOf': 'A pour partenaires', /*Organization*/
-        'pair:hasSector': 'Secteur d\'activité',
+        'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'A pour thème',
         'pair:hasLocation': 'Adresse',
         'cdlt:organizes': 'Organise',

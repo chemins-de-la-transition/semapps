@@ -30,40 +30,40 @@ const PersonShow = (props) => (
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
-          <ReferenceArrayField source="pair:hasSector" reference="Sector">
-            <SeparatedListField link={false}>
-              <TextField source="pair:label" />
-            </SeparatedListField>
-          </ReferenceArrayField>
         </Hero>
         <MainList>
+          <ReferenceArrayField  reference="Sector" source="pair:hasSector">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-            <SingleFieldList linkType="show">
+            <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:offers">
-            <SingleFieldList linkType="show">
+            <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Intention" source="pair:aims">
-            <SingleFieldList linkType="show">
+            <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Intention" source="cdlt:aimsAsHost">
-            <SingleFieldList linkType="show">
+            <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Intention" source="cdlt:aimsAsMentor">
-            <SingleFieldList linkType="show">
+            <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Intention" source="cdlt:aimsAsOrganizer">
-            <SingleFieldList linkType="show">
+            <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>

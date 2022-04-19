@@ -30,14 +30,14 @@ const OrganizationShow = (props) => {
           <Hero image="pair:image">
             <TextField source="pair:comment" />
             <UrlField source="pair:homePage" />
-            <ReferenceArrayField source="pair:hasSector" reference="Sector">
-              <SeparatedListField link={false}>
-                <TextField source="pair:label" />
-              </SeparatedListField>
-            </ReferenceArrayField>
           </Hero>
           <MainList>
             <MarkdownField source="pair:description" />
+            <ReferenceArrayField  reference="Sector" source="pair:hasSector">
+              <SingleFieldList linkType={false}>
+                <ChipField source="pair:label" />
+              </SingleFieldList>
+            </ReferenceArrayField>
             <MapField
               source="pair:hasLocation"
               latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}

@@ -8,7 +8,7 @@ import {
   UsersInput,
   OrganizationsInput,
   ActivitiesInput,
-  SectorInput,
+  SectorsInput,
   ThemesInput,
   PairLocationInput 
 } from '../../../../pair';
@@ -25,10 +25,10 @@ export const OrganizationEdit = (props) => (
         <ImageInput source="pair:image" accept="image/*">
           <ImageField source="src" />
         </ImageInput>
-        <SectorInput source="pair:hasSector" />
         <OrganizationsInput source="pair:partnerOf" />
         <UsersInput source="pair:affiliates" />
         <ActivitiesInput source="cdlt:organizes" />
+        <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
         <PairLocationInput source="pair:hasLocation" fullWidth />
       </SimpleForm>
