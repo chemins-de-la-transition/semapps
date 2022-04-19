@@ -47,7 +47,7 @@ export default {
         'pair:affiliatedBy': 'Membre de', /*Organization*/
         'cdlt:mentorOn': 'Est mentor pour', /*Activity*/
         'cdlt:organizes': 'Est organisateur de', /*Activity*/
-        'cdlt:proposes': 'Lieux',
+        'cdlt:proposes': 'Est hôte de',
         'foaf:email': 'Adresse email',
         'pair:phone': 'Téléphone',
       },
