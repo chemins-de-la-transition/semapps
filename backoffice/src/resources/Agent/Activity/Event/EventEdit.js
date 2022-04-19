@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabbedForm, FormTab, TextInput, ImageInput, BooleanInput } from 'react-admin';
+import { TabbedForm, FormTab, TextInput, ImageInput, BooleanInput, email, required } from 'react-admin';
 import frLocale from 'date-fns/locale/fr';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
@@ -12,8 +12,8 @@ const EventEdit = (props) => (
   <EditWithPermissions title={<EventTitle />} {...props}>
     <TabbedForm redirect="show">
       <FormTab label="Données">
-        <TextInput source="pair:label" fullWidth />
-        <TextInput source="pair:comment" fullWidth />
+        <TextInput source="pair:label" fullWidth validate={[required()]} />
+        <TextInput source="pair:comment" fullWidth validate={[required()]} />
         <DateTimeInput
           source="pair:startDate"
           options={{
@@ -24,6 +24,7 @@ const EventEdit = (props) => (
             locale: frLocale,
           }}
           fullWidth
+          validate={[required()]}
         />
         <DateTimeInput
           source="pair:endDate"
@@ -35,11 +36,12 @@ const EventEdit = (props) => (
             locale: frLocale,
           }}
           fullWidth
+          validate={[required()]}
         />
         <ImageInput source="pair:isDepictedBy" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
-        <MarkdownInput source="pair:description" fullWidth />
+        <MarkdownInput source="pair:description" fullWidth validate={[required()]} />
         <MarkdownInput source="cdlt:program" fullWidth />
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
         <MarkdownInput source="cdlt:practicalConditions" fullWidth />
@@ -52,12 +54,12 @@ const EventEdit = (props) => (
         <PlaceInput source="pair:hostedIn" />
         <CourseInput source="pair:partOf" />
         <ThemesInput source="pair:hasTopic" />
-        <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
-        <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} />
+        <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />
+        <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} />
         <SkillsInput source="pair:produces" fullWidth />
       </FormTab>
       <FormTab label="Contact">
-        <TextInput source="pair:e-mail" fullWidth />
+        <TextInput source="pair:e-mail" fullWidth validate={[required(), email()]} />
         <TextInput source="pair:phone" fullWidth />
         <TextInput source="pair:aboutPage" fullWidth />
       </FormTab>
