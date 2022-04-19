@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextField, UrlField, ChipField, SingleFieldList } from 'react-admin';
-import { MainList, SideList, Hero, AvatarField, GridList, SeparatedListField } from '@semapps/archipelago-layout';
+import { MainList, SideList, Hero, AvatarField, GridList } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MapField } from '@semapps/geo-components';
 import { MarkdownField } from '@semapps/markdown-components';

@@ -9,7 +9,7 @@ const ChipWithResourceIcon = ( { source, defaultIcon, ...props} ) => {
     'pair:Person':  useResourceDefinition({resource: 'Person'}).icon,
     'pair:Place':  useResourceDefinition({resource: 'Place'}).icon,
   }
-  const { children, record } = props;
+  const { record } = props;
   if (record?.type) {
     if (resourceIcons[record.type]) {
       return <ChipField source="pair:label" icon={resourceIcons[record.type].type.render()}/>
