@@ -8,6 +8,7 @@ import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Container, Grid, makeStyles } from '@material-ui/core';
 import OrganizationTitle from './OrganizationTitle';
 import HomeIcon from '@material-ui/icons/Home';
+import ChipWithResourceIcon from '../../../../commons/ChipWithResourceIcon';
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -87,7 +88,7 @@ const OrganizationShow = (props) => {
             </ReferenceArrayField>
             <ReferenceArrayField reference="Activity" source="cdlt:organizes">
               <SingleFieldList linkType="show">
-                <ChipField source="pair:label" />
+                <ChipWithResourceIcon source="pair:label" />
               </SingleFieldList>
             </ReferenceArrayField>
           </SideList>

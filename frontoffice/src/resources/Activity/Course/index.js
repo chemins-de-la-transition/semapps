@@ -1,10 +1,12 @@
 import CourseList from './CourseList';
 import CourseShow from './CourseShow';
+import DateRangeIcon from '@material-ui/icons/DateRange';
 
 export default {
   config: {
     list: CourseList,
     show: CourseShow,
+    icon: DateRangeIcon,
   },
   dataModel: {
     types: ['cdlt:Course'],

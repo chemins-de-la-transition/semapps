@@ -8,6 +8,7 @@ import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Grid } from '@material-ui/core';
 import OrganizationTitle from './OrganizationTitle';
 import HomeIcon from '@material-ui/icons/Home';
+import ChipWithResourceIcon from '../../../../commons/ChipWithResourceIcon';
 
 const OrganizationShow = (props) => (
   <ShowWithPermissions title={<OrganizationTitle />} {...props}>
@@ -73,7 +74,7 @@ const OrganizationShow = (props) => (
           </ReferenceArrayField>
           <ReferenceArrayField reference="Activity" source="cdlt:organizes">
             <SingleFieldList linkType="show">
-              <ChipField source="pair:label" />
+              <ChipWithResourceIcon source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
         </SideList>

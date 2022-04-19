@@ -8,6 +8,7 @@ import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MapField } from '@semapps/geo-components';
 import PersonTitle from './PersonTitle';
 import HomeIcon from '@material-ui/icons/Home';
+import ChipWithResourceIcon from '../../../../commons/ChipWithResourceIcon';
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -100,17 +101,17 @@ const PersonShow = (props) => {
             </ReferenceArrayField>
             <ReferenceArrayField reference="Place" source="cdlt:proposes">
               <SingleFieldList linkType="show">
-                <ChipField source="pair:label" />
+                <ChipWithResourceIcon source="pair:label" />
               </SingleFieldList>
             </ReferenceArrayField>
             <ReferenceArrayField reference="Activity" source="cdlt:organizes">
               <SingleFieldList linkType="show">
-                <ChipField source="pair:label" />
+                <ChipWithResourceIcon source="pair:label" />
               </SingleFieldList>
             </ReferenceArrayField>
             <ReferenceArrayField reference="Activity" source="cdlt:mentorOn">
               <SingleFieldList linkType="show">
-                <ChipField source="pair:label" />
+                <ChipWithResourceIcon source="pair:label" />
               </SingleFieldList>
             </ReferenceArrayField>
           </SideList>
