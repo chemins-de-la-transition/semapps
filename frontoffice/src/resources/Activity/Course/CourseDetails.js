@@ -13,7 +13,7 @@ import PriceIcon from '../../../svg/PriceIcon';
 import DurationField from '../../../commons/fields/DurationField';
 import DateToDateField from '../../../commons/fields/DateToDateField';
 import DurationIcon from '../../../svg/DurationIcon';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ActorIcon from '../../../svg/ActorIcon';
 
 const EventDetails = (props) => (
   <IconsList {...props}>
@@ -47,12 +47,12 @@ const EventDetails = (props) => (
       icon={<DurationIcon />}
     />
     <TextField source="cdlt:priceRange" icon={<PriceIcon />} />
-    <ReferenceArrayField label="Organisateur(trice)" reference="Actor" source="cdlt:organizedBy" icon={<AccountCircleIcon/>} link="show" >
+    <ReferenceArrayField label="Organisateur(trice)" reference="Actor" source="cdlt:organizedBy" icon={<ActorIcon/>} link="show" >
       <SeparatedListField link="show" separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceArrayField label="Intervenant(e)" reference="Person" source="cdlt:hasMentor" icon={<AccountCircleIcon/>} link="show" >
+    <ReferenceArrayField label="Intervenant(e)" reference="Person" source="cdlt:hasMentor" icon={<ActorIcon/>} link="show" >
       <SeparatedListField link="show" separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
