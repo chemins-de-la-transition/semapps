@@ -46,6 +46,8 @@ const EventShow = (props) => (
         <JotformButton />
         <MainList>
           <MarkdownField source="pair:description" />
+          <MarkdownField source="cdlt:organizerDescription" />
+          <MarkdownField source="cdlt:mentorDescription" />
           <MarkdownField source="cdlt:program" addLabel />
           <MarkdownField source="cdlt:practicalConditions" addLabel />
           <MarkdownField source="cdlt:learningObjectives" addLabel />

@@ -39,6 +39,8 @@ export default {
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',
         'pair:description': 'Présentation',
+        'cdlt:organizerDescription': 'Organisateur',
+        'cdlt:mentorDescription': 'Intervenant',
         'cdlt:program': 'Programme',
         'pair:hostedIn': 'Lieu',
         'cdlt:prerequisites': 'Prérequis',

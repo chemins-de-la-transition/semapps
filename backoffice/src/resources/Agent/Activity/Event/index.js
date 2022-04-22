@@ -40,6 +40,8 @@ export default {
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',
         'pair:description': 'Présentation',
+        'cdlt:organizerDescription': 'Description du ou des organisateurs',
+        'cdlt:mentorDescription': 'Description du ou des intervenants',
         'cdlt:program': "Programme de l'événement",
         'pair:hostedIn': 'Lieu',
         'pair:hasLocation': 'Région',

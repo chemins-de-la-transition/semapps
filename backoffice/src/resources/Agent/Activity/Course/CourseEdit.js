@@ -46,6 +46,8 @@ const CourseEdit = (props) => (
           fullWidth
         />
         <MarkdownInput source="pair:description" fullWidth />
+        <MarkdownInput source="cdlt:organizerDescription" fullWidth />
+        <MarkdownInput source="cdlt:mentorDescription" fullWidth />
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
         <MarkdownInput source="cdlt:practicalConditions" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />

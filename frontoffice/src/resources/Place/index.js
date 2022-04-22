@@ -44,6 +44,7 @@ export default {
         'cdlt:hasCourseType': 'Type de parcours',
         'pair:hasType': 'Type de lieu',
         'pair:description': 'A propos du lieu',
+        'cdlt:hostDescription': 'Votre hôte',
         'cdlt:activities': 'Activités',
         'pair:hosts': 'Evénements',
         'pair:produces': 'Compétences / savoir-faire',

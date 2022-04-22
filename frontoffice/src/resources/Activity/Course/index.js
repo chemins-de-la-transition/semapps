@@ -32,6 +32,8 @@ export default {
         'pair:endDate': 'Date de fin',
         'cdlt:priceRange': 'Coût',
         'pair:description': 'Présentation',
+        'cdlt:organizerDescription': 'Organisateur',
+        'cdlt:mentorDescription': 'Intervenant',
         'pair:hasPart': 'Programme du parcours',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',

@@ -53,6 +53,8 @@ const CourseShow = (props) => (
         <JotformButton />
         <MainList>
           <MarkdownField source="pair:description" />
+          <MarkdownField source="cdlt:organizerDescription" />
+          <MarkdownField source="cdlt:mentorDescription" />
           <MarkdownField source="cdlt:prerequisites" />
           <MarkdownField source="cdlt:practicalConditions" />
           <MarkdownField source="cdlt:learningObjectives" />
