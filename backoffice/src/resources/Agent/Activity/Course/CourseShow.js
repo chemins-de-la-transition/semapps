@@ -11,7 +11,7 @@ import {
   BooleanField
 } from 'react-admin';
 import { Grid } from '@material-ui/core';
-import { Hero, GridList, MainList, SideList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
+import { Hero, MainList, SideList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MapList } from '@semapps/geo-components';
 import { MarkdownField } from '@semapps/markdown-components';
@@ -19,6 +19,7 @@ import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-prov
 import JotformButton from '../../../JotformButton';
 import CourseTitle from './CourseTitle';
 import HomeIcon from '@material-ui/icons/Home';
+import GridList from '../../../../commons/GridList';
 
 const CourseShow = (props) => (
   <ShowWithPermissions title={<CourseTitle />} {...props}>
@@ -105,7 +106,7 @@ const CourseShow = (props) => (
       </Grid>
       <Grid item xs={12} sm={3}>
         <SideList>
-          <ReferenceArrayField reference="Person" source="cdlt:organizedBy">
+          <ReferenceArrayField reference="Actor" source="cdlt:organizedBy">
             <GridList xs={6} linkType="show">
               <AvatarField label="pair:label" image="pair:image" labelColor="grey.300">
                 <HomeIcon />

@@ -1,13 +1,14 @@
 import React from 'react';
 import { ChipField, SingleFieldList, TextField, UrlField, DateField, EmailField, BooleanField } from 'react-admin';
 import { Grid } from '@material-ui/core';
-import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } from '@semapps/archipelago-layout';
+import { AvatarField, Hero, MainList, SeparatedListField, SideList } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import JotformButton from '../../../JotformButton';
 import EventTitle from './EventTitle';
+import GridList from '../../../../commons/GridList';
 
 const EventShow = (props) => (
   <ShowWithPermissions title={<EventTitle />} {...props}>

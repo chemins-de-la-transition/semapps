@@ -4,6 +4,7 @@ import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
 import {
+  ActorsInput,
   PersonsInput,
   EventsInput,
   ThemesInput,
@@ -62,7 +63,7 @@ const CourseEdit = (props) => (
         <ThemesInput source="pair:hasTopic" />
         <EventsInput source="pair:hasPart" />
         <SkillsInput source="pair:produces" />
-        <PersonsInput source="cdlt:organizedBy" />
+        <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
         <DocumentsType source="pair:documentedBy" />
       </FormTab>
