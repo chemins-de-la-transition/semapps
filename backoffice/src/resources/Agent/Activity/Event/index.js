@@ -54,6 +54,7 @@ export default {
         'pair:phone': 'Téléphone',
         'pair:aboutPage': 'Site web',
         'cdlt:organizedBy': 'Organisé par',
+        'cdlt:hasMentor': 'A pour intervenants',
       },
     },
   },

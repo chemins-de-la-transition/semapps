@@ -10,6 +10,7 @@ import CalendarIcon from '../../../svg/CalendarIcon';
 import PlaceIcon from '../../../svg/PlaceIcon';
 import DurationField from '../../../commons/fields/DurationField';
 import DurationIcon from '../../../svg/DurationIcon';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const EventDetails = (props) => (
   <IconsList {...props}>
@@ -40,6 +41,16 @@ const EventDetails = (props) => (
       endDate="pair:endDate"
       icon={<DurationIcon />}
     />
+    <ReferenceArrayField label="Organisateur(trice)" reference="Actor" source="cdlt:organizedBy" icon={<AccountCircleIcon/>} link="show" >
+      <SeparatedListField link="show" separator=" / ">
+        <TextField source="pair:label" />
+      </SeparatedListField>
+    </ReferenceArrayField>
+    <ReferenceArrayField label="Intervenant(e)" reference="Person" source="cdlt:hasMentor" icon={<AccountCircleIcon/>} link="show" >
+      <SeparatedListField link="show" separator=" / ">
+        <TextField source="pair:label" />
+      </SeparatedListField>
+    </ReferenceArrayField>
   </IconsList>
 );
 

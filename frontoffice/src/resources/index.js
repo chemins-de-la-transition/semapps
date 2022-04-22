@@ -6,6 +6,7 @@ export { default as Activity } from './Activity/Activity';
 // Actors
 export { default as Organization } from './Agent/Actor/Organization';
 export { default as Person } from './Agent/Actor/Person';
+export { default as Actor } from './Agent/Actor/Actor';
 
 // Resources
 export { default as Skill } from './Resource/Skill';

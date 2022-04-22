@@ -66,7 +66,12 @@ const EventShow = (props) => (
       </Grid>
       <Grid item xs={12} sm={3}>
         <SideList>
-          <ReferenceArrayField reference="Person" source="cdlt:organizedBy">
+          <ReferenceArrayField reference="Actor" source="cdlt:organizedBy">
+            <GridList xs={6} linkType="show">
+              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+            </GridList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Person" source="cdlt:hasMentor">
             <GridList xs={6} linkType="show">
               <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
             </GridList>
