@@ -1,11 +1,20 @@
 import React from 'react';
 import { SimpleList } from '@semapps/archipelago-layout';
 import { ListWithPermissions } from '@semapps/auth-provider';
-import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+import StyleIcon from '@material-ui/icons/Style';
+
+import { Avatar } from '@material-ui/core';
 
 const SectorList = (props) => (
   <ListWithPermissions {...props}>
-    <SimpleList primaryText={(record) => record['pair:label']} leftAvatar={() => <LocalOfferIcon />} linkType="edit" />
+    <SimpleList primaryText={(record) => record['pair:label']} 
+
+leftIcon={(record) => (
+              <Avatar src={record['pair:isDepictedBy']} alt={record['pair:label']}>
+                <StyleIcon />
+              </Avatar>
+            )}
+             />
   </ListWithPermissions>
 );
 

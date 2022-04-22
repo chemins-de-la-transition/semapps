@@ -17,7 +17,7 @@ export default {
   dataModel: {
     types: ['pair:Sector'],
     fieldsMapping: {
-      title: 'pair:sector'
+      title: 'pair:label'
     }
   },
   translations: {
@@ -25,6 +25,7 @@ export default {
       name: 'Secteur d\'activité |||| Secteurs d\'activité ',
       fields: {
         'pair:label': 'Nom',
+        'pair:isDepictedBy': 'Image',
       },
     },
   },
