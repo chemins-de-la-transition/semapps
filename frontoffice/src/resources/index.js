@@ -5,6 +5,7 @@ export { default as Event } from './Activity/Event';
 // Actors
 export { default as Organization } from './Actor/Organization';
 export { default as Person } from './Actor/Person';
+export { default as Actor } from './Actor/Actor';
 
 // Resources
 export { default as Skill } from './Resource/Skill';

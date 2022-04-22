@@ -2,6 +2,12 @@ import React from 'react';
 import { ReferenceArrayInput, ReferenceInput } from '@semapps/semantic-data-provider';
 import { AutocompleteInput, AutocompleteArrayInput, SelectInput } from 'react-admin';
 
+export const ActorsInput = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="Actor" source={source}>
+    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
+  </ReferenceArrayInput>
+);
+
 export const PersonsInput = (props) => (
   <ReferenceArrayInput reference="Person" {...props}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />

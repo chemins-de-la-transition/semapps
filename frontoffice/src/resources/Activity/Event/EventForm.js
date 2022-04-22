@@ -14,7 +14,7 @@ import {
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { DateTimeInput } from '@semapps/date-components';
-import { PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput } from '../../../pair';
+import { ActorsInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput } from '../../../pair';
 import frLocale from 'date-fns/locale/fr';
 import { Box, FormControlLabel, Slide, LinearProgress, makeStyles, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
@@ -185,7 +185,8 @@ const EventForm = ({ mode, ...rest }) => {
         <BooleanInput source="cdlt:directRegistration" fullWidth />
       </FormTab>
       <FormTab label="Relations">
-        <PersonsInput source="cdlt:organizedBy" />
+        <ActorsInput source="cdlt:organizedBy" />
+        <PersonsInput source="cdlt:hasMentor" />
         <PlaceInput source="pair:hostedIn" />
         <CourseInput source="pair:partOf" />
         <ThemesInput source="pair:hasTopic" />
