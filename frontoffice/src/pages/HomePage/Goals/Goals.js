@@ -230,7 +230,7 @@ const Goals = () => {
               Voyager en apprenant, se&nbsp;former aux&nbsp;enjeux et métiers de la&nbsp;transition
             </Typography>
             <ul className={classes.ulStyle}>
-              <ListGoalsItem text="Des parcours immersifs thématiques pour accéder facilement aux pratiques émergentes dans tous les domaines de la transition." />
+              <ListGoalsItem text="Des parcours immersifs par secteurs d'activité pour accéder facilement aux pratiques émergentes dans tous les domaines de la transition." />
               <ListGoalsItem text="Des parcours avec plusieurs niveaux de découverte et d’apprentissage en faisant." />
               <ListGoalsItem text="La liberté de créer ses propres chemins selon ses centres d’intérêts, ses disponibilités, le degré recherché d’apprentissage (découvrir, apprendre par le faire, se former aux métiers)." />
               <ListGoalsItem text="Permettre la découverte, l’apprentissage des métiers de la transition au contact d’acteurs passionnés et engagés." />

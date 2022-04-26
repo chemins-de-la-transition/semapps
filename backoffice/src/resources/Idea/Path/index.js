@@ -33,7 +33,7 @@ export default {
         'pair:hasLocation': 'Composez votre parcours',
         'pair:hasStatus': 'Statut',
         'pair:hasType': 'Type',
-        'pair:hasTopic': 'A pour thème',
+        'pair:hasTopic': 'A pour secteur d\'activité',
         'cdlt:proposedBy': 'Proposé par',
         'cdlt:hasCourse': 'Parcours programmés',
         'cdlt:forWhom': 'Destiné à',
