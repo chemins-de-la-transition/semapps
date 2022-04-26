@@ -1,6 +1,7 @@
 // Activities
 export { default as Course } from './Activity/Course';
 export { default as Event } from './Activity/Event';
+export { default as Path } from './Activity/Path';
 
 // Actors
 export { default as Organization } from './Actor/Organization';
