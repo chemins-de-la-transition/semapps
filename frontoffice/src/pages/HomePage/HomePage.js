@@ -1,37 +1,59 @@
 import React from 'react';
-import NextEvents from '../../commons/lists/EventsList/NextEvents.js';
 import Welcome from './Welcome/Welcome';
 import FeaturedList from '../../commons/lists/FeaturedList/FeaturedList';
 import PlaceSubHeader from '../../resources/Place/PlaceSubHeader';
-import Goals from './Goals/Goals';
 import CoursesTypes from './CoursesTypes';
 import CourseSubHeader from "../../resources/Activity/Course/CourseSubHeader";
+import Traveler from './Traveler/Traveler';
 import Partners from './Partners';
+import PictoLieu from '../../icons/PictoLieu.png' ;
+import PictoParcours from '../../icons/PictoParcours.png' ;
+import PictoAgenda from '../../icons/PictoAgenda.png' ;
 
 const HomePage = () => (
   <>
     <Welcome />
+    {/* TODO : Add when we have the page "Chemins" */}
+    {/* <FeaturedList
+      resource="Place"
+      basePath="/Place"
+      title="Les chemins"
+      subtitle="A découvrir"
+      logo={PictoParcours}
+      linkText="Voir tous les chemins"
+      CardSubHeaderComponent={PlaceSubHeader}
+    /> */}
     <FeaturedList
       resource="Place"
       basePath="/Place"
       title="Les lieux"
       subtitle="A visiter"
-      headComment="Partez à la découverte de lieux inspirants et allez à la rencontre de personnes qui ont choisi d’être actrices de la transition."
+      logo={PictoLieu}
       linkText="Voir tous les lieux"
       CardSubHeaderComponent={PlaceSubHeader}
     />
-    <Goals />
+    <CoursesTypes />
     <FeaturedList
       resource="Course"
       basePath="/Course"
-      title="Les voyages"
+      title="Nos voyages"
       subtitle="Thématiques & géographiques"
-      headComment="Tu rêves de partir sur les routes pour découvrir des savoir-faire ou même apprendre un métier sur le terrain? Découvre nos voyages."
+      logo={PictoParcours}
       linkText="Voir tous les voyages"
       CardSubHeaderComponent={CourseSubHeader}
     />
-    <CoursesTypes />
-    <NextEvents />
+    {/* TODO : Add when the illustration is ready and responsive */}
+    {/* <Traveler /> */}
+    <FeaturedList
+      resource="Event"
+      basePath="/Event"
+      title="L'agenda"
+      subtitle="Des événements"
+      logo={PictoAgenda}
+      linkText="Voir tous les événements"
+      CardSubHeaderComponent={CourseSubHeader}
+      isAgenda={true}
+    />
     <Partners />
   </>
 );

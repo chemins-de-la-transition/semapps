@@ -1,33 +1,58 @@
 import React from 'react';
 import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, CardActionArea, Chip } from '@material-ui/core';
-import { TextField } from 'react-admin';
+import { TextField, FunctionField } from 'react-admin';
 import { SeparatedListField } from '@semapps/archipelago-layout';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import { Link } from 'react-router-dom';
+import { linkToFilteredList } from "../../../utils";
+import AgricultureAlimentation_PictoCdlT from '../../../icons/AgricultureAlimentation_PictoCdlT.png' ;
+import Artisanat_PictoCdlT from '../../../icons/Artisanat_PictoCdlT.png' ;
+import Communication_PictoCdlT from '../../../icons/Communication_PictoCdlT.png' ;
+import CultureModeVie_PictoCdlT from '../../../icons/CultureModeVie_PictoCdlT.png' ;
+import DevTerritorial_PictoCdlT from '../../../icons/DevTerritorial_PictoCdlT.png' ;
+import Ecologie_PictoCdlT from '../../../icons/Ecologie_PictoCdlT.png' ;
+import Energie_PictoCdlT from '../../../icons/Energie_PictoCdlT.png' ;
+import Gouvernance_PictoCdlT from '../../../icons/Gouvernance_PictoCdlT.png' ;
+import Habitat_PictoCdlT from '../../../icons/Habitat_PictoCdlT.png' ;
+import JusticeSociale_PictoCdlT from '../../../icons/JusticeSociale_PictoCdlT.png' ;
+import Mobilite_PictoCdlT from '../../../icons/Mobilite_PictoCdlT.png' ;
+import Sante_Bienetre_PictoCdlT from '../../../icons/Sante_Bienetre_PictoCdlT.png' ;
+import ScienceTech_PictoCdlT from '../../../icons/ScienceTech_PictoCdlT.png' ;
 
 const useStyles = makeStyles((theme) => ({
   cardTopics: {
+    position: 'absolute',
+    zIndex: 1,
+    paddingLeft: 0,
+  },
+  categoryLogo: {
+    width: 40,
+    height: 40,
+    background: "white",
+    borderRadius: 100,
+  },
+  cardTypes: {
     position: 'relative',
     padding: '0',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  blockTopics: {
+  blockTypes: {
     position: 'absolute',
     top: '-14px',
   },
-  topicChip: {
+  typeChip: {
     backgroundColor: 'unset',
   },
-  topicChipLabel: {
+  typeChipLabel: {
     padding: 0,
     '& span': {
       color: 'white',
       fontSize: 12
     }
   },
-  topics: {
+  types: {
     marginLeft: '16px',
     marginRight: '16px',
     background: theme.palette.secondary.main,
@@ -40,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  severalTopics: {
+  severalTypes: {
     marginTop: '0',
     marginBottom: '0',
     flexWrap: 'none',
@@ -56,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: 'none',
     },
   },
-  textTopics: {
+  textTypes: {
     color: theme.palette.secondary.contrastText,
     fontSize: '12px',
     lineHeight: '12px',
@@ -115,10 +140,46 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CardBlock = ({ record, basePath, CardSubHeaderComponent }) => {
+function ChoosePicture(category, className) {
+  const logo = (category==="Agriculture et alimentation") ? AgricultureAlimentation_PictoCdlT
+    : (category==="Artisanat, commerce, industrie") ? Artisanat_PictoCdlT
+    : (category==="Information, communication et médias") ? Communication_PictoCdlT
+    : (category==="Culture et modes de vie") ? CultureModeVie_PictoCdlT
+    : (category==="Développement territorial") ? DevTerritorial_PictoCdlT
+    : (category==="Ecologie - Environnement") ? Ecologie_PictoCdlT
+    : (category==="Énergie") ? Energie_PictoCdlT
+    : (category==="Gouvernance et modes d’organisation") ? Gouvernance_PictoCdlT
+    : (category==="Habitat & urbanisme") ? Habitat_PictoCdlT
+    : (category==="Justice sociale") ? JusticeSociale_PictoCdlT
+    : (category==="Mobilités") ? Mobilite_PictoCdlT
+    : (category==="Santé et bien-être") ? Sante_Bienetre_PictoCdlT
+    : (category==="Sciences et technologies") ? ScienceTech_PictoCdlT
+    : null
+  
+  return (
+    logo ? <img src={logo} alt="logo" className={className} title={category}/> : <span>{category}</span>
+  );
+}
+
+const CardBlock = ({ record, basePath, CardSubHeaderComponent, resource }) => {
   const classes = useStyles();
   return (
     <Card key={record.id} className={classes.cardClass}>
+      <div style={{position:'relative'}}>
+      {record['pair:hasTopic'] && (
+        <CardContent className={classes.cardTopics}>
+            <Chip
+              style={{background:'none', maxWidth:'180px'}}
+              label={
+                <ReferenceArrayField source="pair:hasTopic" reference="Theme" record={record}>
+                  <SeparatedListField separator=" " link={linkToFilteredList( 'Course', 'pair:hasTopic')}>
+                      <FunctionField label="Name" render={record => ChoosePicture(record["pair:label"],classes.categoryLogo)} />
+                  </SeparatedListField>
+                </ReferenceArrayField>
+              }
+            />
+        </CardContent>
+      )}
       <CardActionArea>
         <CardMedia
           className={classes.media + ' ' + classes.noDecoration}
@@ -128,19 +189,22 @@ const CardBlock = ({ record, basePath, CardSubHeaderComponent }) => {
           component={Link}
         />
       </CardActionArea>
-      {record['pair:hasTopic'] && (
-        <CardContent className={classes.cardTopics + ' ' + classes.noDecoration}>
-          <div className={classes.topics + ' ' + classes.severalTopics + ' ' + classes.blockTopics}>
+      </div>
+      {record['pair:hasType'] && (
+        <CardContent className={classes.cardTypes + ' ' + classes.noDecoration}>
+          <div className={classes.types + ' ' + classes.severalTypes + ' ' + classes.blockTypes}>
             <Chip
-              classes={{ root: classes.topicChip, label: classes.topicChipLabel }}
+              classes={{ root: classes.typeChip, label: classes.typeChipLabel }}
               label={
                 <ReferenceArrayField
-                  source="pair:hasTopic"
-                  reference="Theme"
+                  source="pair:hasType"
+                  reference="Type"
                   record={record}
-
                 >
-                  <SeparatedListField separator=" / " link={false}>
+                  <SeparatedListField 
+                    separator=" / " 
+                    link={resource=='Course' ? linkToFilteredList( 'Course', 'pair:hasType') : resource=='Place' ? linkToFilteredList( 'Place', 'pair:hasType') : false}
+                  >
                     <TextField source="pair:label" />
                   </SeparatedListField>
                 </ReferenceArrayField>

@@ -1,119 +1,170 @@
 import React from 'react';
-import { IconButton, useMediaQuery, makeStyles, Typography, Grid, Box } from '@material-ui/core';
+import { IconButton, useMediaQuery, makeStyles, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import FullWidthBox from '../commons/FullWidthBox';
-import LargeContainer from '../commons/LargeContainer';
+import Button from '../commons/Button';
+
 import {
   Facebook as FacebookIcon,
-  Instagram as InstagramIcon,
   Twitter as TwitterIcon,
-  YouTube as YoutubeIcon,
+  LinkedIn as LinkedInIcon,
 } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
-  links: {
+  bloc: {
+    display: 'flex',
     [theme.breakpoints.down('xs')]: {
-      order: 3
-    }
-  },
-  footerLink: {
-    color: theme.palette.secondary.main,
-    fontWeight: 'bold',
-    textDecoration: 'none',
-    lineHeight: '28px',
-    '&:hover': {
-      textDecoration: 'underline',
+      display: 'block',
     },
-  },
-  background: {
-    backgroundColor: theme.palette.secondary.contrastText,
-    color: theme.palette.secondary.main,
-  },
-  root: {
-    paddingTop: '40px',
   },
   logo: {
-    height: 77,
+    width: 150,
+    height: 125,
+    top: 40,
+    position: 'relative',
     [theme.breakpoints.down('xs')]: {
-      marginBottom: 20
+      width: '40%',
+      height: '40%',
     },
   },
-  socialLinksText: {
-    marginBottom: 12,
-    [theme.breakpoints.down('xs')]: {
-      marginBottom: 0
-    },
+  socialNetworks: {
+    marginTop: 80,
   },
   icon: {
-    paddingLeft: 0
+    padding: 8,
   },
+  footerContent1: {
+    padding: 40,
+    display: 'grid',
+    gridGap: '1em',
+  },
+  textLinks:{
+    fontWeight: 'bold',
+    fontSize: 14,
+    color: theme.palette.theme_5.contrastText,
+  },
+  textBar: {
+    width: 246,
+    height: 1,
+    backgroundColor: theme.palette.white.main,
+    marginTop: 60,
+    [theme.breakpoints.down('xs')]: {
+      placeSelf: 'center',
+    },
+  },
+  button: {
+    marginTop: 40,
+    width: 215,
+    [theme.breakpoints.down('xs')]: {
+      placeSelf: 'center',
+    },
+  },
+  size: {
+    [theme.breakpoints.down('md')]: {
+      fontSize: 20,
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 20,
+    },
+  },
+  footer1: {
+    backgroundColor: 'white',
+    width: '100%',
+  },
+  footer2: {
+    backgroundColor: theme.palette.theme_5.main, 
+    color: theme.palette.theme_5.contrastText,
+    width: '100%',
+  },
+  footer3: {
+    backgroundColor: theme.palette.secondary.main, 
+    color: theme.palette.secondary.contrastText,
+    width: '100%',
+  }
 }));
 
 const Footer = ({ title }) => {
   const classes = useStyles();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
   return (
-    <FullWidthBox className={classes.background}>
-      <LargeContainer disableGutters={xs}>
-        <Grid container className={classes.root}>
-          <Grid item sm={9} xs={12}>
-            <Typography align={xs ? "center" : undefined}>
-              <img src={process.env.PUBLIC_URL + '/logoCut512.png'} alt="logo" className={classes.logo} />
-            </Typography>
-          </Grid>
-          <Grid item sm={3}>
-            <Typography variant="subtitle1" color="secondary" component="h6" align={xs ? "center" : undefined} className={classes.socialLinksText}>
-              Réseaux sociaux
-            </Typography>
-            <Typography variant="body1" color="secondary" component="div" align={xs ? "center" : undefined} className={classes.socialLinksText}>
-              Restez informé des dernières actualités de la Transition en nous suivant sur :
-            </Typography>
-          </Grid>
-          <Grid item sm={9} xs={12} className={classes.links}>
-            <Box pt={3} pb={{ sm: 5, xs: 3 }}>
-              <Typography variant="body2" color="secondary" align={xs ? "center" : undefined}>
-                <Link to="/About" className={classes.footerLink}>
-                  A propos de nous
-                </Link>
-                {" "}{" "}-{" "}{" "}
-                <Link to="/Page/contact/show" className={classes.footerLink}>
-                  Contactez-nous
-                </Link>
-                {" "}{" "}-{" "}{" "}
-                <Link to="/Page/mentions-legales/show" className={classes.footerLink}>
-                  Mentions&nbsp;légales
-                </Link>
-                {" "}{" "}-{" "}{" "}
-                <Link to="/Page/rgpd/show" className={classes.footerLink}>
-                  Politique de gestion des données
-                </Link>
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item sm={3} xs={12}>
-            <Typography align={xs ? "center" : undefined}>
+    <div className={classes.bloc}>
+        
+        <div className={classes.footer1}>
+          <Typography align={"center"}>
+            <img src={process.env.PUBLIC_URL + '/logoCut512.png'} alt="logo" className={classes.logo} />
+          </Typography>
+          <div className={classes.socialNetworks}>
+          <Typography variant="h3" color="secondary" component="h3" align={"center"} className={classes.size}>
+            Suivez-nous
+          </Typography>
+          <Typography align={"center"}>
               <IconButton
                 aria-label="facebook"
                 color="secondary"
-                href="https://www.facebook.com/Les-Chemins-de-la-Transition-103307098592299"
+                href="https://www.facebook.com/groups/lescheminsdelatransition"
                 className={classes.icon}
               >
                 <FacebookIcon fontSize="large" />
               </IconButton>
-              <IconButton aria-label="instagram" color="secondary" disabled>
-                <InstagramIcon fontSize="large" />
-              </IconButton>
-              <IconButton aria-label="twitter" color="secondary" href="https://twitter.com/CdlT_Occitanie">
+              <IconButton aria-label="twitter" color="secondary" href="https://twitter.com/CDLTransition" className={classes.icon}>
                 <TwitterIcon fontSize="large" />
               </IconButton>
-              <IconButton aria-label="youtube" color="secondary" disabled>
-                <YoutubeIcon fontSize="large" />
+              <IconButton aria-label="linkedin" color="secondary" href="https://www.linkedin.com/company/les-chemins-de-la-transition/" className={classes.icon}>
+                <LinkedInIcon fontSize="large" />
               </IconButton>
+              <IconButton
+                aria-label="facebook"
+                color="secondary"
+                href="https://www.facebook.com/CdlTOccitanie"
+                className={classes.icon}
+              >
+                <FacebookIcon fontSize="large" />
+              </IconButton>
+          </Typography>
+          </div>
+        </div>
+
+        <div className={classes.footer2}>
+          <div className={classes.footerContent1}>
+            <Typography variant="h3" align={xs ? "center" : undefined} className={classes.size}>
+              Liens utiles
             </Typography>
-          </Grid>
-        </Grid>
-      </LargeContainer>
-    </FullWidthBox>
+            <Link variant="body2" to="/About" align={xs ? "center" : undefined} className={classes.textLinks}>
+              A propos
+            </Link>
+            <Link variant="body2" to={{ pathname: "https://forums.lescheminsdelatransition.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
+              Notre forum
+            </Link>
+            <Link variant="body2" to="/Page/contact/show" align={xs ? "center" : undefined} className={classes.textLinks}>
+              Contact
+            </Link>
+            <div className={classes.textBar} />
+            <Link variant="body2" to="/Page/mentions-legales/show" align={xs ? "center" : undefined} className={classes.textLinks}>
+              Mentions légales
+            </Link>
+            <Link variant="body2" to="/Page/rgpd/show" align={xs ? "center" : undefined} className={classes.textLinks}>
+              Politique de gestion des données
+            </Link>
+          </div>
+        </div>
+        
+        <div className={classes.footer3}>
+          <div className={classes.footerContent1}>
+            <Typography variant="h3" align={xs ? "center" : undefined} className={classes.size}>
+              Rejoindre la communauté
+            </Typography>
+            <Typography variant="body2" align={xs ? "center" : undefined}>
+              Vous avez envie de partager vos connaissances en matière de transition et pourquoi pas accueillir des voyageurs le temps d’une visite ou plus pour les former?
+            </Typography>
+            <Typography variant="body2" align={xs ? "center" : undefined}>
+              Vous avez envie d’inscrire votre lieu ou un évènement sur notre plateforme afin de lui donner de la visibilité?
+            </Typography>
+            {/* TODO : add the link */}
+            <Button to="" variant="contained" color="secondary" component={Link} typographyVariant="button1" className={classes.button}>
+              Je me lance
+            </Button>
+          </div>
+        </div>
+    </div>
   );
 };
 

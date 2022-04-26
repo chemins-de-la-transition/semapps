@@ -27,7 +27,7 @@ export default {
   },
   translations: {
     fr: {
-      name: 'Evénement |||| Evénements',
+      name: 'Événement |||| Événements',
       fields: {
         'pair:label': 'Titre',
         'pair:comment': "Phrase d'accroche",

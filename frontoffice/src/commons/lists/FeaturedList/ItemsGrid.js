@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ItemsGrid = ({ similarRecord, CardSubHeaderComponent }) => {
   const classes = useStyles();
-  const { ids, data, basePath } = useListContext();
+  const { ids, data, basePath, resource } = useListContext();
 
   const sortedIds = useMemo(() => {
     if( !similarRecord ) return ids;
@@ -35,6 +35,7 @@ const ItemsGrid = ({ similarRecord, CardSubHeaderComponent }) => {
           record={data[id]}
           basePath={basePath}
           CardSubHeaderComponent={CardSubHeaderComponent}
+          resource={resource}
         />
       ))}
     </div>

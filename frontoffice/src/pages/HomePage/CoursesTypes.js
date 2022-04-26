@@ -2,10 +2,11 @@ import React from 'react';
 import { makeStyles, Typography, Grid, Box } from '@material-ui/core';
 import FullWidthBox from '../../commons/FullWidthBox';
 import LargeContainer from '../../commons/LargeContainer';
-import DiscoverIcon from '../../svg/DiscoverIcon';
-import FarmerIcon from '../../svg/FarmerIcon';
-import IdeaIcon from '../../svg/IdeaIcon';
-import EcologyIcon from '../../svg/EcologyIcon';
+import Type1Icon from '../../icons/Type1Icon.png';
+import Type2Icon from '../../icons/Type2Icon.png';
+import Type3Icon from '../../icons/Type3Icon.png';
+import Type4Icon from '../../icons/Type4Icon.png';
+
 
 const useStyles = makeStyles((theme) => ({
   mainBox: {
@@ -36,23 +37,21 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     width: 150,
     height: 150,
+    marginBottom: 15,
     '& img': {
-      width: '100%',
-      height: 'auto'
-    },
-    '& svg': {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      '& [fill]': {
-        fill: theme.palette.secondary.contrastText,
+      backgroundColor: "white",
+      borderRadius: 100,
+      width: 150,
+      height: 150,
+      paddingRight: 10,
+      [theme.breakpoints.down('xs')]: {
+        width: 100,
+        height: 100,
       },
-      fontSize: '3rem'
     },
     [theme.breakpoints.down('xs')]: {
       width: 100,
-      height: 100
+      height: 100,
     },
   },
 }));
@@ -63,10 +62,9 @@ const LocalGridItem = ({ title, text, image, icon }) => {
     <Grid item sm={6} md={3}>
       <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column">
         <Box className={classes.iconContainer}>
-          <img src={image} alt="" aria-label="icône" />
-          {icon}
+          <img src={icon} alt="logo"/>
         </Box>
-        <Typography variant="h6" className={classes.itemTitle}>
+        <Typography variant="h5" className={classes.itemTitle}>
           {title}
         </Typography>
         <Typography variant="body2" component="div" align="center">
@@ -90,28 +88,24 @@ const CoursesTypes = () => {
         </Typography>
         <Grid container spacing={3}>
           <LocalGridItem
-            title="Voyage découverte"
+            title="Découverte"
             text="Je suis curieux, j’ouvre les yeux sur des métiers liés à la transition qui existent en visitant des lieux inspirants pendant mon voyage"
-            image={process.env.PUBLIC_URL + '/rond1.png'}
-            icon={<DiscoverIcon />}
+            icon={Type1Icon}
           />
           <LocalGridItem
-            title="Voyage Apprenant"
+            title="Apprenant"
             text="Une pratique m’intéresse, j’ai envie d’en savoir plus. Profitez de ces voyages sur quelques jours pour visiter différents lieux et rencontrer les porteurs de projets"
-            image={process.env.PUBLIC_URL + '/rond2.png'}
-            icon={<IdeaIcon />}
+            icon={Type2Icon}
           />
           <LocalGridItem
-            title="Voyage immersif"
+            title="Immersif"
             text="J’ai envie d’apprendre en participant. Ces voyages sur quelques semaines vous permettront d’experimenter par le faire et de participer à un projet de votre choix"
-            image={process.env.PUBLIC_URL + '/rond3.png'}
-            icon={<FarmerIcon />}
+            icon={Type3Icon}
           />
           <LocalGridItem
             title="Compagnonnage"
             text="Je décide de me lancer pour me former à une pratique. Vous serez en immersion longue au sein d’un lieu et suivrez des modules théoriques pour une validation d’acquis."
-            image={process.env.PUBLIC_URL + '/rond4.png'}
-            icon={<EcologyIcon />}
+            icon={Type4Icon}
           />
         </Grid>
       </LargeContainer>

@@ -38,7 +38,7 @@ export default {
         'pair:description': 'Présentation',
         'cdlt:organizerDescription': 'Description du ou des organisateurs',
         'cdlt:mentorDescription': 'Description du ou des intervenants',
-        'pair:hasPart': 'Evénements constitutifs du voyage',
+        'pair:hasPart': 'Événements constitutifs du voyage',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
         'cdlt:learningObjectives': 'Objectifs pédagogiques',

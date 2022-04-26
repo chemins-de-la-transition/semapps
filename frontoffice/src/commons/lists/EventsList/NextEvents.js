@@ -1,61 +1,45 @@
 import * as React from 'react';
-import { makeStyles, Grid, Box, Typography, Hidden } from '@material-ui/core';
+import { useState, useEffect } from 'react' ;
+import { makeStyles } from '@material-ui/core';
 import { ListBase } from 'react-admin';
-import { Link } from 'react-router-dom';
-import LargeContainer from '../../LargeContainer';
-import FullWidthBox from '../../FullWidthBox';
-import Button from '../../Button';
-import ItemsGrid from './ItemsGrid';
+import EventItemsGrid from './EventItemsGrid';
+import AgendaFilter from './AgendaFilter';
 
 const useStyles = makeStyles((theme) => ({
-  background: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-    paddingTop: '60px',
-    paddingBottom: '60px',
-  },
-  allEventsImage: {
-    maxWidth: '100%',
-    marginTop: 20
-  },
   eventListBase: {
-    marginBottom: '40px',
     color: theme.palette.primary.contrastText,
   },
 }));
 
 const NextEvents = () => {
   const classes = useStyles();
+
+  const [eventType, setEventType] = useState("");
+  const [category, setCategory] = useState("");
+  const [region, setRegion] = useState("");
+
+  const eventTypeFilter = eventType ? {'pair:hasType': eventType} : {};
+  const categoryFilter = category ? {'pair:hasTopic': category} : {};
+  const regionFilter = region ? {'pair:hasLocation': region} : {};
+
+  const filter = Object.assign({}, 
+    { 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/open'}, eventTypeFilter, categoryFilter, regionFilter);
+    // TODO : add a filter to only keep the future events
+
   return (
-    <FullWidthBox className={classes.background}>
-      <LargeContainer>
-        <Grid container spacing={3}>
-          <Grid item sm={7}>
-            <Hidden smUp>
-              <Box mb={2}>
-                <Typography variant="h1" component="div">
-                  L’agenda des évènements
-                </Typography>
-              </Box>
-            </Hidden>
-            <ListBase resource="Event" basePath="/Event" className={classes.eventListBase} perPage={4} sort={{ field: 'pair:startDate', order: 'ASC'}}>
-              <ItemsGrid />
-            </ListBase>
-            <Button to="/Event" variant="contained" color="primary" component={Link} typographyVariant="button1">
-              Voir tous les évènements
-            </Button>
-          </Grid>
-          <Hidden xsDown>
-            <Grid item sm={1} />
-            <Grid item sm={4}>
-              <Box display="flex" alignItems="center" justifyContent="center" >
-                <img src={process.env.PUBLIC_URL + '/next-events.png'} alt="L'agenda des événements"  className={classes.allEventsImage} />
-              </Box>
-            </Grid>
-          </Hidden>
-        </Grid>
-      </LargeContainer>
-    </FullWidthBox>
+    <>
+      <AgendaFilter
+        eventType={eventType}
+        setEventType={setEventType}
+        category={category}
+        setCategory={setCategory}
+        region={region}
+        setRegion={setRegion}
+      />
+      <ListBase resource="Event" basePath="/Event" className={classes.eventListBase} style={{marginBottom:40}} perPage={4} filter={filter} sort={{ field: 'pair:startDate', order: 'ASC'}}>
+        <EventItemsGrid />
+      </ListBase>
+    </>
   );
 };
 
