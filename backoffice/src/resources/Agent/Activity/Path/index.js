@@ -1,4 +1,4 @@
-import { PairResourceCreate } from '../../../pair';
+import { PairResourceCreate } from '../../../../pair';
 import PathEdit from './PathEdit';
 import PathList from './PathList';
 import PathShow from './PathShow';
@@ -27,20 +27,26 @@ export default {
       name: 'Chemin |||| Chemins',
       fields: {
         'pair:label': 'Titre',
-        'pair:description': 'Description',
         'pair:comment': 'Courte description',
-        'pair:produces': "Permet d'apprendre",
+        'pair:description': 'Description',
+        'pair:isDepictedBy': 'Image',
+        'pair:produces': "Permet d'apprendre", /*Skill*/
+        'cdlt:proposedBy': 'Proposé par', /*Person*/
+        'pair:partnerOf': 'A pour partenaires', /*Organization*/
+        'cdlt:hasPlace': 'Lieux', /*Place*/
+        'cdlt:hasEvent': 'Evénements', /*Event*/
+        'cdlt:hasCourse': 'Voyages', /*Course*/
+        /*
         'pair:hasLocation': 'Composez votre parcours',
         'pair:hasStatus': 'Statut',
         'pair:hasType': 'Type',
         'pair:hasTopic': 'A pour thème',
-        'cdlt:proposedBy': 'Proposé par',
-        'cdlt:hasCourse': 'Parcours programmés',
         'cdlt:forWhom': 'Destiné à',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:learningObjectives': "Objectifs d'apprentissage",
         'cdlt:economicalConditions': 'Conditions financières',
         'cdlt:professionalPerspectives': 'Perspectives professionnelles',
+        */
       },
     },
   },

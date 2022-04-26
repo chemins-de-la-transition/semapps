@@ -14,6 +14,7 @@ const PathShow = (props) => (
       <Grid item xs={12} sm={9}>
         <Hero>
           <TextField source="pair:comment" />
+          {/*
           <ReferenceArrayField source="pair:hasType" reference="Type">
             <SeparatedListField link={false}>
               <TextField source="pair:label" />
@@ -22,13 +23,16 @@ const PathShow = (props) => (
           <ReferenceField source="pair:hasStatus" reference="Status" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
+          */}
         </Hero>
         <MainList>
           <MarkdownField source="pair:description" />
+          {/*
           <MarkdownField source="cdlt:forWhom" />
           <MarkdownField source="cdlt:prerequisites" />
           <MarkdownField source="cdlt:learningObjectives" />
           <MarkdownField source="cdlt:professionalPerspectives" />
+          */}
           <ReferenceArrayField
             reference="Course"
             source="cdlt:hasCourse"
@@ -42,9 +46,20 @@ const PathShow = (props) => (
             </Datagrid>
           </ReferenceArrayField>
           <ReferenceArrayField
-            reference="Place"
-            source="pair:hasLocation"
+            reference="Event"
+            source="cdlt:hasEvent"
             sort={{ field: 'pair:startDate', order: 'ASC' }}
+          >
+            <Datagrid rowClick="show">
+              <TextField source="pair:label" />
+              <DateField source="pair:startDate" />
+              <DateField source="pair:endDate" />
+              <ShowButton />
+            </Datagrid>
+          </ReferenceArrayField>
+          <ReferenceArrayField
+            reference="Place"
+            source="cdlt:hasPlace"
           >
             <MapList
               latitude={(record) => record?.['pair:hasPostalAddress']?.['pair:latitude']}

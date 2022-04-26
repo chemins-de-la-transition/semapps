@@ -1,8 +1,8 @@
 // Idea
-// export { default as Path } from './Idea/Path';
 // export { default as Idea } from './Idea/Idea';
 
 // Activities
+export { default as Path } from './Agent/Activity/Path';
 export { default as Course } from './Agent/Activity/Course';
 export { default as Event } from './Agent/Activity/Event';
 export { default as Activity } from './Agent/Activity/Activity';
