@@ -8,6 +8,10 @@ import HeaderShow from '../../../commons/HeaderShow';
 import BodyList from '../../../commons/lists/BodyList/BodyList';
 import BulletPointsField from "../../../commons/fields/BulletPointsField";
 import ApplyButton from "../../../commons/buttons/ApplyButton";
+import FeaturedList from '../../../commons/lists/FeaturedList/FeaturedList';
+import CourseSubHeader from "../../../resources/Activity/Course/CourseSubHeader";
+import EventSubHeader from "../../../resources/Activity/Event/EventSubHeader";
+import PlaceSubHeader from "../../../resources/Place/PlaceSubHeader";
 import { linkToFilteredList } from "../../../utils";
 
 const useStyles = makeStyles((theme) => ({
@@ -47,13 +51,6 @@ const EventShow = (props) => {
           linkToListText="Liste des chemins"
           actionButton={<ApplyButton />}
           hasComment={true}
-          content={        
-            <Container className={classes.linkContainer}>
-              <Link href={linkToFilteredList('Place', 'pair:hasPlace')(props)} className={classes.linkToList} >Découvrir les lieux</Link>
-              <Link href={linkToFilteredList('Event', 'pair:hasEvent')(props)} className={classes.linkToList}>Découvrir les événements</Link>
-              <Link href={linkToFilteredList('Course', 'pair:hasCourse')(props)} className={classes.linkToList}>Découvrir les voyages</Link>
-            </Container>
-          }
         />
         <BodyList>
           <MarkdownField source="pair:description" />
@@ -68,6 +65,36 @@ const EventShow = (props) => {
             </GridList>
           </ReferenceArrayField>
         </BodyList>
+        <FeaturedList
+          resource="Place"
+          basePath="/Place"
+          title="Les lieux"
+          subtitle="A visiter"
+          headComment="Partez à la découverte de lieux inspirants et allez à la rencontre de personnes qui ont choisi d’être actrices de la transition."
+          linkText="Voir tous les lieux"
+          CardSubHeaderComponent={PlaceSubHeader}
+          filter={{ field:'cdlt:placeOn',value: props.id }}
+        />
+        <FeaturedList
+          resource="Event"
+          basePath="/Event"
+          title="Les événements"
+          subtitle=""
+          headComment=""
+          linkText="Voir tous les événements"
+          CardSubHeaderComponent={EventSubHeader}
+          filter={{ field:'cdlt:eventOn',value: props.id }}
+        />
+        <FeaturedList
+          resource="Course"
+          basePath="/Course"
+          title="Les parcours"
+          subtitle="Thématiques & géographiques"
+          headComment="Tu rêves de partir sur les routes pour découvrir des savoir-faire ou même apprendre un métier sur le terrain? Découvre nos parcours."
+          linkText="Voir tous les parcours"
+          CardSubHeaderComponent={CourseSubHeader}
+          filter={{ field:'cdlt:courseOn',value: props.id }}
+        />
       </Container>
     </ShowBase>
   );

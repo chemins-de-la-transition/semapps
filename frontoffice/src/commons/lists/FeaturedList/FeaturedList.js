@@ -6,6 +6,7 @@ import ChevronRightIcon from '../../../svg/ChevronRightIcon';
 import { ListBase } from 'react-admin';
 import { Link } from 'react-router-dom';
 import ItemsGrid from './ItemsGrid';
+import { linkToFilteredList } from "../../../utils";
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -64,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const FeaturedList = ({ resource, basePath, title, subtitle, headComment, linkText, CardSubHeaderComponent }) => {
+const FeaturedList = ({ resource, basePath, title, subtitle, headComment, linkText, CardSubHeaderComponent, filter }) => {
   const classes = useStyles();
   return (
     <FullWidthBox className={classes.background}>
@@ -79,7 +80,7 @@ const FeaturedList = ({ resource, basePath, title, subtitle, headComment, linkTe
               {headComment}
             </Typography>
           </Box>
-          <Link to={basePath} className={classes.link}>
+          <Link to={filter ? linkToFilteredList(basePath, filter.field)({ id: filter.value }) : basePath} className={classes.link}>
             <Typography variant="button" className="button2">
               {linkText}
             </Typography>
@@ -87,7 +88,7 @@ const FeaturedList = ({ resource, basePath, title, subtitle, headComment, linkTe
           </Link>
         </Box>
         <Box className={classes.listBase}>
-          <ListBase resource={resource} basePath={basePath} perPage={4} sort={{ field: 'dc:created', order: 'DESC' }}>
+          <ListBase resource={resource} basePath={basePath} perPage={4} sort={{ field: 'dc:created', order: 'DESC' }} filter={filter ? {[filter.field]:filter.value} : null}>
             <ItemsGrid CardSubHeaderComponent={CardSubHeaderComponent} />
           </ListBase>
         </Box>
