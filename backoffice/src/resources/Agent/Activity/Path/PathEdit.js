@@ -1,7 +1,8 @@
 import React from 'react';
-import { ImageField, ImageInput, TabbedForm, TextInput, FormTab } from 'react-admin';
+import { ImageInput, TabbedForm, TextInput, FormTab } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
+import { ImageField } from '@semapps/semantic-data-provider';
 import {
   // ActorsInput,
   CoursesInput,
@@ -22,7 +23,7 @@ const PathEdit = (props) => (
         <TextInput source="pair:label" fullWidth />
         <TextInput source="pair:comment" fullWidth />
         <MarkdownInput source="pair:description" fullWidth />
-        <ImageInput source="pair:isDepictedBy" accept="image/*">
+        <ImageInput source="pair:isDepictedBy" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
         {/*}
