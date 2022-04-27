@@ -1,14 +1,11 @@
 import React from 'react';
 import { ShowBase, TextField } from 'react-admin';
-import { Container, Link, List, makeStyles } from '@material-ui/core';
+import { Container, Link, makeStyles } from '@material-ui/core';
 import { AvatarField, GridList } from '@semapps/archipelago-layout';
-import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
-import { MapField } from '@semapps/geo-components';
+import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../../commons/fields/MarkdownField';
 import HeaderShow from '../../../commons/HeaderShow';
-import StickyCard from '../../../commons/StickyCard';
 import BodyList from '../../../commons/lists/BodyList/BodyList';
-import ContactField from "../../../commons/fields/ContactField";
 import BulletPointsField from "../../../commons/fields/BulletPointsField";
 import ApplyButton from "../../../commons/buttons/ApplyButton";
 import { linkToFilteredList } from "../../../utils";
@@ -47,10 +44,7 @@ const EventShow = (props) => {
     <ShowBase {...props}>
       <Container>
         <HeaderShow
-        /*
-          type="pair:hasType"
           linkToListText="Liste des chemins"
-          */
           actionButton={<ApplyButton />}
           hasComment={true}
           content={        

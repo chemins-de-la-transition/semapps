@@ -1,8 +1,10 @@
+import PathList from './PathList';
 import PathShow from './PathShow';
 import TimelineIcon from '@material-ui/icons/Timeline';
 
 export default {
   config: {
+    list: PathList,
     show: PathShow,
     icon: TimelineIcon,
     options: {
@@ -11,7 +13,7 @@ export default {
     },
   },
   dataModel: {
-    types: ['pair:Path'],
+    types: ['cdlt:Path'],
     fieldsMapping: {
       title: 'pair:label'
     }
