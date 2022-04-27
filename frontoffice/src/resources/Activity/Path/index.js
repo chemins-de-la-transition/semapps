@@ -28,7 +28,7 @@ export default {
         'pair:isDepictedBy': 'Image',
         'pair:produces': "Permet d'apprendre", /*Skill*/
         'cdlt:proposedBy': 'Proposé par', /*Person*/
-        'pair:partnerOf': 'A pour partenaires', /*Organization*/
+        'cdlt:supportedBy': 'A pour partenaires', /*Organization*/
         'cdlt:hasPlace': 'Lieux', /*Place*/
         'cdlt:hasEvent': 'Evénements', /*Event*/
         'cdlt:hasCourse': 'Voyages', /*Course*/

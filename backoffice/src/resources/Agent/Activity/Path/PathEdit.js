@@ -7,6 +7,7 @@ import {
   // ActorsInput,
   CoursesInput,
   EventsInput,
+  OrganizationsInput,
   PersonsInput,
   PlacesInput,
   // StatusInput,
@@ -46,7 +47,7 @@ const PathEdit = (props) => (
         <ActorsInput source="cdlt:proposedBy" />
         */}
         <PersonsInput source="cdlt:proposedBy" />
-        {/*<OrganizationsInput source="partner" />*/}
+        <OrganizationsInput source="cdlt:supportedBy" />
         <SkillsInput source="pair:produces" />
         {/*
         <ThemesInput source="pair:hasTopic" />

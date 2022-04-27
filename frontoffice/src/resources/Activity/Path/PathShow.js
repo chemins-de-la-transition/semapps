@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShowBase, TextField } from 'react-admin';
-import { Container, Link, makeStyles } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import { AvatarField, GridList } from '@semapps/archipelago-layout';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../../commons/fields/MarkdownField';
@@ -12,38 +12,8 @@ import FeaturedList from '../../../commons/lists/FeaturedList/FeaturedList';
 import CourseSubHeader from "../../../resources/Activity/Course/CourseSubHeader";
 import EventSubHeader from "../../../resources/Activity/Event/EventSubHeader";
 import PlaceSubHeader from "../../../resources/Place/PlaceSubHeader";
-import { linkToFilteredList } from "../../../utils";
-
-const useStyles = makeStyles((theme) => ({
-  linkContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    [theme.breakpoints.up('sm')]: {
-      flexDirection: 'row',
-    }
-  },
-  linkToList: {
-    display: 'block',
-    padding: 20,
-    margin: 20,
-    color: theme.palette.primary.contrastText,
-    border: `2px solid ${theme.palette.primary.contrastText}`,
-    transition: 'all 0.1s',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    '&:hover': {
-      backgroundColor: theme.palette.primary.contrastText,
-      color: theme.palette.primary.main,
-      textDecoration: 'none',
-    }
-  },
-  bodyContainer: {
-    marginTop: 32
-  }
-}));
 
 const EventShow = (props) => {
-  const classes = useStyles();
   return (
     <ShowBase {...props}>
       <Container>
@@ -60,6 +30,11 @@ const EventShow = (props) => {
             </BulletPointsField>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Person" source="cdlt:proposedBy">
+            <GridList xs={3} linkType="show">
+              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+            </GridList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Organization" source="cdlt:supportedBy">
             <GridList xs={3} linkType="show">
               <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
             </GridList>

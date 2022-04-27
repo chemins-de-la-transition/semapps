@@ -74,7 +74,12 @@ const PathShow = (props) => (
       </Grid>
       <Grid item xs={12} sm={3}>
         <SideList>
-          <ReferenceArrayField reference="Actor" source="cdlt:proposedBy">
+          <ReferenceArrayField reference="Person" source="cdlt:proposedBy">
+            <GridList xs={6} linkType="show">
+              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+            </GridList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Organization" source="cdlt:supportedBy">
             <GridList xs={6} linkType="show">
               <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
             </GridList>
