@@ -390,6 +390,21 @@
     "cdlt:courseOn" : {
       "@type" : "@id"
     },
+    "cdlt:hasCourse" : {
+      "@type" : "@id"
+    },
+    "cdlt:eventOn" : {
+      "@type" : "@id"
+    },
+    "cdlt:hasEvent" : {
+      "@type" : "@id"
+    },
+    "cdlt:placeOn" : {
+      "@type" : "@id"
+    },
+    "cdlt:hasPlace" : {
+      "@type" : "@id"
+    },
     "cdlt:hasCourseType" : {
       "@type" : "@id"
     },

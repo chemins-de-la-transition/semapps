@@ -16,6 +16,7 @@ const PlaceList = (props) => {
       <MultiViewsFilterList
         filters={[
           <Filter reference="Region" source="pair:hasLocation" inverseSource="pair:locationOf" label="Région" />,
+          <Filter reference="Path" source="cdlt:placeOn" inverseSource="cdlt:hasPlace" label="Chemin" />,
           <Filter reference="Theme" source="pair:hasTopic" inverseSource="pair:topicOf" label="Thématique" />,
           <Filter
             reference="Type"

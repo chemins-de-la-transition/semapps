@@ -42,7 +42,7 @@ export default {
         'cdlt:hasMentor': 'A pour mentor',
         'cdlt:organizedBy': 'Organisé par',
         'pair:hasStatus': 'Statut',
-        'cdlt:courseOn': 'Est un parcours de',
+        'cdlt:courseOn': 'Chemins',
       },
     },
   },
