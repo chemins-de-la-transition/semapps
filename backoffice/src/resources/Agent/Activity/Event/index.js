@@ -52,6 +52,7 @@ export default {
         'pair:phone': 'Téléphone',
         'pair:aboutPage': 'Site web',
         'cdlt:organizedBy': 'Organisé par',
+        'cdlt:eventOn': 'Est un événement de',
       },
     },
   },

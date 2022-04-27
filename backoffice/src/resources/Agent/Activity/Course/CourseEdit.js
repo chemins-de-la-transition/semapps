@@ -4,6 +4,7 @@ import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
 import {
+  PathsInput, 
   PersonsInput,
   EventsInput,
   ThemesInput,
@@ -57,6 +58,7 @@ const CourseEdit = (props) => (
         {/*<PathInput source="cdlt:courseOn" />*/}
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'cdlt:CourseStatus' }} />
+        <PathsInput source="cdlt:courseOn" />
         <ThemesInput source="pair:hasTopic" />
         <EventsInput source="pair:hasPart" />
         <SkillsInput source="pair:produces" />
