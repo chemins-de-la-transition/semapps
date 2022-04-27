@@ -80,7 +80,7 @@ const FeaturedList = ({ resource, basePath, title, subtitle, headComment, linkTe
               {headComment}
             </Typography>
           </Box>
-          <Link to={filter ? linkToFilteredList(basePath, filter.field)({ id: filter.value }) : basePath} className={classes.link}>
+          <Link to={filter ? linkToFilteredList(resource, filter.field)({ id: filter.value }) : basePath} className={classes.link}>
             <Typography variant="button" className="button2">
               {linkText}
             </Typography>
