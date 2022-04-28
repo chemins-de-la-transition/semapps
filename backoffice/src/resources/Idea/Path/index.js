@@ -1,4 +1,4 @@
-import { PairResourceCreate } from '../../../../pair';
+import { PairResourceCreate } from '../../../pair';
 import PathEdit from './PathEdit';
 import PathList from './PathList';
 import PathShow from './PathShow';

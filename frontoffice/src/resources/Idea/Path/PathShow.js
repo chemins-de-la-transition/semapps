@@ -9,9 +9,9 @@ import BodyList from '../../../commons/lists/BodyList/BodyList';
 import BulletPointsField from "../../../commons/fields/BulletPointsField";
 import ApplyButton from "../../../commons/buttons/ApplyButton";
 import FeaturedList from '../../../commons/lists/FeaturedList/FeaturedList';
-import CourseSubHeader from "../../../resources/Activity/Course/CourseSubHeader";
-import EventSubHeader from "../../../resources/Activity/Event/EventSubHeader";
-import PlaceSubHeader from "../../../resources/Place/PlaceSubHeader";
+import CourseSubHeader from "../../Activity/Course/CourseSubHeader";
+import EventSubHeader from "../../Activity/Event/EventSubHeader";
+import PlaceSubHeader from "../../Place/PlaceSubHeader";
 
 const EventShow = (props) => {
   return (

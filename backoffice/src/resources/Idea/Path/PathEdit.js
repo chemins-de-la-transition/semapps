@@ -14,7 +14,7 @@ import {
   // ThemesInput,
   // TypesInput,
   SkillsInput,
-} from '../../../../pair';
+} from '../../../pair';
 import PathTitle from './PathTitle';
 
 const PathEdit = (props) => (
