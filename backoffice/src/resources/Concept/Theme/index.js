@@ -12,7 +12,7 @@ export default {
     edit: ThemeEdit,
     icon: LocalOfferIcon,
     options: {
-      label: 'Thèmes',
+      label: 'Secteurs d\'activité',
       parent: 'Concept',
     },
   },
@@ -24,7 +24,7 @@ export default {
   },
   translations: {
     fr: {
-      name: 'Thème |||| Thèmes',
+      name: 'Secteur d\'activité |||| Secteurs d\'activité',
       fields: {
         'pair:label': 'Titre',
         'pair:comment': 'Courte description',
