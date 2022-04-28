@@ -19,7 +19,7 @@ export default {
   dataModel: {
     types: ['pair:Event'],
     list: {
-      dereference: ['pair:hostedIn/pair:hasPostalAddress', 'pair:hasLocation/pair:hasPostalAddress'],
+      dereference: ['pair:hasLocation/pair:hasPostalAddress'],
     },
     fieldsMapping: {
       title: 'pair:label'
