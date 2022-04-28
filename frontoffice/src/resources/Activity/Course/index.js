@@ -19,7 +19,7 @@ export default {
   },
   translations: {
     fr: {
-      name: 'Parcours |||| Parcours',
+      name: 'Voyage |||| Voyages',
       fields: {
         'pair:label': 'Titre',
         'pair:isDepictedBy': 'Image',
@@ -30,7 +30,7 @@ export default {
         'pair:endDate': 'Date de fin',
         'cdlt:priceRange': 'Coût',
         'pair:description': 'Présentation',
-        'pair:hasPart': 'Programme du parcours',
+        'pair:hasPart': 'Programme du voyage',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
@@ -42,7 +42,7 @@ export default {
         'cdlt:hasMentor': 'A pour intervenant',
         'cdlt:organizedBy': 'Organisé par',
         'pair:hasStatus': 'Statut',
-        'cdlt:courseOn': 'Est un parcours de',
+        'cdlt:courseOn': 'Est un voyage de',
       },
     },
   },

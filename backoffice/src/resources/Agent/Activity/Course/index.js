@@ -12,7 +12,7 @@ export default {
     edit: CourseEdit,
     icon: DateRangeIcon,
     options: {
-      label: 'Parcours',
+      label: 'Voyage',
       parent: 'Activity',
     },
   },
@@ -24,7 +24,7 @@ export default {
   },
   translations: {
     fr: {
-      name: 'Parcours |||| Parcours',
+      name: 'Voyage |||| Voyages',
       fields: {
         'pair:label': 'Titre',
         'pair:isDepictedBy': 'Image',
@@ -36,7 +36,7 @@ export default {
         'pair:endDate': 'Date de fin',
         'cdlt:priceRange': 'Coût',
         'pair:description': 'Présentation',
-        'pair:hasPart': 'Evénements constitutifs du parcours',
+        'pair:hasPart': 'Evénements constitutifs du voyage',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
@@ -49,7 +49,7 @@ export default {
         'cdlt:organizedBy': 'Organisé par',
         'pair:hasStatus': 'Statut',
         'pair:documentedBy': 'Documents',
-        'cdlt:courseOn': 'Est un parcours de',
+        'cdlt:courseOn': 'Est un voyage de',
       },
     },
   },
