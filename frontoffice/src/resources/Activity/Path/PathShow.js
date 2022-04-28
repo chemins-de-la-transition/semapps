@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShowBase, TextField } from 'react-admin';
-import { Container } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import { AvatarField, GridList } from '@semapps/archipelago-layout';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../../commons/fields/MarkdownField';
@@ -16,7 +16,7 @@ import PlaceSubHeader from "../../../resources/Place/PlaceSubHeader";
 const EventShow = (props) => {
   return (
     <ShowBase {...props}>
-      <Container>
+      <Box>
         <HeaderShow
           linkToListText="Liste des chemins"
           actionButton={<ApplyButton />}
@@ -70,7 +70,7 @@ const EventShow = (props) => {
           CardSubHeaderComponent={CourseSubHeader}
           filter={{ field:'cdlt:courseOn',value: props.id }}
         />
-      </Container>
+      </Box>
     </ShowBase>
   );
 }
