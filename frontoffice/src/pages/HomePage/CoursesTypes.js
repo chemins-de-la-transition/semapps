@@ -97,13 +97,13 @@ const CoursesTypes = () => {
           />
           <LocalGridItem
             title="Voyage Apprenant"
-            text="Une pratique m’intéresse, j’ai envie d’en savoir plus. Profitez de ces parcours sur quelques jours pour visiter différents lieux et rencontrer les porteurs de projets"
+            text="Une pratique m’intéresse, j’ai envie d’en savoir plus. Profitez de ces voyages sur quelques jours pour visiter différents lieux et rencontrer les porteurs de projets"
             image={process.env.PUBLIC_URL + '/rond2.png'}
             icon={<IdeaIcon />}
           />
           <LocalGridItem
             title="Voyage immersif"
-            text="J’ai envie d’apprendre en participant. Ces parcours sur quelques semaines vous permettront d’experimenter par le faire et de participer à un projet de votre choix"
+            text="J’ai envie d’apprendre en participant. Ces voyages sur quelques semaines vous permettront d’experimenter par le faire et de participer à un projet de votre choix"
             image={process.env.PUBLIC_URL + '/rond3.png'}
             icon={<FarmerIcon />}
           />

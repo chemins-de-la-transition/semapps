@@ -37,10 +37,10 @@ export default {
         'cdlt:hasEvent': 'Evénements', /*Event*/
         'cdlt:hasCourse': 'Voyages', /*Course*/
         /*
-        'pair:hasLocation': 'Composez votre parcours',
+        'pair:hasLocation': 'Composez votre voyage',
         'pair:hasStatus': 'Statut',
         'pair:hasType': 'Type',
-        'pair:hasTopic': 'A pour thème',
+        'pair:hasTopic': 'A pour secteur d\'activité',
         'cdlt:forWhom': 'Destiné à',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:learningObjectives': "Objectifs d'apprentissage",

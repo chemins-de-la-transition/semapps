@@ -24,7 +24,7 @@ const EventAlert = () => {
     return (
       <Box pt={3} pb={1}>
         <Alert severity="warning" classes={classes}>
-          Cet événement fait partie du parcours&nbsp;
+          Cet événement fait partie du voyage&nbsp;
           <ReferenceField record={record} reference="Course" source="pair:partOf" link="show">
             <TextField source="pair:label" />
           </ReferenceField>

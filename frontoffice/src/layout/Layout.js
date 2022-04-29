@@ -12,7 +12,7 @@ const Layout = ({ logout, theme, children, title }) => {
     { link: '/Path', name: 'Chemins' },
     { link: '/Place', name: 'Lieux' },
     { link: '/Event', name: 'Événements' },
-    { link: '/Course', name: 'Parcours' },
+    { link: '/Course', name: 'Voyages' },
   ];
   // const xs = useMediaQuery(theme.breakpoints.down('xs'));
   const [sidebarOpen, setSidebarOpen] = useState(false);

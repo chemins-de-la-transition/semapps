@@ -15,12 +15,12 @@ const CourseList = (props) => {
         filters={[
           <Filter reference="Region" source="pair:hasLocation" inverseSource="pair:locationOf" label="Région" />,
           <Filter reference="Path" source="cdlt:courseOn" inverseSource="cdlt:hasCourse" label="Chemin" />,
-          <Filter reference="Theme" source="pair:hasTopic" inverseSource="pair:topicOf" label="Thématique" />,
+          <Filter reference="Theme" source="pair:hasTopic" inverseSource="pair:topicOf" label="Secteur d'activité" />,
           <Filter
             reference="Type"
             source="cdlt:hasCourseType"
             /*inverseSource="cdlt:typeOfCourse"*/ filter={{ a: 'cdlt:CourseType' }}
-            label="Type de parcours"
+            label="Type de voyage"
           />,
         ]}
         views={{

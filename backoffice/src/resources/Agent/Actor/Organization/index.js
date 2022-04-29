@@ -37,7 +37,7 @@ export default {
         'pair:affiliates': 'A pour membres',
         'pair:partnerOf': 'A pour partenaires',
         'pair:organizes': 'Organise',
-        'pair:hasTopic': 'A pour thème',
+        'pair:hasTopic': 'A pour secteur d\'activité',
         'pair:hasLocation': 'Adresse',
       },
     },
