@@ -32,7 +32,7 @@ module.exports = {
       }
       
       console.log('regionsUris', zipCodes, regionsUris);
-
+      /* hasRegion:delete */
       await this.broker.call('triplestore.update', {
         query: `
           PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
@@ -41,11 +41,30 @@ module.exports = {
         `,
         webId: 'system'
       });
+      /* regionOf:delete */
+      await this.broker.call('triplestore.update', {
+        query: `
+          PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
+          DELETE { ?regions cdlt:regionOf ?p1 }
+          WHERE { BIND(<${resourceUri}> AS ?p1) . ?regions cdlt:regionOf ?p1  }
+        `,
+        webId: 'system'
+      });
+      /* hasRegion:insert */
       await this.broker.call('triplestore.update', {
         query: `
           PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
           INSERT { ?s1 cdlt:hasRegion ${regionsUris.map(uri => `<${uri}>`).join(', ')} }
           WHERE { BIND(<${resourceUri}> AS ?s1) }
+        `,
+        webId: 'system'
+      });
+      /* regionOf:insert */
+      await this.broker.call('triplestore.update', {
+        query: `
+          PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
+          INSERT { ${regionsUris.map(uri => `<${uri}>`).join(', ')} cdlt:regionOf ?p1 }
+          WHERE { BIND(<${resourceUri}> AS ?p1) }
         `,
         webId: 'system'
       });
