@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: 'center',
       alignItems: 'center',
     }
-  },
+  }
 }));
 
 const EventForm = ({ mode, ...rest }) => {
@@ -185,7 +185,6 @@ const EventForm = ({ mode, ...rest }) => {
         <BooleanInput source="cdlt:directRegistration" fullWidth />
       </FormTab>
       <FormTab label="Relations">
-        <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
         <PlaceInput source="pair:hostedIn" />
         <CourseInput source="pair:partOf" />
