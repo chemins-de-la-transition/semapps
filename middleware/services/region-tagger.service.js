@@ -31,7 +31,6 @@ module.exports = {
         if( regionUri ) regionsUris.push(regionUri);
       }
       
-      console.log('regionsUris', zipCodes, regionsUris);
       /* hasRegion:delete */
       await this.broker.call('triplestore.update', {
         query: `
@@ -71,13 +70,12 @@ module.exports = {
     },
     async tagPlace(courseUri, place) {
       
-      console.log('tagPlace', courseUri, place);
-      
       if( place['pair:hasPostalAddress'] ) {
         await this.tag(courseUri, [place['pair:hasPostalAddress']['pair:addressZipCode']]);
       }
     },
     checkFullAddress(data, predicate) {
+
       if (! data) return false
       if (! data[predicate]) return false
       if (! data[predicate]['pair:hasPostalAddress']) return false
@@ -86,16 +84,12 @@ module.exports = {
     },
     async tagEvent(eventUri, event) {
       
-      console.log('tagEvent', eventUri, event);
-
       if (this.checkFullAddress(event, 'pair:hasLocation')) {
         await this.tag(eventUri, [event['pair:hasLocation']['pair:hasPostalAddress']['pair:addressZipCode']]);
       }
       // location-update.service updates hasLocation when hostedIn is changed : no need to check hostedIn here
     },
     async tagCourse(courseUri, course) {
-      
-      console.log('tagCourse', courseUri, course);
       
       if( course['pair:hasPart'] ) {
         let zipCodes = [];

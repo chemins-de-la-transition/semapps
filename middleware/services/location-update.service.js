@@ -15,8 +15,8 @@ module.exports = {
         && JSON.stringify(oldData['pair:hasPostalAddress']) === JSON.stringify(newData['pair:hasPostalAddress']) ) {
         return
       }
-      console.log('===> onPlaceUpdate', resourceUri, oldData['pair:hasPostalAddress'], newData['pair:hasPostalAddress']);
       
+      /* find all events hosted in selected place */
       let events = await this.broker.call('triplestore.query', {
         query: `
           PREFIX ldp: <http://www.w3.org/ns/ldp#>
@@ -48,8 +48,7 @@ module.exports = {
         return
       }
       
-      console.log('===> formatedEvents', formatedEvents);
-
+      /* delete hasLocation relation for all events found */
       await this.broker.call('triplestore.update', {
         query: `
           PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>
@@ -69,8 +68,7 @@ module.exports = {
       
       const newLocation = newData['pair:hasPostalAddress'];
       
-      console.log('newLocation', newLocation);
-
+      /* insert now hasLocation relation for all events found */
       await this.broker.call('triplestore.update', {
         query: `
           PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>
@@ -100,6 +98,7 @@ module.exports = {
       
       if (newLocation['pair:addressZipCode']) {
         const zipCode = newLocation['pair:addressZipCode'];
+        /* update region for all events found */
         await formatedEvents.forEach(event => {
             const resourceUri = event.replace('<','').replace('>','')
             this.broker.call('region-tagger.actionTagEvent', {resourceUri: resourceUri, zipCode: zipCode})
@@ -118,8 +117,8 @@ module.exports = {
         && JSON.stringify(oldData['pair:hostedIn']) === JSON.stringify(newData['pair:hostedIn']) ) {
         return
       }
-      console.log('===> onEventUpdate', resourceUri, oldData['pair:hostedIn'], newData['pair:hostedIn'], newData['pair:hasLocation']);
       
+      /* find location of the new place which hosts selected event */
       let newLocation = await this.broker.call('triplestore.query', {
         query: `
           PREFIX ldp: <http://www.w3.org/ns/ldp#>
@@ -140,9 +139,8 @@ module.exports = {
         webId: 'system'
       });
       
-      console.log('===> newLocation', newLocation);
-    
       if (newLocation) {
+        /* delete current location of selected event */
         await this.broker.call('triplestore.update', {
           query: `
             PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>
@@ -159,6 +157,7 @@ module.exports = {
           `,
           webId: 'system'
         });
+        /* insert new location of selected event */
         await this.broker.call('triplestore.update', {
           query: `
             PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>
