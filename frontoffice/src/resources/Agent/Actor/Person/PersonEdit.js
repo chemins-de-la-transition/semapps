@@ -19,7 +19,7 @@ import { ImageField } from '@semapps/semantic-data-provider';
 import PersonTitle from './PersonTitle';
 
 export const PersonEdit = (props) => (
-  <Container maxWidth="xl">
+  <Container maxWidth="lg">
     <EditWithPermissions
       title={<PersonTitle />}
       transform={(data) => ({

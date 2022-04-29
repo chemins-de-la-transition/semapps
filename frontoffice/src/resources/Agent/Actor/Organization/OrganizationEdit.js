@@ -15,7 +15,7 @@ import {
 import OrganizationTitle from './OrganizationTitle';
 
 export const OrganizationEdit = (props) => (
-  <Container maxWidth="xl">
+  <Container maxWidth="lg">
     <EditWithPermissions title={<OrganizationTitle />} {...props}>
       <SimpleForm redirect="show">
         <TextInput source="pair:label" fullWidth />

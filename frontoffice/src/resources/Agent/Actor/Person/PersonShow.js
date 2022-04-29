@@ -24,10 +24,10 @@ const useStyles = makeStyles((theme) => ({
 const PersonShow = (props) => {
   const classes = useStyles();
   return (
-  <Container className={classes.mainContainer} maxWidth="xl">
+  <Container className={classes.mainContainer} maxWidth="lg">
     <ShowWithPermissions title={<PersonTitle />} {...props}>
       <Grid container spacing={5}>
-        <Grid item xs={12} sm={9}>
+        <Grid item xs={12} md={9}>
           <Hero image="pair:image">
             <TextField source="pair:firstName" />
             <TextField source="pair:lastName" />
@@ -90,10 +90,10 @@ const PersonShow = (props) => {
             />
           </MainList>
         </Grid>
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} md={3}>
           <SideList>
             <ReferenceArrayField reference="Organization" source="pair:affiliatedBy">
-              <GridList xs={6} linkType="show">
+              <GridList xs={3} md={6} linkType="show">
                 <AvatarField label="pair:label" image="pair:image" labelColor="grey.300">
                   <HomeIcon />
                 </AvatarField>
