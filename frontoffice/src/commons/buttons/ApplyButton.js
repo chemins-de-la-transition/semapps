@@ -17,7 +17,7 @@ const ApplyButton = () => {
       )}
     >
       <Button variant="contained" color="primary" typographyVariant="button1">
-        Je candidate au parcours
+        Je candidate au voyage
       </Button>
     </Link>
   ) : (

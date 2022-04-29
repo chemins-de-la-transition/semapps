@@ -17,7 +17,7 @@ import ApplyButton from "../../../commons/buttons/ApplyButton";
 const CourseShow = (props) => (
   <ShowBase {...props}>
     <>
-      <HeaderShow linkToListText="Liste des parcours" details={<CourseDetails />} actionButton={<ApplyButton />} />
+      <HeaderShow linkToListText="Liste des voyages" details={<CourseDetails />} actionButton={<ApplyButton />} />
       <BodyList
         aside={
           <StickyCard actionButton={<ApplyButton />}>
@@ -70,10 +70,10 @@ const CourseShow = (props) => (
       <SimilarList
         resource="Course"
         basePath="/Course"
-        title="Les parcours"
+        title="Les voyages"
         subtitle="Similaires"
-        headComment="Tu rêves de partir sur les routes pour découvrir des savoirs faire ou même apprendre un métier sur le terrain? Découvre nos parcours."
-        linkText="Voir tous les parcours"
+        headComment="Tu rêves de partir sur les routes pour découvrir des savoirs faire ou même apprendre un métier sur le terrain? Découvre nos voyages."
+        linkText="Voir tous les voyages"
         CardSubHeaderComponent={CourseSubHeader}
       />
     </>

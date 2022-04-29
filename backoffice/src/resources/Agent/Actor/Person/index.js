@@ -40,7 +40,7 @@ export default {
         'pair:hasTopic': 'A pour intérêt',
         'pair:hasLocation': 'Adresse',
         'pair:hasType': 'Type',
-        'cdlt:mentorOn': 'Est mentor pour',
+        'cdlt:mentorOn': 'Est intervenant pour',
         'cdlt:organizes': 'Evénements',
         'cdlt:proposes': 'Lieux',
         'foaf:email': 'Adresse email',
