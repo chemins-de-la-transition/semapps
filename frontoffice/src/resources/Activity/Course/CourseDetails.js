@@ -1,8 +1,7 @@
 import React from 'react';
 import { TextField } from 'react-admin';
 import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
-// import { SeparatedListField } from '@semapps/archipelago-layout';
-import SeparatedListField from '../../../commons/fields/SeparatedListField';
+import { SeparatedListField } from '@semapps/archipelago-layout';
 import { linkToFilteredList } from "../../../utils";
 import IconsList from '../../../commons/lists/IconsList';
 import ThemeIcon from '../../../svg/ThemeIcon';
