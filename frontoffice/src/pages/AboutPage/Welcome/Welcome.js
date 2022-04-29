@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     right: 0,
     position: 'absolute',
+    maxWidth: "-webkit-fill-available",
     '& path[fill]': {
       fill: theme.palette.theme_5.main,
     },
@@ -42,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     right: 0,
     position: 'absolute',
+    maxWidth: "-webkit-fill-available",
     '& path[fill]': {
       fill: theme.palette.theme_8.main,
     },
@@ -51,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
   leftTop1: {
     position: 'absolute',
+    maxWidth: "-webkit-fill-available",
     '& path[fill]': {
       fill: theme.palette.theme_2.main,
     },
@@ -58,40 +61,43 @@ const useStyles = makeStyles((theme) => ({
   leftTop2: {
     left: 200,
     position: 'absolute',
+    maxWidth: "-webkit-fill-available",
     '& path[fill]': {
       fill: theme.palette.primary.main,
     },
   },
   leftShape: {
-    top: 375,
+    bottom: 0,
     left: 0,
     position: 'absolute',
+    maxWidth: "-webkit-fill-available",
     '& path[stroke]': {
       stroke: "#9DBCC5",
-    },
-    [theme.breakpoints.down('xs')]: {
-      top: 600,
     },
   },
   snake1Shape: {
     top: 0,
     left: 870,
     position: 'absolute',
+    maxWidth: "-webkit-fill-available",
   },
   snake2Shape: {
     top: 0,
     left: 880,
     position: 'absolute',
+    maxWidth: "-webkit-fill-available",
   },
   snake3Shape: {
     top: 0,
     left: 890,
     position: 'absolute',
+    maxWidth: "-webkit-fill-available",
   },
   bottom1: {
     bottom: 0,
     left: 0,
     position: 'absolute',
+    maxWidth: "-webkit-fill-available",
     '& path[fill]': {
       fill: theme.palette.theme_5.main,
     },
@@ -100,6 +106,7 @@ const useStyles = makeStyles((theme) => ({
     bottom: 0,
     left: 1207,
     position: 'absolute',
+    maxWidth: "-webkit-fill-available",
     '& path[fill]': {
       fill: theme.palette.primary.main,
     },
@@ -108,17 +115,13 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     left: 430,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      width:0,
-    },
+    maxWidth: "-webkit-fill-available",
   },
   topLine2: {
     top: 0,
     left: 400,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      width:0,
-    },
+    maxWidth: "-webkit-fill-available",
   },
 }));
 
