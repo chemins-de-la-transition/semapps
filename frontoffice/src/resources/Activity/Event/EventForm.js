@@ -95,7 +95,17 @@ const EventForm = ({ mode, ...rest }) => {
   
   const initalValues = (mode) => {
     switch (mode) {
-      case 'create': return { 'cdlt:organizedBy': identity?.id }
+      case 'create': return {
+        'cdlt:organizedBy': identity?.id,
+        /* force components to be controlled : needed for duplication feature */
+        'cdlt:hasMentor': null,
+        'pair:hostedIn': null,
+        'pair:partOf': null,
+        'pair:hasTopic': null,
+        'cdlt:hasCourseType': null,
+        'pair:hasType': null,
+        'pair:produces': null,
+      }
       case 'duplicate': return getFormatedEvent(chosenEvent)
       default: return undefined
     }
