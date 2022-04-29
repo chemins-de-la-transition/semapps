@@ -19,7 +19,7 @@ const LoginMenu = forwardRef(({ onClick }, ref) => (
 const EditProfileMenu = forwardRef(({ onClick, webId }, ref) => (
   <MenuItemLink
     ref={ref}
-    to={`/Person/${encodeURIComponent(webId)}/edit`}
+    to={`/Person/${encodeURIComponent(webId)}`}
     primaryText="Editer mon profil"
     leftIcon={<EditIcon />}
     onClick={onClick}
