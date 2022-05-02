@@ -5,9 +5,9 @@ import Chip from "../../commons/Chip";
 import { ReferenceField } from "@semapps/semantic-data-provider";
 
 const PlaceSubHeader = ({ record }) => {
-  return record['pair:hasLocation'] ? (
+  return record['cdlt:hasRegion'] ? (
     <Chip icon={<PlaceIcon />}>
-      <ReferenceField record={record} source="pair:hasLocation" reference="Region" link={false}>
+      <ReferenceField record={record} source="cdlt:hasRegion" reference="Region" link={false}>
         <TextField source="pair:label" />
       </ReferenceField>
     </Chip>

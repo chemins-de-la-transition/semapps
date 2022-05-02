@@ -4,10 +4,10 @@ import { Grid } from '@material-ui/core';
 import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
-import { MapField } from '@semapps/geo-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import JotformButton from '../../../JotformButton';
 import EventTitle from './EventTitle';
+import EventMapField from "./EventMapField";
 
 const EventShow = (props) => (
   <ShowWithPermissions title={<EventTitle />} {...props}>
@@ -20,7 +20,7 @@ const EventShow = (props) => (
           <ReferenceField source="pair:hostedIn" reference="Place" link="show">
             <TextField source="pair:label" />
           </ReferenceField>
-          <ReferenceField source="pair:hasLocation" reference="Region" link={false}>
+          <ReferenceField source="cdlt:hasRegion" reference="Region" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
           <ReferenceArrayField source="cdlt:hasCourseType" reference="Type">
@@ -52,16 +52,7 @@ const EventShow = (props) => (
           <MarkdownField source="cdlt:practicalConditions" addLabel />
           <MarkdownField source="cdlt:learningObjectives" addLabel />
           <MarkdownField source="cdlt:economicalConditions" addLabel />
-          <MapField
-            source="pair:hostedIn"
-            address={(record) =>
-              record?.['pair:hostedIn']?.['pair:label'] +
-              ', ' +
-              record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:label']
-            }
-            latitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:latitude']}
-            longitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
-          />
+          <EventMapField source="pair:hasLocation" />
         </MainList>
       </Grid>
       <Grid item xs={12} sm={3}>

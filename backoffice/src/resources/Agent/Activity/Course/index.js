@@ -30,7 +30,7 @@ export default {
         'pair:isDepictedBy': 'Image',
         'cdlt:hasCourseType': 'Type de voyage',
         'pair:hasTopic': 'Secteurs d\'activité',
-        'pair:hasLocation': 'Région(s)',
+        'cdlt:hasRegion': 'Région(s)',
         'pair:produces': 'Compétences visées',
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',

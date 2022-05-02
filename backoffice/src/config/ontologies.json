@@ -46,7 +46,7 @@
   },
   {
     "prefix": "cdlt",
-    "owl": "https://gist.githubusercontent.com/srosset81/54036f8b3ff8805f6131af60fcf1c3f1/raw/878af6f5dc1867b2c4b687abe3c1fc286fef568a/cdlt-ontology.owl",
+    "owl": "https://raw.githubusercontent.com/chemins-de-la-transition/ontology/main/Ontologie_Chemins_de_la_Transition_v0.1.owl",
     "url": "http://virtual-assembly.org/ontologies/cdlt#"
   }
 ]

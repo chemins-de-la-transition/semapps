@@ -14,7 +14,7 @@ import {
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { DateTimeInput } from '@semapps/date-components';
-import { ActorsInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput } from '../../../pair';
+import { PairLocationInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput } from '../../../pair';
 import frLocale from 'date-fns/locale/fr';
 import { Box, FormControlLabel, Slide, LinearProgress, makeStyles, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
@@ -44,7 +44,7 @@ const EventForm = ({ mode, ...rest }) => {
   const [eventsListIsOnError, setEventsListIsOnError] = useState(false);
   const [chosenEvent, setChosenEvent] = useState(null);
   const [duplicateIsOpen, setDuplicateIsOpen] = useState(false);
-    
+
   const getAllEvents = useCallback(() => {
     if (eventsList.length === 0) {
       dataProvider
@@ -59,27 +59,27 @@ const EventForm = ({ mode, ...rest }) => {
         })
     }
   }, [dataProvider, eventsList, setEventsList, setEventsListIsLoading, setEventsListIsOnError]);
-  
+
   const handleClickToggleDuplicate = useCallback((duplicateIsOpen) => (e) => {
     e.preventDefault();
     setDuplicateIsOpen(! duplicateIsOpen)
     setChosenEvent(null)
   }, [setDuplicateIsOpen]);
-  
+
   const handleChangeSelectEvent = useCallback((eventsList) => (e) => {
     const eventId = e.target.value;
     const chosenEvent = eventsList.find( event => event.id === eventId )
     setChosenEvent(chosenEvent)
   }, [setChosenEvent]);
-    
+
   useEffect(() => {
     if (mode === 'create') {
       getAllEvents();
-    }    
+    }
   }, [mode, getAllEvents]);
-  
+
   const getFormatedEvent = useCallback((chosenEvent) => {
-    let formatedEvent = {};  
+    let formatedEvent = {};
     for (const property in chosenEvent) {
       if (! ['id','dc','type'].includes(property.split(':')[0])) {
         if ( ! [
@@ -92,7 +92,7 @@ const EventForm = ({ mode, ...rest }) => {
     }
     return { ...formatedEvent, 'cdlt:organizedBy': identity?.id }
   }, [identity]);
-  
+
   const initalValues = (mode) => {
     switch (mode) {
       case 'create': return {
@@ -110,7 +110,7 @@ const EventForm = ({ mode, ...rest }) => {
       default: return undefined
     }
   }
-  
+
   if (chosenEvent) {
     mode = 'duplicate';
   }
@@ -123,7 +123,7 @@ const EventForm = ({ mode, ...rest }) => {
       redirect="/MyEvents"
     >
       <FormTab label="Données">
-      
+
         <TextInput source="pair:label" fullWidth validate={[required()]} />
         { ['create', 'duplicate'].includes(mode)  &&
           <Box className={classes.duplicateContainer}>
@@ -133,7 +133,7 @@ const EventForm = ({ mode, ...rest }) => {
             { ! eventsListIsLoading &&
               <>
                 <FormControlLabel control={
-                    <Switch 
+                    <Switch
                         color="primary"
                         checked={duplicateIsOpen}
                         onClick={ handleClickToggleDuplicate(duplicateIsOpen) }
@@ -147,7 +147,7 @@ const EventForm = ({ mode, ...rest }) => {
                 { duplicateIsOpen && ! eventsListIsLoading && ! eventsListIsOnError &&
                   <Slide direction="up" in={duplicateIsOpen} mountOnEnter unmountOnExit>
                     <div>
-                      <SelectInput label="Choisissez un événement" source="eventsList" fullWidth 
+                      <SelectInput label="Choisissez un événement" source="eventsList" fullWidth
                         choices={ eventsList.map(event => ({ id: event.id, name: event["pair:label"] })) }
                         onChange={ handleChangeSelectEvent(eventsList) }
                       />
@@ -196,6 +196,7 @@ const EventForm = ({ mode, ...rest }) => {
       </FormTab>
       <FormTab label="Relations">
         <PersonsInput source="cdlt:hasMentor" />
+        <PairLocationInput source="pair:hasLocation" fullWidth />
         <PlaceInput source="pair:hostedIn" />
         <CourseInput source="pair:partOf" />
         <ThemesInput source="pair:hasTopic" />

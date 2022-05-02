@@ -40,7 +40,7 @@ export default {
         'pair:label': 'Nom',
         'pair:comment': "Phrase d'accroche",
         'pair:isDepictedBy': 'Image',
-        'pair:hasLocation': 'Région',
+        'cdlt:hasRegion': 'Région',
         'pair:hasTopic': 'Secteurs d\'activité',
         'cdlt:hasCourseType': 'Type de voyage',
         'pair:hasType': 'Type de lieu',

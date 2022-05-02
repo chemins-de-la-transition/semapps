@@ -32,16 +32,14 @@ const CourseShow = (props) => (
           {/*<ReferenceField source="cdlt:courseOn" reference="Path" link="show">*/}
           {/*  <TextField source="pair:label" />*/}
           {/*</ReferenceField>*/}
-          <ReferenceArrayField source="pair:hasCourseType" reference="Type">
+          <ReferenceArrayField source="pair:hasType" reference="Type">
             <SeparatedListField link={false}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
-          <ReferenceArrayField source="pair:hasLocation" reference="Region">
-            <SeparatedListField link={false}>
-              <TextField source="pair:label" />
-            </SeparatedListField>
-          </ReferenceArrayField>
+          <ReferenceField source="cdlt:hasRegion" reference="Region" link={false}>
+            <TextField source="pair:label" />
+          </ReferenceField>
           <EmailField source="pair:e-mail" />
           <TextField source="pair:phone" />
           <UrlField source="pair:homePage" />
@@ -79,8 +77,8 @@ const CourseShow = (props) => (
             sort={{ field: 'pair:startDate', order: 'ASC' }}
           >
             <MapList
-              latitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:latitude']}
-              longitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
+              latitude={(record) => record?.['pair:hasLocation']?.['pair:hasPostalAddress']?.['pair:latitude']}
+              longitude={(record) => record?.['pair:hasLocation']?.['pair:hasPostalAddress']?.['pair:longitude']}
               label={(record) => record?.['pair:label']}
               description={(record) => record?.['pair:comment']}
               connectMarkers

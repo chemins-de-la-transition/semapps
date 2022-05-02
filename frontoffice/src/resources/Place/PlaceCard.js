@@ -26,9 +26,9 @@ const PlaceCard = ({ record, basePath, variant }) => {
       <Link to={linkToRecord(basePath, record.id, 'show')}>
         <TextField variant="h2" component="div" record={record} source="pair:label" className={classes.title} />
       </Link>
-      {record['pair:hasLocation'] && (
+      {record['cdlt:hasRegion'] && (
         <Chip icon={<PlaceIcon />}>
-          <ReferenceField record={record} source="pair:hasLocation" reference="Region" link={false}>
+          <ReferenceField record={record} source="cdlt:hasRegion" reference="Region" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
         </Chip>
