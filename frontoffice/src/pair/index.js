@@ -87,7 +87,7 @@ export const TypeInput = (props) => (
 );
 
 export const PlaceInput = (props) => (
-  <ReferenceInput reference="Place" {...props}>
+  <ReferenceInput reference="Place" {...props} allowEmpty>
     <AutocompleteInput optionText="pair:label" />
   </ReferenceInput>
 );
