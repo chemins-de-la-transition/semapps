@@ -3,7 +3,7 @@ import { BooleanInput, SimpleForm, ImageInput, TextInput, useGetIdentity, requir
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { DateTimeInput } from '@semapps/date-components';
-import { ThemesInput, TypeInput, SkillsInput } from '../../../pair';
+import { PairLocationInput, ThemesInput, TypeInput, SkillsInput } from '../../../pair';
 import frLocale from 'date-fns/locale/fr';
 
 const EventForm = ({ mode, ...rest }) => {
@@ -59,6 +59,7 @@ const EventForm = ({ mode, ...rest }) => {
       <TextInput source="pair:e-mail" fullWidth validate={[required(), email()]} />
       <TextInput source="pair:phone" fullWidth />
       <TextInput source="pair:aboutPage" fullWidth />
+      <PairLocationInput source="pair:hasLocation" fullWidth />
     </SimpleForm>
   );
 };

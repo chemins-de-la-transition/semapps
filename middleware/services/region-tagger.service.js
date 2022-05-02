@@ -8,8 +8,9 @@ const departments = require('../departments.json');
 module.exports = {
   name: 'region-tagger',
   dependencies: ['ldp'],
-  methods: {
-    async tag(resourceUri, zipCodes) {
+  actions: {
+    async tag(ctx) {
+      const { resourceUri, zipCodes } = ctx.params;
       let regionsUris = [];
 
       for( let zipCode of zipCodes ) {
@@ -17,24 +18,58 @@ module.exports = {
         if( regionUri ) regionsUris.push(regionUri);
       }
 
-      await this.broker.call('triplestore.update', {
-        query: `
-          PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>
-          DELETE { <${resourceUri}> pair:hasLocation ?regions }
-          INSERT { <${resourceUri}> pair:hasLocation ${regionsUris.map(uri => `<${uri}>`).join(', ')} }
-          WHERE { <${resourceUri}> pair:hasLocation ?regions }
-        `,
-        webId: 'system'
-      });
-    },
-    async tagPlace(courseUri, place) {
+      if( regionsUris.length > 0 ) {
+        // Delete hasRegion relation
+        await ctx.call('triplestore.update', {
+          query: `
+            PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
+            DELETE { ?s1 cdlt:hasRegion ?regions }
+            WHERE { BIND(<${resourceUri}> AS ?s1) . ?s1 cdlt:hasRegion ?regions }
+          `,
+          webId: 'system'
+        });
+        // Delete regionOf inverse relation
+        await ctx.call('triplestore.update', {
+          query: `
+            PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
+            DELETE { ?regions cdlt:regionOf ?p1 }
+            WHERE { BIND(<${resourceUri}> AS ?p1) . ?regions cdlt:regionOf ?p1  }
+          `,
+          webId: 'system'
+        });
+
+        // Insert hasRegion relation
+        await ctx.call('triplestore.update', {
+          query: `
+            PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
+            INSERT { ?s1 cdlt:hasRegion ${regionsUris.map(uri => `<${uri}>`).join(', ')} }
+            WHERE { BIND(<${resourceUri}> AS ?s1) }
+          `,
+          webId: 'system'
+        });
+        // Insert regionOf inverse relation
+        await ctx.call('triplestore.update', {
+          query: `
+            PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
+            INSERT { ${regionsUris.map(uri => `<${uri}>`).join(', ')} cdlt:regionOf ?p1 }
+            WHERE { BIND(<${resourceUri}> AS ?p1) }
+          `,
+          webId: 'system'
+        });
+      }
+    }
+  },
+  methods: {
+    async tagPlace(placeUri, place) {
       if( place['pair:hasPostalAddress'] ) {
-        await this.tag(courseUri, [place['pair:hasPostalAddress']['pair:addressZipCode']]);
+        await this.actions.tag({ resourceUri: placeUri, zipCodes: [place['pair:hasPostalAddress']['pair:addressZipCode']] });
       }
     },
     async tagEvent(eventUri, event) {
-      if( event['pair:hostedIn'] && event['pair:hostedIn']['pair:hasPostalAddress'] ) {
-        await this.tag(eventUri, [event['pair:hostedIn']['pair:hasPostalAddress']['pair:addressZipCode']]);
+      if (event['pair:hostedIn']) {
+        // location-update service updates hasLocation when hostedIn is changed : no need to check hostedIn here
+      } else if (event['pair:hasLocation']) {
+        await this.actions.tag({ resourceUri: eventUri, zipCodes: [event['pair:hasLocation']['pair:hasPostalAddress']['pair:addressZipCode']] });
       }
     },
     async tagCourse(courseUri, course) {
@@ -42,20 +77,20 @@ module.exports = {
         let zipCodes = [];
 
         // Gather the zip code of all events in this course
-        for (let eventUri of course['pair:hasPart']) {
+        for (let eventUri of [].concat(course['pair:hasPart'])) {
           const event = await this.broker.call('ldp.resource.get', {
             resourceUri: eventUri,
             accept: MIME_TYPES.JSON,
             webId: 'system'
           });
 
-          if( event['pair:hostedIn'] && event['pair:hostedIn']['pair:hasPostalAddress'] ) {
-            zipCodes.push(event['pair:hostedIn']['pair:hasPostalAddress']['pair:addressZipCode']);
+          if( event['pair:hasLocation'] && event['pair:hasLocation']['pair:hasPostalAddress'] ) {
+            zipCodes.push(event['pair:hasLocation']['pair:hasPostalAddress']['pair:addressZipCode']);
           }
         }
 
         if( zipCodes.length ) {
-          await this.tag(courseUri, zipCodes);
+          await this.actions.tag({ resourceUri: courseUri, zipCodes });
         }
       }
     },

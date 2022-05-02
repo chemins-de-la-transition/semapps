@@ -118,7 +118,7 @@ const ItemsGrid = ({ similarRecord }) => {
       .filter(id => data[id] && id !== similarRecord.id )
       .sort(sortBySimilarity(data, similarRecord, 'pair:hasType'))
       .sort(sortBySimilarity(data, similarRecord, 'cdlt:hasCourseType'))
-      .sort(sortBySimilarity(data, similarRecord, 'pair:hasLocation'))
+      .sort(sortBySimilarity(data, similarRecord, 'cdlt:hasRegion'))
       .slice(0, 4);
   }, [ids, data, similarRecord]);
 
@@ -165,7 +165,7 @@ const ItemsGrid = ({ similarRecord }) => {
                     <ChevronRightIcon />
                   </Hidden>
                 </Typography>
-                <ReferenceField source="pair:hasLocation" reference="Region" record={data[id]} link={false}>
+                <ReferenceField source="cdlt:hasRegion" reference="Region" record={data[id]} link={false}>
                   <Box className={classes.eventPlace}>
                     <TextField source="pair:label" variant="body1" />
                   </Box>

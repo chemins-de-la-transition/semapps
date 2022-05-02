@@ -31,9 +31,9 @@ const CourseSubHeader = ({ record }) => {
   const classes = useStyles();
   return (
     <Box className={classes.courseSubHeader}>
-      {record['pair:hasLocation'] && (
+      {record['cdlt:hasRegion'] && (
         <Chip icon={<PlaceIcon />}>
-          <ReferenceField record={record} source="pair:hasLocation" reference="Region" link={false}>
+          <ReferenceField record={record} source="cdlt:hasRegion" reference="Region" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
         </Chip>

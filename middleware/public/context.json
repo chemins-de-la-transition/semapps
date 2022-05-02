@@ -404,6 +404,12 @@
     },
     "cdlt:hasLearner" : {
       "@type" : "@id"
+    },
+    "cdlt:hasRegion" : {
+      "@type" : "@id"
+    },
+    "cdlt:regionOf" : {
+      "@type" : "@id"
     }
   }
 }

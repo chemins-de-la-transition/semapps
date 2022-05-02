@@ -5,7 +5,7 @@ import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { DateTimeInput } from '@semapps/date-components';
 import { ImageField } from '@semapps/semantic-data-provider';
-import { ActorsInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput } from '../../../../pair';
+import { ActorsInput, PairLocationInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput } from '../../../../pair';
 import EventTitle from './EventTitle';
 
 const EventEdit = (props) => (
@@ -48,6 +48,7 @@ const EventEdit = (props) => (
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <MarkdownInput source="cdlt:economicalConditions" fullWidth />
         <BooleanInput source="cdlt:directRegistration" fullWidth />
+        <PairLocationInput source="pair:hasLocation" fullWidth />
       </FormTab>
       <FormTab label="Relations">
         <ActorsInput source="cdlt:organizedBy" />

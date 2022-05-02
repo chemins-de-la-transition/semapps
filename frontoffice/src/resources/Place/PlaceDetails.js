@@ -27,7 +27,7 @@ const PlaceDetails = (props) => (
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceField label="Région" reference="Region" source="pair:hasLocation" icon={<PlaceIcon />} link={linkToFilteredList('Place', 'pair:hasLocation')}>
+    <ReferenceField label="Région" reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList('Place', 'cdlt:hasRegion')}>
       <TextField source="pair:label" />
     </ReferenceField>
     <ReferenceField label="Hôte" reference="Person" source="cdlt:proposedBy" icon={<ActorIcon/>} link="show" >
