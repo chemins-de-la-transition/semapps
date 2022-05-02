@@ -41,6 +41,7 @@ const PlaceShow = (props) => (
         <JotformButton />
         <MainList>
           <MarkdownField source="pair:description" addLabel />
+          <MarkdownField source="cdlt:hostDescription" addLabel />
           <MarkdownField source="cdlt:activities" addLabel />
           <MarkdownField source="cdlt:practicalConditions" addLabel />
           <MapField

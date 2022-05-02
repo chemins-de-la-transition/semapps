@@ -46,6 +46,7 @@ export default {
         'pair:hasType': 'Type de lieu',
         'pair:hasStatus': 'Statut',
         'pair:description': 'A propos du lieu',
+        'cdlt:hostDescription': 'Description de l\'hôte',
         'cdlt:activities': 'Activités',
         'pair:hosts': 'Evénements sur le lieu',
         'pair:produces': 'Compétences / Savoir-faire',

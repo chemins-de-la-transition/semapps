@@ -38,6 +38,7 @@ const PlaceShow = (props) => {
           }
         >
           <MarkdownField source="pair:description" />
+          <MarkdownField source="cdlt:hostDescription" addLabel />
           <MarkdownField source="cdlt:activities" />
           <ReferenceArrayField source="pair:hosts" reference="Event" sort={{ field: 'pair:startDate', order: 'ASC' }}>
             <Box pt={1}>
