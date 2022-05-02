@@ -4,9 +4,9 @@ export { default as Event } from './Activity/Event';
 export { default as Activity } from './Activity/Activity';
 
 // Actors
-export { default as Organization } from './Agent/Actor/Organization';
-export { default as Person } from './Agent/Actor/Person';
-export { default as Actor } from './Agent/Actor/Actor';
+export { default as Organization } from './Actor/Organization';
+export { default as Person } from './Actor/Person';
+export { default as Actor } from './Actor/Actor';
 
 // Resources
 export { default as Skill } from './Resource/Skill';

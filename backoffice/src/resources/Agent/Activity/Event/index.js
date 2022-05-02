@@ -1,4 +1,4 @@
-import { PairResourceCreate } from '../../../../pair';
+import EventCreate from './EventCreate';
 import EventEdit from './EventEdit';
 import EventList from './EventList';
 import EventShow from './EventShow';
@@ -8,7 +8,7 @@ export default {
   config: {
     list: EventList,
     show: EventShow,
-    create: PairResourceCreate,
+    create: EventCreate,
     edit: EventEdit,
     icon: EventIcon,
     options: {
@@ -55,7 +55,7 @@ export default {
         'pair:phone': 'Téléphone',
         'pair:aboutPage': 'Site web',
         'cdlt:organizedBy': 'Organisé par',
-        'cdlt:hasMentor': 'A pour intervenants',
+        'cdlt:hasMentor': 'Intervenant(e)s',
       },
     },
   },
