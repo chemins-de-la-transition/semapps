@@ -9,10 +9,12 @@ const dataServers = {
       cdlt: {
         'pair:Document': ['/documents'],
         'pair:Event': ['/events'],
+        'pair:Intention': ['/intentions'],
         'pair:Organization': ['/organizations'],
         'pair:Person': ['/users'],
         'foaf:Person': ['/users'],
         'pair:Place': ['/places', '/regions'],
+        'pair:Sector': ['/sectors'],
         'pair:Skill': ['/skills'],
         'pair:Status': ['/status'],
         'pair:Theme': ['/themes'],

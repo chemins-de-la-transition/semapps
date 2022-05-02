@@ -44,6 +44,8 @@ const EventForm = ({ mode, ...rest }) => {
         <ImageField source="src" />
       </ImageInput>
       <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />
+      <MarkdownInput source="cdlt:organizerDescription" fullWidth />
+      <MarkdownInput source="cdlt:mentorDescription" fullWidth />
       <MarkdownInput source="cdlt:program" fullWidth />
       <SkillsInput source="pair:produces" fullWidth />
       <MarkdownInput source="cdlt:prerequisites" fullWidth />

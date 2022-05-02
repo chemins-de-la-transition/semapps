@@ -19,6 +19,7 @@ const PlaceForm = ({ mode, ...rest }) => {
         <ImageField source="src" />
       </ImageInput>
       <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />
+      <MarkdownInput source="cdlt:hostDescription" fullWidth />
       <MarkdownInput source="cdlt:activities" fullWidth />
       <MarkdownInput source="cdlt:practicalConditions" fullWidth />
       <LocationInput
