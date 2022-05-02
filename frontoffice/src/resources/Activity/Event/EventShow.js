@@ -31,6 +31,8 @@ const EventShow = (props) => (
         alert={<EventAlert />}
       >
         <MarkdownField source="pair:description" />
+        <MarkdownField source="cdlt:organizerDescription" />
+        <MarkdownField source="cdlt:mentorDescription" />
         <MarkdownField source="cdlt:program" />
         <ReferenceArrayField reference="Skill" source="pair:produces">
           <BulletPointsField linkType={false}>

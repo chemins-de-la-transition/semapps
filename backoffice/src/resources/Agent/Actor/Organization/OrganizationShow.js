@@ -8,6 +8,7 @@ import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Grid } from '@material-ui/core';
 import OrganizationTitle from './OrganizationTitle';
 import HomeIcon from '@material-ui/icons/Home';
+import ChipWithResourceIcon from '../../../../commons/ChipWithResourceIcon';
 
 const OrganizationShow = (props) => (
   <ShowWithPermissions title={<OrganizationTitle />} {...props}>
@@ -19,10 +20,16 @@ const OrganizationShow = (props) => (
         </Hero>
         <MainList>
           <MarkdownField source="pair:description" />
+          <ReferenceArrayField  reference="Sector" source="pair:hasSector">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
           <MapField
             source="pair:hasLocation"
             latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
             longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
+            scrollWheelZoom={false}
           />
         </MainList>
       </Grid>
@@ -63,6 +70,11 @@ const OrganizationShow = (props) => (
           <ReferenceArrayField reference="Document" source="pair:documentedBy">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Activity" source="cdlt:organizes">
+            <SingleFieldList linkType="show">
+              <ChipWithResourceIcon source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
         </SideList>

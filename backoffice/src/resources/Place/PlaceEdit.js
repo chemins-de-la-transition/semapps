@@ -17,6 +17,7 @@ export const PlaceEdit = (props) => (
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth />
+        <MarkdownInput source="cdlt:hostDescription" fullWidth />
         <MarkdownInput source="cdlt:activities" fullWidth />
         <MarkdownInput source="cdlt:practicalConditions" fullWidth />
         <LocationInput

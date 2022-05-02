@@ -26,6 +26,8 @@ const CourseShow = (props) => (
         }
       >
         <MarkdownField source="pair:description" />
+        <MarkdownField source="cdlt:organizerDescription" />
+        <MarkdownField source="cdlt:mentorDescription" />
         <ReferenceArrayField
           label="Programme"
           reference="Event"
