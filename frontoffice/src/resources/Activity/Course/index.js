@@ -1,10 +1,12 @@
 import CourseList from './CourseList';
 import CourseShow from './CourseShow';
+import DateRangeIcon from '@material-ui/icons/DateRange';
 
 export default {
   config: {
     list: CourseList,
     show: CourseShow,
+    icon: DateRangeIcon,
   },
   dataModel: {
     types: ['cdlt:Course'],
@@ -19,18 +21,20 @@ export default {
   },
   translations: {
     fr: {
-      name: 'Parcours |||| Parcours',
+      name: 'Voyage |||| Voyages',
       fields: {
         'pair:label': 'Titre',
         'pair:isDepictedBy': 'Image',
-        'cdlt:hasCourseType': 'Type de parcours',
-        'pair:hasTopic': 'Thématiques',
+        'cdlt:hasCourseType': 'Type de voyage',
+        'pair:hasTopic': 'Secteurs d\'activité',
         'pair:produces': 'Compétences visées',
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',
         'cdlt:priceRange': 'Coût',
         'pair:description': 'Présentation',
-        'pair:hasPart': 'Programme du parcours',
+        'cdlt:organizerDescription': 'Organisateur',
+        'cdlt:mentorDescription': 'Intervenant',
+        'pair:hasPart': 'Programme du voyage',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
@@ -39,10 +43,10 @@ export default {
         'pair:phone': 'Téléphone',
         'pair:homePage': 'Site web',
         'pair:comment': "Phrase d'accroche",
-        'cdlt:hasMentor': 'A pour mentor',
+        'cdlt:hasMentor': 'A pour intervenant',
         'cdlt:organizedBy': 'Organisé par',
         'pair:hasStatus': 'Statut',
-        'cdlt:courseOn': 'Est un parcours de',
+        'cdlt:courseOn': 'Est un voyage de',
       },
     },
   },
