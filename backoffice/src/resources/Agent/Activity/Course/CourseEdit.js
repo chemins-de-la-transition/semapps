@@ -5,6 +5,7 @@ import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
 import {
   PathsInput, 
+  ActorsInput,
   PersonsInput,
   EventsInput,
   ThemesInput,
@@ -47,6 +48,8 @@ const CourseEdit = (props) => (
           fullWidth
         />
         <MarkdownInput source="pair:description" fullWidth />
+        <MarkdownInput source="cdlt:organizerDescription" fullWidth />
+        <MarkdownInput source="cdlt:mentorDescription" fullWidth />
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
         <MarkdownInput source="cdlt:practicalConditions" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
@@ -62,7 +65,7 @@ const CourseEdit = (props) => (
         <ThemesInput source="pair:hasTopic" />
         <EventsInput source="pair:hasPart" />
         <SkillsInput source="pair:produces" />
-        <PersonsInput source="cdlt:organizedBy" />
+        <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
         <DocumentsType source="pair:documentedBy" />
       </FormTab>

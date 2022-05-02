@@ -49,6 +49,18 @@ export const PathsInput = ({ label, source }) => (
     <AutocompleteArrayInput optionText="pair:label" fullWidth />
   </ReferenceArrayInput>
 );
+  
+export const IntentionsInput = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="Intention" source={source}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  </ReferenceArrayInput>
+);
+
+export const SectorsInput = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="Sector" source={source}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  </ReferenceArrayInput>
+);
 
 export const SkillsInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Skill" source={source}>
