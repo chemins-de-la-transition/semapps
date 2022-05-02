@@ -21,14 +21,14 @@ const PublishButton = ({ basePath, resource, record, ...rest }) => {
     e.stopPropagation();
     update(resource, record.id, { ...record, 'pair:hasStatus': PUBLISHED_STATUS }, record);
     authProvider.addPermission(record.id, ANONYMOUS_AGENT, CLASS_AGENT, ACL_READ);
-    notify('Le parcours a bien été publié');
+    notify('Le voyage a bien été publié');
   };
 
   const unpublish = (e) => {
     e.stopPropagation();
     update(resource, record.id, { ...record, 'pair:hasStatus': UNPUBLISHED_STATUS }, record);
     authProvider.removePermission(record.id, ANONYMOUS_AGENT, CLASS_AGENT, ACL_READ);
-    notify('Le parcours a été dépublié');
+    notify('Le voyage a été dépublié');
   };
 
   return (

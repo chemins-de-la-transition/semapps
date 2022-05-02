@@ -12,18 +12,19 @@ export default {
     edit: ThemeEdit,
     icon: LocalOfferIcon,
     options: {
-      label: 'Thèmes',
+      label: 'Secteurs d\'activité',
       parent: 'Concept',
     },
   },
   dataModel: {
     types: ['pair:Theme'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'themes',
-    slugField: 'pair:label',
+    fieldsMapping: {
+      title: 'pair:label'
+    }
   },
   translations: {
     fr: {
-      name: 'Thème |||| Thèmes',
+      name: 'Secteur d\'activité |||| Secteurs d\'activité',
       fields: {
         'pair:label': 'Titre',
         'pair:comment': 'Courte description',

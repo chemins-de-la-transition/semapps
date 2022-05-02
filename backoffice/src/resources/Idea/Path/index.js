@@ -18,8 +18,9 @@ export default {
   },
   dataModel: {
     types: ['cdlt:Path'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'paths',
-    slugField: 'pair:label',
+    fieldsMapping: {
+      title: 'pair:label'
+    }
   },
   translations: {
     fr: {
@@ -29,12 +30,12 @@ export default {
         'pair:description': 'Description',
         'pair:comment': 'Courte description',
         'pair:produces': "Permet d'apprendre",
-        'pair:hasLocation': 'Composez votre parcours',
+        'pair:hasLocation': 'Composez votre voyage',
         'pair:hasStatus': 'Statut',
         'pair:hasType': 'Type',
-        'pair:hasTopic': 'A pour thème',
+        'pair:hasTopic': 'A pour secteur d\'activité',
         'cdlt:proposedBy': 'Proposé par',
-        'cdlt:hasCourse': 'Parcours programmés',
+        'cdlt:hasCourse': 'Voyages programmés',
         'cdlt:forWhom': 'Destiné à',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:learningObjectives': "Objectifs d'apprentissage",

@@ -1,5 +1,5 @@
 /.idea
 /data
-/letsencrypt
+node_modules
 middleware/logs/err.log
 middleware/logs/out.log

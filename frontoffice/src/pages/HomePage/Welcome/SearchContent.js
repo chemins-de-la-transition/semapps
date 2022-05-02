@@ -141,7 +141,7 @@ const FormBox = () => {
               <Select labelId="demo-select-objecttype-label" value={type} onChange={e => setType(e.target.value)} className={classes.select} variant={xs ? 'outlined' : 'standard'}>
                 <MenuItem key="Place" value="Place">Lieux</MenuItem>
                 <MenuItem key="Event" value="Event">Évènements</MenuItem>
-                <MenuItem key="Course" value="Course">Parcours</MenuItem>
+                <MenuItem key="Course" value="Course">Voyages</MenuItem>
               </Select>
             </FormControl>
           </Grid>

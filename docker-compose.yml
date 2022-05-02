@@ -1,33 +1,8 @@
 version: '3.5'
 services:
-  traefik:
-    image: traefik:v2.3
-    container_name: traefik
-    command:
-      - "--api.insecure=true"
-      - "--providers.docker=true"
-      - "--providers.docker.exposedbydefault=false"
-      - "--entrypoints.web.address=:80"
-      - "--entrypoints.websecure.address=:443"
-      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
-      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
-      - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
-      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
-      - "--certificatesresolvers.myresolver.acme.email=srosset81@gmail.com"
-      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
-    ports:
-      - "80:80"
-      - "443:443"
-      - "8080:8080"
-    volumes:
-      - ./letsencrypt:/letsencrypt
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-
   fuseki:
     image: semapps/jena-fuseki-webacl
     container_name: fuseki
-    depends_on:
-      - fuseki_compact # Force database compacting on every restart
     volumes:
       - ./data/fuseki:/fuseki
       - ./data/staging:/staging
@@ -38,62 +13,6 @@ services:
     environment:
       ADMIN_PASSWORD: "admin"
       JAVA_MX_RAM: "4G"
-
-  fuseki_compact:
-    image: semapps/jena-fuseki-webacl
-    container_name: fuseki_compact
-    volumes:
-      - ./data/fuseki:/fuseki
-    entrypoint: /docker-compact-entrypoint.sh
-
-  middleware:
-    build: .
-    container_name: middleware
-    depends_on:
-      - fuseki
-      - redis
-    volumes:
-      - ./middleware/logs:/app/logs
-      - ./middleware/jwt:/app/jwt
-      - ./middleware/uploads:/app/uploads
-      - ./data/fuseki/backups:/app/fuseki-backups # Needed to backup fuseki datasets
-    ports:
-      - "3000:3000"
-    expose:
-      - "3000"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.middleware.rule=Host(`data.lescheminsdelatransition.org`)"
-      - "traefik.http.routers.middleware.entrypoints=websecure"
-      - "traefik.http.routers.middleware.tls.certresolver=myresolver"
-
-  frontoffice:
-    build:
-      context: ./frontoffice
-    container_name: frontoffice
-    ports:
-      - "4000:4000"
-    expose:
-      - "4000"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.frontoffice.rule=Host(`app.lescheminsdelatransition.org`)"
-      - "traefik.http.routers.frontoffice.entrypoints=websecure"
-      - "traefik.http.routers.frontoffice.tls.certresolver=myresolver"
-
-  backoffice:
-    build:
-      context: ./backoffice
-    container_name: backoffice
-    ports:
-      - "5000:5000"
-    expose:
-      - "5000"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.backoffice.rule=Host(`admin.lescheminsdelatransition.org`)"
-      - "traefik.http.routers.backoffice.entrypoints=websecure"
-      - "traefik.http.routers.backoffice.tls.certresolver=myresolver"
 
   redis:
     image: redis

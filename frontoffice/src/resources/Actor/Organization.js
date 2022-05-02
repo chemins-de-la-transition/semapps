@@ -1,21 +1,4 @@
-import { PairResourceCreate } from '../../../../pair';
-import OrganizationEdit from './OrganizationEdit';
-import OrganizationList from './OrganizationList';
-import OrganizationShow from './OrganizationShow';
-import HomeIcon from '@material-ui/icons/Home';
-
 export default {
-  config: {
-    list: OrganizationList,
-    show: OrganizationShow,
-    create: PairResourceCreate,
-    edit: OrganizationEdit,
-    icon: HomeIcon,
-    options: {
-      label: 'Organisations',
-      parent: 'Actor',
-    },
-  },
   dataModel: {
     types: ['pair:Organization'],
     list: {

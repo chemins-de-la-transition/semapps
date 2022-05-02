@@ -17,10 +17,13 @@ export default {
     },
   },
   dataModel: {
-    types: ['pair:Person'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'users',
-    dereference: ['pair:hasLocation/pair:hasPostalAddress'],
-    slugField: ['pair:firstName', 'pair:lastName'],
+    types: ['pair:Person', 'foaf:Person'],
+    list: {
+      dereference: ['pair:hasLocation/pair:hasPostalAddress'],
+    },
+    fieldsMapping: {
+      title: ['pair:firstName', 'pair:lastName']
+    }
   },
   translations: {
     fr: {
@@ -37,7 +40,7 @@ export default {
         'pair:hasTopic': 'A pour intérêt',
         'pair:hasLocation': 'Adresse',
         'pair:hasType': 'Type',
-        'cdlt:mentorOn': 'Est mentor pour',
+        'cdlt:mentorOn': 'Est intervenant pour',
         'cdlt:organizes': 'Evénements',
         'cdlt:proposes': 'Lieux',
         'foaf:email': 'Adresse email',

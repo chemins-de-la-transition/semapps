@@ -6,6 +6,7 @@ import PlaceSubHeader from '../../resources/Place/PlaceSubHeader';
 import Goals from './Goals/Goals';
 import CoursesTypes from './CoursesTypes';
 import CourseSubHeader from "../../resources/Activity/Course/CourseSubHeader";
+import Partners from './Partners';
 
 const HomePage = () => (
   <>
@@ -23,14 +24,15 @@ const HomePage = () => (
     <FeaturedList
       resource="Course"
       basePath="/Course"
-      title="Les parcours"
+      title="Les voyages"
       subtitle="Thématiques & géographiques"
-      headComment="Tu rêves de partir sur les routes pour découvrir des savoir-faire ou même apprendre un métier sur le terrain? Découvre nos parcours."
-      linkText="Voir tous les parcours"
+      headComment="Tu rêves de partir sur les routes pour découvrir des savoir-faire ou même apprendre un métier sur le terrain? Découvre nos voyages."
+      linkText="Voir tous les voyages"
       CardSubHeaderComponent={CourseSubHeader}
     />
     <CoursesTypes />
     <NextEvents />
+    <Partners />
   </>
 );
 

@@ -25,7 +25,6 @@ export const PersonEdit = (props) => (
     <SimpleForm redirect="show">
       <TextInput source="pair:firstName" fullWidth />
       <TextInput source="pair:lastName" fullWidth />
-      <TextInput source="foaf:email" fullWidth />
       <TextInput source="pair:comment" fullWidth />
       <ImageInput source="pair:image" accept="image/*">
         <ImageField source="src" />

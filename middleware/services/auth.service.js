@@ -1,24 +1,60 @@
-const urlJoin = require('url-join');
 const path = require('path');
-const { AuthService } = require('@semapps/auth');
+const { AuthOIDCService } = require('@semapps/auth');
 const { MIME_TYPES } = require('@semapps/mime-types');
 const CONFIG = require('../config');
+const urlJoin = require("url-join");
 
 module.exports = {
-  mixins: [AuthService],
+  mixins: [AuthOIDCService],
   settings: {
     baseUrl: CONFIG.HOME_URL,
     jwtPath: path.resolve(__dirname, '../jwt'),
-    oidc: {
-      issuer: CONFIG.OIDC_ISSUER,
-      clientId: CONFIG.OIDC_CLIENT_ID,
-      clientSecret: CONFIG.OIDC_CLIENT_SECRET
-    },
-    selectProfileData: authData => ({
+    registrationAllowed: false,
+    selectSsoData: authData => ({
       email: authData.email,
       name: authData.given_name,
       familyName: authData.family_name
     }),
-    registrationAllowed: false
+    webIdSelection: ['nick', 'name', 'familyName'],
+    accountsDataset: CONFIG.AUTH_ACCOUNTS_DATASET,
+    // OIDC-specific settings
+    issuer: CONFIG.OIDC_ISSUER,
+    clientId: CONFIG.OIDC_CLIENT_ID,
+    clientSecret: CONFIG.OIDC_CLIENT_SECRET,
+  },
+  events: {
+    async 'auth.registered'(ctx) {
+      const { webId, profileData } = ctx.params;
+
+      await ctx.call('ldp.resource.patch', {
+        resource: {
+          '@id': webId,
+          '@type': ['pair:Person', 'foaf:Person'],
+          'pair:label': `${profileData.name} ${profileData.familyName.toUpperCase()}`,
+          'pair:firstName': profileData.name,
+          'pair:lastName': profileData.familyName
+        },
+        contentType: MIME_TYPES.JSON,
+        webId: 'system'
+      });
+    },
+    async 'auth.connected'(ctx) {
+      const { webId } = ctx.params;
+
+      const userData = await ctx.call('ldp.resource.get', {
+        resourceUri: webId,
+        accept: MIME_TYPES.JSON
+      });
+
+      // Mark actor as connected
+      await ctx.call('ldp.resource.put', {
+        resource: {
+          ...userData,
+          'pair:hasStatus': urlJoin(CONFIG.HOME_URL, 'status', 'connected')
+        },
+        contentType: MIME_TYPES.JSON,
+        webId: 'system'
+      });
+    }
   }
 };

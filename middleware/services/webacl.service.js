@@ -8,12 +8,7 @@ module.exports = {
   mixins: [WebAclService],
   settings: {
     baseUrl: CONFIG.HOME_URL,
-    superAdmins: [
-      CONFIG.HOME_URL + 'users/sebastien-rosset',
-      CONFIG.HOME_URL + 'users/guillaume-rouyer',
-      CONFIG.HOME_URL + 'users/laure-coplo',
-      CONFIG.HOME_URL + 'users/jeremy-dufraisse'
-    ]
+    superAdmins: []
   },
   actions: {
     async addRightsToAll(ctx) {

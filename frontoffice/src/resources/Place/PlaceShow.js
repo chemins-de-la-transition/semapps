@@ -39,7 +39,7 @@ const PlaceShow = (props) => {
         >
           <MarkdownField source="pair:description" />
           <MarkdownField source="cdlt:activities" />
-          <ReferenceArrayField source="pair:hosts" reference="Event">
+          <ReferenceArrayField source="pair:hosts" reference="Event" sort={{ field: 'pair:startDate', order: 'ASC' }}>
             <Box pt={1}>
               <CardsList CardComponent={EventCard} />
             </Box>
@@ -57,6 +57,7 @@ const PlaceShow = (props) => {
             longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
             typographyProps={{ variant: 'body2', color: 'secondary' }}
             scrollWheelZoom={false}
+            dragging={false}
           />
           <ContactField
             source="pair:phone"

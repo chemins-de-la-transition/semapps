@@ -18,9 +18,12 @@ export default {
   },
   dataModel: {
     types: ['pair:Event'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'events',
-    dereference: ['pair:hostedIn/pair:hasPostalAddress'],
-    slugField: 'pair:label',
+    list: {
+      dereference: ['pair:hostedIn/pair:hasPostalAddress'],
+    },
+    fieldsMapping: {
+      title: 'pair:label'
+    }
   },
   translations: {
     fr: {
@@ -29,9 +32,9 @@ export default {
         'pair:label': 'Titre',
         'pair:comment': "Phrase d'accroche",
         'pair:isDepictedBy': 'Image',
-        'cdlt:hasCourseType': 'Type de parcours',
+        'cdlt:hasCourseType': 'Type de voyage',
         'pair:hasType': "Type d'événement",
-        'pair:hasTopic': 'Thématiques',
+        'pair:hasTopic': 'Secteurs d\'activité',
         'pair:produces': 'Compétences visées',
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',

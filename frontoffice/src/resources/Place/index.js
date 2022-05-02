@@ -18,10 +18,20 @@ export default {
   },
   dataModel: {
     types: ['pair:Place'],
-    fetchContainer: true,
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'places',
-    dereference: ['pair:hasPostalAddress'],
-    slugField: 'pair:label',
+    create: {
+      container: {
+        cdlt: '/places'
+      }
+    },
+    list: {
+      containers: {
+        cdlt: ['/places']
+      },
+      dereference: ['pair:hasPostalAddress'],
+    },
+    fieldsMapping: {
+      title: 'pair:label'
+    }
   },
   translations: {
     fr: {
@@ -30,8 +40,8 @@ export default {
         'pair:label': 'Nom',
         'pair:comment': "Phrase d'accroche",
         'pair:isDepictedBy': 'Image',
-        'pair:hasTopic': 'Thématiques',
-        'cdlt:hasCourseType': 'Type de parcours',
+        'pair:hasTopic': 'Secteurs d\'activité',
+        'cdlt:hasCourseType': 'Type de voyage',
         'pair:hasType': 'Type de lieu',
         'pair:description': 'A propos du lieu',
         'cdlt:activities': 'Activités',

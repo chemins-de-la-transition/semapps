@@ -48,6 +48,7 @@ const EventShow = (props) => (
             longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
             typographyProps={{ variant: 'body2', color: 'secondary' }}
             scrollWheelZoom={false}
+            dragging={false}
           />
         </ReferenceField>
         <ContactField

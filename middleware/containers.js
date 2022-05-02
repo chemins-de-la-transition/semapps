@@ -1,79 +1,133 @@
-const writePermissionsToCreator = creatorUri => ({
-  anon : {
+const urlJoin = require('url-join');
+const CONFIG = require('./config');
+
+const anonReadPermission = {
+  anon: {
     read: true
-  },
-  anyUser: {
-    read: true
-  },
-  user: {
-    uri: creatorUri,
-    read: true,
+  }
+};
+
+const writePermissionToCreator = creatorUri => {
+  if( creatorUri !== 'system' ) {
+    return({
+      ...anonReadPermission,
+      user: {
+        uri: creatorUri,
+        write: true
+      }
+    });
+  } else {
+    return anonReadPermission;
+  }
+}
+
+const writePermissionToActors = {
+  group: {
+    uri: urlJoin(CONFIG.HOME_URL, '_groups', 'actors'),
     write: true
   }
-});
+};
+
+const defaultWritePermissionToContributors = {
+  default: {
+    group: {
+      uri: urlJoin(CONFIG.HOME_URL, '_groups', 'contributors'),
+      write: true
+    }
+  }
+};
 
 module.exports = [
   {
-    path: '/'
+    path: '/',
+    permissions: anonReadPermission,
   },
   {
     path: '/organizations',
     acceptedTypes: ['pair:Organization'],
-    dereference: ['pair:hasLocation/pair:hasPostalAddress']
-  },
-  {
-    path: '/users',
-    acceptedTypes: ['pair:Person'],
-    dereference: ['pair:hasLocation/pair:hasPostalAddress']
+    dereference: ['pair:hasLocation/pair:hasPostalAddress'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator
   },
   {
     path: '/paths',
-    acceptedTypes: ['cdlt:Path']
+    acceptedTypes: ['cdlt:Path'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator
   },
   {
     path: '/courses',
     acceptedTypes: ['cdlt:Course'],
-    // By default, no read rights to new courses
-    newResourcesPermissions: {}
+    permissions: {
+      ...anonReadPermission,
+      ...writePermissionToActors,
+      ...defaultWritePermissionToContributors
+    },
+    newResourcesPermissions: {} // By default, no read rights to new courses
   },
   {
     path: '/events',
     acceptedTypes: ['pair:Event'],
     dereference: ['pair:hostedIn/pair:hasPostalAddress'],
-    newResourcesPermissions: writePermissionsToCreator
+    permissions: {
+      ...anonReadPermission,
+      ...writePermissionToActors,
+      ...defaultWritePermissionToContributors
+    },
+    newResourcesPermissions: writePermissionToCreator
   },
   {
     path: '/places',
     acceptedTypes: ['pair:Place'],
     dereference: ['pair:hasPostalAddress'],
-    newResourcesPermissions: writePermissionsToCreator
+    permissions: {
+      ...anonReadPermission,
+      ...writePermissionToActors,
+      ...defaultWritePermissionToContributors
+    },
+    newResourcesPermissions: writePermissionToCreator
   },
   {
     path: '/themes',
-    acceptedTypes: ['pair:Theme']
+    acceptedTypes: ['pair:Theme'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator,
   },
   {
     path: '/skills',
-    acceptedTypes: ['pair:Skill']
+    acceptedTypes: ['pair:Skill'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator,
   },
   {
     path: '/documents',
-    acceptedTypes: ['pair:Document']
+    acceptedTypes: ['pair:Document'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator,
   },
   {
     path: '/types',
-    acceptedTypes: ['cdlt:PathType', 'cdlt:CourseType', 'pair:PlaceType', 'pair:EventType', 'pair:PersonType']
+    acceptedTypes: ['cdlt:PathType', 'cdlt:CourseType', 'pair:PlaceType', 'pair:EventType', 'pair:PersonType'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator,
   },
   {
     path: '/status',
-    acceptedTypes: ['cdlt:PathStatus', 'cdlt:CourseStatus']
+    acceptedTypes: ['cdlt:PathStatus', 'cdlt:CourseStatus'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator,
   },
   {
     path: '/regions',
-    acceptedTypes: ['pair:Place']
+    acceptedTypes: ['pair:Place'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator,
   },
   {
-    path: '/pages'
+    path: '/pages',
+    acceptedTypes: ['semapps:Page'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator,
   },
   {
     path: '/files'
