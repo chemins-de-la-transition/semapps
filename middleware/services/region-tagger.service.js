@@ -9,88 +9,70 @@ module.exports = {
   name: 'region-tagger',
   dependencies: ['ldp'],
   actions: {
-    async actionTagPlace(ctx) {
-      const { resourceUri, newData } = ctx.params;
-      await this.tagPlace(resourceUri, newData);
-    },
-    async actionTagEvent(ctx) {
-      const { resourceUri, zipCode } = ctx.params;
-      await this.tag(resourceUri, [zipCode]);
-    },
-    async actionTagCourse(ctx) {
-      const { resourceUri, newData } = ctx.params;
-      await this.tagCourse(resourceUri, newData);
-    }
-  },
-  methods: {
-    async tag(resourceUri, zipCodes) {
+    async tag(ctx) {
+      const { resourceUri, zipCodes } = ctx.params;
       let regionsUris = [];
 
       for( let zipCode of zipCodes ) {
         const regionUri = await this.getRegionUriFromZip(zipCode);
         if( regionUri ) regionsUris.push(regionUri);
       }
-      
-      /* hasRegion:delete */
-      await this.broker.call('triplestore.update', {
-        query: `
-          PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
-          DELETE { ?s1 cdlt:hasRegion ?regions }
-          WHERE { BIND(<${resourceUri}> AS ?s1) . ?s1 cdlt:hasRegion ?regions }
-        `,
-        webId: 'system'
-      });
-      /* regionOf:delete */
-      await this.broker.call('triplestore.update', {
-        query: `
-          PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
-          DELETE { ?regions cdlt:regionOf ?p1 }
-          WHERE { BIND(<${resourceUri}> AS ?p1) . ?regions cdlt:regionOf ?p1  }
-        `,
-        webId: 'system'
-      });
-      /* hasRegion:insert */
-      await this.broker.call('triplestore.update', {
-        query: `
-          PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
-          INSERT { ?s1 cdlt:hasRegion ${regionsUris.map(uri => `<${uri}>`).join(', ')} }
-          WHERE { BIND(<${resourceUri}> AS ?s1) }
-        `,
-        webId: 'system'
-      });
-      /* regionOf:insert */
-      await this.broker.call('triplestore.update', {
-        query: `
-          PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
-          INSERT { ${regionsUris.map(uri => `<${uri}>`).join(', ')} cdlt:regionOf ?p1 }
-          WHERE { BIND(<${resourceUri}> AS ?p1) }
-        `,
-        webId: 'system'
-      });
-    },
-    async tagPlace(courseUri, place) {
-      
-      if( place['pair:hasPostalAddress'] ) {
-        await this.tag(courseUri, [place['pair:hasPostalAddress']['pair:addressZipCode']]);
-      }
-    },
-    checkFullAddress(data, predicate) {
 
-      if (! data) return false
-      if (! data[predicate]) return false
-      if (! data[predicate]['pair:hasPostalAddress']) return false
-      if (! data[predicate]['pair:hasPostalAddress']['pair:addressZipCode']) return false
-      return true
+      if( regionsUris.length > 0 ) {
+        // Delete hasRegion relation
+        await ctx.call('triplestore.update', {
+          query: `
+            PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
+            DELETE { ?s1 cdlt:hasRegion ?regions }
+            WHERE { BIND(<${resourceUri}> AS ?s1) . ?s1 cdlt:hasRegion ?regions }
+          `,
+          webId: 'system'
+        });
+        // Delete regionOf inverse relation
+        await ctx.call('triplestore.update', {
+          query: `
+            PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
+            DELETE { ?regions cdlt:regionOf ?p1 }
+            WHERE { BIND(<${resourceUri}> AS ?p1) . ?regions cdlt:regionOf ?p1  }
+          `,
+          webId: 'system'
+        });
+
+        // Insert hasRegion relation
+        await ctx.call('triplestore.update', {
+          query: `
+            PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
+            INSERT { ?s1 cdlt:hasRegion ${regionsUris.map(uri => `<${uri}>`).join(', ')} }
+            WHERE { BIND(<${resourceUri}> AS ?s1) }
+          `,
+          webId: 'system'
+        });
+        // Insert regionOf inverse relation
+        await ctx.call('triplestore.update', {
+          query: `
+            PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
+            INSERT { ${regionsUris.map(uri => `<${uri}>`).join(', ')} cdlt:regionOf ?p1 }
+            WHERE { BIND(<${resourceUri}> AS ?p1) }
+          `,
+          webId: 'system'
+        });
+      }
+    }
+  },
+  methods: {
+    async tagPlace(placeUri, place) {
+      if( place['pair:hasPostalAddress'] ) {
+        await this.actions.tag({ resourceUri: placeUri, zipCodes: [place['pair:hasPostalAddress']['pair:addressZipCode']] });
+      }
     },
     async tagEvent(eventUri, event) {
-      
-      if (this.checkFullAddress(event, 'pair:hasLocation')) {
-        await this.tag(eventUri, [event['pair:hasLocation']['pair:hasPostalAddress']['pair:addressZipCode']]);
+      if (event['pair:hostedIn']) {
+        // location-update service updates hasLocation when hostedIn is changed : no need to check hostedIn here
+      } else if (event['pair:hasLocation']) {
+        await this.actions.tag({ resourceUri: eventUri, zipCodes: [event['pair:hasLocation']['pair:hasPostalAddress']['pair:addressZipCode']] });
       }
-      // location-update.service updates hasLocation when hostedIn is changed : no need to check hostedIn here
     },
     async tagCourse(courseUri, course) {
-      
       if( course['pair:hasPart'] ) {
         let zipCodes = [];
 
@@ -108,7 +90,7 @@ module.exports = {
         }
 
         if( zipCodes.length ) {
-          await this.tag(courseUri, zipCodes);
+          await this.actions.tag({ resourceUri: courseUri, zipCodes });
         }
       }
     },
