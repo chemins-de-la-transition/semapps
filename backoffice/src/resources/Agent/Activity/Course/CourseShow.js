@@ -29,10 +29,7 @@ const CourseShow = (props) => (
           <DateField source="pair:startDate" />
           <DateField source="pair:endDate" />
           <TextField source="cdlt:priceRange" />
-          {/*<ReferenceField source="cdlt:courseOn" reference="Path" link="show">*/}
-          {/*  <TextField source="pair:label" />*/}
-          {/*</ReferenceField>*/}
-          <ReferenceArrayField source="pair:hasType" reference="Type">
+          <ReferenceArrayField source="pair:hasCourseType" reference="Type">
             <SeparatedListField link={false}>
               <TextField source="pair:label" />
             </SeparatedListField>
@@ -116,6 +113,11 @@ const CourseShow = (props) => (
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:produces">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Path" source="cdlt:courseOn">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>

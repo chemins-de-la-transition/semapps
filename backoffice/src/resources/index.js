@@ -1,6 +1,6 @@
 // Idea
-// export { default as Path } from './Idea/Path';
 // export { default as Idea } from './Idea/Idea';
+export { default as Path } from './Idea/Path';
 
 // Activities
 export { default as Course } from './Agent/Activity/Course';

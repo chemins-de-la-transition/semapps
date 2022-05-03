@@ -9,6 +9,7 @@ import TopBar from './TopBar';
 
 const Layout = ({ logout, theme, children, title }) => {
   const menuItems = [
+    { link: '/Path', name: 'Chemins' },
     { link: '/Place', name: 'Lieux' },
     { link: '/Event', name: 'Événements' },
     { link: '/Course', name: 'Voyages' },

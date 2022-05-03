@@ -55,6 +55,7 @@ export default {
         'pair:aboutPage': 'Site web',
         'cdlt:organizedBy': 'Organisé par',
         'cdlt:hasMentor': 'Intervenant(e)s',
+        'cdlt:eventOn': 'Chemins',
       },
     },
   },

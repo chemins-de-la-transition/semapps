@@ -72,6 +72,7 @@ const EventList = (props) => {
         filters={[
           <SparqlFilter initialChecked sparqlWhere={sparqlWhere} label="N'afficher que les événements à venir" />,
           <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label="Région" />,
+          <Filter reference="Path" source="cdlt:eventOn" inverseSource="cdlt:hasEvent" label="Chemin" />,
           <Filter reference="Theme" source="pair:hasTopic" inverseSource="pair:topicOf" label="Secteur d'activité" />,
           <Filter
             reference="Type"

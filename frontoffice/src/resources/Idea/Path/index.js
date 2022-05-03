@@ -1,5 +1,3 @@
-import { PairResourceCreate } from '../../../pair';
-import PathEdit from './PathEdit';
 import PathList from './PathList';
 import PathShow from './PathShow';
 import TimelineIcon from '@material-ui/icons/Timeline';
@@ -8,8 +6,6 @@ export default {
   config: {
     list: PathList,
     show: PathShow,
-    create: PairResourceCreate,
-    edit: PathEdit,
     icon: TimelineIcon,
     options: {
       label: 'Chemins',
@@ -37,10 +33,10 @@ export default {
         'cdlt:hasEvent': 'Evénements', /*Event*/
         'cdlt:hasCourse': 'Voyages', /*Course*/
         /*
-        'pair:hasLocation': 'Composez votre voyage',
+        'pair:hasLocation': 'Composez votre parcours',
         'pair:hasStatus': 'Statut',
         'pair:hasType': 'Type',
-        'pair:hasTopic': 'A pour secteur d\'activité',
+        'pair:hasTopic': 'A pour thème',
         'cdlt:forWhom': 'Destiné à',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:learningObjectives': "Objectifs d'apprentissage",

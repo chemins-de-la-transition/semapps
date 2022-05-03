@@ -14,6 +14,7 @@ const CourseList = (props) => {
       <MultiViewsFilterList
         filters={[
           <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label="Région" />,
+          <Filter reference="Path" source="cdlt:courseOn" inverseSource="cdlt:hasCourse" label="Chemin" />,
           <Filter reference="Theme" source="pair:hasTopic" inverseSource="pair:topicOf" label="Secteur d'activité" />,
           <Filter
             reference="Type"

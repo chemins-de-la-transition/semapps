@@ -112,7 +112,7 @@ const MultipleImagesField = ({ source, max = 2 }) => {
   }
 };
 
-const HeaderShow = ({ type, linkToListText, details, actionButton }) => {
+const HeaderShow = ({ type, linkToListText, details, content, actionButton, hasComment }) => {
   const classes = useStyles();
   const { basePath, hasEdit, record } = useShowContext();
   const { permissions } = usePermissionsOptimized(record?.id);
@@ -154,8 +154,20 @@ const HeaderShow = ({ type, linkToListText, details, actionButton }) => {
             </ReferenceField>
           )}
           <TextField source="pair:label" variant="h1" className={classes.title} />
+          {hasComment &&
+            <TextField source="pair:comment" variant="h2" component="h2" />
+          }
           <Box display={xs ? 'block' : 'flex'} pt={2} pb={2}>
-            {React.cloneElement(details, { orientation: xs ? 'vertical' : 'horizontal' })}
+            {details &&
+              <>
+                {React.cloneElement(details, { orientation: xs ? 'vertical' : 'horizontal' })}
+              </>
+            }
+            {content &&
+              <div>
+                {React.cloneElement(content)}
+              </div>
+            }
           </Box>
           {xs && (
             <Box pb={3}>

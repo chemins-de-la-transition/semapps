@@ -22,6 +22,11 @@ const PlaceDetails = (props) => (
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
+    <ReferenceArrayField reference="Path" source="cdlt:placeOn" icon={<ThemeIcon />}>
+      <SeparatedListField link={linkToFilteredList('Place', 'cdlt:placeOn')} separator=" / ">
+        <TextField source="pair:label" />
+      </SeparatedListField>
+    </ReferenceArrayField>
     <ReferenceArrayField reference="Theme" source="pair:hasTopic" icon={<ThemeIcon />}>
       <SeparatedListField link={linkToFilteredList('Place', 'pair:hasTopic')} separator=" / ">
         <TextField source="pair:label" />

@@ -54,6 +54,7 @@ export default {
         'pair:e-mail': 'Adresse e-mail',
         'pair:phone': 'Téléphone',
         'pair:homePage': 'Site web',
+        'cdlt:placeOn': 'Chemins'
       },
     },
   },

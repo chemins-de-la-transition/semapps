@@ -1,3 +1,6 @@
+// Ideas
+export { default as Path } from './Idea/Path';
+
 // Activities
 export { default as Course } from './Activity/Course';
 export { default as Event } from './Activity/Event';

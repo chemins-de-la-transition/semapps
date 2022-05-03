@@ -46,7 +46,7 @@ export default {
         'cdlt:hasMentor': 'A pour intervenant',
         'cdlt:organizedBy': 'Organisé par',
         'pair:hasStatus': 'Statut',
-        'cdlt:courseOn': 'Est un voyage de',
+        'cdlt:courseOn': 'Chemins',
       },
     },
   },

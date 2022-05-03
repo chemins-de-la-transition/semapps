@@ -44,6 +44,12 @@ export const DocumentsType = ({ label, source }) => (
   </ReferenceArrayInput>
 );
 
+export const PathsInput = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="Path" source={source}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  </ReferenceArrayInput>
+);
+  
 export const IntentionsInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Intention" source={source}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />
