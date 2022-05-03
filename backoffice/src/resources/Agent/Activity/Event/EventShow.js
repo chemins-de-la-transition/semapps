@@ -5,7 +5,7 @@ import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } f
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
-import JotformButton from '../../../JotformButton';
+import JotformButton from '../../../../commons/JotformButton';
 import EventTitle from './EventTitle';
 import EventMapField from "./EventMapField";
 

@@ -12,7 +12,7 @@ export default {
     edit: CourseEdit,
     icon: DateRangeIcon,
     options: {
-      label: 'Voyage',
+      label: 'Voyages',
       parent: 'Activity',
     },
   },
