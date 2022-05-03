@@ -38,7 +38,7 @@ const NextEvents = () => {
                 </Typography>
               </Box>
             </Hidden>
-            <ListBase resource="Event" basePath="/Event" className={classes.eventListBase} perPage={4} filter={{ 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/open' }} sort={{ field: 'pair:startDate', order: 'ASC'}}>
+            <ListBase resource="Event" basePath="/Event" className={classes.eventListBase} perPage={4} sort={{ field: 'pair:startDate', order: 'ASC'}}>
               <ItemsGrid />
             </ListBase>
             <Button to="/Event" variant="contained" color="primary" component={Link} typographyVariant="button1">
