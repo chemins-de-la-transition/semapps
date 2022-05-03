@@ -113,8 +113,8 @@ const EventList = (props) => {
             list: (
               <MapList
                 height={xs ? 'calc(100vh - 143px)' : 'calc(100vh - 193px)'}
-                latitude={(record) => record?.['pair:hasLocation']?.['pair:hasPostalAddress']?.['pair:latitude']}
-                longitude={(record) => record?.['pair:hasLocation']?.['pair:hasPostalAddress']?.['pair:longitude']}
+                latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
+                longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
                 popupContent={({ record, basePath }) => (
                   <>
                     <EventCard record={record} basePath={basePath} variant="compact" />
