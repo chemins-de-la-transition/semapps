@@ -1,4 +1,5 @@
 const urlJoin = require('url-join');
+const { ACTOR_TYPES } = require('@semapps/activitypub');
 const CONFIG = require('./config');
 
 const anonReadPermission = {
@@ -48,6 +49,11 @@ module.exports = [
     dereference: ['pair:hasLocation/pair:hasPostalAddress'],
     permissions: anonReadPermission,
     newResourcesPermissions: writePermissionToCreator
+  },
+  {
+    path: '/users',
+    acceptedTypes: ['pair:Person', 'foaf:Person', ACTOR_TYPES.PERSON],
+    dereference: ['sec:publicKey', 'pair:hasLocation/pair:hasPostalAddress']
   },
   {
     path: '/paths',

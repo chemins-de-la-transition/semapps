@@ -7,6 +7,14 @@ module.exports = {
   name: 'migration',
   mixins: [MigrationService],
   actions: {
+    async activateActivityPub(ctx) {
+      const actors = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'users') });
+      for( let actorUri of actors ) {
+        this.logger.info('Appending ActivityPub data to ' + actorUri + '...');
+        await ctx.call('activitypub.actor.appendActorData', { actorUri });
+        await ctx.call('activitypub.actor.generateKeyPair', { actorUri });
+      }
+    },
     async migrateEventsLocation(ctx) {
       await this.actions.replacePredicate({ oldPredicate: 'http://virtual-assembly.org/ontologies/pair#organizes', newPredicate: 'http://virtual-assembly.org/ontologies/cdlt#organizes' }, { parentCtx: ctx });
       await this.actions.replacePredicate({ oldPredicate: 'http://virtual-assembly.org/ontologies/pair#organizedBy', newPredicate: 'http://virtual-assembly.org/ontologies/cdlt#organizedBy' }, { parentCtx: ctx });
@@ -14,7 +22,7 @@ module.exports = {
       await this.actions.replacePredicate({ oldPredicate: 'http://virtual-assembly.org/ontologies/pair#hasLocation', newPredicate: 'http://virtual-assembly.org/ontologies/cdlt#hasRegion' }, { parentCtx: ctx });
       await this.actions.replacePredicate({ oldPredicate: 'http://virtual-assembly.org/ontologies/pair#locationOf', newPredicate: 'http://virtual-assembly.org/ontologies/cdlt#regionOf' }, { parentCtx: ctx });
 
-      const events = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'events') })
+      const events = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'events') });
 
       for( let eventUri of events ) {
         const event = await this.broker.call('ldp.resource.get', {
