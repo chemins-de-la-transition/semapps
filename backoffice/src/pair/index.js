@@ -105,7 +105,7 @@ export const TypeInput = ({ label, source, ...rest }) => (
 );
 
 export const PlaceInput = ({ label, source, ...rest }) => (
-  <ReferenceInput label={label} reference="Place" source={source} {...rest}>
+  <ReferenceInput label={label} reference="Place" source={source} {...rest} allowEmpty>
     <AutocompleteInput optionText="pair:label" fullWidth />
   </ReferenceInput>
 );

@@ -19,7 +19,7 @@ export default {
   dataModel: {
     types: ['pair:Event'],
     list: {
-      dereference: ['pair:hostedIn/pair:hasPostalAddress'],
+      dereference: ['pair:hasLocation/pair:hasPostalAddress'],
     },
     fieldsMapping: {
       title: 'pair:label'
@@ -43,6 +43,8 @@ export default {
         'cdlt:mentorDescription': 'Intervenant',
         'cdlt:program': 'Programme',
         'pair:hostedIn': 'Lieu',
+        'pair:hasLocation': 'Localisation',
+        'cdlt:hasRegion': 'Région',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
@@ -52,8 +54,8 @@ export default {
         'pair:phone': 'Téléphone',
         'pair:aboutPage': 'Site web',
         'cdlt:organizedBy': 'Organisé par',
+        'cdlt:hasMentor': 'Intervenant(e)s',
         'cdlt:eventOn': 'Chemins',
-        'cdlt:hasMentor': 'A pour intervenants',
       },
     },
   },

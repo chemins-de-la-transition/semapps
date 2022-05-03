@@ -71,9 +71,9 @@ const EventList = (props) => {
       <MultiViewsFilterList
         filters={[
           <SparqlFilter initialChecked sparqlWhere={sparqlWhere} label="N'afficher que les événements à venir" />,
-          <Filter reference="Region" source="pair:hasLocation" inverseSource="pair:locationOf" label="Région" />,
+          <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label="Région" />,
           <Filter reference="Path" source="cdlt:eventOn" inverseSource="cdlt:hasEvent" label="Chemin" />,
-          <Filter reference="Theme" source="pair:hasTopic" inverseSource="pair:topicOf" label="Secteur d\'activité" />,
+          <Filter reference="Theme" source="pair:hasTopic" inverseSource="pair:topicOf" label="Secteur d'activité" />,
           <Filter
             reference="Type"
             source="cdlt:hasCourseType"
@@ -120,8 +120,8 @@ const EventList = (props) => {
             list: (
               <MapList
                 height={xs ? 'calc(100vh - 143px)' : 'calc(100vh - 193px)'}
-                latitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:latitude']}
-                longitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
+                latitude={(record) => record?.['pair:hasLocation']?.['pair:hasPostalAddress']?.['pair:latitude']}
+                longitude={(record) => record?.['pair:hasLocation']?.['pair:hasPostalAddress']?.['pair:longitude']}
                 popupContent={({ record, basePath }) => (
                   <>
                     <EventCard record={record} basePath={basePath} variant="compact" />
