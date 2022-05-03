@@ -53,9 +53,9 @@ module.exports = {
           `,
           webId: 'system'
         });
-      }
 
-      await this.broker.call('region-tagger.tag', { resourceUri: eventUri, zipCodes: [place['pair:hasPostalAddress']['pair:addressZipCode']] });
+        await this.broker.call('region-tagger.tag', { resourceUri: eventUri, zipCodes: [postalAddress['pair:addressZipCode']] });
+      }
     },
     async updatePlaceEventsLocation(ctx) {
       const { placeUri } = ctx.params;
