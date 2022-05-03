@@ -4,4 +4,5 @@
 /jwt/*.key.pub
 /uploads
 /logs
+/actors/
 node_modules
