@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { ListBase, ShowButton } from 'react-admin';
 import { Box, useMediaQuery } from '@material-ui/core';
-import { useLocation } from 'react-router';
 import frLocale from '@fullcalendar/core/locales/fr';
 import { CalendarList } from '@semapps/date-components';
 import { MapList } from '@semapps/geo-components';
@@ -55,16 +54,10 @@ const EventList = (props) => {
     ]
   }, []);
 
-  // Filter out finished events only for non-calendar view
-  const query = new URLSearchParams(useLocation().search);
-  const view = query.has('view') ? query.get('view') : xs ? 'map' : 'calendar';
-  const filter = view === 'calendar' ? undefined : { 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/open' };
-
   return (
     <ListBase 
       perPage={1000}
-      filter={filter}
-      filterDefaultValues={{'sparqlWhere': sparqlWhere}}
+      filterDefaultValues={{ sparqlWhere }}
       sort={{ field: 'pair:startDate', order: 'ASC' }}
       {...props}
     >

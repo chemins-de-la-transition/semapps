@@ -39,7 +39,7 @@ const SimilarEvents = () => {
                 </Typography>
               </Box>
             </Hidden>
-            <ListBase resource="Event" basePath="/Event" className={classes.eventListBase} filter={{ 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/open' }}>
+            <ListBase resource="Event" basePath="/Event" className={classes.eventListBase}>
               <ItemsGrid similarRecord={record} />
             </ListBase>
             <Button to="/Event" variant="contained" color="primary" component={Link} typographyVariant="button1">
