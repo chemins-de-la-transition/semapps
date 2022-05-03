@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 40,
     fontWeight: 'bold',
     [theme.breakpoints.down('xs')]: {
-      marginLeft: 0,
-      marginRight: 0,
+      marginLeft: 20,
+      marginRight: 20,
     },
   },
   textBar: {

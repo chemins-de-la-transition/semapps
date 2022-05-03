@@ -28,184 +28,154 @@ const useStyles = makeStyles((theme) => ({
     right: 0,    
     left: 130,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      width: 0
-    },
   },
   path2: {
     top: 70,
     right: 0,
     position: 'relative',
-    [theme.breakpoints.down('xs')]: {
-      width: 0
-    },
-    [theme.breakpoints.down('md')]: {
-      left: 100,
-    },
   },
   agriculture: {
     width: 192,
     left: 1161,
     top: 474,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      top: 150,
-      left: -50,
-    },
   },
   artisanat: {
     width: 192,
     left: 77,
     top: 475,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      top: 150,
-      left: 100,
-    },
   },
   communication: {
     width: 192,
     left: 874,
     top: 707,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      top: 300,
-      left: -50,
-    },
   },
   competences: {
     width: 192,
     left: 448,
     top: 672,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      top: 300,
-      left: 100,
-    },
   },
   culture: {
     width: 192,
     left: 553,
     top: 442,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      top: 450,
-      left: -50,
-    },
   },
   dev: {
     width: 192,
     left: 143,
     top: 797,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      top: 450,
-      left: 100,
-    },
   },
   ecologie: {
     width: 192,
     left: 997,
     top: 313,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      top: 600,
-      left: -50,
-    },
   },
   energie: {
     width: 192,
     left: 673,
     top: 237,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      top: 600,
-      left: 100,
-    },
   },
   gouvernance: {
     width: 192,
     left: 285,
     top: 532,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      top: 750,
-      left: -50,
-    },
   },
   habitat: {
     width: 192,
     left: 1161,
     top: 100,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      top: 750,
-      left: 100,
-    },
   },
   justice: {
     width: 192,
     left: 634,
     top: 838,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      top: 900,
-      left: -50,
-    },
   },
   mobilite: {
     width: 192,
     left: 390,
     top: 311,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      top: 900,
-      left: 100,
-    },
   },
   sante: {
     width: 192,
     left: 92,
     top: 259,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      top: 1050,
-      left: -50,
-    },
   },
   science: {
     width: 192,
     left: 794,
     top: 415,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      top: 1050,
-      left: 100,
-    },
   },
   person1: {
     top: 180,
     left: 100,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      width: 0
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
     },
   },
   person2: {
     top: 550,
     left: 1100,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      width: 0
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
     },
   },
   person3: {
     top: 750,
     left: 420,
     position: 'absolute',
-    [theme.breakpoints.down('xs')]: {
-      width: 0
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
     },
+  },
+  hidden: {
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
+  },
+  logo: {
+    [theme.breakpoints.down('md')]: {
+      position: 'relative',
+      top: 0,
+      left: 0,
+    },
+    [theme.breakpoints.down('xs')]: {
+      left: -50,
+    },
+  },
+  logos: {
+    [theme.breakpoints.down('md')]: {
+      display: "grid",
+      gridTemplateColumns: "repeat(6, 150px)",
+      gridTemplateRows: "repeat(3, 150px)",
+      gridGap: "5px",
+    },
+    [theme.breakpoints.down('sm')]: {
+      display: "grid",
+      gridTemplateColumns: "repeat(4, 150px)",
+      gridTemplateRows: "repeat(5, 150px)",
+      gridGap: "5px",
+    },
+    [theme.breakpoints.down('xs')]: {
+      display: "grid",
+      gridTemplateColumns: "repeat(2, 150px)",
+      gridTemplateRows: "repeat(7, 150px)",
+      gridGap: "5px",
+    }
   }
 }));
 
@@ -213,25 +183,27 @@ const Illustration = () => {
   const classes = useStyles();
   return (
       <div>
-        <Path1 className={classes.path1} />
-        <Path2 className={classes.path2} />
-        <Category logo={AgricultureAlimentation_PictoCdlT} text="Agriculture & Alimentation" className={classes.agriculture}/>
-        <Category logo={Artisanat_PictoCdlT} text="Artisanat" className={classes.artisanat}/>
-        <Category logo={Communication_PictoCdlT} text="Communication" className={classes.communication}/>
-        <Category logo={Competences_PictoCdlT} text="Education alternative" className={classes.competences}/>
-        <Category logo={CultureModeVie_PictoCdlT} text="Culture & mode de vie" className={classes.culture}/>
-        <Category logo={DevTerritorial_PictoCdlT} text="Développement territorial" className={classes.dev}/>
-        <Category logo={Ecologie_PictoCdlT} text="Ecologie" className={classes.ecologie}/>
-        <Category logo={Energie_PictoCdlT} text="Energie" className={classes.energie}/>
-        <Category logo={Gouvernance_PictoCdlT} text="Gouvernance" className={classes.gouvernance}/>
-        <Category logo={Habitat_PictoCdlT} text="Habitat" className={classes.habitat}/>
-        <Category logo={JusticeSociale_PictoCdlT} text="Justice sociale" className={classes.justice}/>
-        <Category logo={Mobilite_PictoCdlT} text="Mobilité" className={classes.mobilite}/>
-        <Category logo={Sante_Bienetre_PictoCdlT} text="Sante & Bien-Etre" className={classes.sante}/>
-        <Category logo={ScienceTech_PictoCdlT} text="Sciences & Technologies" className={classes.science}/>
-        <Person1 className={classes.person1}/>
-        <Person2 className={classes.person2}/>
-        <Person3 className={classes.person3}/>
+        <Path1 className={classes.path1 + ' ' + classes.hidden} />
+        <Path2 className={classes.path2 + ' ' + classes.hidden} />
+        <div className={classes.logos}>
+          <Category logo={AgricultureAlimentation_PictoCdlT} text="Agriculture & Alimentation" className={classes.agriculture + ' ' + classes.logo}/>
+          <Category logo={Artisanat_PictoCdlT} text="Artisanat" className={classes.artisanat + ' ' + classes.logo}/>
+          <Category logo={Communication_PictoCdlT} text="Communication" className={classes.communication + ' ' + classes.logo}/>
+          <Category logo={Competences_PictoCdlT} text="Education alternative" className={classes.competences + ' ' + classes.logo}/>
+          <Category logo={CultureModeVie_PictoCdlT} text="Culture & mode de vie" className={classes.culture + ' ' + classes.logo}/>
+          <Category logo={DevTerritorial_PictoCdlT} text="Développement territorial" className={classes.dev + ' ' + classes.logo}/>
+          <Category logo={Ecologie_PictoCdlT} text="Ecologie" className={classes.ecologie + ' ' + classes.logo}/>
+          <Category logo={Energie_PictoCdlT} text="Energie" className={classes.energie + ' ' + classes.logo}/>
+          <Category logo={Gouvernance_PictoCdlT} text="Gouvernance" className={classes.gouvernance + ' ' + classes.logo}/>
+          <Category logo={Habitat_PictoCdlT} text="Habitat" className={classes.habitat + ' ' + classes.logo}/>
+          <Category logo={JusticeSociale_PictoCdlT} text="Justice sociale" className={classes.justice + ' ' + classes.logo}/>
+          <Category logo={Mobilite_PictoCdlT} text="Mobilité" className={classes.mobilite + ' ' + classes.logo}/>
+          <Category logo={Sante_Bienetre_PictoCdlT} text="Sante & Bien-Etre" className={classes.sante + ' ' + classes.logo}/>
+          <Category logo={ScienceTech_PictoCdlT} text="Sciences & Technologies" className={classes.science + ' ' + classes.logo}/>
+        </div>
+        <Person1 className={classes.person1 + ' ' + classes.hidden}/>
+        <Person2 className={classes.person2 + ' ' + classes.hidden}/>
+        <Person3 className={classes.person3 + ' ' + classes.hidden}/>
       </div>
   );
 };

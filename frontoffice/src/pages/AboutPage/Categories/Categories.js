@@ -9,13 +9,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.contrastText,
     color: theme.palette.secondary.main,
     position: 'relative',
-    [theme.breakpoints.down('md')]: {
-      overflowX: 'scroll',
-      height: 1000
-    },
-    [theme.breakpoints.down('xs')]: {
-      height: 1300
-    },
   },
   container: {
     display: 'flex',
@@ -23,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     textAlign: 'center',
     paddingBottom: 100,
-    [theme.breakpoints.down('xs')]: {
-      paddingBottom: 400
+    [theme.breakpoints.down('sm')]: {
+      paddingBottom: 0
     },
   },
   title: {
@@ -79,7 +72,6 @@ const Categories = () => {
           variées à explorer
         </Typography>
         <Illustration/>
-        
       </LargeContainer>
     </FullWidthBox>
   );
