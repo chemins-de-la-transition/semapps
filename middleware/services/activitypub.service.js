@@ -11,13 +11,10 @@ module.exports = {
     baseUri: CONFIG.HOME_URL,
     jsonContext: urlJoin(CONFIG.HOME_URL, 'context.json'),
     containers,
-    selectActorData: resource => {
-      console.log('selectActorData', resource);
-      return ({
-        '@type': ACTOR_TYPES.PERSON,
-        name: resource['pair:label'],
-        preferredUsername: getSlugFromUri(resource.id)
-      })
-    }
+    selectActorData: resource => ({
+      '@type': ACTOR_TYPES.PERSON,
+      name: resource['pair:label'],
+      preferredUsername: getSlugFromUri(resource.id)
+    })
   }
 };
