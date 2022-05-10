@@ -10,7 +10,10 @@ const useStyles = makeStyles((theme) => ({
   likeButtonContainer: {
     position:'absolute',
     top: '2rem',
-    right: 0
+    right: '0.5rem',
+    [theme.breakpoints.down('xs')]: {
+      right: '2rem'
+    },
   },
   linkContainer: {
     display: 'flex',
