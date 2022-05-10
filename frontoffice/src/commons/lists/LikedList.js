@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
+import { ListContextProvider, useGetMany } from 'react-admin';
 import { Box, LinearProgress, Typography, makeStyles } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import { useOutbox, useCollection, ACTIVITY_TYPES, PUBLIC_URI } from "@semapps/activitypub-components";
 import FullWidthBox from '../FullWidthBox';
 import LargeContainer from '../LargeContainer';
-import { ListContextProvider, useGetMany } from 'react-admin';
 import CardsList from './CardsList';
 
 const useStyles = makeStyles((theme) => ({
@@ -75,8 +75,6 @@ const LikedList = ({ id, type, resource, title, subtitle, headComment, CardCompo
     return filteredData;
   },[data, type]);
   
-  console.log('===>data:', data, filteredData, loading, loaded, error, Object.keys(filteredData), filteredData.map(record => record.id));
-  
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer className={classes.container}>
@@ -131,7 +129,7 @@ const LikedList = ({ id, type, resource, title, subtitle, headComment, CardCompo
                 total: filteredData.length
               }}
             >
-              <CardsList  CardComponent={CardComponent} link="show" />
+              <CardsList  CardComponent={CardComponent} link="show" hasLike={true} />
             </ListContextProvider>
           </Box>
         }

@@ -1,9 +1,18 @@
 import * as React from 'react';
 import { useListContext, Loading, linkToRecord, Link } from 'react-admin';
-import { Card, CardMedia, CardContent, makeStyles } from '@material-ui/core';
+import { Box, Card, CardMedia, CardContent, makeStyles } from '@material-ui/core';
+import LikeButton from "../buttons/LikeButton";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  mainContainer: {
+    position:'relative',
+  },
+  likeButtonContainer: {
+    position:'absolute',
+    top: '2rem',
+    right: 0
+  },
+  linkContainer: {
     display: 'flex',
     flexDirection: 'column',
   },
@@ -34,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CardsList = ({ CardComponent, link }) => {
+const CardsList = ({ CardComponent, link, hasLike=false }) => {
   const classes = useStyles();
   const { ids, data, basePath, loading } = useListContext();
   return loading ? (
@@ -44,16 +53,23 @@ const CardsList = ({ CardComponent, link }) => {
       if( !data[id] ) return null;
       const image = data[id]?.['pair:isDepictedBy'];
       return (
-        <Link key={id} to={linkToRecord(basePath, id, link)} className={classes.root}>
-          <Card key={id} className={classes.details}>
-            {data[id]?.['pair:isDepictedBy'] && (
-              <CardMedia className={classes.image} image={Array.isArray(image) ? image[0] : image} />
-            )}
-            <CardContent className={classes.content}>
-              <CardComponent record={data[id]} basePath={basePath} />
-            </CardContent>
-          </Card>
-        </Link>
+        <Box className={classes.mainContainer}>
+          { hasLike &&
+            <Box className={classes.likeButtonContainer}>
+              <LikeButton record={data[id]} />
+            </Box>
+          }
+          <Link key={id} to={linkToRecord(basePath, id, link)} className={classes.linkContainer}>
+            <Card key={id} className={classes.details}>
+              {data[id]?.['pair:isDepictedBy'] && (
+                <CardMedia className={classes.image} image={Array.isArray(image) ? image[0] : image} />
+              )}
+              <CardContent className={classes.content}>
+                <CardComponent record={data[id]} basePath={basePath} />
+              </CardContent>
+            </Card>
+          </Link>
+        </Box>
       )
     })
   );
