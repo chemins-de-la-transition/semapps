@@ -98,7 +98,7 @@ const PersonShow = (props) => {
           <Typography variant="h2">Mes favoris</Typography>
             <LikedList
               id={props.id}
-              resource="path"
+              resource="Path"
               type="cdlt:Path" 
               title="Mes favoris" 
               subtitle="les chemins"

@@ -63,7 +63,7 @@ const LikedList = ({ id, type, resource, title, subtitle, headComment, CardCompo
   const { items } = useCollection(id + '/liked');
   
   const { data, loading, loaded, error } = useGetMany(
-    'Activity',
+    resource,
     items
   );
   
