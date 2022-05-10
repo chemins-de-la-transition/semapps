@@ -20,6 +20,7 @@ export default {
     types: ['pair:Event'],
     list: {
       dereference: ['pair:hostedIn/pair:hasPostalAddress'],
+      explicitEmbedOnFraming: false // Increase performance since explicit embed is not necessary
     },
     fieldsMapping: {
       title: 'pair:label'
