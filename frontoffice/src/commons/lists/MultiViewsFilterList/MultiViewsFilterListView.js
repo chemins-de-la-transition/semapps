@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const MultiViewsFilterList = ({ views, filters }) => {
+const MultiViewsFilterListView = ({ views, filters, currentView, setView }) => {
   const classes = useStyles();
   const { resource, basePath, hasCreate, ids, loading } = useListContext();
   const createContainerUri = useCreateContainer(resource);
@@ -82,11 +82,8 @@ const MultiViewsFilterList = ({ views, filters }) => {
   const [areFiltersOpen, openFilters] = useState(false);
   const query = new URLSearchParams(useLocation().search);
   const activatedViews = Object.keys(views).filter((key) => views[key]);
-  const initialView =
-    query.has('view') && activatedViews.includes(query.get('view')) ? query.get('view') : activatedViews[0];
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
   const sm = useMediaQuery((theme) => theme.breakpoints.down('sm'), { noSsr: true });
-  const [currentView, setView] = useState(initialView);
   const { filterValues, setFilters } = useListFilterContext();
 
   return (
@@ -180,4 +177,4 @@ const MultiViewsFilterList = ({ views, filters }) => {
   );
 };
 
-export default MultiViewsFilterList;
+export default MultiViewsFilterListView;
