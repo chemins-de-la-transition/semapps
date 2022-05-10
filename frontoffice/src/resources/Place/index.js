@@ -28,7 +28,7 @@ export default {
         cdlt: ['/places']
       },
       dereference: ['pair:hasPostalAddress'],
-      explicitEmbedOnFraming: false
+      explicitEmbedOnFraming: false // Increase performance since explicit embed is not necessary
     },
     fieldsMapping: {
       title: 'pair:label'
