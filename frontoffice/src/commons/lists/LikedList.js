@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { ListContextProvider, useGetMany } from 'react-admin';
 import { Box, LinearProgress, Typography, makeStyles } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
-import { useOutbox, useCollection, ACTIVITY_TYPES, PUBLIC_URI } from "@semapps/activitypub-components";
+import { useCollection } from "@semapps/activitypub-components";
 import FullWidthBox from '../FullWidthBox';
 import LargeContainer from '../LargeContainer';
 import CardsList from './CardsList';
@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 
 const LikedList = ({ id, type, resource, title, subtitle, headComment, CardComponent }) => {
   const classes = useStyles();
-  const { items, addItem, removeItem } = useCollection(id + '/liked');
+  const { items } = useCollection(id + '/liked');
   
   const { data, loading, loaded, error } = useGetMany(
     'Activity', /* needed but not used */
