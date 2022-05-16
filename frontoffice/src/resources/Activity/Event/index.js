@@ -12,8 +12,7 @@ export default {
     edit: EventEdit,
     icon: EventIcon,
     options: {
-      label: 'Événements',
-      parent: 'Activity',
+      label: 'Événements'
     },
   },
   dataModel: {
