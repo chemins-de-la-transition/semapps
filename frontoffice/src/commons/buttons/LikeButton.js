@@ -17,7 +17,6 @@ const useStyles = makeStyles(() => ({
 
 const LikeButton = (props) => {
   
-  console.log(props);
   const { record } = useShowContext(props);
   const classes = useStyles();
 
