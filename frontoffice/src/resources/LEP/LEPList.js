@@ -16,17 +16,17 @@ const LEPList = (props) => {
       ]}
       tabs={[
         {
-          resource: 'Place',
-          card: PlaceCard
+          resource: 'Course',
+          card: CourseCard
         },
         {
           resource: 'Event',
           card: EventCard
         },
         {
-          resource: 'Course',
-          card: CourseCard
-        },
+          resource: 'Place',
+          card: PlaceCard
+        }
       ]}
       {...props}
     />
