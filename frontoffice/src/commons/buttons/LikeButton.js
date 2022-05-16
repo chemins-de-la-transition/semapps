@@ -15,13 +15,10 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const LikeButton = ({record}) => {
+const LikeButton = (props) => {
   
-  const { record:recordShowContext } = useShowContext();
-  if (!record) {
-    record = recordShowContext;
-  }
-  
+  console.log(props);
+  const { record } = useShowContext(props);
   const classes = useStyles();
 
   const { items: liked, addItem, removeItem } = useCollection('liked');
