@@ -120,15 +120,16 @@ const FormBox = () => {
   const history = useHistory();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
 
-  const [type, setType] = useState("Place");
+  const [type, setType] = useState("");
   const [region, setRegion] = useState("");
   const [theme, setTheme] = useState("");
 
   const search = () => {
     let filters = {};
     if( region ) filters['cdlt:hasRegion'] = region;
+    if( type ) filters['cdlt:hasCourseType'] = type;
     if( theme ) filters['pair:hasTopic'] = theme;
-    history.push(`/${type}?filter=${encodeURIComponent(JSON.stringify(filters))}&view=list`);
+    history.push(`/LEP?filter=${encodeURIComponent(JSON.stringify(filters))}`);
   };
 
   return (
@@ -137,23 +138,13 @@ const FormBox = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
             <FormControl className={classes.formControl} fullWidth>
-              <InputLabel id="demo-select-objecttype-label">Type</InputLabel>
-              <Select labelId="demo-select-objecttype-label" value={type} onChange={e => setType(e.target.value)} className={classes.select} variant={xs ? 'outlined' : 'standard'}>
-                <MenuItem key="Place" value="Place">Lieux</MenuItem>
-                <MenuItem key="Event" value="Event">Évènements</MenuItem>
-                <MenuItem key="Course" value="Course">Voyages</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <FormControl className={classes.formControl} fullWidth>
-              <InputLabel id="demo-select-area-label">Région</InputLabel>
+              <InputLabel id="demo-select-area-label">Type de voyage</InputLabel>
               <SelectResources
-                reference="Region"
-                inverseSource="cdlt:RegionOf"
-                labelId="demo-select-area-label"
-                value={region}
-                onChange={e => setRegion(e.target.value)}
+                reference="Type"
+                inverseSource="cdlt:typeOfCourse"
+                labelId="demo-select-type-label"
+                value={type}
+                onChange={e => setType(e.target.value)}
                 variant={xs ? 'outlined' : 'standard'}
                 className={classes.select}
               />
@@ -161,13 +152,27 @@ const FormBox = () => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <FormControl className={classes.formControl} fullWidth>
-              <InputLabel id="demo-select-topic-label">Thématique</InputLabel>
+              <InputLabel id="demo-select-topic-label">Secteur d'activité</InputLabel>
               <SelectResources
                 reference="Theme"
                 inverseSource="pair:topicOf"
                 labelId="demo-select-topic-label"
                 value={theme}
                 onChange={e => setTheme(e.target.value)}
+                variant={xs ? 'outlined' : 'standard'}
+                className={classes.select}
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <FormControl className={classes.formControl} fullWidth>
+              <InputLabel id="demo-select-area-label">Région</InputLabel>
+              <SelectResources
+                reference="Region"
+                inverseSource="cdlt:regionOf"
+                labelId="demo-select-area-label"
+                value={region}
+                onChange={e => setRegion(e.target.value)}
                 variant={xs ? 'outlined' : 'standard'}
                 className={classes.select}
               />
