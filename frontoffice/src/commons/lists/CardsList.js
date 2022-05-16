@@ -56,14 +56,14 @@ const CardsList = ({ CardComponent, link, hasLike=false }) => {
       if( !data[id] ) return null;
       const image = data[id]?.['pair:isDepictedBy'];
       return (
-        <Box className={classes.mainContainer}>
+        <Box key={id} className={classes.mainContainer}>
           { hasLike &&
             <Box className={classes.likeButtonContainer}>
               <LikeButton record={data[id]} />
             </Box>
           }
-          <Link key={id} to={linkToRecord(basePath, id, link)} className={classes.linkContainer}>
-            <Card key={id} className={classes.details}>
+          <Link to={linkToRecord(basePath, id, link)} className={classes.linkContainer}>
+            <Card className={classes.details}>
               {data[id]?.['pair:isDepictedBy'] && (
                 <CardMedia className={classes.image} image={Array.isArray(image) ? image[0] : image} />
               )}
