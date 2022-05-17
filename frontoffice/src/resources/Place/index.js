@@ -12,8 +12,7 @@ export default {
     edit: PlaceEdit,
     icon: PlaceIcon,
     options: {
-      label: 'Lieux',
-      parent: 'Activity',
+      label: 'Lieux'
     },
   },
   dataModel: {

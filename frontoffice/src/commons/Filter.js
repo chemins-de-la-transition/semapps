@@ -41,7 +41,7 @@ const Filter = ({ reference, source, inverseSource, limit, sort, filter, label, 
   return (
     <FormControl className={classes.formControl}>
       <InputLabel id="region">{label || currentResource.options.label}</InputLabel>
-      <Select labelId="region" value={filterValues[source]} onChange={changeFilter}>
+      <Select labelId="region" value={filterValues[source] || ''} onChange={changeFilter}>
         <MenuItem>---</MenuItem>
         {ids
           .filter((id) => !inverseSource || data[id][inverseSource])

@@ -7,6 +7,9 @@ export default {
     list: CourseList,
     show: CourseShow,
     icon: DateRangeIcon,
+    options: {
+      label: 'Voyages'
+    },
   },
   dataModel: {
     types: ['cdlt:Course'],

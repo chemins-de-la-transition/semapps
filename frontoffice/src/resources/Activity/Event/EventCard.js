@@ -1,5 +1,5 @@
 import React from 'react';
-import { DateField, Link, linkToRecord, TextField } from 'react-admin';
+import { DateField, TextField } from 'react-admin';
 import Chip from '../../../commons/Chip';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
@@ -24,13 +24,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const EventCard = ({ record, basePath, variant }) => {
+const EventCard = ({ record, variant }) => {
   const classes = useStyles();
   return (
     <>
-      <Link to={linkToRecord(basePath, record.id, 'show')}>
-        <TextField variant="h2" record={record} component="div" source="pair:label" className={classes.title} />
-      </Link>
+      <TextField variant="h2" record={record} component="div" source="pair:label" className={classes.title} />
       <Chip icon={<CalendarIcon />}>
         <DateField
           record={record}
