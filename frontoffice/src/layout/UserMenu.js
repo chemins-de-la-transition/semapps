@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { UserMenu as RaUserMenu, MenuItemLink, useGetIdentity } from 'react-admin';
 import PlaceIcon from '../svg/PlaceIcon';
 import EventIcon from '@material-ui/icons/Event';
-import VisibilityIcon from '@material-ui/icons/Visibility';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const MyPlacesMenu = forwardRef(({ onClick }, ref) => (
   <MenuItemLink ref={ref} to="/MyPlaces" primaryText="Mes lieux" leftIcon={<PlaceIcon />} onClick={onClick} />
@@ -21,7 +21,7 @@ const EditProfileMenu = forwardRef(({ onClick, webId }, ref) => (
     ref={ref}
     to={`/Person/${encodeURIComponent(webId)}/Show`}
     primaryText="Mon profil"
-    leftIcon={<VisibilityIcon />}
+    leftIcon={<AccountCircleIcon />}
     onClick={onClick}
   />
 ));
