@@ -9,13 +9,13 @@ module.exports = {
   settings: {
     baseUrl: CONFIG.HOME_URL,
     jwtPath: path.resolve(__dirname, '../jwt'),
-    registrationAllowed: false,
+    registrationAllowed: true,
     selectSsoData: authData => ({
       email: authData.email,
       name: authData.given_name,
       familyName: authData.family_name
     }),
-    webIdSelection: ['nick', 'name', 'familyName'],
+    // webIdSelection: ['nick', 'name', 'familyName'],
     accountsDataset: CONFIG.AUTH_ACCOUNTS_DATASET,
     // OIDC-specific settings
     issuer: CONFIG.OIDC_ISSUER,
@@ -28,11 +28,14 @@ module.exports = {
 
       await ctx.call('ldp.resource.patch', {
         resource: {
+          '@context': urlJoin(CONFIG.HOME_URL, 'context.json'),
           '@id': webId,
           '@type': ['pair:Person', 'foaf:Person'],
           'pair:label': `${profileData.name} ${profileData.familyName.toUpperCase()}`,
           'pair:firstName': profileData.name,
-          'pair:lastName': profileData.familyName
+          'pair:lastName': profileData.familyName,
+          'pair:e-mail': profileData.email,
+          'pair:hasType': CONFIG.HOME_URL + '/types/actor',
         },
         contentType: MIME_TYPES.JSON,
         webId: 'system'
