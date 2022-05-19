@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChipField, SingleFieldList, TextField, EmailField } from 'react-admin';
-import { Box, Container, Grid, Typography, makeStyles } from '@material-ui/core';
+import { Container, Grid, makeStyles } from '@material-ui/core';
 import { MainList, SideList, Hero, GridList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
@@ -9,10 +9,6 @@ import { MapField } from '@semapps/geo-components';
 import PersonTitle from './PersonTitle';
 import HomeIcon from '@material-ui/icons/Home';
 import ChipWithResourceIcon from '../../../../commons/ChipWithResourceIcon';
-import PathCard from '../../../Idea/Path/PathCard';
-import PlaceCard from '../../../Place/PlaceCard';
-import EventCard from '../../../Activity/Event/EventCard';
-import CourseCard from '../../../Activity/Course/CourseCard';
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {

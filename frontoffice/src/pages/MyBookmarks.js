@@ -1,12 +1,11 @@
 import React from 'react';
 import { ListBase } from 'react-admin';
-import { Box, Container, Grid, makeStyles } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import { useCheckAuthenticated } from '@semapps/auth-provider';
 import CardsList from '../commons/lists/CardsList';
 import FullWidthBox from '../commons/FullWidthBox';
 import LargeContainer from '../commons/LargeContainer';
 import HeaderTitle from '../commons/HeaderTitle';
-import Button from '../commons/Button';
 import LikedList from '../commons/lists/LikedList';
 import PathCard from '../resources/Idea/Path/PathCard';
 import PlaceCard from '../resources/Place/PlaceCard';
