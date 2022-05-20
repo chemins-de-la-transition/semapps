@@ -17,26 +17,26 @@ import ActorIcon from '../../../svg/ActorIcon';
 const EventDetails = (props) => (
   <IconsList {...props}>
     <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
-      <SeparatedListField link={linkToFilteredList( 'Course', 'cdlt:hasCourseType')} separator=" / ">
+      <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:hasCourseType')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
     <ReferenceArrayField reference="Path" source="cdlt:courseOn" icon={<ThemeIcon />}>
-      <SeparatedListField link={linkToFilteredList('Course', 'cdlt:courseOn')} separator=" / ">
+      <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:courseOn')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
     <ReferenceArrayField reference="Theme" source="pair:hasTopic" icon={<ThemeIcon />}>
-      <SeparatedListField link={linkToFilteredList( 'Course', 'pair:hasTopic')} separator=" / ">
+      <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
     <ReferenceArrayField reference="Finality" source="pair:hasFinality" icon={<ThemeIcon />}>
-      <SeparatedListField link={linkToFilteredList( 'Course', 'pair:hasFinality')} separator=" / ">
+      <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasFinality')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceField label="Région" reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList( 'Course', 'cdlt:hasRegion')}>
+    <ReferenceField label="Région" reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList('LEP', 'cdlt:hasRegion')}>
       <TextField source="pair:label" />
     </ReferenceField>
     <DateToDateField
