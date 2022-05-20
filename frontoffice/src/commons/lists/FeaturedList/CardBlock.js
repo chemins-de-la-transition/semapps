@@ -2,9 +2,10 @@ import React from 'react';
 import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, CardActionArea, Chip } from '@material-ui/core';
 import { TextField, FunctionField } from 'react-admin';
 import { SeparatedListField } from '@semapps/archipelago-layout';
-import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
+import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Link } from 'react-router-dom';
 import { linkToFilteredList } from "../../../utils";
+import LikeButton from '../../buttons/LikeButton';
 import AgricultureAlimentation_PictoCdlT from '../../../icons/AgricultureAlimentation_PictoCdlT.png' ;
 import Artisanat_PictoCdlT from '../../../icons/Artisanat_PictoCdlT.png' ;
 import Communication_PictoCdlT from '../../../icons/Communication_PictoCdlT.png' ;
@@ -30,6 +31,14 @@ const useStyles = makeStyles((theme) => ({
     height: 40,
     background: "white",
     borderRadius: 100,
+  },
+  likeButton: {
+    position: 'absolute',
+    zIndex: 1,
+    margin: 10,
+    right: 0,
+    background: 'lightgray',
+    borderRadius: 20,
   },
   cardTypes: {
     position: 'relative',
@@ -180,6 +189,7 @@ const CardBlock = ({ record, basePath, CardSubHeaderComponent, resource }) => {
             />
         </CardContent>
       )}
+      <LikeButton record={record} class={classes.likeButton}/> 
       <CardActionArea>
         <CardMedia
           className={classes.media + ' ' + classes.noDecoration}
@@ -190,7 +200,7 @@ const CardBlock = ({ record, basePath, CardSubHeaderComponent, resource }) => {
         />
       </CardActionArea>
       </div>
-      {record['pair:hasType'] && (
+      {resource==='Place' && record['pair:hasType'] && (
         <CardContent className={classes.cardTypes + ' ' + classes.noDecoration}>
           <div className={classes.types + ' ' + classes.severalTypes + ' ' + classes.blockTypes}>
             <Chip
@@ -203,7 +213,7 @@ const CardBlock = ({ record, basePath, CardSubHeaderComponent, resource }) => {
                 >
                   <SeparatedListField 
                     separator=" / " 
-                    link={resource=='Course' ? linkToFilteredList( 'Course', 'pair:hasType') : resource=='Place' ? linkToFilteredList( 'Place', 'pair:hasType') : false}
+                    link={linkToFilteredList('Place', 'pair:hasType')}
                   >
                     <TextField source="pair:label" />
                   </SeparatedListField>

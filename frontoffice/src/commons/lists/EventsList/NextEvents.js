@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react' ;
+import { useState } from 'react' ;
 import { makeStyles } from '@material-ui/core';
 import { ListBase } from 'react-admin';
 import EventItemsGrid from './EventItemsGrid';
@@ -22,9 +22,8 @@ const NextEvents = () => {
   const categoryFilter = category ? {'pair:hasTopic': category} : {};
   const regionFilter = region ? {'pair:hasLocation': region} : {};
 
-  const filter = Object.assign({}, 
-    { 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/open'}, eventTypeFilter, categoryFilter, regionFilter);
-    // TODO : add a filter to only keep the future events
+  // TODO : add a filter to only keep the future events
+  const filter = { 'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/open', ...eventTypeFilter, ...categoryFilter, ...regionFilter };
 
   return (
     <>

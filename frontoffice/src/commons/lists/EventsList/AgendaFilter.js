@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Grid, FormControl, InputLabel, Select, MenuItem, useMediaQuery, SvgIcon } from '@material-ui/core';
+import { makeStyles, Grid, FormControl, InputLabel, Select, MenuItem, SvgIcon } from '@material-ui/core';
 import { useGetList } from 'react-admin';
 
 const useStyles = makeStyles((theme) => ({
@@ -49,8 +49,8 @@ const ChevronIcon = (props) => (
     </SvgIcon>
 );
 
-const SelectResources = ({ reference, inverseSource, selectIcon, ...rest }) =>{
-    const { data, ids } = useGetList(reference, undefined, { field: 'pair:label', order: 'ASC' });
+const SelectResources = ({ reference, inverseSource, selectIcon, filter, ...rest }) =>{
+    const { data, ids } = useGetList(reference, undefined, { field: 'pair:label', order: 'ASC' }, filter);
     return (
         <Select {...rest} IconComponent = {selectIcon}>
         <MenuItem value="">Choisir...</MenuItem>
@@ -68,7 +68,6 @@ const SelectResources = ({ reference, inverseSource, selectIcon, ...rest }) =>{
 
 const AgendaFilter = ({ eventType, setEventType, category, setCategory, region, setRegion }) => {
     const classes = useStyles();
-    const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
 
     return (
         <Grid container spacing={2} className={classes.box}>
@@ -79,13 +78,14 @@ const AgendaFilter = ({ eventType, setEventType, category, setCategory, region, 
                 <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>Événements</InputLabel>
                 <SelectResources
                   reference="Type"
-                  inverseSource="pair:typeOf" //TODO : filter only event types
+                  inverseSource="pair:typeOf"
                   selectIcon={ChevronIcon}
                   labelId="demo-select-area-label"
                   value={eventType}
                   onChange={e => {setEventType(e.target.value)}}
                   variant={'outlined'}
                   className={classes.select}
+                  filter={{ a: 'pair:EventType' }}
                 />
               </FormControl>
             </Grid>

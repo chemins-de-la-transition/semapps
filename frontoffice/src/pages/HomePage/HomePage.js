@@ -4,6 +4,7 @@ import FeaturedList from '../../commons/lists/FeaturedList/FeaturedList';
 import PlaceSubHeader from '../../resources/Place/PlaceSubHeader';
 import CoursesTypes from './CoursesTypes';
 import CourseSubHeader from "../../resources/Activity/Course/CourseSubHeader";
+import PathSubHeader from '../../resources/Idea/Path/PathSubHeader';
 import Traveler from './Traveler/Traveler';
 import Partners from './Partners';
 import PictoLieu from '../../icons/PictoLieu.png' ;
@@ -13,16 +14,15 @@ import PictoAgenda from '../../icons/PictoAgenda.png' ;
 const HomePage = () => (
   <>
     <Welcome />
-    {/* TODO : Add when we have the page "Chemins" */}
-    {/* <FeaturedList
-      resource="Place"
-      basePath="/Place"
+    <FeaturedList
+      resource="Path"
+      basePath="/Path"
       title="Les chemins"
       subtitle="A découvrir"
       logo={PictoParcours}
       linkText="Voir tous les chemins"
-      CardSubHeaderComponent={PlaceSubHeader}
-    /> */}
+      CardSubHeaderComponent={PathSubHeader}
+    />
     <FeaturedList
       resource="Place"
       basePath="/Place"

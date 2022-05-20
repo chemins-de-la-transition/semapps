@@ -52,13 +52,13 @@ const LikeButton = (props) => {
   if( outbox.owner ) {
     if( liked.includes(record?.id) ) {
       return(
-        <IconButton className={classes.button} onClick={unlike}>
+        <IconButton className={classes.button + ' ' + props.class} onClick={unlike}>
           <FavoriteIcon />
         </IconButton>
       )
     } else {
       return(
-        <IconButton className={classes.button} onClick={like}>
+        <IconButton className={classes.button+ ' ' + props.class} onClick={like}>
           <FavoriteBorderIcon />
         </IconButton>
       )

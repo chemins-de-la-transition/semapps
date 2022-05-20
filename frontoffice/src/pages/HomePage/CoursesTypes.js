@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Typography, Grid, Box } from '@material-ui/core';
+import { makeStyles, Typography, Grid, Box, Link } from '@material-ui/core';
 import FullWidthBox from '../../commons/FullWidthBox';
 import LargeContainer from '../../commons/LargeContainer';
 import Type1Icon from '../../icons/Type1Icon.png';
@@ -56,14 +56,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LocalGridItem = ({ title, text, image, icon }) => {
+const LocalGridItem = ({ title, text, icon, type }) => {
   const classes = useStyles();
+  const filters = {'cdlt:hasCourseType':process.env.REACT_APP_MIDDLEWARE_URL+"types/"+type}
+  const link = window.location.href +`Course?filter=${encodeURIComponent(JSON.stringify(filters))}`
+
   return (
     <Grid item sm={6} md={3}>
       <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column">
-        <Box className={classes.iconContainer}>
+        <Link href={link} className={classes.iconContainer}>
           <img src={icon} alt="logo"/>
-        </Box>
+        </Link>
         <Typography variant="h5" className={classes.itemTitle}>
           {title}
         </Typography>
@@ -91,21 +94,25 @@ const CoursesTypes = () => {
             title="Découverte"
             text="Je suis curieux, j’ouvre les yeux sur des métiers liés à la transition qui existent en visitant des lieux inspirants pendant mon voyage"
             icon={Type1Icon}
+            type="ecotourisme" 
           />
           <LocalGridItem
             title="Apprenant"
             text="Une pratique m’intéresse, j’ai envie d’en savoir plus. Profitez de ces voyages sur quelques jours pour visiter différents lieux et rencontrer les porteurs de projets"
             icon={Type2Icon}
+            type="voyage-apprenant1"
           />
           <LocalGridItem
             title="Immersif"
             text="J’ai envie d’apprendre en participant. Ces voyages sur quelques semaines vous permettront d’experimenter par le faire et de participer à un projet de votre choix"
             icon={Type3Icon}
+            type="immersion-longue"
           />
           <LocalGridItem
             title="Compagnonnage"
             text="Je décide de me lancer pour me former à une pratique. Vous serez en immersion longue au sein d’un lieu et suivrez des modules théoriques pour une validation d’acquis."
             icon={Type4Icon}
+            type="compagnonnage"
           />
         </Grid>
       </LargeContainer>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { TextField } from "react-admin";
 import { makeStyles, Typography } from '@material-ui/core';
 import PlaceIcon from '../../svg/PlaceIcon';
 import Chip from "../../commons/Chip";

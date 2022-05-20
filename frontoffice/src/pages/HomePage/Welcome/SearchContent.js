@@ -133,7 +133,6 @@ const SelectResources = ({ reference, inverseSource, selectIcon, ...rest }) =>{
 const FormBox = () => {
   const classes = useStyles();
   const history = useHistory();
-  const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
 
   const [type, setType] = useState("");
   const [category, setCategory] = useState("");

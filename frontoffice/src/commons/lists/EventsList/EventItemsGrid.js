@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import {makeStyles, Typography, List, ListItem, ListItemText, Box } from '@material-ui/core';
-import { DateField, useListContext, TextField } from 'react-admin';
+import { DateField, useListContext, TextField, FunctionField } from 'react-admin';
 import DurationField from '../../fields/DurationField';
 import { Link } from 'react-router-dom';
 import { ReferenceField } from '@semapps/semantic-data-provider';
@@ -21,6 +21,7 @@ import JusticeSociale_PictoSeul from '../../../icons/JusticeSociale_PictoSeul.pn
 import Mobilite_PictoSeul from '../../../icons/Mobilite_PictoSeul.png' ;
 import Sante_Bienetre_PictoSeul from '../../../icons/Sante_Bienetre_PictoSeul.png' ;
 import ScienceTech_PictoSeul from '../../../icons/ScienceTech_PictoSeul.png' ;
+
 
 const useStyles = makeStyles((theme) => ({
   eventType: {
@@ -129,20 +130,22 @@ const EventItemsGrid = ({ similarRecord }) => {
 
   function ChoosePicture(categories) {
     const category=Array.isArray(categories) ? categories[0] : categories;
-    return (category===process.env.REACT_APP_MIDDLEWARE_URL+"themes/agriculture-et-alimentation") ? AgricultureAlimentation_PictoSeul
-      : (category===process.env.REACT_APP_MIDDLEWARE_URL+"themes/artisanat-commerce-industrie") ? Artisanat_PictoSeul
-      : (category===process.env.REACT_APP_MIDDLEWARE_URL+"themes/decentralisation-du-web") ? Communication_PictoSeul
-      : (category===process.env.REACT_APP_MIDDLEWARE_URL+"themes/education-alternative") ? CultureModeVie_PictoSeul
-      : (category===process.env.REACT_APP_MIDDLEWARE_URL+"themes/developpement-territorial") ? DevTerritorial_PictoSeul
-      : (category===process.env.REACT_APP_MIDDLEWARE_URL+"themes/ecopsychologie") ? Ecologie_PictoSeul
-      : (category===process.env.REACT_APP_MIDDLEWARE_URL+"themes/web-semantique") ? Energie_PictoSeul
-      : (category===process.env.REACT_APP_MIDDLEWARE_URL+"themes/open-hardware") ? Gouvernance_PictoSeul
-      : (category===process.env.REACT_APP_MIDDLEWARE_URL+"themes/tiers-lieu") ? Habitat_PictoSeul
-      : (category===process.env.REACT_APP_MIDDLEWARE_URL+"themes/justice-sociale") ? JusticeSociale_PictoSeul
-      : (category===process.env.REACT_APP_MIDDLEWARE_URL+"themes/mobilites") ? Mobilite_PictoSeul
-      : (category===process.env.REACT_APP_MIDDLEWARE_URL+"themes/sante-et-bien-etre") ? Sante_Bienetre_PictoSeul
-      : (category===process.env.REACT_APP_MIDDLEWARE_URL+"themes/low-tech") ? ScienceTech_PictoSeul
-      : null
+    const pictoCategories = {
+      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/agriculture-et-alimentation"] : AgricultureAlimentation_PictoSeul,
+      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/artisanat-commerce-industrie"] : Artisanat_PictoSeul,
+      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/decentralisation-du-web"] : Communication_PictoSeul,
+      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/education-alternative"] : CultureModeVie_PictoSeul,
+      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/developpement-territorial"] : DevTerritorial_PictoSeul,
+      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/ecopsychologie"] : Ecologie_PictoSeul,
+      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/web-semantique"] : Energie_PictoSeul,
+      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/open-hardware"] : Gouvernance_PictoSeul,
+      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/tiers-lieu"] : Habitat_PictoSeul,
+      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/justice-sociale"] : JusticeSociale_PictoSeul,
+      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/mobilites"] : Mobilite_PictoSeul,
+      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/sante-et-bien-etre"] : Sante_Bienetre_PictoSeul,
+      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/low-tech"] : ScienceTech_PictoSeul,
+    }
+    return pictoCategories[category]
   }
 
   return (
@@ -184,13 +187,12 @@ const EventItemsGrid = ({ similarRecord }) => {
                 <Typography variant="h4" component="div" className={classes.eventLabel}>
                   {data[id]['pair:label']}
                 </Typography>
+
                 {data[id]['pair:hostedIn'] ? (
                   <div style={{display: 'flex'}}>
                   <PlaceIcon className={classes.icon}/>
-                  <ReferenceField source="pair:hasLocation" reference="Region" record={data[id]} link={false}>
-                    <Typography variant="body1" component="div" className={classes.eventAddress}>
-                      {data[id]['pair:hostedIn']['pair:hasPostalAddress']?.['pair:addressLocality']+' ('+data[id]['pair:hostedIn']['pair:hasPostalAddress']?.['pair:addressZipCode'].slice(0, 2)+')'}
-                    </Typography>
+                  <ReferenceField record={data[id]} source="pair:hostedIn" reference="Region" link={false}>
+                    <FunctionField className={classes.eventAddress} label="Localisation" render={record => `${record['pair:hasPostalAddress']?.['pair:addressLocality']} (${record['pair:hasPostalAddress']?.['pair:addressZipCode'].slice(0,2)})`} />
                   </ReferenceField>
                 </div>
                 ) :
