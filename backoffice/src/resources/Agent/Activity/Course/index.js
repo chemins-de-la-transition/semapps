@@ -52,6 +52,7 @@ export default {
         'pair:hasStatus': 'Statut',
         'pair:documentedBy': 'Documents',
         'cdlt:courseOn': 'Est un voyage de',
+        'pair:hasFinality': 'Finalités',
       },
     },
   },

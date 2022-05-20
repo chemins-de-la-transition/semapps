@@ -31,6 +31,11 @@ const EventDetails = (props) => (
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
+    <ReferenceArrayField reference="Finality" source="pair:hasFinality" icon={<ThemeIcon />}>
+      <SeparatedListField link={linkToFilteredList( 'Course', 'pair:hasFinality')} separator=" / ">
+        <TextField source="pair:label" />
+      </SeparatedListField>
+    </ReferenceArrayField>
     <ReferenceField label="Région" reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList( 'Course', 'cdlt:hasRegion')}>
       <TextField source="pair:label" />
     </ReferenceField>

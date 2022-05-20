@@ -32,6 +32,7 @@ export default {
         'cdlt:hasPlace': 'Lieux', /*Place*/
         'cdlt:hasEvent': 'Evénements', /*Event*/
         'cdlt:hasCourse': 'Voyages', /*Course*/
+        'pair:hasFinality': 'Finalités',
         /*
         'pair:hasLocation': 'Composez votre parcours',
         'pair:hasStatus': 'Statut',

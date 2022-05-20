@@ -84,12 +84,17 @@ const PathShow = (props) => (
               <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Skill" source="pair:produces">
+          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+          <ReferenceArrayField reference="Finality" source="pair:hasFinality">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Skill" source="pair:produces">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
