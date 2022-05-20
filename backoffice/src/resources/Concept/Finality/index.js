@@ -1,30 +1,30 @@
 import { PairResourceCreate } from '../../../pair';
-import IntentionEdit from './IntentionEdit';
-import IntentionList from './IntentionList';
+import FinalityEdit from './FinalityEdit';
+import FinalityList from './FinalityList';
 import StyleIcon from '@material-ui/icons/Style';
 
 export default {
   config: {
-    list: IntentionList,
+    list: FinalityList,
     create: PairResourceCreate,
-    edit: IntentionEdit,
+    edit: FinalityEdit,
     icon: StyleIcon,
     options: {
-      label: 'Intentions',
+      label: 'Finalités',
       parent: 'Concept',
     },
   },
   dataModel: {
-    types: ['pair:Intention'],
+    types: ['pair:Finality'],
     fieldsMapping: {
       title: 'pair:label'
     }
   },
   translations: {
     fr: {
-      name: 'Intention |||| Intentions',
+      name: 'Finalité |||| Finalités',
       fields: {
-        'pair:label': 'Intention',
+        'pair:label': 'Finalité',
       },
     },
   },

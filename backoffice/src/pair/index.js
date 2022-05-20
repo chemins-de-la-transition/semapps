@@ -50,8 +50,8 @@ export const PathsInput = ({ label, source }) => (
   </ReferenceArrayInput>
 );
   
-export const IntentionsInput = ({ label, source }) => (
-  <ReferenceArrayInput label={label} reference="Intention" source={source}>
+export const FinalitiesInput = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="Finality" source={source}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />
   </ReferenceArrayInput>
 );

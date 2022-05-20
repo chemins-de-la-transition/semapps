@@ -100,8 +100,8 @@ module.exports = [
     newResourcesPermissions: writePermissionToCreator,
   },
   {
-    path: '/intentions',
-    acceptedTypes: ['pair:Intention'],
+    path: '/finalities',
+    acceptedTypes: ['pair:Finality'],
     permissions: anonReadPermission,
     newResourcesPermissions: writePermissionToCreator,
   },
