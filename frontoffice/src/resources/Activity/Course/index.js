@@ -50,6 +50,7 @@ export default {
         'cdlt:organizedBy': 'Organisé par',
         'pair:hasStatus': 'Statut',
         'cdlt:courseOn': 'Chemins',
+        'pair:hasFinality': 'Finalités',
       },
     },
   },

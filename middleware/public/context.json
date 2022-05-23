@@ -503,6 +503,9 @@
     "pair:concretizedBy": {
       "@type": "@id"
     },
+    "pair:hasFinality": {
+      "@type": "@id"
+    },
     "pair:hasFollower": {
       "@type": "@id"
     },

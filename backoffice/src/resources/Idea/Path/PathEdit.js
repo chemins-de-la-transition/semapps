@@ -7,11 +7,12 @@ import {
   // ActorsInput,
   CoursesInput,
   EventsInput,
+  FinalitiesInput,
   OrganizationsInput,
   PersonsInput,
   PlacesInput,
   // StatusInput,
-  // ThemesInput,
+  ThemesInput,
   // TypesInput,
   SkillsInput,
 } from '../../../pair';
@@ -49,9 +50,8 @@ const PathEdit = (props) => (
         <PersonsInput source="cdlt:proposedBy" />
         <OrganizationsInput source="cdlt:supportedBy" />
         <SkillsInput source="pair:produces" />
-        {/*
         <ThemesInput source="pair:hasTopic" />
-        */}
+        <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
     </TabbedForm>
   </EditWithPermissions>

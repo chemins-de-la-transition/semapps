@@ -1,6 +1,6 @@
 export default {
   dataModel: {
-    types: ['pair:Intention'],
+    types: ['pair:Finality'],
     fieldsMapping: {
       title: 'pair:label'
     }

@@ -15,7 +15,7 @@ export { default as Actor } from './Agent/Actor/Actor';
 export { default as Skill } from './Resource/Skill';
 
 // Concepts
-export { default as Intention } from './Concept/Intention';
+export { default as Finality } from './Concept/Finality';
 export { default as Sector } from './Concept/Sector';
 export { default as Status } from './Concept/Status';
 export { default as Theme } from './Concept/Theme';

@@ -6,6 +6,7 @@ import { ImageField } from '@semapps/semantic-data-provider';
 import {
   PathsInput, 
   ActorsInput,
+  FinalitiesInput,
   PersonsInput,
   /*EventsInput,*/
   ThemesInput,
@@ -68,6 +69,7 @@ const CourseEdit = (props) => (
         <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
         <DocumentsType source="pair:documentedBy" />
+        <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
       <FormTab label="Contact">
         <TextInput source="pair:e-mail" fullWidth />

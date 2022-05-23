@@ -1,7 +1,7 @@
 import React from 'react';
 
-const IntentionTitle = ({ record }) => {
+const FinalityTitle = ({ record }) => {
   return <span>{record?.['pair:label']}</span>;
 };
 
-export default IntentionTitle;
+export default FinalityTitle;

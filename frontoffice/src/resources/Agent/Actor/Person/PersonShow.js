@@ -62,22 +62,11 @@ const PersonShow = (props) => {
                 <ChipField source="pair:label" />
               </SingleFieldList>
             </ReferenceArrayField>
-            <ReferenceArrayField reference="Intention" source="pair:aims">
-              <SingleFieldList linkType={false}>
-                <ChipField source="pair:label" />
-              </SingleFieldList>
-            </ReferenceArrayField>
-            <ReferenceArrayField reference="Intention" source="cdlt:aimsAsHost">
-              <SingleFieldList linkType={false}>
-                <ChipField source="pair:label" />
-              </SingleFieldList>
-            </ReferenceArrayField>
-            <ReferenceArrayField reference="Intention" source="cdlt:aimsAsMentor">
-              <SingleFieldList linkType={false}>
-                <ChipField source="pair:label" />
-              </SingleFieldList>
-            </ReferenceArrayField>
-            <ReferenceArrayField reference="Intention" source="cdlt:aimsAsOrganizer">
+            <MarkdownField source="cdlt:asAHostIntentions" />
+            <MarkdownField source="cdlt:asAMentorIntentions" />
+            <MarkdownField source="cdlt:asAnOrganiserIntentions" />
+            <MarkdownField source="cdlt:asATravelerIntentions" />
+            <ReferenceArrayField reference="Finality" source="pair:hasFinality">
               <SingleFieldList linkType={false}>
                 <ChipField source="pair:label" />
               </SingleFieldList>

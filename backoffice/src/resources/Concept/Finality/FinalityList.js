@@ -3,7 +3,7 @@ import { SimpleList } from '@semapps/archipelago-layout';
 import { ListWithPermissions } from '@semapps/auth-provider';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 
-const IntentionList = (props) => (
+const FinalityList = (props) => (
   <ListWithPermissions {...props}>
     <SimpleList
       primaryText={(record) => record['pair:label']} leftAvatar={() => <VisibilityIcon />} linkType="edit" 
@@ -11,4 +11,4 @@ const IntentionList = (props) => (
   </ListWithPermissions>
 );
 
-export default IntentionList;
+export default FinalityList;
