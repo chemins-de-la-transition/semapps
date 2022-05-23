@@ -3,7 +3,7 @@ import { UserMenu as RaUserMenu, MenuItemLink, useGetIdentity } from 'react-admi
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PlaceIcon from '../svg/PlaceIcon';
 import EventIcon from '@material-ui/icons/Event';
-import EditIcon from '@material-ui/icons/Edit';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const MyBookmarks = forwardRef(({ onClick }, ref) => (
   <MenuItemLink ref={ref} to="/MyBookmarks" primaryText="Mes favoris" leftIcon={<FavoriteIcon />} onClick={onClick} />
@@ -24,9 +24,9 @@ const LoginMenu = forwardRef(({ onClick }, ref) => (
 const EditProfileMenu = forwardRef(({ onClick, webId }, ref) => (
   <MenuItemLink
     ref={ref}
-    to={`/Person/${encodeURIComponent(webId)}`}
-    primaryText="Editer mon profil"
-    leftIcon={<EditIcon />}
+    to={`/Person/${encodeURIComponent(webId)}/show`}
+    primaryText="Mon profil"
+    leftIcon={<AccountCircleIcon />}
     onClick={onClick}
   />
 ));
