@@ -12,8 +12,7 @@ export default {
     edit: PlaceEdit,
     icon: PlaceIcon,
     options: {
-      label: 'Lieux',
-      parent: 'Activity',
+      label: 'Lieux'
     },
   },
   dataModel: {
@@ -45,6 +44,7 @@ export default {
         'cdlt:hasCourseType': 'Type de voyage',
         'pair:hasType': 'Type de lieu',
         'pair:description': 'A propos du lieu',
+        'cdlt:hostDescription': 'Votre hôte',
         'cdlt:activities': 'Activités',
         'pair:hosts': 'Evénements',
         'pair:produces': 'Compétences / savoir-faire',
@@ -54,6 +54,8 @@ export default {
         'pair:e-mail': 'Adresse e-mail',
         'pair:phone': 'Téléphone',
         'pair:homePage': 'Site web',
+        'cdlt:placeOn': 'Chemins',
+        'pair:hasFinality': 'Finalités',
       },
     },
   },

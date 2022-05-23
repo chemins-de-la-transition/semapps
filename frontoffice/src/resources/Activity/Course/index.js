@@ -1,10 +1,15 @@
 import CourseList from './CourseList';
 import CourseShow from './CourseShow';
+import DateRangeIcon from '@material-ui/icons/DateRange';
 
 export default {
   config: {
     list: CourseList,
     show: CourseShow,
+    icon: DateRangeIcon,
+    options: {
+      label: 'Voyages'
+    },
   },
   dataModel: {
     types: ['cdlt:Course'],
@@ -30,6 +35,8 @@ export default {
         'pair:endDate': 'Date de fin',
         'cdlt:priceRange': 'Coût',
         'pair:description': 'Présentation',
+        'cdlt:organizerDescription': 'Organisateur',
+        'cdlt:mentorDescription': 'Intervenant',
         'pair:hasPart': 'Programme du voyage',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
@@ -42,7 +49,8 @@ export default {
         'cdlt:hasMentor': 'A pour intervenant',
         'cdlt:organizedBy': 'Organisé par',
         'pair:hasStatus': 'Statut',
-        'cdlt:courseOn': 'Est un voyage de',
+        'cdlt:courseOn': 'Chemins',
+        'pair:hasFinality': 'Finalités',
       },
     },
   },

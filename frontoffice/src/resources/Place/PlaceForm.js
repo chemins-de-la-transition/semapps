@@ -3,7 +3,7 @@ import { BooleanInput, SimpleForm, ImageInput, TextInput, useGetIdentity, email,
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { extractContext, LocationInput } from '@semapps/geo-components';
-import { ThemesInput, TypeInput, SkillsInput, TypesInput } from '../../pair';
+import { FinalitiesInput, ThemesInput, TypeInput, SkillsInput, TypesInput } from '../../pair';
 
 const PlaceForm = ({ mode, ...rest }) => {
   const { identity } = useGetIdentity();
@@ -19,6 +19,7 @@ const PlaceForm = ({ mode, ...rest }) => {
         <ImageField source="src" />
       </ImageInput>
       <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />
+      <MarkdownInput source="cdlt:hostDescription" fullWidth />
       <MarkdownInput source="cdlt:activities" fullWidth />
       <MarkdownInput source="cdlt:practicalConditions" fullWidth />
       <LocationInput
@@ -47,6 +48,7 @@ const PlaceForm = ({ mode, ...rest }) => {
       <TypeInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} validate={[required()]} />
       <ThemesInput source="pair:hasTopic" />
       <SkillsInput source="pair:produces" fullWidth />
+      <FinalitiesInput source="pair:hasFinality" />
       <TextInput source="pair:e-mail" fullWidth validate={[required(), email()]} helperText="Ne sera pas visible, mais on pourra vous contacter via un formulaire" />
       <TextInput source="pair:phone" fullWidth helperText="Si vous entrez un numéro de téléphone, il sera visible sur la page de votre lieu" />
       <TextInput source="pair:homePage" fullWidth />

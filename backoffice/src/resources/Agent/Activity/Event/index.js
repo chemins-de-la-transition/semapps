@@ -1,4 +1,4 @@
-import { PairResourceCreate } from '../../../../pair';
+import EventCreate from './EventCreate';
 import EventEdit from './EventEdit';
 import EventList from './EventList';
 import EventShow from './EventShow';
@@ -8,7 +8,7 @@ export default {
   config: {
     list: EventList,
     show: EventShow,
-    create: PairResourceCreate,
+    create: EventCreate,
     edit: EventEdit,
     icon: EventIcon,
     options: {
@@ -19,7 +19,7 @@ export default {
   dataModel: {
     types: ['pair:Event'],
     list: {
-      dereference: ['pair:hostedIn/pair:hasPostalAddress'],
+      dereference: ['pair:hasLocation/pair:hasPostalAddress'],
     },
     fieldsMapping: {
       title: 'pair:label'
@@ -40,9 +40,12 @@ export default {
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',
         'pair:description': 'Présentation',
+        'cdlt:organizerDescription': 'Description du ou des organisateurs',
+        'cdlt:mentorDescription': 'Description du ou des intervenants',
         'cdlt:program': "Programme de l'événement",
         'pair:hostedIn': 'Lieu',
-        'pair:hasLocation': 'Région',
+        'pair:hasLocation': 'Localisation',
+        'cdlt:hasRegion': 'Région',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
@@ -52,6 +55,9 @@ export default {
         'pair:phone': 'Téléphone',
         'pair:aboutPage': 'Site web',
         'cdlt:organizedBy': 'Organisé par',
+        'cdlt:hasMentor': 'Intervenant(e)s',
+        'cdlt:eventOn': 'Est un événement de',
+        'pair:hasFinality': 'Finalités',
       },
     },
   },

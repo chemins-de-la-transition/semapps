@@ -44,6 +44,24 @@ export const DocumentsType = ({ label, source }) => (
   </ReferenceArrayInput>
 );
 
+export const PathsInput = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="Path" source={source}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  </ReferenceArrayInput>
+);
+  
+export const FinalitiesInput = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="Finality" source={source}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  </ReferenceArrayInput>
+);
+
+export const SectorsInput = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="Sector" source={source}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  </ReferenceArrayInput>
+);
+
 export const SkillsInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Skill" source={source}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />
@@ -87,7 +105,7 @@ export const TypeInput = ({ label, source, ...rest }) => (
 );
 
 export const PlaceInput = ({ label, source, ...rest }) => (
-  <ReferenceInput label={label} reference="Place" source={source} {...rest}>
+  <ReferenceInput label={label} reference="Place" source={source} {...rest} allowEmpty>
     <AutocompleteInput optionText="pair:label" fullWidth />
   </ReferenceInput>
 );

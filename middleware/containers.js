@@ -1,4 +1,5 @@
 const urlJoin = require('url-join');
+const { ACTOR_TYPES } = require('@semapps/activitypub');
 const CONFIG = require('./config');
 
 const anonReadPermission = {
@@ -50,6 +51,11 @@ module.exports = [
     newResourcesPermissions: writePermissionToCreator
   },
   {
+    path: '/users',
+    acceptedTypes: ['pair:Person', 'foaf:Person', ACTOR_TYPES.PERSON],
+    dereference: ['sec:publicKey', 'pair:hasLocation/pair:hasPostalAddress']
+  },
+  {
     path: '/paths',
     acceptedTypes: ['cdlt:Path'],
     permissions: anonReadPermission,
@@ -68,7 +74,7 @@ module.exports = [
   {
     path: '/events',
     acceptedTypes: ['pair:Event'],
-    dereference: ['pair:hostedIn/pair:hasPostalAddress'],
+    dereference: ['pair:hasLocation/pair:hasPostalAddress'],
     permissions: {
       ...anonReadPermission,
       ...writePermissionToActors,
@@ -90,6 +96,18 @@ module.exports = [
   {
     path: '/themes',
     acceptedTypes: ['pair:Theme'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator,
+  },
+  {
+    path: '/finalities',
+    acceptedTypes: ['pair:Finality'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator,
+  },
+  {
+    path: '/sectors',
+    acceptedTypes: ['pair:Sector'],
     permissions: anonReadPermission,
     newResourcesPermissions: writePermissionToCreator,
   },

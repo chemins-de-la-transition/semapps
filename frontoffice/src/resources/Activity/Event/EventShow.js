@@ -1,7 +1,6 @@
 import React from 'react';
-import {ShowBase, TextField} from 'react-admin';
-import {ReferenceArrayField, ReferenceField} from '@semapps/semantic-data-provider';
-import { MapField } from '@semapps/geo-components';
+import { ShowBase, TextField } from 'react-admin';
+import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../../commons/fields/MarkdownField';
 import HeaderShow from '../../../commons/HeaderShow';
 import StickyCard from '../../../commons/StickyCard';
@@ -12,6 +11,7 @@ import BulletPointsField from "../../../commons/fields/BulletPointsField";
 import SimilarEvents from "../../../commons/lists/EventsList/SimilarEvents";
 import ApplyButton from "../../../commons/buttons/ApplyButton";
 import EventAlert from "./EventAlert";
+import EventMapField from "./EventMapField";
 
 const EventShow = (props) => (
   <ShowBase {...props}>
@@ -31,6 +31,8 @@ const EventShow = (props) => (
         alert={<EventAlert />}
       >
         <MarkdownField source="pair:description" />
+        <MarkdownField source="cdlt:organizerDescription" />
+        <MarkdownField source="cdlt:mentorDescription" />
         <MarkdownField source="cdlt:program" />
         <ReferenceArrayField reference="Skill" source="pair:produces">
           <BulletPointsField linkType={false}>
@@ -41,16 +43,7 @@ const EventShow = (props) => (
         <MarkdownField source="cdlt:practicalConditions" />
         <MarkdownField source="cdlt:learningObjectives" />
         <MarkdownField source="cdlt:economicalConditions" />
-        <ReferenceField reference="Place" source="pair:hostedIn" link={false}>
-          <MapField
-            address={(record) => record?.['pair:label'] + ', ' + record?.['pair:hasPostalAddress']?.['pair:label']}
-            latitude={(record) => record?.['pair:hasPostalAddress']?.['pair:latitude']}
-            longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
-            typographyProps={{ variant: 'body2', color: 'secondary' }}
-            scrollWheelZoom={false}
-            dragging={false}
-          />
-        </ReferenceField>
+        <EventMapField addLabel source="pair:hasLocation" />
         <ContactField
           source="pair:phone"
           phone="pair:phone"

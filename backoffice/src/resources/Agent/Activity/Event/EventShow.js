@@ -4,10 +4,10 @@ import { Grid } from '@material-ui/core';
 import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
-import { MapField } from '@semapps/geo-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
-import JotformButton from '../../../JotformButton';
+import JotformButton from '../../../../commons/JotformButton';
 import EventTitle from './EventTitle';
+import EventMapField from "./EventMapField";
 
 const EventShow = (props) => (
   <ShowWithPermissions title={<EventTitle />} {...props}>
@@ -20,7 +20,7 @@ const EventShow = (props) => (
           <ReferenceField source="pair:hostedIn" reference="Place" link="show">
             <TextField source="pair:label" />
           </ReferenceField>
-          <ReferenceField source="pair:hasLocation" reference="Region" link={false}>
+          <ReferenceField source="cdlt:hasRegion" reference="Region" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
           <ReferenceArrayField source="cdlt:hasCourseType" reference="Type">
@@ -46,40 +46,48 @@ const EventShow = (props) => (
         <JotformButton />
         <MainList>
           <MarkdownField source="pair:description" />
+          <MarkdownField source="cdlt:organizerDescription" />
+          <MarkdownField source="cdlt:mentorDescription" />
           <MarkdownField source="cdlt:program" addLabel />
           <MarkdownField source="cdlt:practicalConditions" addLabel />
           <MarkdownField source="cdlt:learningObjectives" addLabel />
           <MarkdownField source="cdlt:economicalConditions" addLabel />
-          <MapField
-            source="pair:hostedIn"
-            address={(record) =>
-              record?.['pair:hostedIn']?.['pair:label'] +
-              ', ' +
-              record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:label']
-            }
-            latitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:latitude']}
-            longitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
-          />
+          <EventMapField source="pair:hasLocation" />
         </MainList>
       </Grid>
       <Grid item xs={12} sm={3}>
         <SideList>
-          <ReferenceArrayField reference="Person" source="cdlt:organizedBy">
+          <ReferenceArrayField reference="Actor" source="cdlt:organizedBy">
             <GridList xs={6} linkType="show">
               <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
             </GridList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Person" source="cdlt:hasMentor">
+            <GridList xs={6} linkType="show">
+              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+            </GridList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Path" source="cdlt:eventOn">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Course" source="pair:partOf">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Theme" source="pair:hasTopic">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Skill" source="pair:produces">
-            <SingleFieldList linkType="show">
+          <ReferenceArrayField reference="Finality" source="pair:hasFinality">
+            <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Course" source="pair:partOf">
+          <ReferenceArrayField reference="Skill" source="pair:produces">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>

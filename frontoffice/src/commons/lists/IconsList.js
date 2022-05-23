@@ -5,19 +5,20 @@ import { getFieldLabelTranslationArgs, useShowContext, useTranslate } from 'reac
 const useStyles = makeStyles((theme) => ({
   root: (props) => ({
     display: 'flex',
+    flexWrap: 'wrap',
     flexDirection: props.isVertical ? 'column' : 'row',
     alignItems: props.isVertical ? undefined : 'flex-start',
     padding: 0,
+    margin: props.isVertical ? 0 : '0 -16px 0 -16px',
+    '&::after': {
+      content: `''`,
+      flexGrow: 99999
+    },
   }),
   item: (props) => ({
+    width: 'unset',
     flexGrow: 1,
     padding: props.isVertical ? '8px 0 8px 0' : '0 16px 0 16px',
-    '&:first-child': {
-      padding: props.isVertical ? '0 0 8px 0' : '0 16px 0 0',
-    },
-    '&:last-child': {
-      padding: props.isVertical ? '8px 0 0 0' : '0 0 0 16px',
-    },
   }),
   avatar: {
     minWidth: 40,

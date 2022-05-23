@@ -1,6 +1,6 @@
 // Idea
-// export { default as Path } from './Idea/Path';
 // export { default as Idea } from './Idea/Idea';
+export { default as Path } from './Idea/Path';
 
 // Activities
 export { default as Course } from './Agent/Activity/Course';
@@ -21,6 +21,8 @@ export { default as Document } from './Resource/Document';
 export { default as Resource } from './Resource/Resource';
 
 // Concepts
+export { default as Finality } from './Concept/Finality';
+export { default as Sector } from './Concept/Sector';
 export { default as Status } from './Concept/Status';
 export { default as Theme } from './Concept/Theme';
 export { default as Type } from './Concept/Type';

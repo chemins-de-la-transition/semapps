@@ -8,21 +8,19 @@ import {
   Drawer,
   useMediaQuery,
   useScrollTrigger,
-  IconButton
 } from '@material-ui/core';
 import {
   TextField,
   useShowContext,
   ReferenceField,
   Link,
-  useRecordContext,
-  usePermissionsOptimized,
-  linkToRecord
+  useRecordContext
 } from 'react-admin';
 import FullWidthBox from './FullWidthBox';
 import LargeContainer from './LargeContainer';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import EditIcon from '@material-ui/icons/Edit';
+import EditButton from "./buttons/EditButton";
+import LikeButton from "./buttons/LikeButton";
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -81,13 +79,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  editIcon: {
+  buttons: {
     position: 'absolute',
     top: 5,
-    right: 0,
-    padding: 6,
-    backgroundColor: 'white',
-    borderRadius: 5
+    right: 0
   }
 }));
 
@@ -112,10 +107,9 @@ const MultipleImagesField = ({ source, max = 2 }) => {
   }
 };
 
-const HeaderShow = ({ type, linkToListText, details, actionButton }) => {
+const HeaderShow = ({ type, linkToListText, details, content, actionButton, hasComment }) => {
   const classes = useStyles();
-  const { basePath, hasEdit, record } = useShowContext();
-  const { permissions } = usePermissionsOptimized(record?.id);
+  const { basePath, record } = useShowContext();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
 
   // Calculate header height
@@ -141,12 +135,11 @@ const HeaderShow = ({ type, linkToListText, details, actionButton }) => {
           <MultipleImagesField source="pair:isDepictedBy" max={2} />
         </Box>
         <Box position="relative">
-          {!xs && hasEdit && !!permissions && permissions.some(p => ['acl:Append', 'acl:Write'].includes(p['acl:mode'])) &&
-            <Link to={linkToRecord(basePath, record?.id, 'edit')}>
-              <IconButton className={classes.editIcon}>
-                <EditIcon />
-              </IconButton>
-            </Link>
+          {!xs &&
+            <div className={classes.buttons}>
+              <EditButton />
+              <LikeButton />
+            </div>
           }
           {type && record && record[type] && (
             <ReferenceField source={type} reference="Type" link={false}>
@@ -154,8 +147,20 @@ const HeaderShow = ({ type, linkToListText, details, actionButton }) => {
             </ReferenceField>
           )}
           <TextField source="pair:label" variant="h1" className={classes.title} />
+          {hasComment &&
+            <TextField source="pair:comment" variant="h2" component="h2" />
+          }
           <Box display={xs ? 'block' : 'flex'} pt={2} pb={2}>
-            {React.cloneElement(details, { orientation: xs ? 'vertical' : 'horizontal' })}
+            {details &&
+              <>
+                {React.cloneElement(details, { orientation: xs ? 'vertical' : 'horizontal' })}
+              </>
+            }
+            {content &&
+              <div>
+                {React.cloneElement(content)}
+              </div>
+            }
           </Box>
           {xs && (
             <Box pb={3}>

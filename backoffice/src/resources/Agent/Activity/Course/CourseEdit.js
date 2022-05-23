@@ -4,8 +4,11 @@ import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
 import {
+  PathsInput, 
+  ActorsInput,
+  FinalitiesInput,
   PersonsInput,
-  EventsInput,
+  /*EventsInput,*/
   ThemesInput,
   StatusInput,
   TypesInput,
@@ -46,6 +49,8 @@ const CourseEdit = (props) => (
           fullWidth
         />
         <MarkdownInput source="pair:description" fullWidth />
+        <MarkdownInput source="cdlt:organizerDescription" fullWidth />
+        <MarkdownInput source="cdlt:mentorDescription" fullWidth />
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
         <MarkdownInput source="cdlt:practicalConditions" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
@@ -57,12 +62,14 @@ const CourseEdit = (props) => (
         {/*<PathInput source="cdlt:courseOn" />*/}
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'cdlt:CourseStatus' }} />
+        <PathsInput source="cdlt:courseOn" />
         <ThemesInput source="pair:hasTopic" />
-        <EventsInput source="pair:hasPart" />
+        {/*<EventsInput source="pair:hasPart" />*/}
         <SkillsInput source="pair:produces" />
-        <PersonsInput source="cdlt:organizedBy" />
+        <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
         <DocumentsType source="pair:documentedBy" />
+        <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
       <FormTab label="Contact">
         <TextInput source="pair:e-mail" fullWidth />

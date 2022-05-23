@@ -72,7 +72,7 @@ const Footer = ({ title }) => {
           <Grid item sm={9} xs={12} className={classes.links}>
             <Box pt={3} pb={{ sm: 5, xs: 3 }}>
               <Typography variant="body2" color="secondary" align={xs ? "center" : undefined}>
-                <Link to="/Page/qui-sommes-nous/show" className={classes.footerLink}>
+                <Link to="/About" className={classes.footerLink}>
                   A propos de nous
                 </Link>
                 {" "}{" "}-{" "}{" "}

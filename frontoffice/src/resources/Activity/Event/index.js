@@ -12,14 +12,13 @@ export default {
     edit: EventEdit,
     icon: EventIcon,
     options: {
-      label: 'Événements',
-      parent: 'Activity',
+      label: 'Événements'
     },
   },
   dataModel: {
     types: ['pair:Event'],
     list: {
-      dereference: ['pair:hostedIn/pair:hasPostalAddress'],
+      dereference: ['pair:hasLocation/pair:hasPostalAddress'],
       explicitEmbedOnFraming: false // Increase performance since explicit embed is not necessary
     },
     fieldsMapping: {
@@ -40,8 +39,12 @@ export default {
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',
         'pair:description': 'Présentation',
+        'cdlt:organizerDescription': 'Organisateur',
+        'cdlt:mentorDescription': 'Intervenant',
         'cdlt:program': 'Programme',
         'pair:hostedIn': 'Lieu',
+        'pair:hasLocation': 'Localisation',
+        'cdlt:hasRegion': 'Région',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
@@ -51,6 +54,9 @@ export default {
         'pair:phone': 'Téléphone',
         'pair:aboutPage': 'Site web',
         'cdlt:organizedBy': 'Organisé par',
+        'cdlt:hasMentor': 'Intervenant(e)s',
+        'cdlt:eventOn': 'Chemins',
+        'pair:hasFinality': 'Finalités',
       },
     },
   },

@@ -10,20 +10,31 @@ import CalendarIcon from '../../../svg/CalendarIcon';
 import PlaceIcon from '../../../svg/PlaceIcon';
 import DurationField from '../../../commons/fields/DurationField';
 import DurationIcon from '../../../svg/DurationIcon';
+import ActorIcon from '../../../svg/ActorIcon';
 
 const EventDetails = (props) => (
   <IconsList {...props}>
     <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
-      <SeparatedListField link={linkToFilteredList( 'Event', 'cdlt:hasCourseType')} separator=" / ">
+      <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:hasCourseType')} separator=" / ">
+        <TextField source="pair:label" />
+      </SeparatedListField>
+    </ReferenceArrayField>
+    <ReferenceArrayField reference="Path" source="cdlt:eventOn" icon={<ThemeIcon />}>
+      <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:eventOn')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
     <ReferenceArrayField reference="Theme" source="pair:hasTopic" icon={<ThemeIcon />}>
-      <SeparatedListField link={linkToFilteredList( 'Event', 'pair:hasTopic')} separator=" / ">
+      <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceField label="Région" reference="Region" source="pair:hasLocation" icon={<PlaceIcon />} link={linkToFilteredList( 'Event', 'pair:hasLocation')} separator=" / ">
+    <ReferenceArrayField reference="Finality" source="pair:hasFinality" icon={<ThemeIcon />}>
+      <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasFinality')} separator=" / ">
+        <TextField source="pair:label" />
+      </SeparatedListField>
+    </ReferenceArrayField>
+    <ReferenceField label="Région" reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList('LEP', 'cdlt:hasRegion')} separator=" / ">
       <TextField source="pair:label" />
     </ReferenceField>
     <DateField
@@ -40,6 +51,16 @@ const EventDetails = (props) => (
       endDate="pair:endDate"
       icon={<DurationIcon />}
     />
+    <ReferenceArrayField label="Organisateur(trice)" reference="Actor" source="cdlt:organizedBy" icon={<ActorIcon/>} link="show" >
+      <SeparatedListField link="show" separator=" / ">
+        <TextField source="pair:label" />
+      </SeparatedListField>
+    </ReferenceArrayField>
+    <ReferenceArrayField label="Intervenant(e)" reference="Person" source="cdlt:hasMentor" icon={<ActorIcon/>} link="show" >
+      <SeparatedListField link="show" separator=" / ">
+        <TextField source="pair:label" />
+      </SeparatedListField>
+    </ReferenceArrayField>
   </IconsList>
 );
 

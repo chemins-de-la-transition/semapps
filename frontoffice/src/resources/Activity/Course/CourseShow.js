@@ -26,6 +26,8 @@ const CourseShow = (props) => (
         }
       >
         <MarkdownField source="pair:description" />
+        <MarkdownField source="cdlt:organizerDescription" />
+        <MarkdownField source="cdlt:mentorDescription" />
         <ReferenceArrayField
           label="Programme"
           reference="Event"
@@ -50,8 +52,8 @@ const CourseShow = (props) => (
           sort={{ field: 'pair:startDate', order: 'ASC' }}
         >
           <MapList
-            latitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:latitude']}
-            longitude={(record) => record?.['pair:hostedIn']?.['pair:hasPostalAddress']?.['pair:longitude']}
+            latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
+            longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
             label={(record) => record?.['pair:label']}
             description={(record) => record?.['pair:comment']}
             groupClusters={false}

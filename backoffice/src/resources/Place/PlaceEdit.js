@@ -5,7 +5,7 @@ import { extractContext, LocationInput } from '@semapps/geo-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
 import PlaceTitle from './PlaceTitle';
-import { ThemesInput, TypeInput, TypesInput, SkillsInput, EventsInput, PersonsInput, StatusInput } from '../../pair';
+import { FinalitiesInput, PathsInput, ThemesInput, TypeInput, TypesInput, SkillsInput, PersonsInput, StatusInput } from '../../pair';
 
 export const PlaceEdit = (props) => (
   <EditWithPermissions title={<PlaceTitle />} {...props}>
@@ -17,6 +17,7 @@ export const PlaceEdit = (props) => (
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth />
+        <MarkdownInput source="cdlt:hostDescription" fullWidth />
         <MarkdownInput source="cdlt:activities" fullWidth />
         <MarkdownInput source="cdlt:practicalConditions" fullWidth />
         <LocationInput
@@ -44,12 +45,14 @@ export const PlaceEdit = (props) => (
       </FormTab>
       <FormTab label="Relations">
         <PersonsInput source="cdlt:proposedBy" />
+        <PathsInput source="cdlt:placeOn" />
         <ThemesInput source="pair:hasTopic" />
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <TypeInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:PlaceStatus' }} />
-        <EventsInput source="pair:hosts" fullWidth />
+        {/*<EventsInput source="pair:hosts" fullWidth />*/}
         <SkillsInput source="pair:produces" fullWidth />
+        <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
       <FormTab label="Contact">
         <TextInput source="pair:e-mail" fullWidth />
