@@ -9,6 +9,7 @@ module.exports = {
       fusekiBackupsPath: CONFIG.BACKUP_FUSEKI_DATASETS_PATH,
       otherDirsPaths: {
         jwt: path.resolve(__dirname, '../jwt'),
+        actors: path.resolve(__dirname, '../actors'),
         uploads: path.resolve(__dirname, '../uploads')
       }
     },
