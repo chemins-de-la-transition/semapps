@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChipField, SingleFieldList, TextField, EmailField } from 'react-admin';
-import { Box, Container, Grid, Typography, makeStyles } from '@material-ui/core';
+import { Container, Grid, makeStyles } from '@material-ui/core';
 import { MainList, SideList, Hero, GridList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
@@ -9,11 +9,6 @@ import { MapField } from '@semapps/geo-components';
 import PersonTitle from './PersonTitle';
 import HomeIcon from '@material-ui/icons/Home';
 import ChipWithResourceIcon from '../../../../commons/ChipWithResourceIcon';
-import LikedList from '../../../../commons/lists/LikedList';
-import PathCard from '../../../Idea/Path/PathCard';
-import PlaceCard from '../../../Place/PlaceCard';
-import EventCard from '../../../Activity/Event/EventCard';
-import CourseCard from '../../../Activity/Course/CourseCard';
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -94,45 +89,6 @@ const PersonShow = (props) => {
               scrollWheelZoom={false}
             />
           </MainList>
-          <Box mt={3}>
-          <Typography variant="h2">Mes favoris</Typography>
-            <LikedList
-              id={props.id}
-              resource="Path"
-              type="cdlt:Path" 
-              title="Mes favoris" 
-              subtitle="les chemins"
-              headComment="Pour composer mon voyage à la carte" 
-              CardComponent={PathCard}
-            />
-            <LikedList
-              id={props.id}
-              resource="Place"
-              type="pair:Place"
-              title="Mes favoris"
-              subtitle="les lieux"
-              headComment="Pour composer mon voyage à la carte"
-              CardComponent={PlaceCard}
-            />
-            <LikedList
-              id={props.id}
-              resource="Event"
-              type="pair:Event"
-              title="Mes favoris"
-              subtitle="les événements"
-              headComment="Pour composer mon voyage à la carte"
-              CardComponent={EventCard}
-            />
-            <LikedList
-              id={props.id}
-              resource="Course"
-              type="cdlt:Course"
-              title="Mes favoris"
-              subtitle="les voyages"
-              headComment="Pour composer mon voyage à la carte"
-              CardComponent={CourseCard}
-            />
-          </Box>
         </Grid>
         <Grid item xs={12} md={3}>
           <SideList>

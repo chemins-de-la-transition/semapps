@@ -1,8 +1,13 @@
 import React, { forwardRef } from 'react';
 import { UserMenu as RaUserMenu, MenuItemLink, useGetIdentity } from 'react-admin';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import PlaceIcon from '../svg/PlaceIcon';
 import EventIcon from '@material-ui/icons/Event';
 import EditIcon from '@material-ui/icons/Edit';
+
+const MyBookmarks = forwardRef(({ onClick }, ref) => (
+  <MenuItemLink ref={ref} to="/MyBookmarks" primaryText="Mes favoris" leftIcon={<FavoriteIcon />} onClick={onClick} />
+));
 
 const MyPlacesMenu = forwardRef(({ onClick }, ref) => (
   <MenuItemLink ref={ref} to="/MyPlaces" primaryText="Mes lieux" leftIcon={<PlaceIcon />} onClick={onClick} />
@@ -32,6 +37,7 @@ const UserMenu = ({ logout, ...otherProps }) => {
     <RaUserMenu {...otherProps}>
       {identity && identity.id !== '' ? (
         [
+          <MyBookmarks key="my-bookmarks" />,
           <MyPlacesMenu key="my-places" />,
           <MyEventsMenu key="my-events" />,
           <EditProfileMenu webId={identity.id} key="edit" />,
