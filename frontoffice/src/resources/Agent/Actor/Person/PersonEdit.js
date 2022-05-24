@@ -5,7 +5,7 @@ import { EditWithPermissions } from '@semapps/auth-provider';
 import { MarkdownInput } from '@semapps/markdown-components';
 import {
   ActivitiesInput,
-  IntentionsInput,
+  FinalitiesInput,
   OrganizationsInput,
   PairLocationInput,
   PlacesInput,
@@ -43,6 +43,10 @@ export const PersonEdit = (props) => (
           <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
           */}
           <PairLocationInput source="pair:hasLocation" fullWidth />
+          <MarkdownInput source="cdlt:asAHostIntentions" fullWidth />
+          <MarkdownInput source="cdlt:asAMentorIntentions" fullWidth />
+          <MarkdownInput source="cdlt:asAnOrganiserIntentions" fullWidth />
+          <MarkdownInput source="cdlt:asATravelerIntentions" fullWidth />
         </FormTab>
         <FormTab label="Relations">
           <OrganizationsInput source="pair:affiliatedBy" />
@@ -52,10 +56,7 @@ export const PersonEdit = (props) => (
           <SectorsInput source="pair:hasSector" />
           <ThemesInput source="pair:hasTopic" />
           <SkillsInput source="pair:offers" />
-          <IntentionsInput source="pair:aims" />
-          <IntentionsInput source="cdlt:aimsAsHost" />
-          <IntentionsInput source="cdlt:aimsAsOrganizer" />
-          <IntentionsInput source="cdlt:aimsAsMentor" />
+          <FinalitiesInput source="pair:hasFinality" />
         </FormTab>
       </TabbedForm>
     </EditWithPermissions>

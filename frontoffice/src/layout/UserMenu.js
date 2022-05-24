@@ -1,8 +1,13 @@
 import React, { forwardRef } from 'react';
 import { UserMenu as RaUserMenu, MenuItemLink, useGetIdentity } from 'react-admin';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import PlaceIcon from '../svg/PlaceIcon';
 import EventIcon from '@material-ui/icons/Event';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+
+const MyBookmarks = forwardRef(({ onClick }, ref) => (
+  <MenuItemLink ref={ref} to="/MyBookmarks" primaryText="Mes favoris" leftIcon={<FavoriteIcon />} onClick={onClick} />
+));
 
 const MyPlacesMenu = forwardRef(({ onClick }, ref) => (
   <MenuItemLink ref={ref} to="/MyPlaces" primaryText="Mes lieux" leftIcon={<PlaceIcon />} onClick={onClick} />
@@ -23,7 +28,7 @@ const SignupMenu = forwardRef(({ onClick }, ref) => (
 const EditProfileMenu = forwardRef(({ onClick, webId }, ref) => (
   <MenuItemLink
     ref={ref}
-    to={`/Person/${encodeURIComponent(webId)}/Show`}
+    to={`/Person/${encodeURIComponent(webId)}/show`}
     primaryText="Mon profil"
     leftIcon={<AccountCircleIcon />}
     onClick={onClick}
@@ -36,6 +41,7 @@ const UserMenu = ({ logout, ...otherProps }) => {
     <RaUserMenu {...otherProps}>
       {identity && identity.id !== '' ? (
         [
+          <MyBookmarks key="my-bookmarks" />,
           <MyPlacesMenu key="my-places" />,
           <MyEventsMenu key="my-events" />,
           <EditProfileMenu webId={identity.id} key="edit" />,

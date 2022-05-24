@@ -56,6 +56,7 @@ export default {
         'cdlt:organizedBy': 'Organisé par',
         'cdlt:hasMentor': 'Intervenant(e)s',
         'cdlt:eventOn': 'Chemins',
+        'pair:hasFinality': 'Finalités',
       },
     },
   },

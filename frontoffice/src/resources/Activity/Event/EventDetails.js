@@ -15,21 +15,26 @@ import ActorIcon from '../../../svg/ActorIcon';
 const EventDetails = (props) => (
   <IconsList {...props}>
     <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
-      <SeparatedListField link={linkToFilteredList( 'Event', 'cdlt:hasCourseType')} separator=" / ">
+      <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:hasCourseType')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
     <ReferenceArrayField reference="Path" source="cdlt:eventOn" icon={<ThemeIcon />}>
-      <SeparatedListField link={linkToFilteredList('Event', 'cdlt:eventOn')} separator=" / ">
+      <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:eventOn')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
     <ReferenceArrayField reference="Theme" source="pair:hasTopic" icon={<ThemeIcon />}>
-      <SeparatedListField link={linkToFilteredList( 'Event', 'pair:hasTopic')} separator=" / ">
+      <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceField label="Région" reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList( 'Event', 'cdlt:hasRegion')} separator=" / ">
+    <ReferenceArrayField reference="Finality" source="pair:hasFinality" icon={<ThemeIcon />}>
+      <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasFinality')} separator=" / ">
+        <TextField source="pair:label" />
+      </SeparatedListField>
+    </ReferenceArrayField>
+    <ReferenceField label="Région" reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList('LEP', 'cdlt:hasRegion')} separator=" / ">
       <TextField source="pair:label" />
     </ReferenceField>
     <DateField

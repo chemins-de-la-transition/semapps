@@ -43,7 +43,7 @@ const EventShow = (props) => (
         <MarkdownField source="cdlt:practicalConditions" />
         <MarkdownField source="cdlt:learningObjectives" />
         <MarkdownField source="cdlt:economicalConditions" />
-        <EventMapField source="pair:hasLocation" />
+        <EventMapField addLabel source="pair:hasLocation" />
         <ContactField
           source="pair:phone"
           phone="pair:phone"

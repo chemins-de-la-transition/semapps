@@ -26,8 +26,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   subTitle: {
-    marginTop: -5,
-    marginBottom: 5
+    marginBottom: '1rem'
+  },
+  headComment: {
+    marginBottom: '2rem'
   },
   listBase: {
     overflowY: 'hidden',
@@ -83,7 +85,7 @@ const LikedList = ({ id, type, resource, title, subtitle, headComment, CardCompo
             <Typography variant="h3" component="div" className={classes.subTitle}>
               {subtitle}
             </Typography>
-            <Typography variant="body2" component="div">
+            <Typography variant="body2" component="div" className={classes.headComment}>
               {headComment}
             </Typography>
           </Box>
@@ -93,7 +95,7 @@ const LikedList = ({ id, type, resource, title, subtitle, headComment, CardCompo
             Aucun favori enregistré
           </Typography>
         }
-        { !loaded && !error &&
+        { (!loaded || error === undefined) &&
           <LinearProgress className={classes.likedLoading}/>
         }
         { error &&
