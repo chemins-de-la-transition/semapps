@@ -60,6 +60,7 @@ export default {
         'pair:hasFinality': 'Finalités',
         'cdlt:jotformLink':"Formulaire d'inscription",
         'cdlt:personalizedJotformLink':"Utiliser un lien personnalisé",
+        'cdlt:directRegistration' : "Possibilité de s'enregistrer directement",
       },
     },
   },
