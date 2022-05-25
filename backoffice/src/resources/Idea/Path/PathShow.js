@@ -7,6 +7,7 @@ import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MarkdownField } from '@semapps/markdown-components';
 import { MapList } from '@semapps/geo-components';
 import PathTitle from './PathTitle';
+import JotformButton from '../../../commons/JotformButton';
 
 const PathShow = (props) => (
   <ShowWithPermissions title={<PathTitle />} {...props}>
@@ -25,6 +26,7 @@ const PathShow = (props) => (
           </ReferenceField>
           */}
         </Hero>
+        <JotformButton source="cdlt:jotformLink"/>
         <MainList>
           <MarkdownField source="pair:description" />
           {/*

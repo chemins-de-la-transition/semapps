@@ -9,7 +9,7 @@ const JotformButton = ({ label: labelProp }) => {
 
   const { record = {} } = useShowContext();
 
-  console.log("record", record);
+  const link = record['cdlt:jotformLink'] ? record['cdlt:jotformLink'] : "https://form.jotform.com/212722469132048?";
 
   const id = record.id;
   const startDate = record["pair:startDate"]
@@ -22,11 +22,7 @@ const JotformButton = ({ label: labelProp }) => {
   const label = record["pair:label"];
   const hasType = record["pair:hasType"];
 
-  console.log(priceRange);
-
   useEffect(() => {
-    console.log("=>", hasType);
-
     if (!hasType) return;
     const promisesArray = Array.isArray(hasType) ? hasType : [hasType];
     Promise.all(
@@ -38,10 +34,8 @@ const JotformButton = ({ label: labelProp }) => {
 
   if (record.hasType && !types) return null;
 
-  console.log("types", types);
-
   const href =
-    "https://form.jotform.com/212722469132048?" +
+    link +
     qs.stringify(
       Object.assign(
         {},
@@ -59,7 +53,7 @@ const JotformButton = ({ label: labelProp }) => {
           typeVoyage: types.map((t) => t["pair:label"]).join(", "),
         },
         { label },
-        { LEPId: id },
+        { lepid: id },
         priceRange && { prix: priceRange.replace(/[^0-9]/g, "") }
       )
     );
