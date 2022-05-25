@@ -56,6 +56,7 @@ export default {
         'pair:homePage': 'Site web',
         'cdlt:placeOn': 'Chemins',
         'pair:hasFinality': 'Finalités',
+        'cdlt:directRegistration' : "Possibilité de s'enregistrer directement",
       },
     },
   },
