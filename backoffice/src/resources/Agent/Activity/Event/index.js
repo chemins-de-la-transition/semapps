@@ -58,6 +58,8 @@ export default {
         'cdlt:hasMentor': 'Intervenant(e)s',
         'cdlt:eventOn': 'Est un événement de',
         'pair:hasFinality': 'Finalités',
+        'cdlt:jotformLink':"Formulaire d'inscription",
+        'cdlt:personalizedJotformLink':"Utiliser un lien personnalisé",
       },
     },
   },

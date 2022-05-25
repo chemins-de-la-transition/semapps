@@ -53,6 +53,8 @@ export default {
         'pair:documentedBy': 'Documents',
         'cdlt:courseOn': 'Est un voyage de',
         'pair:hasFinality': 'Finalités',
+        'cdlt:jotformLink':"Formulaire d'inscription",
+        'cdlt:personalizedJotformLink':"Utiliser un lien personnalisé",
       },
     },
   },

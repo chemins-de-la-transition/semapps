@@ -43,7 +43,7 @@ const EventShow = (props) => (
           <UrlField source="pair:aboutPage" />
           <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
-        <JotformButton />
+        <JotformButton source="cdlt:jotformLink"/>
         <MainList>
           <MarkdownField source="pair:description" />
           <MarkdownField source="cdlt:organizerDescription" />
