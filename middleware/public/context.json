@@ -14,6 +14,7 @@
     "schema": "http://schema.org/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
+    "prov": "http://www.w3.org/ns/prov#",
     "semapps": "http://semapps.org/ns/core#",
     "oasis": "http://cooperative-oasis.org/ns/core#",
 
@@ -28,6 +29,10 @@
     },
     "dc:creator" : {
       "@type" : "@id"
+    },
+
+    "prov:wasDerivedFrom": {
+      "@type": "@id"
     },
 
     "Accept": "as:Accept",

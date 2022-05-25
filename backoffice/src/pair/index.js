@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReferenceArrayInput, ReferenceInput } from '@semapps/semantic-data-provider';
-import { AutocompleteInput, AutocompleteArrayInput, SelectInput, BooleanInput, TextInput } from 'react-admin';
-import { FormDataConsumer } from 'react-admin';
+import { FormDataConsumer, AutocompleteInput, AutocompleteArrayInput, SelectInput, BooleanInput, TextInput } from 'react-admin';
+import { LexiconCreateDialog, fetchESCO, fetchWikidata } from "@semapps/interop-components";
 
 export const OrganizationsInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Organization" source={source}>
@@ -65,13 +65,40 @@ export const SectorsInput = ({ label, source }) => (
 
 export const SkillsInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Skill" source={source}>
-    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+    <AutocompleteArrayInput
+      optionText="pair:label"
+      shouldRenderSuggestions={(value) => value.length > 1}
+      create={
+        <LexiconCreateDialog
+          fetchLexicon={fetchESCO}
+          selectData={data => ({
+            'pair:label': data.label,
+            'http://www.w3.org/ns/prov#wasDerivedFrom': data.uri,
+          })}
+        />
+      }
+      fullWidth
+    />
   </ReferenceArrayInput>
 );
 
 export const ThemesInput = ({ label, source }) => (
   <ReferenceArrayInput label={label} reference="Theme" source={source}>
-    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+    <AutocompleteArrayInput
+      optionText="pair:label"
+      shouldRenderSuggestions={(value) => value.length > 1}
+      create={
+        <LexiconCreateDialog
+          fetchLexicon={fetchWikidata}
+          selectData={data => ({
+            'pair:label': data.label,
+            'pair:comment': data.summary,
+            'http://www.w3.org/ns/prov#wasDerivedFrom': data.uri,
+          })}
+        />
+      }
+      fullWidth
+    />
   </ReferenceArrayInput>
 );
 
@@ -142,9 +169,9 @@ export const JotFormInput = ({ label, source, booleanSource, booleanLabel, ...re
         {({ formData, ...rest }) => formData[booleanSource] ?
           <TextInput label={label} source={source} {...rest} type="url"/>
         :
-          <SelectInput 
+          <SelectInput
             source={source}
-            choices={options} 
+            choices={options}
             {...rest}
             allowEmpty
           />
