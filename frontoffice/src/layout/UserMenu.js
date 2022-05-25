@@ -4,6 +4,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import PlaceIcon from '../svg/PlaceIcon';
 import EventIcon from '@material-ui/icons/Event';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import HomeIcon from '@material-ui/icons/Home';
 
 const MyBookmarks = forwardRef(({ onClick }, ref) => (
   <MenuItemLink ref={ref} to="/MyBookmarks" primaryText="Mes favoris" leftIcon={<FavoriteIcon />} onClick={onClick} />
@@ -15,6 +16,10 @@ const MyPlacesMenu = forwardRef(({ onClick }, ref) => (
 
 const MyEventsMenu = forwardRef(({ onClick }, ref) => (
   <MenuItemLink ref={ref} to="/MyEvents" primaryText="Mes événements" leftIcon={<EventIcon />} onClick={onClick} />
+));
+
+const MyOrganizationsMenu = forwardRef(({ onClick }, ref) => (
+  <MenuItemLink ref={ref} to="/MyOrganizations" primaryText="Mes organisations" leftIcon={<HomeIcon />} onClick={onClick} />
 ));
 
 const LoginMenu = forwardRef(({ onClick }, ref) => (
@@ -44,6 +49,7 @@ const UserMenu = ({ logout, ...otherProps }) => {
           <MyBookmarks key="my-bookmarks" />,
           <MyPlacesMenu key="my-places" />,
           <MyEventsMenu key="my-events" />,
+          <MyOrganizationsMenu key="my-organizations" />,
           <EditProfileMenu webId={identity.id} key="edit" />,
           React.cloneElement(logout, { key: 'logout' }),
         ]
