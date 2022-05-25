@@ -42,7 +42,7 @@ const SubAppBar = ({ fields }) => {
           >
             {fields.map((field, i) => {
               if (!field.props.addLabel) return null;
-              const label = translate(
+              const label = field.props.title ? field.props.title : translate(
                 ...getFieldLabelTranslationArgs({
                   label: field.props.label,
                   resource,

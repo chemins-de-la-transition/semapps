@@ -45,7 +45,7 @@ const CourseShow = (props) => (
           </ReferenceField>
           <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
-        <JotformButton />
+        <JotformButton source="cdlt:jotformLink"/>
         <MainList>
           <MarkdownField source="pair:description" />
           <MarkdownField source="cdlt:organizerDescription" />

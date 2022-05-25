@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import {
   BooleanInput,
+  NumberInput,
   FormTab,
   ImageInput,
   SelectInput,
@@ -14,7 +15,7 @@ import {
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { DateTimeInput } from '@semapps/date-components';
-import { PairLocationInput, FinalitiesInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput } from '../../../pair';
+import { PairLocationInput, FinalitiesInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput, ActorsInput } from '../../../pair';
 import frLocale from 'date-fns/locale/fr';
 import { Box, FormControlLabel, Slide, LinearProgress, makeStyles, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
@@ -101,7 +102,7 @@ const EventForm = ({ mode, ...rest }) => {
         'cdlt:hasMentor': null,
         'pair:hostedIn': null,
         'pair:partOf': null,
-        'pair:hasTopic': null,
+        'pair:hasSector': null,
         'cdlt:hasCourseType': null,
         'pair:hasType': null,
         'pair:produces': null,
@@ -187,19 +188,36 @@ const EventForm = ({ mode, ...rest }) => {
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} />
+        <TextInput multiline source="cdlt:targetAudience" fullWidth />
+        <MarkdownInput source="cdlt:organizerDescription" fullWidth />
+        <MarkdownInput source="cdlt:mentorDescription" fullWidth />
+
         <MarkdownInput source="cdlt:program" fullWidth />
+
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
-        <MarkdownInput source="cdlt:practicalConditions" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
-        <MarkdownInput source="cdlt:economicalConditions" fullWidth />
+        <MarkdownInput source="cdlt:pedagogicalMeans" fullWidth />
+        <MarkdownInput source="cdlt:evaluationMethod" fullWidth />
+
+        <MarkdownInput source="cdlt:practicalConditions" helperText="Précisez si besoin équipements, inscription, hébergement, repas..." fullWidth />
+        <NumberInput source="cdlt:attendeesMin" fullWidth />
+        <NumberInput source="cdlt:attendeesMax" fullWidth />
+        <BooleanInput source="cdlt:full" helperText="Cochez si l'événement est complet" fullWidth />
+        <TextInput multiline helperText="Précisez l'accessibilité de l'événement aux personnes en situation de handicap" source="cdlt:accessibility" fullWidth />
+
+        <NumberInput source="cdlt:price" fullWidth />
+        <TextInput multiline source="cdlt:economicalConditions" fullWidth />
+        <TextInput multiline helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" source="cdlt:financialSupport" fullWidth />
+
+        <PairLocationInput source="pair:hasLocation" fullWidth />
         <BooleanInput source="cdlt:directRegistration" fullWidth />
       </FormTab>
       <FormTab label="Relations">
+        <ActorsInput source="cdlt:organizedBy"/>
         <PersonsInput source="cdlt:hasMentor" />
-        <PairLocationInput source="pair:hasLocation" fullWidth />
         <PlaceInput source="pair:hostedIn" />
         <CourseInput source="pair:partOf" />
-        <ThemesInput source="pair:hasTopic" />
+        <ThemesInput source="pair:hasSector" />
         <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />
         <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} />
         <SkillsInput source="pair:produces" fullWidth />

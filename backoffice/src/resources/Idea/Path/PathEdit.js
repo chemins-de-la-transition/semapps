@@ -15,6 +15,7 @@ import {
   ThemesInput,
   // TypesInput,
   SkillsInput,
+  JotFormInput,
 } from '../../../pair';
 import PathTitle from './PathTitle';
 
@@ -52,6 +53,13 @@ const PathEdit = (props) => (
         <SkillsInput source="pair:produces" />
         <ThemesInput source="pair:hasTopic" />
         <FinalitiesInput source="pair:hasFinality" />
+        <JotFormInput 
+          label="Lien personnalisé du formulaire d'inscription" 
+          source="cdlt:jotformLink" 
+          booleanSource="cdlt:personalizedJotformLink" 
+          booleanLabel="Utiliser un lien personnalisé" 
+          fullWidth
+        />
       </FormTab>
     </TabbedForm>
   </EditWithPermissions>

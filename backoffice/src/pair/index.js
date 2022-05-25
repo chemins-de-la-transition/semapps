@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReferenceArrayInput, ReferenceInput } from '@semapps/semantic-data-provider';
-import { AutocompleteInput, AutocompleteArrayInput, SelectInput } from 'react-admin';
+import { FormDataConsumer, AutocompleteInput, AutocompleteArrayInput, SelectInput, BooleanInput, TextInput } from 'react-admin';
 import { LexiconCreateDialog, fetchESCO, fetchWikidata } from "@semapps/interop-components";
 
 export const OrganizationsInput = ({ label, source }) => (
@@ -155,6 +155,31 @@ export const PathInput = ({ label, source, ...rest }) => (
     <SelectInput optionText="pair:label" allowEmpty />
   </ReferenceInput>
 );
+
+const options = [
+  { id: "https://form.jotform.com/212722469132048?", name: 'Formulaire événement' },
+  { id: "https://form.jotform.com/212722469132048?", name: 'Formulaire voyage' },
+  { id: "https://form.jotform.com/212722469132048?", name: 'Formulaire chemin' },
+  { id: "https://form.jotform.com/212722469132048?", name: 'Formulaire lieu' },
+]
+
+export const JotFormInput = ({ label, source, booleanSource, booleanLabel, ...rest }) => (
+  <>
+    <FormDataConsumer {...rest}>
+        {({ formData, ...rest }) => formData[booleanSource] ?
+          <TextInput label={label} source={source} {...rest} type="url"/>
+        :
+          <SelectInput
+            source={source}
+            choices={options}
+            {...rest}
+            allowEmpty
+          />
+      }
+    </FormDataConsumer>
+    <BooleanInput label={booleanLabel} source={booleanSource} />
+  </>
+)
 
 export { default as PairLocationInput } from './PairLocationInput';
 export { default as PairResourceCreate } from './PairResourceCreate';
