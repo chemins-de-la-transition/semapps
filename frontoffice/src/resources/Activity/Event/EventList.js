@@ -10,6 +10,7 @@ import MapIcon from '../../../svg/MapIcon';
 import ListIcon from '@material-ui/icons/List';
 import Filter from '../../../commons/Filter';
 import SparqlFilter from '../../../commons/SparqlFilter';
+import SearchFilter from '../../../commons/SearchFilter';
 import CardsList from '../../../commons/lists/CardsList';
 import EventCard from './EventCard';
 
@@ -57,6 +58,7 @@ const EventList = (props) => {
   return (
     <MultiViewsFilterList
       filters={[
+        <SearchFilter />,
         <SparqlFilter initialChecked sparqlWhere={sparqlWhere} label="N'afficher que les événements à venir" />,
         <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label="Région" />,
         <Filter reference="Path" source="cdlt:eventOn" inverseSource="cdlt:hasEvent" label="Chemin" />,
