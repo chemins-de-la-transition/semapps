@@ -72,6 +72,7 @@ const EventDetails = (props) => (
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>    
+    <TextField source="cdlt:referenceNumber" />
   </IconsList>
 );
 

@@ -10,6 +10,7 @@ import {
 import { Create } from '@semapps/archipelago-layout';
 import { Box, FormControlLabel, LinearProgress, makeStyles, Slide, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
+import { v4 as uuid } from 'uuid';
 
 const useStyles = makeStyles((theme) => ({
   duplicateContainer: {
@@ -83,7 +84,7 @@ const EventCreate = (props) => {
     if (identity?.id) {
       formatedEvent = { ...formatedEvent, 'cdlt:organizedBy': identity?.id };
     }
-    return { ...formatedEvent }
+    return { ...formatedEvent, 'cdlt:referenceNumber':uuid().slice(0,8).toUpperCase() }
   }, []);
   
   const chosenEventRef = useRef(null);
@@ -99,7 +100,10 @@ const EventCreate = (props) => {
         'pair:label':data['pair:label']
       })
     } else {
-      return (data)
+      return ({
+        ...data,
+        'cdlt:referenceNumber':uuid().slice(0,8).toUpperCase()
+      })
     }
   }, [getFormatedEvent]);
   

@@ -56,6 +56,7 @@ export default {
         'cdlt:jotformLink':"Formulaire d'inscription",
         'cdlt:personalizedJotformLink':"Utiliser un lien personnalisé",
         'cdlt:directRegistration' : "Possibilité de s'enregistrer directement",
+        'cdlt:referenceNumber': "Numéro de référence",
       },
     },
   },

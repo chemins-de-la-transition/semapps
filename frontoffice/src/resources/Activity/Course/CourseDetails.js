@@ -14,7 +14,7 @@ import DateToDateField from '../../../commons/fields/DateToDateField';
 import DurationIcon from '../../../svg/DurationIcon';
 import ActorIcon from '../../../svg/ActorIcon';
 
-const EventDetails = (props) => (
+const CourseDetails = (props) => (
   <IconsList {...props}>
     <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
       <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:hasCourseType')} separator=" / ">
@@ -66,7 +66,8 @@ const EventDetails = (props) => (
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
+    <TextField source="cdlt:referenceNumber" />
   </IconsList>
 );
 
-export default EventDetails;
+export default CourseDetails;

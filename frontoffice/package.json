@@ -3,8 +3,8 @@
   "private": true,
   "dependencies": {
     "@material-ui/lab": "^4.0.0-alpha.60",
-    "@semapps/archipelago-layout": "0.4.0-alpha.23",
     "@semapps/activitypub-components": "0.4.0-alpha.23",
+    "@semapps/archipelago-layout": "0.4.0-alpha.23",
     "@semapps/auth-provider": "0.4.0-alpha.23",
     "@semapps/date-components": "0.4.0-alpha.23",
     "@semapps/geo-components": "0.4.0-alpha.23",
@@ -20,7 +20,8 @@
     "react-admin": "^3.19.10",
     "react-dom": "^16.13.1",
     "react-scrollchor": "^7.0.1",
-    "react-sticky-box": "^0.9.3"
+    "react-sticky-box": "^0.9.3",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
