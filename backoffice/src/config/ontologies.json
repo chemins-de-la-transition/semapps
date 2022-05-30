@@ -40,6 +40,16 @@
     "url": "http://www.w3.org/2004/02/skos/core#"
   },
   {
+    "prefix": "dc",
+    "owl": "",
+    "url": "http://purl.org/dc/terms/"
+  },
+  {
+    "prefix": "prov",
+    "owl": "",
+    "url": "http://www.w3.org/ns/prov#"
+  },
+  {
     "prefix": "semapps",
     "owl": "",
     "url": "http://semapps.org/ns/core#"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChipField, SingleFieldList, TextField, UrlField, DateField, EmailField, BooleanField } from 'react-admin';
+import { ChipField, SingleFieldList, TextField, UrlField, DateField, EmailField, BooleanField, NumberField } from 'react-admin';
 import { Grid } from '@material-ui/core';
 import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
@@ -43,15 +43,31 @@ const EventShow = (props) => (
           <UrlField source="pair:aboutPage" />
           <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
-        <JotformButton />
+        <JotformButton source="cdlt:jotformLink"/>
         <MainList>
-          <MarkdownField source="pair:description" />
+          <MarkdownField source="pair:description"/>
+          <MarkdownField source="cdlt:targetAudience"/>
           <MarkdownField source="cdlt:organizerDescription" />
           <MarkdownField source="cdlt:mentorDescription" />
+          
           <MarkdownField source="cdlt:program" addLabel />
-          <MarkdownField source="cdlt:practicalConditions" addLabel />
+          
+          <MarkdownField source="cdlt:prerequisites" addLabel />
           <MarkdownField source="cdlt:learningObjectives" addLabel />
-          <MarkdownField source="cdlt:economicalConditions" addLabel />
+          <MarkdownField source="cdlt:pedagogicalMeans" />
+          <MarkdownField source="cdlt:evaluationMethod" />
+
+          <MarkdownField source="cdlt:practicalConditions" />
+          <NumberField source="cdlt:attendeesMin" />
+          <NumberField source="cdlt:attendeesMax" />
+          <BooleanField source="cdlt:full" />
+          <MarkdownField source="cdlt:accessibility" />
+        
+          <NumberField source="cdlt:price" />
+          <MarkdownField source="cdlt:economicalConditions" />
+          <MarkdownField source="cdlt:financialSupport" />
+        
+          <BooleanField source="cdlt:directRegistration" />
           <EventMapField source="pair:hasLocation" />
         </MainList>
       </Grid>
@@ -77,7 +93,7 @@ const EventShow = (props) => (
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+          <ReferenceArrayField reference="Theme" source="pair:hasSector">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>

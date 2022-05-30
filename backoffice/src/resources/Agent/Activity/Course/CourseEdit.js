@@ -13,7 +13,8 @@ import {
   StatusInput,
   TypesInput,
   SkillsInput,
-  DocumentsType
+  DocumentsType,
+  JotFormInput
 } from '../../../../pair';
 import CourseTitle from './CourseTitle';
 import { DateInput } from '@semapps/date-components';
@@ -70,6 +71,13 @@ const CourseEdit = (props) => (
         <PersonsInput source="cdlt:hasMentor" />
         <DocumentsType source="pair:documentedBy" />
         <FinalitiesInput source="pair:hasFinality" />
+        <JotFormInput 
+          label="Lien personnalisé du formulaire d'inscription" 
+          source="cdlt:jotformLink" 
+          booleanSource="cdlt:personalizedJotformLink" 
+          booleanLabel="Utiliser un lien personnalisé" 
+          fullWidth
+        />
       </FormTab>
       <FormTab label="Contact">
         <TextInput source="pair:e-mail" fullWidth />

@@ -6,7 +6,6 @@ import JotformButton from "./JotformButton";
 
 const ContactButton = ({ label }) => {
   const [showDialog, setShowDialog] = useState(false);
-  // const record = useRecordContext();
   const { record = {} } = useShowContext();
 
   if (record["cdlt:directRegistration"]) {

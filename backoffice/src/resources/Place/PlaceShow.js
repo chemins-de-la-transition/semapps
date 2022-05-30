@@ -38,7 +38,7 @@ const PlaceShow = (props) => (
           <UrlField source="pair:homePage" />
           <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
-        <JotformButton />
+        <JotformButton source="cdlt:jotformLink"/>
         <MainList>
           <MarkdownField source="pair:description" addLabel />
           <MarkdownField source="cdlt:hostDescription" addLabel />

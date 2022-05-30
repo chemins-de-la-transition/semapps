@@ -18,6 +18,7 @@ const JotformButton = (props) => {
   }, [clicked]);
 
   const record = useRecordContext(props);
+  const link = record[props.source];
 
   const id = record.id;
   const startDate = record["pair:startDate"]
@@ -61,13 +62,13 @@ const JotformButton = (props) => {
                 typeVoyage: types.map((t) => t["pair:label"]).join(", "),
               },
               { label },
-              { LEPId: id },
+              { lepid: id },
               priceRange && { prix: priceRange.replace(/[^0-9]/g, "") }
             )
           );
 
           navigator.clipboard.writeText(
-            "https://form.jotform.com/212722469132048?" + query
+            link + query
           );
         }}
         disabled={clicked}
