@@ -20,8 +20,8 @@ import PersonTitle from './PersonTitle';
 
 export const PersonEdit = (props) => {
   const { identity } = useGetIdentity();
-  const TRAVELER_TYPE_URL = useMemo( () => { return process.env.REACT_APP_MIDDLEWARE_URL + 'types/traveler' });
-  const isTraveler = useMemo( () => { return identity?.webIdData?.['pair:hasType'] === TRAVELER_TYPE_URL });
+  const TRAVELER_TYPE_URL = useMemo( () => { return process.env.REACT_APP_MIDDLEWARE_URL + 'types/traveler' }, []);
+  const isTraveler = useMemo( () => { return identity?.webIdData?.['pair:hasType'] === TRAVELER_TYPE_URL }, [identity, TRAVELER_TYPE_URL]);
   
   return (
   <Container maxWidth="lg">
