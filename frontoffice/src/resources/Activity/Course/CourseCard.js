@@ -1,10 +1,13 @@
 import React from 'react';
-import { TextField } from 'react-admin';
-import Chip from '../../../commons/Chip';
-import CourseIcon from '../../../svg/CourseIcon';
+import { TextField, DateField } from 'react-admin';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { makeStyles } from '@material-ui/core';
+import Chip from '../../../commons/Chip';
+import DurationField from "../../../commons/fields/DurationField";
+import CourseIcon from '../../../svg/CourseIcon';
+import CalendarIcon from '../../../svg/CalendarIcon';
+import DurationIcon from '../../../svg/DurationIcon';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -27,6 +30,21 @@ const CourseCard = ({ record, variant }) => {
   return (
     <>
       <TextField variant="h2" component="div" record={record} source="pair:label" className={classes.title} />
+      {record['pair:startDate'] && record['pair:endDate'] && (
+      <div style={{display:"flex"}}>
+        <Chip icon={<CalendarIcon />}>
+          <DateField
+            record={record}
+            source="pair:startDate"
+            options={{ year: 'numeric', month: 'long', day: 'numeric' }}
+            showTime
+          />
+        </Chip>
+        <Chip icon={<DurationIcon />}>
+          <DurationField record={record} startDate="pair:startDate" endDate="pair:endDate" component="span" />
+        </Chip>
+      </div>
+      )}
       {record['cdlt:hasCourseType'] && (
         <Chip icon={<CourseIcon />}>
           <ReferenceArrayField record={record} source="cdlt:hasCourseType" reference="Type">
