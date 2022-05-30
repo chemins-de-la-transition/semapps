@@ -35,7 +35,7 @@ module.exports = {
           'pair:firstName': profileData.name,
           'pair:lastName': profileData.familyName,
           'pair:e-mail': profileData.email,
-          'pair:hasType': CONFIG.HOME_URL + '/types/actor',
+          'pair:hasType': CONFIG.HOME_URL + 'types/traveler',
         },
         contentType: MIME_TYPES.JSON,
         webId: 'system'
@@ -49,7 +49,7 @@ module.exports = {
         accept: MIME_TYPES.JSON
       });
 
-      // Mark actor as connected
+      // Mark user as connected
       await ctx.call('ldp.resource.put', {
         resource: {
           ...userData,

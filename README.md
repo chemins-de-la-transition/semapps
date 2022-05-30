@@ -26,7 +26,7 @@ yarn install
 yarn run dev
 ```
 
-Import the types (actor, administrator, contributor):
+Import the types (actor, administrator, contributor, traveler):
 
 ```bash
 call importer.types.freshImport
