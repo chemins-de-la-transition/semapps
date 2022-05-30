@@ -54,7 +54,7 @@ const CardsList = ({ CardComponent, link, hasLike=false }) => {
   ) : (
     ids.map((id) => {
       if( !data[id] ) return null;
-      const image = data[id]?.['pair:isDepictedBy'];
+      const image = data[id]?.['pair:isDepictedBy'] || data[id]?.['pair:image'];
       return (
         <Box key={id} className={classes.mainContainer}>
           { hasLike &&
@@ -64,7 +64,7 @@ const CardsList = ({ CardComponent, link, hasLike=false }) => {
           }
           <Link to={linkToRecord(basePath, id, link)} className={classes.linkContainer}>
             <Card className={classes.details}>
-              {data[id]?.['pair:isDepictedBy'] && (
+              {image && (
                 <CardMedia className={classes.image} image={Array.isArray(image) ? image[0] : image} />
               )}
               <CardContent className={classes.content}>

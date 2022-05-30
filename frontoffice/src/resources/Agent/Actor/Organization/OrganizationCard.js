@@ -1,12 +1,10 @@
 import React from 'react';
-import { DateField, TextField } from 'react-admin';
+import { TextField } from 'react-admin';
 import Chip from '../../../../commons/Chip';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { makeStyles } from '@material-ui/core';
 import ThemeIcon from '../../../../svg/ThemeIcon';
-import TypeIcon from '../../../../svg/TypeIcon';
-import CalendarIcon from '../../../../svg/CalendarIcon';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -29,17 +27,9 @@ const OrganizationCard = ({ record, variant }) => {
   return (
     <>
       <TextField variant="h2" record={record} component="div" source="pair:label" className={classes.title} />
-      <Chip icon={<CalendarIcon />}>
-        <DateField
-          record={record}
-          source="pair:startDate"
-          options={{ year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }}
-          showTime
-        />
-      </Chip>
-      {record['pair:hasType'] && (
-        <Chip icon={<TypeIcon />}>
-          <ReferenceArrayField record={record} reference="Type" source="pair:hasType">
+      {record['pair:hasSector'] && (
+        <Chip icon={<ThemeIcon />}>
+          <ReferenceArrayField record={record} reference="Sector" source="pair:hasSector">
             <SeparatedListField link={false} separator=" /">
               <TextField source="pair:label" />
             </SeparatedListField>
