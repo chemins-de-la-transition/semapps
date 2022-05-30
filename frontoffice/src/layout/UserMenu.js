@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 import { UserMenu as RaUserMenu, MenuItemLink, useGetIdentity } from 'react-admin';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PlaceIcon from '../svg/PlaceIcon';
@@ -42,17 +42,28 @@ const EditProfileMenu = forwardRef(({ onClick, webId }, ref) => (
 
 const UserMenu = ({ logout, ...otherProps }) => {
   const { identity } = useGetIdentity();
+  const TRAVELER_TYPE_URL = useMemo( () => { return process.env.REACT_APP_MIDDLEWARE_URL + 'types/traveler' }, []);
+  const isTraveler = useMemo( () => { return identity?.webIdData?.['pair:hasType'] === TRAVELER_TYPE_URL }, [identity, TRAVELER_TYPE_URL]);
+
   return (
     <RaUserMenu {...otherProps}>
       {identity && identity.id !== '' ? (
-        [
-          <MyBookmarks key="my-bookmarks" />,
-          <MyPlacesMenu key="my-places" />,
-          <MyEventsMenu key="my-events" />,
-          <MyOrganizationsMenu key="my-organizations" />,
-          <EditProfileMenu webId={identity.id} key="edit" />,
-          React.cloneElement(logout, { key: 'logout' }),
-        ]
+        isTraveler ? (
+          [
+            <MyBookmarks key="my-bookmarks" />,
+            <EditProfileMenu webId={identity.id} key="edit" />,
+            React.cloneElement(logout, { key: 'logout' }),
+          ]
+        ) : (
+          [
+            <MyBookmarks key="my-bookmarks" />,
+            <MyPlacesMenu key="my-places" />,
+            <MyEventsMenu key="my-events" />,
+            <MyOrganizationsMenu key="my-organizations" />,
+            <EditProfileMenu webId={identity.id} key="edit" />,
+            React.cloneElement(logout, { key: 'logout' }),
+          ]
+        )
       ) : (
         [<SignupMenu key="signup" />, <LoginMenu key="login" />]
       )}
