@@ -15,7 +15,7 @@ module.exports = {
       name: authData.given_name,
       familyName: authData.family_name
     }),
-    // webIdSelection: ['nick', 'name', 'familyName'],
+    webIdSelection: ['nick', 'name', 'familyName'],
     accountsDataset: CONFIG.AUTH_ACCOUNTS_DATASET,
     // OIDC-specific settings
     issuer: CONFIG.OIDC_ISSUER,
