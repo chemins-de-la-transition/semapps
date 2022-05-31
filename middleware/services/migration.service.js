@@ -1,4 +1,5 @@
 const urlJoin = require("url-join");
+const { v4: uuid } = require('uuid');
 const { MigrationService } = require('@semapps/migration');
 const { MIME_TYPES } = require("@semapps/mime-types");
 const CONFIG = require("../config");
@@ -25,7 +26,7 @@ module.exports = {
       const events = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'events') });
 
       for( let eventUri of events ) {
-        const event = await this.broker.call('ldp.resource.get', {
+        const event = await ctx.call('ldp.resource.get', {
           resourceUri: eventUri,
           accept: MIME_TYPES.JSON,
           webId: 'system'
@@ -37,6 +38,20 @@ module.exports = {
         } else {
           this.logger.info('Event ' + eventUri + ' has no location, skipping...');
         }
+      }
+    },
+    async assignReferenceNumberToEvents(ctx) {
+      const events = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'events') });
+
+      for( let eventUri of events ) {
+        await ctx.call('ldp.resource.patch', {
+          resource: {
+            '@id': eventUri,
+            'cdlt:referenceNumber': uuid().slice(0,8).toUpperCase()
+          },
+          contentType: MIME_TYPES.JSON,
+          webId: 'system'
+        });
       }
     }
   }
