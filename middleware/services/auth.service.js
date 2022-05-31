@@ -33,7 +33,6 @@ module.exports = {
           'pair:label': `${profileData.name} ${profileData.familyName.toUpperCase()}`,
           'pair:firstName': profileData.name,
           'pair:lastName': profileData.familyName,
-          'pair:e-mail': profileData.email,
           'pair:hasType': CONFIG.HOME_URL + 'types/traveler',
         },
         contentType: MIME_TYPES.JSON,
