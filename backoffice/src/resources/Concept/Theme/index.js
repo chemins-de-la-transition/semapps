@@ -1,4 +1,4 @@
-import { PairResourceCreate } from '../../../pair';
+import ThemeCreate from "./ThemeCreate";
 import ThemeEdit from './ThemeEdit';
 import ThemeList from './ThemeList';
 import ThemeShow from './ThemeShow';
@@ -8,11 +8,11 @@ export default {
   config: {
     list: ThemeList,
     show: ThemeShow,
-    create: PairResourceCreate,
+    create: ThemeCreate,
     edit: ThemeEdit,
     icon: LocalOfferIcon,
     options: {
-      label: 'Secteurs d\'activité',
+      label: 'Sujets',
       parent: 'Concept',
     },
   },
@@ -24,7 +24,7 @@ export default {
   },
   translations: {
     fr: {
-      name: 'Secteur d\'activité |||| Secteurs d\'activité',
+      name: 'Sujet |||| Sujets',
       fields: {
         'pair:label': 'Titre',
         'pair:comment': 'Courte description',
