@@ -28,7 +28,6 @@ module.exports = {
 
       await ctx.call('ldp.resource.patch', {
         resource: {
-          '@context': urlJoin(CONFIG.HOME_URL, 'context.json'),
           '@id': webId,
           '@type': ['pair:Person', 'foaf:Person'],
           'pair:label': `${profileData.name} ${profileData.familyName.toUpperCase()}`,
