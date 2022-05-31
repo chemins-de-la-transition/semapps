@@ -3,7 +3,7 @@ import { ListBase } from 'react-admin';
 import { useLocation } from 'react-router';
 import MultiViewsFilterListView from "./MultiViewsFilterListView";
 
-const MultiViewsFilterList = ({ views, filters, ...rest }) => {
+const MultiViewsFilterList = ({ views, filters, clearFilters, ...rest }) => {
   const query = new URLSearchParams(useLocation().search);
   const activatedViews = Object.keys(views).filter((key) => views[key]);
   const initialView =
@@ -17,7 +17,7 @@ const MultiViewsFilterList = ({ views, filters, ...rest }) => {
       sort={views[initialView].sort}
       {...rest}
     >
-      <MultiViewsFilterListView views={views} filters={filters} currentView={currentView} setView={setView} />
+      <MultiViewsFilterListView views={views} filters={filters} currentView={currentView} setView={setView} clearFilters={clearFilters}/>
     </ListBase>
   )
 };

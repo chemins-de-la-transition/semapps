@@ -71,10 +71,10 @@ const useStyles = makeStyles((theme) => ({
   },
   removeFiltersButton: {
     padding: '8px 20px',
-  }
+  },
 }));
 
-const MultiViewsFilterListView = ({ views, filters, currentView, setView }) => {
+const MultiViewsFilterListView = ({ views, filters, currentView, setView, clearFilters }) => {
   const classes = useStyles();
   const { resource, basePath, hasCreate, ids, loading } = useListContext();
   const createContainerUri = useCreateContainer(resource);
@@ -85,6 +85,8 @@ const MultiViewsFilterListView = ({ views, filters, currentView, setView }) => {
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
   const sm = useMediaQuery((theme) => theme.breakpoints.down('sm'), { noSsr: true });
   const { filterValues, setFilters } = useListFilterContext();
+  
+  const removeFilters = () => {setFilters({}); if (clearFilters) {clearFilters()} }
 
   return (
     <Grid container>
@@ -104,6 +106,11 @@ const MultiViewsFilterListView = ({ views, filters, currentView, setView }) => {
               <Box p={2}>
                 {filters.map((filter, i) => React.cloneElement(filter, { key: i, onSelect: () => openFilters(false) }))}
               </Box>
+              <Box p={2}>
+                {Object.keys(filterValues).length > 0 &&
+                  <Button variant="outlined" color="secondary" onClick={() => removeFilters()}>Effacer les filtres</Button>
+                }
+              </Box>
             </Drawer>
           </Box>
         </Grid>
@@ -114,6 +121,11 @@ const MultiViewsFilterListView = ({ views, filters, currentView, setView }) => {
           </Box>
           <StickyBox offsetTop={100}>
             <Box p={2}>{filters.map((filter, i) => React.cloneElement(filter, { key: i }))}</Box>
+            <Box p={2}>
+              {Object.keys(filterValues).length > 0 &&
+                <Button variant="outlined" color="secondary" onClick={() => removeFilters()}>Effacer les filtres</Button>
+              }
+            </Box>
           </StickyBox>
         </Grid>
       )}
@@ -166,7 +178,7 @@ const MultiViewsFilterListView = ({ views, filters, currentView, setView }) => {
             <Typography variant="h6" component="div">Aucun résultat trouvé</Typography>
             <br />
             {Object.keys(filterValues).length > 0 &&
-              <Button variant="contained" color="primary" className={classes.removeFiltersButton} onClick={() => setFilters({})}>Enlever tous les filtres</Button>
+              <Button variant="contained" color="primary" className={classes.removeFiltersButton} onClick={() => removeFilters()}>Enlever tous les filtres</Button>
             }
           </Box>
           :

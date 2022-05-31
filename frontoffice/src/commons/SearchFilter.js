@@ -1,7 +1,8 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useListFilterContext } from 'react-admin';
 import { FormControl, makeStyles, Input } from '@material-ui/core';
 import SearchIcon from "@material-ui/icons/Search";
+import throttle from 'lodash.throttle';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -11,21 +12,26 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 4,
   },
   input: {
-    padding:5,
+    padding:"5px 12px 5px 12px"
   }
 }));
 
 const SearchFilter = () => {
   const classes = useStyles();
   const { filterValues, setFilters } = useListFilterContext();
+  const textInput = React.useRef(null);
 
   const changeFilter = useCallback(
-    (e) => {
-      setFilters({ ...filterValues, q: e.target.value }, null, false);
-    },
+    throttle((keyword) => {
+      keyword.target && setFilters({ ...filterValues, q: keyword.target.value }, null, false) ;
+    }, 500),
     [filterValues, setFilters]
   );
 
+  useEffect(() => {
+    if (!filterValues.q) {textInput.current.value=""}
+  }, [filterValues]);
+  
   return (  
     <FormControl className={classes.formControl}>
       <Input 
@@ -33,7 +39,8 @@ const SearchFilter = () => {
         endAdornment={<SearchIcon/>}
         disableUnderline={true}
         placeholder="Commencez votre recherche"
-        style={{padding:5}}
+        className={classes.input}
+        inputRef={textInput}
       />
     </FormControl>
   );
@@ -44,4 +51,4 @@ SearchFilter.defaultProps = {
   sort: { field: 'pair:label', order: 'ASC' }
 };
 
-export default SearchFilter;
+export default React.forwardRef(SearchFilter);;
