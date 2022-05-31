@@ -51,11 +51,6 @@ module.exports = [
     newResourcesPermissions: writePermissionToCreator
   },
   {
-    path: '/users',
-    acceptedTypes: ['pair:Person', 'foaf:Person', ACTOR_TYPES.PERSON],
-    dereference: ['sec:publicKey', 'pair:hasLocation/pair:hasPostalAddress']
-  },
-  {
     path: '/paths',
     acceptedTypes: ['cdlt:Path'],
     permissions: anonReadPermission,

@@ -1,14 +1,15 @@
 const { ControlledContainerMixin } = require('@semapps/ldp');
 const urlJoin = require("url-join");
 const CONFIG = require("../config");
+const { ACTOR_TYPES } = require("@semapps/activitypub");
 
 module.exports = {
   name: 'users',
   mixins: [ControlledContainerMixin],
   settings: {
     path: '/users',
-    acceptedTypes: ['pair:Person'],
-    dereference: ['pair:hasLocation/pair:hasPostalAddress']
+    acceptedTypes: ['pair:Person', 'foaf:Person', ACTOR_TYPES.PERSON],
+    dereference: ['sec:publicKey', 'pair:hasLocation/pair:hasPostalAddress']
   },
   actions: {
     // When a user is created, create an account with the email
