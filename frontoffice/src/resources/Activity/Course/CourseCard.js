@@ -2,7 +2,7 @@ import React from 'react';
 import { TextField, DateField } from 'react-admin';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Box } from '@material-ui/core';
 import Chip from '../../../commons/Chip';
 import DurationField from "../../../commons/fields/DurationField";
 import CourseIcon from '../../../svg/CourseIcon';
@@ -31,7 +31,7 @@ const CourseCard = ({ record, variant }) => {
     <>
       <TextField variant="h2" component="div" record={record} source="pair:label" className={classes.title} />
       {record['pair:startDate'] && record['pair:endDate'] && (
-      <div style={{display:"flex"}}>
+      <Box display="flex">
         <Chip icon={<CalendarIcon />}>
           <DateField
             record={record}
@@ -43,7 +43,7 @@ const CourseCard = ({ record, variant }) => {
         <Chip icon={<DurationIcon />}>
           <DurationField record={record} startDate="pair:startDate" endDate="pair:endDate" component="span" />
         </Chip>
-      </div>
+      </Box>
       )}
       {record['cdlt:hasCourseType'] && (
         <Chip icon={<CourseIcon />}>

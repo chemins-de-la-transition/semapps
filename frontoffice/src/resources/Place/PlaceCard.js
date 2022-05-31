@@ -17,6 +17,11 @@ const useStyles = makeStyles((theme) => ({
   description: {
     marginTop: 10,
   },
+  address: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: theme.palette.secondary.main
+  }
 }));
 
 const PlaceCard = ({ record, variant }) => {
@@ -29,7 +34,7 @@ const PlaceCard = ({ record, variant }) => {
       <TextField variant="h2" component="div" record={record} source="pair:label" className={classes.title} />
       {record['pair:hasPostalAddress'] ? (
       <Chip icon={<PlaceIcon />}>
-        <Typography variant="body3" style={{fontFamily:'Roboto'}}>
+        <Typography variant="body1" className={classes.address}>
           {city+' ('+zipCode+')'}
         </Typography>
       </Chip>
