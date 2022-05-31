@@ -15,11 +15,6 @@ import TypeIcon from '../../../svg/TypeIcon' ;
 
 const EventDetails = (props) => (
   <IconsList {...props}>
-    <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
-      <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:hasCourseType')} separator=" / ">
-        <TextField source="pair:label" />
-      </SeparatedListField>
-    </ReferenceArrayField>
     <ReferenceArrayField reference="Path" source="cdlt:eventOn" icon={<ThemeIcon />}>
       <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:eventOn')} separator=" / ">
         <TextField source="pair:label" />
@@ -39,7 +34,7 @@ const EventDetails = (props) => (
       <TextField source="pair:label" />
     </ReferenceField>
     <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
-      <SeparatedListField link={linkToFilteredList( 'Event', 'cdlt:hasCourseType')} separator=" / ">
+      <SeparatedListField link={linkToFilteredList( 'LEP', 'cdlt:hasCourseType')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
