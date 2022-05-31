@@ -19,6 +19,7 @@ import { PairLocationInput, FinalitiesInput, PersonsInput, PlaceInput, SkillsInp
 import frLocale from 'date-fns/locale/fr';
 import { Box, FormControlLabel, Slide, LinearProgress, makeStyles, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
+import { v4 as uuid } from 'uuid';
 
 const useStyles = makeStyles((theme) => ({
   duplicateContainer: {
@@ -45,6 +46,8 @@ const EventForm = ({ mode, ...rest }) => {
   const [eventsListIsOnError, setEventsListIsOnError] = useState(false);
   const [chosenEvent, setChosenEvent] = useState(null);
   const [duplicateIsOpen, setDuplicateIsOpen] = useState(false);
+
+  const generateReference = () => uuid().slice(0,8).toUpperCase()
 
   const getAllEvents = useCallback(() => {
     if (eventsList.length === 0) {
@@ -91,7 +94,7 @@ const EventForm = ({ mode, ...rest }) => {
         }
       }
     }
-    return { ...formatedEvent, 'cdlt:organizedBy': identity?.id }
+    return { ...formatedEvent, 'cdlt:referenceNumber':generateReference(), 'cdlt:organizedBy': identity?.id }
   }, [identity]);
 
   const initalValues = (mode) => {
@@ -106,6 +109,7 @@ const EventForm = ({ mode, ...rest }) => {
         'cdlt:hasCourseType': null,
         'pair:hasType': null,
         'pair:produces': null,
+        'cdlt:referenceNumber': generateReference(),
       }
       case 'duplicate': return getFormatedEvent(chosenEvent)
       default: return undefined

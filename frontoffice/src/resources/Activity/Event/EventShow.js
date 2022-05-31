@@ -41,13 +41,12 @@ const EventShow = (props) => (
           addLabel
         >
           <MarkdownField source="pair:description" />
-          <TextField source="cldt:targetAudience" />
+          <TextField source="cdlt:targetAudience" />
           <ReferenceArrayField reference="Organization" source="cdlt:organizedBy" >
             <SeparatedListField link="show" separator=" / ">
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
-          <TextField source="cldt:organizedBy" />
           <MarkdownField source="cdlt:organizerDescription" />
           <ReferenceArrayField reference="Person" source="cdlt:hasMentor" >
             <SeparatedListField link="show" separator=" / ">

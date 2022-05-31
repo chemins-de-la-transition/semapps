@@ -37,7 +37,7 @@ const BodyList = ({ children, aside, alert }) => {
             <Grid item md={9} sm={12} xs={12}>
               {alert && React.cloneElement(alert)}
               {fields.map((field) => (
-                <div key={field.props.source} id={field.props.source} className={classes.divider}>
+                <div key={field.props.source} id={field.props.source} className={field.props.title ? '' : classes.divider}>
                   {field.props.addLabel && !field.props.title ? (
                     <>
                       <BodyLabel>
