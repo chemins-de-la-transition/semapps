@@ -38,6 +38,10 @@ module.exports = {
           this.logger.info('Event ' + eventUri + ' has no location, skipping...');
         }
       }
+    },
+    async migrateImagePredicates(ctx) {
+      await this.actions.replacePredicate({ oldPredicate: 'http://virtual-assembly.org/ontologies/pair#image', newPredicate: 'http://virtual-assembly.org/ontologies/pair#depictedBy' }, { parentCtx: ctx });
+      await this.actions.replacePredicate({ oldPredicate: 'http://virtual-assembly.org/ontologies/pair#isDepictedBy', newPredicate: 'http://virtual-assembly.org/ontologies/pair#depictedBy' }, { parentCtx: ctx });
     }
   }
 }
