@@ -31,7 +31,7 @@ export default {
       fields: {
         'pair:label': 'Titre',
         'pair:comment': "Phrase d'accroche",
-        'pair:isDepictedBy': 'Image',
+        'pair:depictedBy': 'Image',
         'cdlt:hasCourseType': 'Type de voyage',
         'pair:hasType': "Type d'événement",
         'pair:hasSector': 'Secteurs d\'activité',

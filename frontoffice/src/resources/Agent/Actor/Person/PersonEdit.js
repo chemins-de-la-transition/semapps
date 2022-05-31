@@ -41,7 +41,7 @@ export const PersonEdit = (props) => {
           <TextInput source="pair:lastName" fullWidth />
           <TextInput source="pair:comment" fullWidth />
           <MarkdownInput source="pair:description" fullWidth />
-          <ImageInput source="pair:image" accept="image/*">
+          <ImageInput source="pair:depictedBy" accept="image/*">
             <ImageField source="src" />
           </ImageInput>
           <TextInput source="pair:phone" fullWidth />

@@ -132,7 +132,7 @@ const HeaderShow = ({ type, linkToListText, details, content, actionButton, hasC
           <TextField source="pair:label" variant="body2" className={classes.placeLink} />
         </Breadcrumbs>
         <Box className={classes.images}>
-          <MultipleImagesField source="pair:isDepictedBy" max={2} />
+          <MultipleImagesField source="pair:depictedBy" max={2} />
         </Box>
         <Box position="relative">
           {!xs &&
