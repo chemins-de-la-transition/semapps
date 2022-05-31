@@ -64,6 +64,11 @@ const PlaceShow = (props) => (
               <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Organization" source="cdlt:hostsOrganization">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Path" source="cdlt:placeOn">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
