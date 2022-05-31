@@ -1,4 +1,4 @@
-import { PairResourceCreate } from '../../../pair';
+import SkillCreate from './SkillCreate';
 import SkillEdit from './SkillEdit';
 import SkillList from './SkillList';
 import SkillShow from './SkillShow';
@@ -7,7 +7,7 @@ import PanToolIcon from '@material-ui/icons/PanTool';
 export default {
   config: {
     list: SkillList,
-    create: PairResourceCreate,
+    create: SkillCreate,
     edit: SkillEdit,
     show: SkillShow,
     icon: PanToolIcon,
