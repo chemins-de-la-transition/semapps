@@ -47,6 +47,8 @@ const EventForm = ({ mode, ...rest }) => {
   const [chosenEvent, setChosenEvent] = useState(null);
   const [duplicateIsOpen, setDuplicateIsOpen] = useState(false);
 
+  const generateReference = () => uuid().slice(0,8).toUpperCase()
+
   const getAllEvents = useCallback(() => {
     if (eventsList.length === 0) {
       dataProvider
@@ -92,7 +94,7 @@ const EventForm = ({ mode, ...rest }) => {
         }
       }
     }
-    return { ...formatedEvent, 'cdlt:referenceNumber':uuid().slice(0,8).toUpperCase(), 'cdlt:organizedBy': identity?.id }
+    return { ...formatedEvent, 'cdlt:referenceNumber':generateReference(), 'cdlt:organizedBy': identity?.id }
   }, [identity]);
 
   const initalValues = (mode) => {
@@ -107,7 +109,7 @@ const EventForm = ({ mode, ...rest }) => {
         'cdlt:hasCourseType': null,
         'pair:hasType': null,
         'pair:produces': null,
-        'cdlt:referenceNumber': uuid().slice(0,8).toUpperCase(),
+        'cdlt:referenceNumber': generateReference(),
       }
       case 'duplicate': return getFormatedEvent(chosenEvent)
       default: return undefined

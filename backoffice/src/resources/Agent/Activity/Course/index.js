@@ -1,14 +1,14 @@
-import { PairResourceCreate } from '../../../../pair';
 import CourseEdit from './CourseEdit';
 import CourseList from './CourseList';
 import CourseShow from './CourseShow';
+import CourseCreate from './CourseCreate';
 import DateRangeIcon from '@material-ui/icons/DateRange';
 
 export default {
   config: {
     list: CourseList,
     show: CourseShow,
-    create: PairResourceCreate,
+    create: CourseCreate,
     edit: CourseEdit,
     icon: DateRangeIcon,
     options: {

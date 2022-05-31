@@ -29,6 +29,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const generateReference = () => uuid().slice(0,8).toUpperCase()
+
 const EventCreate = (props) => {
   const { identity } = useGetIdentity();
   const dataProvider = useDataProvider();
@@ -84,7 +86,7 @@ const EventCreate = (props) => {
     if (identity?.id) {
       formatedEvent = { ...formatedEvent, 'cdlt:organizedBy': identity?.id };
     }
-    return { ...formatedEvent, 'cdlt:referenceNumber':uuid().slice(0,8).toUpperCase() }
+    return { ...formatedEvent, 'cdlt:referenceNumber':generateReference()}
   }, []);
   
   const chosenEventRef = useRef(null);
@@ -102,7 +104,7 @@ const EventCreate = (props) => {
     } else {
       return ({
         ...data,
-        'cdlt:referenceNumber':uuid().slice(0,8).toUpperCase()
+        'cdlt:referenceNumber':generateReference()
       })
     }
   }, [getFormatedEvent]);
