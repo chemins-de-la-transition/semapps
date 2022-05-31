@@ -41,7 +41,9 @@ module.exports = {
       // Delete account after user is deleted
       async delete(ctx, res) {
         const account = await ctx.call('auth.account.findByWebId', { webId: res.resourceUri });
-        await ctx.call('auth.account.remove', { id: account['@id'] });
+        if( account ) {
+          await ctx.call('auth.account.remove', { id: account['@id'] });
+        }
         return res;
       }
     }
