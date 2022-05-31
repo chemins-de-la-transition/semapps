@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   eventDate: {
     marginBottom: 32,
     '& span': {
-      fontSize: 28,
+      fontSize: 20,
       fontWeight: 'bold',
       color: theme.palette.primary.contrastText,
       textTransform: 'uppercase',
@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 4,
     display: 'flex',
     alignItems: 'center',
+    fontSize: 20,
   },
   eventAddress: {
     color: theme.palette.primary.contrastText,
