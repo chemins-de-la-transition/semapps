@@ -27,7 +27,7 @@ export default {
       name: 'Voyage |||| Voyages',
       fields: {
         'pair:label': 'Titre',
-        'pair:isDepictedBy': 'Image',
+        'pair:depictedBy': 'Image',
         'cdlt:hasCourseType': 'Type de voyage',
         'pair:hasTopic': 'Secteurs d\'activité',
         'pair:produces': 'Compétences visées',
@@ -52,6 +52,7 @@ export default {
         'cdlt:courseOn': 'Chemins',
         'pair:hasFinality': 'Finalités',
         'cdlt:directRegistration' : "Possibilité de s'enregistrer directement",
+        'cdlt:referenceNumber': 'Numéro de référence',
       },
     },
   },

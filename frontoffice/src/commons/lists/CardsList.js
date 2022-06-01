@@ -54,10 +54,10 @@ const CardsList = ({ CardComponent, link, hasLike, external }) => {
   ) : (
     ids.map((id) => {
       if( !data[id] ) return null;
-      const image = data[id]?.['pair:isDepictedBy'];
+      const image = data[id]?.['pair:depictedBy'];
       const card =
         <Card className={classes.details}>
-          {data[id]?.['pair:isDepictedBy'] && (
+          {image && (
             <CardMedia className={classes.image} image={Array.isArray(image) ? image[0] : image} />
           )}
           <CardContent className={classes.content}>

@@ -9,7 +9,7 @@ module.exports = {
   settings: {
     baseUrl: CONFIG.HOME_URL,
     jwtPath: path.resolve(__dirname, '../jwt'),
-    registrationAllowed: false,
+    registrationAllowed: true,
     selectSsoData: authData => ({
       email: authData.email,
       name: authData.given_name,
@@ -32,7 +32,8 @@ module.exports = {
           '@type': ['pair:Person', 'foaf:Person'],
           'pair:label': `${profileData.name} ${profileData.familyName.toUpperCase()}`,
           'pair:firstName': profileData.name,
-          'pair:lastName': profileData.familyName
+          'pair:lastName': profileData.familyName,
+          'pair:hasType': CONFIG.HOME_URL + 'types/traveler',
         },
         contentType: MIME_TYPES.JSON,
         webId: 'system'
@@ -46,7 +47,7 @@ module.exports = {
         accept: MIME_TYPES.JSON
       });
 
-      // Mark actor as connected
+      // Mark user as connected
       await ctx.call('ldp.resource.put', {
         resource: {
           ...userData,

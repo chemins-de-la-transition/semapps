@@ -95,7 +95,7 @@ const LikedList = ({ id, type, resource, title, subtitle, headComment, CardCompo
             Aucun favori enregistré
           </Typography>
         }
-        { (!loaded || error === undefined) &&
+        { !loaded && !error &&
           <LinearProgress className={classes.likedLoading}/>
         }
         { error &&

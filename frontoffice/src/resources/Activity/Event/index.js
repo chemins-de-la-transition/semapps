@@ -27,11 +27,11 @@ export default {
   },
   translations: {
     fr: {
-      name: 'Evénement |||| Evénements',
+      name: 'Événement |||| Événements',
       fields: {
         'pair:label': 'Titre',
         'pair:comment': "Phrase d'accroche",
-        'pair:isDepictedBy': 'Image',
+        'pair:depictedBy': 'Image',
         'cdlt:hasCourseType': 'Type de voyage',
         'pair:hasType': "Type d'événement",
         'pair:hasSector': 'Secteurs d\'activité',
@@ -67,6 +67,7 @@ export default {
         'cdlt:financialSupport': 'Dispositifs de financement',
         'cdlt:price': 'Prix par défaut',
         'cdlt:directRegistration' : "Possibilité de s'enregistrer directement",
+        'cdlt:referenceNumber':"Numéro de référence",
       },
     },
   },

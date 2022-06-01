@@ -31,7 +31,7 @@ export default {
       fields: {
         'pair:label': 'Titre',
         'pair:comment': "Phrase d'accroche",
-        'pair:isDepictedBy': 'Image',
+        'pair:depictedBy': 'Image',
         'cdlt:hasCourseType': 'Type de voyage',
         'pair:hasType': "Type d'événement",
         'pair:hasStatus': "Statut",
@@ -70,6 +70,7 @@ export default {
         'cdlt:financialSupport': 'Dispositifs de financement',
         'cdlt:price': 'Prix par défaut',
         'cdlt:directRegistration' : "Possibilité de s'enregistrer directement",
+        'cdlt:referenceNumber':"Numéro de référence",
       },
     },
   },

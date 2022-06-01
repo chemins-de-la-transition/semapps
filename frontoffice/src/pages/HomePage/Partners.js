@@ -74,9 +74,9 @@ const Partners = () => {
             <Typography variant="h3" component="div" className={classes.subTitle}>nos partenaires</Typography>
             <ul className={classes.partnersList}>
               {ids.map(id => {
-                if ( data[id] && data[id]['pair:label'] && data[id]['pair:image'] ) {
+                if ( data[id] && data[id]['pair:label'] && data[id]['pair:depictedBy'] ) {
                   const label = data[id]['pair:label'];
-                  const imgSrc = data[id]['pair:image'];
+                  const imgSrc = data[id]['pair:depictedBy'];
                   const homePage = data[id]['pair:homePage'];
                   return (
                     <li key={id}>

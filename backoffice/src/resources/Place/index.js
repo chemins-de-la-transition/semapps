@@ -39,7 +39,7 @@ export default {
       fields: {
         'pair:label': 'Nom',
         'pair:comment': "Phrase d'accroche",
-        'pair:isDepictedBy': 'Image',
+        'pair:depictedBy': 'Image',
         'cdlt:hasRegion': 'Région',
         'pair:hasTopic': 'Secteurs d\'activité',
         'cdlt:hasCourseType': 'Type de voyage',

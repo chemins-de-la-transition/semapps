@@ -1,14 +1,24 @@
 import React from 'react';
-import { SimpleForm, TextInput, ImageInput } from 'react-admin';
+import { SimpleForm, ImageInput, TextInput, useGetIdentity } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
-import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
-import { UsersInput, OrganizationsInput, ActivitiesInput, SectorsInput, ThemesInput, PairLocationInput } from '../../../../pair';
-import OrganizationTitle from './OrganizationTitle';
+import { 
+  UsersInput,
+  OrganizationsInput,
+  ActivitiesInput,
+  SectorsInput,
+  ThemesInput,
+  PairLocationInput 
+} from '../../../../pair';
 
-export const OrganizationEdit = (props) => (
-  <EditWithPermissions title={<OrganizationTitle />} {...props}>
-    <SimpleForm redirect="show">
+const OrganizationForm = ({ mode, ...rest }) => {
+  const { identity } = useGetIdentity();
+  return (
+    <SimpleForm
+      initialValues={mode === 'create' ? { 'pair:affiliatedBy': identity?.id } : undefined}
+      {...rest}
+      redirect="/MyOrganizations"
+    >
       <TextInput source="pair:label" fullWidth />
       <TextInput source="pair:comment" fullWidth />
       <MarkdownInput source="pair:description" fullWidth />
@@ -23,7 +33,7 @@ export const OrganizationEdit = (props) => (
       <ThemesInput source="pair:hasTopic" />
       <PairLocationInput source="pair:hasLocation" fullWidth />
     </SimpleForm>
-  </EditWithPermissions>
-);
+  );
+};
 
-export default OrganizationEdit;
+export default OrganizationForm;

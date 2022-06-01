@@ -25,7 +25,7 @@ export default {
       name: 'Secteur d\'activité |||| Secteurs d\'activité ',
       fields: {
         'pair:label': 'Nom',
-        'pair:isDepictedBy': 'Image',
+        'pair:depictedBy': 'Image',
       },
     },
   },

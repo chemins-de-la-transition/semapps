@@ -8,7 +8,7 @@ export const SectorEdit = (props) => (
   <EditWithPermissions title={<SectorTitle />} {...props}>
     <SimpleForm>
       <TextInput source="pair:label" fullWidth />
-      <ImageInput source="pair:isDepictedBy" accept="image/*">
+      <ImageInput source="pair:depictedBy" accept="image/*">
         <ImageField source="src" />
       </ImageInput>
     </SimpleForm>
