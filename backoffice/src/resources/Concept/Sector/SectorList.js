@@ -10,7 +10,7 @@ const SectorList = (props) => (
     <SimpleList primaryText={(record) => record['pair:label']} 
 
 leftIcon={(record) => (
-              <Avatar src={record['pair:isDepictedBy']} alt={record['pair:label']}>
+              <Avatar src={record['pair:depictedBy']} alt={record['pair:label']}>
                 <StyleIcon />
               </Avatar>
             )}

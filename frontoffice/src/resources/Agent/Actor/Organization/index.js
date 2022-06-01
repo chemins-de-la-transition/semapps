@@ -31,7 +31,7 @@ export default {
         'pair:comment': 'Courte description',
         'pair:description': 'Description',
         'pair:homePage': 'Site web',
-        'pair:image': 'Logo',
+        'pair:depictedBy': 'Logo',
         'pair:affiliates': 'A pour membres', /*Person*/
         'pair:partnerOf': 'A pour partenaires', /*Organization*/
         'pair:hasSector': 'Secteurs d\'activité',

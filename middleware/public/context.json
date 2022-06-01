@@ -438,10 +438,7 @@
     "signatureAlgorithm": "sec:signingAlgorithm",
     "signatureValue": "sec:signatureValue",
 
-    "pair:image": {
-      "@type": "@id"
-    },
-    "pair:isDepictedBy": {
+    "pair:depictedBy": {
       "@type": "@id"
     },
 

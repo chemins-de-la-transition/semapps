@@ -10,7 +10,7 @@ const PathList = (props) => (
     <SimpleList
       primaryText={(record) => record['pair:label']}
       leftAvatar={(record) => (
-        <Avatar src={record['pair:image']} alt={record['pair:label']}>
+        <Avatar src={record['pair:depictedBy']} alt={record['pair:label']}>
           <TimelineIcon />
         </Avatar>
       )} 

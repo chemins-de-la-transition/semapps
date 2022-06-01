@@ -31,12 +31,12 @@ const EventShow = (props) => {
           </ReferenceArrayField>
           <ReferenceArrayField reference="Person" source="cdlt:proposedBy">
             <GridList xs={3} linkType="show">
-              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Organization" source="cdlt:supportedBy">
             <GridList xs={3} linkType="show">
-              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
         </BodyList>

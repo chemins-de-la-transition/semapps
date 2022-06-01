@@ -13,7 +13,7 @@ export const OrganizationEdit = (props) => (
       <TextInput source="pair:comment" fullWidth />
       <MarkdownInput source="pair:description" fullWidth />
       <TextInput source="pair:homePage" fullWidth />
-      <ImageInput source="pair:image" accept="image/*">
+      <ImageInput source="pair:depictedBy" accept="image/*">
         <ImageField source="src" />
       </ImageInput>
       <OrganizationsInput source="pair:partnerOf" />

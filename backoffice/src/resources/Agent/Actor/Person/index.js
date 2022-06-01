@@ -33,7 +33,7 @@ export default {
         'pair:lastName': 'Nom de famille',
         'pair:comment': 'En deux mots',
         'pair:description': 'Description',
-        'pair:image': 'Photo',
+        'pair:depictedBy': 'Photo',
         'pair:hasType': 'Type',
         'pair:hasStatus': 'Statut',
         'pair:offers': 'Offre', /*Skill*/

@@ -54,7 +54,7 @@ const CardsList = ({ CardComponent, link, hasLike=false }) => {
   ) : (
     ids.map((id) => {
       if( !data[id] ) return null;
-      const image = data[id]?.['pair:isDepictedBy'] || data[id]?.['pair:image'];
+      const image = data[id]?.['pair:depictedBy'];
       return (
         <Box key={id} className={classes.mainContainer}>
           { hasLike &&
