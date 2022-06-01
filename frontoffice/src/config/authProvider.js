@@ -3,7 +3,7 @@ import { httpClient } from '@semapps/semantic-data-provider';
 
 const authProvider = semappsAuthProvider({
   middlewareUri: process.env.REACT_APP_MIDDLEWARE_URL,
-  allowAnonymous: false,
+  allowAnonymous: true,
   httpClient,
   checkPermissions: true
 });
