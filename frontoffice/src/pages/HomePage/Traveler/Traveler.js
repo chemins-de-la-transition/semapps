@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Typography, Grid, Box } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import FullWidthBox from '../../../commons/FullWidthBox';
 import LargeContainer from '../../../commons/LargeContainer';

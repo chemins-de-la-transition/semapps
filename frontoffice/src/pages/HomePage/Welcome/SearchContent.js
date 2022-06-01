@@ -202,7 +202,6 @@ const FormBox = () => {
           <Button
             variant="contained"
             color="secondary"
-            typographyVariant="button3"
             className={classes.button}
             onClick={search}
           >

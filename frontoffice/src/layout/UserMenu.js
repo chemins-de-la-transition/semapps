@@ -44,7 +44,7 @@ const UserMenu = ({ logout, ...otherProps }) => {
   const { identity } = useGetIdentity();
   const TRAVELER_TYPE_URL = process.env.REACT_APP_MIDDLEWARE_URL + 'types/traveler';
   const isTraveler = useMemo( () => {
-    return ! identity?.webIdData?.['pair:hasType'] || identity.webIdData.['pair:hasType'] === TRAVELER_TYPE_URL
+    return !identity?.webIdData?.['pair:hasType'] || identity?.webIdData?.['pair:hasType'] === TRAVELER_TYPE_URL
   }, [identity, TRAVELER_TYPE_URL]);
 
   return (
