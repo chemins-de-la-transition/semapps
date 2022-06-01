@@ -40,6 +40,20 @@ module.exports = {
         }
       }
     },
+    async assignReferenceNumberToEvents(ctx) {
+      const events = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'events') });
+
+      for( let eventUri of events ) {
+        await ctx.call('ldp.resource.patch', {
+          resource: {
+            '@id': eventUri,
+            'cdlt:referenceNumber': uuid().slice(0,8).toUpperCase()
+          },
+          contentType: MIME_TYPES.JSON,
+          webId: 'system'
+        });
+      }
+    },
     async migrateImagePredicates(ctx) {
       await this.actions.replacePredicate({ oldPredicate: 'http://virtual-assembly.org/ontologies/pair#image', newPredicate: 'http://virtual-assembly.org/ontologies/pair#depictedBy' }, { parentCtx: ctx });
       await this.actions.replacePredicate({ oldPredicate: 'http://virtual-assembly.org/ontologies/pair#isDepictedBy', newPredicate: 'http://virtual-assembly.org/ontologies/pair#depictedBy' }, { parentCtx: ctx });
@@ -103,20 +117,6 @@ module.exports = {
           });
           console.log('           addRights, user:', resource['dc:creator']);
         }
-      }
-    },
-    async assignReferenceNumberToEvents(ctx) {
-      const events = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'events') });
-
-      for( let eventUri of events ) {
-        await ctx.call('ldp.resource.patch', {
-          resource: {
-            '@id': eventUri,
-            'cdlt:referenceNumber': uuid().slice(0,8).toUpperCase()
-          },
-          contentType: MIME_TYPES.JSON,
-          webId: 'system'
-        });
       }
     }
   }
