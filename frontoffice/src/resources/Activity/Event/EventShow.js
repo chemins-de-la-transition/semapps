@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShowBase, TextField, FunctionField } from 'react-admin';
+import { Box } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import MarkdownField from '../../../commons/fields/MarkdownField';
@@ -17,6 +18,7 @@ import GroupOfFields from '../../../commons/fields/GroupOfFields';
 import CategoriesField from '../../../commons/fields/CategoriesField';
 import CourseCard from '../Course/CourseCard';
 import CardsList from '../../../commons/lists/CardsList';
+import PathCard from '../../Idea/Path/PathCard';
 
 const EventShow = (props) => (
   <ShowBase {...props}>
@@ -113,6 +115,11 @@ const EventShow = (props) => (
           website="pair:aboutPage"
           mail="pair:e-mail"
         />
+        <ReferenceArrayField source="cdlt:eventOn" reference="Path">
+          <Box pt={1}>
+            <CardsList CardComponent={PathCard} />
+          </Box>
+        </ReferenceArrayField>
       </BodyList>
       <SimilarEvents />
     </>
