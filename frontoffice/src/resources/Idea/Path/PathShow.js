@@ -12,6 +12,8 @@ import FeaturedList from '../../../commons/lists/FeaturedList/FeaturedList';
 import CourseSubHeader from "../../Activity/Course/CourseSubHeader";
 import EventSubHeader from "../../Activity/Event/EventSubHeader";
 import PlaceSubHeader from "../../Place/PlaceSubHeader";
+import CardsList from "../../../commons/lists/CardsList";
+import DebateCard from "../Debate/DebateCard";
 
 const EventShow = (props) => {
   return (
@@ -38,6 +40,9 @@ const EventShow = (props) => {
             <GridList xs={3} linkType="show">
               <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
             </GridList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Debate" source="pair:nourishes">
+            <CardsList CardComponent={DebateCard} external link={record => record['pair:webPage']} />
           </ReferenceArrayField>
         </BodyList>
         <FeaturedList

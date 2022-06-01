@@ -1,5 +1,6 @@
 // Ideas
 export { default as Path } from './Idea/Path';
+export { default as Debate } from './Idea/Debate';
 
 // Activities
 export { default as Course } from './Activity/Course';

@@ -32,7 +32,9 @@ module.exports = {
       return({
         '@type': 'pair:Debate',
         'pair:label': topic.title,
-        'pair:nourishes': urlJoin(CONFIG.HOME_URL, categoriesMapping[topic.category_id])
+        'pair:description': topic.post_stream.posts[0].cooked,
+        'pair:nourishes': urlJoin(CONFIG.HOME_URL, categoriesMapping[topic.category_id]),
+        'pair:webPage': urlJoin(this.settings.source.discourse.baseUrl, 't', `${topic.id}`)
       })
     }
   }

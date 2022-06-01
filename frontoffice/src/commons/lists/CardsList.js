@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CardsList = ({ CardComponent, link, hasLike=false }) => {
+const CardsList = ({ CardComponent, link, hasLike, external }) => {
   const classes = useStyles();
   const { ids, data, basePath, loading } = useListContext();
   return loading ? (
@@ -55,23 +55,32 @@ const CardsList = ({ CardComponent, link, hasLike=false }) => {
     ids.map((id) => {
       if( !data[id] ) return null;
       const image = data[id]?.['pair:isDepictedBy'];
+      const card =
+        <Card className={classes.details}>
+          {data[id]?.['pair:isDepictedBy'] && (
+            <CardMedia className={classes.image} image={Array.isArray(image) ? image[0] : image} />
+          )}
+          <CardContent className={classes.content}>
+            <CardComponent record={data[id]} basePath={basePath} />
+          </CardContent>
+        </Card>;
+
       return (
         <Box key={id} className={classes.mainContainer}>
-          { hasLike &&
+          {hasLike &&
             <Box className={classes.likeButtonContainer}>
               <LikeButton record={data[id]} />
             </Box>
           }
-          <Link to={linkToRecord(basePath, id, link)} className={classes.linkContainer}>
-            <Card className={classes.details}>
-              {data[id]?.['pair:isDepictedBy'] && (
-                <CardMedia className={classes.image} image={Array.isArray(image) ? image[0] : image} />
-              )}
-              <CardContent className={classes.content}>
-                <CardComponent record={data[id]} basePath={basePath} />
-              </CardContent>
-            </Card>
-          </Link>
+          {external ?
+            <a href={typeof link === 'function' ? link(data[id]) : linkToRecord(basePath, id, link)} target="_blank" rel="noopener noreferrer" className={classes.linkContainer}>
+              {card}
+            </a>
+            :
+            <Link to={typeof link === 'function' ? link(data[id]) : linkToRecord(basePath, id, link)} className={classes.linkContainer}>
+              {card}
+            </Link>
+          }
         </Box>
       )
     })
@@ -80,6 +89,8 @@ const CardsList = ({ CardComponent, link, hasLike=false }) => {
 
 CardsList.defaultProps = {
   link: 'show',
+  hasLike: false,
+  external: false
 };
 
 export default CardsList;

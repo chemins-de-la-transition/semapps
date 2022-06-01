@@ -15,3 +15,8 @@ export const sortBySimilarity = (data, similarRecord, predicate) => (id1, id2) =
 export const linkToFilteredList = (resource, filter) =>
   record =>
     '/' + resource + '?filter=' + encodeURIComponent(JSON.stringify({ [filter]: record[filter] || record.id }));
+
+export const stripHtmlTags = (html) => {
+  const document = new DOMParser().parseFromString(html, 'text/html');
+  return document.body.textContent || "";
+};
