@@ -7,6 +7,7 @@ const dataServers = {
     default: true,
     containers: {
       cdlt: {
+        'pair:Debate': ['/debates'],
         'pair:Document': ['/documents'],
         'pair:Finality': ['/finalities'],
         'pair:Event': ['/events'],

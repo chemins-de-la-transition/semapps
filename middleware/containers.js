@@ -152,6 +152,12 @@ module.exports = [
     newResourcesPermissions: writePermissionToCreator,
   },
   {
+    path: '/debates',
+    acceptedTypes: ['pair:Debate'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: anonReadPermission,
+  },
+  {
     path: '/files'
   }
 ];

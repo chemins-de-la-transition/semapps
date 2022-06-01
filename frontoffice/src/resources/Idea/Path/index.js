@@ -33,6 +33,7 @@ export default {
         'cdlt:hasEvent': 'Evénements', /*Event*/
         'cdlt:hasCourse': 'Voyages', /*Course*/
         'pair:hasFinality': 'Finalités',
+        'pair:nourishes': 'Discussions',
         /*
         'pair:hasLocation': 'Composez votre parcours',
         'pair:hasStatus': 'Statut',
