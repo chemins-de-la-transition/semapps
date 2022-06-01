@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     width: 246,
     height: 1,
     backgroundColor: theme.palette.white.main,
-    marginTop: 60,
+    marginTop: 30,
     [theme.breakpoints.down('xs')]: {
       placeSelf: 'center',
     },
@@ -134,6 +134,9 @@ const Footer = ({ title }) => {
             <Link variant="body2" to={{ pathname: "https://forums.lescheminsdelatransition.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
               Notre forum
             </Link>
+            <Link variant="body2" to={{ pathname: "https://lescheminsdelatransition.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
+              Notre site web
+            </Link>
             <Link variant="body2" to="/Page/contact/show" align={xs ? "center" : undefined} className={classes.textLinks}>
               Contact
             </Link>
@@ -159,7 +162,7 @@ const Footer = ({ title }) => {
               Vous avez envie d’inscrire votre lieu ou un évènement sur notre plateforme afin de lui donner de la visibilité?
             </Typography>
             {/* TODO : add the link */}
-            <Button to="" variant="contained" color="secondary" component={Link} typographyVariant="button1" className={classes.button}>
+            <Button to={{ pathname: "https://forums.lescheminsdelatransition.org/c/co-construire-chemins/12"}} target="_blank" variant="contained" color="secondary" component={Link} typographyVariant="button1" className={classes.button}>
               Je me lance
             </Button>
           </div>
