@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   container: {
+    width: '90%',
     zIndex: 0,
     backgroundImage:
       "linear-gradient(180deg, rgba(0, 0, 0, 0.56) 0%,rgba(0, 0, 0, 0) 100%),url('" +
@@ -47,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundClip: 'padding-box',
     backgroundPosition: 'center -40px',
     backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
     height: 539,
     display: 'flex',
     alignItems: 'center',
@@ -55,6 +57,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       margin: '0px',
       height: '400px',
+      width: '100%',
+      backgroundPosition: 'center',
     },
   },
 }));

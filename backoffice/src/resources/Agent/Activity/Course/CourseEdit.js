@@ -6,13 +6,15 @@ import { ImageField } from '@semapps/semantic-data-provider';
 import {
   PathsInput, 
   ActorsInput,
+  FinalitiesInput,
   PersonsInput,
   /*EventsInput,*/
   ThemesInput,
   StatusInput,
   TypesInput,
   SkillsInput,
-  DocumentsType
+  DocumentsType,
+  JotFormInput
 } from '../../../../pair';
 import CourseTitle from './CourseTitle';
 import { DateInput } from '@semapps/date-components';
@@ -24,7 +26,7 @@ const CourseEdit = (props) => (
       <FormTab label="Données">
         <TextInput source="pair:label" fullWidth />
         <TextInput source="pair:comment" fullWidth />
-        <ImageInput source="pair:isDepictedBy" accept="image/*" multiple>
+        <ImageInput source="pair:depictedBy" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
         <DateInput
@@ -68,6 +70,14 @@ const CourseEdit = (props) => (
         <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
         <DocumentsType source="pair:documentedBy" />
+        <FinalitiesInput source="pair:hasFinality" />
+        <JotFormInput 
+          label="Lien personnalisé du formulaire d'inscription" 
+          source="cdlt:jotformLink" 
+          booleanSource="cdlt:personalizedJotformLink" 
+          booleanLabel="Utiliser un lien personnalisé" 
+          fullWidth
+        />
       </FormTab>
       <FormTab label="Contact">
         <TextInput source="pair:e-mail" fullWidth />

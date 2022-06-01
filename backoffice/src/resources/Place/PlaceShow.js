@@ -13,7 +13,7 @@ const PlaceShow = (props) => (
   <ShowWithPermissions title={<PlaceTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
-        <Hero image="pair:isDepictedBy">
+        <Hero image="pair:depictedBy">
           <TextField source="pair:comment" />
           <ReferenceField source="cdlt:hasRegion" reference="Region" link={false}>
             <TextField source="pair:label" />
@@ -38,7 +38,7 @@ const PlaceShow = (props) => (
           <UrlField source="pair:homePage" />
           <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
-        <JotformButton />
+        <JotformButton source="cdlt:jotformLink"/>
         <MainList>
           <MarkdownField source="pair:description" addLabel />
           <MarkdownField source="cdlt:hostDescription" addLabel />
@@ -56,7 +56,7 @@ const PlaceShow = (props) => (
         <SideList>
           <ReferenceArrayField reference="Person" source="cdlt:proposedBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Path" source="cdlt:placeOn">
@@ -66,6 +66,11 @@ const PlaceShow = (props) => (
           </ReferenceArrayField>
           <ReferenceArrayField reference="Theme" source="pair:hasTopic">
             <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Finality" source="pair:hasFinality">
+            <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>

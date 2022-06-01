@@ -39,7 +39,7 @@ export default {
       fields: {
         'pair:label': 'Nom',
         'pair:comment': "Phrase d'accroche",
-        'pair:isDepictedBy': 'Image',
+        'pair:depictedBy': 'Image',
         'cdlt:hasRegion': 'Région',
         'pair:hasTopic': 'Secteurs d\'activité',
         'cdlt:hasCourseType': 'Type de voyage',
@@ -56,7 +56,11 @@ export default {
         'pair:e-mail': 'Adresse e-mail',
         'pair:phone': 'Téléphone',
         'pair:homePage': 'Site web',
-        'cdlt:placeOn': 'Est un lieu de'
+        'cdlt:placeOn': 'Est un lieu de',
+        'pair:hasFinality': 'Finalités',
+        'cdlt:jotformLink':"Formulaire d'inscription",
+        'cdlt:personalizedJotformLink':"Utiliser un lien personnalisé",
+        'cdlt:directRegistration' : "Possibilité de s'enregistrer directement",
       },
     },
   },

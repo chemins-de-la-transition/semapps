@@ -7,13 +7,15 @@ import {
   // ActorsInput,
   CoursesInput,
   EventsInput,
+  FinalitiesInput,
   OrganizationsInput,
   PersonsInput,
   PlacesInput,
   // StatusInput,
-  // ThemesInput,
+  ThemesInput,
   // TypesInput,
   SkillsInput,
+  JotFormInput,
 } from '../../../pair';
 import PathTitle from './PathTitle';
 
@@ -24,7 +26,7 @@ const PathEdit = (props) => (
         <TextInput source="pair:label" fullWidth />
         <TextInput source="pair:comment" fullWidth />
         <MarkdownInput source="pair:description" fullWidth />
-        <ImageInput source="pair:isDepictedBy" accept="image/*" multiple>
+        <ImageInput source="pair:depictedBy" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
         {/*}
@@ -49,9 +51,15 @@ const PathEdit = (props) => (
         <PersonsInput source="cdlt:proposedBy" />
         <OrganizationsInput source="cdlt:supportedBy" />
         <SkillsInput source="pair:produces" />
-        {/*
         <ThemesInput source="pair:hasTopic" />
-        */}
+        <FinalitiesInput source="pair:hasFinality" />
+        <JotFormInput 
+          label="Lien personnalisé du formulaire d'inscription" 
+          source="cdlt:jotformLink" 
+          booleanSource="cdlt:personalizedJotformLink" 
+          booleanLabel="Utiliser un lien personnalisé" 
+          fullWidth
+        />
       </FormTab>
     </TabbedForm>
   </EditWithPermissions>

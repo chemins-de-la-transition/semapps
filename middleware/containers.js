@@ -47,7 +47,11 @@ module.exports = [
     path: '/organizations',
     acceptedTypes: ['pair:Organization'],
     dereference: ['pair:hasLocation/pair:hasPostalAddress'],
-    permissions: anonReadPermission,
+    permissions: {
+      ...anonReadPermission,
+      ...writePermissionToActors,
+      ...defaultWritePermissionToContributors
+    },
     newResourcesPermissions: writePermissionToCreator
   },
   {
@@ -100,8 +104,8 @@ module.exports = [
     newResourcesPermissions: writePermissionToCreator,
   },
   {
-    path: '/intentions',
-    acceptedTypes: ['pair:Intention'],
+    path: '/finalities',
+    acceptedTypes: ['pair:Finality'],
     permissions: anonReadPermission,
     newResourcesPermissions: writePermissionToCreator,
   },

@@ -25,13 +25,14 @@ export default {
         'pair:label': 'Titre',
         'pair:comment': 'Courte description',
         'pair:description': 'Description',
-        'pair:isDepictedBy': 'Image',
+        'pair:depictedBy': 'Image',
         'pair:produces': "Permet d'apprendre", /*Skill*/
         'cdlt:proposedBy': 'Proposé par', /*Person*/
         'cdlt:supportedBy': 'A pour partenaires', /*Organization*/
         'cdlt:hasPlace': 'Lieux', /*Place*/
         'cdlt:hasEvent': 'Evénements', /*Event*/
         'cdlt:hasCourse': 'Voyages', /*Course*/
+        'pair:hasFinality': 'Finalités',
         /*
         'pair:hasLocation': 'Composez votre parcours',
         'pair:hasStatus': 'Statut',

@@ -30,7 +30,7 @@ const DocumentShow = props => (
           </ReferenceArrayField>
           <ReferenceArrayField reference="Person" source="dc:creator">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
           <DateField source="dc:created" showTime />

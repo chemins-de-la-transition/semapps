@@ -38,8 +38,8 @@ export const PlacesInput = (props) => (
   </ReferenceArrayInput>
 );
 
-export const IntentionsInput = ({ label, source }) => (
-  <ReferenceArrayInput label={label} reference="Intention" source={source}>
+export const FinalitiesInput = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="Finality" source={source}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />
   </ReferenceArrayInput>
 );
@@ -101,6 +101,12 @@ export const CoursesInput = (props) => (
 export const CourseInput = (props) => (
   <ReferenceArrayInput reference="Course" {...props}>
     <SelectInput optionText="pair:label" />
+  </ReferenceArrayInput>
+);
+
+export const PathsInput = (props) => (
+  <ReferenceArrayInput reference="Path" {...props}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth />
   </ReferenceArrayInput>
 );
 

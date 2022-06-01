@@ -1,11 +1,11 @@
 import React from 'react';
-import { TabbedForm, FormTab, TextInput, ImageInput, BooleanInput, email, required } from 'react-admin';
+import { TabbedForm, FormTab, TextInput, ImageInput, BooleanInput, NumberInput, email, required } from 'react-admin';
 import frLocale from 'date-fns/locale/fr';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { DateTimeInput } from '@semapps/date-components';
 import { ImageField } from '@semapps/semantic-data-provider';
-import { PairLocationInput, ActorsInput, PathsInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput } from '../../../../pair';
+import { PairLocationInput, ActorsInput, FinalitiesInput, PathsInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput, JotFormInput } from '../../../../pair';
 import EventTitle from './EventTitle';
 
 const EventEdit = (props) => (
@@ -38,31 +38,52 @@ const EventEdit = (props) => (
           fullWidth
           validate={[required()]}
         />
-        <ImageInput source="pair:isDepictedBy" accept="image/*" multiple>
+        <ImageInput source="pair:depictedBy" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} />
-        <MarkdownInput source="pair:description" fullWidth />
+        <TextInput multiline source="cdlt:targetAudience" fullWidth />
         <MarkdownInput source="cdlt:organizerDescription" fullWidth />
         <MarkdownInput source="cdlt:mentorDescription" fullWidth />
+        
         <MarkdownInput source="cdlt:program" fullWidth />
+        
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
-        <MarkdownInput source="cdlt:practicalConditions" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
-        <MarkdownInput source="cdlt:economicalConditions" fullWidth />
+        <MarkdownInput source="cdlt:pedagogicalMeans" fullWidth />
+        <MarkdownInput source="cdlt:evaluationMethod" fullWidth />
+
+        <MarkdownInput source="cdlt:practicalConditions" helperText="Précisez si besoin équipements, inscription, hébergement, repas..." fullWidth />
+        <NumberInput source="cdlt:attendeesMin" fullWidth />
+        <NumberInput source="cdlt:attendeesMax" fullWidth />
+        <BooleanInput source="cdlt:full" helperText="Cochez si l'événement est complet" fullWidth />
+        <TextInput multiline source="cdlt:accessibility" helperText="Précisez l'accessibilité de l'événement aux personnes en situation de handicap" fullWidth />
+        
+        <NumberInput source="cdlt:price" fullWidth />
+        <TextInput multiline source="cdlt:economicalConditions" fullWidth />
+        <TextInput multiline source="cdlt:financialSupport" helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" fullWidth />
+        
         <BooleanInput source="cdlt:directRegistration" fullWidth />
+        
         <PairLocationInput source="pair:hasLocation" fullWidth />
       </FormTab>
+
       <FormTab label="Relations">
         <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
         <PlaceInput source="pair:hostedIn" />
         <CourseInput source="pair:partOf" />
         <PathsInput source="cdlt:eventOn" />
-        <ThemesInput source="pair:hasTopic" />
+        <ThemesInput source="pair:hasSector" />
         <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />
         <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} />
         <SkillsInput source="pair:produces" fullWidth />
+        <FinalitiesInput source="pair:hasFinality" />
+        <JotFormInput 
+          label="Lien personnalisé du formulaire d'inscription" 
+          source="cdlt:jotformLink" 
+          booleanSource="cdlt:personalizedJotformLink" 
+          booleanLabel="Utiliser un lien personnalisé" fullWidth/>
       </FormTab>
       <FormTab label="Contact">
         <TextInput source="pair:e-mail" fullWidth validate={[required(), email()]} />

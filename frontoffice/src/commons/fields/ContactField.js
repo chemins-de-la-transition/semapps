@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const ContactField = ({ phone, website, ...rest }) => {
+const ContactField = ({ phone, website, mail, ...rest }) => {
   const classes = useStyles();
   const record = useRecordContext(rest);
   return(
@@ -22,6 +22,16 @@ const ContactField = ({ phone, website, ...rest }) => {
             Site web:{" "}
             <a href={record[website]} target="_blank" rel="noopener noreferrer">
               {record[website]}
+            </a>
+          </Typography>
+        </li>
+      }
+      {record[mail] &&
+        <li>
+          <Typography variant="body2" color="secondary" className={classes.p}>
+            Adresse mail:{" "}
+            <a href={'mailto:'+record[mail]} target="_blank" rel="noopener noreferrer">
+              {record[mail]}
             </a>
           </Typography>
         </li>

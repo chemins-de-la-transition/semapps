@@ -132,13 +132,13 @@ const ItemsGrid = ({ similarRecord }) => {
           to={'/Event/' + encodeURIComponent(id) + '/show'}
           key={id}
         >
-          {data[id]['pair:isDepictedBy'] && Array.isArray(data[id]['pair:isDepictedBy']) ? (
+          {data[id]['pair:depictedBy'] && Array.isArray(data[id]['pair:depictedBy']) ? (
             <ListItemAvatar className={classes.imageContainer}>
-              <ImageField source="pair:isDepictedBy.0" record={data[id]} />
+              <ImageField source="pair:depictedBy.0" record={data[id]} />
             </ListItemAvatar>
-          ) : data[id]['pair:isDepictedBy'] && !Array.isArray(data[id]['pair:isDepictedBy']) ? (
+          ) : data[id]['pair:depictedBy'] && !Array.isArray(data[id]['pair:depictedBy']) ? (
             <ListItemAvatar className={classes.imageContainer}>
-              <ImageField source="pair:isDepictedBy" record={data[id]} />
+              <ImageField source="pair:depictedBy" record={data[id]} />
             </ListItemAvatar>
           ): (
             <ListItemAvatar className={classes.iconContainer}>

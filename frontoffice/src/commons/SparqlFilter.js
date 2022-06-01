@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { useListFilterContext } from 'react-admin';
 import { Checkbox, FormControlLabel, FormGroup, makeStyles } from '@material-ui/core';
 
@@ -17,10 +17,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SparqlFilter = ({ initialChecked, sparqlWhere, label }) => {
+const SparqlFilter = ({ checked, setChecked, sparqlWhere, label }) => {
   const classes = useStyles();
   const { filterValues, setFilters } = useListFilterContext();
-  const [checked, setChecked] = useState(initialChecked);
 
   const changeFilter = useCallback(
     (e) => {
@@ -33,7 +32,7 @@ const SparqlFilter = ({ initialChecked, sparqlWhere, label }) => {
         }
       }
     },
-    [filterValues, setFilters, sparqlWhere]
+    [filterValues, setFilters, sparqlWhere, setChecked]
   );
 
   return (

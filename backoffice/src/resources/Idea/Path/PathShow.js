@@ -7,6 +7,7 @@ import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MarkdownField } from '@semapps/markdown-components';
 import { MapList } from '@semapps/geo-components';
 import PathTitle from './PathTitle';
+import JotformButton from '../../../commons/JotformButton';
 
 const PathShow = (props) => (
   <ShowWithPermissions title={<PathTitle />} {...props}>
@@ -25,6 +26,7 @@ const PathShow = (props) => (
           </ReferenceField>
           */}
         </Hero>
+        <JotformButton source="cdlt:jotformLink"/>
         <MainList>
           <MarkdownField source="pair:description" />
           {/*
@@ -76,20 +78,25 @@ const PathShow = (props) => (
         <SideList>
           <ReferenceArrayField reference="Person" source="cdlt:proposedBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Organization" source="cdlt:supportedBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Skill" source="pair:produces">
+          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+          <ReferenceArrayField reference="Finality" source="pair:hasFinality">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Skill" source="pair:produces">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>

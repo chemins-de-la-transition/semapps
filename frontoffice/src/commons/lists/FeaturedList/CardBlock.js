@@ -193,7 +193,7 @@ const CardBlock = ({ record, basePath, CardSubHeaderComponent, resource }) => {
       <CardActionArea>
         <CardMedia
           className={classes.media + ' ' + classes.noDecoration}
-          image={Array.isArray(record['pair:isDepictedBy']) ? record['pair:isDepictedBy'][0] : record['pair:isDepictedBy']}
+          image={Array.isArray(record['pair:depictedBy']) ? record['pair:depictedBy'][0] : record['pair:depictedBy']}
           title={record['pair:label']}
           to={basePath + '/' + encodeURIComponent(record.id) + '/show'}
           component={Link}

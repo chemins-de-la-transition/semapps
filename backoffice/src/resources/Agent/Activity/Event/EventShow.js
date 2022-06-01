@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChipField, SingleFieldList, TextField, UrlField, DateField, EmailField, BooleanField } from 'react-admin';
+import { ChipField, SingleFieldList, TextField, UrlField, DateField, EmailField, BooleanField, NumberField } from 'react-admin';
 import { Grid } from '@material-ui/core';
 import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
@@ -13,7 +13,8 @@ const EventShow = (props) => (
   <ShowWithPermissions title={<EventTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
-        <Hero image="pair:isDepictedBy">
+        <Hero image="pair:depictedBy">
+          <TextField source="cdlt:referenceNumber" />
           <TextField source="pair:comment" />
           <DateField source="pair:startDate" showTime />
           <DateField source="pair:endDate" showTime />
@@ -43,15 +44,31 @@ const EventShow = (props) => (
           <UrlField source="pair:aboutPage" />
           <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
-        <JotformButton />
+        <JotformButton source="cdlt:jotformLink"/>
         <MainList>
-          <MarkdownField source="pair:description" />
+          <MarkdownField source="pair:description"/>
+          <MarkdownField source="cdlt:targetAudience"/>
           <MarkdownField source="cdlt:organizerDescription" />
           <MarkdownField source="cdlt:mentorDescription" />
+          
           <MarkdownField source="cdlt:program" addLabel />
-          <MarkdownField source="cdlt:practicalConditions" addLabel />
+          
+          <MarkdownField source="cdlt:prerequisites" addLabel />
           <MarkdownField source="cdlt:learningObjectives" addLabel />
-          <MarkdownField source="cdlt:economicalConditions" addLabel />
+          <MarkdownField source="cdlt:pedagogicalMeans" />
+          <MarkdownField source="cdlt:evaluationMethod" />
+
+          <MarkdownField source="cdlt:practicalConditions" />
+          <NumberField source="cdlt:attendeesMin" />
+          <NumberField source="cdlt:attendeesMax" />
+          <BooleanField source="cdlt:full" />
+          <MarkdownField source="cdlt:accessibility" />
+        
+          <NumberField source="cdlt:price" />
+          <MarkdownField source="cdlt:economicalConditions" />
+          <MarkdownField source="cdlt:financialSupport" />
+        
+          <BooleanField source="cdlt:directRegistration" />
           <EventMapField source="pair:hasLocation" />
         </MainList>
       </Grid>
@@ -59,12 +76,12 @@ const EventShow = (props) => (
         <SideList>
           <ReferenceArrayField reference="Actor" source="cdlt:organizedBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Person" source="cdlt:hasMentor">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Path" source="cdlt:eventOn">
@@ -72,17 +89,22 @@ const EventShow = (props) => (
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+          <ReferenceArrayField reference="Course" source="pair:partOf">
             <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Theme" source="pair:hasSector">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Finality" source="pair:hasFinality">
+            <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:produces">
-            <SingleFieldList linkType="show">
-              <ChipField source="pair:label" />
-            </SingleFieldList>
-          </ReferenceArrayField>
-          <ReferenceArrayField reference="Course" source="pair:partOf">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>

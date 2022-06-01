@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChipField, SingleFieldList, TextField, EmailField } from 'react-admin';
-import { Box, Container, Grid, Typography, makeStyles } from '@material-ui/core';
+import { Container, Grid, makeStyles } from '@material-ui/core';
 import { MainList, SideList, Hero, GridList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
@@ -9,11 +9,6 @@ import { MapField } from '@semapps/geo-components';
 import PersonTitle from './PersonTitle';
 import HomeIcon from '@material-ui/icons/Home';
 import ChipWithResourceIcon from '../../../../commons/ChipWithResourceIcon';
-import LikedList from '../../../../commons/lists/LikedList';
-import PathCard from '../../../Idea/Path/PathCard';
-import PlaceCard from '../../../Place/PlaceCard';
-import EventCard from '../../../Activity/Event/EventCard';
-import CourseCard from '../../../Activity/Course/CourseCard';
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -33,7 +28,7 @@ const PersonShow = (props) => {
     <ShowWithPermissions title={<PersonTitle />} {...props}>
       <Grid container spacing={5}>
         <Grid item xs={12} md={9}>
-          <Hero image="pair:image">
+          <Hero image="pair:depictedBy">
             <TextField source="pair:firstName" />
             <TextField source="pair:lastName" />
             <TextField source="pair:comment" />
@@ -67,22 +62,11 @@ const PersonShow = (props) => {
                 <ChipField source="pair:label" />
               </SingleFieldList>
             </ReferenceArrayField>
-            <ReferenceArrayField reference="Intention" source="pair:aims">
-              <SingleFieldList linkType={false}>
-                <ChipField source="pair:label" />
-              </SingleFieldList>
-            </ReferenceArrayField>
-            <ReferenceArrayField reference="Intention" source="cdlt:aimsAsHost">
-              <SingleFieldList linkType={false}>
-                <ChipField source="pair:label" />
-              </SingleFieldList>
-            </ReferenceArrayField>
-            <ReferenceArrayField reference="Intention" source="cdlt:aimsAsMentor">
-              <SingleFieldList linkType={false}>
-                <ChipField source="pair:label" />
-              </SingleFieldList>
-            </ReferenceArrayField>
-            <ReferenceArrayField reference="Intention" source="cdlt:aimsAsOrganizer">
+            <MarkdownField source="cdlt:asAHostIntentions" />
+            <MarkdownField source="cdlt:asAMentorIntentions" />
+            <MarkdownField source="cdlt:asAnOrganiserIntentions" />
+            <MarkdownField source="cdlt:asATravelerIntentions" />
+            <ReferenceArrayField reference="Finality" source="pair:hasFinality">
               <SingleFieldList linkType={false}>
                 <ChipField source="pair:label" />
               </SingleFieldList>
@@ -94,51 +78,12 @@ const PersonShow = (props) => {
               scrollWheelZoom={false}
             />
           </MainList>
-          <Box mt={3}>
-          <Typography variant="h2">Mes favoris</Typography>
-            <LikedList
-              id={props.id}
-              resource="Path"
-              type="cdlt:Path" 
-              title="Mes favoris" 
-              subtitle="les chemins"
-              headComment="Pour composer mon voyage à la carte" 
-              CardComponent={PathCard}
-            />
-            <LikedList
-              id={props.id}
-              resource="Place"
-              type="pair:Place"
-              title="Mes favoris"
-              subtitle="les lieux"
-              headComment="Pour composer mon voyage à la carte"
-              CardComponent={PlaceCard}
-            />
-            <LikedList
-              id={props.id}
-              resource="Event"
-              type="pair:Event"
-              title="Mes favoris"
-              subtitle="les événements"
-              headComment="Pour composer mon voyage à la carte"
-              CardComponent={EventCard}
-            />
-            <LikedList
-              id={props.id}
-              resource="Course"
-              type="cdlt:Course"
-              title="Mes favoris"
-              subtitle="les voyages"
-              headComment="Pour composer mon voyage à la carte"
-              CardComponent={CourseCard}
-            />
-          </Box>
         </Grid>
         <Grid item xs={12} md={3}>
           <SideList>
             <ReferenceArrayField reference="Organization" source="pair:affiliatedBy">
               <GridList xs={3} md={6} linkType="show">
-                <AvatarField label="pair:label" image="pair:image" labelColor="grey.300">
+                <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
                   <HomeIcon />
                 </AvatarField>
               </GridList>

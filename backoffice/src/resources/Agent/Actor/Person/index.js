@@ -33,17 +33,18 @@ export default {
         'pair:lastName': 'Nom de famille',
         'pair:comment': 'En deux mots',
         'pair:description': 'Description',
-        'pair:image': 'Photo',
+        'pair:depictedBy': 'Photo',
         'pair:hasType': 'Type',
         'pair:hasStatus': 'Statut',
         'pair:offers': 'Offre', /*Skill*/
         'pair:hasTopic': 'A pour intérêt', /*Theme*/
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasLocation': 'Adresse',
-        'pair:aims': 'Intention en tant que voyageur',
-        'cdlt:aimsAsMentor': 'Intention en tant que mentor',
-        'cdlt:aimsAsOrganizer': 'Intention en tant qu\'organisateur',
-        'cdlt:aimsAsHost': 'Intention en tant qu\'hôte',
+        'pair:hasFinality': 'Finalités',
+        'cdlt:asAHostIntentions': 'Intention en tant qu\'hôte',
+        'cdlt:asAMentorIntentions': 'Intention en tant que mentor',
+        'cdlt:asAnOrganiserIntentions': 'Intention en tant qu\'organisateur',
+        'cdlt:asATravelerIntentions': 'Intention en tant que voyageur',
         'pair:affiliatedBy': 'Membre de', /*Organization*/
         'cdlt:mentorOn': 'Est intervenant pour', /*Activity*/
         'cdlt:organizes': 'Est organisateur de', /*Activity*/
