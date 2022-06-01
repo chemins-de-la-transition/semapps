@@ -104,4 +104,10 @@ export const CourseInput = (props) => (
   </ReferenceArrayInput>
 );
 
+export const PathsInput = (props) => (
+  <ReferenceArrayInput reference="Path" {...props}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  </ReferenceArrayInput>
+);
+
 export { default as PairLocationInput } from './PairLocationInput';
