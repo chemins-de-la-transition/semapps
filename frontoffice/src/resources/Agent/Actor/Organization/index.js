@@ -38,6 +38,9 @@ export default {
         'pair:hasTopic': 'A pour secteur d\'activité',
         'pair:hasLocation': 'Adresse',
         'cdlt:organizes': 'Organise',
+        'cdlt:hasRegion': 'Région(s)',
+        'cdlt:supports': 'Chemins', /*Paths*/
+        'cdlt:hasCourseType': 'Type de voyage',
       },
     },
   },

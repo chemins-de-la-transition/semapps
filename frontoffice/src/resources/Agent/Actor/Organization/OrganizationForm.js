@@ -8,6 +8,9 @@ import {
   ActivitiesInput,
   SectorsInput,
   ThemesInput,
+  PathsInput,
+  RegionsInput,
+  TypesInput,
   PairLocationInput 
 } from '../../../../pair';
 
@@ -31,7 +34,10 @@ const OrganizationForm = ({ mode, ...rest }) => {
       <ActivitiesInput source="cdlt:organizes" />
       <SectorsInput source="pair:hasSector" />
       <ThemesInput source="pair:hasTopic" />
+      <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
+      <PathsInput source="cdlt:supports" />
       <PairLocationInput source="pair:hasLocation" fullWidth />
+      <RegionsInput source="cdlt:hasRegion" fullWidth />
     </SimpleForm>
   );
 };

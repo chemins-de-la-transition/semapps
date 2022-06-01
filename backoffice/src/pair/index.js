@@ -156,6 +156,12 @@ export const PathInput = ({ label, source, ...rest }) => (
   </ReferenceInput>
 );
 
+export const RegionsInput = ({ label, source, ...rest }) => (
+  <ReferenceArrayInput label={label} reference="Region" source={source} {...rest}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  </ReferenceArrayInput>
+);
+
 const options = [
   { id: "https://form.jotform.com/212722469132048?", name: 'Formulaire événement' },
   { id: "https://form.jotform.com/212722469132048?", name: 'Formulaire voyage' },

@@ -3,7 +3,7 @@ import { SimpleForm, TextInput, ImageInput } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
-import { UsersInput, OrganizationsInput, ActivitiesInput, SectorsInput, ThemesInput, PairLocationInput } from '../../../../pair';
+import { UsersInput, OrganizationsInput, ActivitiesInput, SectorsInput, ThemesInput, PairLocationInput, RegionsInput, TypesInput, PathsInput } from '../../../../pair';
 import OrganizationTitle from './OrganizationTitle';
 
 export const OrganizationEdit = (props) => (
@@ -21,7 +21,10 @@ export const OrganizationEdit = (props) => (
       <ActivitiesInput source="cdlt:organizes" />
       <SectorsInput source="pair:hasSector" />
       <ThemesInput source="pair:hasTopic" />
+      <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
+      <PathsInput source="cdlt:supports" />
       <PairLocationInput source="pair:hasLocation" fullWidth />
+      <RegionsInput source="cdlt:hasRegion" fullWidth />
     </SimpleForm>
   </EditWithPermissions>
 );
