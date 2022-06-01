@@ -70,6 +70,7 @@ export default {
         'cdlt:financialSupport': 'Dispositifs de financement',
         'cdlt:price': 'Prix par défaut',
         'cdlt:directRegistration' : "Possibilité de s'enregistrer directement",
+        'cdlt:referenceNumber':"Numéro de référence",
       },
     },
   },

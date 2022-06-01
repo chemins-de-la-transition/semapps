@@ -3,10 +3,13 @@ import { useTranslate, getFieldLabelTranslationArgs, useShowContext } from 'reac
 import { makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-  divider: {
+  fieldClass: {
     paddingTop: 5,
     paddingBottom: 20,
   },
+  divider: {
+    borderBottom: '1px lightgrey solid',
+  }
 }));
 
 const GroupOfFields = ({ children, source, title }) => {
@@ -20,12 +23,13 @@ const GroupOfFields = ({ children, source, title }) => {
   );
 
   return (
-    <>
-    <Typography variant="h6" color="secondary" style={{marginBottom:30}}>
+    <div> 
+    {(fields.length > 0) && <Typography variant="h6" color="secondary" className={classes.divider} style={{marginBottom:30}}>
         {title}
     </Typography>
+    }
     {fields.map((field) => (
-    <div key={field.props.source} id={field.props.source} className={classes.divider}>
+    <div key={field.props.source} id={field.props.source} className={classes.fieldClass}>
         {field.props.addLabel ? (
         <>
             <Typography variant="h5" color="secondary" style={{fontWeight:500}}>
@@ -54,7 +58,7 @@ const GroupOfFields = ({ children, source, title }) => {
         )}
     </div>
     ))}
-    </>
+    </div>
   );
 };
 

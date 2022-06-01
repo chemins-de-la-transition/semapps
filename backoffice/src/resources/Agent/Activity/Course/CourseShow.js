@@ -25,6 +25,7 @@ const CourseShow = (props) => (
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
         <Hero image="pair:depictedBy">
+          <TextField source="cdlt:referenceNumber" />
           <TextField source="pair:comment" />
           <DateField source="pair:startDate" />
           <DateField source="pair:endDate" />
