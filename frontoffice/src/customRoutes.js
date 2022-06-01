@@ -6,6 +6,7 @@ import AboutPage from './pages/AboutPage/AboutPage';
 import MyBookmarks from './pages/MyBookmarks';
 import MyPlacesPage from './pages/MyPlacesPage';
 import MyEventsPage from './pages/MyEventsPage';
+import MyOrganizationsPage from './pages/MyOrganizationsPage';
 
 export default [
   <Route exact path="/" component={HomePage} />,
@@ -13,4 +14,5 @@ export default [
   <Route exact path="/MyBookmarks" component={MyBookmarks} />,
   <Route exact path="/MyPlaces" component={MyPlacesPage} />,
   <Route exact path="/MyEvents" component={MyEventsPage} />,
+  <Route exact path="/MyOrganizations" component={MyOrganizationsPage} />,
 ];

@@ -13,5 +13,10 @@
     "type": "pair:PersonType",
     "slug": "actor",
     "pair:label": "Acteur"
+  },
+  {
+    "type": "pair:PersonType",
+    "slug": "traveler",
+    "pair:label": "Voyageur"
   }
 ]

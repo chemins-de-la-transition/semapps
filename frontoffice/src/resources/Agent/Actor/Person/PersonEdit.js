@@ -1,5 +1,5 @@
-import React from 'react';
-import { ImageInput, FormTab, TabbedForm, TextInput } from 'react-admin';
+import React, { useMemo } from 'react';
+import { ImageInput, FormTab, TabbedForm, TextInput, useGetIdentity } from 'react-admin';
 import { Container } from '@material-ui/core';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { MarkdownInput } from '@semapps/markdown-components';
@@ -18,7 +18,14 @@ import {
 import { ImageField } from '@semapps/semantic-data-provider';
 import PersonTitle from './PersonTitle';
 
-export const PersonEdit = (props) => (
+export const PersonEdit = (props) => {
+  const { identity } = useGetIdentity();
+  const TRAVELER_TYPE_URL = process.env.REACT_APP_MIDDLEWARE_URL + 'types/traveler';
+  const isTraveler = useMemo( () => {
+    return ! identity?.webIdData?.['pair:hasType'] || identity.webIdData.['pair:hasType'] === TRAVELER_TYPE_URL
+  }, [identity, TRAVELER_TYPE_URL]);
+  
+  return (
   <Container maxWidth="lg">
     <EditWithPermissions
       title={<PersonTitle />}
@@ -49,10 +56,14 @@ export const PersonEdit = (props) => (
           <MarkdownInput source="cdlt:asATravelerIntentions" fullWidth />
         </FormTab>
         <FormTab label="Relations">
-          <OrganizationsInput source="pair:affiliatedBy" />
-          <PlacesInput source="cdlt:proposes" />
-          <ActivitiesInput source="cdlt:mentorOn" />
-          <ActivitiesInput source="cdlt:organizes" />
+          { ! isTraveler && 
+            <>
+              <OrganizationsInput source="pair:affiliatedBy" />
+              <PlacesInput source="cdlt:proposes" />
+              <ActivitiesInput source="cdlt:mentorOn" />
+              <ActivitiesInput source="cdlt:organizes" />
+            </>
+          }
           <SectorsInput source="pair:hasSector" />
           <ThemesInput source="pair:hasTopic" />
           <SkillsInput source="pair:offers" />
@@ -61,6 +72,6 @@ export const PersonEdit = (props) => (
       </TabbedForm>
     </EditWithPermissions>
   </Container>
-);
+)}
 
 export default PersonEdit;

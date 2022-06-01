@@ -47,7 +47,11 @@ module.exports = [
     path: '/organizations',
     acceptedTypes: ['pair:Organization'],
     dereference: ['pair:hasLocation/pair:hasPostalAddress'],
-    permissions: anonReadPermission,
+    permissions: {
+      ...anonReadPermission,
+      ...writePermissionToActors,
+      ...defaultWritePermissionToContributors
+    },
     newResourcesPermissions: writePermissionToCreator
   },
   {

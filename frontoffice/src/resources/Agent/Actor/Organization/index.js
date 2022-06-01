@@ -1,3 +1,4 @@
+import OrganizationCreate from './OrganizationCreate';
 import OrganizationEdit from './OrganizationEdit';
 import OrganizationShow from './OrganizationShow';
 import HomeIcon from '@material-ui/icons/Home';
@@ -5,6 +6,7 @@ import HomeIcon from '@material-ui/icons/Home';
 export default {
   config: {
     show: OrganizationShow,
+    create: OrganizationCreate,
     edit: OrganizationEdit,
     icon: HomeIcon,
     options: {
