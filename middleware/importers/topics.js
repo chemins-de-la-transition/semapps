@@ -9,7 +9,7 @@ const categoriesMapping = {
 
 module.exports = {
   name: 'importer.topics',
-  mixins: [DiscourseImporterMixin, CONFIG.NODE_ENV === 'production' ? QueueMixin(CONFIG.QUEUE_SERVICE_URL) : {}],
+  mixins: [DiscourseImporterMixin, CONFIG.NODE_ENV === 'production' && CONFIG.QUEUE_SERVICE_URL ? QueueMixin(CONFIG.QUEUE_SERVICE_URL) : {}],
   settings: {
     source: {
       discourse: {
