@@ -7,6 +7,9 @@ const categoriesMapping = {
   22: '/paths/chemin-des-tiers-lieux'
 };
 
+console.log('CONFIG.NODE_ENV', CONFIG.NODE_ENV);
+console.log('CONFIG.QUEUE_SERVICE_URL', CONFIG.QUEUE_SERVICE_URL);
+
 module.exports = {
   name: 'importer.topics',
   mixins: [DiscourseImporterMixin, CONFIG.NODE_ENV === 'production' && CONFIG.QUEUE_SERVICE_URL ? QueueMixin(CONFIG.QUEUE_SERVICE_URL) : {}],
