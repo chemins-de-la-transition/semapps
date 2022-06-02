@@ -25,7 +25,7 @@ const EventDetails = (props) => (
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceArrayField reference="Theme" source="pair:hasTopic" icon={<ThemeIcon />}>
+    <ReferenceArrayField reference="Theme" source="pair:hasTopic" perPage={2} icon={<ThemeIcon />}>
       <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>

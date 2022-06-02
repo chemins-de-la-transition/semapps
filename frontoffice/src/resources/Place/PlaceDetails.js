@@ -27,12 +27,12 @@ const PlaceDetails = (props) => (
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceArrayField reference="Sector" source="pair:hasSector" icon={<ThemeIcon />}>
+    <ReferenceArrayField reference="Sector" source="pair:hasSector" perPage={2} icon={<ThemeIcon />}>
       <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasSector')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceArrayField reference="Theme" source="pair:hasTopic" icon={<ThemeIcon />}>
+    <ReferenceArrayField reference="Theme" source="pair:hasTopic" perPage={2} icon={<ThemeIcon />}>
       <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
