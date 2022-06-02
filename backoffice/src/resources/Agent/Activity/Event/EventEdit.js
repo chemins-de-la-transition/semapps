@@ -5,7 +5,7 @@ import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { DateTimeInput } from '@semapps/date-components';
 import { ImageField } from '@semapps/semantic-data-provider';
-import { PairLocationInput, ActorsInput, FinalitiesInput, PathsInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput, JotFormInput } from '../../../../pair';
+import { PairLocationInput, ActorsInput, FinalitiesInput, PathsInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput, RegistrationInput } from '../../../../pair';
 import EventTitle from './EventTitle';
 
 const EventEdit = (props) => (
@@ -63,7 +63,13 @@ const EventEdit = (props) => (
         <TextInput multiline source="cdlt:economicalConditions" fullWidth />
         <TextInput multiline source="cdlt:financialSupport" helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" fullWidth />
         
-        <BooleanInput source="cdlt:directRegistration" fullWidth />
+        <RegistrationInput 
+          directRegistrationSource="cdlt:directRegistration"
+          registrationOptionSource="cdlt:registrationOption"
+          jotformLinkSource="cdlt:jotformLink"
+          registrationLinkSource="cdlt:registrationLink"          
+          fullWidth
+        />
         
         <PairLocationInput source="pair:hasLocation" fullWidth />
       </FormTab>
@@ -79,11 +85,6 @@ const EventEdit = (props) => (
         <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} />
         <SkillsInput source="pair:produces" fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
-        <JotFormInput 
-          label="Lien personnalisé du formulaire d'inscription" 
-          source="cdlt:jotformLink" 
-          booleanSource="cdlt:personalizedJotformLink" 
-          booleanLabel="Utiliser un lien personnalisé" fullWidth/>
       </FormTab>
       <FormTab label="Contact">
         <TextInput source="pair:e-mail" fullWidth validate={[required(), email()]} />
