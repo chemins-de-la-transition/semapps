@@ -5,7 +5,7 @@ import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } f
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
-import JotformButton from '../../../../commons/JotformButton';
+import RegistrationButton from '../../../../commons/RegistrationButton';
 import EventTitle from './EventTitle';
 import EventMapField from "./EventMapField";
 
@@ -44,7 +44,12 @@ const EventShow = (props) => (
           <UrlField source="pair:aboutPage" />
           <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
-        <JotformButton source="cdlt:jotformLink"/>
+        <RegistrationButton 
+          directRegistrationSource="cdlt:directRegistration"
+          registrationOptionSource="cdlt:registrationOption"
+          jotformLinkSource="cdlt:jotformLink"
+          registrationLinkSource="cdlt:registrationLink" 
+        />
         <MainList>
           <MarkdownField source="pair:description"/>
           <MarkdownField source="cdlt:targetAudience"/>

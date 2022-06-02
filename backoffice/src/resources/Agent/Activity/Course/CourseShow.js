@@ -16,7 +16,7 @@ import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MapList } from '@semapps/geo-components';
 import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
-import JotformButton from '../../../../commons/JotformButton';
+import RegistrationButton from '../../../../commons/RegistrationButton';
 import CourseTitle from './CourseTitle';
 import HomeIcon from '@material-ui/icons/Home';
 
@@ -46,7 +46,12 @@ const CourseShow = (props) => (
           </ReferenceField>
           <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
-        <JotformButton source="cdlt:jotformLink"/>
+        <RegistrationButton 
+          directRegistrationSource="cdlt:directRegistration"
+          registrationOptionSource="cdlt:registrationOption"
+          jotformLinkSource="cdlt:jotformLink"
+          registrationLinkSource="cdlt:registrationLink" 
+        />
         <MainList>
           <MarkdownField source="pair:description" />
           <MarkdownField source="cdlt:organizerDescription" />
