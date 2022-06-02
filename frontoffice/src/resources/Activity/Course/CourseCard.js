@@ -8,6 +8,7 @@ import DurationField from "../../../commons/fields/DurationField";
 import CourseIcon from '../../../svg/CourseIcon';
 import CalendarIcon from '../../../svg/CalendarIcon';
 import DurationIcon from '../../../svg/DurationIcon';
+import ThemeIcon from '../../../svg/ThemeIcon';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -49,6 +50,24 @@ const CourseCard = ({ record, variant }) => {
         <Chip icon={<CourseIcon />}>
           <ReferenceArrayField record={record} source="cdlt:hasCourseType" reference="Type">
             <SeparatedListField separator=" / " link={false}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+        </Chip>
+      )}
+      {record['pair:hasSector'] && (
+        <Chip icon={<ThemeIcon />}>
+          <ReferenceArrayField record={record} reference="Sector" perPage={2} source="pair:hasSector">
+            <SeparatedListField link={false} separator=" /">
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+        </Chip>
+      )}
+      {record['pair:hasTopic'] && (
+        <Chip icon={<ThemeIcon />}>
+          <ReferenceArrayField record={record} reference="Theme" perPage={2} source="pair:hasTopic">
+            <SeparatedListField link={false} separator=" /">
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>

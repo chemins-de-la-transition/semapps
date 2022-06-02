@@ -29,7 +29,7 @@ const OrganizationCard = ({ record, variant }) => {
       <TextField variant="h2" record={record} component="div" source="pair:label" className={classes.title} />
       {record['pair:hasSector'] && (
         <Chip icon={<ThemeIcon />}>
-          <ReferenceArrayField record={record} reference="Sector" source="pair:hasSector">
+          <ReferenceArrayField record={record} reference="Sector" perPage={2} source="pair:hasSector">
             <SeparatedListField link={false} separator=" /">
               <TextField source="pair:label" />
             </SeparatedListField>
@@ -38,7 +38,7 @@ const OrganizationCard = ({ record, variant }) => {
       )}
       {record['pair:hasTopic'] && (
         <Chip icon={<ThemeIcon />}>
-          <ReferenceArrayField record={record} reference="Theme" source="pair:hasTopic">
+          <ReferenceArrayField record={record} reference="Theme" perPage={2} source="pair:hasTopic">
             <SeparatedListField link={false} separator=" /">
               <TextField source="pair:label" />
             </SeparatedListField>

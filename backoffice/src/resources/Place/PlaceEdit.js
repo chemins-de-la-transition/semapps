@@ -5,7 +5,7 @@ import { extractContext, LocationInput } from '@semapps/geo-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
 import PlaceTitle from './PlaceTitle';
-import { FinalitiesInput, PathsInput, ThemesInput, TypeInput, TypesInput, SkillsInput, PersonsInput, StatusInput, JotFormInput } from '../../pair';
+import { FinalitiesInput, PathsInput, ThemesInput, TypeInput, TypesInput, SkillsInput, PersonsInput, SectorsInput, StatusInput, JotFormInput } from '../../pair';
 
 export const PlaceEdit = (props) => (
   <EditWithPermissions title={<PlaceTitle />} {...props}>
@@ -46,6 +46,7 @@ export const PlaceEdit = (props) => (
       <FormTab label="Relations">
         <PersonsInput source="cdlt:proposedBy" />
         <PathsInput source="cdlt:placeOn" />
+        <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <TypeInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} />

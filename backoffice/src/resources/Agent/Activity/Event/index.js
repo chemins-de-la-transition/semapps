@@ -36,6 +36,7 @@ export default {
         'pair:hasType': "Type d'événement",
         'pair:hasStatus': "Statut",
         'pair:hasSector': 'Secteurs d\'activité',
+        'pair:hasTopic': 'A pour intérêt', /*Theme*/
         'pair:produces': 'Compétences visées',
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',

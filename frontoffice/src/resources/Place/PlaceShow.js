@@ -46,6 +46,16 @@ const PlaceShow = (props) => {
               <CardsList CardComponent={EventCard} />
             </Box>
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Sector" source="pair:hasSector">
+            <BulletPointsField linkType={false}>
+              <TextField variant="body2" color="secondary" source="pair:label" />
+            </BulletPointsField>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+            <BulletPointsField linkType={false}>
+              <TextField variant="body2" color="secondary" source="pair:label" />
+            </BulletPointsField>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:produces">
             <BulletPointsField linkType={false}>
               <TextField variant="body2" color="secondary" source="pair:label" />

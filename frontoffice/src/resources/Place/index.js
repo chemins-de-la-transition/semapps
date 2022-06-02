@@ -40,7 +40,8 @@ export default {
         'pair:label': 'Nom',
         'pair:comment': "Phrase d'accroche",
         'pair:depictedBy': 'Image',
-        'pair:hasTopic': 'Secteurs d\'activité',
+        'pair:hasSector': 'Secteurs d\'activité',
+        'pair:hasTopic': 'A pour intérêt', /*Theme*/
         'cdlt:hasCourseType': 'Type de voyage',
         'pair:hasType': 'Type de lieu',
         'pair:description': 'A propos du lieu',

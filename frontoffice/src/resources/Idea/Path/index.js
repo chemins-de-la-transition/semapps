@@ -32,13 +32,14 @@ export default {
         'cdlt:hasPlace': 'Lieux', /*Place*/
         'cdlt:hasEvent': 'Evénements', /*Event*/
         'cdlt:hasCourse': 'Voyages', /*Course*/
+        'pair:hasSector': 'Secteurs d\'activité',
+        'pair:hasTopic': 'A pour intérêt', /*Theme*/
         'pair:hasFinality': 'Finalités',
         'pair:nourishes': 'Discussions',
         /*
         'pair:hasLocation': 'Composez votre parcours',
         'pair:hasStatus': 'Statut',
         'pair:hasType': 'Type',
-        'pair:hasTopic': 'A pour thème',
         'cdlt:forWhom': 'Destiné à',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:learningObjectives': "Objectifs d'apprentissage",

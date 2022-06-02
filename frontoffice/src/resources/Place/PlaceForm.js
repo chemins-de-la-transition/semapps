@@ -3,7 +3,7 @@ import { BooleanInput, SimpleForm, ImageInput, TextInput, useGetIdentity, email,
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { extractContext, LocationInput } from '@semapps/geo-components';
-import { FinalitiesInput, ThemesInput, TypeInput, SkillsInput, TypesInput, PathsInput } from '../../pair';
+import { FinalitiesInput, ThemesInput, TypeInput, SkillsInput, TypesInput, PathsInput, SectorsInput } from '../../pair';
 
 const PlaceForm = ({ mode, ...rest }) => {
   const { identity } = useGetIdentity();
@@ -46,6 +46,7 @@ const PlaceForm = ({ mode, ...rest }) => {
       <BooleanInput source="cdlt:directRegistration" fullWidth />
       <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />
       <TypeInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} validate={[required()]} />
+      <SectorsInput source="pair:hasSector" />
       <ThemesInput source="pair:hasTopic" />
       <SkillsInput source="pair:produces" fullWidth />
       <FinalitiesInput source="pair:hasFinality" />

@@ -16,6 +16,7 @@ import CourseSubHeader from "./CourseSubHeader";
 import ApplyButton from "../../../commons/buttons/ApplyButton";
 import PathCard from '../../Idea/Path/PathCard';
 import CardsList from '../../../commons/lists/CardsList';
+import CategoriesField from '../../../commons/fields/CategoriesField';
 
 const CourseShow = (props) => (
   <ShowBase {...props}>
@@ -38,6 +39,16 @@ const CourseShow = (props) => (
           sort={{ field: 'pair:startDate', order: 'ASC' }}
         >
           <TimelineList />
+        </ReferenceArrayField>
+        <ReferenceArrayField reference="Theme" source="pair:hasSector">
+          <CategoriesField>
+            <TextField source="pair:label" />
+          </CategoriesField>
+        </ReferenceArrayField>
+        <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+          <BulletPointsField linkType={false}>
+            <TextField variant="body2" color="secondary" source="pair:label" />
+          </BulletPointsField>
         </ReferenceArrayField>
         <ReferenceArrayField reference="Skill" source="pair:produces">
           <BulletPointsField linkType={false}>

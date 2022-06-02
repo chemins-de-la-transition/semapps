@@ -48,7 +48,7 @@ const CategoriesField = ( props ) => {
 
         return (
         <div style={{display:'grid', margin:15}}>
-            <img src={pictoCategories[id.replace(process.env.REACT_APP_MIDDLEWARE_URL+"themes/",'')]} alt="logo" style={{width:100, placeSelf:'center'}} title={id}/>
+            <img src={pictoCategories[id.replace(process.env.REACT_APP_MIDDLEWARE_URL+"sectors/",'')]} alt="logo" style={{width:100, placeSelf:'center'}} title={id}/>
             {cloneElement(Children.only(children), {
                 record: data[id],
                 resource,

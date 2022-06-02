@@ -34,7 +34,12 @@ const OrganizationShow = (props) => {
           </Hero>
           <MainList>
             <MarkdownField source="pair:description" />
-            <ReferenceArrayField  reference="Sector" source="pair:hasSector">
+            <ReferenceArrayField reference="Sector" source="pair:hasSector">
+              <SingleFieldList linkType={false}>
+                <ChipField source="pair:label" />
+              </SingleFieldList>
+            </ReferenceArrayField>
+            <ReferenceArrayField reference="Theme" source="pair:hasTopic">
               <SingleFieldList linkType={false}>
                 <ChipField source="pair:label" />
               </SingleFieldList>
@@ -72,11 +77,6 @@ const OrganizationShow = (props) => {
               filter={{ '@type': 'pair:Event' }}
               source="pair:involvedIn"
             >
-              <SingleFieldList linkType="show">
-                <ChipField source="pair:label" />
-              </SingleFieldList>
-            </ReferenceArrayField>
-            <ReferenceArrayField reference="Theme" source="pair:hasTopic">
               <SingleFieldList linkType="show">
                 <ChipField source="pair:label" />
               </SingleFieldList>

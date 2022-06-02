@@ -61,6 +61,11 @@ const EventShow = (props) => (
               <TextField source="pair:label" />
             </CategoriesField>
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+            <BulletPointsField linkType={false}>
+              <TextField variant="body2" color="secondary" source="pair:label" />
+            </BulletPointsField>
+          </ReferenceArrayField>
         </GroupOfFields>
         <MarkdownField source="cdlt:program" />
         <GroupOfFields

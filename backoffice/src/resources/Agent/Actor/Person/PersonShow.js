@@ -33,7 +33,7 @@ const PersonShow = (props) => (
           </ReferenceArrayField>
         </Hero>
         <MainList>
-          <ReferenceArrayField  reference="Sector" source="pair:hasSector">
+          <ReferenceArrayField reference="Sector" source="pair:hasSector">
             <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>

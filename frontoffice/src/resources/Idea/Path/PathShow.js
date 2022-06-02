@@ -14,6 +14,7 @@ import EventSubHeader from "../../Activity/Event/EventSubHeader";
 import PlaceSubHeader from "../../Place/PlaceSubHeader";
 import CardsList from "../../../commons/lists/CardsList";
 import DebateCard from "../Debate/DebateCard";
+import CategoriesField from '../../../commons/fields/CategoriesField';
 
 const EventShow = (props) => {
   return (
@@ -26,6 +27,16 @@ const EventShow = (props) => {
         />
         <BodyList>
           <MarkdownField source="pair:description" />
+          <ReferenceArrayField reference="Theme" source="pair:hasSector">
+          <CategoriesField>
+            <TextField source="pair:label" />
+          </CategoriesField>
+        </ReferenceArrayField>
+        <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+          <BulletPointsField linkType={false}>
+            <TextField variant="body2" color="secondary" source="pair:label" />
+          </BulletPointsField>
+        </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:produces">
             <BulletPointsField linkType={false}>
               <TextField source="pair:label" />
