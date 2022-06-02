@@ -41,7 +41,7 @@ const EventShow = (props) => {
               <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Debate" source="pair:nourishes">
+          <ReferenceArrayField reference="Debate" source="pair:nourishes" perPage={5} sort={{ field: 'dc:created', sort: 'ASC' }}>
             <CardsList CardComponent={DebateCard} external link={record => record['pair:webPage']} />
           </ReferenceArrayField>
         </BodyList>
