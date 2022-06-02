@@ -27,6 +27,7 @@ export default {
       fields: {
         'pair:firstName': 'Prénom',
         'pair:lastName': 'Nom de famille',
+        'pair:alternativeLabel': 'Nom d\'utilisateur',
         'pair:comment': 'En deux mots',
         'pair:description': 'Description',
         'pair:depictedBy': 'Photo',
