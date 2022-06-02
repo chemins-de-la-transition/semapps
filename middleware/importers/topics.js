@@ -7,9 +7,6 @@ const categoriesMapping = {
   22: '/paths/chemin-des-tiers-lieux'
 };
 
-console.log('CONFIG.NODE_ENV', CONFIG.NODE_ENV);
-console.log('CONFIG.QUEUE_SERVICE_URL', CONFIG.QUEUE_SERVICE_URL);
-
 module.exports = {
   name: 'importer.topics',
   mixins: [DiscourseImporterMixin, CONFIG.NODE_ENV === 'production' && CONFIG.QUEUE_SERVICE_URL ? QueueMixin(CONFIG.QUEUE_SERVICE_URL) : {}],
@@ -23,7 +20,7 @@ module.exports = {
     dest: {
       containerUri: urlJoin(CONFIG.HOME_URL, 'debates')
     },
-    cron: CONFIG.NODE_ENV === 'production' ? {
+    cronJob: CONFIG.NODE_ENV === 'production' ? {
       time: '0 0 4 * * *', // Every night at 4am
       timeZone: 'Europe/Paris'
     } : undefined
