@@ -1,17 +1,31 @@
 import React from 'react';
-import { TextField } from "react-admin";
+import { makeStyles, Typography } from '@material-ui/core';
 import PlaceIcon from '../../svg/PlaceIcon';
 import Chip from "../../commons/Chip";
-import { ReferenceField } from "@semapps/semantic-data-provider";
+
+const useStyles = makeStyles((theme) => ({
+  place: {
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+}));
 
 const PlaceSubHeader = ({ record }) => {
-  return record['cdlt:hasRegion'] ? (
+  const classes = useStyles();
+  const city = record?.['pair:hasPostalAddress']?.['pair:addressLocality'] ;
+  const zipCode = record?.['pair:hasPostalAddress']?.['pair:addressZipCode'].slice(0, 2) ;
+
+  return (
+  <>
+  {record['pair:hasPostalAddress'] && (
     <Chip icon={<PlaceIcon />}>
-      <ReferenceField record={record} source="cdlt:hasRegion" reference="Region" link={false}>
-        <TextField source="pair:label" />
-      </ReferenceField>
+      <Typography variant="body2" component="div" className={classes.place}>
+        {city+' ('+zipCode+')'}
+      </Typography>
     </Chip>
-  ) : null;
+  )}
+  </>
+  );
 };
 
 export default PlaceSubHeader;

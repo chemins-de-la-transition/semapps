@@ -46,7 +46,7 @@ export default {
         'cdlt:asAnOrganiserIntentions': 'Intention en tant qu\'organisateur',
         'cdlt:asATravelerIntentions': 'Intention en tant que voyageur',
         'pair:affiliatedBy': 'Membre de', /*Organization*/
-        'cdlt:mentorOn': 'Est mentor pour', /*Activity*/
+        'cdlt:mentorOn': 'Est intervenant pour', /*Activity*/
         'cdlt:organizes': 'Est organisateur de', /*Activity*/
         'cdlt:proposes': 'Est hôte de',
         'foaf:email': 'Adresse email',

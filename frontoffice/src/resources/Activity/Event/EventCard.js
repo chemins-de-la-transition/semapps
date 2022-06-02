@@ -69,7 +69,7 @@ const EventCard = ({ record, variant }) => {
       )}
       {record['cdlt:full'] && (
         <Chip icon={<CheckIcon />}>
-          <Typography variant="body3" style={{fontFamily:'Roboto'}}>Événement complet</Typography>
+          <Typography>Événement complet</Typography>
         </Chip>
       )}
       </div>

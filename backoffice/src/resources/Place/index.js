@@ -48,7 +48,7 @@ export default {
         'pair:description': 'A propos du lieu',
         'cdlt:hostDescription': 'Description de l\'hôte',
         'cdlt:activities': 'Activités',
-        'pair:hosts': 'Evénements sur le lieu',
+        'pair:hosts': 'Événements sur le lieu',
         'pair:produces': 'Compétences / Savoir-faire',
         'cdlt:practicalConditions': "Modalité d'accueil",
         'pair:hasPostalAddress': 'Localisation',

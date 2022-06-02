@@ -1,15 +1,15 @@
 import React from 'react';
-import { makeStyles, Box } from '@material-ui/core';
-import { ReferenceField, TextField } from 'react-admin';
+import { makeStyles, Box, Typography } from '@material-ui/core';
+import { ReferenceField, TextField, DateField } from 'react-admin';
 import DurationIcon from '../../../svg/DurationIcon';
 import CourseIcon from '../../../svg/CourseIcon';
 import DurationField from "../../../commons/fields/DurationField";
 import Chip from "../../../commons/Chip";
 import PlaceIcon from "../../../svg/PlaceIcon";
+import CalendarIcon from "../../../svg/CalendarIcon";
 
 const useStyles = makeStyles((theme) => ({
   courseSubHeader: {
-    display: 'flex',
     alignItems: 'center',
     '& svg': {
       fontSize: '1rem',
@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'normal',
     color: theme.palette.secondary.main,
   },
+  eventDuration: {
+    display: 'flex',
+  },
 }));
 
 const CourseSubHeader = ({ record }) => {
@@ -38,11 +41,22 @@ const CourseSubHeader = ({ record }) => {
           </ReferenceField>
         </Chip>
       )}
+      <div className={classes.eventDuration}>
       {record['pair:startDate'] && record['pair:endDate'] && (
         <Chip icon={<DurationIcon />}>
           <DurationField record={record} startDate="pair:startDate" endDate="pair:endDate" component="span" />
         </Chip>
       )}
+      {record['pair:startDate'] && record['pair:endDate'] && (
+        <Chip icon={<CalendarIcon />}>
+          <Typography variant="body2" component="div">
+            <DateField record={record} source="pair:startDate" options={{ year: 'numeric', month: 'numeric', day: 'numeric' }}/>
+            {" au "}
+            <DateField record={record} source="pair:endDate" options={{ year: 'numeric', month: 'numeric', day: 'numeric' }} />
+          </Typography>
+        </Chip>
+      )}
+      </div>
       {record['pair:hasCourseType'] && (
         <Chip icon={<CourseIcon />}>
           <ReferenceField source="pair:hasCourseType" reference="CourseType" record={record}>

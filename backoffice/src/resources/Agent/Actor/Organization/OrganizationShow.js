@@ -53,7 +53,7 @@ const OrganizationShow = (props) => (
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField
-            label="Evénements"
+            label="Événements"
             reference="Event"
             filter={{ '@type': 'pair:Event' }}
             source="pair:involvedIn"

@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.secondary.main,
     },
     '& .MuiIconButton-label::after': {
+      textTransform: "uppercase",
       marginLeft: '0.5em',
       content: "'Se connecter'",
       fontFamily: theme.typography.subtitle2.fontFamily,
@@ -101,7 +102,7 @@ const AppBar = ({ menuItems, setSidebarOpen, title }) => {
                     m={2}
                     key={menuItem.link}
                   >
-                    <Link to={menuItem.link} className={classes.menuLink}>
+                    <Link to={{pathname: menuItem.link}} target={menuItem.externalLink ? "_blank" : ""} className={classes.menuLink}>
                       <Typography variant="subtitle2" className={classes.menuText}>
                         {menuItem.name}
                       </Typography>

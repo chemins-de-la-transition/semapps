@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useListFilterContext } from 'react-admin';
 import { FormControl, makeStyles, Input } from '@material-ui/core';
 import SearchIcon from "@material-ui/icons/Search";
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 const SearchFilter = () => {
   const classes = useStyles();
   const { filterValues, setFilters } = useListFilterContext();
-  const textInput = React.useRef(null);
+  const textInput = useRef(null);
 
   const changeFilter = debounce(query => {
     if (!query) return setFilters(filterValues, null, false);
@@ -49,4 +49,4 @@ SearchFilter.defaultProps = {
   sort: { field: 'pair:label', order: 'ASC' }
 };
 
-export default React.forwardRef(SearchFilter);;
+export default SearchFilter;

@@ -70,15 +70,14 @@ const WelcomeContent = () => {
       <LargeContainer className={classes.container}>
         <Box display="flex" justifyContent="center" flexDirection="column" justifySelf="center">
           <Typography variant="h1" className={classes.text}>
-            Apprendre en voyageant
+            Voyager, explorer, essaimer
           </Typography>
           <div className={classes.textBar} />
           <Typography variant="body1" className={classes.subtitleText} component="div">
-            Vous êtes curieux des expériences et métiers qui se développent, qui redonnent du sens à nos actions ? 
-              Nous vous proposons de partir découvrir ces initiatives, d’apprendre et de vous former au contact des professionnels 
-            qui font déjà le monde de demain. Embarquez sur les chemins de votre transition, à la rencontre des acteurs et de lieux inspirants
-            et découvrez leurs savoir-faire. Plusieurs modalités s’offrent à vous...
-
+          Pour les curieux qui souhaitent découvrir une région et apprendre en voyageant,  
+          nous vous proposons des itinéraires éco&#8209;touristiques autour des métiers de la transition, 
+          conçus pour être parcourus à pied ou à vélo. Partez à la rencontre des acteurs de lieux 
+          inspirationnels et découvrez leurs savoirs-faire.
           </Typography>
         </Box>
       </LargeContainer>
