@@ -91,6 +91,21 @@ const OrganizationShow = (props) => {
                 <ChipWithResourceIcon source="pair:label" />
               </SingleFieldList>
             </ReferenceArrayField>
+            <ReferenceArrayField reference="Path" source="cdlt:supports">
+              <SingleFieldList linkType="show">
+                <ChipWithResourceIcon source="pair:label" />
+              </SingleFieldList>
+            </ReferenceArrayField>
+            <ReferenceArrayField reference="Type" source="cdlt:hasCourseType">
+              <SingleFieldList linkType="show">
+                <ChipWithResourceIcon source="pair:label" />
+              </SingleFieldList>
+            </ReferenceArrayField>
+            <ReferenceArrayField source="cdlt:hasRegion" reference="Region">
+              <SingleFieldList linkType={false}>
+                <ChipField source="pair:label" />
+              </SingleFieldList>
+            </ReferenceArrayField>
           </SideList>
         </Grid>
       </Grid>
