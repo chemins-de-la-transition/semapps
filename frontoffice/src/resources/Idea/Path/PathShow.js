@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShowBase, TextField } from 'react-admin';
+import { ShowBase, SingleFieldList, TextField } from 'react-admin';
 import { Box } from '@material-ui/core';
 import { AvatarField, GridList } from '@semapps/archipelago-layout';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
@@ -9,12 +9,12 @@ import BodyList from '../../../commons/lists/BodyList/BodyList';
 import BulletPointsField from "../../../commons/fields/BulletPointsField";
 import ApplyButton from "../../../commons/buttons/ApplyButton";
 import FeaturedList from '../../../commons/lists/FeaturedList/FeaturedList';
+import SectorField from '../../../commons/fields/SectorField';
 import CourseSubHeader from "../../Activity/Course/CourseSubHeader";
 import EventSubHeader from "../../Activity/Event/EventSubHeader";
 import PlaceSubHeader from "../../Place/PlaceSubHeader";
 import CardsList from "../../../commons/lists/CardsList";
 import DebateCard from "../Debate/DebateCard";
-import CategoriesField from '../../../commons/fields/CategoriesField';
 
 const EventShow = (props) => {
   return (
@@ -28,15 +28,15 @@ const EventShow = (props) => {
         <BodyList>
           <MarkdownField source="pair:description" />
           <ReferenceArrayField reference="Sector" source="pair:hasSector">
-          <CategoriesField>
-            <TextField source="pair:label" />
-          </CategoriesField>
-        </ReferenceArrayField>
-        <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-          <BulletPointsField linkType={false}>
-            <TextField variant="body2" color="secondary" source="pair:label" />
-          </BulletPointsField>
-        </ReferenceArrayField>
+            <SingleFieldList linkType={false}>
+              <SectorField />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+            <BulletPointsField linkType={false}>
+              <TextField variant="body2" color="secondary" source="pair:label" />
+            </BulletPointsField>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:produces">
             <BulletPointsField linkType={false}>
               <TextField source="pair:label" />
