@@ -12,7 +12,7 @@ export default {
     edit: ThemeEdit,
     icon: LocalOfferIcon,
     options: {
-      label: 'Sujets',
+      label: 'Mots clé',
       parent: 'Concept',
     },
   },
@@ -24,12 +24,12 @@ export default {
   },
   translations: {
     fr: {
-      name: 'Sujet |||| Sujets',
+      name: 'Mot clé |||| Mots clé',
       fields: {
         'pair:label': 'Titre',
         'pair:comment': 'Courte description',
         'pair:description': 'Description',
-        'pair:topicOf': 'Est un sujet de',
+        'pair:topicOf': 'Mot clé utilisé par',
       },
     },
   },
