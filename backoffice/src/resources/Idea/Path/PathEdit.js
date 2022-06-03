@@ -15,7 +15,6 @@ import {
   ThemesInput,
   // TypesInput,
   SkillsInput,
-  RegistrationInput,
 } from '../../../pair';
 import PathTitle from './PathTitle';
 
@@ -35,13 +34,6 @@ const PathEdit = (props) => (
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <MarkdownInput source="cdlt:professionalPerspectives" fullWidth />
         */}
-        <RegistrationInput 
-          directRegistrationSource="cdlt:directRegistration"
-          registrationOptionSource="cdlt:registrationOption"
-          jotformLinkSource="cdlt:jotformLink"
-          registrationLinkSource="cdlt:registrationLink"          
-          fullWidth
-        />
       </FormTab>
       <FormTab label="Relations">
         <PlacesInput source="cdlt:hasPlace" />

@@ -7,7 +7,6 @@ import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MarkdownField } from '@semapps/markdown-components';
 import { MapList } from '@semapps/geo-components';
 import PathTitle from './PathTitle';
-import RegistrationButton from '../../../commons/RegistrationButton';
 
 const PathShow = (props) => (
   <ShowWithPermissions title={<PathTitle />} {...props}>
@@ -26,12 +25,6 @@ const PathShow = (props) => (
           </ReferenceField>
           */}
         </Hero>
-        <RegistrationButton 
-          directRegistrationSource="cdlt:directRegistration"
-          registrationOptionSource="cdlt:registrationOption"
-          jotformLinkSource="cdlt:jotformLink"
-          registrationLinkSource="cdlt:registrationLink" 
-        />
         <MainList>
           <MarkdownField source="pair:description" />
           {/*
