@@ -15,6 +15,8 @@ import EventSubHeader from "../../Activity/Event/EventSubHeader";
 import PlaceSubHeader from "../../Place/PlaceSubHeader";
 import CardsList from "../../../commons/lists/CardsList";
 import DebateCard from "../Debate/DebateCard";
+import PictoLieu from '../../../icons/PictoLieu.png' ;
+import PictoParcours from '../../../icons/PictoParcours.png' ;
 
 const EventShow = (props) => {
   return (
@@ -61,6 +63,7 @@ const EventShow = (props) => {
           basePath="/Place"
           title="Les lieux"
           subtitle="A visiter"
+          logo={PictoLieu}
           headComment="Partez à la découverte de lieux inspirants et allez à la rencontre de personnes qui ont choisi d’être actrices de la transition."
           linkText="Voir tous les lieux"
           CardSubHeaderComponent={PlaceSubHeader}
@@ -71,6 +74,7 @@ const EventShow = (props) => {
           basePath="/Event"
           title="Les événements"
           subtitle=""
+          logo={PictoParcours}
           headComment=""
           linkText="Voir tous les événements"
           CardSubHeaderComponent={EventSubHeader}
@@ -81,6 +85,7 @@ const EventShow = (props) => {
           basePath="/Course"
           title="Les parcours"
           subtitle="Thématiques & géographiques"
+          logo={PictoParcours}
           headComment="Tu rêves de partir sur les routes pour découvrir des savoir-faire ou même apprendre un métier sur le terrain? Découvre nos parcours."
           linkText="Voir tous les parcours"
           CardSubHeaderComponent={CourseSubHeader}
