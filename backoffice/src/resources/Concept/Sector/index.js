@@ -26,6 +26,7 @@ export default {
       fields: {
         'pair:label': 'Nom',
         'pair:depictedBy': 'Image',
+        'cdlt:alternativeImage': 'Image d\'arrière plan',
       },
     },
   },

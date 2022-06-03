@@ -144,7 +144,7 @@ const EventItemsGrid = ({ similarRecord }) => {
             <Box className={classes.sector}>
               <ReferenceArrayField source="pair:hasSector" reference="Sector" perPage={1} record={data[id]}>
                 <SingleFieldList>
-                  <ImageField source="pair:depictedBy" title="pair:label" />
+                  <ImageField source="cdlt:alternativeImage" title="pair:label" />
                 </SingleFieldList>
               </ReferenceArrayField>
             </Box>
