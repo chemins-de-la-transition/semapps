@@ -38,7 +38,7 @@ export default {
         'pair:hasStatus': 'Statut',
         'pair:offers': 'Offre', /*Skill*/
         'pair:hasSector': 'Secteurs d\'activité',
-        'pair:hasTopic': 'A pour intérêt', /*Theme*/
+        'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:hasLocation': 'Adresse',
         'pair:hasFinality': 'Finalités',
         'cdlt:asAHostIntentions': 'Intention en tant qu\'hôte',

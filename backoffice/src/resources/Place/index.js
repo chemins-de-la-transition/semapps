@@ -42,7 +42,7 @@ export default {
         'pair:depictedBy': 'Image',
         'cdlt:hasRegion': 'Région',
         'pair:hasSector': 'Secteurs d\'activité',
-        'pair:hasTopic': 'A pour intérêt', /*Theme*/
+        'pair:hasTopic': 'Mots clé', /*Theme*/
         'cdlt:hasCourseType': 'Type de voyage',
         'pair:hasType': 'Type de lieu',
         'pair:hasStatus': 'Statut',

@@ -35,7 +35,7 @@ export default {
         'pair:affiliates': 'A pour membres', /*Person*/
         'pair:partnerOf': 'A pour partenaires', /*Organization*/
         'pair:hasSector': 'Secteurs d\'activité',
-        'pair:hasTopic': 'A pour intérêt', /*Theme*/
+        'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:hasLocation': 'Adresse',
         'cdlt:organizes': 'Organise',
         'cdlt:hasRegion': 'Région(s)',

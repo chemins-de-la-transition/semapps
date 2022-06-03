@@ -41,7 +41,7 @@ export default {
         'pair:comment': "Phrase d'accroche",
         'pair:depictedBy': 'Image',
         'pair:hasSector': 'Secteurs d\'activité',
-        'pair:hasTopic': 'A pour intérêt', /*Theme*/
+        'pair:hasTopic': 'Mots clé', /*Theme*/
         'cdlt:hasCourseType': 'Type de voyage',
         'pair:hasType': 'Type de lieu',
         'pair:description': 'A propos du lieu',

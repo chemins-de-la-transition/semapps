@@ -30,7 +30,7 @@ export default {
         'pair:depictedBy': 'Image',
         'cdlt:hasCourseType': 'Type de voyage',
         'pair:hasSector': 'Secteurs d\'activité',
-        'pair:hasTopic': 'A pour intérêt', /*Theme*/
+        'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:produces': 'Compétences visées',
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',
