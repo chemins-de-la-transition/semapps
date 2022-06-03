@@ -19,6 +19,7 @@ import CategoriesField from '../../../commons/fields/CategoriesField';
 import CourseCard from '../Course/CourseCard';
 import CardsList from '../../../commons/lists/CardsList';
 import PathCard from '../../Idea/Path/PathCard';
+import NextEvents from '../../../commons/lists/EventsList/NextEvents';
 
 const EventShow = (props) => (
   <ShowBase {...props}>
@@ -43,7 +44,11 @@ const EventShow = (props) => (
           addLabel
         >
           <MarkdownField source="pair:description" />
-          <TextField source="cdlt:targetAudience" />
+          <ReferenceArrayField reference="TargetAudience" source="cdlt:targetAudience" >
+            <SeparatedListField link={false} separator=" / ">
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Organization" source="cdlt:organizedBy" >
             <SeparatedListField link="show" separator=" / ">
               <TextField source="pair:label" />
@@ -121,7 +126,9 @@ const EventShow = (props) => (
           </Box>
         </ReferenceArrayField>
       </BodyList>
-      <SimilarEvents />
+      <Box>
+        <SimilarEvents />
+      </Box>
     </>
   </ShowBase>
 );

@@ -15,7 +15,7 @@ import {
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { DateTimeInput } from '@semapps/date-components';
-import { PairLocationInput, FinalitiesInput, PathsInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput, ActorsInput, RegistrationInput } from '../../../pair';
+import { PairLocationInput, FinalitiesInput, PathsInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput, ActorsInput, RegistrationInput, TargetAudienceInput } from '../../../pair';
 import frLocale from 'date-fns/locale/fr';
 import { Box, FormControlLabel, Slide, LinearProgress, makeStyles, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
@@ -192,7 +192,7 @@ const EventForm = ({ mode, ...rest }) => {
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} />
-        <TextInput multiline source="cdlt:targetAudience" fullWidth />
+        <TargetAudienceInput source="cdlt:targetAudience" fullWidth />
         <MarkdownInput source="cdlt:organizerDescription" fullWidth />
         <MarkdownInput source="cdlt:mentorDescription" fullWidth />
 
@@ -213,7 +213,7 @@ const EventForm = ({ mode, ...rest }) => {
         <TextInput multiline source="cdlt:economicalConditions" fullWidth />
         <TextInput multiline helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" source="cdlt:financialSupport" fullWidth />
 
-        {/* <PairLocationInput source="pair:hasLocation" fullWidth /> */}
+        <PairLocationInput source="pair:hasLocation" fullWidth />
         <RegistrationInput 
           directRegistrationSource="cdlt:directRegistration"
           registrationOptionSource="cdlt:registrationOption"

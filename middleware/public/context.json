@@ -508,6 +508,9 @@
     "pair:hasFinality": {
       "@type": "@id"
     },
+    "cdlt:targetAudience": {
+      "@type": "@id"
+    },
     "pair:hasFollower": {
       "@type": "@id"
     },

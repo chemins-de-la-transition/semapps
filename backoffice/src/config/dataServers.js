@@ -10,6 +10,7 @@ const dataServers = {
         'pair:Document': ['/documents'],
         'pair:Event': ['/events'],
         'pair:Finality': ['/finalities'],
+        'cdlt:TargetAudience': ['/target-audiences'],
         'pair:Organization': ['/organizations'],
         'pair:Person': ['/users'],
         'foaf:Person': ['/users'],

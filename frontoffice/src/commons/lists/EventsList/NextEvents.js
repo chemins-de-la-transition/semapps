@@ -13,10 +13,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NextEvents = () => {
+const NextEvents = (similarRecord ) => {
   const classes = useStyles();
   const futureEventSparql = useFutureEventSparql();
-
+  
   const [eventType, setEventType] = useState("");
   const [category, setCategory] = useState("");
   const [region, setRegion] = useState("");
@@ -44,7 +44,7 @@ const NextEvents = () => {
         filterDefaultValues={{ sparqlWhere: futureEventSparql }}
         sort={{ field: 'pair:startDate', order: 'ASC' }}
       >
-        <EventItemsGrid />
+        <EventItemsGrid similarRecord={similarRecord}/>
       </ListBase>
     </>
   );

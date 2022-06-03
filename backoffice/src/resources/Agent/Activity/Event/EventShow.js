@@ -52,7 +52,11 @@ const EventShow = (props) => (
         />
         <MainList>
           <MarkdownField source="pair:description"/>
-          <MarkdownField source="cdlt:targetAudience"/>
+          <ReferenceArrayField reference="TargetAudience" source="cdlt:targetAudience">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
           <MarkdownField source="cdlt:organizerDescription" />
           <MarkdownField source="cdlt:mentorDescription" />
           

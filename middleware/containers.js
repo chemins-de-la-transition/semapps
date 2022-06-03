@@ -128,6 +128,12 @@ module.exports = [
     newResourcesPermissions: writePermissionToCreator,
   },
   {
+    path: '/target-audiences',
+    acceptedTypes: ['cdlt:TargetAudience'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator,
+  },
+  {
     path: '/sectors',
     acceptedTypes: ['pair:Sector'],
     permissions: anonReadPermission,
