@@ -142,7 +142,7 @@ const FormBox = () => {
     let filters = {};
     if( region ) filters['cdlt:hasRegion'] = region;
     if( type ) filters['cdlt:hasCourseType'] = type;
-    if( category ) filters['pair:hasTopic'] = category;
+    if( category ) filters['pair:hasSector'] = category;
     history.push(`/LEP?filter=${encodeURIComponent(JSON.stringify(filters))}`);
   };
 
@@ -167,12 +167,12 @@ const FormBox = () => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <FormControl className={classes.formControl} size="small" fullWidth>
-              <InputLabel id="demo-select-topic-label" className={classes.inputLabelText}>Secteur d'activité</InputLabel>
+              <InputLabel id="demo-select-sector-label" className={classes.inputLabelText}>Secteur d'activité</InputLabel>
               <SelectResources
-                reference="Theme"
-                inverseSource="pair:topicOf"
+                reference="Sector"
+                inverseSource="pair:sectorOf"
                 selectIcon={ChevronIcon}
-                labelId="demo-select-topic-label"
+                labelId="demo-select-sector-label"
                 value={category}
                 onChange={e => setCategory(e.target.value)}
                 variant={'outlined'}
