@@ -66,12 +66,11 @@ const Partners = () => {
     { 'pair:partnerOf': process.env.REACT_APP_MIDDLEWARE_URL + 'organizations/les-chemins-de-la-transition' }
   );
 
-  const sortedIds = ids.reduce((acc, id) => {
-    if (data[id]['pair:label']==="Assemblée Virtuelle") {
-      return [id, ...acc];
-    }
-    return [...acc, id];
-  }, []);
+  const sortedIds = [
+    ...ids.filter(id => data[id]['pair:label']==="Assemblée Virtuelle"),
+    ...ids.filter(id => data[id]['pair:label']==="MES Occitanie"),
+    ...ids.filter(id => !["Assemblée Virtuelle","MES Occitanie"].includes(data[id]['pair:label'])),
+  ]
 
   const classes = useStyles();
   return (
