@@ -27,7 +27,7 @@ const EventShow = (props) => {
         />
         <BodyList>
           <MarkdownField source="pair:description" />
-          <ReferenceArrayField reference="Theme" source="pair:hasSector">
+          <ReferenceArrayField reference="Sector" source="pair:hasSector">
           <CategoriesField>
             <TextField source="pair:label" />
           </CategoriesField>
