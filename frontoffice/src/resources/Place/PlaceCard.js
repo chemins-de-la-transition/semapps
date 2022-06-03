@@ -32,7 +32,7 @@ const PlaceCard = ({ record, variant }) => {
   return (
     <>
       <TextField variant="h2" component="div" record={record} source="pair:label" className={classes.title} />
-      {record['pair:hasPostalAddress'] ? (
+      {record['pair:hasPostalAddress'] && city && zipCode ? (
       <Chip icon={<PlaceIcon />}>
         <Typography variant="body1" className={classes.address}>
           {city+' ('+zipCode+')'}
