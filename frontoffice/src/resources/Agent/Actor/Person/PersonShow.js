@@ -9,6 +9,8 @@ import { MapField } from '@semapps/geo-components';
 import PersonTitle from './PersonTitle';
 import HomeIcon from '@material-ui/icons/Home';
 import ChipWithResourceIcon from '../../../../commons/ChipWithResourceIcon';
+import BulletPointsField from '../../../../commons/fields/BulletPointsField';
+import SectorField from '../../../../commons/fields/SectorField';
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -49,13 +51,13 @@ const PersonShow = (props) => {
           <MainList>
             <ReferenceArrayField reference="Sector" source="pair:hasSector">
               <SingleFieldList linkType={false}>
-                <ChipField source="pair:label" />
+                <SectorField />
               </SingleFieldList>
             </ReferenceArrayField>
             <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-              <SingleFieldList linkType={false}>
-                <ChipField source="pair:label" />
-              </SingleFieldList>
+              <BulletPointsField linkType={false}>
+                <TextField variant="body2" color="secondary" source="pair:label" />
+              </BulletPointsField>
             </ReferenceArrayField>
             <ReferenceArrayField reference="Skill" source="pair:offers">
               <SingleFieldList linkType={false}>
