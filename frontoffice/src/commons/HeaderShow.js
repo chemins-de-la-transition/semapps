@@ -12,7 +12,6 @@ import {
 import {
   TextField,
   useShowContext,
-  ReferenceField,
   Link,
   useRecordContext
 } from 'react-admin';
@@ -105,7 +104,7 @@ const MultipleImagesField = ({ source, max = 2 }) => {
 
 const HeaderShow = ({ linkToListText, details, content, actionButton, hasComment }) => {
   const classes = useStyles();
-  const { basePath, record } = useShowContext();
+  const { basePath } = useShowContext();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
 
   // Calculate header height
