@@ -26,16 +26,19 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     fontSize: '1.8rem',
   },
-  divider: {
+  divider: (props) => ({
     backgroundColor: 'white',
-  },
+    margin: props.isVertical ? 0 : '4px 0 8px'
+  }),
   primary: (props) => ({
     whiteSpace: props.isVertical ? undefined : 'nowrap',
+    [theme.breakpoints.down('sm')]: {
+      whiteSpace: undefined,
+    },
   }),
   secondary: (props) => ({
     paddingTop: 2,
     fontSize: 14,
-    whiteSpace: props.isVertical ? undefined : 'nowrap',
     color: 'white',
     '& a, & span': {
       color: 'white'

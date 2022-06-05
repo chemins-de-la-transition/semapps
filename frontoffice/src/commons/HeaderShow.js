@@ -38,10 +38,6 @@ const useStyles = makeStyles((theme) => ({
       color: 'white'
     }
   },
-  type: {
-    paddingTop: 10,
-    paddingBottom: 10,
-  },
   title: {
     lineHeight: 1.15,
   },
@@ -107,7 +103,7 @@ const MultipleImagesField = ({ source, max = 2 }) => {
   }
 };
 
-const HeaderShow = ({ type, linkToListText, details, content, actionButton, hasComment }) => {
+const HeaderShow = ({ linkToListText, details, content, actionButton, hasComment }) => {
   const classes = useStyles();
   const { basePath, record } = useShowContext();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
@@ -141,11 +137,6 @@ const HeaderShow = ({ type, linkToListText, details, content, actionButton, hasC
               <LikeButton />
             </div>
           }
-          {type && record && record[type] && (
-            <ReferenceField source={type} reference="Type" link={false}>
-              <TextField source="pair:label" variant="subtitle2" component="div" className={classes.type} />
-            </ReferenceField>
-          )}
           <TextField source="pair:label" variant="h1" className={classes.title} />
           {hasComment &&
             <TextField source="pair:comment" variant="h2" component="h2" />

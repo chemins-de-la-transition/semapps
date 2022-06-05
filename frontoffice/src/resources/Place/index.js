@@ -55,7 +55,7 @@ export default {
         'pair:e-mail': 'Adresse e-mail',
         'pair:phone': 'Téléphone',
         'pair:homePage': 'Site web',
-        'cdlt:placeOn': 'Chemins',
+        'cdlt:placeOn': 'Fait partie d\'un chemin',
         'pair:hasFinality': 'Finalités',
         'cdlt:directRegistration' : "Possibilité de s'enregistrer directement",
       },
