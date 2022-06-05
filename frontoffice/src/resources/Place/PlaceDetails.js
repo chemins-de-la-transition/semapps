@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
     },
     '& a .MuiTypography-root': {
       fontSize: props.isVertical ? '.95em' : 'unset',
+    },
+    '& a:hover': {
+      textDecoration: 'underline'
     }
   }),
 }));
