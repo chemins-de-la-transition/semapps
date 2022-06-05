@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { ShowBase, SingleFieldList, TextField } from 'react-admin';
+import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
 import { MapField } from '@semapps/geo-components';
-import { Box } from '@material-ui/core';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { Box, Typography } from '@material-ui/core';
+import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../commons/fields/MarkdownField';
 import HeaderShow from '../../commons/HeaderShow';
 import StickyCard from '../../commons/StickyCard';
@@ -17,6 +17,7 @@ import SectorField from '../../commons/fields/SectorField';
 import PlaceSubHeader from "./PlaceSubHeader";
 import SimilarList from "../../commons/lists/FeaturedList/SimilarList";
 import ContactButton from "../../commons/buttons/ContactButton";
+import GroupOfFields from '../../commons/fields/GroupOfFields';
 import PathCard from "../Idea/Path/PathCard";
 
 const PlaceShow = (props) => {
@@ -39,30 +40,66 @@ const PlaceShow = (props) => {
             </StickyCard>
           }
         >
-          <MarkdownField source="pair:description" />
-          <MarkdownField source="cdlt:hostDescription" addLabel />
-          <MarkdownField source="cdlt:activities" />
+          <GroupOfFields
+            title="A propos du lieu"
+            source="pair:description"
+            addLabel
+          >
+            <TextField variant="body2" color="secondary" source="pair:comment" />
+            <ReferenceArrayField reference="Finality" source="pair:hasFinality">
+              <BulletPointsField linkType={false}>
+                <TextField variant="body2" color="secondary" source="pair:label" />
+              </BulletPointsField>
+            </ReferenceArrayField>
+            <ReferenceArrayField reference="Sector" source="pair:hasSector">
+              <SingleFieldList linkType={false}>
+                <SectorField />
+              </SingleFieldList>
+            </ReferenceArrayField>
+            <ReferenceArrayField source="pair:hasType" reference="Type">
+              <BulletPointsField linkType={false}>
+                <TextField source="pair:label" />
+              </BulletPointsField>
+            </ReferenceArrayField>
+            <ReferenceArrayField reference="Type" source="cdlt:hasCourseType">
+              <BulletPointsField linkType={false}>
+                <TextField source="pair:label" />
+              </BulletPointsField>
+            </ReferenceArrayField>
+            <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+              <BulletPointsField linkType={false}>
+                <TextField variant="body2" color="secondary" source="pair:label" />
+              </BulletPointsField>
+            </ReferenceArrayField>
+            <MarkdownField source="pair:description" />
+            <MarkdownField source="cdlt:activities" />
+          </GroupOfFields>
+          <GroupOfFields
+            title="Compétences"
+            source="pair:produces"
+            addLabel
+          >
+            <ReferenceArrayField reference="Skill" source="pair:produces">
+              <SingleFieldList linkType="show">
+                <ChipField source="pair:label" />
+              </SingleFieldList>
+            </ReferenceArrayField>
+          </GroupOfFields>
+          <GroupOfFields
+            title="Modalités d'accueil"
+            source="cdlt:practicalConditions"
+            addLabel
+          >
+            <MarkdownField source="cdlt:practicalConditions" />
+          </GroupOfFields>
           <ReferenceArrayField source="pair:hosts" reference="Event" sort={{ field: 'pair:startDate', order: 'ASC' }}>
             <Box pt={1}>
+              <Typography variant="div" color="secondary" component="div" >
+                Ce lieu propose plusieurs événements. Cliquez dessus pour en savoir plus et/ou participer.
+              </Typography>
               <CardsList CardComponent={EventCard} />
             </Box>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Sector" source="pair:hasSector">
-            <SingleFieldList linkType={false}>
-              <SectorField />
-            </SingleFieldList>
-          </ReferenceArrayField>
-          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-            <BulletPointsField linkType={false}>
-              <TextField variant="body2" color="secondary" source="pair:label" />
-            </BulletPointsField>
-          </ReferenceArrayField>
-          <ReferenceArrayField reference="Skill" source="pair:produces">
-            <BulletPointsField linkType={false}>
-              <TextField variant="body2" color="secondary" source="pair:label" />
-            </BulletPointsField>
-          </ReferenceArrayField>
-          <MarkdownField source="cdlt:practicalConditions" />
           <MapField
             source="pair:hasPostalAddress"
             address={(record) => record?.['pair:hasPostalAddress']?.['pair:label']}
@@ -72,16 +109,7 @@ const PlaceShow = (props) => {
             scrollWheelZoom={false}
             dragging={false}
           />
-          <ContactField
-            source="pair:phone"
-            phone="pair:phone"
-            website="pair:homePage"
-          />
-          <ReferenceArrayField source="cdlt:placeOn" reference="Path">
-            <Box pt={1}>
-              <CardsList CardComponent={PathCard} />
-            </Box>
-          </ReferenceArrayField>
+          <UrlField source="pair:homePage" label="Liens" />
         </BodyList>
         <SimilarList
           resource="Place"
