@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import { useShowContext } from "react-admin"; 
 import ContactDialog from "../../commons/ContactDialog";
 import Button from "../Button";
-import JotformButton from "./JotformButton";
+import RegistrationButton from "./RegistrationButton";
 
 const ContactButton = ({ label }) => {
   const [showDialog, setShowDialog] = useState(false);
-  // const record = useRecordContext();
   const { record = {} } = useShowContext();
 
   if (record["cdlt:directRegistration"]) {
-    return <JotformButton label="Je m'inscris" />;
+    return <RegistrationButton label="Je m'inscris" />;
   }
 
   return (

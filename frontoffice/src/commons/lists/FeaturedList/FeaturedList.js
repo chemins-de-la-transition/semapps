@@ -7,6 +7,7 @@ import { ListBase } from 'react-admin';
 import { Link } from 'react-router-dom';
 import ItemsGrid from './ItemsGrid';
 import { linkToFilteredList } from "../../../utils";
+import NextEvents from '../EventsList/NextEvents';
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -16,6 +17,12 @@ const useStyles = makeStyles((theme) => ({
   container: {
     marginTop: 60,
     marginBottom: '0',
+  },
+  logo: {
+    height: 91,
+    [theme.breakpoints.down('xs')]: {
+      height: 64,
+    },
   },
   header: {
     display: 'flex',
@@ -49,8 +56,14 @@ const useStyles = makeStyles((theme) => ({
       height: '12px',
     }
   },
+  linkText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    '&:hover': {
+      color: theme.palette.primary.main,
+    }
+  },  
   listBase: {
-    overflowY: 'hidden',
     margin: '0',
     [theme.breakpoints.down('sm')]: {
       flexBasis: '33%',
@@ -63,35 +76,44 @@ const useStyles = makeStyles((theme) => ({
       flexShrink: '0',
     },
   },
+  agenda: {
+    boxShadow: "0px 1.2px 3.6px rgba(0, 0, 0, 0.1), 0px 6.4px 14.4px rgba(0, 0, 0, 0.13)",
+    borderRadius: 4,
+    padding: 28,
+  }
 }));
 
-const FeaturedList = ({ resource, basePath, title, subtitle, headComment, linkText, CardSubHeaderComponent, filter }) => {
+const FeaturedList = ({ resource, basePath, title, subtitle, logo, linkText, CardSubHeaderComponent, filter, isAgenda }) => {
   const classes = useStyles();
   return (
     <FullWidthBox className={classes.background}>
-      <LargeContainer className={classes.container}>
+      <LargeContainer className={classes.container + (isAgenda ? ' '+ classes.agenda : '')}>
         <Box width={1} className={classes.header}>
+          <img src={logo} alt="logo" className={classes.logo}/>
           <Box>
             <Typography variant="h2">{title}</Typography>
             <Typography variant="h3" component="div" className={classes.subTitle}>
               {subtitle}
             </Typography>
-            <Typography variant="body2" component="div">
-              {headComment}
-            </Typography>
           </Box>
           <Link to={filter ? linkToFilteredList(resource, filter.field)({ id: filter.value }) : basePath} className={classes.link}>
-            <Typography variant="button" className="button2">
+            <Typography className={classes.linkText}>
               {linkText}
             </Typography>
             <ChevronRightIcon />
           </Link>
         </Box>
+        {isAgenda ? 
+          <Box className={classes.listBase}>
+            <NextEvents />
+          </Box>
+        : 
         <Box className={classes.listBase}>
           <ListBase resource={resource} basePath={basePath} perPage={4} sort={{ field: 'dc:created', order: 'DESC' }} filter={filter ? {[filter.field]:filter.value} : null}>
-            <ItemsGrid CardSubHeaderComponent={CardSubHeaderComponent} />
+            <ItemsGrid CardSubHeaderComponent={CardSubHeaderComponent} resource={resource}/>
           </ListBase>
         </Box>
+        }
       </LargeContainer>
     </FullWidthBox>
   );

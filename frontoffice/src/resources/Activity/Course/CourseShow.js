@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShowBase, TextField } from 'react-admin';
+import { Box } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MapList } from '@semapps/geo-components';
 import HeaderShow from '../../../commons/HeaderShow';
@@ -13,6 +14,8 @@ import ContactField from "../../../commons/fields/ContactField";
 import SimilarList from "../../../commons/lists/FeaturedList/SimilarList";
 import CourseSubHeader from "./CourseSubHeader";
 import ApplyButton from "../../../commons/buttons/ApplyButton";
+import PathCard from '../../Idea/Path/PathCard';
+import CardsList from '../../../commons/lists/CardsList';
 
 const CourseShow = (props) => (
   <ShowBase {...props}>
@@ -68,6 +71,11 @@ const CourseShow = (props) => (
           phone="pair:phone"
           website="pair:homePage"
         />
+        <ReferenceArrayField source="cdlt:courseOn" reference="Path">
+          <Box pt={1}>
+            <CardsList CardComponent={PathCard} />
+          </Box>
+        </ReferenceArrayField>
       </BodyList>
       <SimilarList
         resource="Course"

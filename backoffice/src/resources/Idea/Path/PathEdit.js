@@ -15,6 +15,7 @@ import {
   ThemesInput,
   // TypesInput,
   SkillsInput,
+  RegistrationInput,
 } from '../../../pair';
 import PathTitle from './PathTitle';
 
@@ -25,7 +26,7 @@ const PathEdit = (props) => (
         <TextInput source="pair:label" fullWidth />
         <TextInput source="pair:comment" fullWidth />
         <MarkdownInput source="pair:description" fullWidth />
-        <ImageInput source="pair:isDepictedBy" accept="image/*" multiple>
+        <ImageInput source="pair:depictedBy" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
         {/*}
@@ -34,6 +35,13 @@ const PathEdit = (props) => (
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <MarkdownInput source="cdlt:professionalPerspectives" fullWidth />
         */}
+        <RegistrationInput 
+          directRegistrationSource="cdlt:directRegistration"
+          registrationOptionSource="cdlt:registrationOption"
+          jotformLinkSource="cdlt:jotformLink"
+          registrationLinkSource="cdlt:registrationLink"          
+          fullWidth
+        />
       </FormTab>
       <FormTab label="Relations">
         <PlacesInput source="cdlt:hasPlace" />

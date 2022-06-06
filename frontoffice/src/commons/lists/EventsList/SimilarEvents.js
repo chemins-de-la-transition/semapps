@@ -35,7 +35,7 @@ const SimilarEvents = () => {
             <Hidden smUp>
               <Box mb={2}>
                 <Typography variant="h1" component="div">
-                  Evénements similaires
+                Événements similaires
                 </Typography>
               </Box>
             </Hidden>
@@ -50,7 +50,7 @@ const SimilarEvents = () => {
             <Grid item sm={1} />
             <Grid item sm={4}>
               <Box display="flex" alignItems="center" justifyContent="center" >
-                <img src={process.env.PUBLIC_URL + '/similar-events.png'} alt="Evénements similaires"  className={classes.similarEventsImage} />
+                <img src={process.env.PUBLIC_URL + '/similar-events.png'} alt="Événements similaires"  className={classes.similarEventsImage} />
               </Box>
             </Grid>
           </Hidden>

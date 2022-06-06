@@ -17,24 +17,39 @@ const useStyles = makeStyles((theme) => ({
   description: {
     marginTop: 10,
   },
+  address: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: theme.palette.secondary.main
+  }
 }));
 
 const PlaceCard = ({ record, variant }) => {
   const classes = useStyles();
+  const city = record?.['pair:hasPostalAddress']?.['pair:addressLocality'] ;
+  const zipCode = record?.['pair:hasPostalAddress']?.['pair:addressZipCode']?.slice(0, 2) ;
+
   return (
     <>
       <TextField variant="h2" component="div" record={record} source="pair:label" className={classes.title} />
-      {record['cdlt:hasRegion'] && (
+      {record['pair:hasPostalAddress'] ? (
+      <Chip icon={<PlaceIcon />}>
+        <Typography variant="body1" className={classes.address}>
+          {city+' ('+zipCode+')'}
+        </Typography>
+      </Chip>
+      ) :
+      (record['cdlt:hasRegion'] && (
         <Chip icon={<PlaceIcon />}>
           <ReferenceField record={record} source="cdlt:hasRegion" reference="Region" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
         </Chip>
-      )}
+      ))}
       {record['pair:hasTopic'] && (
         <Chip icon={<ThemeIcon />}>
-          <ReferenceArrayField record={record} reference="Theme" source="pair:hasTopic">
-            <SeparatedListField link={false} separator=" /">
+          <ReferenceArrayField record={record} perPage={2} reference="Theme" source="pair:hasTopic">
+            <SeparatedListField link={false} separator=" / ">
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>

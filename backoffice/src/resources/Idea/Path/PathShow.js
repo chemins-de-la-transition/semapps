@@ -7,6 +7,7 @@ import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MarkdownField } from '@semapps/markdown-components';
 import { MapList } from '@semapps/geo-components';
 import PathTitle from './PathTitle';
+import RegistrationButton from '../../../commons/RegistrationButton';
 
 const PathShow = (props) => (
   <ShowWithPermissions title={<PathTitle />} {...props}>
@@ -25,6 +26,12 @@ const PathShow = (props) => (
           </ReferenceField>
           */}
         </Hero>
+        <RegistrationButton 
+          directRegistrationSource="cdlt:directRegistration"
+          registrationOptionSource="cdlt:registrationOption"
+          jotformLinkSource="cdlt:jotformLink"
+          registrationLinkSource="cdlt:registrationLink" 
+        />
         <MainList>
           <MarkdownField source="pair:description" />
           {/*
@@ -76,12 +83,12 @@ const PathShow = (props) => (
         <SideList>
           <ReferenceArrayField reference="Person" source="cdlt:proposedBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Organization" source="cdlt:supportedBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Theme" source="pair:hasTopic">

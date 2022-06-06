@@ -1,14 +1,14 @@
-import { PairResourceCreate } from '../../../../pair';
 import CourseEdit from './CourseEdit';
 import CourseList from './CourseList';
 import CourseShow from './CourseShow';
+import CourseCreate from './CourseCreate';
 import DateRangeIcon from '@material-ui/icons/DateRange';
 
 export default {
   config: {
     list: CourseList,
     show: CourseShow,
-    create: PairResourceCreate,
+    create: CourseCreate,
     edit: CourseEdit,
     icon: DateRangeIcon,
     options: {
@@ -27,7 +27,7 @@ export default {
       name: 'Voyage |||| Voyages',
       fields: {
         'pair:label': 'Titre',
-        'pair:isDepictedBy': 'Image',
+        'pair:depictedBy': 'Image',
         'cdlt:hasCourseType': 'Type de voyage',
         'pair:hasTopic': 'Secteurs d\'activité',
         'cdlt:hasRegion': 'Région(s)',
@@ -38,7 +38,7 @@ export default {
         'pair:description': 'Présentation',
         'cdlt:organizerDescription': 'Description du ou des organisateurs',
         'cdlt:mentorDescription': 'Description du ou des intervenants',
-        'pair:hasPart': 'Evénements constitutifs du voyage',
+        'pair:hasPart': 'Événements constitutifs du voyage',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
@@ -53,6 +53,11 @@ export default {
         'pair:documentedBy': 'Documents',
         'cdlt:courseOn': 'Est un voyage de',
         'pair:hasFinality': 'Finalités',
+        'cdlt:directRegistration' : "Possibilité de s'inscrire directement",
+        'cdlt:registrationOption' : "Option d'inscription",
+        'cdlt:jotformLink':"Formulaire d'inscription JotForm",
+        'cdlt:registrationLink':"Lien du système d'inscription",
+        'cdlt:referenceNumber': "Numéro de référence",
       },
     },
   },

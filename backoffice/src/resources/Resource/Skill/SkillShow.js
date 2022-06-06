@@ -21,7 +21,7 @@ const SkillShow = (props) => (
           </ReferenceArrayField>
           <ReferenceArrayField reference="Person" source="pair:offeredBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
         </SideList>

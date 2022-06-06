@@ -21,7 +21,7 @@ const OrganizationList = (props) => (
             primaryText={(record) => record['pair:label']}
             secondaryText={(record) => record['pair:comment']}
             leftIcon={(record) => (
-              <Avatar src={record['pair:image']} alt={record['pair:label']}>
+              <Avatar src={record['pair:depictedBy']} alt={record['pair:label']}>
                 <HomeIcon />
               </Avatar>
             )}

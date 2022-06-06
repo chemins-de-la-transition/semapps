@@ -1,11 +1,11 @@
 import React from 'react';
-import { ImageInput, TabbedForm, FormTab, TextInput, BooleanInput } from 'react-admin';
+import { ImageInput, TabbedForm, FormTab, TextInput } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { extractContext, LocationInput } from '@semapps/geo-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
 import PlaceTitle from './PlaceTitle';
-import { FinalitiesInput, PathsInput, ThemesInput, TypeInput, TypesInput, SkillsInput, PersonsInput, StatusInput } from '../../pair';
+import { FinalitiesInput, PathsInput, ThemesInput, TypeInput, TypesInput, SkillsInput, PersonsInput, StatusInput, RegistrationInput } from '../../pair';
 
 export const PlaceEdit = (props) => (
   <EditWithPermissions title={<PlaceTitle />} {...props}>
@@ -13,7 +13,7 @@ export const PlaceEdit = (props) => (
       <FormTab label="Données">
         <TextInput source="pair:label" fullWidth />
         <TextInput source="pair:comment" fullWidth />
-        <ImageInput source="pair:isDepictedBy" accept="image/*" multiple>
+        <ImageInput source="pair:depictedBy" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth />
@@ -41,7 +41,13 @@ export const PlaceEdit = (props) => (
           optionText={(resource) => resource['pair:label']}
           fullWidth
         />
-        <BooleanInput source="cdlt:directRegistration" fullWidth />
+        <RegistrationInput 
+          directRegistrationSource="cdlt:directRegistration"
+          registrationOptionSource="cdlt:registrationOption"
+          jotformLinkSource="cdlt:jotformLink"
+          registrationLinkSource="cdlt:registrationLink"          
+          fullWidth
+        />
       </FormTab>
       <FormTab label="Relations">
         <PersonsInput source="cdlt:proposedBy" />

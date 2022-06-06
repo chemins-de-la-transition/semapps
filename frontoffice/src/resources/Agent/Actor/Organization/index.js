@@ -1,3 +1,4 @@
+import OrganizationCreate from './OrganizationCreate';
 import OrganizationEdit from './OrganizationEdit';
 import OrganizationShow from './OrganizationShow';
 import HomeIcon from '@material-ui/icons/Home';
@@ -5,6 +6,7 @@ import HomeIcon from '@material-ui/icons/Home';
 export default {
   config: {
     show: OrganizationShow,
+    create: OrganizationCreate,
     edit: OrganizationEdit,
     icon: HomeIcon,
     options: {
@@ -29,13 +31,16 @@ export default {
         'pair:comment': 'Courte description',
         'pair:description': 'Description',
         'pair:homePage': 'Site web',
-        'pair:image': 'Logo',
+        'pair:depictedBy': 'Logo',
         'pair:affiliates': 'A pour membres', /*Person*/
         'pair:partnerOf': 'A pour partenaires', /*Organization*/
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'A pour secteur d\'activité',
         'pair:hasLocation': 'Adresse',
         'cdlt:organizes': 'Organise',
+        'cdlt:hasRegion': 'Région(s)',
+        'cdlt:supports': 'Chemins', /*Paths*/
+        'cdlt:hasCourseType': 'Type de voyage',
       },
     },
   },

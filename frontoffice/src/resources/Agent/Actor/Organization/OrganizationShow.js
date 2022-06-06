@@ -28,7 +28,7 @@ const OrganizationShow = (props) => {
     <ShowWithPermissions title={<OrganizationTitle />} {...props}>
       <Grid container spacing={5}>
         <Grid item xs={12} md={9}>
-          <Hero image="pair:image">
+          <Hero image="pair:depictedBy">
             <TextField source="pair:comment" />
             <UrlField source="pair:homePage" />
           </Hero>
@@ -51,12 +51,12 @@ const OrganizationShow = (props) => {
           <SideList>
             <ReferenceArrayField reference="Person" source="pair:affiliates">
               <GridList xs={3} md={6} linkType="show">
-                <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+                <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
               </GridList>
             </ReferenceArrayField>
             <ReferenceArrayField reference="Organization" source="pair:partnerOf">
               <GridList xs={3} md={6} linkType="show">
-                <AvatarField label="pair:label" image="pair:image" labelColor="grey.300">
+                <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
                   <HomeIcon />
                 </AvatarField>
               </GridList>
@@ -89,6 +89,21 @@ const OrganizationShow = (props) => {
             <ReferenceArrayField reference="Activity" source="cdlt:organizes">
               <SingleFieldList linkType="show">
                 <ChipWithResourceIcon source="pair:label" />
+              </SingleFieldList>
+            </ReferenceArrayField>
+            <ReferenceArrayField reference="Path" source="cdlt:supports">
+              <SingleFieldList linkType="show">
+                <ChipWithResourceIcon source="pair:label" />
+              </SingleFieldList>
+            </ReferenceArrayField>
+            <ReferenceArrayField reference="Type" source="cdlt:hasCourseType">
+              <SingleFieldList linkType="show">
+                <ChipWithResourceIcon source="pair:label" />
+              </SingleFieldList>
+            </ReferenceArrayField>
+            <ReferenceArrayField source="cdlt:hasRegion" reference="Region">
+              <SingleFieldList linkType={false}>
+                <ChipField source="pair:label" />
               </SingleFieldList>
             </ReferenceArrayField>
           </SideList>

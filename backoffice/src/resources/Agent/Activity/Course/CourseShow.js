@@ -16,7 +16,7 @@ import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MapList } from '@semapps/geo-components';
 import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
-import JotformButton from '../../../../commons/JotformButton';
+import RegistrationButton from '../../../../commons/RegistrationButton';
 import CourseTitle from './CourseTitle';
 import HomeIcon from '@material-ui/icons/Home';
 
@@ -24,7 +24,8 @@ const CourseShow = (props) => (
   <ShowWithPermissions title={<CourseTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
-        <Hero image="pair:isDepictedBy">
+        <Hero image="pair:depictedBy">
+          <TextField source="cdlt:referenceNumber" />
           <TextField source="pair:comment" />
           <DateField source="pair:startDate" />
           <DateField source="pair:endDate" />
@@ -45,7 +46,12 @@ const CourseShow = (props) => (
           </ReferenceField>
           <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
-        <JotformButton />
+        <RegistrationButton 
+          directRegistrationSource="cdlt:directRegistration"
+          registrationOptionSource="cdlt:registrationOption"
+          jotformLinkSource="cdlt:jotformLink"
+          registrationLinkSource="cdlt:registrationLink" 
+        />
         <MainList>
           <MarkdownField source="pair:description" />
           <MarkdownField source="cdlt:organizerDescription" />
@@ -102,14 +108,14 @@ const CourseShow = (props) => (
         <SideList>
           <ReferenceArrayField reference="Actor" source="cdlt:organizedBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300">
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
                 <HomeIcon />
               </AvatarField>
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Person" source="cdlt:hasMentor">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Path" source="cdlt:courseOn">

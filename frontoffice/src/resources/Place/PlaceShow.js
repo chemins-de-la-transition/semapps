@@ -16,6 +16,7 @@ import ContactField from "../../commons/fields/ContactField";
 import PlaceSubHeader from "./PlaceSubHeader";
 import SimilarList from "../../commons/lists/FeaturedList/SimilarList";
 import ContactButton from "../../commons/buttons/ContactButton";
+import PathCard from "../Idea/Path/PathCard";
 
 const PlaceShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
@@ -65,6 +66,11 @@ const PlaceShow = (props) => {
             phone="pair:phone"
             website="pair:homePage"
           />
+          <ReferenceArrayField source="cdlt:placeOn" reference="Path">
+            <Box pt={1}>
+              <CardsList CardComponent={PathCard} />
+            </Box>
+          </ReferenceArrayField>
         </BodyList>
         <SimilarList
           resource="Place"

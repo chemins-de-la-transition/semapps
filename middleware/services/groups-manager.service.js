@@ -20,6 +20,13 @@ module.exports = {
           record['pair:hasType'] === urlJoin(CONFIG.HOME_URL, 'types', 'actor') ||
           record['pair:hasType'] === urlJoin(CONFIG.HOME_URL, 'types', 'contributor'),
         groupSlug: 'actors'
+      },
+      {
+        match: record =>
+          record['pair:hasType'] === urlJoin(CONFIG.HOME_URL, 'types', 'traveler') ||
+          record['pair:hasType'] === urlJoin(CONFIG.HOME_URL, 'types', 'actor') ||
+          record['pair:hasType'] === urlJoin(CONFIG.HOME_URL, 'types', 'contributor'),
+        groupSlug: 'travelers'
       }
     ]
   }

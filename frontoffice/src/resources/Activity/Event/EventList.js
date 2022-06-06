@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useState } from 'react';
 import { ShowButton } from 'react-admin';
 import { Box, useMediaQuery } from '@material-ui/core';
 import frLocale from '@fullcalendar/core/locales/fr';
@@ -10,56 +10,23 @@ import MapIcon from '../../../svg/MapIcon';
 import ListIcon from '@material-ui/icons/List';
 import Filter from '../../../commons/Filter';
 import SparqlFilter from '../../../commons/SparqlFilter';
+import SearchFilter from '../../../commons/SearchFilter';
 import CardsList from '../../../commons/lists/CardsList';
 import EventCard from './EventCard';
+import useFutureEventSparql from "../../../hooks/useFutureEventSparql";
 
 const EventList = (props) => {
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
-  
-  const sparqlWhere = useMemo(() => {
-    const now = new Date();
-    return [
-      {
-        type: "bgp",
-        triples: [
-          {
-            "subject": { termType: "Variable", value:"s1" },
-            "predicate": { termType:"NameNode", value: "http://virtual-assembly.org/ontologies/pair#endDate" },
-            "object": { termType:"Variable", value: "endDate" }
-          }
-        ]
-      },{
-      type: "filter",
-      expression:{
-        type: "operation",
-        operator: ">",
-        args:[
-          {
-            termType: "Variable",
-            value: "endDate"
-          },
-          {
-            termType: "Literal",
-            datatype: {
-              termType:"NamedNode",
-              value:"http://www.w3.org/2001/XMLSchema#dateTime"
-            },
-            language: "",
-            // value: "2022-11-17T10:20:13+05:30"
-            value: now.toISOString()
-          }
-        ]
-      }
-    }
-    ]
-  }, []);
+  const [checked, setChecked] = useState(true);
+  const clearFilters = () => setChecked(false);
+  const futureEventSparql = useFutureEventSparql();
 
   return (
     <MultiViewsFilterList
       filters={[
-        <SparqlFilter initialChecked sparqlWhere={sparqlWhere} label="N'afficher que les événements à venir" />,
+        <SearchFilter />,
+        <SparqlFilter checked={checked} setChecked={setChecked} sparqlWhere={futureEventSparql} label="N'afficher que les événements à venir" />,
         <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label="Région" />,
-        <Filter reference="Path" source="cdlt:eventOn" inverseSource="cdlt:hasEvent" label="Chemin" />,
         <Filter reference="Theme" source="pair:hasTopic" inverseSource="pair:topicOf" label="Secteur d'activité" />,
         <Filter
           reference="Type"
@@ -80,7 +47,7 @@ const EventList = (props) => {
           icon: ListIcon,
           perPage: 1000,
           sort: { field: 'pair:startDate', order: 'ASC' },
-          filterDefaultValues: { sparqlWhere, dereference: [] },
+          filterDefaultValues: { sparqlWhere: futureEventSparql, dereference: [] },
           list: (
             <Box p={xs ? 2 : 3}>
               <CardsList CardComponent={EventCard} />
@@ -110,7 +77,7 @@ const EventList = (props) => {
           label: 'Vue carte',
           icon: MapIcon,
           perPage: 1000,
-          filterDefaultValues: { sparqlWhere },
+          filterDefaultValues: { sparqlWhere: futureEventSparql },
           list: (
             <MapList
               height={xs ? 'calc(100vh - 143px)' : 'calc(100vh - 193px)'}
@@ -125,8 +92,9 @@ const EventList = (props) => {
               )}
             />
           ),
-        }
+        },
       }}
+      clearFilters={ clearFilters }
       {...props}
     />
   );

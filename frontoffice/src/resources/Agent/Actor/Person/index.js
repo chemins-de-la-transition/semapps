@@ -27,9 +27,10 @@ export default {
       fields: {
         'pair:firstName': 'Prénom',
         'pair:lastName': 'Nom de famille',
+        'pair:alternativeLabel': 'Nom d\'utilisateur',
         'pair:comment': 'En deux mots',
         'pair:description': 'Description',
-        'pair:image': 'Photo',
+        'pair:depictedBy': 'Photo',
         'pair:hasType': 'Type',
         'pair:hasStatus': 'Statut',
         'pair:offers': 'Offre', /*Skill*/

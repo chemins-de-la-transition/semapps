@@ -38,16 +38,43 @@ const defaultWritePermissionToContributors = {
   }
 };
 
+const rootPermissions = {
+  anon: {
+    read: true,
+  },
+  group: {
+    uri: urlJoin(CONFIG.HOME_URL, '_groups', 'superadmins'),
+    read: true,
+    write: true,
+    control: true
+  },
+  default: {
+    anon: {
+      read: true
+    },
+    group: {
+      uri: urlJoin(CONFIG.HOME_URL, '_groups', 'superadmins'),
+      read: true,
+      write: true,
+      control: true
+    }
+  }
+};
+
 module.exports = [
   {
     path: '/',
-    permissions: anonReadPermission,
+    permissions: rootPermissions,
   },
   {
     path: '/organizations',
     acceptedTypes: ['pair:Organization'],
     dereference: ['pair:hasLocation/pair:hasPostalAddress'],
-    permissions: anonReadPermission,
+    permissions: {
+      ...anonReadPermission,
+      ...writePermissionToActors,
+      ...defaultWritePermissionToContributors
+    },
     newResourcesPermissions: writePermissionToCreator
   },
   {
@@ -141,6 +168,12 @@ module.exports = [
     acceptedTypes: ['semapps:Page'],
     permissions: anonReadPermission,
     newResourcesPermissions: writePermissionToCreator,
+  },
+  {
+    path: '/debates',
+    acceptedTypes: ['pair:Debate'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: anonReadPermission,
   },
   {
     path: '/files'

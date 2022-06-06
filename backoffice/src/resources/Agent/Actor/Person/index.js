@@ -31,9 +31,10 @@ export default {
       fields: {
         'pair:firstName': 'Prénom',
         'pair:lastName': 'Nom de famille',
+        'pair:alternativeLabel': 'Nom d\'utilisateur',
         'pair:comment': 'En deux mots',
         'pair:description': 'Description',
-        'pair:image': 'Photo',
+        'pair:depictedBy': 'Photo',
         'pair:hasType': 'Type',
         'pair:hasStatus': 'Statut',
         'pair:offers': 'Offre', /*Skill*/
@@ -46,7 +47,7 @@ export default {
         'cdlt:asAnOrganiserIntentions': 'Intention en tant qu\'organisateur',
         'cdlt:asATravelerIntentions': 'Intention en tant que voyageur',
         'pair:affiliatedBy': 'Membre de', /*Organization*/
-        'cdlt:mentorOn': 'Est mentor pour', /*Activity*/
+        'cdlt:mentorOn': 'Est intervenant pour', /*Activity*/
         'cdlt:organizes': 'Est organisateur de', /*Activity*/
         'cdlt:proposes': 'Est hôte de',
         'foaf:email': 'Adresse email',

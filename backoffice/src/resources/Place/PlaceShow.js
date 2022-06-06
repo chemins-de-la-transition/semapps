@@ -7,13 +7,13 @@ import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import PlaceTitle from './PlaceTitle';
-import JotformButton from '../../commons/JotformButton';
+import RegistrationButton from '../../commons/RegistrationButton';
 
 const PlaceShow = (props) => (
   <ShowWithPermissions title={<PlaceTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
-        <Hero image="pair:isDepictedBy">
+        <Hero image="pair:depictedBy">
           <TextField source="pair:comment" />
           <ReferenceField source="cdlt:hasRegion" reference="Region" link={false}>
             <TextField source="pair:label" />
@@ -38,7 +38,12 @@ const PlaceShow = (props) => (
           <UrlField source="pair:homePage" />
           <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
-        <JotformButton />
+        <RegistrationButton 
+          directRegistrationSource="cdlt:directRegistration"
+          registrationOptionSource="cdlt:registrationOption"
+          jotformLinkSource="cdlt:jotformLink"
+          registrationLinkSource="cdlt:registrationLink" 
+        />
         <MainList>
           <MarkdownField source="pair:description" addLabel />
           <MarkdownField source="cdlt:hostDescription" addLabel />
@@ -56,7 +61,7 @@ const PlaceShow = (props) => (
         <SideList>
           <ReferenceArrayField reference="Person" source="cdlt:proposedBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:image" labelColor="grey.300" />
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Path" source="cdlt:placeOn">

@@ -4,12 +4,14 @@ import { lightFormat } from "date-fns";
 import { useShowContext } from "react-admin";
 import Button from "../Button";
 
-const JotformButton = ({ label: labelProp }) => {
+const RegistrationButton = ({ label: labelProp }) => {
   const [types, setTypes] = useState();
 
   const { record = {} } = useShowContext();
 
-  console.log("record", record);
+  const registrationOption= record["cdlt:registrationOption"];
+  const jotformLink= record["cdlt:jotformLink"];
+  const registrationLink= record["cdlt:registrationLink"];
 
   const id = record.id;
   const startDate = record["pair:startDate"]
@@ -22,11 +24,7 @@ const JotformButton = ({ label: labelProp }) => {
   const label = record["pair:label"];
   const hasType = record["pair:hasType"];
 
-  console.log(priceRange);
-
   useEffect(() => {
-    console.log("=>", hasType);
-
     if (!hasType) return;
     const promisesArray = Array.isArray(hasType) ? hasType : [hasType];
     Promise.all(
@@ -38,10 +36,8 @@ const JotformButton = ({ label: labelProp }) => {
 
   if (record.hasType && !types) return null;
 
-  console.log("types", types);
-
-  const href =
-    "https://form.jotform.com/212722469132048?" +
+  const jotformQuery =
+    jotformLink +
     qs.stringify(
       Object.assign(
         {},
@@ -59,7 +55,7 @@ const JotformButton = ({ label: labelProp }) => {
           typeVoyage: types.map((t) => t["pair:label"]).join(", "),
         },
         { label },
-        { LEPId: id },
+        { lepid: id },
         priceRange && { prix: priceRange.replace(/[^0-9]/g, "") }
       )
     );
@@ -70,7 +66,7 @@ const JotformButton = ({ label: labelProp }) => {
         variant="contained"
         color="primary"
         typographyVariant="button1"
-        href={href}
+        href={[0,1].includes(registrationOption) ? jotformQuery : registrationLink }
       >
         {labelProp}
       </Button>
@@ -78,4 +74,4 @@ const JotformButton = ({ label: labelProp }) => {
   );
 };
 
-export default JotformButton;
+export default RegistrationButton;

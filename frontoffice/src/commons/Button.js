@@ -19,13 +19,22 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: '20px',
     textAlign: 'center',
   },
+  button3: {
+    fontFamily: theme.typography.body2.fontFamily,
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    lineHeight: '20px',
+    textAlign: 'center',
+    textTransform: 'none',
+  },
   outlinedInversed: {},
 }));
 
 const Button = ({ variant, children, typographyVariant, ...rest }) => {
   const classes = useStyles();
   const typographyClassName =
-    typographyVariant === 'button1' ? classes.button1 : typographyVariant === 'button2' ? classes.button2 : '';
+    typographyVariant === 'button1' ? classes.button1 : typographyVariant === 'button2' ? classes.button2 : typographyVariant === 'button3' ? classes.button3: '';
   const typoVar = typographyVariant === 'button1' || typographyVariant === 'button2' ? 'button' : typographyVariant;
   const formattedVar = variant === 'outlinedInversed' ? 'outlined' : variant;
   return (

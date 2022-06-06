@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormTab, ImageInput, TabbedForm, TextInput, BooleanInput } from 'react-admin';
+import { FormTab, ImageInput, TabbedForm, TextInput } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
@@ -13,7 +13,8 @@ import {
   StatusInput,
   TypesInput,
   SkillsInput,
-  DocumentsType
+  DocumentsType,
+  RegistrationInput
 } from '../../../../pair';
 import CourseTitle from './CourseTitle';
 import { DateInput } from '@semapps/date-components';
@@ -25,7 +26,7 @@ const CourseEdit = (props) => (
       <FormTab label="Données">
         <TextInput source="pair:label" fullWidth />
         <TextInput source="pair:comment" fullWidth />
-        <ImageInput source="pair:isDepictedBy" accept="image/*" multiple>
+        <ImageInput source="pair:depictedBy" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
         <DateInput
@@ -56,7 +57,13 @@ const CourseEdit = (props) => (
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <TextInput source="cdlt:priceRange" fullWidth />
         <MarkdownInput source="cdlt:economicalConditions" fullWidth />
-        <BooleanInput source="cdlt:directRegistration" fullWidth />
+        <RegistrationInput 
+          directRegistrationSource="cdlt:directRegistration"
+          registrationOptionSource="cdlt:registrationOption"
+          jotformLinkSource="cdlt:jotformLink"
+          registrationLinkSource="cdlt:registrationLink"          
+          fullWidth
+        />
       </FormTab>
       <FormTab label="Relations">
         {/*<PathInput source="cdlt:courseOn" />*/}

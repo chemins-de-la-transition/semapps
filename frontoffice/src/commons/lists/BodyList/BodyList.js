@@ -21,10 +21,11 @@ const BodyList = ({ children, aside, alert }) => {
   const translate = useTranslate();
   const classes = useStyles();
   const { basePath, loaded, record, resource } = useShowContext();
+
   if (!loaded) return null;
 
   const fields = React.Children.toArray(children).filter(
-    (field) => field && record[field.props.source] && React.isValidElement(field)
+    (field) => field.props.title || (field && record[field.props.source] && React.isValidElement(field))
   );
 
   return (
@@ -36,8 +37,8 @@ const BodyList = ({ children, aside, alert }) => {
             <Grid item md={9} sm={12} xs={12}>
               {alert && React.cloneElement(alert)}
               {fields.map((field) => (
-                <div key={field.props.source} id={field.props.source} className={classes.divider}>
-                  {field.props.addLabel ? (
+                <div key={field.props.source} id={field.props.source} className={field.props.title ? '' : classes.divider}>
+                  {field.props.addLabel && !field.props.title ? (
                     <>
                       <BodyLabel>
                         {translate(
