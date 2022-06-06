@@ -3,7 +3,7 @@ import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react
 import { MapField } from '@semapps/geo-components';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { Box, Typography, makeStyles } from '@material-ui/core';
-import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../commons/fields/MarkdownField';
 import HeaderShow from '../../commons/HeaderShow';
 import StickyCard from '../../commons/StickyCard';
@@ -11,23 +11,16 @@ import BodyList from '../../commons/lists/BodyList/BodyList';
 import PlaceDetails from './PlaceDetails';
 import EventCard from '../Activity/Event/EventCard';
 import CardsList from '../../commons/lists/CardsList';
-import BulletPointsField from '../../commons/fields/BulletPointsField';
 import ContactDialog from "../../commons/ContactDialog";
-import ContactField from "../../commons/fields/ContactField";
 import SectorField from '../../commons/fields/SectorField';
 import PlaceSubHeader from "./PlaceSubHeader";
 import SimilarList from "../../commons/lists/FeaturedList/SimilarList";
 import ContactButton from "../../commons/buttons/ContactButton";
 import GroupOfFields from '../../commons/fields/GroupOfFields';
-import PathCard from "../Idea/Path/PathCard";
 import PictoLieu from '../../icons/PictoLieu.png' ;
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
-    '#pair\:description h6.MuiTypography-h6': {
-      marginTop: 16,
-      border: 'none',
-    },
     '& .MuiBox-root .MuiContainer-root .MuiGrid-root h6': {
       marginTop: 8,
       marginBottom: 8,
