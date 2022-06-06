@@ -42,7 +42,7 @@ const PlaceDetails = (props) => {
   const classes = useStyles({ isVertical });
   const sm = useMediaQuery((theme) => theme.breakpoints.down('sm'), { noSsr: true });
   return(
-    <Box className={classes.mainContainer + ' '}>
+    <Box className={classes.mainContainer}>
         <IconsList {...props}>
           { ( !isVertical || sm ) && 
             <ReferenceArrayField source="pair:hasType" reference="Type" icon={<TypeIcon />}>
