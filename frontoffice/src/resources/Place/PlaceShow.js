@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.grey40.main
       },
       '& ~ p.MuiTypography-body2': {
-        marginTop: '8px !important'
+        marginTop: 8
       },
       '& ~ div .MuiButtonBase-root.MuiChip-root': {
         marginTop: 16,
@@ -48,16 +48,14 @@ const useStyles = makeStyles((theme) => ({
       '& ~ a.MuiLink-root': {
         marginTop: 8,
         marginBottom: 16
+      },
+      '& ~ div p:first-of-type': {
+        marginTop: 0
       }
     },
   },
   singleFieldList: {
     marginBottom: 48 
-  },
-  hideLabel: {
-    '& h6': {
-      display: 'none'
-    }
   },
   textBody: {
     marginTop: 8,
@@ -137,7 +135,6 @@ const PlaceShow = (props) => {
             title="Modalités d'accueil"
             source="cdlt:practicalConditions"
             addLabel
-            className={classes.praticalConditions}
           >
             <MarkdownField source="cdlt:practicalConditions" className={classes.hideLabel} addLabel={false}/>
           </GroupOfFields>
