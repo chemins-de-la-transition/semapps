@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const GroupOfFields = ({ children, source, title, noBorder }) => {
+const GroupOfFields = ({ children, source, title, noBorder, className }) => {
   const translate = useTranslate();
   const classes = useStyles();
   const { basePath, loaded, record, resource } = useShowContext();
@@ -29,7 +29,7 @@ const GroupOfFields = ({ children, source, title, noBorder }) => {
   );
 
   return (
-    <div> 
+    <div className={className}> 
     {(fields.length > 0) && <Typography variant="h6" color="secondary" className={`${classes.divider} ${noBorder ? classes.noBorder : ''}`}>
         {title}
     </Typography>

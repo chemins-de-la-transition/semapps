@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.grey40.main
       },
       '& ~ p.MuiTypography-body2': {
-        marginTop: 8
+        marginTop: '8px !important'
       },
       '& ~ div .MuiButtonBase-root.MuiChip-root': {
         marginTop: 16,
@@ -137,8 +137,9 @@ const PlaceShow = (props) => {
             title="Modalités d'accueil"
             source="cdlt:practicalConditions"
             addLabel
+            className={classes.praticalConditions}
           >
-            <MarkdownField source="cdlt:practicalConditions" className={classes.hideLabel} />
+            <MarkdownField source="cdlt:practicalConditions" className={classes.hideLabel} addLabel={false}/>
           </GroupOfFields>
           <ReferenceArrayField source="pair:hosts" reference="Event" sort={{ field: 'pair:startDate', order: 'ASC' }}>
             <Box pt={1}>
