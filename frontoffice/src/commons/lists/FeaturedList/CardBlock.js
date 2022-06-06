@@ -16,7 +16,11 @@ const useStyles = makeStyles((theme) => ({
       background: 'none',
       maxWidth: 180,
       '& .MuiChip-label': {
-        overflow: 'visible'
+        overflow: 'visible',
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop: -2,
+        marginLeft: -2
       }
     }
   },
@@ -158,9 +162,9 @@ const CardBlock = ({ record, basePath, CardSubHeaderComponent, resource }) => {
             <Chip
               label={
                 <ReferenceArrayField source="pair:hasSector" reference="Sector" record={record} perPage={3}>
-                  <SingleFieldList>
+                  <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasSector')} separator="">
                     <ImageField source="pair:depictedBy" title="pair:label" className={classes.sectorImage} />
-                  </SingleFieldList>
+                  </SeparatedListField>
                 </ReferenceArrayField>
               }
             />
