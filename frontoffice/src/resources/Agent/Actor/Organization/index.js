@@ -28,7 +28,7 @@ export default {
       name: 'Organisation |||| Organisations',
       fields: {
         'pair:label': 'Nom',
-        'pair:comment': 'Courte description',
+        'pair:comment': 'En quelques mots',
         'pair:description': 'Description',
         'pair:homePage': 'Site web',
         'pair:depictedBy': 'Logo',

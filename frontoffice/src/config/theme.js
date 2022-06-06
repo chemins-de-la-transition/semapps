@@ -14,6 +14,7 @@ const theme_2 = '#9B471F';
 const theme_3 = '#88534D';
 const theme_4 = '#897171';
 const theme_5 = '#4C7788';
+const theme_5_light = '#D1DBE0'
 const theme_6 = '#1E5544';
 const theme_7 = '#069782';
 const theme_8 = '#AEBDA5';
@@ -63,6 +64,10 @@ let theme = createTheme({
     },
     theme_5: {
       main: theme_5,
+      contrastText: tertiary
+    },
+    theme_5_light: {
+      main: theme_5_light,
       contrastText: tertiary
     },
     theme_6: {

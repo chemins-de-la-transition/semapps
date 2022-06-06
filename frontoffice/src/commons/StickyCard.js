@@ -12,18 +12,30 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.2em',
     lineHeight: 1.15,
   },
-  block: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
+  block: (props) => {
+    let backgroundColor = theme.palette.primary.main;
+    if (props.variant === 'organization') {
+      backgroundColor = theme.palette.theme_5.main;
+    }
+    return ({
+      backgroundColor:backgroundColor,
+      color: theme.palette.primary.contrastText
+    })
   },
-  button: {
-    backgroundColor: theme.palette.primary.main,
-    textAlign: 'center',
+  button: (props) => {
+    let backgroundColor = theme.palette.primary.main;
+    if (props.variant === 'organization') {
+      backgroundColor = theme.palette.theme_5.main;
+    }
+    return ({
+      backgroundColor:backgroundColor,
+      textAlign: 'center'
+    })
   },
 }));
 
-const StickyCard = ({ children, actionButton }) => {
-  const classes = useStyles();
+const StickyCard = ({ children, actionButton, variant }) => {
+  const classes = useStyles({variant});
   const record = useRecordContext();
   return (
     <StickyBox offsetTop={168} className={classes.root}>

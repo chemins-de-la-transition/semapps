@@ -22,9 +22,15 @@ import EditButton from "./buttons/EditButton";
 import LikeButton from "./buttons/LikeButton";
 
 const useStyles = makeStyles((theme) => ({
-  background: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
+  background: (props) => {
+    let backgroundColor = theme.palette.primary.main;
+    if (props.variant === 'organization') {
+      backgroundColor = theme.palette.theme_5.main;
+    }
+    return ({
+      backgroundColor:backgroundColor,
+      color: theme.palette.primary.contrastText
+    })
   },
   container: {
     display: 'flex',
@@ -106,8 +112,8 @@ const MultipleImagesField = ({ source, max = 2 }) => {
   }
 };
 
-const HeaderShow = ({ linkToListText, details, content, actionButton, hasComment }) => {
-  const classes = useStyles();
+const HeaderShow = ({ linkToListText, details, content, actionButton, hasComment, variant }) => {
+  const classes = useStyles({variant});
   const { basePath } = useShowContext();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
 
