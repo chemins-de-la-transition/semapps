@@ -17,6 +17,7 @@ import PlaceSubHeader from "./PlaceSubHeader";
 import SimilarList from "../../commons/lists/FeaturedList/SimilarList";
 import ContactButton from "../../commons/buttons/ContactButton";
 import GroupOfFields from '../../commons/fields/GroupOfFields';
+import { linkToFilteredList } from "../../utils";
 import PictoLieu from '../../icons/PictoLieu.png' ;
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +40,10 @@ const useStyles = makeStyles((theme) => ({
       '& ~ div .MuiButtonBase-root.MuiChip-root': {
         marginTop: 16,
         marginBottom: 16,
-        fontWeight: 600
+        '& .MuiChip-label': {
+          color: theme.palette.primary.contrastText,
+          fontWeight: 600
+        }
       },
       '& ~ a.MuiLink-root': {
         marginTop: 8,
@@ -111,9 +115,9 @@ const PlaceShow = (props) => {
               </SeparatedListField>
             </ReferenceArrayField>
             <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-              <SingleFieldList linkType="show">
+              <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator="">
                 <ChipField source="pair:label" color="primary" />
-              </SingleFieldList>
+              </SeparatedListField>
             </ReferenceArrayField>
             <MarkdownField source="pair:description" />
             <MarkdownField source="cdlt:activities" />
@@ -124,9 +128,9 @@ const PlaceShow = (props) => {
             addLabel
           >
             <ReferenceArrayField reference="Skill" source="pair:produces">
-              <SingleFieldList linkType="show" className={classes.singleFieldList}>
+              <SeparatedListField link={linkToFilteredList('LEP', 'pair:produces')} separator="">
                 <ChipField source="pair:label" color="primary" />
-              </SingleFieldList>
+              </SeparatedListField>
             </ReferenceArrayField>
           </GroupOfFields>
           <GroupOfFields
