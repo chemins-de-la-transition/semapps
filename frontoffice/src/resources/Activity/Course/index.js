@@ -52,7 +52,6 @@ export default {
         'pair:hasStatus': 'Statut',
         'cdlt:courseOn': 'Chemins',
         'pair:hasFinality': 'Finalités',
-        'cdlt:directRegistration' : "Possibilité de s'enregistrer directement",
         'cdlt:referenceNumber': 'Numéro de référence',
       },
     },

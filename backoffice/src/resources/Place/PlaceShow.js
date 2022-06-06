@@ -7,7 +7,7 @@ import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import PlaceTitle from './PlaceTitle';
-import JotformButton from '../../commons/JotformButton';
+import RegistrationButton from '../../commons/RegistrationButton';
 
 const PlaceShow = (props) => (
   <ShowWithPermissions title={<PlaceTitle />} {...props}>
@@ -38,7 +38,12 @@ const PlaceShow = (props) => (
           <UrlField source="pair:homePage" />
           <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
-        <JotformButton source="cdlt:jotformLink"/>
+        <RegistrationButton 
+          directRegistrationSource="cdlt:directRegistration"
+          registrationOptionSource="cdlt:registrationOption"
+          jotformLinkSource="cdlt:jotformLink"
+          registrationLinkSource="cdlt:registrationLink" 
+        />
         <MainList>
           <MarkdownField source="pair:description" addLabel />
           <MarkdownField source="cdlt:hostDescription" addLabel />
