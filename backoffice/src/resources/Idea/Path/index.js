@@ -38,10 +38,6 @@ export default {
         'cdlt:hasCourse': 'Voyages', /*Course*/
         'pair:hasTopic': 'A pour secteur d\'activité',
         'pair:hasFinality': 'Finalités',
-        'cdlt:directRegistration' : "Possibilité de s'inscrire directement",
-        'cdlt:registrationOption' : "Option d'inscription",
-        'cdlt:jotformLink':"Formulaire d'inscription JotForm",
-        'cdlt:registrationLink':"Lien du système d'inscription",
         /*
         'pair:hasLocation': 'Composez votre voyage',
         'pair:hasStatus': 'Statut',
