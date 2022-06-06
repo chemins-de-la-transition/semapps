@@ -12,9 +12,12 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.main,
     margin: '8px 0',
     '& img': {
-      margin: 0,
+      marginBottom: -12,
       width: '100%'
-    }
+    },
+    '& .MuiTypography-root': {
+      fontFamily: theme.typography.h6.fontFamily,
+    } 
   }
 }));
 

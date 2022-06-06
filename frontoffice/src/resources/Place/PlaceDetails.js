@@ -16,7 +16,8 @@ import CalendarIcon from '../../svg/CalendarIcon';
 const useStyles = makeStyles((theme) => ({
   mainContainer: (props) => ({
     '& ul.MuiList-root li.MuiListItem-root': {
-      flexGrow: 0
+      flexGrow: 0,
+      marginBottom: 4
     },
     '& .MuiListItemText-root .MuiListItemText-primary': {
       fontWeight: 600

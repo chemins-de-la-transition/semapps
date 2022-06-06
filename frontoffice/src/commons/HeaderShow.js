@@ -40,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     lineHeight: 1.15,
   },
+  iconsContainer: {
+    paddingTop: 16,
+    paddingBottom: 12
+  },
   basePath: {
     color: theme.palette.theme_3.contrastText,
   },
@@ -140,7 +144,7 @@ const HeaderShow = ({ linkToListText, details, content, actionButton, hasComment
           {hasComment &&
             <TextField source="pair:comment" variant="h2" component="h2" />
           }
-          <Box display={xs ? 'block' : 'flex'} pt={2} pb={2}>
+          <Box display={xs ? 'block' : 'flex'} className={classes.iconsContainer}>
             {details &&
               <>
                 {React.cloneElement(details, { orientation: xs ? 'vertical' : 'horizontal' })}
