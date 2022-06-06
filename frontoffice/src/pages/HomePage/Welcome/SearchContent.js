@@ -89,6 +89,11 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     padding: '10px 18px',
+    [theme.breakpoints.down('xs')]: {
+      '& .MuiTypography-body1' : {
+        fontSize: 12,
+      }
+    },
   },
   searchTitle:{
     [theme.breakpoints.down('xs')]: {
@@ -161,7 +166,7 @@ const FormBox = () => {
                 onChange={e => setType(e.target.value)}
                 className={classes.select} 
                 variant={'outlined'}
-                IconComponent = {ChevronIcon}
+                selectIcon={ChevronIcon}
               />
             </FormControl>
           </Grid>

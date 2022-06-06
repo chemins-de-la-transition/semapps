@@ -97,13 +97,13 @@ const CoursesTypes = () => {
             type="ecotourisme" 
           />
           <LocalGridItem
-            title="Apprenant"
+            title="Apprentissage"
             text="Une pratique m’intéresse, j’ai envie d’en savoir plus. Profitez de ces voyages sur quelques jours pour visiter différents lieux et rencontrer les porteurs de projets"
             icon={Type2Icon}
             type="voyage-apprenant1"
           />
           <LocalGridItem
-            title="Immersif"
+            title="Immersion"
             text="J’ai envie d’apprendre en participant. Ces voyages sur quelques semaines vous permettront d’experimenter par le faire et de participer à un projet de votre choix"
             icon={Type3Icon}
             type="immersion-longue"
