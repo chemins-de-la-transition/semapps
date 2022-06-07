@@ -81,7 +81,7 @@ const PlaceDetails = (props) => {
           }
           { (isVertical || sm ) && 
             <ReferenceField label="Hôte" reference="Person" source="cdlt:proposedBy" icon={<ActorIcon/>} link="show" >
-                <TextField source="pair:label" />
+              <TextField source="pair:label" />
             </ReferenceField>
           }
           { (isVertical || sm ) && 
