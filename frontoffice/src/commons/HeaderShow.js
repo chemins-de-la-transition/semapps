@@ -51,9 +51,12 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 12
   },
   basePath: {
-    color: theme.palette.theme_3.contrastText,
+    '& p': {
+      color: theme.palette.theme_3.contrastText,
+      fontSize: 14    
+    }
   },
-  placeLink: {
+resourceLink: {
     color: theme.palette.theme_3.contrastText,
     fontWeight: 'bold',
   },
@@ -132,9 +135,9 @@ const HeaderShow = ({ linkToListText, details, content, actionButton, hasComment
           className={classes.breadcrumbs}
         >
           <Link to={basePath} underline="none" color="inherit" className={classes.basePath}>
-            <Typography variant="body2">{linkToListText}</Typography>
+            <Typography>{linkToListText}</Typography>
           </Link>
-          <TextField source="pair:label" variant="body2" className={classes.placeLink} />
+          <TextField source="pair:label" variant="body2" className={classes.resourceLink} />
         </Breadcrumbs>
         <Box className={classes.images}>
           <MultipleImagesField source="pair:depictedBy" max={2} />

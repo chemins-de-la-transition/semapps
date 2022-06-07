@@ -19,7 +19,7 @@ const PlaceSubHeader = ({ record }) => {
   <>
   {record['pair:hasPostalAddress'] && (
     <Chip icon={<PlaceIcon />}>
-      <Typography variant="body2" component="div" className={classes.place}>
+      <Typography variant="body2" component="div" className={classes.place} color="secondary">
         {city+' ('+zipCode+')'}
       </Typography>
     </Chip>
