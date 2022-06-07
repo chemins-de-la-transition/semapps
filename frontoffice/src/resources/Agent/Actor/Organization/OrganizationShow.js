@@ -49,6 +49,11 @@ const OrganizationShow = (props) => {
         </Grid>
         <Grid item xs={12} md={3}>
           <SideList>
+            <ReferenceArrayField  reference="Place" source="cdlt:organizationHostedIn">
+              <SingleFieldList linkType="show">
+                <ChipField source="pair:label" />
+              </SingleFieldList>
+            </ReferenceArrayField>
             <ReferenceArrayField reference="Person" source="pair:affiliates">
               <GridList xs={3} md={6} linkType="show">
                 <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
