@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
-import resourceTheme from '../../config/resourceTheme';
+import resourceTheme from '../../config/themes/resourceTheme';
 import { MapField } from '@semapps/geo-components';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { Box, Typography, makeStyles } from '@material-ui/core';

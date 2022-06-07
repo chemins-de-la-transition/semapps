@@ -1,7 +1,7 @@
 import React from 'react';
 import { Edit } from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
-import organizationTheme from '../../../../config/organizationTheme';
+import organizationTheme from '../../../../config/themes/organizationTheme';
 import { useCheckPermissions } from '@semapps/auth-provider';
 import FullWidthBox from '../../../../commons/FullWidthBox';
 import LargeContainer from '../../../../commons/LargeContainer';
@@ -16,7 +16,7 @@ const OrganizationEdit = (props) => {
   useCheckPermissions(props.id, 'edit', props.basePath);
   return (
     <ThemeProvider theme={organizationTheme}>
-      <HeaderTitle actions={actions} variant="organization" />
+      <HeaderTitle actions={actions} />
       <FullWidthBox>
         <LargeContainer>
           <Edit title={<OrganizationTitle />} actions={null} {...props}>
