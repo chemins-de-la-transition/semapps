@@ -1,5 +1,5 @@
 import { createTheme } from '@material-ui/core/styles';
-import theme from './theme';
+import theme from './resourceTheme';
 
 const theme_5 = '#4C7788';
 const theme_5_light = '#D1DBE0'

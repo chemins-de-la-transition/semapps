@@ -22,15 +22,9 @@ import EditButton from "./buttons/EditButton";
 import LikeButton from "./buttons/LikeButton";
 
 const useStyles = makeStyles((theme) => ({
-  background: (props) => {
-    let backgroundColor = theme.palette.primary.main;
-    if (props.variant === 'organization') {
-      backgroundColor = theme.palette.theme_5.main;
-    }
-    return ({
-      backgroundColor:backgroundColor,
-      color: theme.palette.primary.contrastText
-    })
+  background: {
+    backgroundColor:theme.palette.primary.main,
+    color: theme.palette.primary.contrastText
   },
   container: {
     display: 'flex',

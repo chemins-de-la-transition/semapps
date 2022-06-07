@@ -12,25 +12,13 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.2em',
     lineHeight: 1.15,
   },
-  block: (props) => {
-    let backgroundColor = theme.palette.primary.main;
-    if (props.variant === 'organization') {
-      backgroundColor = theme.palette.theme_5.main;
-    }
-    return ({
-      backgroundColor:backgroundColor,
-      color: theme.palette.primary.contrastText
-    })
+  block: {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText
   },
-  button: (props) => {
-    let backgroundColor = theme.palette.primary.main;
-    if (props.variant === 'organization') {
-      backgroundColor = theme.palette.theme_5.main;
-    }
-    return ({
-      backgroundColor:backgroundColor,
-      textAlign: 'center'
-    })
+  button: {
+    backgroundColor: theme.palette.primary.main,
+    textAlign: 'center'
   },
 }));
 
