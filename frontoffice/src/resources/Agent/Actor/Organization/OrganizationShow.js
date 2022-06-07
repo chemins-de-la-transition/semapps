@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
+import { ThemeProvider } from '@material-ui/core';
+import organizationTheme from '../../../../config/organizationTheme';
 import { MapField } from '@semapps/geo-components';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { Box, Typography, makeStyles } from '@material-ui/core';
@@ -19,51 +21,22 @@ import { linkToFilteredList } from "../../../../utils";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
-    '& .MuiBox-root .MuiContainer-root .MuiGrid-root h6': {
+    color: 'red',
+    '& h6': {
       marginTop: 8,
       marginBottom: 8,
-      '& ~ .MuiTypography-body2:not(a)': {
-        color: theme.palette.grey40.main
-      },
-      '& ~ span': {
+      '& ~ *:not(a)': {
         color: theme.palette.grey40.main
       },
       '& ~ span *': {
         color: theme.palette.grey40.main
       },
-      '& ~ p.MuiTypography-body2': {
+      '& ~ p': {
         marginTop: 8
-      },
-      '& ~ div .MuiButtonBase-root.MuiChip-root': {
-        marginTop: 16,
-        marginBottom: 16,
-        '&.MuiChip-colorPrimary': {
-          backgroundColor: theme.palette.theme_5.main
-        },
-        '& .MuiChip-label': {
-          color: theme.palette.primary.contrastText,
-          fontWeight: 600
-        }
-      },
-      '& ~ a.MuiLink-root': {
-        marginTop: 8,
-        marginBottom: 16
       },
       '& ~ div p:first-of-type': {
         marginTop: 0
       }
-    },
-    '& .MuiButton-containedPrimary': {
-      backgroundColor: theme.palette.theme_5.main
-    },
-    '& .MuiLinearProgress-colorPrimary': {
-      backgroundColor: theme.palette.theme_5_light.main
-    },
-    '& .MuiLinearProgress-barColorPrimary': {
-      backgroundColor: theme.palette.theme_5.main
-    },
-    '& .MuiCardContent-root .MuiTypography-h2': {
-      color: theme.palette.theme_5.main
     }
   },
   singleFieldList: {
@@ -73,6 +46,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 8,
     marginBottom: 16,
     color: theme.palette.grey40.main,
+  },
+  chipField: {
+    marginTop: 8,
+    marginBottom: 16,
+    color: theme.palette.primary.contrastText,
+    fontWeight: 600
   }
 }));
 
@@ -80,102 +59,103 @@ const OrganizationShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
   const classes = useStyles();
   return (
-    <ShowBase {...props}>
-      <Box className={classes.mainContainer}>
-        <HeaderShow
-          type="pair:hasType"
-          linkToListText="Liste des organisations"
-          details={<OrganizationDetails />}
-          actionButton={<ContactButton label="Contacter l'organisation" />}
-          variant="organization"
-        />
-        <BodyList
-          aside={
-            <StickyCard
-              actionButton={<ContactButton label="Contacter l'organisation" />}
-              variant="organization"
-            >
-              <OrganizationDetails orientation="vertical" />
-            </StickyCard>
-          }
-        >
-          <GroupOfFields
-            title="A propos de cette organisation"
-            source="pair:description"
-            addLabel
-            noBorder
-          >
-            <TextField variant="body2" color="secondary" source="pair:comment"/>
-
-            <ReferenceArrayField reference="Finality" source="pair:hasFinality">
-              <SeparatedListField link={false} separator=" / ">
-                <TextField variant="body2" color="secondary" source="pair:label" />
-              </SeparatedListField>
-            </ReferenceArrayField>
-            <ReferenceArrayField reference="Sector" source="pair:hasSector">
-              <SingleFieldList linkType={false}>
-                <SectorField />
-              </SingleFieldList>
-            </ReferenceArrayField>
-            <ReferenceArrayField source="pair:hasType" reference="Type">
-            <SeparatedListField link={false} separator=" / ">
-                <TextField source="pair:label" />
-              </SeparatedListField>
-            </ReferenceArrayField>
-            <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-              <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator="">
-                <ChipField source="pair:label" color="primary" />
-              </SeparatedListField>
-            </ReferenceArrayField>
-            <MarkdownField source="pair:description" />
-            {/*
-            <MarkdownField source="cdlt:activities" />
-            */}
-          </GroupOfFields>
-          {/*
-          <GroupOfFields
-            title="Compétences"
-            source="pair:produces"
-            addLabel
-          >
-            <ReferenceArrayField reference="Skill" source="pair:produces">
-              <SeparatedListField link={linkToFilteredList('LEP', 'pair:produces')} separator="">
-                <ChipField source="pair:label" color="primary" />
-              </SeparatedListField>
-            </ReferenceArrayField>
-          </GroupOfFields>
-          */}
-          {/*
-          <GroupOfFields
-            title="Modalités d'accueil"
-            source="cdlt:practicalConditions"
-            addLabel
-          >
-            <MarkdownField source="cdlt:practicalConditions" className={classes.hideLabel} addLabel={false}/>
-          </GroupOfFields>
-          */}
-          <ReferenceArrayField source="cdlt:organizes" reference="Activity" sort={{ field: 'pair:startDate', order: 'ASC' }}>
-            <Box pt={1}>
-              <Typography variant="body2" component="div" className={classes.textBody} >
-                Cette organisation accueille plusieurs événements. Cliquez dessus pour en savoir plus et/ou participer.
-              </Typography>
-              <CardsList CardComponent={EventCard} />
-            </Box>
-          </ReferenceArrayField>
-          <MapField
-            source="pair:hasPostalAddress"
-            address={(record) => record?.['pair:hasPostalAddress']?.['pair:label']}
-            latitude={(record) => record?.['pair:hasPostalAddress']?.['pair:latitude']}
-            longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
-            typographyProps={{ variant: 'body2', color: 'secondary' }}
-            scrollWheelZoom={false}
-            dragging={false}
+    <ThemeProvider theme={organizationTheme}>
+      <ShowBase {...props}>
+        <Box className={classes.mainContainer}>
+          <HeaderShow
+            type="pair:hasType"
+            linkToListText="Liste des organisations"
+            details={<OrganizationDetails />}
+            actionButton={<ContactButton label="Contacter l'organisation" />}
+            variant="organization"
           />
-          <UrlField source="pair:homePage" label="Liens" />
-        </BodyList>
-        <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
-      </Box>
-    </ShowBase>
+          <BodyList
+            aside={
+              <StickyCard
+                actionButton={<ContactButton label="Contacter l'organisation" />}
+                variant="organization"
+              >
+                <OrganizationDetails orientation="vertical" />
+              </StickyCard>
+            }
+          >
+            <GroupOfFields
+              title="A propos de cette organisation"
+              source="pair:description"
+              addLabel
+              noBorder
+            >
+              <TextField variant="body2" color="secondary" source="pair:comment"/>
+              <ReferenceArrayField reference="Finality" source="pair:hasFinality">
+                <SeparatedListField link={false} separator=" / ">
+                  <TextField variant="body2" color="secondary" source="pair:label" />
+                </SeparatedListField>
+              </ReferenceArrayField>
+              <ReferenceArrayField reference="Sector" source="pair:hasSector">
+                <SingleFieldList linkType={false}>
+                  <SectorField />
+                </SingleFieldList>
+              </ReferenceArrayField>
+              <ReferenceArrayField source="pair:hasType" reference="Type">
+              <SeparatedListField link={false} separator=" / ">
+                  <TextField source="pair:label" />
+                </SeparatedListField>
+              </ReferenceArrayField>
+              <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+                <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator="">
+                  <ChipField source="pair:label" color="primary" className={classes.chipField} />
+                </SeparatedListField>
+              </ReferenceArrayField>
+              <MarkdownField source="pair:description" />
+              {/*
+              <MarkdownField source="cdlt:activities" />
+              */}
+            </GroupOfFields>
+            {/*
+            <GroupOfFields
+              title="Compétences"
+              source="pair:produces"
+              addLabel
+            >
+              <ReferenceArrayField reference="Skill" source="pair:produces">
+                <SeparatedListField link={linkToFilteredList('LEP', 'pair:produces')} separator="">
+                  <ChipField source="pair:label" color="primary" />
+                </SeparatedListField>
+              </ReferenceArrayField>
+            </GroupOfFields>
+            */}
+            {/*
+            <GroupOfFields
+              title="Modalités d'accueil"
+              source="cdlt:practicalConditions"
+              addLabel
+            >
+              <MarkdownField source="cdlt:practicalConditions" className={classes.hideLabel} addLabel={false}/>
+            </GroupOfFields>
+            */}
+            <ReferenceArrayField source="cdlt:organizes" reference="Activity" sort={{ field: 'pair:startDate', order: 'ASC' }}>
+              <Box pt={1}>
+                <Typography variant="body2" component="div" className={classes.textBody} >
+                  Cette organisation accueille plusieurs événements. Cliquez dessus pour en savoir plus et/ou participer.
+                </Typography>
+                <CardsList CardComponent={EventCard} />
+              </Box>
+            </ReferenceArrayField>
+            <MapField
+              source="pair:hasPostalAddress"
+              address={(record) => record?.['pair:hasPostalAddress']?.['pair:label']}
+              latitude={(record) => record?.['pair:hasPostalAddress']?.['pair:latitude']}
+              longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
+              typographyProps={{ variant: 'body2', color: 'secondary' }}
+              scrollWheelZoom={false}
+              dragging={false}
+            />
+            <UrlField source="pair:homePage" label="Liens" />
+          </BodyList>
+          <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
+        </Box>
+      </ShowBase>
+    </ThemeProvider>
   );
 };
 
