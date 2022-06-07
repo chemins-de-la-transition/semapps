@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { TextField } from 'react-admin';
 import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Box, makeStyles, useMediaQuery } from '@material-ui/core';
