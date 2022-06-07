@@ -62,8 +62,8 @@ const OrganizationDetails = (props) => {
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField reference="Place" source="pair:proposes" icon={<PlaceIcon />} label="Où sommes nous">
-              <SeparatedListField link={linkToFilteredList('LEP', 'pair:proposes')} separator={separator}>
+            <ReferenceArrayField reference="Organization" source="cdlt:organizationHostedIn" icon={<PlaceIcon />} label="Où sommes nous">
+              <SeparatedListField link={linkToFilteredList('LEP', 'pair:hosts')} separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
