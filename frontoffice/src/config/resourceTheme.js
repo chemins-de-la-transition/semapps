@@ -17,12 +17,6 @@ let resourceTheme = createTheme({
   },
   overrides: {
     ...theme.overrides,
-    MuiChip: {
-      ...theme.overrides.MuiChip,
-      label: {
-        fontWeight: 600
-      }
-    },
     MuiListItemText: {
       ...theme.overrides.MuiListItemText,
       primary: {

@@ -48,6 +48,9 @@ const useStyles = makeStyles((theme) => ({
       margin: 0,
       color: theme.palette.secondary.main
     }
+  },
+  chipField: {
+    fontWeight: 'bold'
   }
 }));
 
@@ -102,7 +105,7 @@ const PlaceShow = (props) => {
               </ReferenceArrayField>
               <ReferenceArrayField reference="Theme" source="pair:hasTopic">
                 <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator="">
-                  <ChipField source="pair:label" color="primary" />
+                  <ChipField source="pair:label" color="primary" className={classes.chipField}/>
                 </SeparatedListField>
               </ReferenceArrayField>
               <MarkdownField source="pair:description" />
@@ -115,7 +118,7 @@ const PlaceShow = (props) => {
             >
               <ReferenceArrayField reference="Skill" source="pair:produces">
                 <SeparatedListField link={linkToFilteredList('LEP', 'pair:produces')} separator="">
-                  <ChipField source="pair:label" color="primary" />
+                  <ChipField source="pair:label" color="primary" className={classes.chipField} />
                 </SeparatedListField>
               </ReferenceArrayField>
             </GroupOfFields>            
