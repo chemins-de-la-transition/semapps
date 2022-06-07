@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Edit } from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import personTheme from '../../../../config/themes/personTheme';
@@ -8,7 +8,6 @@ import LargeContainer from '../../../../commons/LargeContainer';
 import HeaderTitle from '../../../../commons/HeaderTitle';
 import PersonTitle from './PersonTitle';
 import PersonForm from './PersonForm';
-import Button from '../../../../commons/Button';
 
 export const PersonEdit = (props) => {
   useCheckPermissions(props.id, 'edit', props.basePath);
@@ -26,6 +25,7 @@ export const PersonEdit = (props) => {
                   ? data['pair:alternativeLabel']
                   : `${data['pair:firstName']} ${data['pair:lastName']?.toUpperCase()}`
             })}
+            actions={null}
             {...props}
           >
             <PersonForm />
