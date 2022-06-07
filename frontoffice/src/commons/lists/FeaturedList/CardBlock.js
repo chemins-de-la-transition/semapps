@@ -12,10 +12,10 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     zIndex: 1,
     paddingLeft: 0,
-    '& .MuiChip-root': {
+    '& div[class*=MuiChip-root]': {
       background: 'none',
       maxWidth: 180,
-      '& .MuiChip-label': {
+      '& span[class*=MuiChip-label]': {
         overflow: 'visible',
         display: 'flex',
         flexDirection: 'row',
@@ -114,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '20px',
     paddingRight: '20px',
     paddinBottom: '20px',
-    '& .MuiTypography-root': {
+    '& div[class*=MuiTypography-root]': {
       paddingLeft: '20px',
       paddingRight: '20px',
     },

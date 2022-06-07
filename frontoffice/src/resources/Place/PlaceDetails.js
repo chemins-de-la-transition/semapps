@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { TextField } from 'react-admin';
 import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Box, makeStyles, useMediaQuery } from '@material-ui/core';
@@ -15,23 +15,23 @@ import CalendarIcon from '../../svg/CalendarIcon';
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: (props) => ({
-    '& ul.MuiList-root li.MuiListItem-root': {
-      flexGrow: 0,
-      marginBottom: 4
+    '& ul > li': {
+      marginBottom: props.isVertical ? 0 : 4,
+      '& > div > p': {
+        display: props.isVertical ? 'flex' : 'block',
+        flexDirection: props.isVertical ? 'column' : 'unset',
+        '& > span > a' : {
+          '& > span': {
+            [theme.breakpoints.up('sm')]: {
+              fontSize: props.isVertical ? '.95em' : 'unset',
+            },
+          },
+          '&:hover': {
+            textDecoration: 'underline'
+          }
+        }
+      },
     },
-    '& .MuiListItemText-root .MuiListItemText-primary': {
-      fontWeight: 600
-    },
-    '& .MuiListItemText-root .MuiListItemText-secondary': {
-      display: props.isVertical ? 'flex' : 'block',
-      flexDirection: props.isVertical ? 'column' : 'unset',
-    },
-    '& a .MuiTypography-root': {
-      fontSize: props.isVertical ? '.95em' : 'unset',
-    },
-    '& a:hover': {
-      textDecoration: 'underline'
-    }
   }),
 }));
 
