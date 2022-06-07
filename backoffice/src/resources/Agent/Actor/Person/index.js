@@ -17,9 +17,9 @@ export default {
     },
   },
   dataModel: {
-    types: ['pair:Person', 'foaf:Person'],
+    types: ['pair:Person', 'foaf:Person', 'Person'],
     list: {
-      dereference: ['pair:hasLocation/pair:hasPostalAddress'],
+      dereference: ['sec:publicKey', 'pair:hasLocation/pair:hasPostalAddress'],
     },
     fieldsMapping: {
       title: ['pair:firstName', 'pair:lastName']
@@ -31,6 +31,7 @@ export default {
       fields: {
         'pair:firstName': 'Prénom',
         'pair:lastName': 'Nom de famille',
+        'pair:alternativeLabel': 'Nom d\'utilisateur',
         'pair:comment': 'En deux mots',
         'pair:description': 'Description',
         'pair:depictedBy': 'Photo',

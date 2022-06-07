@@ -41,6 +41,7 @@ export default {
         'cdlt:hasRegion': 'Région(s)',
         'cdlt:supports': 'Chemins', /*Paths*/
         'cdlt:hasCourseType': 'Type de voyage',
+        'cdlt:organizationHostedIn': 'Où sommes-nous'
       },
     },
   },

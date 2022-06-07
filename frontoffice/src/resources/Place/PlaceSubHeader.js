@@ -13,11 +13,11 @@ const useStyles = makeStyles((theme) => ({
 const PlaceSubHeader = ({ record }) => {
   const classes = useStyles();
   const city = record?.['pair:hasPostalAddress']?.['pair:addressLocality'] ;
-  const zipCode = record?.['pair:hasPostalAddress']?.['pair:addressZipCode'].slice(0, 2) ;
+  const zipCode = record?.['pair:hasPostalAddress']?.['pair:addressZipCode']?.slice(0, 2) ;
 
   return (
   <>
-  {record['pair:hasPostalAddress'] && (
+  {record['pair:hasPostalAddress'] && city && zipCode && (
     <Chip icon={<PlaceIcon />}>
       <Typography variant="body2" component="div" className={classes.place} color="secondary">
         {city+' ('+zipCode+')'}

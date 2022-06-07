@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormTab, ImageInput, TabbedForm, TextInput, BooleanInput } from 'react-admin';
+import { FormTab, ImageInput, TabbedForm, TextInput } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
@@ -15,7 +15,7 @@ import {
   TypesInput,
   SkillsInput,
   DocumentsType,
-  JotFormInput
+  RegistrationInput
 } from '../../../../pair';
 import CourseTitle from './CourseTitle';
 import { DateInput } from '@semapps/date-components';
@@ -58,7 +58,13 @@ const CourseEdit = (props) => (
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <TextInput source="cdlt:priceRange" fullWidth />
         <MarkdownInput source="cdlt:economicalConditions" fullWidth />
-        <BooleanInput source="cdlt:directRegistration" fullWidth />
+        <RegistrationInput 
+          directRegistrationSource="cdlt:directRegistration"
+          registrationOptionSource="cdlt:registrationOption"
+          jotformLinkSource="cdlt:jotformLink"
+          registrationLinkSource="cdlt:registrationLink"          
+          fullWidth
+        />
       </FormTab>
       <FormTab label="Relations">
         {/*<PathInput source="cdlt:courseOn" />*/}
@@ -73,13 +79,6 @@ const CourseEdit = (props) => (
         <PersonsInput source="cdlt:hasMentor" />
         <DocumentsType source="pair:documentedBy" />
         <FinalitiesInput source="pair:hasFinality" />
-        <JotFormInput 
-          label="Lien personnalisé du formulaire d'inscription" 
-          source="cdlt:jotformLink" 
-          booleanSource="cdlt:personalizedJotformLink" 
-          booleanLabel="Utiliser un lien personnalisé" 
-          fullWidth
-        />
       </FormTab>
       <FormTab label="Contact">
         <TextInput source="pair:e-mail" fullWidth />

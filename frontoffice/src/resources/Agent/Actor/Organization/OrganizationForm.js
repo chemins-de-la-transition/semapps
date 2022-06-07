@@ -11,7 +11,8 @@ import {
   PathsInput,
   RegionsInput,
   TypesInput,
-  PairLocationInput 
+  PairLocationInput,
+  PlacesInput,
 } from '../../../../pair';
 
 const OrganizationForm = ({ mode, ...rest }) => {
@@ -38,6 +39,7 @@ const OrganizationForm = ({ mode, ...rest }) => {
       <PathsInput source="cdlt:supports" />
       <PairLocationInput source="pair:hasLocation" fullWidth />
       <RegionsInput source="cdlt:hasRegion" fullWidth />
+      <PlacesInput source="cdlt:organizationHostedIn" fullWidth />
     </SimpleForm>
   );
 };

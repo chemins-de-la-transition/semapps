@@ -1,11 +1,11 @@
 import React from 'react';
-import { ImageInput, TabbedForm, FormTab, TextInput, BooleanInput } from 'react-admin';
+import { ImageInput, TabbedForm, FormTab, TextInput } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { extractContext, LocationInput } from '@semapps/geo-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
 import PlaceTitle from './PlaceTitle';
-import { FinalitiesInput, PathsInput, ThemesInput, TypeInput, TypesInput, SkillsInput, PersonsInput, SectorsInput, StatusInput, JotFormInput } from '../../pair';
+import { FinalitiesInput, PathsInput, ThemesInput, TypeInput, TypesInput, SkillsInput, PersonsInput, StatusInput, RegistrationInput, SectorsInput, OrganizationsInput } from '../../pair';
 
 export const PlaceEdit = (props) => (
   <EditWithPermissions title={<PlaceTitle />} {...props}>
@@ -41,7 +41,13 @@ export const PlaceEdit = (props) => (
           optionText={(resource) => resource['pair:label']}
           fullWidth
         />
-        <BooleanInput source="cdlt:directRegistration" fullWidth />
+        <RegistrationInput 
+          directRegistrationSource="cdlt:directRegistration"
+          registrationOptionSource="cdlt:registrationOption"
+          jotformLinkSource="cdlt:jotformLink"
+          registrationLinkSource="cdlt:registrationLink"          
+          fullWidth
+        />
       </FormTab>
       <FormTab label="Relations">
         <PersonsInput source="cdlt:proposedBy" />
@@ -54,13 +60,7 @@ export const PlaceEdit = (props) => (
         {/*<EventsInput source="pair:hosts" fullWidth />*/}
         <SkillsInput source="pair:produces" fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
-        <JotFormInput 
-          label="Lien personnalisé du formulaire d'inscription" 
-          source="cdlt:jotformLink" 
-          booleanSource="cdlt:personalizedJotformLink" 
-          booleanLabel="Utiliser un lien personnalisé" 
-          fullWidth
-        />
+        <OrganizationsInput source="cdlt:hostsOrganization" />
       </FormTab>
       <FormTab label="Contact">
         <TextInput source="pair:e-mail" fullWidth />

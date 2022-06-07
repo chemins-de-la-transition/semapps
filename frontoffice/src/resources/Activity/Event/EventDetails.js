@@ -62,7 +62,7 @@ const EventDetails = (props) => (
       endDate="pair:endDate"
       icon={<DurationIcon />}
     />
-    <ReferenceArrayField reference="Actor" source="cdlt:organizedBy" perPage={2} icon={<ActorIcon/>} link="show" >
+    <ReferenceArrayField reference="Actor" source="cdlt:organizedBy" perPage={2} icon={<ActorIcon/>} link="show" sort={{ field: 'type', order: 'DESC' }} >
       <SeparatedListField link="show" separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>

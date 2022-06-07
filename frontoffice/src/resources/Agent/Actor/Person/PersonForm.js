@@ -1,48 +1,35 @@
 import React, { useMemo } from 'react';
-import { ImageInput, FormTab, TabbedForm, TextInput, useGetIdentity } from 'react-admin';
-import { Container } from '@material-ui/core';
-import { EditWithPermissions } from '@semapps/auth-provider';
+import { FormTab, SimpleForm, ImageInput, TabbedForm, TextInput, useGetIdentity } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
-import {
+import { ImageField } from '@semapps/semantic-data-provider';
+import { 
   ActivitiesInput,
   FinalitiesInput,
   OrganizationsInput,
   PairLocationInput,
+  PathsInput,
   PlacesInput,
+  RegionsInput,
   SectorsInput,
   SkillsInput,
   ThemesInput,
-  // TypeInput,
-  // StatusInput
+  TypesInput,
+  UsersInput
 } from '../../../../pair';
-import { ImageField } from '@semapps/semantic-data-provider';
-import PersonTitle from './PersonTitle';
 
-export const PersonEdit = (props) => {
+const PersonForm = ({ ...rest }) => {
   const { identity } = useGetIdentity();
   const TRAVELER_TYPE_URL = process.env.REACT_APP_MIDDLEWARE_URL + 'types/traveler';
   const isTraveler = useMemo( () => {
     return ! identity?.webIdData?.['pair:hasType'] || identity.webIdData.['pair:hasType'] === TRAVELER_TYPE_URL
   }, [identity, TRAVELER_TYPE_URL]);
-  
+
   return (
-  <Container maxWidth="lg">
-    <EditWithPermissions
-      title={<PersonTitle />}
-      transform={(data) => ({
-        ...data,
-        'pair:label': 
-          data['pair:alternativeLabel']
-            ? data['pair:alternativeLabel']
-            : `${data['pair:firstName']} ${data['pair:lastName']?.toUpperCase()}`
-      })}
-      {...props}
-    >
+    <SimpleForm {...rest}>
       <TabbedForm redirect="show">
         <FormTab label="Principal">
           <TextInput source="pair:firstName" fullWidth />
           <TextInput source="pair:lastName" fullWidth />
-          <TextInput source="pair:alternativeLabel" fullWidth />
           <TextInput source="pair:comment" fullWidth />
           <MarkdownInput source="pair:description" fullWidth />
           <ImageInput source="pair:depictedBy" accept="image/*">
@@ -74,8 +61,8 @@ export const PersonEdit = (props) => {
           <FinalitiesInput source="pair:hasFinality" />
         </FormTab>
       </TabbedForm>
-    </EditWithPermissions>
-  </Container>
-)}
+    </SimpleForm>
+  );
+};
 
-export default PersonEdit;
+export default PersonForm;
