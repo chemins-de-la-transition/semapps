@@ -19,7 +19,6 @@ import CategoriesField from '../../../commons/fields/CategoriesField';
 import CourseCard from '../Course/CourseCard';
 import CardsList from '../../../commons/lists/CardsList';
 import PathCard from '../../Idea/Path/PathCard';
-import NextEvents from '../../../commons/lists/EventsList/NextEvents';
 
 const EventShow = (props) => (
   <ShowBase {...props}>

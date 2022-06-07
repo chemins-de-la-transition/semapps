@@ -1,11 +1,9 @@
 import * as React from 'react';
-import { makeStyles, Grid, Box, Typography, Hidden } from '@material-ui/core';
-import { ListBase, useShowContext } from 'react-admin';
+import { makeStyles, Box, Typography } from '@material-ui/core';
+import { useShowContext } from 'react-admin';
 import { Link } from 'react-router-dom';
 import LargeContainer from '../../LargeContainer';
 import FullWidthBox from '../../FullWidthBox';
-import Button from '../../Button';
-import ItemsGrid from './ItemsGrid';
 import NextEvents from './NextEvents';
 import ChevronRightIcon from '../../../svg/ChevronRightIcon';
 import PictoAgenda from '../../../icons/PictoAgenda.png' ;

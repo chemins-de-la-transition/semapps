@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormDataConsumer, RadioButtonGroupInput, SelectInput, BooleanInput, TextInput, TextField } from 'react-admin';
+import { FormDataConsumer, RadioButtonGroupInput, SelectInput, BooleanInput, TextInput } from 'react-admin';
 
 const registrationOptions = [
     { id: 0, name: "Utiliser un formulaire par défaut"},

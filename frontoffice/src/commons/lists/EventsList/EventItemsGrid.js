@@ -123,9 +123,10 @@ const EventItemsGrid = ({ similarRecord }) => {
     if( !similarRecord ) return ids;
     return ids
       .filter(id => data[id] && id !== similarRecord.id )
-      .sort(sortBySimilarity(data, similarRecord, 'pair:hasType'))
+      .sort(sortBySimilarity(data, similarRecord, 'pair:hasSector'))
+      .sort(sortBySimilarity(data, similarRecord, 'pair:hasRegion'))
       .sort(sortBySimilarity(data, similarRecord, 'cdlt:hasCourseType'))
-      .sort(sortBySimilarity(data, similarRecord, 'pair:hasLocation'))
+      .sort(sortBySimilarity(data, similarRecord, 'pair:hasType'))
       .slice(0, 4);
   }, [ids, data, similarRecord]);
 

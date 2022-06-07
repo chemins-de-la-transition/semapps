@@ -43,7 +43,7 @@ export default {
         'pair:hasLocation': 'Adresse',
         'pair:hasFinality': 'Finalités',
         'cdlt:asAHostIntentions': 'Intention en tant qu\'hôte',
-        'cdlt:asAMentorIntentions': 'Intention en tant que mentor',
+        'cdlt:asAMentorIntentions': 'Intention en tant qu\'intervenant.e',
         'cdlt:asAnOrganiserIntentions': 'Intention en tant qu\'organisateur',
         'cdlt:asATravelerIntentions': 'Intention en tant que voyageur',
         'pair:affiliatedBy': 'Membre de', /*Organization*/
