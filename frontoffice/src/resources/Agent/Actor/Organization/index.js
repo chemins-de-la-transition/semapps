@@ -36,7 +36,7 @@ export default {
         'pair:partnerOf': 'A pour partenaires', /*Organization*/
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé', /*Theme*/
-        'pair:hasLocation': 'Adresse',
+        'pair:hasLocation': 'Localisation',
         'cdlt:organizes': 'Organise',
         'cdlt:hasRegion': 'Région(s)',
         'cdlt:supports': 'Chemins', /*Paths*/

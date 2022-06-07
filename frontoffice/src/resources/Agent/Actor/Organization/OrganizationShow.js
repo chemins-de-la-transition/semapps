@@ -21,22 +21,10 @@ import { linkToFilteredList } from "../../../../utils";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
-    color: 'red',
-    '& h6': {
-      marginTop: 8,
-      marginBottom: 8,
-      '& ~ *:not(a)': {
-        color: theme.palette.grey40.main
-      },
-      '& ~ span *': {
-        color: theme.palette.grey40.main
-      },
-      '& ~ p': {
-        marginTop: 8
-      },
-      '& ~ div p:first-of-type': {
-        marginTop: 0
-      }
+    /* MarkdownField */
+    '& p[class*=makeStyles-p]': {
+      margin: 0,
+      color: theme.palette.grey40.main
     }
   },
   singleFieldList: {
@@ -44,14 +32,25 @@ const useStyles = makeStyles((theme) => ({
   },
   textBody: {
     marginTop: 8,
-    marginBottom: 16,
-    color: theme.palette.grey40.main,
+    marginBottom: 16
   },
-  chipField: {
+  urlField: {
+    display: 'block',
     marginTop: 8,
     marginBottom: 16,
-    color: theme.palette.primary.contrastText,
-    fontWeight: 600
+    '&:hover': {
+      color: theme.palette.theme_5.main
+    }
+  },
+  cardsList: {
+    color: 'red',
+    '& div[class*=makeStyles-description] span': {
+      margin: 0,
+      color: theme.palette.secondary.main
+    }
+  },
+  chipField: {
+    fontWeight: 'bold'
   }
 }));
 
@@ -133,24 +132,24 @@ const OrganizationShow = (props) => {
               <MarkdownField source="cdlt:practicalConditions" className={classes.hideLabel} addLabel={false}/>
             </GroupOfFields>
             */}
-            <ReferenceArrayField source="cdlt:organizes" reference="Activity" sort={{ field: 'pair:startDate', order: 'ASC' }}>
+            <ReferenceArrayField source="cdlt:organizes" reference="Activity" sort={{ field: 'pair:startDate', order: 'ASC' }} className={classes.cardsList} label="Activités">
               <Box pt={1}>
                 <Typography variant="body2" component="div" className={classes.textBody} >
-                  Cette organisation accueille plusieurs événements. Cliquez dessus pour en savoir plus et/ou participer.
+                  Cette organisation accueille plusieurs activités. Cliquez dessus pour en savoir plus et/ou participer.
                 </Typography>
                 <CardsList CardComponent={EventCard} />
               </Box>
             </ReferenceArrayField>
             <MapField
-              source="pair:hasPostalAddress"
-              address={(record) => record?.['pair:hasPostalAddress']?.['pair:label']}
-              latitude={(record) => record?.['pair:hasPostalAddress']?.['pair:latitude']}
-              longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
+              source="pair:hasLocation"
+              address={(record) => record?.['pair:hasLocation']?.['pair:label']}
+              latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
+              longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
               typographyProps={{ variant: 'body2', color: 'secondary' }}
               scrollWheelZoom={false}
               dragging={false}
             />
-            <UrlField source="pair:homePage" label="Liens" />
+            <UrlField source="pair:homePage" label="Liens" className={classes.urlField} />
           </BodyList>
           <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
         </Box>
