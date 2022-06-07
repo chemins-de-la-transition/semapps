@@ -11,6 +11,7 @@ import PathIcon from '../../svg/PathIcon';
 import PlaceIcon from '../../svg/PlaceIcon';
 import TypeIcon from '../../svg/TypeIcon';
 import ActorIcon from '../../svg/ActorIcon';
+import GuardianIcon from '../../svg/GuardianIcon';
 import CalendarIcon from '../../svg/CalendarIcon';
 
 const useStyles = makeStyles((theme) => ({
@@ -82,6 +83,13 @@ const PlaceDetails = (props) => {
             <ReferenceField label="Hôte" reference="Person" source="cdlt:proposedBy" icon={<ActorIcon/>} link="show" >
                 <TextField source="pair:label" />
             </ReferenceField>
+          }
+          { (isVertical || sm ) && 
+            <ReferenceArrayField source="cdlt:hostsOrganization" reference="Organization" icon={<GuardianIcon />}>
+              <SeparatedListField linkType="show">
+                <TextField source="pair:label" />
+              </SeparatedListField>
+            </ReferenceArrayField>
           }
           {  (isVertical && ! sm ) && 
             <ReferenceArrayField reference="Path" source="cdlt:placeOn" icon={<PathIcon />} label="Fait partie de">

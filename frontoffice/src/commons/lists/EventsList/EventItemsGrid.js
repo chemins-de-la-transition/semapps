@@ -183,7 +183,7 @@ const EventItemsGrid = ({ similarRecord }) => {
                   <div style={{display: 'flex'}}>
                   <PlaceIcon className={classes.icon}/>
                   <ReferenceField record={data[id]} source="pair:hostedIn" reference="Region" link={false}>
-                    <FunctionField className={classes.eventAddress} label="Localisation" render={record => `${record['pair:hasPostalAddress']?.['pair:addressLocality']} (${record['pair:hasPostalAddress']?.['pair:addressZipCode'].slice(0,2)})`} />
+                    <FunctionField className={classes.eventAddress} label="Localisation" render={record => `${record['pair:hasPostalAddress']?.['pair:addressLocality']} (${record['pair:hasPostalAddress']?.['pair:addressZipCode']?.slice(0,2)})`} />
                   </ReferenceField>
                 </div>
                 ) :

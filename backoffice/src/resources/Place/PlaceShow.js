@@ -7,7 +7,7 @@ import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import PlaceTitle from './PlaceTitle';
-import JotformButton from '../../commons/JotformButton';
+import RegistrationButton from '../../commons/RegistrationButton';
 
 const PlaceShow = (props) => (
   <ShowWithPermissions title={<PlaceTitle />} {...props}>
@@ -38,7 +38,12 @@ const PlaceShow = (props) => (
           <UrlField source="pair:homePage" />
           <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
-        <JotformButton source="cdlt:jotformLink"/>
+        <RegistrationButton 
+          directRegistrationSource="cdlt:directRegistration"
+          registrationOptionSource="cdlt:registrationOption"
+          jotformLinkSource="cdlt:jotformLink"
+          registrationLinkSource="cdlt:registrationLink" 
+        />
         <MainList>
           <MarkdownField source="pair:description" addLabel />
           <MarkdownField source="cdlt:hostDescription" addLabel />
@@ -58,6 +63,11 @@ const PlaceShow = (props) => (
             <GridList xs={6} linkType="show">
               <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Organization" source="cdlt:hostsOrganization">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Path" source="cdlt:placeOn">
             <SingleFieldList linkType="show">

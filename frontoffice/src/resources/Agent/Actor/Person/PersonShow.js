@@ -33,6 +33,7 @@ const PersonShow = (props) => {
           <Hero image="pair:depictedBy">
             <TextField source="pair:firstName" />
             <TextField source="pair:lastName" />
+            <TextField source="pair:alternativeLabel" />
             <TextField source="pair:comment" />
             <MarkdownField source="pair:description" />
             <EmailField source="foaf:email" />

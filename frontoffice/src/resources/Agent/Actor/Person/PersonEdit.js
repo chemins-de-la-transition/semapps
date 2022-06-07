@@ -31,7 +31,10 @@ export const PersonEdit = (props) => {
       title={<PersonTitle />}
       transform={(data) => ({
         ...data,
-        'pair:label': `${data['pair:firstName']} ${data['pair:lastName']?.toUpperCase()}`,
+        'pair:label': 
+          data['pair:alternativeLabel']
+            ? data['pair:alternativeLabel']
+            : `${data['pair:firstName']} ${data['pair:lastName']?.toUpperCase()}`
       })}
       {...props}
     >
@@ -39,6 +42,7 @@ export const PersonEdit = (props) => {
         <FormTab label="Principal">
           <TextInput source="pair:firstName" fullWidth />
           <TextInput source="pair:lastName" fullWidth />
+          <TextInput source="pair:alternativeLabel" fullWidth />
           <TextInput source="pair:comment" fullWidth />
           <MarkdownInput source="pair:description" fullWidth />
           <ImageInput source="pair:depictedBy" accept="image/*">
