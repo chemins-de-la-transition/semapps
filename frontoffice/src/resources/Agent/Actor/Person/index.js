@@ -28,15 +28,15 @@ export default {
         'pair:firstName': 'Prénom',
         'pair:lastName': 'Nom de famille',
         'pair:alternativeLabel': 'Nom d\'utilisateur',
-        'pair:comment': 'En deux mots',
+        'pair:comment': 'En quelques mots',
         'pair:description': 'Description',
         'pair:depictedBy': 'Photo',
         'pair:hasType': 'Type',
         'pair:hasStatus': 'Statut',
-        'pair:offers': 'Offre', /*Skill*/
+        'pair:offers': 'Compétences actuelles', /*Skill*/
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé', /*Theme*/
-        'pair:hasLocation': 'Adresse',
+        'pair:hasLocation': 'Localisation',
         'pair:hasFinality': 'Finalités',
         'cdlt:asAHostIntentions': 'Intention en tant qu\'hôte',
         'cdlt:asAMentorIntentions': 'Intention en tant que mentor',

@@ -66,13 +66,11 @@ const OrganizationShow = (props) => {
             linkToListText="Liste des organisations"
             details={<OrganizationDetails />}
             actionButton={<ContactButton label="Contacter l'organisation" />}
-            variant="organization"
           />
           <BodyList
             aside={
               <StickyCard
                 actionButton={<ContactButton label="Contacter l'organisation" />}
-                variant="organization"
               >
                 <OrganizationDetails orientation="vertical" />
               </StickyCard>
@@ -96,7 +94,7 @@ const OrganizationShow = (props) => {
                 </SingleFieldList>
               </ReferenceArrayField>
               <ReferenceArrayField source="pair:hasType" reference="Type">
-              <SeparatedListField link={false} separator=" / ">
+                <SeparatedListField link={false} separator=" / ">
                   <TextField source="pair:label" />
                 </SeparatedListField>
               </ReferenceArrayField>

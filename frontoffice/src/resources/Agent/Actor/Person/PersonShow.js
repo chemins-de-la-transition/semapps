@@ -1,89 +1,147 @@
-import React from 'react';
-import { ChipField, SingleFieldList, TextField, EmailField } from 'react-admin';
-import { Container, Grid, makeStyles } from '@material-ui/core';
-import { MainList, SideList, Hero, GridList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
-import { ShowWithPermissions } from '@semapps/auth-provider';
-import { MarkdownField } from '@semapps/markdown-components';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import React, { useState } from 'react';
+import { ChipField, ShowBase, SingleFieldList, TextField } from 'react-admin';
+import { ThemeProvider } from '@material-ui/core';
+import personTheme from '../../../../config/themes/personTheme';
 import { MapField } from '@semapps/geo-components';
-import PersonTitle from './PersonTitle';
-import HomeIcon from '@material-ui/icons/Home';
-import ChipWithResourceIcon from '../../../../commons/ChipWithResourceIcon';
-import BulletPointsField from '../../../../commons/fields/BulletPointsField';
+import { SeparatedListField } from '@semapps/archipelago-layout';
+import { Box, Typography, makeStyles } from '@material-ui/core';
+import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import MarkdownField from '../../../../commons/fields/MarkdownField';
+import HeaderShow from '../../../../commons/HeaderShow';
+import StickyCard from '../../../../commons/StickyCard';
+import BodyList from '../../../../commons/lists/BodyList/BodyList';
+import PersonDetails from './PersonDetails';
+import ContactDialog from "../../../../commons/ContactDialog";
 import SectorField from '../../../../commons/fields/SectorField';
+import ContactButton from "../../../../commons/buttons/ContactButton";
+import GroupOfFields from '../../../../commons/fields/GroupOfFields';
+import { linkToFilteredList } from "../../../../utils";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
-    '& .MuiPaper-root': {
-      padding: '1rem',
-      [theme.breakpoints.up('sm')]: {
-        padding: '2rem',
-      },
+    /* MarkdownField */
+    '& p[class*=makeStyles-p]': {
+      margin: 0,
+      color: theme.palette.grey40.main
     }
   },
+  singleFieldList: {
+    marginBottom: 48 
+  },
+  textBody: {
+    marginTop: 8,
+    marginBottom: 16
+  },
+  urlField: {
+    display: 'block',
+    marginTop: 8,
+    marginBottom: 16,
+    '&:hover': {
+      color: theme.palette.theme_2.main
+    }
+  },
+  cardsList: {
+    color: 'red',
+    '& div[class*=makeStyles-description] span': {
+      margin: 0,
+      color: theme.palette.secondary.main
+    }
+  },
+  chipField: {
+    fontWeight: 'bold'
+  }
 }));
 
 const PersonShow = (props) => {
+  const [showDialog, setShowDialog] = useState(false);
   const classes = useStyles();
   return (
-  <Container className={classes.mainContainer} maxWidth="lg">
-    <ShowWithPermissions title={<PersonTitle />} {...props}>
-      <Grid container spacing={5}>
-        <Grid item xs={12} md={9}>
-          <Hero image="pair:depictedBy">
-            <TextField source="pair:firstName" />
-            <TextField source="pair:lastName" />
-            <TextField source="pair:alternativeLabel" />
-            <TextField source="pair:comment" />
-            <MarkdownField source="pair:description" />
-            <EmailField source="foaf:email" />
-            <TextField source="pair:phone" />
-            <ReferenceArrayField source="pair:hasType" reference="Type">
-              <SeparatedListField link={false}>
-                <TextField source="pair:label" />
-              </SeparatedListField>
-            </ReferenceArrayField>
-            <ReferenceArrayField source="pair:hasStatus" reference="Status">
-              <SeparatedListField link={false}>
-                <TextField source="pair:label" />
-              </SeparatedListField>
-            </ReferenceArrayField>
-          </Hero>
-          <MainList>
-            <ReferenceArrayField reference="Sector" source="pair:hasSector">
-              <SingleFieldList linkType={false}>
-                <SectorField />
-              </SingleFieldList>
-            </ReferenceArrayField>
-            <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-              <BulletPointsField linkType={false}>
-                <TextField variant="body2" color="secondary" source="pair:label" />
-              </BulletPointsField>
-            </ReferenceArrayField>
-            <ReferenceArrayField reference="Skill" source="pair:offers">
-              <SingleFieldList linkType={false}>
-                <ChipField source="pair:label" />
-              </SingleFieldList>
-            </ReferenceArrayField>
+    <ThemeProvider theme={personTheme}>
+      <ShowBase {...props}>
+        <Box className={classes.mainContainer}>
+          <HeaderShow
+            type="pair:hasType"
+            linkToListText="Liste des personnes"
+            details={<PersonDetails />}
+            actionButton={<ContactButton label="Contacter la personne" />}
+          />
+          <BodyList
+            aside={
+              <StickyCard
+                actionButton={<ContactButton label="Contacter la personne" />}
+              >
+                <PersonDetails orientation="vertical" />
+              </StickyCard>
+            }
+          >
+            <GroupOfFields
+              title="A propos de la personne"
+              source="pair:description"
+              addLabel
+              noBorder
+            >
+              <TextField variant="body2" source="pair:comment"/>
+              <ReferenceArrayField reference="Finality" source="pair:hasFinality">
+                <SeparatedListField link={false} separator=" / ">
+                  <TextField variant="body2" source="pair:label" />
+                </SeparatedListField>
+              </ReferenceArrayField>
+              <ReferenceArrayField reference="Sector" source="pair:hasSector">
+                <SingleFieldList linkType={false}>
+                  <SectorField />
+                </SingleFieldList>
+              </ReferenceArrayField>
+              <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+                <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator="">
+                  <ChipField source="pair:label" color="primary" className={classes.chipField} />
+                </SeparatedListField>
+              </ReferenceArrayField>
+              <MarkdownField source="pair:description" />
+            </GroupOfFields>
+            <GroupOfFields
+              title="Compétences"
+              source="pair:produces"
+              addLabel
+            >
+              <ReferenceArrayField reference="Skill" source="pair:produces">
+                <SeparatedListField link={linkToFilteredList('LEP', 'pair:produces')} separator="">
+                  <ChipField source="pair:label" color="primary" className={classes.chipField} />
+                </SeparatedListField>
+              </ReferenceArrayField>
+            </GroupOfFields>    
+            <GroupOfFields
+              title="Compétences"
+              source="pair:produces"
+              addLabel
+            >
+              <ReferenceArrayField reference="Skill" source="pair:offers">
+                <SeparatedListField link={linkToFilteredList('LEP', 'pair:offers')} separator="">
+                  <ChipField source="pair:label" color="primary" className={classes.chipField} />
+                </SeparatedListField>
+              </ReferenceArrayField>
+            </GroupOfFields>            
+            <GroupOfFields
+              title="Modalités d'accueil"
+              source="cdlt:practicalConditions"
+              addLabel
+            >
+              <MarkdownField source="cdlt:practicalConditions" addLabel={false}/>
+            </GroupOfFields>
+            <MapField
+              source="pair:hasLocation"
+              address={(record) => record?.['pair:hasLocation']?.['pair:label']}
+              latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
+              longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
+              typographyProps={{ variant: 'body2', color: 'secondary' }}
+              scrollWheelZoom={false}
+              dragging={false}
+            />
+            
+            {/*
             <MarkdownField source="cdlt:asAHostIntentions" />
             <MarkdownField source="cdlt:asAMentorIntentions" />
             <MarkdownField source="cdlt:asAnOrganiserIntentions" />
             <MarkdownField source="cdlt:asATravelerIntentions" />
-            <ReferenceArrayField reference="Finality" source="pair:hasFinality">
-              <SingleFieldList linkType={false}>
-                <ChipField source="pair:label" />
-              </SingleFieldList>
-            </ReferenceArrayField>
-            <MapField
-              source="pair:hasLocation"
-              latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
-              longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
-              scrollWheelZoom={false}
-            />
-          </MainList>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <SideList>
             <ReferenceArrayField reference="Organization" source="pair:affiliatedBy">
               <GridList xs={3} md={6} linkType="show">
                 <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
@@ -106,12 +164,14 @@ const PersonShow = (props) => {
                 <ChipWithResourceIcon source="pair:label" />
               </SingleFieldList>
             </ReferenceArrayField>
-          </SideList>
-        </Grid>
-      </Grid>
-    </ShowWithPermissions>
-  </Container>
+          */}
+
+          </BodyList>
+          <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
+        </Box>
+      </ShowBase>
+    </ThemeProvider>
   );
-}
+};
 
 export default PersonShow;
