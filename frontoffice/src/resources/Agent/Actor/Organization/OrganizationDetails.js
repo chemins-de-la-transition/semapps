@@ -17,8 +17,9 @@ const useStyles = makeStyles((theme) => ({
       '& > div > p': {
         display: props.isVertical ? 'flex' : 'block',
         flexDirection: props.isVertical ? 'column' : 'unset',
-        '& > span > a' : {
+        '& > span > a, & > a' : {
           '& > span': {
+            lineHeight: props.isVertical ? '130%' : 'unset',
             [theme.breakpoints.up('sm')]: {
               fontSize: props.isVertical ? '.95em' : 'unset',
             },
