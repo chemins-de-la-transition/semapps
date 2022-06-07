@@ -3,7 +3,7 @@ import { SimpleForm, ImageInput, TextInput, useGetIdentity, email, required } fr
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { extractContext, LocationInput } from '@semapps/geo-components';
-import { FinalitiesInput, ThemesInput, TypeInput, SkillsInput, TypesInput, PathsInput, SectorsInput, RegistrationInput, OrganizationsInput, PersonsInput  } from '../../pair';
+import { FinalitiesInput, ThemesInput, TypeInput, SkillsInput, TypesInput, PathsInput, SectorsInput, RegistrationInput, OrganizationsInput } from '../../pair';
 
 const PlaceForm = ({ mode, ...rest }) => {
   const { identity } = useGetIdentity();
