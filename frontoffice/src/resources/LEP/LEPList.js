@@ -4,6 +4,7 @@ import Filter from '../../commons/Filter';
 import CourseCard from '../Activity/Course/CourseCard';
 import PlaceCard from "../Place/PlaceCard";
 import EventCard from "../Activity/Event/EventCard";
+import OrganizationCard from '../Agent/Actor/Organization/OrganizationCard';
 import SearchFilter from '../../commons/SearchFilter';
 
 const LEPList = (props) => {
@@ -27,6 +28,10 @@ const LEPList = (props) => {
         {
           resource: 'Place',
           card: PlaceCard
+        },
+        { 
+          resource: 'Organization',
+          card: OrganizationCard
         }
       ]}
       {...props}

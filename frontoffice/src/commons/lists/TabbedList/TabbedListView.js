@@ -62,6 +62,11 @@ const useStyles = makeStyles((theme) => ({
   },
   removeFiltersButton: {
     padding: '8px 20px',
+  },
+  tabs: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'inline-table',
+    },
   }
 }));
 
@@ -73,6 +78,8 @@ const TabbedListView = ({ tabs, filters }) => {
   const [currentTab, setCurrentTab] = useState(tabs[0].resource);
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
   const { filterValues, setFilters } = useListFilterContext();
+
+  const removeFilters = () => {setFilters({})}
 
   const dataByTabs = useMemo(() => {
     if( ids.length > 0 && dataModels ) {
@@ -114,6 +121,11 @@ const TabbedListView = ({ tabs, filters }) => {
               <Box p={2}>
                 {filters.map((filter, i) => React.cloneElement(filter, { key: i, onSelect: () => openFilters(false) }))}
               </Box>
+              <Box p={2}>
+                {Object.keys(filterValues).length > 0 &&
+                  <Button variant="outlined" color="secondary" onClick={() => removeFilters()}>Effacer les filtres</Button>
+                }
+              </Box>
             </Drawer>
           </Box>
         </Grid>
@@ -125,10 +137,15 @@ const TabbedListView = ({ tabs, filters }) => {
           <StickyBox offsetTop={100}>
             <Box p={2}>{filters.map((filter, i) => React.cloneElement(filter, { key: i }))}</Box>
           </StickyBox>
+          <Box p={2}>
+            {Object.keys(filterValues).length > 0 &&
+              <Button variant="outlined" color="secondary" onClick={() => removeFilters()}>Effacer les filtres</Button>
+            }
+          </Box>
         </Grid>
       )}
       <Grid item xs={12} sm={8} className={classes.results}>
-        <Box bgcolor="primary.main" height={{ xs: 44, sm: 48 }}>
+        <Box bgcolor="primary.main" height={{ xs: 44, sm: 48 }} className={classes.tabs}>
           <Box className={classes.icons}>
             {dataByTabs && tabs.map(tab => Object.keys(dataByTabs[tab.resource]).length > 0 && (
               <ResourceTab
