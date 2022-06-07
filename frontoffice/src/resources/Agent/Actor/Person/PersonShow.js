@@ -4,7 +4,7 @@ import { ThemeProvider } from '@material-ui/core';
 import personTheme from '../../../../config/themes/personTheme';
 import { MapField } from '@semapps/geo-components';
 import { SeparatedListField } from '@semapps/archipelago-layout';
-import { Box, Typography, makeStyles } from '@material-ui/core';
+import { Box, makeStyles } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../../../commons/fields/MarkdownField';
 import HeaderShow from '../../../../commons/HeaderShow';
