@@ -85,7 +85,6 @@ const OrganizationShow = (props) => {
               noBorder
             >
               <TextField variant="body2" source="pair:comment"/>
-              <MarkdownField source="cdlt:intentions" />
               <ReferenceArrayField reference="Finality" source="pair:hasFinality">
                 <SeparatedListField link={false} separator=" / ">
                   <TextField variant="body2" source="pair:label" />
@@ -107,9 +106,7 @@ const OrganizationShow = (props) => {
                 </SeparatedListField>
               </ReferenceArrayField>
               <MarkdownField source="pair:description" />
-              {/*
-              <MarkdownField source="cdlt:activities" />
-              */}
+              <MarkdownField source="cdlt:intentions" />
             </GroupOfFields>
             <GroupOfFields
               title="Compétences"
@@ -138,7 +135,7 @@ const OrganizationShow = (props) => {
             <ReferenceArrayField source="cdlt:organizes" reference="Activity" sort={{ field: 'pair:startDate', order: 'ASC' }} className={classes.cardsList} label="Activités">
               <Box pt={1}>
                 <Typography variant="body2" component="div" className={classes.textBody} >
-                  Cette organisation accueille plusieurs activités. Cliquez dessus pour en savoir plus et/ou participer.
+                  Cette organisation est impliquée dans plusieurs activités. Cliquez dessus pour en savoir plus et/ou participer.
                 </Typography>
                 <CardsList CardComponent={EventCard} />
               </Box>
