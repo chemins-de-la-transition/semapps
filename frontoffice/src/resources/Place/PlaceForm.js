@@ -51,7 +51,7 @@ const PlaceForm = ({ mode, ...rest }) => {
           fullWidth
       />
       <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />
-      <TypeInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} validate={[required()]} />
+      <TypesInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} validate={[required()]} />
       <SectorsInput source="pair:hasSector" />
       <ThemesInput source="pair:hasTopic" />
       <SkillsInput source="pair:produces" fullWidth />
