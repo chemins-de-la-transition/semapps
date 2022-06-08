@@ -103,7 +103,7 @@ const Partners = () => {
             </ul>
           </Box>
           <Box>
-          <Typography variant="h2">Nos partenaires métiers</Typography>
+          <Typography variant="h3" component="div" className={classes.subTitle}>nos partenaires métiers</Typography>
           <ul className={classes.partnersList}>
             {sortedIds.map(id => {
               if ( data[id] && data[id]['pair:label'] && data[id]['pair:depictedBy'] ) {

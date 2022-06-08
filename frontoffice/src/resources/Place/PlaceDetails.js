@@ -9,9 +9,15 @@ import CourseIcon from '../../svg/CourseIcon';
 import PlaceIcon from '../../svg/PlaceIcon';
 import TypeIcon from '../../svg/TypeIcon';
 import ActorIcon from '../../svg/ActorIcon';
+import GuardianIcon from '../../svg/GuardianIcon';
 
 const PlaceDetails = (props) => (
   <IconsList {...props}>
+    <ReferenceArrayField source="cdlt:hostsOrganization" reference="Organization" icon={<GuardianIcon />}>
+      <SeparatedListField linkType="show">
+        <TextField variant="body2" color="secondary" source="pair:label" />
+      </SeparatedListField>
+    </ReferenceArrayField>
     <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
       <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:hasCourseType')} separator=" / ">
         <TextField source="pair:label" />

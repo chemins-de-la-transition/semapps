@@ -63,6 +63,7 @@ export default {
         'cdlt:registrationOption' : "Option d'inscription",
         'cdlt:jotformLink':"Formulaire d'inscription JotForm",
         'cdlt:registrationLink':"Lien du système d'inscription",
+        'cdlt:hostsOrganization': 'Organisations présentes',
       },
     },
   },

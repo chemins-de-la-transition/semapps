@@ -59,10 +59,10 @@ const UserMenu = ({ logout, ...otherProps }) => {
         ) : (
           [
             <MyBookmarks key="my-bookmarks" />,
+            <EditProfileMenu webId={identity.id} key="edit" />,
+            <MyOrganizationsMenu key="my-organizations" />,
             <MyPlacesMenu key="my-places" />,
             <MyEventsMenu key="my-events" />,
-            <MyOrganizationsMenu key="my-organizations" />,
-            <EditProfileMenu webId={identity.id} key="edit" />,
             React.cloneElement(logout, { key: 'logout' }),
           ]
         )
