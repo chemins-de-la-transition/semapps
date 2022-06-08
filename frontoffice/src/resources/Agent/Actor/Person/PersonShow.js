@@ -97,6 +97,7 @@ const PersonShow = (props) => {
                 </SeparatedListField>
               </ReferenceArrayField>
               <MarkdownField source="pair:description" />
+              <MarkdownField source="cdlt:intentions" />
             </GroupOfFields>
             <GroupOfFields
               title="Compétences"

@@ -42,10 +42,13 @@ export default {
         'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:hasLocation': 'Adresse',
         'pair:hasFinality': 'Finalités',
+        'cdlt:intentions': 'Mes intentions en venant sur les chemins de la transition',
+        /*
         'cdlt:asAHostIntentions': 'Intention en tant qu\'hôte',
         'cdlt:asAMentorIntentions': 'Intention en tant que mentor',
         'cdlt:asAnOrganiserIntentions': 'Intention en tant qu\'organisateur',
         'cdlt:asATravelerIntentions': 'Intention en tant que voyageur',
+        */
         'pair:affiliatedBy': 'Membre de', /*Organization*/
         'cdlt:mentorOn': 'Est intervenant pour', /*Activity*/
         'cdlt:organizes': 'Est organisateur de', /*Activity*/

@@ -49,10 +49,13 @@ const PersonShow = (props) => (
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
+          {/*
           <MarkdownField source="cdlt:asAHostIntentions" />
           <MarkdownField source="cdlt:asAMentorIntentions" />
           <MarkdownField source="cdlt:asAnOrganiserIntentions" />
           <MarkdownField source="cdlt:asATravelerIntentions" />
+          */}
+          <MarkdownField source="cdlt:intentions" />
           <ReferenceArrayField reference="Finality" source="pair:hasFinality">
             <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />

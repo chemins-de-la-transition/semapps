@@ -31,16 +31,19 @@ const PersonForm = ({ ...rest }) => {
         <ImageInput source="pair:depictedBy" accept="image/*">
           <ImageField source="src" />
         </ImageInput>
+        <MarkdownInput source="cdlt:intentions" fullWidth />
         <TextInput source="pair:phone" fullWidth />
         {/*
         <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
         */}
         <PairLocationInput source="pair:hasLocation" fullWidth />
+        {/*
         <MarkdownInput source="cdlt:asAHostIntentions" fullWidth />
         <MarkdownInput source="cdlt:asAMentorIntentions" fullWidth />
         <MarkdownInput source="cdlt:asAnOrganiserIntentions" fullWidth />
         <MarkdownInput source="cdlt:asATravelerIntentions" fullWidth />
+        */}
       </FormTab>
       <FormTab label="Relations">
         { ! isTraveler && 
