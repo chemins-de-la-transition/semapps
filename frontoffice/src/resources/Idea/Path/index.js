@@ -30,10 +30,11 @@ export default {
         'cdlt:proposedBy': 'Proposé par', /*Person*/
         'cdlt:supportedBy': 'A pour partenaires', /*Organization*/
         'cdlt:hasPlace': 'Lieux', /*Place*/
-        'cdlt:hasEvent': 'Evénements', /*Event*/
+        'cdlt:hasEvent': 'Événements', /*Event*/
         'cdlt:hasCourse': 'Voyages', /*Course*/
         'pair:hasFinality': 'Finalités',
         'pair:nourishes': 'Discussions',
+        'pair:hasTopic': 'Secteurs d\'activité',
         /*
         'pair:hasLocation': 'Composez votre parcours',
         'pair:hasStatus': 'Statut',

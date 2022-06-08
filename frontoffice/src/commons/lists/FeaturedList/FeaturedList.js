@@ -89,7 +89,7 @@ const FeaturedList = ({ resource, basePath, title, subtitle, logo, linkText, Car
     <FullWidthBox className={classes.background}>
       <LargeContainer className={classes.container + (isAgenda ? ' '+ classes.agenda : '')}>
         <Box width={1} className={classes.header}>
-          <img src={logo} alt="logo" className={classes.logo}/>
+          {logo ? <img src={logo} alt="logo" className={classes.logo}/> : null}
           <Box>
             <Typography variant="h2">{title}</Typography>
             <Typography variant="h3" component="div" className={classes.subTitle}>
