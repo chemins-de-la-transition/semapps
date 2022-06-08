@@ -62,28 +62,28 @@ const PersonDetails = (props) => {
           }
           { (isVertical || sm ) && 
             <ReferenceArrayField reference="Organization" source="pair:affiliatedBy" icon={<ActorIcon />} label="membre de">
-              <SeparatedListField link={linkToFilteredList('LEP', 'pair:affiliatedBy')} separator={separator}>
+              <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
             <ReferenceArrayField reference="Path" source="cdlt:supports" icon={<ActorIcon />} label="Contributeur de">
-              <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:supports')} separator={separator}>
+              <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
           }
           {  (isVertical && ! sm ) && 
             <ReferenceArrayField reference="Activity" source="cdlt:organizes" icon={<ActorIcon />} label="Organisateur de">
-              <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:organizes')} separator={separator}>
+              <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
           }
           {  (isVertical && ! sm ) && 
             <ReferenceArrayField reference="Activity" source="cdlt:mentorOn" icon={<CalendarIcon />} label="intervenant sur">
-              <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:mentorOn')} separator={separator}>
+              <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
