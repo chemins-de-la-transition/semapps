@@ -61,6 +61,13 @@ const PersonDetails = (props) => {
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
+            <ReferenceArrayField reference="Place" source="cdlt:proposes" icon={<PlaceIcon />} label="Hôte de">
+              <SeparatedListField link="show" separator={separator}>
+                <TextField source="pair:label" />
+              </SeparatedListField>
+            </ReferenceArrayField>
+          }
+          { (isVertical || sm ) && 
             <ReferenceArrayField reference="Organization" source="pair:affiliatedBy" icon={<ActorIcon />} label="membre de">
               <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
