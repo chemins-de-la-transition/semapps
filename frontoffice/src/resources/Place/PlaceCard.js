@@ -6,6 +6,7 @@ import { makeStyles, Typography } from '@material-ui/core';
 import Chip from '../../commons/Chip';
 import PlaceIcon from '../../svg/PlaceIcon';
 import ThemeIcon from '../../svg/ThemeIcon';
+import { linkToFilteredList } from "../../utils";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -28,7 +29,6 @@ const PlaceCard = ({ record, variant }) => {
   const classes = useStyles();
   const city = record?.['pair:hasPostalAddress']?.['pair:addressLocality'] ;
   const zipCode = record?.['pair:hasPostalAddress']?.['pair:addressZipCode']?.slice(0, 2) ;
-
   return (
     <>
       <TextField variant="h2" component="div" record={record} source="pair:label" className={classes.title} />
@@ -57,8 +57,8 @@ const PlaceCard = ({ record, variant }) => {
       )}
       {record['pair:hasTopic'] && (
         <Chip icon={<ThemeIcon />}>
-          <ReferenceArrayField record={record} reference="Theme" perPage={2} source="pair:hasTopic">
-            <SeparatedListField link={false} separator=" /">
+          <ReferenceArrayField record={record} perPage={2} reference="Theme" source="pair:hasTopic">
+            <SeparatedListField link={linkToFilteredList( 'LEP', 'pair:hasTopic')} separator=" / ">
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>

@@ -9,6 +9,7 @@ import TypeIcon from '../../../svg/TypeIcon';
 import CalendarIcon from '../../../svg/CalendarIcon';
 import PlaceIcon from '../../../svg/PlaceIcon';
 import CheckIcon from '../../../svg/CheckIcon' ;
+import { linkToFilteredList } from "../../../utils";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -70,7 +71,7 @@ const EventCard = ({ record, variant }) => {
       {record['pair:hasType'] && (
         <Chip icon={<TypeIcon />}>
           <ReferenceArrayField record={record} reference="Type" source="pair:hasType">
-            <SeparatedListField link={false} separator=" /">
+            <SeparatedListField link={linkToFilteredList( 'Event', 'pair:hasType')} separator=" /">
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
@@ -94,7 +95,7 @@ const EventCard = ({ record, variant }) => {
       {record['pair:hasTopic'] && (
         <Chip icon={<ThemeIcon />}>
           <ReferenceArrayField record={record} reference="Theme" perPage={2} source="pair:hasTopic">
-            <SeparatedListField link={false} separator=" /">
+            <SeparatedListField link={linkToFilteredList( 'LEP', 'pair:hasSector')} separator=" / ">
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
