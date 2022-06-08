@@ -161,8 +161,7 @@ const Footer = ({ title }) => {
             <Typography variant="body2" align={xs ? "center" : undefined}>
               Vous avez envie d’inscrire votre lieu ou un évènement sur notre plateforme afin de lui donner de la visibilité?
             </Typography>
-            {/* TODO : add the link */}
-            <Button to={{ pathname: "https://forums.lescheminsdelatransition.org/c/co-construire-chemins/12"}} target="_blank" variant="contained" color="secondary" component={Link} typographyVariant="button1" className={classes.button}>
+            <Button to={{ pathname: "https://forums.lescheminsdelatransition.org/"}} target="_blank" variant="contained" color="secondary" component={Link} typographyVariant="button1" className={classes.button}>
               Je me lance
             </Button>
           </div>

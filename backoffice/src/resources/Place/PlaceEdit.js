@@ -1,11 +1,11 @@
 import React from 'react';
-import { ImageInput, TabbedForm, FormTab, TextInput } from 'react-admin';
+import { ImageInput, TabbedForm, FormTab, NumberInput, TextInput } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { extractContext, LocationInput } from '@semapps/geo-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
 import PlaceTitle from './PlaceTitle';
-import { FinalitiesInput, PathsInput, ThemesInput, TypeInput, TypesInput, SkillsInput, PersonsInput, SectorsInput, StatusInput, RegistrationInput, OrganizationsInput } from '../../pair';
+import { FinalitiesInput, PathsInput, ThemesInput, TypesInput, SkillsInput, PersonsInput, SectorsInput, StatusInput, RegistrationInput, OrganizationsInput } from '../../pair';
 
 export const PlaceEdit = (props) => (
   <EditWithPermissions title={<PlaceTitle />} {...props}>
@@ -20,6 +20,7 @@ export const PlaceEdit = (props) => (
         <MarkdownInput source="cdlt:hostDescription" fullWidth />
         <MarkdownInput source="cdlt:activities" fullWidth />
         <MarkdownInput source="cdlt:practicalConditions" fullWidth />
+        <NumberInput source="cdlt:maximumCapacity" fullWidth />
         <LocationInput
           mapboxConfig={{
             access_token: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
@@ -55,10 +56,11 @@ export const PlaceEdit = (props) => (
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
-        <TypeInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} />
+        <TypesInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:PlaceStatus' }} />
         {/*<EventsInput source="pair:hosts" fullWidth />*/}
         <SkillsInput source="pair:produces" fullWidth />
+        <SkillsInput source="pair:aims" fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
         <OrganizationsInput source="cdlt:hostsOrganization" />
       </FormTab>

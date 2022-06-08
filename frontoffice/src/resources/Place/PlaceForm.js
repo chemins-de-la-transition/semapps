@@ -1,9 +1,9 @@
 import React from 'react';
-import { SimpleForm, ImageInput, TextInput, useGetIdentity, email, required } from 'react-admin';
+import { SimpleForm, ImageInput, NumberInput, TextInput, useGetIdentity, email, required } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { extractContext, LocationInput } from '@semapps/geo-components';
-import { FinalitiesInput, ThemesInput, TypeInput, SkillsInput, TypesInput, PathsInput, SectorsInput, RegistrationInput, OrganizationsInput } from '../../pair';
+import { FinalitiesInput, ThemesInput, SkillsInput, TypesInput, PathsInput, SectorsInput, RegistrationInput, OrganizationsInput } from '../../pair';
 
 const PlaceForm = ({ mode, ...rest }) => {
   const { identity } = useGetIdentity();
@@ -22,6 +22,7 @@ const PlaceForm = ({ mode, ...rest }) => {
       <MarkdownInput source="cdlt:hostDescription" fullWidth />
       <MarkdownInput source="cdlt:activities" fullWidth />
       <MarkdownInput source="cdlt:practicalConditions" fullWidth />
+      <NumberInput source="cdlt:maximumCapacity" fullWidth />
       <LocationInput
         mapboxConfig={{
           access_token: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
@@ -51,10 +52,11 @@ const PlaceForm = ({ mode, ...rest }) => {
           fullWidth
       />
       <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />
-      <TypeInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} validate={[required()]} />
+      <TypesInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} validate={[required()]} />
       <SectorsInput source="pair:hasSector" />
       <ThemesInput source="pair:hasTopic" />
       <SkillsInput source="pair:produces" fullWidth />
+      <SkillsInput source="pair:aims" fullWidth />
       <FinalitiesInput source="pair:hasFinality" />
       <PathsInput source="cdlt:placeOn" fullWidth />
       <OrganizationsInput source="cdlt:hostsOrganization" />
