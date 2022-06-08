@@ -45,6 +45,7 @@ const OrganizationForm = ({ mode, ...rest }) => {
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
+        <TypesInput source="pair:hasType" filter={{ a: 'pair:OrganizationType' }} />
         <PathsInput source="cdlt:supports" />
         <PairLocationInput source="pair:hasLocation" fullWidth />
         <RegionsInput source="cdlt:hasRegion" fullWidth />

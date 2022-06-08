@@ -13,6 +13,7 @@ const TypeCreate = (props) => (
           { id: 'pair:PlaceType', name: 'PlaceType' },
           { id: 'pair:EventType', name: 'EventType' },
           { id: 'pair:DocumentType', name: 'DocumentType' },
+          { id: 'pair:OrganizationType', name: 'OrganizationType' },
           { id: 'cdlt:CourseType', name: 'CourseType' },
           // { id: 'cdlt:PathType', name: 'PathType' },
         ]}

@@ -51,6 +51,7 @@ export default {
         'cdlt:maximumCapacity': "Capacité d'accueil maximum",
         'pair:produces': 'Compétences présentes dans l\'organisation',
         'pair:aims': 'Compétences recherchées par l\'organisation',
+        'pair:hasType': 'Type d\'organisation',
       },
     },
   },

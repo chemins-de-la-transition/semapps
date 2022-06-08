@@ -3,6 +3,7 @@ import { NumberField, TextField, UrlField, ChipField, SingleFieldList } from 're
 import { MainList, SideList, Hero, AvatarField, GridList } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MapField } from '@semapps/geo-components';
+import { SeparatedListField } from '@semapps/archipelago-layout';
 import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Grid } from '@material-ui/core';
@@ -17,6 +18,11 @@ const OrganizationShow = (props) => (
         <Hero image="pair:depictedBy">
           <TextField source="pair:comment" />
           <UrlField source="pair:homePage" />
+          <ReferenceArrayField source="pair:hasType" reference="Type">
+            <SeparatedListField link={false}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
         </Hero>
         <MainList>
           <MarkdownField source="pair:description" />

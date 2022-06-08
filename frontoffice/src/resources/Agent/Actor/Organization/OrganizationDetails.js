@@ -7,7 +7,7 @@ import { linkToFilteredList } from "../../../../utils";
 import IconsList from '../../../../commons/lists/IconsList';
 import ThemeIcon from '../../../../svg/ThemeIcon';
 import PlaceIcon from '../../../../svg/PlaceIcon';
-import TypeIcon from '../../../../svg/TypeIcon';
+import GuardianIcon from '../../../../svg/GuardianIcon';
 import ActorIcon from '../../../../svg/ActorIcon';
 
 const useStyles = makeStyles((theme) => ({
@@ -48,7 +48,7 @@ const OrganizationDetails = (props) => {
             </ReferenceField>
           }
           { ( !isVertical || sm ) && 
-            <ReferenceArrayField source="pair:hasType" reference="Type" icon={<TypeIcon />}>
+            <ReferenceArrayField source="pair:hasType" reference="Type" icon={<GuardianIcon />}>
               <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasType')} separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
