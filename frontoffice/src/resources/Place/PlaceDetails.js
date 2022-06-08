@@ -93,14 +93,14 @@ const PlaceDetails = (props) => {
           }
           {  (isVertical && ! sm ) && 
             <ReferenceArrayField reference="Path" source="cdlt:placeOn" icon={<PathIcon />} label="Fait partie de">
-              <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:placeOn')} separator={separator}>
+              <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
             <ReferenceArrayField reference="Event" source="pair:hosts" icon={<CalendarIcon />} label="Accueille">
-              <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:hosts')} separator={separator}>
+              <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
