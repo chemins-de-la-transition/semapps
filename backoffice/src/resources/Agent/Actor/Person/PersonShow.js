@@ -44,11 +44,6 @@ const PersonShow = (props) => (
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Skill" source="pair:offers">
-            <SingleFieldList linkType={false}>
-              <ChipField source="pair:label" />
-            </SingleFieldList>
-          </ReferenceArrayField>
           {/*
           <MarkdownField source="cdlt:asAHostIntentions" />
           <MarkdownField source="cdlt:asAMentorIntentions" />
@@ -91,6 +86,16 @@ const PersonShow = (props) => (
           <ReferenceArrayField reference="Activity" source="cdlt:mentorOn">
             <SingleFieldList linkType="show">
               <ChipWithResourceIcon source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Skill" source="pair:offers">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Skill" source="pair:aims">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
         </SideList>

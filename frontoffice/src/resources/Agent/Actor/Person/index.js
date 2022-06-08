@@ -33,7 +33,6 @@ export default {
         'pair:depictedBy': 'Photo',
         'pair:hasType': 'Type',
         'pair:hasStatus': 'Statut',
-        'pair:offers': 'Compétences actuelles', /*Skill*/
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:hasLocation': 'Localisation',
@@ -51,6 +50,8 @@ export default {
         'cdlt:proposes': 'Est hôte de',
         'foaf:email': 'Adresse email',
         'pair:phone': 'Téléphone',
+        'pair:offers': 'Compétences actuelles', /*Skill*/
+        'pair:aims': 'Compétences recherchées', /*Skill*/
       },
     },
   },

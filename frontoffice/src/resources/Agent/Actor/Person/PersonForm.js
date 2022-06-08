@@ -57,6 +57,7 @@ const PersonForm = ({ ...rest }) => {
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
         <SkillsInput source="pair:offers" />
+        <SkillsInput source="pair:aims" fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
     </TabbedForm>
