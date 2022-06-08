@@ -44,6 +44,7 @@ export default {
         'cdlt:supports': 'Chemins', /*Paths*/
         'cdlt:hasCourseType': 'Type de voyage',
         'cdlt:organizationHostedIn': 'Où sommes-nous',
+        'pair:hasFinality': 'Finalités',
       },
     },
   },
