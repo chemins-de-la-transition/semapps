@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChipField, ShowBase, SingleFieldList, TextField } from 'react-admin';
+import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import personTheme from '../../../../config/themes/personTheme';
 import { MapField } from '@semapps/geo-components';
@@ -150,6 +150,7 @@ const PersonShow = (props) => {
               scrollWheelZoom={false}
               dragging={false}
             />
+            <UrlField source="pair:homePage" label="Liens" className={classes.urlField} />
             
             {/*
             <MarkdownField source="cdlt:asAHostIntentions" />

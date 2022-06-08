@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChipField, SingleFieldList, TextField, EmailField } from 'react-admin';
+import { ChipField, SingleFieldList, TextField, EmailField, UrlField } from 'react-admin';
 import { Grid } from '@material-ui/core';
 import { MainList, SideList, Hero, GridList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
@@ -19,6 +19,7 @@ const PersonShow = (props) => (
           <TextField source="pair:lastName" />
           <TextField source="pair:alternativeLabel" />
           <TextField source="pair:comment" />
+          <UrlField source="pair:homePage" />
           <MarkdownField source="pair:description" />
           <EmailField source="foaf:email" />
           <TextField source="pair:phone" />

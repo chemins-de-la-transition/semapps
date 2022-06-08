@@ -30,6 +30,7 @@ export default {
         'pair:alternativeLabel': 'Nom d\'utilisateur',
         'pair:comment': 'En quelques mots',
         'pair:description': 'Description',
+        'pair:homePage': 'Site web',
         'pair:depictedBy': 'Photo',
         'pair:hasType': 'Type',
         'pair:hasStatus': 'Statut',
