@@ -1,5 +1,5 @@
 import React from 'react';
-import { NumberField, useRecordContext } from 'react-admin';
+import { NumberField } from 'react-admin';
 import { Box, Typography, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
 
 const NumberWithUnitField = ({ source, unit, variant, color, component, ...rest }) => {
   const classes = useStyles({color});
-  const record = useRecordContext(rest);
   return (
     <Box className={classes.numberWithUnitField}>
       <Typography variant={variant} color={color} component={component}>
