@@ -213,7 +213,7 @@ const EventForm = ({ mode, ...rest }) => {
         <TextInput multiline source="cdlt:economicalConditions" fullWidth />
         <TextInput multiline helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" source="cdlt:financialSupport" fullWidth />
 
-        {/* <PairLocationInput source="pair:hasLocation" fullWidth /> */}
+        <PairLocationInput source="pair:hasLocation" fullWidth />
         <RegistrationInput 
           directRegistrationSource="cdlt:directRegistration"
           registrationOptionSource="cdlt:registrationOption"
