@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormTab, TabbedForm, TextInput, ImageInput } from 'react-admin';
+import { FormTab, NumberInput, TabbedForm, TextInput, ImageInput } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
@@ -32,6 +32,8 @@ export const OrganizationEdit = (props) => (
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="cdlt:intentions" fullWidth />
+        <MarkdownInput source="cdlt:practicalConditions" fullWidth />
+        <NumberInput source="cdlt:maximumCapacity" fullWidth />
       </FormTab>
       <FormTab label="Relations">
         <OrganizationsInput source="pair:partnerOf" />

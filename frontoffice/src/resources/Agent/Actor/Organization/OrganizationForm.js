@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormTab, ImageInput, TabbedForm, TextInput, useGetIdentity } from 'react-admin';
+import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput, useGetIdentity } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { 
@@ -33,6 +33,8 @@ const OrganizationForm = ({ mode, ...rest }) => {
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="cdlt:intentions" fullWidth />
+        <MarkdownInput source="cdlt:practicalConditions" fullWidth />
+        <NumberInput source="cdlt:maximumCapacity" fullWidth />
       </FormTab>
       <FormTab label="Relations">
         <OrganizationsInput source="pair:partnerOf" />

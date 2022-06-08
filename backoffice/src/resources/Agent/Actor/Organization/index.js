@@ -47,6 +47,8 @@ export default {
         'cdlt:organizationHostedIn': 'Où sommes-nous',
         'pair:hasFinality': 'Finalités',
         'cdlt:intentions': 'Nos intentions en venant sur les chemins de la transition',
+        'cdlt:practicalConditions': "Modalités d'accueil",
+        'cdlt:maximumCapacity': "Capacité d'accueil maximum",
       },
     },
   },

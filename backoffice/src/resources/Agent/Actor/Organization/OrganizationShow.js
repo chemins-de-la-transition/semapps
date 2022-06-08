@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, UrlField, ChipField, SingleFieldList } from 'react-admin';
+import { NumberField, TextField, UrlField, ChipField, SingleFieldList } from 'react-admin';
 import { MainList, SideList, Hero, AvatarField, GridList } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MapField } from '@semapps/geo-components';
@@ -36,6 +36,8 @@ const OrganizationShow = (props) => (
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
+          <MarkdownField source="cdlt:practicalConditions" addLabel />
+          <NumberField source="cdlt:maximumCapacity" />
           <MapField
             source="pair:hasLocation"
             latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}

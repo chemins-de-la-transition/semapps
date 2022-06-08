@@ -15,6 +15,7 @@ import EventCard from '../../../Activity/Event/EventCard';
 import OrganizationCard from './OrganizationCard';
 import CardsList from '../../../../commons/lists/CardsList';
 import ContactDialog from "../../../../commons/ContactDialog";
+import NumberWithUnitField from '../../../../commons/fields/NumberWithUnitField';
 import SectorField from '../../../../commons/fields/SectorField';
 import ContactButton from "../../../../commons/buttons/ContactButton";
 import GroupOfFields from '../../../../commons/fields/GroupOfFields';
@@ -123,15 +124,14 @@ const OrganizationShow = (props) => {
               </ReferenceArrayField>
             </GroupOfFields>
             */}
-            {/*
             <GroupOfFields
               title="Modalités d'accueil"
               source="cdlt:practicalConditions"
               addLabel
             >
-              <MarkdownField source="cdlt:practicalConditions" className={classes.hideLabel} addLabel={false}/>
+              <MarkdownField source="cdlt:practicalConditions" addLabel={false}/>
+              <NumberWithUnitField source="cdlt:maximumCapacity" addLabel unit='personnes' color="grey40" />
             </GroupOfFields>
-            */}
             <ReferenceArrayField source="cdlt:organizes" reference="Activity" sort={{ field: 'pair:startDate', order: 'ASC' }} className={classes.cardsList} label="Activités">
               <Box pt={1}>
                 <Typography variant="body2" component="div" className={classes.textBody} >
