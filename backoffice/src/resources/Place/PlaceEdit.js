@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageInput, TabbedForm, FormTab, TextInput } from 'react-admin';
+import { ImageInput, TabbedForm, FormTab, NumberInput, TextInput } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { extractContext, LocationInput } from '@semapps/geo-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
@@ -20,6 +20,7 @@ export const PlaceEdit = (props) => (
         <MarkdownInput source="cdlt:hostDescription" fullWidth />
         <MarkdownInput source="cdlt:activities" fullWidth />
         <MarkdownInput source="cdlt:practicalConditions" fullWidth />
+        <NumberInput source="cdlt:maximumCapacity" fullWidth />
         <LocationInput
           mapboxConfig={{
             access_token: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,

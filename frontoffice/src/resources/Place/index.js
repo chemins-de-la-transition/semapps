@@ -50,6 +50,7 @@ export default {
         'pair:hosts': 'Evénements sur le lieu',
         'pair:produces': 'Compétences présentes sur le lieu',
         'cdlt:practicalConditions': "Modalités d'accueil",
+        'cdlt:maximumCapacity': "Capacité d'accueil maximum",
         'pair:hasPostalAddress': 'Localisation',
         'cdlt:proposedBy': 'Proposé par',
         'pair:e-mail': 'Adresse e-mail',

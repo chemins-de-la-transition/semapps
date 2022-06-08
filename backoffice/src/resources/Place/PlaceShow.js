@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, UrlField, EmailField, ChipField, SingleFieldList, BooleanField } from 'react-admin';
+import { TextField, UrlField, EmailField, ChipField, NumberField, SingleFieldList, BooleanField } from 'react-admin';
 import { Grid } from '@material-ui/core';
 import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
@@ -49,6 +49,7 @@ const PlaceShow = (props) => (
           <MarkdownField source="cdlt:hostDescription" addLabel />
           <MarkdownField source="cdlt:activities" addLabel />
           <MarkdownField source="cdlt:practicalConditions" addLabel />
+          <NumberField source="cdlt:maximumCapacity" />
           <MapField
             source="pair:hasPostalAddress"
             address={(record) => record?.['pair:hasPostalAddress']?.['pair:label']}

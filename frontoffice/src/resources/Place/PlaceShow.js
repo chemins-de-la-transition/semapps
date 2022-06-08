@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
+import { ChipField, NumberField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import resourceTheme from '../../config/resourceTheme';
 import { MapField } from '@semapps/geo-components';
@@ -14,6 +14,7 @@ import PlaceDetails from './PlaceDetails';
 import EventCard from '../Activity/Event/EventCard';
 import CardsList from '../../commons/lists/CardsList';
 import ContactDialog from "../../commons/ContactDialog";
+import NumberWithUnitField from '../../commons/fields/NumberWithUnitField';
 import SectorField from '../../commons/fields/SectorField';
 import PlaceSubHeader from "./PlaceSubHeader";
 import SimilarList from "../../commons/lists/FeaturedList/SimilarList";
@@ -128,6 +129,8 @@ const PlaceShow = (props) => {
               addLabel
             >
               <MarkdownField source="cdlt:practicalConditions" addLabel={false}/>
+              {/*<NumberField source="cdlt:maximumCapacity" />*/}
+              <NumberWithUnitField source="cdlt:maximumCapacity" addLabel unit='personnes' color="grey40" />
             </GroupOfFields>
             <ReferenceArrayField source="pair:hosts" reference="Event" sort={{ field: 'pair:startDate', order: 'ASC' }} className={classes.cardsList}>
               <Box pt={1}>

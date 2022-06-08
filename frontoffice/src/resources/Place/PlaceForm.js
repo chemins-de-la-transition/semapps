@@ -1,5 +1,5 @@
 import React from 'react';
-import { SimpleForm, ImageInput, TextInput, useGetIdentity, email, required } from 'react-admin';
+import { SimpleForm, ImageInput, NumberInput, TextInput, useGetIdentity, email, required } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { extractContext, LocationInput } from '@semapps/geo-components';
@@ -22,6 +22,7 @@ const PlaceForm = ({ mode, ...rest }) => {
       <MarkdownInput source="cdlt:hostDescription" fullWidth />
       <MarkdownInput source="cdlt:activities" fullWidth />
       <MarkdownInput source="cdlt:practicalConditions" fullWidth />
+      <NumberInput source="cdlt:maximumCapacity" fullWidth />
       <LocationInput
         mapboxConfig={{
           access_token: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
