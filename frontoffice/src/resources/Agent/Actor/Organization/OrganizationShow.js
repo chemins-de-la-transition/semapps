@@ -111,7 +111,6 @@ const OrganizationShow = (props) => {
               <MarkdownField source="cdlt:activities" />
               */}
             </GroupOfFields>
-            {/*
             <GroupOfFields
               title="Compétences"
               source="pair:produces"
@@ -119,11 +118,15 @@ const OrganizationShow = (props) => {
             >
               <ReferenceArrayField reference="Skill" source="pair:produces">
                 <SeparatedListField link={linkToFilteredList('LEP', 'pair:produces')} separator="">
-                  <ChipField source="pair:label" color="primary" />
+                  <ChipField source="pair:label" color="primary" className={classes.chipField} />
                 </SeparatedListField>
               </ReferenceArrayField>
-            </GroupOfFields>
-            */}
+              <ReferenceArrayField reference="Skill" source="pair:aims">
+                <SeparatedListField link={linkToFilteredList('LEP', 'pair:aims')} separator="">
+                  <ChipField source="pair:label" color="primary" className={classes.chipField} />
+                </SeparatedListField>
+              </ReferenceArrayField>
+            </GroupOfFields>     
             <GroupOfFields
               title="Modalités d'accueil"
               source="cdlt:practicalConditions"

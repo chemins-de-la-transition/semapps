@@ -12,6 +12,7 @@ import {
   PlacesInput,
   RegionsInput,
   SectorsInput,
+  SkillsInput,
   ThemesInput,
   TypesInput,
   UsersInput,
@@ -47,6 +48,8 @@ export const OrganizationEdit = (props) => (
         <PairLocationInput source="pair:hasLocation" fullWidth />
         <RegionsInput source="cdlt:hasRegion" fullWidth />
         <PlacesInput source="cdlt:organizationHostedIn" fullWidth />
+        <SkillsInput source="pair:produces" fullWidth />
+        <SkillsInput source="pair:aims" fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
     </TabbedForm>

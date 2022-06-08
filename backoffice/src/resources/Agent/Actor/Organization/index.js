@@ -49,6 +49,8 @@ export default {
         'cdlt:intentions': 'Nos intentions en venant sur les chemins de la transition',
         'cdlt:practicalConditions': "Modalités d'accueil",
         'cdlt:maximumCapacity': "Capacité d'accueil maximum",
+        'pair:produces': 'Compétences présentes dans l\'organisation',
+        'pair:aims': 'Compétences recherchées par l\'organisation',
       },
     },
   },
