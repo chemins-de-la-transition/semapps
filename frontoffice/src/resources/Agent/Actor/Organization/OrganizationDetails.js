@@ -63,21 +63,21 @@ const OrganizationDetails = (props) => {
           }
           { (isVertical || sm ) && 
             <ReferenceArrayField reference="Organization" source="cdlt:organizationHostedIn" icon={<PlaceIcon />} label="Où sommes nous">
-              <SeparatedListField link={linkToFilteredList('LEP', 'pair:hosts')} separator={separator}>
+              <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
             <ReferenceArrayField reference="Path" source="cdlt:supports" icon={<ActorIcon />} label="Contributeur de">
-              <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:supports')} separator={separator}>
+              <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
           }
           {  (isVertical && ! sm ) && 
             <ReferenceArrayField reference="Activity" source="cdlt:organizes" icon={<ActorIcon />} label="Organisateur de">
-              <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:organizes')} separator={separator}>
+              <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
