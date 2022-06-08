@@ -60,6 +60,7 @@ export const PlaceEdit = (props) => (
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:PlaceStatus' }} />
         {/*<EventsInput source="pair:hosts" fullWidth />*/}
         <SkillsInput source="pair:produces" fullWidth />
+        <SkillsInput source="pair:aims" fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
         <OrganizationsInput source="cdlt:hostsOrganization" />
       </FormTab>

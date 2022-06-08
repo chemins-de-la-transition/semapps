@@ -122,6 +122,11 @@ const PlaceShow = (props) => {
                   <ChipField source="pair:label" color="primary" className={classes.chipField} />
                 </SeparatedListField>
               </ReferenceArrayField>
+              <ReferenceArrayField reference="Skill" source="pair:aims">
+                <SeparatedListField link={linkToFilteredList('LEP', 'pair:aims')} separator="">
+                  <ChipField source="pair:label" color="primary" className={classes.chipField} />
+                </SeparatedListField>
+              </ReferenceArrayField>
             </GroupOfFields>            
             <GroupOfFields
               title="Modalités d'accueil"

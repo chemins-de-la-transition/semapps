@@ -56,6 +56,7 @@ const PlaceForm = ({ mode, ...rest }) => {
       <SectorsInput source="pair:hasSector" />
       <ThemesInput source="pair:hasTopic" />
       <SkillsInput source="pair:produces" fullWidth />
+      <SkillsInput source="pair:aims" fullWidth />
       <FinalitiesInput source="pair:hasFinality" />
       <PathsInput source="cdlt:placeOn" fullWidth />
       <OrganizationsInput source="cdlt:hostsOrganization" />
