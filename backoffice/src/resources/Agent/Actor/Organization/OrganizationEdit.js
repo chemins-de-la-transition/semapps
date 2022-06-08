@@ -31,6 +31,7 @@ export const OrganizationEdit = (props) => (
         <ImageInput source="pair:depictedBy" accept="image/*">
           <ImageField source="src" />
         </ImageInput>
+        <MarkdownInput source="cdlt:intentions" fullWidth />
       </FormTab>
       <FormTab label="Relations">
         <OrganizationsInput source="pair:partnerOf" />

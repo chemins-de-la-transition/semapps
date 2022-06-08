@@ -45,6 +45,7 @@ export default {
         'cdlt:hasCourseType': 'Type de voyage',
         'cdlt:organizationHostedIn': 'Où sommes-nous',
         'pair:hasFinality': 'Finalités',
+        'cdlt:intentions': 'Nos intentions en venant sur les chemins de la transition',
       },
     },
   },

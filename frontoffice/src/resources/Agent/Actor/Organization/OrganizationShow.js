@@ -83,6 +83,7 @@ const OrganizationShow = (props) => {
               noBorder
             >
               <TextField variant="body2" source="pair:comment"/>
+              <MarkdownField source="cdlt:intentions" />
               <ReferenceArrayField reference="Finality" source="pair:hasFinality">
                 <SeparatedListField link={false} separator=" / ">
                   <TextField variant="body2" source="pair:label" />

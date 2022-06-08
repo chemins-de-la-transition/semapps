@@ -30,6 +30,7 @@ const OrganizationShow = (props) => (
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
+          <MarkdownField source="cdlt:intentions" />
           <ReferenceArrayField reference="Finality" source="pair:hasFinality">
             <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
