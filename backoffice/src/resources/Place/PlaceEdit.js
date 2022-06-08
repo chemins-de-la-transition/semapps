@@ -55,7 +55,7 @@ export const PlaceEdit = (props) => (
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
-        <TypeInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} />
+        <TypesInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:PlaceStatus' }} />
         {/*<EventsInput source="pair:hosts" fullWidth />*/}
         <SkillsInput source="pair:produces" fullWidth />
