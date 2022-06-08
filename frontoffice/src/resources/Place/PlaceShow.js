@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChipField, NumberField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
+import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import resourceTheme from '../../config/themes/resourceTheme';
 import { MapField } from '@semapps/geo-components';
@@ -134,7 +134,6 @@ const PlaceShow = (props) => {
               addLabel
             >
               <MarkdownField source="cdlt:practicalConditions" addLabel={false}/>
-              {/*<NumberField source="cdlt:maximumCapacity" />*/}
               <NumberWithUnitField source="cdlt:maximumCapacity" addLabel unit='personnes' color="grey40" />
             </GroupOfFields>
             <ReferenceArrayField source="pair:hosts" reference="Event" sort={{ field: 'pair:startDate', order: 'ASC' }} className={classes.cardsList}>
