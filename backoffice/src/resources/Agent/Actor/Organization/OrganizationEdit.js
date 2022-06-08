@@ -35,6 +35,8 @@ export const OrganizationEdit = (props) => (
         <MarkdownInput source="cdlt:intentions" fullWidth />
         <MarkdownInput source="cdlt:practicalConditions" fullWidth />
         <NumberInput source="cdlt:maximumCapacity" fullWidth />
+        <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
+        <TypesInput source="pair:hasType" filter={{ a: 'pair:OrganizationType' }} />
       </FormTab>
       <FormTab label="Relations">
         <OrganizationsInput source="pair:partnerOf" />
@@ -43,8 +45,6 @@ export const OrganizationEdit = (props) => (
         <ActivitiesInput source="cdlt:organizes" />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
-        <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
-        <TypesInput source="pair:hasType" filter={{ a: 'pair:OrganizationType' }} />
         <PathsInput source="cdlt:supports" />
         <PairLocationInput source="pair:hasLocation" fullWidth />
         <RegionsInput source="cdlt:hasRegion" fullWidth />

@@ -7,6 +7,7 @@ import {
   FinalitiesInput,
   OrganizationsInput,
   PairLocationInput,
+  PathsInput,
   PlacesInput,
   SectorsInput,
   SkillsInput,
@@ -54,6 +55,7 @@ const PersonForm = ({ ...rest }) => {
             <PlacesInput source="cdlt:proposes" />
             <ActivitiesInput source="cdlt:mentorOn" />
             <ActivitiesInput source="cdlt:organizes" />
+            <PathsInput source="cdlt:supports" />
           </>
         }
         <SectorsInput source="pair:hasSector" />

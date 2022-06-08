@@ -58,6 +58,7 @@ export default {
         'pair:offers': 'Compétences actuelles', /*Skill*/
         'pair:aims': 'Compétences recherchées', /*Skill*/
         'pair:inspiredBy': 'Est inspirée par', /*Organization*/
+        'cdlt:supports': 'Chemins', /*Paths*/
       },
     },
   },

@@ -91,6 +91,11 @@ const PersonShow = (props) => (
               <ChipWithResourceIcon source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Path" source="cdlt:supports">
+            <SingleFieldList linkType="show">
+              <ChipWithResourceIcon source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Activity" source="cdlt:mentorOn">
             <SingleFieldList linkType="show">
               <ChipWithResourceIcon source="pair:label" />
