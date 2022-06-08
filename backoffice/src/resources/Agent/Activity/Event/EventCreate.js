@@ -76,7 +76,7 @@ const EventCreate = (props) => {
     for (const property in chosenEvent) {
       if (! ['id','dc','type'].includes(property.split(':')[0])) {
         if ( ! [
-          'cdlt:organizedBy',
+          'cdlt:hasReferent',
           'pair:label',
         ].includes(property)) {
           formatedEvent = { ...formatedEvent, [property]: chosenEvent[property] };
@@ -84,7 +84,7 @@ const EventCreate = (props) => {
       }
     }
     if (identity?.id) {
-      formatedEvent = { ...formatedEvent, 'cdlt:organizedBy': identity?.id };
+      formatedEvent = { ...formatedEvent, 'cdlt:hasReferent': identity?.id };
     }
     return { ...formatedEvent, 'cdlt:referenceNumber':generateReference()}
   }, []);

@@ -57,7 +57,12 @@ const EventDetails = (props) => (
       endDate="pair:endDate"
       icon={<DurationIcon />}
     />
-    <ReferenceArrayField reference="Actor" source="cdlt:organizedBy" perPage={2} icon={<ActorIcon/>} link="show" sort={{ field: 'type', order: 'DESC' }} >
+    <ReferenceArrayField reference="Organization" source="cdlt:organizedBy" perPage={2} icon={<ActorIcon/>} link="show" sort={{ field: 'type', order: 'DESC' }} >
+      <SeparatedListField link="show" separator=" / ">
+        <TextField source="pair:label" />
+      </SeparatedListField>
+    </ReferenceArrayField>
+    <ReferenceArrayField reference="Person" source="cdlt:hasReferent" perPage={2} icon={<ActorIcon/>} link="show" sort={{ field: 'type', order: 'DESC' }} >
       <SeparatedListField link="show" separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>

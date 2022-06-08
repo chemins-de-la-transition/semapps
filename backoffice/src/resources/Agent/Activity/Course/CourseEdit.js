@@ -5,7 +5,7 @@ import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
 import {
   PathsInput, 
-  ActorsInput,
+  OrganizationsInput,
   FinalitiesInput,
   PersonsInput,
   /*EventsInput,*/
@@ -73,7 +73,8 @@ const CourseEdit = (props) => (
         <ThemesInput source="pair:hasTopic" />
         {/*<EventsInput source="pair:hasPart" />*/}
         <SkillsInput source="pair:produces" />
-        <ActorsInput source="cdlt:organizedBy" />
+        <OrganizationsInput source="cdlt:organizedBy" />
+        <PersonsInput source="cdlt:hasReferent" />
         <PersonsInput source="cdlt:hasMentor" />
         <DocumentsType source="pair:documentedBy" />
         <FinalitiesInput source="pair:hasFinality" />
