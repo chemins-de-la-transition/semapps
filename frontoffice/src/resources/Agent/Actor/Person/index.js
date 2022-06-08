@@ -52,6 +52,7 @@ export default {
         'pair:phone': 'Téléphone',
         'pair:offers': 'Compétences actuelles', /*Skill*/
         'pair:aims': 'Compétences recherchées', /*Skill*/
+        'pair:inspiredBy': 'Est inspirée par', /*Organization*/
       },
     },
   },

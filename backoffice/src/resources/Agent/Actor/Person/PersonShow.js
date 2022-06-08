@@ -73,6 +73,13 @@ const PersonShow = (props) => (
               </AvatarField>
             </GridList>
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Organization" source="pair:inspiredBy">
+            <GridList xs={6} linkType="show">
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
+                <HomeIcon />
+              </AvatarField>
+            </GridList>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Place" source="cdlt:proposes">
             <SingleFieldList linkType="show">
               <ChipWithResourceIcon source="pair:label" />

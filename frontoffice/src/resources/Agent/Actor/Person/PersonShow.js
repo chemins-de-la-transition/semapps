@@ -11,6 +11,8 @@ import HeaderShow from '../../../../commons/HeaderShow';
 import StickyCard from '../../../../commons/StickyCard';
 import BodyList from '../../../../commons/lists/BodyList/BodyList';
 import PersonDetails from './PersonDetails';
+import OrganizationCard from '../../../../resources/Agent/Actor/Organization/OrganizationCard';
+import CardsList from '../../../../commons/lists/CardsList';
 import ContactDialog from "../../../../commons/ContactDialog";
 import SectorField from '../../../../commons/fields/SectorField';
 import ContactButton from "../../../../commons/buttons/ContactButton";
@@ -134,6 +136,11 @@ const PersonShow = (props) => {
             >
               <MarkdownField source="cdlt:practicalConditions" addLabel={false}/>
             </GroupOfFields>
+            <ReferenceArrayField source="pair:inspiredBy" reference="Organization" className={classes.cardsList} label="Est inspirée par">
+              <Box pt={1}>
+                <CardsList CardComponent={OrganizationCard} />
+              </Box>
+            </ReferenceArrayField>
             <MapField
               source="pair:hasLocation"
               address={(record) => record?.['pair:hasLocation']?.['pair:label']}

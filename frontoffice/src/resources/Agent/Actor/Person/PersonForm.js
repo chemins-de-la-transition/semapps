@@ -49,6 +49,7 @@ const PersonForm = ({ ...rest }) => {
         { ! isTraveler && 
           <>
             <OrganizationsInput source="pair:affiliatedBy" />
+            <OrganizationsInput source="pair:inspiredBy" />
             <PlacesInput source="cdlt:proposes" />
             <ActivitiesInput source="cdlt:mentorOn" />
             <ActivitiesInput source="cdlt:organizes" />
