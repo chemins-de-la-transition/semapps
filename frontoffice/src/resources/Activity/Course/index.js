@@ -48,6 +48,7 @@ export default {
         'pair:comment': "Phrase d'accroche",
         'cdlt:hasMentor': 'A pour intervenant',
         'cdlt:organizedBy': 'Organisé par',
+        'cdlt:hasReferent': 'Personne référente',
         'pair:hasStatus': 'Statut',
         'cdlt:courseOn': 'Chemins',
         'pair:hasFinality': 'Finalités',

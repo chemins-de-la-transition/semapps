@@ -10,7 +10,7 @@ module.exports = {
           read: true,
           write: true
         },
-        users: record => record['cdlt:organizedBy']
+        users: record => record['cdlt:hasReferent']
       },
       {
         match: { type: 'pair:Place' },

@@ -106,7 +106,14 @@ const CourseShow = (props) => (
       </Grid>
       <Grid item xs={12} sm={3}>
         <SideList>
-          <ReferenceArrayField reference="Actor" source="cdlt:organizedBy">
+          <ReferenceArrayField reference="Organization" source="cdlt:organizedBy">
+            <GridList xs={6} linkType="show">
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
+                <HomeIcon />
+              </AvatarField>
+            </GridList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Person" source="cdlt:hasReferent">
             <GridList xs={6} linkType="show">
               <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
                 <HomeIcon />

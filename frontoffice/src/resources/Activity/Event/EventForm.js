@@ -15,7 +15,7 @@ import {
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { DateTimeInput } from '@semapps/date-components';
-import { PairLocationInput, FinalitiesInput, PathsInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput, ActorsInput, RegistrationInput } from '../../../pair';
+import { PairLocationInput, FinalitiesInput, PathsInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput, OrganizationsInput, RegistrationInput } from '../../../pair';
 import frLocale from 'date-fns/locale/fr';
 import { Box, FormControlLabel, Slide, LinearProgress, makeStyles, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
@@ -87,20 +87,20 @@ const EventForm = ({ mode, ...rest }) => {
     for (const property in chosenEvent) {
       if (! ['id','dc','type'].includes(property.split(':')[0])) {
         if ( ! [
-          'cdlt:organizedBy',
+          'cdlt:hasReferent',
           'pair:label',
         ].includes(property)) {
           formatedEvent = { ...formatedEvent, [property]: chosenEvent[property] };
         }
       }
     }
-    return { ...formatedEvent, 'cdlt:referenceNumber':generateReference(), 'cdlt:organizedBy': identity?.id }
+    return { ...formatedEvent, 'cdlt:referenceNumber':generateReference(), 'cdlt:hasReferent': identity?.id }
   }, [identity]);
 
   const initalValues = (mode) => {
     switch (mode) {
       case 'create': return {
-        'cdlt:organizedBy': identity?.id,
+        'cdlt:hasReferent': identity?.id,
         /* force components to be controlled : needed for duplication feature */
         'cdlt:hasMentor': null,
         'pair:hostedIn': null,
@@ -223,7 +223,8 @@ const EventForm = ({ mode, ...rest }) => {
         />
       </FormTab>
       <FormTab label="Relations">
-        <ActorsInput source="cdlt:organizedBy"/>
+        <OrganizationsInput source="cdlt:organizedBy"/>
+        <PersonsInput source="cdlt:hasReferent"/>
         <PersonsInput source="cdlt:hasMentor" />
         <PlaceInput source="pair:hostedIn" />
         <CourseInput source="pair:partOf" />
