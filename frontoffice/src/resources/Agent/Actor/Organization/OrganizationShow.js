@@ -12,6 +12,7 @@ import StickyCard from '../../../../commons/StickyCard';
 import BodyList from '../../../../commons/lists/BodyList/BodyList';
 import OrganizationDetails from './OrganizationDetails';
 import EventCard from '../../../Activity/Event/EventCard';
+import OrganizationCard from './OrganizationCard';
 import CardsList from '../../../../commons/lists/CardsList';
 import ContactDialog from "../../../../commons/ContactDialog";
 import SectorField from '../../../../commons/fields/SectorField';
@@ -137,6 +138,11 @@ const OrganizationShow = (props) => {
                   Cette organisation accueille plusieurs activités. Cliquez dessus pour en savoir plus et/ou participer.
                 </Typography>
                 <CardsList CardComponent={EventCard} />
+              </Box>
+            </ReferenceArrayField>
+            <ReferenceArrayField source="pair:inspiredBy" reference="Organization" className={classes.cardsList} label="Est inspirée par">
+              <Box pt={1}>
+                <CardsList CardComponent={OrganizationCard} />
               </Box>
             </ReferenceArrayField>
             <MapField

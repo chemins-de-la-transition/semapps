@@ -35,6 +35,7 @@ export const OrganizationEdit = (props) => (
       </FormTab>
       <FormTab label="Relations">
         <OrganizationsInput source="pair:partnerOf" />
+        <OrganizationsInput source="pair:inspiredBy" />
         <UsersInput source="pair:affiliates" />
         <ActivitiesInput source="cdlt:organizes" />
         <SectorsInput source="pair:hasSector" />

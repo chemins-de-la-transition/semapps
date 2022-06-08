@@ -34,6 +34,7 @@ export default {
         'pair:depictedBy': 'Logo',
         'pair:affiliates': 'A pour membres', /*Person*/
         'pair:partnerOf': 'A pour partenaires', /*Organization*/
+        'pair:inspiredBy': 'Est inspirée par', /*Organization*/
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:hasLocation': 'Localisation',

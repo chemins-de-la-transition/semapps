@@ -63,6 +63,13 @@ const OrganizationShow = (props) => (
               </AvatarField>
             </GridList>
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Organization" source="pair:inspiredBy">
+            <GridList xs={6} linkType="show">
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
+                <HomeIcon />
+              </AvatarField>
+            </GridList>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Project" source="pair:involvedIn">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
