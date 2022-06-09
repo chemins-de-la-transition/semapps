@@ -225,13 +225,13 @@ const EventForm = ({ mode, ...rest }) => {
       <FormTab label="Relations">
         <ActorsInput source="cdlt:organizedBy"/>
         <PersonsInput source="cdlt:hasMentor" />
-        <PlaceInput source="pair:hostedIn" />
-        <CourseInput source="pair:partOf" />
+        <PlaceInput source="pair:hostedIn" fullWidth />
+        <CourseInput source="pair:partOf" fullWidth />
         <PathsInput source="cdlt:eventOn" fullWidth />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
-        <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />
-        <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} />
+        <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
+        <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
         <SkillsInput source="pair:produces" fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
