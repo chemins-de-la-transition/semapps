@@ -5,7 +5,6 @@ import { makeStyles, Typography } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
     paddingTop: 5,
-    // borderTop: '1px lightgrey solid',
     color: theme.palette.grey40.main,
     '& h6': {
       paddingBottom: 3,
