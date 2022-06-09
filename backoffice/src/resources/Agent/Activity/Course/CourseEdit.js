@@ -10,6 +10,7 @@ import {
   PersonsInput,
   /*EventsInput,*/
   ThemesInput,
+  SectorsInput,
   StatusInput,
   TypesInput,
   SkillsInput,
@@ -70,6 +71,7 @@ const CourseEdit = (props) => (
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'cdlt:CourseStatus' }} />
         <PathsInput source="cdlt:courseOn" />
+        <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
         {/*<EventsInput source="pair:hasPart" />*/}
         <SkillsInput source="pair:produces" />

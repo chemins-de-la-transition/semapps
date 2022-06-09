@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShowBase, TextField } from 'react-admin';
+import { ShowBase, SingleFieldList, TextField } from 'react-admin';
 import { MapField } from '@semapps/geo-components';
 import { Box } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
@@ -13,6 +13,7 @@ import CardsList from '../../commons/lists/CardsList';
 import BulletPointsField from '../../commons/fields/BulletPointsField';
 import ContactDialog from "../../commons/ContactDialog";
 import ContactField from "../../commons/fields/ContactField";
+import SectorField from '../../commons/fields/SectorField';
 import PlaceSubHeader from "./PlaceSubHeader";
 import SimilarList from "../../commons/lists/FeaturedList/SimilarList";
 import ContactButton from "../../commons/buttons/ContactButton";
@@ -45,6 +46,16 @@ const PlaceShow = (props) => {
             <Box pt={1}>
               <CardsList CardComponent={EventCard} />
             </Box>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Sector" source="pair:hasSector">
+            <SingleFieldList linkType={false}>
+              <SectorField />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+            <BulletPointsField linkType={false}>
+              <TextField variant="body2" color="secondary" source="pair:label" />
+            </BulletPointsField>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:produces">
             <BulletPointsField linkType={false}>

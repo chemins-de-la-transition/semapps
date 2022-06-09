@@ -5,7 +5,7 @@ import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { DateTimeInput } from '@semapps/date-components';
 import { ImageField } from '@semapps/semantic-data-provider';
-import { PairLocationInput, ActorsInput, FinalitiesInput, PathsInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput, RegistrationInput } from '../../../../pair';
+import { PairLocationInput, ActorsInput, FinalitiesInput, PathsInput, PersonsInput, PlaceInput, SkillsInput, SectorsInput, ThemesInput, TypeInput, CourseInput, RegistrationInput } from '../../../../pair';
 import EventTitle from './EventTitle';
 
 const EventEdit = (props) => (
@@ -80,7 +80,8 @@ const EventEdit = (props) => (
         <PlaceInput source="pair:hostedIn" />
         <CourseInput source="pair:partOf" />
         <PathsInput source="cdlt:eventOn" />
-        <ThemesInput source="pair:hasSector" />
+        <SectorsInput source="pair:hasSector" />
+        <ThemesInput source="pair:hasTopic" />
         <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />
         <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} />
         <SkillsInput source="pair:produces" fullWidth />

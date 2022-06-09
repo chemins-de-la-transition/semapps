@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShowBase, TextField } from 'react-admin';
+import { ShowBase, SingleFieldList, TextField } from 'react-admin';
 import { Box } from '@material-ui/core';
 import { AvatarField, GridList } from '@semapps/archipelago-layout';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
@@ -9,11 +9,14 @@ import BodyList from '../../../commons/lists/BodyList/BodyList';
 import BulletPointsField from "../../../commons/fields/BulletPointsField";
 import ApplyButton from "../../../commons/buttons/ApplyButton";
 import FeaturedList from '../../../commons/lists/FeaturedList/FeaturedList';
+import SectorField from '../../../commons/fields/SectorField';
 import CourseSubHeader from "../../Activity/Course/CourseSubHeader";
 import EventSubHeader from "../../Activity/Event/EventSubHeader";
 import PlaceSubHeader from "../../Place/PlaceSubHeader";
 import CardsList from "../../../commons/lists/CardsList";
 import DebateCard from "../Debate/DebateCard";
+import PictoLieu from '../../../icons/PictoLieu.png' ;
+import PictoParcours from '../../../icons/PictoParcours.png' ;
 
 const EventShow = (props) => {
   return (
@@ -26,6 +29,16 @@ const EventShow = (props) => {
         />
         <BodyList>
           <MarkdownField source="pair:description" />
+          <ReferenceArrayField reference="Sector" source="pair:hasSector">
+            <SingleFieldList linkType={false}>
+              <SectorField />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+            <BulletPointsField linkType={false}>
+              <TextField variant="body2" color="secondary" source="pair:label" />
+            </BulletPointsField>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:produces">
             <BulletPointsField linkType={false}>
               <TextField source="pair:label" />
@@ -50,6 +63,7 @@ const EventShow = (props) => {
           basePath="/Place"
           title="Les lieux"
           subtitle="A visiter"
+          logo={PictoLieu}
           headComment="Partez à la découverte de lieux inspirants et allez à la rencontre de personnes qui ont choisi d’être actrices de la transition."
           linkText="Voir tous les lieux"
           CardSubHeaderComponent={PlaceSubHeader}
@@ -60,6 +74,7 @@ const EventShow = (props) => {
           basePath="/Event"
           title="Les événements"
           subtitle=""
+          logo={PictoParcours}
           headComment=""
           linkText="Voir tous les événements"
           CardSubHeaderComponent={EventSubHeader}
@@ -70,6 +85,7 @@ const EventShow = (props) => {
           basePath="/Course"
           title="Les parcours"
           subtitle="Thématiques & géographiques"
+          logo={PictoParcours}
           headComment="Tu rêves de partir sur les routes pour découvrir des savoir-faire ou même apprendre un métier sur le terrain? Découvre nos parcours."
           linkText="Voir tous les parcours"
           CardSubHeaderComponent={CourseSubHeader}

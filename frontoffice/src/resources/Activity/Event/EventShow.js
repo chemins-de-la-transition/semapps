@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShowBase, TextField, FunctionField } from 'react-admin';
+import { ShowBase, TextField, FunctionField, SingleFieldList } from 'react-admin';
 import { Box } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
@@ -15,7 +15,7 @@ import ApplyButton from "../../../commons/buttons/ApplyButton";
 import EventAlert from "./EventAlert";
 import EventMapField from "./EventMapField";
 import GroupOfFields from '../../../commons/fields/GroupOfFields';
-import CategoriesField from '../../../commons/fields/CategoriesField';
+import SectorField from '../../../commons/fields/SectorField';
 import CourseCard from '../Course/CourseCard';
 import CardsList from '../../../commons/lists/CardsList';
 import PathCard from '../../Idea/Path/PathCard';
@@ -56,10 +56,15 @@ const EventShow = (props) => (
             </SeparatedListField>
           </ReferenceArrayField>
           <MarkdownField source="cdlt:mentorDescription" />
-          <ReferenceArrayField reference="Theme" source="pair:hasSector">
-            <CategoriesField>
-              <TextField source="pair:label" />
-            </CategoriesField>
+          <ReferenceArrayField reference="Sector" source="pair:hasSector">
+            <SingleFieldList linkType={false}>
+              <SectorField />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+            <BulletPointsField linkType={false}>
+              <TextField variant="body2" color="secondary" source="pair:label" />
+            </BulletPointsField>
           </ReferenceArrayField>
         </GroupOfFields>
         <MarkdownField source="cdlt:program" />

@@ -36,7 +36,8 @@ export default {
         'cdlt:hasPlace': 'Lieux', /*Place*/
         'cdlt:hasEvent': 'Evénements', /*Event*/
         'cdlt:hasCourse': 'Voyages', /*Course*/
-        'pair:hasTopic': 'A pour secteur d\'activité',
+        'pair:hasSector': 'Secteurs d\'activité',
+        'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:hasFinality': 'Finalités',
         /*
         'pair:hasLocation': 'Composez votre voyage',

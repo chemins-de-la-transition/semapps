@@ -22,7 +22,7 @@ const NextEvents = () => {
   const [region, setRegion] = useState("");
 
   const eventTypeFilter = eventType ? { 'pair:hasType': eventType } : {};
-  const categoryFilter = category ? { 'pair:hasTopic': category } : {};
+  const categoryFilter = category ? { 'pair:hasSector': category } : {};
   const regionFilter = region ? { 'pair:hasLocation': region } : {};
 
   return (

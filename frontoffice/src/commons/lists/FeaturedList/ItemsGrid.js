@@ -22,7 +22,7 @@ const ItemsGrid = ({ similarRecord, CardSubHeaderComponent }) => {
     if( !similarRecord ) return ids;
     return ids
       .filter(id => data[id] && id !== similarRecord.id )
-      .sort(sortBySimilarity(data, similarRecord, 'pair:hasTopic'))
+      .sort(sortBySimilarity(data, similarRecord, 'pair:hasSector'))
       .sort(sortBySimilarity(data, similarRecord, 'pair:hasLocation'))
       .slice(0, 4);
   }, [ids, data, similarRecord]);
