@@ -11,7 +11,7 @@ import {
   RegistrationInput,
   SectorsInput,
   SkillsInput,
-  StatusInput,
+//  StatusInput,
   ThemesInput,
   TypesInput,
 } from '../../pair';
