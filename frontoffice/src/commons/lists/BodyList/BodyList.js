@@ -9,6 +9,7 @@ import SubAppBar from './SubAppBar';
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
     '& h6': {
+      borderTop: '1px lightgrey solid',
       paddingTop: 8,
       paddingBottom: 8,
       margin: 0
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   divider: {
     paddingTop: 5,
     paddingBottom: 20,
-    borderTop: '1px lightgrey solid',
+    // borderTop: '1px lightgrey solid',
   },
 }));
 

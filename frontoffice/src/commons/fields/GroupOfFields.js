@@ -5,12 +5,11 @@ import { makeStyles, Typography } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
     paddingTop: 5,
-    borderTop: '1px lightgrey solid',
+    // borderTop: '1px lightgrey solid',
     color: theme.palette.grey40.main,
     '& h6': {
       paddingBottom: 3,
-      marginTop: 8,
-      marginBottom: 8
+      marginTop: 0
     },
   },
   fieldClass: {
@@ -19,7 +18,9 @@ const useStyles = makeStyles((theme) => ({
   },
   noBorder: {
     marginTop: 8,
-    border: 'none'
+    '& h6': {
+      border: 'none'
+    },
   }
 }));
 
@@ -43,7 +44,7 @@ const GroupOfFields = ({ children, source, title, noBorder }) => {
     <div key={field.props.source} id={field.props.source} className={classes.fieldClass}>
         {field.props.addLabel ? (
         <>
-            <Typography variant="h5" color="secondary" style={{fontWeight:500}}>
+            <Typography variant="h5" component="div" color="secondary" style={{fontWeight:500}}>
                 {translate(
                 ...getFieldLabelTranslationArgs({
                     label: field.props.label,
