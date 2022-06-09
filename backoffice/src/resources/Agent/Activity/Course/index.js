@@ -39,7 +39,7 @@ export default {
         'pair:description': 'Présentation',
         'cdlt:organizerDescription': 'Description du ou des organisateurs',
         'cdlt:mentorDescription': 'Description du ou des intervenants',
-        'pair:hasPart': 'Événements constitutifs du voyage',
+        'pair:hasPart': 'Événements constitutifs du voyage', /* Event */
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
@@ -48,11 +48,11 @@ export default {
         'pair:phone': 'Téléphone',
         'pair:homePage': 'Site web',
         'pair:comment': "Phrase d'accroche",
-        'cdlt:hasMentor': 'A pour intervenant',
-        'cdlt:organizedBy': 'Organisé par',
+        'cdlt:hasMentor': 'A pour intervenant', /* Person */
+        'cdlt:organizedBy': 'Organisé par', /* Actor */
         'pair:hasStatus': 'Statut',
         'pair:documentedBy': 'Documents',
-        'cdlt:courseOn': 'Est un voyage de',
+        'cdlt:courseOn': 'Est un voyage de', /* Path */
         'pair:hasFinality': 'Finalités',
         'cdlt:directRegistration' : "Possibilité de s'inscrire directement",
         'cdlt:registrationOption' : "Option d'inscription",

@@ -31,6 +31,7 @@ export default {
         'cdlt:hasCourseType': 'Type de voyage',
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé', /*Theme*/
+        'cdlt:hasRegion': 'Région(s)',
         'pair:produces': 'Compétences visées',
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',
@@ -38,7 +39,7 @@ export default {
         'pair:description': 'Présentation',
         'cdlt:organizerDescription': 'Organisateur',
         'cdlt:mentorDescription': 'Intervenant',
-        'pair:hasPart': 'Programme du voyage',
+        'pair:hasPart': 'Programme du voyage', /* Event */
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
@@ -47,11 +48,16 @@ export default {
         'pair:phone': 'Téléphone',
         'pair:homePage': 'Site web',
         'pair:comment': "Phrase d'accroche",
-        'cdlt:hasMentor': 'A pour intervenant',
-        'cdlt:organizedBy': 'Organisé par',
+        'cdlt:hasMentor': 'A pour intervenant', /* Person */
+        'cdlt:organizedBy': 'Organisé par', /* Actor */
         'pair:hasStatus': 'Statut',
-        'cdlt:courseOn': 'Chemins',
+        'pair:documentedBy': 'Documents',
+        'cdlt:courseOn': 'Chemins', /* Path */
         'pair:hasFinality': 'Finalités',
+        'cdlt:directRegistration' : "Possibilité de s'inscrire directement",
+        'cdlt:registrationOption' : "Option d'inscription",
+        'cdlt:jotformLink':"Formulaire d'inscription JotForm",
+        'cdlt:registrationLink':"Lien du système d'inscription",
         'cdlt:referenceNumber': 'Numéro de référence',
       },
     },
