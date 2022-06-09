@@ -5,7 +5,18 @@ import { extractContext, LocationInput } from '@semapps/geo-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
 import PlaceTitle from './PlaceTitle';
-import { FinalitiesInput, PathsInput, ThemesInput, TypesInput, SkillsInput, PersonsInput, SectorsInput, StatusInput, RegistrationInput, OrganizationsInput } from '../../pair';
+import { 
+  FinalitiesInput, 
+  OrganizationsInput ,
+  PathsInput, 
+  PersonsInput, 
+  SectorsInput, 
+  RegistrationInput,
+  SkillsInput, 
+//  StatusInput, 
+  ThemesInput, 
+  TypesInput, 
+} from '../../pair';
 
 export const PlaceEdit = (props) => (
   <EditWithPermissions title={<PlaceTitle />} {...props}>
