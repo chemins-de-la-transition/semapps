@@ -64,8 +64,8 @@ const EventShow = (props) => (
           <MarkdownField source="cdlt:evaluationMethod" />
 
           <MarkdownField source="cdlt:practicalConditions" />
-          <NumberField source="cdlt:attendeesMin" />
-          <NumberField source="cdlt:attendeesMax" />
+          <NumberField source="cdlt:minimumCapacity" />
+          <NumberField source="cdlt:maximumCapacity" />
           <BooleanField source="cdlt:full" />
           <MarkdownField source="cdlt:accessibility" />
         

@@ -54,14 +54,16 @@ const EventEdit = (props) => (
         <MarkdownInput source="cdlt:evaluationMethod" fullWidth />
 
         <MarkdownInput source="cdlt:practicalConditions" helperText="Précisez si besoin équipements, inscription, hébergement, repas..." fullWidth />
-        <NumberInput source="cdlt:attendeesMin" fullWidth />
-        <NumberInput source="cdlt:attendeesMax" fullWidth />
+        <NumberInput source="cdlt:minimumCapacity" fullWidth />
+        <NumberInput source="cdlt:maximumCapacity" fullWidth />
         <BooleanInput source="cdlt:full" helperText="Cochez si l'événement est complet" fullWidth />
         <TextInput multiline source="cdlt:accessibility" helperText="Précisez l'accessibilité de l'événement aux personnes en situation de handicap" fullWidth />
         
         <NumberInput source="cdlt:price" fullWidth />
         <TextInput multiline source="cdlt:economicalConditions" fullWidth />
         <TextInput multiline source="cdlt:financialSupport" helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" fullWidth />
+        
+        <PairLocationInput source="pair:hasLocation" fullWidth />
         
         <RegistrationInput 
           directRegistrationSource="cdlt:directRegistration"
@@ -70,8 +72,7 @@ const EventEdit = (props) => (
           registrationLinkSource="cdlt:registrationLink"          
           fullWidth
         />
-        
-        <PairLocationInput source="pair:hasLocation" fullWidth />
+
       </FormTab>
 
       <FormTab label="Relations">

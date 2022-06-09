@@ -31,7 +31,7 @@ const CourseShow = (props) => (
           <DateField source="pair:startDate" />
           <DateField source="pair:endDate" />
           <TextField source="cdlt:priceRange" />
-          <ReferenceArrayField source="pair:hasCourseType" reference="Type">
+          <ReferenceArrayField source="cdlt:hasCourseType" reference="Type">
             <SeparatedListField link={false}>
               <TextField source="pair:label" />
             </SeparatedListField>
