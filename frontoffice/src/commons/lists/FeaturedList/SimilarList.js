@@ -33,14 +33,16 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: '10',
     marginLeft: '20px',
     marginTop: '10px',
-    '& .MuiTypography-root': {
-      color: theme.palette.secondary.main,
-    },
-    '& svg [fill]': {
-      fill: theme.palette.secondary.main,
+    '& span': {
+      textTransform: 'unset',
+      fontWeight: 600,
+      '&:hover': {
+        textDecoration: 'underline',
+      }
     },
     '& svg': {
       height: '12px',
+      fill: 'unset'
     },
   },
   listBase: {
@@ -62,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       height: 64,
     },
-  },
+  }
 }));
 
 const SimilarList = ({ resource, basePath, title, subtitle, logo, headComment, linkText, CardSubHeaderComponent }) => {
@@ -83,7 +85,7 @@ const SimilarList = ({ resource, basePath, title, subtitle, logo, headComment, l
             </Typography>
           </Box>
           <Link to={basePath} className={classes.link}>
-            <Typography variant="button" className="button2">
+            <Typography variant="button" color="secondary">
               {linkText}
             </Typography>
             <ChevronRightIcon />
