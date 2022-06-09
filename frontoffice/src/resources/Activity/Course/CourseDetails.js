@@ -1,18 +1,15 @@
 import React from 'react';
-import { DateField, TextField } from 'react-admin';
-import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { TextField } from 'react-admin';
+import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Box, makeStyles, useMediaQuery } from '@material-ui/core';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { linkToFilteredList } from "../../../utils";
 import IconsList from '../../../commons/lists/IconsList';
 import RangeDateField from '../../../commons/fields/RangeDateField';
-import ThemeIcon from '../../../svg/ThemeIcon';
 import CourseIcon from '../../../svg/CourseIcon';
 import PathIcon from '../../../svg/PathIcon';
 import PlaceIcon from '../../../svg/PlaceIcon';
-import TypeIcon from '../../../svg/TypeIcon';
 import ActorIcon from '../../../svg/ActorIcon';
-import GuardianIcon from '../../../svg/GuardianIcon';
 import CalendarIcon from '../../../svg/CalendarIcon';
 
 const useStyles = makeStyles((theme) => ({
