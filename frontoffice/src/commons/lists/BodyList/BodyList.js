@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
   divider: {
     paddingTop: 5,
     paddingBottom: 20,
-    // borderTop: '1px lightgrey solid',
   },
 }));
 
