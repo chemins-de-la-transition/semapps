@@ -7,6 +7,13 @@ import LargeContainer from '../../LargeContainer';
 import SubAppBar from './SubAppBar';
 
 const useStyles = makeStyles((theme) => ({
+  mainContainer: {
+    '& h6': {
+      paddingTop: 8,
+      paddingBottom: 8,
+      margin: 0
+    }
+  },
   divider: {
     paddingTop: 5,
     paddingBottom: 20,
@@ -28,7 +35,7 @@ const BodyList = ({ children, aside, alert }) => {
   return (
     <>
       <SubAppBar fields={fields} />
-      <FullWidthBox>
+      <FullWidthBox className={classes.mainContainer}>
         <LargeContainer>
           <Grid container spacing={2}>
             <Grid item md={9} sm={12} xs={12}>

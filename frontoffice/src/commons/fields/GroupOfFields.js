@@ -3,14 +3,19 @@ import { useTranslate, getFieldLabelTranslationArgs, useShowContext } from 'reac
 import { makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
+  mainContainer: {
+    paddingTop: 5,
+    borderTop: '1px lightgrey solid',
+    color: theme.palette.grey40.main,
+    '& h6': {
+      paddingBottom: 3,
+      marginTop: 8,
+      marginBottom: 8
+    },
+  },
   fieldClass: {
     paddingTop: 5,
     paddingBottom: 20,
-  },
-  divider: {
-    paddingTop: 16,
-    paddingBottom: 8,
-    borderTop: '1px lightgrey solid',
   },
   noBorder: {
     marginTop: 8,
@@ -18,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const GroupOfFields = ({ children, source, title, noBorder, className }) => {
+const GroupOfFields = ({ children, source, title, noBorder }) => {
   const translate = useTranslate();
   const classes = useStyles();
   const { basePath, loaded, record, resource } = useShowContext();
@@ -29,8 +34,8 @@ const GroupOfFields = ({ children, source, title, noBorder, className }) => {
   );
 
   return (
-    <div className={className}> 
-    {(fields.length > 0) && <Typography variant="h6" color="secondary" className={`${classes.divider} ${noBorder ? classes.noBorder : ''}`}>
+    <div className={`${classes.mainContainer} ${noBorder ? classes.noBorder : ''}`}> 
+    {(fields.length > 0) && <Typography variant="h6" color="secondary">
         {title}
     </Typography>
     }

@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
     '& p[class*=makeStyles-p]': {
       margin: 0,
       color: theme.palette.grey40.main
+    },
+    '& p[class*=makeStyles-li]': {
+      color: theme.palette.grey40.main
     }
   },
   singleFieldList: {

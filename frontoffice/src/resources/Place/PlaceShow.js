@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
     '& p[class*=makeStyles-p]': {
       margin: 0,
       color: theme.palette.grey40.main
+    },
+    '& p[class*=makeStyles-li]': {
+      color: theme.palette.grey40.main
     }
   },
   singleFieldList: {
@@ -96,7 +99,7 @@ const PlaceShow = (props) => {
               </ReferenceArrayField>
               <ReferenceArrayField source="pair:hasType" reference="Type">
                 <SeparatedListField link={false} separator=" / ">
-                <TextField variant="body2" color="secondary" source="pair:label" />
+                <TextField variant="body2" source="pair:label" />
                 </SeparatedListField>
               </ReferenceArrayField>
               <ReferenceArrayField reference="Type" source="cdlt:hasCourseType">
