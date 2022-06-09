@@ -72,7 +72,7 @@ const PlaceForm = ({ mode, ...rest }) => {
         <ThemesInput source="pair:hasTopic" fullWidth />
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />        
         <TypesInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} validate={[required()]} />
-        <StatusInput source="pair:hasStatus" filter={{ a: 'pair:PlaceStatus' }} fullWidth />
+        {/*<StatusInput source="pair:hasStatus" filter={{ a: 'pair:PlaceStatus' }} fullWidth />*/}
         <SkillsInput source="pair:produces" fullWidth />
         <SkillsInput source="pair:aims" fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
