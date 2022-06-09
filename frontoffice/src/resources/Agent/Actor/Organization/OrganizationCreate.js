@@ -1,5 +1,7 @@
 import React from 'react';
 import { Create } from 'react-admin';
+import { ThemeProvider } from '@material-ui/core';
+import organizationTheme from '../../../../config/themes/organizationTheme';
 import { useCheckPermissions } from '@semapps/auth-provider';
 import { useCreateContainer } from "@semapps/semantic-data-provider";
 import FullWidthBox from '../../../../commons/FullWidthBox';
@@ -15,7 +17,7 @@ const OrganizationCreate = (props) => {
   const createContainerUri = useCreateContainer(props.resource);
   useCheckPermissions(createContainerUri, 'create');
   return (
-    <>
+    <ThemeProvider theme={organizationTheme}>
       <HeaderTitle actions={actions}>Ajouter une organisation</HeaderTitle>
       <FullWidthBox>
         <LargeContainer>
@@ -25,7 +27,7 @@ const OrganizationCreate = (props) => {
         </LargeContainer>
       </FullWidthBox>
       <br />
-    </>
+    </ThemeProvider>
   );
 };
 

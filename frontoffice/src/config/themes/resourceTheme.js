@@ -1,5 +1,5 @@
 import { createTheme } from '@material-ui/core/styles';
-import theme from './theme';
+import theme from '../theme';
 
 let resourceTheme = createTheme({
   ...theme,

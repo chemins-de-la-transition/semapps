@@ -1,8 +1,8 @@
-import React from 'react';
-import { ImageInput, FormTab, TabbedForm, TextInput } from 'react-admin';
-import { EditWithPermissions } from '@semapps/auth-provider';
+import React, { useMemo } from 'react';
+import { FormTab, ImageInput, TabbedForm, TextInput, useGetIdentity } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
-import {
+import { ImageField } from '@semapps/semantic-data-provider';
+import { 
   ActivitiesInput,
   FinalitiesInput,
   OrganizationsInput,
@@ -11,26 +11,18 @@ import {
   PlacesInput,
   SectorsInput,
   SkillsInput,
-  ThemesInput,
-  TypeInput,
-  StatusInput
+  ThemesInput
 } from '../../../../pair';
-import { ImageField } from '@semapps/semantic-data-provider';
-import PersonTitle from './PersonTitle';
 
-export const PersonEdit = (props) => (
-  <EditWithPermissions
-    title={<PersonTitle />}
-    transform={(data) => ({
-      ...data,
-      'pair:label': 
-        data['pair:alternativeLabel']
-          ? data['pair:alternativeLabel']
-          : `${data['pair:firstName']} ${data['pair:lastName']?.toUpperCase()}`
-    })}
-    {...props}
-  >
-    <TabbedForm redirect="show">
+const PersonForm = ({ ...rest }) => {
+  const { identity } = useGetIdentity();
+  const TRAVELER_TYPE_URL = process.env.REACT_APP_MIDDLEWARE_URL + 'types/traveler';
+  const isTraveler = useMemo( () => {
+    return ! identity?.webIdData?.['pair:hasType'] || identity.webIdData.['pair:hasType'] === TRAVELER_TYPE_URL
+  }, [identity, TRAVELER_TYPE_URL]);
+
+  return (
+    <TabbedForm {...rest} redirect="show">
       <FormTab label="Principal">
         <TextInput source="pair:firstName" fullWidth />
         <TextInput source="pair:lastName" fullWidth />
@@ -43,10 +35,12 @@ export const PersonEdit = (props) => (
         </ImageInput>
         <MarkdownInput source="cdlt:intentions" fullWidth />
         <TextInput source="pair:phone" fullWidth />
+        {/*
         <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
+        */}
         <PairLocationInput source="pair:hasLocation" fullWidth />
-        {/*}
+        {/*
         <MarkdownInput source="cdlt:asAHostIntentions" fullWidth />
         <MarkdownInput source="cdlt:asAMentorIntentions" fullWidth />
         <MarkdownInput source="cdlt:asAnOrganiserIntentions" fullWidth />
@@ -54,20 +48,24 @@ export const PersonEdit = (props) => (
         */}
       </FormTab>
       <FormTab label="Relations">
-        <OrganizationsInput source="pair:affiliatedBy" />
-        <OrganizationsInput source="pair:inspiredBy" />
-        <PlacesInput source="cdlt:proposes" />
-        <ActivitiesInput source="cdlt:mentorOn" />
-        <ActivitiesInput source="cdlt:organizes" />
+        { ! isTraveler && 
+          <>
+            <OrganizationsInput source="pair:affiliatedBy" />
+            <OrganizationsInput source="pair:inspiredBy" />
+            <PlacesInput source="cdlt:proposes" />
+            <ActivitiesInput source="cdlt:mentorOn" />
+            <ActivitiesInput source="cdlt:organizes" />
+            <PathsInput source="cdlt:supports" />
+          </>
+        }
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
-        <PathsInput source="cdlt:supports" />
         <SkillsInput source="pair:offers" />
         <SkillsInput source="pair:aims" fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
     </TabbedForm>
-  </EditWithPermissions>
-);
+  );
+};
 
-export default PersonEdit;
+export default PersonForm;

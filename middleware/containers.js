@@ -147,7 +147,7 @@ module.exports = [
   },
   {
     path: '/types',
-    acceptedTypes: ['cdlt:PathType', 'cdlt:CourseType', 'pair:PlaceType', 'pair:EventType', 'pair:PersonType'],
+    acceptedTypes: ['cdlt:PathType', 'cdlt:CourseType', 'pair:PlaceType', 'pair:EventType', 'pair:PersonType', 'pair:OrganizationType'],
     permissions: anonReadPermission,
     newResourcesPermissions: writePermissionToCreator,
   },

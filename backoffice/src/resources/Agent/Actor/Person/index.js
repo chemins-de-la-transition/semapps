@@ -34,24 +34,32 @@ export default {
         'pair:alternativeLabel': 'Nom d\'utilisateur',
         'pair:comment': 'En deux mots',
         'pair:description': 'Description',
+        'pair:homePage': 'Site web',
         'pair:depictedBy': 'Photo',
         'pair:hasType': 'Type',
         'pair:hasStatus': 'Statut',
-        'pair:offers': 'Offre', /*Skill*/
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:hasLocation': 'Adresse',
+        'cdlt:hasRegion': 'Région',
         'pair:hasFinality': 'Finalités',
+        'cdlt:intentions': 'Mes intentions en venant sur les chemins de la transition',
+        /*
         'cdlt:asAHostIntentions': 'Intention en tant qu\'hôte',
         'cdlt:asAMentorIntentions': 'Intention en tant que mentor',
         'cdlt:asAnOrganiserIntentions': 'Intention en tant qu\'organisateur',
         'cdlt:asATravelerIntentions': 'Intention en tant que voyageur',
+        */
         'pair:affiliatedBy': 'Membre de', /*Organization*/
         'cdlt:mentorOn': 'Est intervenant pour', /*Activity*/
         'cdlt:organizes': 'Est organisateur de', /*Activity*/
         'cdlt:proposes': 'Est hôte de',
         'foaf:email': 'Adresse email',
         'pair:phone': 'Téléphone',
+        'pair:offers': 'Compétences actuelles', /*Skill*/
+        'pair:aims': 'Compétences recherchées', /*Skill*/
+        'pair:inspiredBy': 'Est inspirée par', /*Organization*/
+        'cdlt:supports': 'Chemins', /*Paths*/
       },
     },
   },

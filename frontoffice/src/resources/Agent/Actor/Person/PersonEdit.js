@@ -1,81 +1,40 @@
-import React, { useMemo } from 'react';
-import { ImageInput, FormTab, TabbedForm, TextInput, useGetIdentity } from 'react-admin';
-import { Container } from '@material-ui/core';
-import { EditWithPermissions } from '@semapps/auth-provider';
-import { MarkdownInput } from '@semapps/markdown-components';
-import {
-  ActivitiesInput,
-  FinalitiesInput,
-  OrganizationsInput,
-  PairLocationInput,
-  PlacesInput,
-  SectorsInput,
-  SkillsInput,
-  ThemesInput,
-  // TypeInput,
-  // StatusInput
-} from '../../../../pair';
-import { ImageField } from '@semapps/semantic-data-provider';
+import React from 'react';
+import { Edit } from 'react-admin';
+import { ThemeProvider } from '@material-ui/core';
+import personTheme from '../../../../config/themes/personTheme';
+import { useCheckPermissions } from '@semapps/auth-provider';
+import FullWidthBox from '../../../../commons/FullWidthBox';
+import LargeContainer from '../../../../commons/LargeContainer';
+import HeaderTitle from '../../../../commons/HeaderTitle';
 import PersonTitle from './PersonTitle';
+import PersonForm from './PersonForm';
 
 export const PersonEdit = (props) => {
-  const { identity } = useGetIdentity();
-  const TRAVELER_TYPE_URL = process.env.REACT_APP_MIDDLEWARE_URL + 'types/traveler';
-  const isTraveler = useMemo( () => {
-    return ! identity?.webIdData?.['pair:hasType'] || identity.webIdData.['pair:hasType'] === TRAVELER_TYPE_URL
-  }, [identity, TRAVELER_TYPE_URL]);
-  
+  useCheckPermissions(props.id, 'edit', props.basePath);
   return (
-  <Container maxWidth="lg">
-    <EditWithPermissions
-      title={<PersonTitle />}
-      transform={(data) => ({
-        ...data,
-        'pair:label': 
-          data['pair:alternativeLabel']
-            ? data['pair:alternativeLabel']
-            : `${data['pair:firstName']} ${data['pair:lastName']?.toUpperCase()}`
-      })}
-      {...props}
-    >
-      <TabbedForm redirect="show">
-        <FormTab label="Principal">
-          <TextInput source="pair:firstName" fullWidth />
-          <TextInput source="pair:lastName" fullWidth />
-          <TextInput source="pair:alternativeLabel" fullWidth />
-          <TextInput source="pair:comment" fullWidth />
-          <MarkdownInput source="pair:description" fullWidth />
-          <ImageInput source="pair:depictedBy" accept="image/*">
-            <ImageField source="src" />
-          </ImageInput>
-          <TextInput source="pair:phone" fullWidth />
-          {/*
-          <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
-          <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
-          */}
-          <PairLocationInput source="pair:hasLocation" fullWidth />
-          <MarkdownInput source="cdlt:asAHostIntentions" fullWidth />
-          <MarkdownInput source="cdlt:asAMentorIntentions" fullWidth />
-          <MarkdownInput source="cdlt:asAnOrganiserIntentions" fullWidth />
-          <MarkdownInput source="cdlt:asATravelerIntentions" fullWidth />
-        </FormTab>
-        <FormTab label="Relations">
-          { ! isTraveler && 
-            <>
-              <OrganizationsInput source="pair:affiliatedBy" />
-              <PlacesInput source="cdlt:proposes" />
-              <ActivitiesInput source="cdlt:mentorOn" />
-              <ActivitiesInput source="cdlt:organizes" />
-            </>
-          }
-          <SectorsInput source="pair:hasSector" />
-          <ThemesInput source="pair:hasTopic" />
-          <SkillsInput source="pair:offers" />
-          <FinalitiesInput source="pair:hasFinality" />
-        </FormTab>
-      </TabbedForm>
-    </EditWithPermissions>
-  </Container>
-)}
+    <ThemeProvider theme={personTheme}>
+      <HeaderTitle />
+      <FullWidthBox>
+        <LargeContainer>
+          <Edit
+            title={<PersonTitle />}
+            transform={(data) => ({
+              ...data,
+              'pair:label': 
+                data['pair:alternativeLabel']
+                  ? data['pair:alternativeLabel']
+                  : `${data['pair:firstName']} ${data['pair:lastName']?.toUpperCase()}`
+            })}
+            actions={null}
+            {...props}
+          >
+            <PersonForm />
+          </Edit>
+        </LargeContainer>
+    </FullWidthBox>
+    <br />
+  </ThemeProvider>
+  )
+}
 
 export default PersonEdit;

@@ -14,16 +14,16 @@ const useStyles = makeStyles((theme) => ({
   },
   block: {
     backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.primary.contrastText
   },
   button: {
     backgroundColor: theme.palette.primary.main,
-    textAlign: 'center',
+    textAlign: 'center'
   },
 }));
 
-const StickyCard = ({ children, actionButton }) => {
-  const classes = useStyles();
+const StickyCard = ({ children, actionButton, variant }) => {
+  const classes = useStyles({variant});
   const record = useRecordContext();
   return (
     <StickyBox offsetTop={168} className={classes.root}>

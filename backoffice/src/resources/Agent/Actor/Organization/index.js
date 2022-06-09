@@ -36,14 +36,22 @@ export default {
         'pair:depictedBy': 'Logo',
         'pair:affiliates': 'A pour membres', /*Person*/
         'pair:partnerOf': 'A pour partenaires', /*Organization*/
+        'pair:inspiredBy': 'Est inspirée par', /*Organization*/
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:hasLocation': 'Adresse',
+        'cdlt:hasRegion': 'Région',
         'cdlt:organizes': 'Organise',
-        'cdlt:hasRegion': 'Région(s)',
         'cdlt:supports': 'Chemins', /*Paths*/
         'cdlt:hasCourseType': 'Type de voyage',
         'cdlt:organizationHostedIn': 'Où sommes-nous',
+        'pair:hasFinality': 'Finalités',
+        'cdlt:intentions': 'Nos intentions en venant sur les chemins de la transition',
+        'cdlt:practicalConditions': "Modalités d'accueil",
+        'cdlt:maximumCapacity': "Capacité d'accueil maximum",
+        'pair:produces': 'Compétences présentes dans l\'organisation',
+        'pair:aims': 'Compétences recherchées par l\'organisation',
+        'pair:hasType': 'Type d\'organisation',
       },
     },
   },
