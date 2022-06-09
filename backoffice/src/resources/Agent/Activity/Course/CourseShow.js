@@ -1,6 +1,7 @@
 import React from "react";
 import {
   ChipField,
+  NumberField,
   SingleFieldList,
   TextField,
   UrlField,
@@ -60,6 +61,8 @@ const CourseShow = (props) => (
           <MarkdownField source="cdlt:mentorDescription" />
           <MarkdownField source="cdlt:prerequisites" />
           <MarkdownField source="cdlt:practicalConditions" />
+          <NumberField source="cdlt:minimumCapacity" />
+          <NumberField source="cdlt:maximumCapacity" />
           <MarkdownField source="cdlt:learningObjectives" />
           <MarkdownField source="cdlt:economicalConditions" />
           <ReferenceArrayField

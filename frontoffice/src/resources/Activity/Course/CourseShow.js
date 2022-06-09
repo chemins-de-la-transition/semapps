@@ -147,6 +147,7 @@ const CourseShow = (props) => {
               addLabel
             >
               <MarkdownField source="cdlt:practicalConditions" addLabel={false}/>
+              <NumberWithUnitField source="cdlt:minimumCapacity" addLabel unit='personnes' color="grey40" />
               <NumberWithUnitField source="cdlt:maximumCapacity" addLabel unit='personnes' color="grey40" />
             </GroupOfFields>
             <MarkdownField source="cdlt:economicalConditions" />

@@ -42,6 +42,8 @@ export default {
         'pair:hasPart': 'Programme du voyage', /*Event*/
         'cdlt:prerequisites': 'Autres prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
+        'cdlt:minimumCapacity': "Nombre de participants minimum",
+        'cdlt:maximumCapacity': "Nombre de participants maximum",
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
         'cdlt:economicalConditions': 'Conditions financières',
         'pair:e-mail': 'Adresse e-mail',
