@@ -5,7 +5,7 @@ import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MapField } from '@semapps/geo-components';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { MarkdownField } from '@semapps/markdown-components';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Grid } from '@material-ui/core';
 import OrganizationTitle from './OrganizationTitle';
 import HomeIcon from '@material-ui/icons/Home';
@@ -17,6 +17,9 @@ const OrganizationShow = (props) => (
       <Grid item xs={12} sm={9}>
         <Hero image="pair:depictedBy">
           <TextField source="pair:comment" />
+          <ReferenceField source="cdlt:hasRegion" reference="Region" link={false}>
+            <TextField source="pair:label" />
+          </ReferenceField>
           <UrlField source="pair:homePage" />
           <ReferenceArrayField source="pair:hasType" reference="Type">
             <SeparatedListField link={false}>

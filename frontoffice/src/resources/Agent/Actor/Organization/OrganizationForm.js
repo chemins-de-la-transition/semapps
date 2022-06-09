@@ -9,7 +9,6 @@ import {
   PairLocationInput,
   PathsInput,
   PlacesInput,
-  RegionsInput,
   SectorsInput,
   SkillsInput,
   ThemesInput,
@@ -38,6 +37,7 @@ const OrganizationForm = ({ mode, ...rest }) => {
         <NumberInput source="cdlt:maximumCapacity" fullWidth />
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <TypesInput source="pair:hasType" filter={{ a: 'pair:OrganizationType' }} />
+        <PairLocationInput source="pair:hasLocation" fullWidth />
       </FormTab>
       <FormTab label="Relations">
         <OrganizationsInput source="pair:partnerOf" />
@@ -47,8 +47,6 @@ const OrganizationForm = ({ mode, ...rest }) => {
         <PathsInput source="cdlt:supports" />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
-        <PairLocationInput source="pair:hasLocation" fullWidth />
-        <RegionsInput source="cdlt:hasRegion" fullWidth />
         <PlacesInput source="cdlt:organizationHostedIn" fullWidth />
         <SkillsInput source="pair:produces" fullWidth />
         <SkillsInput source="pair:aims" fullWidth />

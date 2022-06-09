@@ -4,7 +4,7 @@ import { Grid } from '@material-ui/core';
 import { MainList, SideList, Hero, GridList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MapField } from '@semapps/geo-components';
 import PersonTitle from './PersonTitle';
 import HomeIcon from '@material-ui/icons/Home';
@@ -19,6 +19,9 @@ const PersonShow = (props) => (
           <TextField source="pair:lastName" />
           <TextField source="pair:alternativeLabel" />
           <TextField source="pair:comment" />
+          <ReferenceField source="cdlt:hasRegion" reference="Region" link={false}>
+            <TextField source="pair:label" />
+          </ReferenceField>
           <UrlField source="pair:homePage" />
           <MarkdownField source="pair:description" />
           <EmailField source="foaf:email" />

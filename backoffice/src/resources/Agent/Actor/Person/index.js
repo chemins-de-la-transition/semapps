@@ -41,6 +41,7 @@ export default {
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:hasLocation': 'Adresse',
+        'cdlt:hasRegion': 'Région',
         'pair:hasFinality': 'Finalités',
         'cdlt:intentions': 'Mes intentions en venant sur les chemins de la transition',
         /*

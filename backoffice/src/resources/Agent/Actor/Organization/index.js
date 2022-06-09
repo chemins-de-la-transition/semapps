@@ -40,8 +40,8 @@ export default {
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:hasLocation': 'Adresse',
+        'cdlt:hasRegion': 'Région',
         'cdlt:organizes': 'Organise',
-        'cdlt:hasRegion': 'Région(s)',
         'cdlt:supports': 'Chemins', /*Paths*/
         'cdlt:hasCourseType': 'Type de voyage',
         'cdlt:organizationHostedIn': 'Où sommes-nous',
