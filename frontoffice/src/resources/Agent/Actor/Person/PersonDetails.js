@@ -68,7 +68,7 @@ const PersonDetails = (props) => {
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField reference="Organization" source="pair:affiliatedBy" icon={<ActorIcon />} label="membre de">
+            <ReferenceArrayField reference="Organization" source="pair:affiliatedBy" icon={<ActorIcon />} label="Membre de">
               <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
