@@ -1,6 +1,7 @@
 const urlJoin = require("url-join");
 const { v4: uuid } = require('uuid');
 const { MigrationService } = require('@semapps/migration');
+const { getContainerFromUri } = require("@semapps/ldp");
 const { MIME_TYPES } = require("@semapps/mime-types");
 const CONFIG = require("../config");
 
@@ -94,16 +95,42 @@ module.exports = {
         webId: 'system'
       });
     },
-    async moveResourceTypeThemeToSector(ctx) {
+    async replaceThemesWithSectors(ctx) {
       const oldResourceUris = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'themes') });
-      const { dataset } = ctx.params;
+
       for( let oldResourceUri of oldResourceUris ) {
-        await this.actions.moveResource({
-          oldResourceUri: oldResourceUri,
-          newResourceUri: oldResourceUri.replace('themes','sectors')
+        const newResourceUri = oldResourceUri.replace('/themes/', '/sectors/');
+
+        await this.actions.moveResource({ oldResourceUri, newResourceUri });
+
+        const oldContainerUri = getContainerFromUri(oldResourceUri);
+        const newContainerUri = getContainerFromUri(newResourceUri);
+
+        this.logger.info('Replacing ' + oldContainerUri + ' with ' + newContainerUri);
+
+        await ctx.call('triplestore.update', {
+          query: `
+            PREFIX ldp: <http://www.w3.org/ns/ldp#>
+            DELETE { <${oldContainerUri}> ldp:contains <${newResourceUri}> }
+            INSERT { <${newContainerUri}> ldp:contains <${newResourceUri}> }
+            WHERE { <${oldContainerUri}> ldp:contains <${newResourceUri}> }
+          `,
+          webId: 'system'
+        });
+
+        await ctx.call('triplestore.update', {
+          query: `
+            PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>
+            DELETE { <${newResourceUri}> a pair:Theme }
+            INSERT { <${newResourceUri}> a pair:Sector }
+            WHERE { <${newResourceUri}> a pair:Theme }
+          `,
+          webId: 'system'
         });
       }
-      await this.actions.replacePredicate({ oldPredicate: 'http://virtual-assembly.org/ontologies/pair#hasTopic', newPredicate: 'http://virtual-assembly.org/ontologies/cdlt#hasSector' }, { parentCtx: ctx });
+
+      await this.actions.replacePredicate({ oldPredicate: 'http://virtual-assembly.org/ontologies/cdlt#hasSector', newPredicate: 'http://virtual-assembly.org/ontologies/pair#hasSector' }, { parentCtx: ctx });
+      await this.actions.replacePredicate({ oldPredicate: 'http://virtual-assembly.org/ontologies/pair#topicOf', newPredicate: 'http://virtual-assembly.org/ontologies/pair#sectorOf' }, { parentCtx: ctx });
     },
   },
   methods: {
