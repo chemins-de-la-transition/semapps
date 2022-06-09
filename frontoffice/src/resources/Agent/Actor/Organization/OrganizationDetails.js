@@ -83,10 +83,6 @@ const OrganizationDetails = (props) => {
             </ReferenceArrayField>
           }
         </IconsList>
-      { ( isVertical || sm ) &&
-        <Box className={classes.vertical}>
-        </Box>
-      }
     </Box>
   );
 }
