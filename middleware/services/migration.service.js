@@ -6,6 +6,9 @@ const CONFIG = require("../config");
 
 module.exports = {
   name: 'migration',
+  settings: {
+    baseUrl: CONFIG.HOME_URL
+  },
   mixins: [MigrationService],
   actions: {
     async activateActivityPub(ctx) {
@@ -90,7 +93,18 @@ module.exports = {
         dataset,
         webId: 'system'
       });
-    }
+    },
+    async moveResourceTypeThemeToSector(ctx) {
+      const oldResourceUris = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'themes') });
+      const { dataset } = ctx.params;
+      for( let oldResourceUri of oldResourceUris ) {
+        await this.actions.moveResource({
+          oldResourceUri: oldResourceUri,
+          newResourceUri: oldResourceUri.replace('themes','sectors')
+        });
+      }
+      await this.actions.replacePredicate({ oldPredicate: 'http://virtual-assembly.org/ontologies/pair#hasTopic', newPredicate: 'http://virtual-assembly.org/ontologies/cdlt#hasSector' }, { parentCtx: ctx });
+    },
   },
   methods: {
     async setWritePermissionsToCreatorForASingleResource(ctx, resourceSlug) {
