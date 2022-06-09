@@ -69,6 +69,13 @@ const OrganizationDetails = (props) => {
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
+            <ReferenceArrayField reference="Organization" source="pair:affiliates" icon={<ActorIcon />} label="A pour contributeur.trice">
+              <SeparatedListField link="show" separator={separator}>
+                <TextField source="pair:label" />
+              </SeparatedListField>
+            </ReferenceArrayField>
+          }
+          { (isVertical || sm ) && 
             <ReferenceArrayField reference="Path" source="cdlt:supports" icon={<ActorIcon />} label="Contributeur de">
               <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
