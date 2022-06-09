@@ -33,6 +33,7 @@ export default {
         'pair:hasTopic': 'Mots clé', /*Theme*/
         'cdlt:hasRegion': 'Région(s)',
         'pair:produces': 'Compétences visées', /*Skill*/
+        'cdlt:requiredSkills': 'Compétences requises', /*Skill*/
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',
         'cdlt:priceRange': 'Coût',

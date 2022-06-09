@@ -76,7 +76,7 @@ const CourseEdit = (props) => (
         <PathsInput source="cdlt:courseOn" />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
-        {/*<EventsInput source="pair:hasPart" />*/}
+        <SkillsInput source="cdlt:requiredSkills" />
         <SkillsInput source="pair:produces" />
         <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />

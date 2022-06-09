@@ -118,8 +118,8 @@ const CourseShow = (props) => {
               source="pair:produces"
               addLabel
             >
-              <ReferenceArrayField reference="Skill" source="pair:aims">
-                <SeparatedListField link={linkToFilteredList('LEP', 'pair:aims')} separator="">
+              <ReferenceArrayField reference="Skill" source="cdlt:requiredSkills">
+                <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:requiredSkills')} separator="">
                   <ChipField source="pair:label" color="primary" className={classes.chipField} />
                 </SeparatedListField>
               </ReferenceArrayField>

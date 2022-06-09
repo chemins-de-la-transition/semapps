@@ -144,6 +144,11 @@ const CourseShow = (props) => (
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Skill" source="cdlt:requiredSkills">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:produces">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
