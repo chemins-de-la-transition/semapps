@@ -54,6 +54,9 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 12,
     }
   },
+  dataField: {
+    color: theme.palette.primary.contrastText
+  },
   eventDescription: {
     color: theme.palette.primary.contrastText,
   },
@@ -210,11 +213,13 @@ const EventItemsGrid = ({ similarRecord }) => {
                       record={data[id]}
                       source="pair:startDate"
                       options={{ year: 'numeric', month: 'numeric', day: 'numeric' }}
+                      className={classes.dataField}
                     /> {" au "}
                     <DateField
                       record={data[id]}
                       source="pair:endDate"
                       options={{ year: 'numeric', month: 'numeric', day: 'numeric' }}
+                      className={classes.dataField}
                     />
                 </Typography>
                 </div>

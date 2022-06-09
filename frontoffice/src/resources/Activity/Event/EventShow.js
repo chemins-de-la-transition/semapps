@@ -15,12 +15,11 @@ import EventAlert from "./EventAlert";
 import ContactDialog from "../../../commons/ContactDialog";
 import NumberWithUnitField from '../../../commons/fields/NumberWithUnitField';
 import SectorField from '../../../commons/fields/SectorField';
-import EventSubHeader from "./EventSubHeader";
-import SimilarList from "../../../commons/lists/FeaturedList/SimilarList";
 import ApplyButton from "../../../commons/buttons/ApplyButton";
 import GroupOfFields from '../../../commons/fields/GroupOfFields';
 import { linkToFilteredList } from "../../../utils";
-import PictoParcours from '../../../icons/PictoParcours.png' ;
+import FeaturedList from '../../../commons/lists/FeaturedList/FeaturedList';
+import PictoAgenda from '../../../icons/PictoAgenda.png' ;
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -159,15 +158,14 @@ const EventShow = (props) => {
             />
             <UrlField source="pair:aboutPage" label="Liens" className={classes.urlField} />
           </BodyList>
-          <SimilarList
-            resource="Course"
-            basePath="/Course"
-            logo={PictoParcours}
-            title="Nos voyages"
-            subtitle="Similaires"
-            headComment=""
-            linkText="Voir tous les voyages"
-            CardSubHeaderComponent={EventSubHeader}
+          <FeaturedList
+            resource="Event"
+            basePath="/Event"
+            title="Les événements"
+            subtitle="similaires"
+            logo={PictoAgenda}
+            linkText="Voir tous les événements"
+            isAgenda={true}
           />
           <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
         </Box>
