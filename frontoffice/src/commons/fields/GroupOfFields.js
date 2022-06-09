@@ -8,11 +8,17 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 20,
   },
   divider: {
-    borderBottom: '1px lightgrey solid',
+    paddingTop: 16,
+    paddingBottom: 8,
+    borderTop: '1px lightgrey solid',
+  },
+  noBorder: {
+    marginTop: 8,
+    border: 'none'
   }
 }));
 
-const GroupOfFields = ({ children, source, title }) => {
+const GroupOfFields = ({ children, source, title, noBorder, className }) => {
   const translate = useTranslate();
   const classes = useStyles();
   const { basePath, loaded, record, resource } = useShowContext();
@@ -23,8 +29,8 @@ const GroupOfFields = ({ children, source, title }) => {
   );
 
   return (
-    <div> 
-    {(fields.length > 0) && <Typography variant="h6" color="secondary" className={classes.divider} style={{marginBottom:30}}>
+    <div className={className}> 
+    {(fields.length > 0) && <Typography variant="h6" color="secondary" className={`${classes.divider} ${noBorder ? classes.noBorder : ''}`}>
         {title}
     </Typography>
     }

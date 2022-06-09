@@ -9,12 +9,14 @@ const useStyles = makeStyles((theme) => ({
     alignItems:'center',
     justifyContent: 'flex-end',
     width: 150,
-    color: theme.palette.secondary.main,
     margin: '8px 0',
     '& img': {
-      margin: 0,
+      marginBottom: -12,
       width: '100%'
-    }
+    },
+    '& span': {
+      fontFamily: theme.typography.h6.fontFamily,
+    } 
   }
 }));
 
@@ -24,7 +26,7 @@ const SectorField = ({addLabel}) => {
     <Box className={classes.mainContainer}>
       <ImageField source="pair:depictedBy" title="pair:label" />
       { addLabel && 
-        <TextField source="pair:label" />
+        <TextField source="pair:label" color="secondary" />
       }
     </Box>
   );

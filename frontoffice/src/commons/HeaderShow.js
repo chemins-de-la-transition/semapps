@@ -12,7 +12,6 @@ import {
 import {
   TextField,
   useShowContext,
-  ReferenceField,
   Link,
   useRecordContext
 } from 'react-admin';
@@ -38,17 +37,20 @@ const useStyles = makeStyles((theme) => ({
       color: 'white'
     }
   },
-  type: {
-    paddingTop: 10,
-    paddingBottom: 10,
-  },
   title: {
     lineHeight: 1.15,
   },
-  basePath: {
-    color: theme.palette.theme_3.contrastText,
+  iconsContainer: {
+    paddingTop: 16,
+    paddingBottom: 12
   },
-  placeLink: {
+  basePath: {
+    '& p': {
+      color: theme.palette.theme_3.contrastText,
+      fontSize: 14    
+    }
+  },
+resourceLink: {
     color: theme.palette.theme_3.contrastText,
     fontWeight: 'bold',
   },
@@ -107,9 +109,9 @@ const MultipleImagesField = ({ source, max = 2 }) => {
   }
 };
 
-const HeaderShow = ({ type, linkToListText, details, content, actionButton, hasComment }) => {
+const HeaderShow = ({ linkToListText, details, content, actionButton, hasComment }) => {
   const classes = useStyles();
-  const { basePath, record } = useShowContext();
+  const { basePath } = useShowContext();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
 
   // Calculate header height
@@ -127,9 +129,9 @@ const HeaderShow = ({ type, linkToListText, details, content, actionButton, hasC
           className={classes.breadcrumbs}
         >
           <Link to={basePath} underline="none" color="inherit" className={classes.basePath}>
-            <Typography variant="body2">{linkToListText}</Typography>
+            <Typography>{linkToListText}</Typography>
           </Link>
-          <TextField source="pair:label" variant="body2" className={classes.placeLink} />
+          <TextField source="pair:label" variant="body2" className={classes.resourceLink} />
         </Breadcrumbs>
         <Box className={classes.images}>
           <MultipleImagesField source="pair:depictedBy" max={2} />
@@ -141,16 +143,11 @@ const HeaderShow = ({ type, linkToListText, details, content, actionButton, hasC
               <LikeButton />
             </div>
           }
-          {type && record && record[type] && (
-            <ReferenceField source={type} reference="Type" link={false}>
-              <TextField source="pair:label" variant="subtitle2" component="div" className={classes.type} />
-            </ReferenceField>
-          )}
           <TextField source="pair:label" variant="h1" className={classes.title} />
           {hasComment &&
             <TextField source="pair:comment" variant="h2" component="h2" />
           }
-          <Box display={xs ? 'block' : 'flex'} pt={2} pb={2}>
+          <Box display={xs ? 'block' : 'flex'} className={classes.iconsContainer}>
             {details &&
               <>
                 {React.cloneElement(details, { orientation: xs ? 'vertical' : 'horizontal' })}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, CardActionArea, Chip } from '@material-ui/core';
-import { ImageField, TextField, SingleFieldList } from 'react-admin';
+import { ImageField, TextField } from 'react-admin';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Link } from 'react-router-dom';
@@ -12,11 +12,15 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     zIndex: 1,
     paddingLeft: 0,
-    '& .MuiChip-root': {
+    '& div[class*=MuiChip-root]': {
       background: 'none',
       maxWidth: 180,
-      '& .MuiChip-label': {
-        overflow: 'visible'
+      '& span[class*=MuiChip-label]': {
+        overflow: 'visible',
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop: -2,
+        marginLeft: -2
       }
     }
   },
@@ -110,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '20px',
     paddingRight: '20px',
     paddinBottom: '20px',
-    '& .MuiTypography-root': {
+    '& div[class*=MuiTypography-root]': {
       paddingLeft: '20px',
       paddingRight: '20px',
     },
@@ -158,9 +162,9 @@ const CardBlock = ({ record, basePath, CardSubHeaderComponent, resource }) => {
             <Chip
               label={
                 <ReferenceArrayField source="pair:hasSector" reference="Sector" record={record} perPage={3}>
-                  <SingleFieldList>
+                  <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasSector')} separator="">
                     <ImageField source="pair:depictedBy" title="pair:label" className={classes.sectorImage} />
-                  </SingleFieldList>
+                  </SeparatedListField>
                 </ReferenceArrayField>
               }
             />

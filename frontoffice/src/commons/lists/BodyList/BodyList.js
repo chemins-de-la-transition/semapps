@@ -10,10 +10,7 @@ const useStyles = makeStyles((theme) => ({
   divider: {
     paddingTop: 5,
     paddingBottom: 20,
-    borderBottom: '1px lightgrey solid',
-    '&:last-child': {
-      borderBottom: 'none',
-    },
+    borderTop: '1px lightgrey solid',
   },
 }));
 
