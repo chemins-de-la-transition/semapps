@@ -104,7 +104,7 @@ const FeaturedList = ({ resource, basePath, title, subtitle, logo, linkText, Car
           </Link>
         </Box>
         {isAgenda ? 
-          <Box className={classes.listBase}>
+          <Box>
             <NextEvents />
           </Box>
         : 
