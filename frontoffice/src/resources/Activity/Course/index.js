@@ -32,33 +32,33 @@ export default {
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé', /*Theme*/
         'cdlt:hasRegion': 'Région(s)',
-        'pair:produces': 'Compétences visées',
+        'pair:produces': 'Compétences visées', /*Skill*/
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',
         'cdlt:priceRange': 'Coût',
-        'pair:description': 'Présentation',
-        'cdlt:organizerDescription': 'Organisateur',
-        'cdlt:mentorDescription': 'Intervenant',
-        'pair:hasPart': 'Programme du voyage', /* Event */
-        'cdlt:prerequisites': 'Prérequis',
+        'pair:description': 'Description du voyage',
+        'cdlt:organizerDescription': 'Les organisateurs',
+        'cdlt:mentorDescription': 'Les intervenants',
+        'pair:hasPart': 'Programme du voyage', /*Event*/
+        'cdlt:prerequisites': 'Autres prérequis',
         'cdlt:practicalConditions': 'Informations pratiques',
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
         'cdlt:economicalConditions': 'Conditions financières',
         'pair:e-mail': 'Adresse e-mail',
         'pair:phone': 'Téléphone',
         'pair:homePage': 'Site web',
-        'pair:comment': "Phrase d'accroche",
-        'cdlt:hasMentor': 'A pour intervenant', /* Person */
-        'cdlt:organizedBy': 'Organisé par', /* Actor */
+        'pair:comment': 'En quelques mots',
+        'cdlt:hasMentor': 'A pour intervenant', /*Person*/
+        'cdlt:organizedBy': 'Organisé par', /*Actor*/
         'pair:hasStatus': 'Statut',
         'pair:documentedBy': 'Documents',
-        'cdlt:courseOn': 'Chemins', /* Path */
+        'cdlt:courseOn': 'Chemins', /*Path*/
         'pair:hasFinality': 'Finalités',
         'cdlt:directRegistration' : "Possibilité de s'inscrire directement",
         'cdlt:registrationOption' : "Option d'inscription",
         'cdlt:jotformLink':"Formulaire d'inscription JotForm",
         'cdlt:registrationLink':"Lien du système d'inscription",
-        'cdlt:referenceNumber': 'Numéro de référence',
+        'cdlt:referenceNumber': 'N° du voyage',
       },
     },
   },

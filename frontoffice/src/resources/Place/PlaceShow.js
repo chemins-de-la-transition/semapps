@@ -161,6 +161,7 @@ const PlaceShow = (props) => {
             logo={PictoLieu}
             title="Les lieux"
             subtitle="Similaires"
+            headComment=""
             linkText="Voir tous les lieux"
             CardSubHeaderComponent={PlaceSubHeader}
           />
