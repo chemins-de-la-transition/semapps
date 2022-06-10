@@ -99,7 +99,7 @@ const PlaceShow = (props) => {
               </ReferenceArrayField>
               <ReferenceArrayField source="pair:hasType" reference="Type">
                 <SeparatedListField link={false} separator=" / ">
-                <TextField variant="body2" source="pair:label" />
+                  <TextField variant="body2" source="pair:label" />
                 </SeparatedListField>
               </ReferenceArrayField>
               <ReferenceArrayField reference="Type" source="cdlt:hasCourseType">

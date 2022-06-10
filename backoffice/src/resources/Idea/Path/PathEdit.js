@@ -4,7 +4,6 @@ import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
 import {
-  // ActorsInput,
   CoursesInput,
   EventsInput,
   FinalitiesInput,
@@ -13,7 +12,6 @@ import {
   PlacesInput,
   SectorsInput,
   ThemesInput,
-  // TypesInput,
   SkillsInput,
 } from '../../../pair';
 import PathTitle from './PathTitle';
@@ -28,25 +26,11 @@ const PathEdit = (props) => (
         <ImageInput source="pair:depictedBy" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
-        {/*}
-        <MarkdownInput source="cdlt:forWhom" fullWidth />
-        <MarkdownInput source="cdlt:prerequisites" fullWidth />
-        <MarkdownInput source="cdlt:learningObjectives" fullWidth />
-        <MarkdownInput source="cdlt:professionalPerspectives" fullWidth />
-        */}
       </FormTab>
       <FormTab label="Relations">
         <PlacesInput source="cdlt:hasPlace" />
         <EventsInput source="cdlt:hasEvent" />
         <CoursesInput source="cdlt:hasCourse" />
-        {/*
-        <StatusInput source="pair:hasStatus" filter={{ a: 'cdlt:PathStatus' }} />
-        <TypesInput source="pair:hasType" filter={{ a: 'cdlt:PathType' }} />
-        <PlacesInput source="pair:hasLocation" />
-        */}
-        {/*
-        <ActorsInput source="cdlt:proposedBy" />
-        */}
         <PersonsInput source="cdlt:proposedBy" />
         <OrganizationsInput source="cdlt:supportedBy" />
         <SkillsInput source="pair:produces" />

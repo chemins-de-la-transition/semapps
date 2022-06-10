@@ -23,7 +23,7 @@ export default {
       name: 'Chemin |||| Chemins',
       fields: {
         'pair:label': 'Titre',
-        'pair:comment': 'Courte description',
+        'pair:comment': 'En quelques mots',
         'pair:description': 'Description',
         'pair:depictedBy': 'Image',
         'pair:produces': "Permet d'apprendre", /*Skill*/
@@ -36,16 +36,6 @@ export default {
         'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:hasFinality': 'Finalités',
         'pair:nourishes': 'Discussions',
-        /*
-        'pair:hasLocation': 'Composez votre parcours',
-        'pair:hasStatus': 'Statut',
-        'pair:hasType': 'Type',
-        'cdlt:forWhom': 'Destiné à',
-        'cdlt:prerequisites': 'Prérequis',
-        'cdlt:learningObjectives': "Objectifs d'apprentissage",
-        'cdlt:economicalConditions': 'Conditions financières',
-        'cdlt:professionalPerspectives': 'Perspectives professionnelles',
-        */
       },
     },
   },
