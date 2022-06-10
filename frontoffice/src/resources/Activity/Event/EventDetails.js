@@ -127,65 +127,7 @@ const EventDetails = (props) => {
             </SeparatedListField>
           </ReferenceArrayField>
         }
-        
-        {/*
-
-
-
-        { (isVertical || sm ) && 
-          <ReferenceArrayField source="cdlt:hostsOrganization" reference="Organization" icon={<GuardianIcon />}>
-            <SeparatedListField linkType="show">
-              <TextField source="pair:label" />
-            </SeparatedListField>
-          </ReferenceArrayField>
-        }
-
-        { (isVertical || sm ) && 
-          <ReferenceArrayField reference="Event" source="pair:hosts" icon={<CalendarIcon />} label="Accueille">
-            <SeparatedListField link="show" separator={separator}>
-              <TextField source="pair:label" />
-            </SeparatedListField>
-          </ReferenceArrayField>
-        }
-        */}
       </IconsList>
-      
-      
-  {/*
-  <IconsList {...props}>
-    <ReferenceArrayField reference="Path" source="cdlt:eventOn" icon={<ThemeIcon />}>
-      <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:eventOn')} separator=" / ">
-        <TextField source="pair:label" />
-      </SeparatedListField>
-    </ReferenceArrayField>
-    <ReferenceArrayField reference="Sector" source="pair:hasSector" icon={<ThemeIcon />}>
-      <SeparatedListField link={linkToFilteredList( 'LEP', 'pair:hasSector')} separator=" / ">
-        <TextField source="pair:label" />
-      </SeparatedListField>
-    </ReferenceArrayField>
-    <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
-      <SeparatedListField link={linkToFilteredList( 'LEP', 'cdlt:hasCourseType')} separator=" / ">
-        <TextField source="pair:label" />
-      </SeparatedListField>
-    </ReferenceArrayField>
-
-    <DurationField
-      label="Durée"
-      source="pair:startDate"
-      startDate="pair:startDate"
-      endDate="pair:endDate"
-      icon={<DurationIcon />}
-    />
-    <ReferenceArrayField reference="Actor" source="cdlt:organizedBy" icon={<ActorIcon/>} link="show" sort={{ field: 'type', order: 'DESC' }} >
-      <SeparatedListField link="show" separator=" / ">
-        <TextField source="pair:label" />
-      </SeparatedListField>
-    </ReferenceArrayField>
-  </IconsList>
-*/}
-      
-      
-      
     </Box>
   
   );
