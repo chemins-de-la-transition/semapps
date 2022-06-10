@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import organizationTheme from '../../../../config/themes/organizationTheme';
+import resourceShowStyle from '../../../../commons/style/resourceShowStyle';
 import { MapField } from '@semapps/geo-components';
 import { SeparatedListField } from '@semapps/archipelago-layout';
-import { Box, Typography, makeStyles } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../../../commons/fields/MarkdownField';
 import HeaderShow from '../../../../commons/HeaderShow';
@@ -21,43 +22,7 @@ import ContactButton from "../../../../commons/buttons/ContactButton";
 import GroupOfFields from '../../../../commons/fields/GroupOfFields';
 import { linkToFilteredList } from "../../../../utils";
 
-const useStyles = makeStyles((theme) => ({
-  mainContainer: {
-    /* MarkdownField */
-    '& p[class*=makeStyles-p]': {
-      margin: 0,
-      color: theme.palette.grey40.main
-    },
-    '& p[class*=makeStyles-li]': {
-      color: theme.palette.grey40.main
-    }
-  },
-  singleFieldList: {
-    marginBottom: 48 
-  },
-  textBody: {
-    marginTop: 8,
-    marginBottom: 16
-  },
-  urlField: {
-    display: 'block',
-    marginTop: 8,
-    marginBottom: 16,
-    '&:hover': {
-      color: theme.palette.theme_5.main
-    }
-  },
-  cardsList: {
-    color: 'red',
-    '& div[class*=makeStyles-description] span': {
-      margin: 0,
-      color: theme.palette.secondary.main
-    }
-  },
-  chipField: {
-    fontWeight: 'bold'
-  }
-}));
+const useStyles = resourceShowStyle;
 
 const OrganizationShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);

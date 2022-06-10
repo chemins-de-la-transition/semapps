@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import resourceTheme from '../../../config/themes/resourceTheme';
+import resourceShowStyle from '../../../commons/style/resourceShowStyle';
 import { MapList } from '@semapps/geo-components';
 import { SeparatedListField } from '@semapps/archipelago-layout';
-import { Box, makeStyles } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../../commons/fields/MarkdownField';
 import HeaderShow from '../../../commons/HeaderShow';
@@ -22,40 +23,7 @@ import TimelineList from '../../../commons/lists/TimelineList';
 import { linkToFilteredList } from "../../../utils";
 import PictoParcours from '../../../icons/PictoParcours.png' ;
 
-const useStyles = makeStyles((theme) => ({
-  mainContainer: {
-    /* MarkdownField */
-    '& p[class*=makeStyles-p]': {
-      margin: 0,
-      color: theme.palette.grey40.main
-    },
-    '& p[class*=makeStyles-li]': {
-      color: theme.palette.grey40.main
-    }
-  },
-  singleFieldList: {
-    marginBottom: 48 
-  },
-  textBody: {
-    marginTop: 8,
-    marginBottom: 16
-  },
-  urlField: {
-    display: 'block',
-    marginTop: 8,
-    marginBottom: 16,
-  },
-  cardsList: {
-    color: 'red',
-    '& div[class*=makeStyles-description] span': {
-      margin: 0,
-      color: theme.palette.secondary.main
-    }
-  },
-  chipField: {
-    fontWeight: 'bold'
-  }
-}));
+const useStyles = resourceShowStyle;
 
 const CourseShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
