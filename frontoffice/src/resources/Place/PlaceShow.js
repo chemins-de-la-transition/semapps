@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import resourceTheme from '../../config/themes/resourceTheme';
+import resourceShowStyle from '../../commons/style/resourceShowStyle';
 import { MapField } from '@semapps/geo-components';
 import { SeparatedListField } from '@semapps/archipelago-layout';
-import { Box, Typography, makeStyles } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../commons/fields/MarkdownField';
 import HeaderShow from '../../commons/HeaderShow';
@@ -23,37 +24,7 @@ import GroupOfFields from '../../commons/fields/GroupOfFields';
 import { linkToFilteredList } from "../../utils";
 import PictoLieu from '../../icons/PictoLieu.png' ;
 
-const useStyles = makeStyles((theme) => ({
-  mainContainer: {
-    /* MarkdownField */
-    '& p[class*=makeStyles-p]': {
-      margin: 0,
-      color: theme.palette.grey40.main
-    }
-  },
-  singleFieldList: {
-    marginBottom: 48 
-  },
-  textBody: {
-    marginTop: 8,
-    marginBottom: 16
-  },
-  urlField: {
-    display: 'block',
-    marginTop: 8,
-    marginBottom: 16,
-  },
-  cardsList: {
-    color: 'red',
-    '& div[class*=makeStyles-description] span': {
-      margin: 0,
-      color: theme.palette.secondary.main
-    }
-  },
-  chipField: {
-    fontWeight: 'bold'
-  }
-}));
+const useStyles = resourceShowStyle;
 
 const PlaceShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
@@ -96,7 +67,7 @@ const PlaceShow = (props) => {
               </ReferenceArrayField>
               <ReferenceArrayField source="pair:hasType" reference="Type">
                 <SeparatedListField link={false} separator=" / ">
-                <TextField variant="body2" color="secondary" source="pair:label" />
+                  <TextField variant="body2" source="pair:label" />
                 </SeparatedListField>
               </ReferenceArrayField>
               <ReferenceArrayField reference="Type" source="cdlt:hasCourseType">
@@ -161,6 +132,7 @@ const PlaceShow = (props) => {
             logo={PictoLieu}
             title="Les lieux"
             subtitle="Similaires"
+            headComment=""
             linkText="Voir tous les lieux"
             CardSubHeaderComponent={PlaceSubHeader}
           />

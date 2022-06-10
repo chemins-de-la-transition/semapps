@@ -57,9 +57,9 @@ const CourseSubHeader = ({ record }) => {
         </Chip>
       )}
       </div>
-      {record['pair:hasCourseType'] && (
+      {record['cdlt:hasCourseType'] && (
         <Chip icon={<CourseIcon />}>
-          <ReferenceField source="pair:hasCourseType" reference="CourseType" record={record}>
+          <ReferenceField source="cdlt:hasCourseType" reference="Type" record={record}>
             <TextField source="pair:label" />
           </ReferenceField>
         </Chip>

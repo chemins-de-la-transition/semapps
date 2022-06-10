@@ -1,7 +1,8 @@
 import React from 'react';
+import resourceDetailsStyle from '../../../../commons/style/resourceDetailsStyle';
 import { TextField } from 'react-admin';
 import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
-import { Box, makeStyles, useMediaQuery } from '@material-ui/core';
+import { Box, useMediaQuery } from '@material-ui/core';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { linkToFilteredList } from "../../../../utils";
 import IconsList from '../../../../commons/lists/IconsList';
@@ -11,28 +12,7 @@ import TypeIcon from '../../../../svg/TypeIcon';
 import ActorIcon from '../../../../svg/ActorIcon';
 import CalendarIcon from '../../../../svg/CalendarIcon';
 
-const useStyles = makeStyles((theme) => ({
-  mainContainer: (props) => ({
-    '& ul > li': {
-      marginBottom: props.isVertical ? 0 : 4,
-      '& > div > p': {
-        display: props.isVertical ? 'flex' : 'block',
-        flexDirection: props.isVertical ? 'column' : 'unset',
-        '& > span > a, & > a' : {
-          '& > span': {
-            lineHeight: props.isVertical ? '130%' : 'unset',
-            [theme.breakpoints.up('sm')]: {
-              fontSize: props.isVertical ? '.95em' : 'unset',
-            },
-          },
-          '&:hover': {
-            textDecoration: 'underline'
-          }
-        }
-      },
-    },
-  }),
-}));
+const useStyles = resourceDetailsStyle;
 
 const PersonDetails = (props) => { 
   const { orientation } = props;
@@ -54,7 +34,7 @@ const PersonDetails = (props) => {
             </ReferenceField>
           }
           { ( !isVertical || sm ) && 
-            <ReferenceArrayField reference="Sector" source="pair:hasSector" perPage={2} icon={<ThemeIcon />}>
+            <ReferenceArrayField reference="Sector" source="pair:hasSector" icon={<ThemeIcon />}>
               <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasSector')} separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
@@ -68,7 +48,7 @@ const PersonDetails = (props) => {
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField reference="Organization" source="pair:affiliatedBy" icon={<ActorIcon />} label="membre de">
+            <ReferenceArrayField reference="Organization" source="pair:affiliatedBy" icon={<ActorIcon />} label="Membre de">
               <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
@@ -96,10 +76,6 @@ const PersonDetails = (props) => {
             </ReferenceArrayField>
           }
         </IconsList>
-      { ( isVertical || sm ) &&
-        <Box className={classes.vertical}>
-        </Box>
-      }
     </Box>
   );
 }
