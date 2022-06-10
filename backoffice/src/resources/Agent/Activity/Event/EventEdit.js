@@ -5,7 +5,21 @@ import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { DateTimeInput } from '@semapps/date-components';
 import { ImageField } from '@semapps/semantic-data-provider';
-import { PairLocationInput, ActorsInput, FinalitiesInput, PathsInput, PersonsInput, PlaceInput, SkillsInput, SectorsInput, ThemesInput, TypeInput, CourseInput, RegistrationInput } from '../../../../pair';
+import {
+  ActorsInput,
+  CourseInput,
+  FinalitiesInput,
+  PairLocationInput,
+  PathsInput,
+  PersonsInput,
+  PlaceInput,
+  RegistrationInput,
+  SectorsInput,
+  SkillsInput,
+  ThemesInput,
+  TargetAudienceInput,
+  TypeInput
+} from '../../../../pair';
 import EventTitle from './EventTitle';
 
 const EventEdit = (props) => (
@@ -42,7 +56,7 @@ const EventEdit = (props) => (
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} />
-        {/*<TextInput multiline source="cdlt:targetAudience" fullWidth />*/}
+        <TargetAudienceInput source="cdlt:hasTargetAudience" fullWidth/>
         <MarkdownInput source="cdlt:organizerDescription" fullWidth />
         <MarkdownInput source="cdlt:mentorDescription" fullWidth />
         

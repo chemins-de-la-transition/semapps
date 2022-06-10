@@ -162,6 +162,12 @@ export const RegionsInput = ({ label, source, ...rest }) => (
   </ReferenceArrayInput>
 );
 
+export const TargetAudienceInput = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="TargetAudience" source={source}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  </ReferenceArrayInput>
+);
+
 export { default as PairLocationInput } from './PairLocationInput';
 export { default as PairResourceCreate } from './PairResourceCreate';
 export { default as RegistrationInput } from './RegistrationInput';

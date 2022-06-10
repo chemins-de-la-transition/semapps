@@ -46,7 +46,7 @@ export default {
         'cdlt:intentions': 'Mes intentions en venant sur les chemins de la transition',
         /*
         'cdlt:asAHostIntentions': 'Intention en tant qu\'hôte',
-        'cdlt:asAMentorIntentions': 'Intention en tant que mentor',
+        'cdlt:asAMentorIntentions': 'Intention en tant qu\'intervenant.e',
         'cdlt:asAnOrganiserIntentions': 'Intention en tant qu\'organisateur',
         'cdlt:asATravelerIntentions': 'Intention en tant que voyageur',
         */
