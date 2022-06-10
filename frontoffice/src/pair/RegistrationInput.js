@@ -1,10 +1,10 @@
 import React from 'react';
-import { FormDataConsumer, RadioButtonGroupInput, SelectInput, BooleanInput, TextInput, TextField } from 'react-admin';
+import { FormDataConsumer, RadioButtonGroupInput, SelectInput, BooleanInput, TextInput } from 'react-admin';
 
 const registrationOptions = [
     { id: 0, name: "Utiliser un formulaire par défaut"},
     { id: 2, name: "Utiliser un système d'inscription externe"},
-]
+];
 
 const jotformOptions = [
     { id: "https://form.jotform.com/212722469132048?", name: "Formulaire par défaut"},
@@ -12,8 +12,7 @@ const jotformOptions = [
     // { id: "1", name: 'Formulaire voyage' },
     // { id: "2", name: 'Formulaire chemin' },
     // { id: "3", name: 'Formulaire lieu' },
-]
-
+];
 
 export const RegistrationInput = ({ directRegistrationSource, registrationOptionSource, jotformLinkSource, registrationLinkSource, ...rest }) => (
     <>
