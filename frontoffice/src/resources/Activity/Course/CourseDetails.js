@@ -1,7 +1,8 @@
 import React from 'react';
+import resourceDetailsStyle from '../../../commons/style/resourceDetailsStyle';
 import { TextField } from 'react-admin';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
-import { Box, makeStyles, useMediaQuery } from '@material-ui/core';
+import { Box, useMediaQuery } from '@material-ui/core';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { linkToFilteredList } from "../../../utils";
 import IconsList from '../../../commons/lists/IconsList';
@@ -12,28 +13,7 @@ import PlaceIcon from '../../../svg/PlaceIcon';
 import ActorIcon from '../../../svg/ActorIcon';
 import CalendarIcon from '../../../svg/CalendarIcon';
 
-const useStyles = makeStyles((theme) => ({
-  mainContainer: (props) => ({
-    '& ul > li': {
-      marginBottom: props.isVertical ? 0 : 4,
-      '& > div > p': {
-        display: props.isVertical ? 'flex' : 'block',
-        flexDirection: props.isVertical ? 'column' : 'unset',
-        '& > span > a, & > a' : {
-          '& > span': {
-            lineHeight: props.isVertical ? '130%' : 'unset',
-            [theme.breakpoints.up('sm')]: {
-              fontSize: props.isVertical ? '.95em' : 'unset',
-            },
-          },
-          '&:hover': {
-            textDecoration: 'underline'
-          }
-        }
-      },
-    },
-  }),
-}));
+const useStyles = resourceDetailsStyle;
 
 const CourseDetails = (props) => {
   const { orientation } = props;
