@@ -45,15 +45,15 @@ const CourseDetails = (props) => {
     <Box className={classes.mainContainer}>
       <IconsList {...props}>
         { ( !isVertical || sm ) && 
-          <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
-            <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:hasCourseType')} separator={separator}>
+          <ReferenceArrayField reference="Path" source="cdlt:courseOn" icon={<PathIcon />} label="Type de chemin">
+            <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:courseOn')} separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
         }
         { ( !isVertical || sm ) && 
-          <ReferenceArrayField reference="Path" source="cdlt:placeOn" icon={<PathIcon />}>
-            <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:placeOn')} separator={separator}>
+          <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
+            <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:hasCourseType')} separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>

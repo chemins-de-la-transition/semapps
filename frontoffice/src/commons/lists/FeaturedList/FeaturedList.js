@@ -97,7 +97,7 @@ const FeaturedList = ({ resource, basePath, title, subtitle, logo, linkText, Car
             </Typography>
           </Box>
           <Link to={filter ? linkToFilteredList(resource, filter.field)({ id: filter.value }) : basePath} className={classes.link}>
-            <Typography className={classes.linkText}>
+            <Typography className={classes.linkText} component="div">
               {linkText}
             </Typography>
             <ChevronRightIcon />

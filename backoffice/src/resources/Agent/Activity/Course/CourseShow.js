@@ -31,7 +31,7 @@ const CourseShow = (props) => (
           <DateField source="pair:startDate" />
           <DateField source="pair:endDate" />
           <TextField source="cdlt:priceRange" />
-          <ReferenceArrayField source="pair:hasCourseType" reference="Type">
+          <ReferenceArrayField source="cdlt:hasCourseType" reference="Type">
             <SeparatedListField link={false}>
               <TextField source="pair:label" />
             </SeparatedListField>
@@ -65,7 +65,7 @@ const CourseShow = (props) => (
           <NumberField source="cdlt:maximumCapacity" />
           <MarkdownField source="cdlt:learningObjectives" />
           <MarkdownField source="cdlt:economicalConditions" />
-          <MarkdownField source="cdlt:eligibleForFunding" />
+          <MarkdownField source="cdlt:financialSupport" />
           <ReferenceArrayField
             label="Déroulé"
             reference="Event"

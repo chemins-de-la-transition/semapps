@@ -96,14 +96,9 @@ const CourseShow = (props) => {
                   <SectorField />
                 </SingleFieldList>
               </ReferenceArrayField>
-              <ReferenceArrayField source="pair:hasCourseType" reference="CourseType">
-                <SeparatedListField link={false} separator=" / ">
-                <TextField variant="body2" color="secondary" source="pair:label" />
-                </SeparatedListField>
-              </ReferenceArrayField>
               <ReferenceArrayField reference="Type" source="cdlt:hasCourseType">
                 <SeparatedListField link={false} separator=" / ">
-                  <TextField source="pair:label" />
+                <TextField variant="body2" color="secondary" source="pair:label" />
                 </SeparatedListField>
               </ReferenceArrayField>
               <ReferenceArrayField reference="Theme" source="pair:hasTopic">
@@ -156,7 +151,7 @@ const CourseShow = (props) => {
               addLabel
             >
               <MarkdownField source="cdlt:economicalConditions" addLabel={false} />
-              <MarkdownField source="cdlt:eligibleForFunding" />
+              <MarkdownField source="cdlt:financialSupport" />
             </GroupOfFields>
             <ReferenceArrayField
               label="Localisation"
