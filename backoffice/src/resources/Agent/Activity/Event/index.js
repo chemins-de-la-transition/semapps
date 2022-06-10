@@ -37,29 +37,30 @@ export default {
         'pair:hasStatus': 'Statut',
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé', /*Theme*/
-        'pair:produces': 'Compétences visées',
+        'pair:produces': 'Compétences visées', /*Skill*/
+        'cdlt:requiredSkills': 'Compétences requises', /*Skill*/
         'pair:startDate': 'Date de début',
         'pair:endDate': 'Date de fin',
         'pair:description': 'Description de l\'événement',
         'cdlt:organizerDescription': "Les organisateurs",
         'cdlt:mentorDescription': "Les intervenants",
         'cdlt:program': "Programme de l'événement",
-        'pair:hostedIn': 'Lieu',
+        'pair:hostedIn': 'Lieu', /*Place*/
         'pair:hasLocation': 'Localisation',
         'cdlt:hasRegion': 'Région',
         'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': "Modalités d'accueil",
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
         'cdlt:economicalConditions': 'Conditions financières',
-        'pair:partOf': 'Fait partie de',
+        'pair:partOf': 'Fait partie de', /*Course*/
         'pair:e-mail': 'Adresse e-mail',
         'pair:phone': 'Téléphone',
         'pair:aboutPage': 'Site web',
-        'cdlt:organizedBy': 'Organisé par',
-        'cdlt:hasMentor': 'Intervenant.e.s',
-        'cdlt:eventOn': 'Est un événement de',
+        'cdlt:organizedBy': 'Organisé par', /*Actor*/
+        'cdlt:hasMentor': 'Intervenant.e.s', /*Person*/
+        'cdlt:eventOn': 'Est un événement de', /*Path*/
         'pair:hasFinality': 'Finalités',
-        'cdlt:targetAudience': 'Public cible',
+        //'cdlt:targetAudience': 'Public cible',
         'cdlt:pedagogicalMeans': 'Moyens matériels et pédagogiques',
         'cdlt:evaluationMethod': 'Modalités d\'évaluation',
         'cdlt:minimumCapacity': 'Capacité d\'accueil minimum',

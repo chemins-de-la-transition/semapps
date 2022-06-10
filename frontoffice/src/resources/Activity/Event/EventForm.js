@@ -192,7 +192,7 @@ const EventForm = ({ mode, ...rest }) => {
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} />
-        <TextInput multiline source="cdlt:targetAudience" fullWidth />
+        {/*<TextInput multiline source="cdlt:targetAudience" fullWidth />*/}
         <MarkdownInput source="cdlt:organizerDescription" fullWidth />
         <MarkdownInput source="cdlt:mentorDescription" fullWidth />
 
@@ -232,6 +232,7 @@ const EventForm = ({ mode, ...rest }) => {
         <ThemesInput source="pair:hasTopic" />
         <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
         <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
+        <SkillsInput source="cdlt:requiredSkills" fullWidth />
         <SkillsInput source="pair:produces" fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>

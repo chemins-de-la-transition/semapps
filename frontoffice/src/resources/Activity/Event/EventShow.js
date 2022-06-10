@@ -119,13 +119,12 @@ const EventShow = (props) => {
                 </SeparatedListField>
               </ReferenceArrayField>
               <MarkdownField source="cdlt:prerequisites" />
-              {/*
               <ReferenceArrayField reference="Skill" source="pair:produces">
                 <SeparatedListField link={linkToFilteredList('LEP', 'pair:produces')} separator="">
                   <ChipField source="pair:label" color="primary" className={classes.chipField} />
                 </SeparatedListField>
               </ReferenceArrayField>
-              */}
+              <MarkdownField source="cdlt:learningObjectives" />
             </GroupOfFields>
             <GroupOfFields
               title="Modalités d'accueil"

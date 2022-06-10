@@ -1,60 +1,174 @@
 import React from 'react';
-import { DateField, TextField } from 'react-admin';
+import { TextField } from 'react-admin';
 import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { Box, makeStyles, useMediaQuery } from '@material-ui/core';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { linkToFilteredList } from "../../../utils";
 import IconsList from '../../../commons/lists/IconsList';
-import ThemeIcon from '../../../svg/ThemeIcon';
-import CourseIcon from '../../../svg/CourseIcon';
-import CalendarIcon from '../../../svg/CalendarIcon';
-import PlaceIcon from '../../../svg/PlaceIcon';
 import DurationField from '../../../commons/fields/DurationField';
-import DurationIcon from '../../../svg/DurationIcon';
+import RangeDateField from '../../../commons/fields/RangeDateField';
+import CourseIcon from '../../../svg/CourseIcon';
+import PathIcon from '../../../svg/PathIcon';
+import PlaceIcon from '../../../svg/PlaceIcon';
+import TypeIcon from '../../../svg/TypeIcon';
 import ActorIcon from '../../../svg/ActorIcon';
-import TypeIcon from '../../../svg/TypeIcon' ;
+import CalendarIcon from '../../../svg/CalendarIcon';
+import DurationIcon from '../../../svg/DurationIcon';
 
-const EventDetails = (props) => (
+const useStyles = makeStyles((theme) => ({
+  mainContainer: (props) => ({
+    '& ul > li': {
+      marginBottom: props.isVertical ? 0 : 4,
+      '& > div > p': {
+        display: props.isVertical ? 'flex' : 'block',
+        flexDirection: props.isVertical ? 'column' : 'unset',
+        '& > span > a, & > a' : {
+          '& > span': {
+            lineHeight: props.isVertical ? '130%' : 'unset',
+            [theme.breakpoints.up('sm')]: {
+              fontSize: props.isVertical ? '.95em' : 'unset',
+            },
+          },
+          '&:hover': {
+            textDecoration: 'underline'
+          }
+        }
+      },
+    },
+  }),
+}));
+
+const EventDetails = (props) => { 
+  const { orientation } = props;
+  const isVertical = orientation === 'vertical';
+  const separator = isVertical ? "" : ", "
+  const classes = useStyles({ isVertical });
+  const sm = useMediaQuery((theme) => theme.breakpoints.down('sm'), { noSsr: true });
+  return(
+    <Box className={classes.mainContainer}>
+      <IconsList {...props}>
+        {/*Header*/}
+        { ( !isVertical || sm ) && 
+          <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
+            <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:hasCourseType')} separator={separator}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+        }
+        { ( !isVertical || sm ) && 
+          <ReferenceField source="pair:hasType" reference="Type" link={linkToFilteredList('LEP', 'pair:hasType')} icon={<TypeIcon />}>
+            <TextField source="pair:label" />
+          </ReferenceField>
+        }
+        { ( !isVertical || sm ) && 
+          <ReferenceArrayField reference="Path" source="cdlt:eventOn" icon={<PathIcon />} label="Type de chemin">
+            <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:eventOn')} separator={separator}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+        }
+        { ( !isVertical || sm ) && 
+          <RangeDateField source="pair:startDate" toSource="pair:startDate" icon={<CalendarIcon />} label="Dates" />
+        }
+        { ( !isVertical || sm ) && 
+          <DurationField
+            label="Durée"
+            source="pair:startDate"
+            startDate="pair:startDate"
+            endDate="pair:endDate"
+            icon={<DurationIcon />}
+          />
+        }
+        { ( !isVertical || sm ) && 
+          <ReferenceField source="pair:hostedIn" reference="Place" link="show" icon={<PlaceIcon />}>
+            <TextField source="pair:label" />
+          </ReferenceField>
+        }
+        { ( !isVertical || sm ) && 
+          <ReferenceField label="Région" reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList('LEP', 'cdlt:hasRegion')}>
+            <TextField source="pair:label" />
+          </ReferenceField>
+        }
+        {/*Aside*/}
+        { (isVertical || sm ) && 
+        
+        
+        /*todo*/ 
+        
+          <ReferenceField reference="Person" source="cdlt:proposedBy" icon={<ActorIcon/>} link="show" label="Qui accueille" >
+            <TextField source="pair:label" />
+          </ReferenceField>
+        }
+        { (isVertical || sm ) && 
+          <ReferenceArrayField reference="Actor" source="cdlt:organizedBy" icon={<ActorIcon />} label="Qui organise">
+            <SeparatedListField link="show" separator={separator}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+        }
+        { (isVertical || sm ) && 
+          <ReferenceArrayField reference="Person" source="cdlt:hasMentor" icon={<ActorIcon />} label="Qui intervient">
+            <SeparatedListField link="show" separator={separator}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+        }
+        { (isVertical || sm ) && 
+          <ReferenceArrayField reference="Path" source="cdlt:eventOn" icon={<PathIcon />} label="Sur quel chemin">
+            <SeparatedListField link="show" separator={separator}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+        }
+        { (isVertical || sm ) && 
+          <ReferenceArrayField reference="Path" source="pair:partOf" icon={<CourseIcon />} label="Sur quel voyage">
+            <SeparatedListField link="show" separator={separator}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+        }
+        
+        {/*
+
+
+
+        { (isVertical || sm ) && 
+          <ReferenceArrayField source="cdlt:hostsOrganization" reference="Organization" icon={<GuardianIcon />}>
+            <SeparatedListField linkType="show">
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+        }
+
+        { (isVertical || sm ) && 
+          <ReferenceArrayField reference="Event" source="pair:hosts" icon={<CalendarIcon />} label="Accueille">
+            <SeparatedListField link="show" separator={separator}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+        }
+        */}
+      </IconsList>
+      
+      
+  {/*
   <IconsList {...props}>
     <ReferenceArrayField reference="Path" source="cdlt:eventOn" icon={<ThemeIcon />}>
       <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:eventOn')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceArrayField reference="Sector" source="pair:hasSector" perPage={2} icon={<ThemeIcon />}>
+    <ReferenceArrayField reference="Sector" source="pair:hasSector" icon={<ThemeIcon />}>
       <SeparatedListField link={linkToFilteredList( 'LEP', 'pair:hasSector')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceArrayField reference="Theme" source="pair:hasTopic" perPage={2} icon={<ThemeIcon />}>
-      <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator=" / ">
-        <TextField source="pair:label" />
-      </SeparatedListField>
-    </ReferenceArrayField>
-    <ReferenceArrayField reference="Finality" source="pair:hasFinality" icon={<ThemeIcon />}>
-      <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasFinality')} separator=" / ">
-        <TextField source="pair:label" />
-      </SeparatedListField>
-    </ReferenceArrayField>
-    <ReferenceField label="Région" reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList('LEP', 'cdlt:hasRegion')} separator=" / ">
-      <TextField source="pair:label" />
-    </ReferenceField>
     <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
       <SeparatedListField link={linkToFilteredList( 'LEP', 'cdlt:hasCourseType')} separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceArrayField source="pair:hasType" reference="Type" icon={<TypeIcon />}>
-      <SeparatedListField link={linkToFilteredList( 'Event', 'pair:hasType')} separator=" / ">
-        <TextField source="pair:label" />
-      </SeparatedListField>
-    </ReferenceArrayField>
-    <DateField
-      showTime
-      label="Date"
-      source="pair:startDate"
-      options={{ year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }}
-      icon={<CalendarIcon />}
-    />
+
     <DurationField
       label="Durée"
       source="pair:startDate"
@@ -62,18 +176,19 @@ const EventDetails = (props) => (
       endDate="pair:endDate"
       icon={<DurationIcon />}
     />
-    <ReferenceArrayField reference="Actor" source="cdlt:organizedBy" perPage={2} icon={<ActorIcon/>} link="show" sort={{ field: 'type', order: 'DESC' }} >
+    <ReferenceArrayField reference="Actor" source="cdlt:organizedBy" icon={<ActorIcon/>} link="show" sort={{ field: 'type', order: 'DESC' }} >
       <SeparatedListField link="show" separator=" / ">
         <TextField source="pair:label" />
       </SeparatedListField>
     </ReferenceArrayField>
-    <ReferenceArrayField source="pair:hostedIn" reference="Place" perPage={1} icon={<PlaceIcon />}>
-      <SeparatedListField link={linkToFilteredList( 'Place', 'pair:hostedIn')} separator=" / ">
-        <TextField source="pair:label" />
-      </SeparatedListField>
-    </ReferenceArrayField>    
-    <TextField source="cdlt:referenceNumber" />
   </IconsList>
-);
+*/}
+      
+      
+      
+    </Box>
+  
+  );
+}
 
 export default EventDetails;

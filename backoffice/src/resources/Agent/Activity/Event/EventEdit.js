@@ -42,7 +42,7 @@ const EventEdit = (props) => (
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} />
-        <TextInput multiline source="cdlt:targetAudience" fullWidth />
+        {/*<TextInput multiline source="cdlt:targetAudience" fullWidth />*/}
         <MarkdownInput source="cdlt:organizerDescription" fullWidth />
         <MarkdownInput source="cdlt:mentorDescription" fullWidth />
         
@@ -85,7 +85,8 @@ const EventEdit = (props) => (
         <ThemesInput source="pair:hasTopic" />
         <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
         <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
-        <SkillsInput source="pair:produces" fullWidth />
+        <SkillsInput source="cdlt:requiredSkills" />
+        <SkillsInput source="pair:produces" />
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
       <FormTab label="Contact">

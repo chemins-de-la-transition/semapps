@@ -47,7 +47,7 @@ export default {
         'cdlt:maximumCapacity': "Nombre de participants maximum",
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
         'cdlt:economicalConditions': 'Conditions financières',
-        'cdlt:eligibleForFunding': 'Eligibilité à des dispositifs de financement',
+        'cdlt:financialSupport': 'Eligibilité à des dispositifs de financement',
         'pair:e-mail': 'Adresse e-mail',
         'pair:phone': 'Téléphone',
         'pair:homePage': 'Site web',

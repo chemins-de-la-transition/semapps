@@ -60,7 +60,7 @@ const CourseEdit = (props) => (
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <TextInput source="cdlt:priceRange" fullWidth />
         <MarkdownInput source="cdlt:economicalConditions" fullWidth />
-        <MarkdownInput source="cdlt:eligibleForFunding" fullWidth />
+        <MarkdownInput source="cdlt:financialSupport" fullWidth />
         <RegistrationInput 
           directRegistrationSource="cdlt:directRegistration"
           registrationOptionSource="cdlt:registrationOption"

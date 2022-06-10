@@ -151,7 +151,7 @@ const CourseShow = (props) => {
               addLabel
             >
               <MarkdownField source="cdlt:economicalConditions" addLabel={false} />
-              <MarkdownField source="cdlt:eligibleForFunding" />
+              <MarkdownField source="cdlt:financialSupport" />
             </GroupOfFields>
             <ReferenceArrayField
               label="Localisation"

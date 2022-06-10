@@ -65,7 +65,7 @@ const CourseShow = (props) => (
           <NumberField source="cdlt:maximumCapacity" />
           <MarkdownField source="cdlt:learningObjectives" />
           <MarkdownField source="cdlt:economicalConditions" />
-          <MarkdownField source="cdlt:eligibleForFunding" />
+          <MarkdownField source="cdlt:financialSupport" />
           <ReferenceArrayField
             label="Déroulé"
             reference="Event"
