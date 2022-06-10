@@ -41,7 +41,7 @@ const PlaceDetails = (props) => {
             </ReferenceArrayField>
           }
           { ( !isVertical || sm ) && 
-            <ReferenceArrayField reference="Sector" source="pair:hasSector" perPage={2} icon={<ThemeIcon />}>
+            <ReferenceArrayField reference="Sector" source="pair:hasSector" icon={<ThemeIcon />}>
               <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasSector')} separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
