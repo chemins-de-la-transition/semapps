@@ -13,7 +13,6 @@ import PathDetails from './PathDetails';
 import EventCard from '../../../resources/Activity/Event/EventCard';
 import CardsList from '../../../commons/lists/CardsList';
 import ContactDialog from "../../../commons/ContactDialog";
-import NumberWithUnitField from '../../../commons/fields/NumberWithUnitField';
 import SectorField from '../../../commons/fields/SectorField';
 import PlaceSubHeader from "../../../resources/Place/PlaceSubHeader";
 import EventSubHeader from "../../../resources/Activity/Event/EventSubHeader";

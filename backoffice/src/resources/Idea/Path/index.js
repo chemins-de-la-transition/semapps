@@ -40,6 +40,7 @@ export default {
         'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:hasFinality': 'Finalités',
         'pair:nourishes': 'Discussions',
+        'cdlt:hasCourseType': 'Type de voyage',
       },
     },
   },
