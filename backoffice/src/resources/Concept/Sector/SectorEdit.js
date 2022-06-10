@@ -11,6 +11,9 @@ export const SectorEdit = (props) => (
       <ImageInput source="pair:depictedBy" accept="image/*">
         <ImageField source="src" />
       </ImageInput>
+      <ImageInput source="cdlt:alternativeImage" accept="image/*">
+        <ImageField source="src" />
+      </ImageInput>
     </SimpleForm>
   </EditWithPermissions>
 );

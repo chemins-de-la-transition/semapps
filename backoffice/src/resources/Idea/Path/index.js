@@ -27,7 +27,7 @@ export default {
       name: 'Chemin |||| Chemins',
       fields: {
         'pair:label': 'Titre',
-        'pair:comment': 'Courte description',
+        'pair:comment': 'En quelques mots',
         'pair:description': 'Description',
         'pair:depictedBy': 'Image',
         'pair:produces': "Permet d'apprendre", /*Skill*/
@@ -36,22 +36,12 @@ export default {
         'cdlt:hasPlace': 'Lieux', /*Place*/
         'cdlt:hasEvent': 'Evénements', /*Event*/
         'cdlt:hasCourse': 'Voyages', /*Course*/
-        'pair:hasTopic': 'A pour secteur d\'activité',
+        'pair:hasSector': 'Secteurs d\'activité',
+        'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:hasFinality': 'Finalités',
-        'cdlt:directRegistration' : "Possibilité de s'inscrire directement",
-        'cdlt:registrationOption' : "Option d'inscription",
-        'cdlt:jotformLink':"Formulaire d'inscription JotForm",
-        'cdlt:registrationLink':"Lien du système d'inscription",
-        /*
-        'pair:hasLocation': 'Composez votre voyage',
-        'pair:hasStatus': 'Statut',
-        'pair:hasType': 'Type',
-        'cdlt:forWhom': 'Destiné à',
-        'cdlt:prerequisites': 'Prérequis',
-        'cdlt:learningObjectives': "Objectifs d'apprentissage",
-        'cdlt:economicalConditions': 'Conditions financières',
-        'cdlt:professionalPerspectives': 'Perspectives professionnelles',
-        */
+        'pair:nourishes': 'Discussions',
+        'cdlt:hasCourseType': 'Type de voyage',
+        'cdlt:learningObjectives': 'Objectifs pédagogiques',
       },
     },
   },

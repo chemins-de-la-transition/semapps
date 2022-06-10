@@ -4,18 +4,16 @@ import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
 import {
-  // ActorsInput,
   CoursesInput,
   EventsInput,
   FinalitiesInput,
   OrganizationsInput,
   PersonsInput,
   PlacesInput,
-  // StatusInput,
+  SectorsInput,
   ThemesInput,
-  // TypesInput,
   SkillsInput,
-  RegistrationInput,
+  TypeInput
 } from '../../../pair';
 import PathTitle from './PathTitle';
 
@@ -29,36 +27,18 @@ const PathEdit = (props) => (
         <ImageInput source="pair:depictedBy" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
-        {/*}
-        <MarkdownInput source="cdlt:forWhom" fullWidth />
-        <MarkdownInput source="cdlt:prerequisites" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
-        <MarkdownInput source="cdlt:professionalPerspectives" fullWidth />
-        */}
-        <RegistrationInput 
-          directRegistrationSource="cdlt:directRegistration"
-          registrationOptionSource="cdlt:registrationOption"
-          jotformLinkSource="cdlt:jotformLink"
-          registrationLinkSource="cdlt:registrationLink"          
-          fullWidth
-        />
       </FormTab>
       <FormTab label="Relations">
         <PlacesInput source="cdlt:hasPlace" />
         <EventsInput source="cdlt:hasEvent" />
         <CoursesInput source="cdlt:hasCourse" />
-        {/*
-        <StatusInput source="pair:hasStatus" filter={{ a: 'cdlt:PathStatus' }} />
-        <TypesInput source="pair:hasType" filter={{ a: 'cdlt:PathType' }} />
-        <PlacesInput source="pair:hasLocation" />
-        */}
-        {/*
-        <ActorsInput source="cdlt:proposedBy" />
-        */}
         <PersonsInput source="cdlt:proposedBy" />
         <OrganizationsInput source="cdlt:supportedBy" />
         <SkillsInput source="pair:produces" />
+        <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
+        <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
     </TabbedForm>

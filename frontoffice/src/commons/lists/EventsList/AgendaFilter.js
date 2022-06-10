@@ -93,8 +93,8 @@ const AgendaFilter = ({ eventType, setEventType, category, setCategory, region, 
               <FormControl className={classes.formControl} size="small" fullWidth>
                 <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>Secteur d'activité</InputLabel>
                 <SelectResources
-                  reference="Theme"
-                  inverseSource="pair:topicOf"
+                  reference="Sector"
+                  inverseSource="pair:sectorOf"
                   selectIcon={ChevronIcon}
                   labelId="demo-select-area-label"
                   value={category}

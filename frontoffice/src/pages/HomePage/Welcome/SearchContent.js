@@ -89,6 +89,11 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     padding: '10px 18px',
+    [theme.breakpoints.down('xs')]: {
+      '& .MuiTypography-body1' : {
+        fontSize: 12,
+      }
+    },
   },
   searchTitle:{
     [theme.breakpoints.down('xs')]: {
@@ -142,7 +147,7 @@ const FormBox = () => {
     let filters = {};
     if( region ) filters['cdlt:hasRegion'] = region;
     if( type ) filters['cdlt:hasCourseType'] = type;
-    if( category ) filters['pair:hasTopic'] = category;
+    if( category ) filters['pair:hasSector'] = category;
     history.push(`/LEP?filter=${encodeURIComponent(JSON.stringify(filters))}`);
   };
 
@@ -161,18 +166,18 @@ const FormBox = () => {
                 onChange={e => setType(e.target.value)}
                 className={classes.select} 
                 variant={'outlined'}
-                IconComponent = {ChevronIcon}
+                selectIcon={ChevronIcon}
               />
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={4}>
             <FormControl className={classes.formControl} size="small" fullWidth>
-              <InputLabel id="demo-select-topic-label" className={classes.inputLabelText}>Secteur d'activité</InputLabel>
+              <InputLabel id="demo-select-sector-label" className={classes.inputLabelText}>Secteur d'activité</InputLabel>
               <SelectResources
-                reference="Theme"
-                inverseSource="pair:topicOf"
+                reference="Sector"
+                inverseSource="pair:sectorOf"
                 selectIcon={ChevronIcon}
-                labelId="demo-select-topic-label"
+                labelId="demo-select-sector-label"
                 value={category}
                 onChange={e => setCategory(e.target.value)}
                 variant={'outlined'}

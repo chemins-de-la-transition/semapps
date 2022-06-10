@@ -28,26 +28,33 @@ export default {
         'pair:firstName': 'Prénom',
         'pair:lastName': 'Nom de famille',
         'pair:alternativeLabel': 'Nom d\'utilisateur',
-        'pair:comment': 'En deux mots',
+        'pair:comment': 'En quelques mots',
         'pair:description': 'Description',
+        'pair:homePage': 'Site web',
         'pair:depictedBy': 'Photo',
         'pair:hasType': 'Type',
         'pair:hasStatus': 'Statut',
-        'pair:offers': 'Offre', /*Skill*/
-        'pair:hasTopic': 'A pour intérêt', /*Theme*/
         'pair:hasSector': 'Secteurs d\'activité',
-        'pair:hasLocation': 'Adresse',
+        'pair:hasTopic': 'Mots clé', /*Theme*/
+        'pair:hasLocation': 'Localisation',
         'pair:hasFinality': 'Finalités',
+        'cdlt:intentions': 'Mes intentions en venant sur les chemins de la transition',
+        /*
         'cdlt:asAHostIntentions': 'Intention en tant qu\'hôte',
         'cdlt:asAMentorIntentions': 'Intention en tant que mentor',
         'cdlt:asAnOrganiserIntentions': 'Intention en tant qu\'organisateur',
         'cdlt:asATravelerIntentions': 'Intention en tant que voyageur',
+        */
         'pair:affiliatedBy': 'Membre de', /*Organization*/
         'cdlt:mentorOn': 'Est mentor pour', /*Activity*/
         'cdlt:organizes': 'Est organisateur de', /*Activity*/
         'cdlt:proposes': 'Est hôte de',
         'foaf:email': 'Adresse email',
         'pair:phone': 'Téléphone',
+        'pair:offers': 'Compétences actuelles', /*Skill*/
+        'pair:aims': 'Compétences recherchées', /*Skill*/
+        'pair:inspiredBy': 'Est inspirée par', /*Organization*/
+        'cdlt:supports': 'Chemins', /*Paths*/
       },
     },
   },

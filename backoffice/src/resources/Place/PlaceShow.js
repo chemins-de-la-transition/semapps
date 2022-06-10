@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, UrlField, EmailField, ChipField, SingleFieldList, BooleanField } from 'react-admin';
+import { TextField, UrlField, EmailField, ChipField, NumberField, SingleFieldList, BooleanField } from 'react-admin';
 import { Grid } from '@material-ui/core';
 import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
@@ -28,11 +28,13 @@ const PlaceShow = (props) => (
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
+          {/*
           <ReferenceArrayField source="pair:hasStatus" reference="Status">
             <SeparatedListField link={false}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
+          */}
           <EmailField source="pair:e-mail" />
           <TextField source="pair:phone" />
           <UrlField source="pair:homePage" />
@@ -49,6 +51,7 @@ const PlaceShow = (props) => (
           <MarkdownField source="cdlt:hostDescription" addLabel />
           <MarkdownField source="cdlt:activities" addLabel />
           <MarkdownField source="cdlt:practicalConditions" addLabel />
+          <NumberField source="cdlt:maximumCapacity" />
           <MapField
             source="pair:hasPostalAddress"
             address={(record) => record?.['pair:hasPostalAddress']?.['pair:label']}
@@ -64,13 +67,23 @@ const PlaceShow = (props) => (
               <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Organization" source="cdlt:hostsOrganization">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Path" source="cdlt:placeOn">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Sector" source="pair:hasSector">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-            <SingleFieldList linkType="show">
+            <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
@@ -80,6 +93,11 @@ const PlaceShow = (props) => (
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Skill" source="pair:produces">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Skill" source="pair:aims">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>

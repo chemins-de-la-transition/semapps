@@ -62,7 +62,7 @@ const MyBookmarksPage = () => {
           }
         
           <ListBase resource="Place" basePath="/Place" filter={{ 'cdlt:proposedBy': identity?.id }}>
-            <CardsList CardComponent={PlaceCard} link="edit" />
+            <CardsList CardComponent={PlaceCard} link="show" />
           </ListBase>
         </LargeContainer>
       </FullWidthBox>

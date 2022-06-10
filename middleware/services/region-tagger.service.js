@@ -60,6 +60,16 @@ module.exports = {
     }
   },
   methods: {
+    async tagPerson(personUri, person) {
+      if (person['pair:hasLocation']) {
+        await this.actions.tag({ resourceUri: personUri, zipCodes: [person['pair:hasLocation']['pair:hasPostalAddress']['pair:addressZipCode']] });
+      }
+    },
+    async tagOrganization(organizationUri, organization) {
+      if (organization['pair:hasLocation']) {
+        await this.actions.tag({ resourceUri: organizationUri, zipCodes: [organization['pair:hasLocation']['pair:hasPostalAddress']['pair:addressZipCode']] });
+      }
+    },
     async tagPlace(placeUri, place) {
       if( place['pair:hasPostalAddress'] ) {
         await this.actions.tag({ resourceUri: placeUri, zipCodes: [place['pair:hasPostalAddress']['pair:addressZipCode']] });
@@ -144,6 +154,12 @@ module.exports = {
         case CONFIG.HOME_URL + 'courses':
           await this.tagCourse(resourceUri, newData);
           break;
+        case CONFIG.HOME_URL + 'users':
+          await this.tagPerson(resourceUri, newData);
+          break;
+        case CONFIG.HOME_URL + 'organizations':
+          await this.tagOrganization(resourceUri, newData);
+          break;
       }
     },
     async 'ldp.resource.updated'(ctx) {
@@ -158,6 +174,12 @@ module.exports = {
           break;
         case CONFIG.HOME_URL + 'courses':
           await this.tagCourse(resourceUri, newData);
+          break;
+        case CONFIG.HOME_URL + 'users':
+          await this.tagPerson(resourceUri, newData);
+          break;
+        case CONFIG.HOME_URL + 'organizations':
+          await this.tagOrganization(resourceUri, newData);
           break;
       }
     }

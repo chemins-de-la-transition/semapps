@@ -23,7 +23,7 @@ export default {
       name: 'Chemin |||| Chemins',
       fields: {
         'pair:label': 'Titre',
-        'pair:comment': 'Courte description',
+        'pair:comment': 'En quelques mots',
         'pair:description': 'Description',
         'pair:depictedBy': 'Image',
         'pair:produces': "Permet d'apprendre", /*Skill*/
@@ -32,19 +32,12 @@ export default {
         'cdlt:hasPlace': 'Lieux', /*Place*/
         'cdlt:hasEvent': 'Evénements', /*Event*/
         'cdlt:hasCourse': 'Voyages', /*Course*/
+        'pair:hasSector': 'Secteurs d\'activité',
+        'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:hasFinality': 'Finalités',
         'pair:nourishes': 'Discussions',
-        /*
-        'pair:hasLocation': 'Composez votre parcours',
-        'pair:hasStatus': 'Statut',
-        'pair:hasType': 'Type',
-        'pair:hasTopic': 'A pour thème',
-        'cdlt:forWhom': 'Destiné à',
-        'cdlt:prerequisites': 'Prérequis',
-        'cdlt:learningObjectives': "Objectifs d'apprentissage",
-        'cdlt:economicalConditions': 'Conditions financières',
-        'cdlt:professionalPerspectives': 'Perspectives professionnelles',
-        */
+        'cdlt:hasCourseType': 'Type de voyage',
+        'cdlt:learningObjectives': 'Objectifs pédagogiques',
       },
     },
   },

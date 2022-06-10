@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react' ;
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Box } from '@material-ui/core';
 import { ListBase } from 'react-admin';
 import EventItemsGrid from './EventItemsGrid';
 import AgendaFilter from './AgendaFilter';
@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.contrastText,
     marginBottom: 40
   },
+  eventsBox: {
+    overflow: 'scroll',
+  }
 }));
 
 const NextEvents = () => {
@@ -22,7 +25,7 @@ const NextEvents = () => {
   const [region, setRegion] = useState("");
 
   const eventTypeFilter = eventType ? { 'pair:hasType': eventType } : {};
-  const categoryFilter = category ? { 'pair:hasTopic': category } : {};
+  const categoryFilter = category ? { 'pair:hasSector': category } : {};
   const regionFilter = region ? { 'pair:hasLocation': region } : {};
 
   return (
@@ -35,6 +38,7 @@ const NextEvents = () => {
         region={region}
         setRegion={setRegion}
       />
+      <Box className={classes.eventsBox}>
       <ListBase
         resource="Event"
         basePath="/Event"
@@ -46,6 +50,7 @@ const NextEvents = () => {
       >
         <EventItemsGrid />
       </ListBase>
+      </Box>
     </>
   );
 };

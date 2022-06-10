@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormTab, ImageInput, TabbedForm, TextInput } from 'react-admin';
+import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
@@ -10,6 +10,7 @@ import {
   PersonsInput,
   /*EventsInput,*/
   ThemesInput,
+  SectorsInput,
   StatusInput,
   TypesInput,
   SkillsInput,
@@ -54,9 +55,12 @@ const CourseEdit = (props) => (
         <MarkdownInput source="cdlt:mentorDescription" fullWidth />
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
         <MarkdownInput source="cdlt:practicalConditions" fullWidth />
+        <NumberInput source="cdlt:minimumCapacity" fullWidth />
+        <NumberInput source="cdlt:maximumCapacity" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <TextInput source="cdlt:priceRange" fullWidth />
         <MarkdownInput source="cdlt:economicalConditions" fullWidth />
+        <MarkdownInput source="cdlt:financialSupport" fullWidth />
         <RegistrationInput 
           directRegistrationSource="cdlt:directRegistration"
           registrationOptionSource="cdlt:registrationOption"
@@ -70,8 +74,9 @@ const CourseEdit = (props) => (
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'cdlt:CourseStatus' }} />
         <PathsInput source="cdlt:courseOn" />
+        <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
-        {/*<EventsInput source="pair:hasPart" />*/}
+        <SkillsInput source="cdlt:requiredSkills" />
         <SkillsInput source="pair:produces" />
         <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
