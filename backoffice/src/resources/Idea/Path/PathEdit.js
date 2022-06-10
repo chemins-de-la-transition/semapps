@@ -27,6 +27,7 @@ const PathEdit = (props) => (
         <ImageInput source="pair:depictedBy" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
+        <MarkdownInput source="cdlt:learningObjectives" fullWidth />
       </FormTab>
       <FormTab label="Relations">
         <PlacesInput source="cdlt:hasPlace" />

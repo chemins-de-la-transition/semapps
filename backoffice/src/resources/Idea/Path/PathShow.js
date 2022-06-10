@@ -59,6 +59,7 @@ const PathShow = (props) => (
               boundToMarkers
             />
           </ReferenceArrayField>
+          <MarkdownField source="cdlt:learningObjectives" />
         </MainList>
       </Grid>
       <Grid item xs={12} sm={3}>

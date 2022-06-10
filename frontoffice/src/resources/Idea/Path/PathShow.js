@@ -83,7 +83,6 @@ const PathShow = (props) => {
               </StickyCard>
             }
           >
-          
             <GroupOfFields
                 title="A propos du chemin"
                 source="pair:description"
@@ -118,12 +117,6 @@ const PathShow = (props) => {
                 source="pair:produces"
                 addLabel
               >
-                <ReferenceArrayField reference="Skill" source="cdlt:requiredSkills">
-                  <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:requiredSkills')} separator="">
-                    <ChipField source="pair:label" color="primary" className={classes.chipField} />
-                  </SeparatedListField>
-                </ReferenceArrayField>
-                <MarkdownField source="cdlt:prerequisites" />
                 <ReferenceArrayField reference="Skill" source="pair:produces">
                   <SeparatedListField link={linkToFilteredList('LEP', 'pair:produces')} separator="">
                     <ChipField source="pair:label" color="primary" className={classes.chipField} />
@@ -131,7 +124,6 @@ const PathShow = (props) => {
                 </ReferenceArrayField>
                 <MarkdownField source="cdlt:learningObjectives" />
               </GroupOfFields>          
-
               <ReferenceArrayField source="pair:hosts" reference="Event" sort={{ field: 'pair:startDate', order: 'ASC' }} className={classes.cardsList}>
                 <Box pt={1}>
                   <Typography variant="body2" component="div" className={classes.textBody}>
@@ -144,8 +136,9 @@ const PathShow = (props) => {
               <ReferenceArrayField reference="Debate" source="pair:nourishes" perPage={5} sort={{ field: 'dc:created', sort: 'ASC' }}>
                 <CardsList CardComponent={DebateCard} external link={record => record['pair:webPage']} />
               </ReferenceArrayField>
-        
             </BodyList>
+            
+            
             <FeaturedList
             resource="Place"
             basePath="/Place"
@@ -179,6 +172,8 @@ const PathShow = (props) => {
             CardSubHeaderComponent={CourseSubHeader}
             filter={{ field:'cdlt:courseOn',value: props.id }}
           />
+          
+          
           <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
         </Box>
       </ShowBase>

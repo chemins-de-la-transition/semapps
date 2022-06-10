@@ -37,6 +37,7 @@ export default {
         'pair:hasFinality': 'Finalités',
         'pair:nourishes': 'Discussions',
         'cdlt:hasCourseType': 'Type de voyage',
+        'cdlt:learningObjectives': 'Objectifs pédagogiques',
       },
     },
   },
