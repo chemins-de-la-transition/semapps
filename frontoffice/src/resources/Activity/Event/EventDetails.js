@@ -91,15 +91,6 @@ const EventDetails = (props) => {
         }
         {/*Aside*/}
         { (isVertical || sm ) && 
-        
-        
-        /*todo*/ 
-        
-          <ReferenceField reference="Person" source="cdlt:proposedBy" icon={<ActorIcon/>} link="show" label="Qui accueille" >
-            <TextField source="pair:label" />
-          </ReferenceField>
-        }
-        { (isVertical || sm ) && 
           <ReferenceArrayField reference="Actor" source="cdlt:organizedBy" icon={<ActorIcon />} label="Qui organise">
             <SeparatedListField link="show" separator={separator}>
               <TextField source="pair:label" />
