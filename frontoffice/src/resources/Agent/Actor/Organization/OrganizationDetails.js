@@ -10,6 +10,7 @@ import ThemeIcon from '../../../../svg/ThemeIcon';
 import PlaceIcon from '../../../../svg/PlaceIcon';
 import GuardianIcon from '../../../../svg/GuardianIcon';
 import ActorIcon from '../../../../svg/ActorIcon';
+import PathIcon from '../../../../svg/PathIcon';
 
 const useStyles = resourceDetailsStyle;
 
@@ -42,21 +43,21 @@ const OrganizationDetails = (props) => {
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField reference="Organization" source="cdlt:organizationHostedIn" icon={<PlaceIcon />} label="Où sommes nous">
+            <ReferenceArrayField reference="Place" source="cdlt:organizationHostedIn" icon={<PlaceIcon />} label="Où sommes nous">
               <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField reference="Organization" source="pair:affiliates" icon={<ActorIcon />} label="A pour contributeur.trice">
+            <ReferenceArrayField reference="Person" source="pair:affiliates" icon={<ActorIcon />} label="A pour contributeur.trice">
               <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField reference="Path" source="cdlt:supports" icon={<ActorIcon />} label="Contributeur de">
+            <ReferenceArrayField reference="Path" source="cdlt:supports" icon={<PathIcon />} label="Contributeur de">
               <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
