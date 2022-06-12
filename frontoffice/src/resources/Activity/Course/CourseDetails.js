@@ -46,7 +46,7 @@ const CourseDetails = (props) => {
           </ReferenceArrayField>
         }
         { ( !isVertical || sm ) && 
-          <RangeDateField source="pair:startDate" toSource="pair:startDate" icon={<CalendarIcon />} label="Dates" />
+          <RangeDateField source="pair:startDate" toSource="pair:endDate" icon={<CalendarIcon />} label="Dates" />
         }
         { (isVertical || sm ) && 
           <ReferenceArrayField source="cdlt:organizedBy" reference="Actor" icon={<ActorIcon />} label="Qui organise">
