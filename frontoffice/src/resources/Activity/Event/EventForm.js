@@ -15,7 +15,20 @@ import {
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { DateTimeInput } from '@semapps/date-components';
-import { PairLocationInput, FinalitiesInput, PathsInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput, ActorsInput, RegistrationInput, SectorsInput } from '../../../pair';
+import {
+  ActorsInput,
+  CoursesInput,
+  FinalitiesInput,
+  PairLocationInput,
+  PathsInput,
+  PersonsInput,
+  PlaceInput,
+  RegistrationInput,
+  SectorsInput,
+  SkillsInput,
+  ThemesInput,
+  TypeInput
+} from '../../../pair';
 import frLocale from 'date-fns/locale/fr';
 import { Box, FormControlLabel, Slide, LinearProgress, makeStyles, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
@@ -226,7 +239,7 @@ const EventForm = ({ mode, ...rest }) => {
         <ActorsInput source="cdlt:organizedBy"/>
         <PersonsInput source="cdlt:hasMentor" />
         <PlaceInput source="pair:hostedIn" fullWidth />
-        <CourseInput source="pair:partOf" fullWidth />
+        <CoursesInput source="pair:partOf" fullWidth />
         <PathsInput source="cdlt:eventOn" fullWidth />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
