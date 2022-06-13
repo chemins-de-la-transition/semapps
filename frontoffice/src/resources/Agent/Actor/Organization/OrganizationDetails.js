@@ -11,6 +11,7 @@ import PlaceIcon from '../../../../svg/PlaceIcon';
 import GuardianIcon from '../../../../svg/GuardianIcon';
 import ActorIcon from '../../../../svg/ActorIcon';
 import PathIcon from '../../../../svg/PathIcon';
+import CourseIcon from '../../../../svg/CourseIcon';
 
 const useStyles = resourceDetailsStyle;
 
@@ -31,6 +32,13 @@ const OrganizationDetails = (props) => {
           { ( !isVertical || sm ) && 
             <ReferenceArrayField source="pair:hasType" reference="Type" icon={<GuardianIcon />}>
               <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasType')} separator={separator}>
+                <TextField source="pair:label" />
+              </SeparatedListField>
+            </ReferenceArrayField>
+          }
+          { ( !isVertical || sm ) && 
+            <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
+              <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:hasCourseType')} separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
@@ -65,6 +73,13 @@ const OrganizationDetails = (props) => {
           }
           {  (isVertical && ! sm ) && 
             <ReferenceArrayField reference="Activity" source="cdlt:organizes" icon={<ActorIcon />} label="Organisateur de">
+              <SeparatedListField link="show" separator={separator}>
+                <TextField source="pair:label" />
+              </SeparatedListField>
+            </ReferenceArrayField>
+          }
+          {  (isVertical && ! sm ) && 
+            <ReferenceArrayField reference="Organization" source="pair:partnerOf" icon={<ActorIcon />} label="Partenaire de">
               <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
