@@ -81,8 +81,8 @@ const PlaceForm = ({ mode, ...rest }) => {
         <OrganizationsInput source="cdlt:hostsOrganization" />
       </FormTab>
       <FormTab label="Contact">
-        <TextInput source="pair:e-mail" fullWidth validate={[required(), email()]} helperText="Ne sera pas visible, mais on pourra vous contacter via un formulaire" />
-        <TextInput source="pair:phone" fullWidth helperText="Si vous entrez un numéro de téléphone, il sera visible sur la page de votre lieu" />
+      <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />  
+        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
         <TextInput source="pair:homePage" fullWidth />
       </FormTab>
     </TabbedForm>

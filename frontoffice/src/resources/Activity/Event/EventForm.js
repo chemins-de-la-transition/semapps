@@ -264,8 +264,8 @@ const EventForm = ({ mode, ...rest }) => {
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
       <FormTab label="Contact" className={classes.formTab}>
-        <TextInput source="pair:e-mail" fullWidth validate={[required(), email()]} />
-        <TextInput source="pair:phone" fullWidth />
+        <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />
+        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
         <TextInput source="pair:aboutPage" fullWidth />
       </FormTab>
     </TabbedForm>

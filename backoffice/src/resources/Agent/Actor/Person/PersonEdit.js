@@ -43,7 +43,7 @@ export const PersonEdit = (props) => (
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="cdlt:intentions" fullWidth />
-        <TextInput source="pair:phone" fullWidth />
+        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
         <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
         <PairLocationInput source="pair:hasLocation" fullWidth />
