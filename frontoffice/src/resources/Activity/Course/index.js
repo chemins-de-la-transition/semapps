@@ -55,7 +55,7 @@ export default {
         'cdlt:hasMentor': 'A pour intervenant', /*Person*/
         'cdlt:organizedBy': 'Organisé par', /*Actor*/
         'pair:hasStatus': 'Statut',
-        'pair:documentedBy': 'Documents',
+        //'pair:documentedBy': 'Documents',
         'cdlt:courseOn': 'Chemins', /*Path*/
         'pair:hasFinality': 'Finalités',
         'cdlt:directRegistration' : "Possibilité de s'inscrire directement",
