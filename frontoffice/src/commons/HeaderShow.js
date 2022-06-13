@@ -13,7 +13,8 @@ import {
   TextField,
   useShowContext,
   Link,
-  useRecordContext
+  useRecordContext,
+  Loading
 } from 'react-admin';
 import FullWidthBox from './FullWidthBox';
 import LargeContainer from './LargeContainer';
@@ -111,7 +112,7 @@ const MultipleImagesField = ({ source, max = 2 }) => {
 
 const HeaderShow = ({ linkToListText, details, content, actionButton, hasComment, variant }) => {
   const classes = useStyles({variant});
-  const { basePath } = useShowContext();
+  const { basePath, loaded } = useShowContext();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
 
   // Calculate header height
@@ -120,6 +121,8 @@ const HeaderShow = ({ linkToListText, details, content, actionButton, hasComment
 
   // Trigger drawer when we pass beyond header height
   const showDrawer = useScrollTrigger({ threshold: headerHeight, disableHysteresis: true });
+
+  if (!loaded) return <Loading />;
 
   return (
     <FullWidthBox className={classes.background}>
