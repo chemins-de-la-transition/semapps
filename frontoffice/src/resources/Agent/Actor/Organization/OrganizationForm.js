@@ -15,6 +15,7 @@ import {
   TypesInput,
   UsersInput,
 } from '../../../../pair';
+import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
 
 const OrganizationForm = ({ mode, ...rest }) => {
   const { identity } = useGetIdentity();
@@ -38,6 +39,7 @@ const OrganizationForm = ({ mode, ...rest }) => {
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <TypesInput source="pair:hasType" filter={{ a: 'pair:OrganizationType' }} />
         <PairLocationInput source="pair:hasLocation" fullWidth />
+        <ReminderBeforeRecording />
       </FormTab>
       <FormTab label="Relations">
         <OrganizationsInput source="pair:partnerOf" />

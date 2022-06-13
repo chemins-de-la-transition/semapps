@@ -30,6 +30,7 @@ import {
   ThemesInput,
   TypeInput,
 } from '../../../pair';
+import ReminderBeforeRecording from '../../../commons/ReminderBeforeRecording';
 import frLocale from 'date-fns/locale/fr';
 import { Box, FormControlLabel, Slide, LinearProgress, makeStyles, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
@@ -246,6 +247,7 @@ const EventForm = ({ mode, ...rest }) => {
           registrationLinkSource="cdlt:registrationLink"          
           fullWidth
         />
+        <ReminderBeforeRecording />
       </FormTab>
       <FormTab label="Relations" className={classes.formTab}>
         <ActorsInput source="cdlt:organizedBy" />

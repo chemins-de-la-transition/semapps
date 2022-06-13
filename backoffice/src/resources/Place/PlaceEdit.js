@@ -17,6 +17,7 @@ import {
   ThemesInput, 
   TypesInput, 
 } from '../../pair';
+import ReminderBeforeRecording from '../../commons/ReminderBeforeRecording';
 
 export const PlaceEdit = (props) => (
   <EditWithPermissions title={<PlaceTitle />} {...props}>
@@ -60,6 +61,7 @@ export const PlaceEdit = (props) => (
           registrationLinkSource="cdlt:registrationLink"          
           fullWidth
         />
+        <ReminderBeforeRecording />
       </FormTab>
       <FormTab label="Relations">
         <PersonsInput source="cdlt:proposedBy" />

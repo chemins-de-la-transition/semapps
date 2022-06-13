@@ -13,6 +13,7 @@ import {
   SkillsInput,
   ThemesInput
 } from '../../../../pair';
+import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
 
 const PersonForm = ({ ...rest }) => {
   const { identity } = useGetIdentity();
@@ -46,6 +47,7 @@ const PersonForm = ({ ...rest }) => {
         <MarkdownInput source="cdlt:asAnOrganiserIntentions" fullWidth />
         <MarkdownInput source="cdlt:asATravelerIntentions" fullWidth />
         */}
+        <ReminderBeforeRecording />
       </FormTab>
       <FormTab label="Relations">
         { ! isTraveler && 

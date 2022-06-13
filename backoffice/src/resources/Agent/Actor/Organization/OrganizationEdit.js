@@ -16,6 +16,7 @@ import {
   TypesInput,
   UsersInput,
 } from '../../../../pair';
+import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
 import OrganizationTitle from './OrganizationTitle';
 
 export const OrganizationEdit = (props) => (
@@ -37,6 +38,7 @@ export const OrganizationEdit = (props) => (
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <TypesInput source="pair:hasType" filter={{ a: 'pair:OrganizationType' }} />
         <PairLocationInput source="pair:hasLocation" fullWidth />
+        <ReminderBeforeRecording />
       </FormTab>
       <FormTab label="Relations">
         <OrganizationsInput source="pair:partnerOf" />
