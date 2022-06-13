@@ -19,7 +19,7 @@ const OrganizationEdit = (props) => {
       <HeaderTitle actions={actions} />
       <FullWidthBox>
         <LargeContainer>
-          <Edit title={<OrganizationTitle />} actions={null} {...props}>
+          <Edit title={<OrganizationTitle />} {...props}>
             <OrganizationForm mode="edit" />
           </Edit>
         </LargeContainer>
