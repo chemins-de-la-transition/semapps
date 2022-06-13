@@ -12,7 +12,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 40
   },
   eventsBox: {
-    overflow: 'scroll',
+    overflowX: 'hidden',
+    [theme.breakpoints.down('xs')]: {
+      overflowX: 'scroll',
+    },
   }
 }));
 
@@ -39,17 +42,17 @@ const NextEvents = () => {
         setRegion={setRegion}
       />
       <Box className={classes.eventsBox}>
-      <ListBase
-        resource="Event"
-        basePath="/Event"
-        className={classes.eventListBase}
-        perPage={4}
-        filter={{ ...eventTypeFilter, ...categoryFilter, ...regionFilter }}
-        filterDefaultValues={{ sparqlWhere: futureEventSparql }}
-        sort={{ field: 'pair:startDate', order: 'ASC' }}
-      >
-        <EventItemsGrid />
-      </ListBase>
+        <ListBase
+          resource="Event"
+          basePath="/Event"
+          className={classes.eventListBase}
+          perPage={4}
+          filter={{ ...eventTypeFilter, ...categoryFilter, ...regionFilter }}
+          filterDefaultValues={{ sparqlWhere: futureEventSparql }}
+          sort={{ field: 'pair:startDate', order: 'ASC' }}
+        >
+          <EventItemsGrid />
+        </ListBase>
       </Box>
     </>
   );
