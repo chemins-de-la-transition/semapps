@@ -158,7 +158,7 @@ const FormBox = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
             <FormControl className={classes.formControl} size="small" fullWidth>
-              <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>Type de voyage</InputLabel>
+              <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>Mode de voyage</InputLabel>
               <SelectResources
                 reference="Type"
                 inverseSource="cdlt:typeOfCourse"

@@ -43,7 +43,7 @@ export default {
         'cdlt:hasRegion': 'Région',
         'cdlt:organizes': 'Organise',
         'cdlt:supports': 'Chemins', /*Paths*/
-        'cdlt:hasCourseType': 'Type de voyage',
+        'cdlt:hasCourseType': 'Mode de voyage',
         'cdlt:organizationHostedIn': 'Où sommes-nous',
         'pair:hasFinality': 'Finalités',
         'cdlt:intentions': 'Nos intentions en venant sur les chemins de la transition',

@@ -28,7 +28,7 @@ export default {
       fields: {
         'pair:label': 'Titre',
         'pair:depictedBy': 'Image',
-        'cdlt:hasCourseType': 'Type de voyage',
+        'cdlt:hasCourseType': 'Mode de voyage',
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé', /*Theme*/
         'cdlt:hasRegion': 'Région(s)',

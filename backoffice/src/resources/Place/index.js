@@ -43,7 +43,7 @@ export default {
         'cdlt:hasRegion': 'Région',
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé', /*Theme*/
-        'cdlt:hasCourseType': 'Type de voyage',
+        'cdlt:hasCourseType': 'Mode de voyage',
         'pair:hasType': 'Type de lieu',
         'pair:hasStatus': 'Statut',
         'pair:description': 'A propos du lieu',

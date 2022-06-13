@@ -32,7 +32,7 @@ export default {
         'pair:label': 'Titre',
         'pair:comment': "En quelques mots",
         'pair:depictedBy': 'Image',
-        'cdlt:hasCourseType': 'Type de voyage',
+        'cdlt:hasCourseType': 'Mode de voyage',
         'pair:hasType': "Type d'événement",
         'pair:hasStatus': 'Statut',
         'pair:hasSector': 'Secteurs d\'activité',
