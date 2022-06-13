@@ -1,5 +1,5 @@
 import React from 'react';
-import { Edit } from 'react-admin';
+import { Edit, ShowButton } from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import personTheme from '../../../../config/themes/personTheme';
 import { useCheckPermissions } from '@semapps/auth-provider';
@@ -25,7 +25,6 @@ export const PersonEdit = (props) => {
                   ? data['pair:alternativeLabel']
                   : `${data['pair:firstName']} ${data['pair:lastName']?.toUpperCase()}`
             })}
-            actions={null}
             {...props}
           >
             <PersonForm />

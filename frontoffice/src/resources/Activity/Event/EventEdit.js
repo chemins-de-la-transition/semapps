@@ -17,7 +17,7 @@ const EventEdit = (props) => {
       <HeaderTitle actions={actions} />
       <FullWidthBox>
         <LargeContainer>
-          <Edit title={<EventTitle />} actions={null} {...props}>
+          <Edit title={<EventTitle />} {...props}>
             <EventForm mode="edit" />
           </Edit>
         </LargeContainer>
