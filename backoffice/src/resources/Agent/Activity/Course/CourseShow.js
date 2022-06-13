@@ -57,6 +57,11 @@ const CourseShow = (props) => (
         />
         <MainList>
           <MarkdownField source="pair:description" />
+          <ReferenceArrayField reference="TargetAudience" source="cdlt:hasTargetAudience">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
           <MarkdownField source="cdlt:organizerDescription" />
           <MarkdownField source="cdlt:mentorDescription" />
           <MarkdownField source="cdlt:prerequisites" />

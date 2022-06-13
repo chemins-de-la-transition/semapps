@@ -21,7 +21,8 @@ const dataServers = {
         'pair:Type': ['/types'],
         'cdlt:Path': ['/paths'],
         'cdlt:Course': ['/courses'],
-        'semapps:Page': ['/pages']
+        'semapps:Page': ['/pages'],
+        'cdlt:TargetAudience': ['/target-audiences'],
       }
     },
     uploadsContainer: '/files'

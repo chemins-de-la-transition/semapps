@@ -63,6 +63,7 @@ export default {
         'cdlt:jotformLink':"Formulaire d'inscription JotForm",
         'cdlt:registrationLink':"Lien du système d'inscription",
         'cdlt:referenceNumber': 'N° du voyage',
+        'cdlt:hasTargetAudience': 'Public cible',
       },
     },
   },
