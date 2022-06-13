@@ -81,6 +81,7 @@ const PlaceShow = (props) => {
                 </SeparatedListField>
               </ReferenceArrayField>
               <MarkdownField source="pair:description" />
+              <MarkdownField source="cdlt:hostDescription" />
               <MarkdownField source="cdlt:activities" />
             </GroupOfFields>
             <GroupOfFields
