@@ -72,7 +72,6 @@ const CourseEdit = (props) => (
       <FormTab label="Relations">
         {/*<PathInput source="cdlt:courseOn" />*/}
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
-        <StatusInput source="pair:hasStatus" filter={{ a: 'cdlt:CourseStatus' }} />
         <PathsInput source="cdlt:courseOn" />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
