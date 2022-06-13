@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput } from 'react-admin';
+import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput, email } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
@@ -85,9 +85,9 @@ const CourseEdit = (props) => (
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
       <FormTab label="Contact">
-        <TextInput source="pair:e-mail" fullWidth />
-        <TextInput source="pair:phone" fullWidth />
-        <TextInput source="pair:homePage" fullWidth />
+        <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[email()]} />
+        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
+        <TextInput source="pair:homePage" fullWidth/>
       </FormTab>
     </TabbedForm>
   </EditWithPermissions>

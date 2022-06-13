@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageInput, TabbedForm, FormTab, NumberInput, TextInput } from 'react-admin';
+import { ImageInput, TabbedForm, FormTab, NumberInput, TextInput, email, required } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { extractContext, LocationInput } from '@semapps/geo-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
@@ -78,8 +78,8 @@ export const PlaceEdit = (props) => (
         <OrganizationsInput source="cdlt:hostsOrganization" />
       </FormTab>
       <FormTab label="Contact">
-        <TextInput source="pair:e-mail" fullWidth />
-        <TextInput source="pair:phone" fullWidth />
+        <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />  
+        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
         <TextInput source="pair:homePage" fullWidth />
       </FormTab>
     </TabbedForm>
