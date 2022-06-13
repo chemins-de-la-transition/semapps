@@ -27,10 +27,10 @@ const GroupOfFields = ({ children, source, title, noBorder }) => {
   const translate = useTranslate();
   const classes = useStyles();
   const { basePath, loaded, record, resource } = useShowContext();
-  if (!loaded) return null;
+  if (!loaded || !record) return null;
 
   const fields = React.Children.toArray(children).filter(
-    (field) => field && record[field.props.source] && React.isValidElement(field)
+    (field) => field && record && record[field.props.source] && React.isValidElement(field)
   );
 
   return (

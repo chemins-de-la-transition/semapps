@@ -26,10 +26,10 @@ const BodyList = ({ children, aside, alert }) => {
   const classes = useStyles();
   const { basePath, loaded, record, resource } = useShowContext();
 
-  if (!loaded) return null;
+  if (!loaded || !record) return null;
 
   const fields = React.Children.toArray(children).filter(
-    (field) => field.props.title || (field && record[field.props.source] && React.isValidElement(field))
+    (field) => field.props.title || (field && record && record[field.props.source] && React.isValidElement(field))
   );
 
   return (
