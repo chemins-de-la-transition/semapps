@@ -9,13 +9,19 @@ const useStyles = makeStyles((theme) => ({
     alignItems:'center',
     justifyContent: 'flex-end',
     width: 150,
-    margin: '8px 0',
+    margin: 8,
+    [theme.breakpoints.down('xs')]: {
+      width: '100%'
+    },
     '& img': {
+      margin: 0,
       marginBottom: -12,
       width: '100%'
     },
     '& span': {
+      minHeight:32,
       fontFamily: theme.typography.h6.fontFamily,
+      textAlign: 'center'
     } 
   }
 }));

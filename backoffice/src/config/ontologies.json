@@ -5,6 +5,11 @@
     "url": "https://www.w3.org/ns/activitystreams#"
   },
   {
+    "prefix": "sec",
+    "owl": "",
+    "url": "https://w3id.org/security#"
+  },
+  {
     "prefix": "rdf",
     "owl": "",
     "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"

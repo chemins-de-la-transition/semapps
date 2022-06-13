@@ -5,7 +5,7 @@ import { LexiconImportForm, fetchWikidata } from "@semapps/interop-components";
 const ThemeCreate = (props) => (
   <Create {...props}>
     <LexiconImportForm
-      fetchLexicon={fetchWikidata}
+      fetchLexicon={fetchWikidata()}
       selectData={data => ({
         'pair:label': data.label,
         'pair:comment': data.summary,

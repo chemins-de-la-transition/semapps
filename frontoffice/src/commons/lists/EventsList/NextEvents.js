@@ -12,7 +12,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 40
   },
   eventsBox: {
-    overflow: 'scroll',
+    overflowX: 'hidden',
+    [theme.breakpoints.down('xs')]: {
+      overflowX: 'scroll',
+    },
   }
 }));
 
