@@ -150,7 +150,7 @@ const EventForm = ({ mode, ...rest }) => {
     <TabbedForm
       initialValues={ initalValues(mode) }
       {...rest}
-      redirect="/MyEvents"
+      redirect="show"
     >
       <FormTab label="Données" className={classes.formTab}>
 
