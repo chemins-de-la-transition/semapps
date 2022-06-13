@@ -62,7 +62,7 @@ export default {
         'pair:hasFinality': 'Finalités',
         'cdlt:hasTargetAudience': 'Public cible',
         'cdlt:pedagogicalMeans': 'Moyens matériels et pédagogiques',
-        'cdlt:evaluationMethod': 'Modalités d\'évaluation',
+        'cdlt:evaluationMethod': 'Modalités d\'évaluation (pour les formations financées)',
         'cdlt:minimumCapacity': 'Capacité d\'accueil minimum',
         'cdlt:maximumCapacity': 'Capacité d\'accueil maximum',
         'cdlt:full': 'Événement complet',

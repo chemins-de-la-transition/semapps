@@ -79,6 +79,8 @@ const EventShow = (props) => {
                 </SeparatedListField>
               </ReferenceArrayField>
               <MarkdownField source="pair:description" />
+              <MarkdownField source="cdlt:pedagogicalMeans" />
+              <MarkdownField source="cdlt:accessibility" />
             </GroupOfFields>
             <GroupOfFields
               title="Compétences"
@@ -114,6 +116,7 @@ const EventShow = (props) => {
             >
               <MarkdownField source="cdlt:economicalConditions" addLabel={false} />
               <MarkdownField source="cdlt:financialSupport" />
+              <MarkdownField source="cdlt:evaluationMethod" />
             </GroupOfFields>
             <MarkdownField source="cdlt:organizerDescription" />
             <MarkdownField source="cdlt:mentorDescription" />
