@@ -125,12 +125,13 @@ const SelectResources = ({ reference, inverseSource, selectIcon, ...rest }) =>{
     <Select {...rest} IconComponent = {selectIcon}>
       <MenuItem value="">Choisir...</MenuItem>
       {ids
-      .filter((id) => !inverseSource || data[id][inverseSource])
-      .map((id) => (
-        <MenuItem key={id} value={id}>
-          {data[id]['pair:label']}
-        </MenuItem>
-      ))}
+        .filter((id) => !inverseSource || data[id]?.[inverseSource])
+        .map((id) => (
+          <MenuItem key={id} value={id}>
+            {data[id]['pair:label']}
+          </MenuItem>
+        ))
+      }
     </Select>
   );
 };
