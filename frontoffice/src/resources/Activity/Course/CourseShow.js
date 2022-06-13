@@ -74,6 +74,11 @@ const CourseShow = (props) => {
                   <ChipField source="pair:label" color="primary" className={classes.chipField}/>
                 </SeparatedListField>
               </ReferenceArrayField>
+              <ReferenceArrayField reference="TargetAudience" source="cdlt:hasTargetAudience" >
+                <SeparatedListField link={false} separator=" / ">
+                  <TextField source="pair:label" />
+                </SeparatedListField>
+              </ReferenceArrayField>
               <MarkdownField source="pair:description" />
             </GroupOfFields>
             <GroupOfFields
