@@ -45,10 +45,10 @@ const ContactDialog = ({ open, onClose }) => {
   const notify = useNotify();
 
   const onSubmit = async values => {
-    const result = await fetch(process.env.REACT_APP_MIDDLEWARE_URL + '_mailer/contact-place', {
+    const result = await fetch(process.env.REACT_APP_MIDDLEWARE_URL + '_mailer/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ placeUri: record['@id'] || record.id, ...values })
+      body: JSON.stringify({ resourceUri: record['@id'] || record.id, ...values })
     });
 
     if( result.ok ) {
@@ -62,7 +62,7 @@ const ContactDialog = ({ open, onClose }) => {
   return (
     <Form
       onSubmit={onSubmit}
-      render={({ handleSubmit, form, submitting, pristine }) => (
+      render={({ handleSubmit, form, submitting }) => (
         <form onSubmit={handleSubmit}>
           <Dialog fullWidth open={open} onClose={onClose}>
             <DialogTitle className={classes.title}>Contacter {record?.['pair:label']}</DialogTitle>

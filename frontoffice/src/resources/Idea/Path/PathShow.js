@@ -35,12 +35,12 @@ const PathShow = (props) => {
             type="pair:hasType"
             linkToListText="Liste des chemins"
             details={<PathDetails />}
-            actionButton={<ContactButton label="Contacter le chemin" />}
+            actionButton={<ContactButton label="Contacter les instigateurs de ce chemin" />}
           />
           <BodyList
             aside={
               <StickyCard
-                actionButton={<ContactButton label="Contacter le chemin" />}
+                actionButton={<ContactButton label="Contacter les instigateurs de ce chemin" />}
               >
                 <PathDetails orientation="vertical" />
               </StickyCard>
