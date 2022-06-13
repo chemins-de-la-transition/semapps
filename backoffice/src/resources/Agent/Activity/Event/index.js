@@ -68,7 +68,7 @@ export default {
         'cdlt:full': 'Événement complet',
         'cdlt:accessibility': 'Accessibilité',
         'cdlt:financialSupport': 'Eligibilité à des dispositifs de financement',
-        'cdlt:price': 'Prix par défaut',
+        //'cdlt:price': 'Prix par défaut',
         'cdlt:directRegistration' : "Possibilité de s'inscrire directement",
         'cdlt:registrationOption' : "Option d'inscription",
         'cdlt:jotformLink':"Formulaire d'inscription JotForm",

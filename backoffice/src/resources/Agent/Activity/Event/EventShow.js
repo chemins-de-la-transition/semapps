@@ -73,7 +73,7 @@ const EventShow = (props) => (
           <BooleanField source="cdlt:full" />
           <MarkdownField source="cdlt:accessibility" />
         
-          <NumberField source="cdlt:price" />
+          {/*<NumberField source="cdlt:price" />*/}
           <MarkdownField source="cdlt:economicalConditions" />
           <MarkdownField source="cdlt:financialSupport" />
         
