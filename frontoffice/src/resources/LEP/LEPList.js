@@ -12,7 +12,7 @@ const LEPList = (props) => {
     <TabbedList
       filters={[
         <SearchFilter />,
-        <Filter reference="Type" source="cdlt:hasCourseType" inverseSource="cdlt:typeOfCourse" label="Type de voyage" />,
+        <Filter reference="Type" source="cdlt:hasCourseType" inverseSource="cdlt:typeOfCourse" label="Mode de voyage" />,
         <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label="Secteur d'activité" />,
         <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label="Région" />,
       ]}

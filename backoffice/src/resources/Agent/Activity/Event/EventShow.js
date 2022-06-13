@@ -65,7 +65,6 @@ const EventShow = (props) => (
           <MarkdownField source="cdlt:prerequisites" addLabel />
           <MarkdownField source="cdlt:learningObjectives" addLabel />
           <MarkdownField source="cdlt:pedagogicalMeans" />
-          <MarkdownField source="cdlt:evaluationMethod" />
 
           <MarkdownField source="cdlt:practicalConditions" />
           <NumberField source="cdlt:minimumCapacity" />
@@ -73,9 +72,10 @@ const EventShow = (props) => (
           <BooleanField source="cdlt:full" />
           <MarkdownField source="cdlt:accessibility" />
         
-          <NumberField source="cdlt:price" />
+          {/*<NumberField source="cdlt:price" />*/}
           <MarkdownField source="cdlt:economicalConditions" />
           <MarkdownField source="cdlt:financialSupport" />
+          <MarkdownField source="cdlt:evaluationMethod" />
         
           <BooleanField source="cdlt:directRegistration" />
           <EventMapField source="pair:hasLocation" />

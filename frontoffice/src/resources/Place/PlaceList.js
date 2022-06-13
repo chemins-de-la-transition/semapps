@@ -22,7 +22,7 @@ const PlaceList = (props) => {
           reference="Type"
           source="cdlt:hasCourseType"
           /*inverseSource="cdlt:typeOfCourse"*/ filter={{ a: 'cdlt:CourseType' }}
-          label="Type de voyage"
+          label="Mode de voyage"
         />,
         <Filter
           reference="Type"

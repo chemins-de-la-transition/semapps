@@ -28,7 +28,7 @@ export default {
       fields: {
         'pair:label': 'Titre',
         'pair:depictedBy': 'Image',
-        'cdlt:hasCourseType': 'Type de voyage',
+        'cdlt:hasCourseType': 'Mode de voyage',
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé', /*Theme*/
         'cdlt:hasRegion': 'Région(s)',
@@ -55,7 +55,7 @@ export default {
         'cdlt:hasMentor': 'A pour intervenant', /*Person*/
         'cdlt:organizedBy': 'Organisé par', /*Actor*/
         'pair:hasStatus': 'Statut',
-        'pair:documentedBy': 'Documents',
+        //'pair:documentedBy': 'Documents',
         'cdlt:courseOn': 'Est un voyage de', /*Path*/
         'pair:hasFinality': 'Finalités',
         'cdlt:directRegistration' : "Possibilité de s'inscrire directement",

@@ -226,7 +226,6 @@ const EventForm = ({ mode, ...rest }) => {
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <MarkdownInput source="cdlt:pedagogicalMeans" fullWidth />
-        <MarkdownInput source="cdlt:evaluationMethod" fullWidth />
 
         <MarkdownInput source="cdlt:practicalConditions" helperText="Précisez si besoin équipements, inscription, hébergement, repas..." fullWidth />
         <NumberInput source="cdlt:minimumCapacity" fullWidth />
@@ -234,9 +233,10 @@ const EventForm = ({ mode, ...rest }) => {
         <BooleanInput source="cdlt:full" helperText="Cochez si l'événement est complet" fullWidth />
         <TextInput multiline helperText="Précisez l'accessibilité de l'événement aux personnes en situation de handicap" source="cdlt:accessibility" fullWidth />
 
-        <NumberInput source="cdlt:price" fullWidth />
+        {/*<NumberInput source="cdlt:price" fullWidth />*/}
         <TextInput multiline source="cdlt:economicalConditions" fullWidth />
         <TextInput multiline helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" source="cdlt:financialSupport" fullWidth />
+        <TextInput multiline source="cdlt:evaluationMethod" fullWidth />
 
         <PairLocationInput source="pair:hasLocation" fullWidth />
         <RegistrationInput 

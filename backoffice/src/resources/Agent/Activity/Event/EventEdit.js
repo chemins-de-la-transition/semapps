@@ -65,7 +65,6 @@ const EventEdit = (props) => (
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <MarkdownInput source="cdlt:pedagogicalMeans" fullWidth />
-        <MarkdownInput source="cdlt:evaluationMethod" fullWidth />
 
         <MarkdownInput source="cdlt:practicalConditions" helperText="Précisez si besoin équipements, inscription, hébergement, repas..." fullWidth />
         <NumberInput source="cdlt:minimumCapacity" fullWidth />
@@ -73,9 +72,10 @@ const EventEdit = (props) => (
         <BooleanInput source="cdlt:full" helperText="Cochez si l'événement est complet" fullWidth />
         <TextInput multiline source="cdlt:accessibility" helperText="Précisez l'accessibilité de l'événement aux personnes en situation de handicap" fullWidth />
         
-        <NumberInput source="cdlt:price" fullWidth />
+        {/*<NumberInput source="cdlt:price" fullWidth />*/}
         <TextInput multiline source="cdlt:economicalConditions" fullWidth />
         <TextInput multiline source="cdlt:financialSupport" helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" fullWidth />
+        <TextInput multiline source="cdlt:evaluationMethod" fullWidth />
         
         <PairLocationInput source="pair:hasLocation" fullWidth />
         

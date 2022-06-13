@@ -100,6 +100,7 @@ const CourseShow = (props) => (
               scrollWheelZoom
             />
           </ReferenceArrayField>
+          {/*
           <ReferenceArrayField label="Documents liés" reference="Document" source="pair:documentedBy" sort={{ field: 'dc:created', order: 'DESC' }}>
             <Datagrid rowClick="show">
               <DateField label="Date" source="dc:created" />
@@ -113,6 +114,7 @@ const CourseShow = (props) => (
               <ShowButton />
             </Datagrid>
           </ReferenceArrayField>
+          */}
         </MainList>
       </Grid>
       <Grid item xs={12} sm={3}>

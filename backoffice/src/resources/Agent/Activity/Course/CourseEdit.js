@@ -11,10 +11,10 @@ import {
   PersonsInput,
   ThemesInput,
   SectorsInput,
-  StatusInput,
+//  StatusInput,
   TypesInput,
   SkillsInput,
-  DocumentsType,
+//  DocumentsType,
   RegistrationInput,
   TargetAudienceInput
 } from '../../../../pair';
@@ -81,7 +81,7 @@ const CourseEdit = (props) => (
         <SkillsInput source="pair:produces" />
         <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
-        <DocumentsType source="pair:documentedBy" />
+        {/*<DocumentsType source="pair:documentedBy" />*/}
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
       <FormTab label="Contact">

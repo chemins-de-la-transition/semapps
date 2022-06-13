@@ -96,11 +96,13 @@ const OrganizationShow = (props) => (
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
+          {/*
           <ReferenceArrayField reference="Document" source="pair:documentedBy">
             <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
+          */}
           <ReferenceArrayField reference="Activity" source="cdlt:organizes">
             <SingleFieldList linkType="show">
               <ChipWithResourceIcon source="pair:label" />
