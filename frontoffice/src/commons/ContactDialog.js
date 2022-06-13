@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, useNotify, required, useShowContext } from 'react-admin';
-import { Dialog, DialogTitle, DialogContent, DialogActions, makeStyles, TextField } from '@material-ui/core';
+import { useNotify, required, useShowContext } from 'react-admin';
+import { Dialog, DialogTitle, DialogContent, DialogActions, makeStyles, TextField, Button } from '@material-ui/core';
 import { Form, Field } from 'react-final-form';
 import SendIcon from '@material-ui/icons/Send';
 
@@ -10,7 +10,11 @@ const useStyles = makeStyles(() => ({
     paddingBottom: 8
   },
   actions: {
-    padding: 15
+    padding: 20,
+    paddingTop: 10,
+    '& button': {
+      padding: 10
+    }
   },
   addForm: {
     paddingTop: 0
@@ -68,8 +72,8 @@ const ContactDialog = ({ open, onClose }) => {
               <Field name="content" component={FinalFormTextField} label="Message" variant="filled" margin="dense" fullWidth multiline rows={7} validate={required('Champ requis')} />
             </DialogContent>
             <DialogActions className={classes.actions}>
-              <Button label="ra.action.close" variant="text" onClick={onClose} />
-              <Button type="submit" label="Envoyer" variant="contained" endIcon={<SendIcon />} onClick={() => form.submit()} disabled={submitting || pristine} />
+              <Button variant="text" onClick={onClose}>Fermer</Button>
+              <Button type="submit" variant="contained" color="primary" endIcon={<SendIcon />} onClick={() => form.submit()} disabled={submitting}>Envoyer</Button>
             </DialogActions>
           </Dialog>
         </form>
