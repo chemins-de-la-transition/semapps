@@ -29,6 +29,7 @@ const OrganizationForm = ({ mode, ...rest }) => {
         <TextInput source="pair:comment" fullWidth />
         <MarkdownInput source="pair:description" fullWidth />
         <TextInput source="pair:homePage" fullWidth />
+        <TextInput source="pair:e-mail" fullWidth />
         <ImageInput source="pair:depictedBy" accept="image/*">
           <ImageField source="src" />
         </ImageInput>
