@@ -52,16 +52,17 @@ const ChevronIcon = (props) => (
 const SelectResources = ({ reference, inverseSource, selectIcon, filter, ...rest }) =>{
     const { data, ids } = useGetList(reference, undefined, { field: 'pair:label', order: 'ASC' }, filter);
     return (
-        <Select {...rest} IconComponent = {selectIcon}>
+      <Select {...rest} IconComponent = {selectIcon}>
         <MenuItem value="">Choisir...</MenuItem>
         {ids
-        .filter((id) => !inverseSource || data[id][inverseSource])
-        .map((id) => (
+          .filter((id) => !inverseSource || data[id]?.[inverseSource])
+          .map((id) => (
             <MenuItem key={id} value={id}>
-            {data[id]['pair:label']}
+              {data[id]['pair:label']}
             </MenuItem>
-        ))}
-        </Select>
+          ))
+        }
+      </Select>
     );
 };
   
