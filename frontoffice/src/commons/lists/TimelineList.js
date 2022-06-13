@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useListContext, Link, linkToRecord, TextField, RecordContextProvider } from 'react-admin';
+import { useListContext, Link, linkToRecord, TextField, RecordContextProvider, ReferenceField } from 'react-admin';
 import { Icon, Box, makeStyles, Typography } from '@material-ui/core';
 import RoundIcon from '../../svg/RoundIcon';
 import DateToDateField from '../fields/DateToDateField';
@@ -24,6 +24,12 @@ const useStyles = makeStyles((theme) => ({
     top: -5,
     left: -35,
   },
+  place: {
+    "& strong, & span": {
+      fontWeight: 600,
+      color: theme.palette.secondary.main
+    }
+  }
 }));
 
 const TimelineList = () => {
@@ -50,14 +56,18 @@ const TimelineList = () => {
               <p>
                 <TextField source="pair:comment" variant="body2" />
               </p>
-              <Link
-                to={linkToRecord('/Place', data[id]['pair:hostedIn'].id, 'show')}
-                onClick={(e) => e.stopPropagation()}
-              >
+              { data[id]['pair:hostedIn'] &&
                 <Typography variant="body2" color="secondary" paragraph>
-                  <strong>Lieu: {data[id]['pair:hostedIn']['pair:label']}</strong>
+                  <ReferenceField record={data[id]} source="pair:hostedIn" reference="Place" linkType="show" className={classes.place}>
+                    <strong>Lieu: <TextField source="pair:label" /></strong>
+                  </ReferenceField>
                 </Typography>
-              </Link>
+              }
+              { ! data[id]['pair:hostedIn'] && data[id]['pair:hasLocation'] &&
+                <Typography variant="body2" color="secondary" paragraph>
+                  <strong>Localisation: {data[id]['pair:hasLocation']['pair:label']}</strong>
+                </Typography>
+              }
               <p>
                 <TextField source="pair:hostedIn.pair:comment" variant="body2" />
               </p>
