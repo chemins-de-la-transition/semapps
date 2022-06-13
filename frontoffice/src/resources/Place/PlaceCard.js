@@ -29,10 +29,11 @@ const PlaceCard = ({ record, variant }) => {
   const classes = useStyles();
   const city = record?.['pair:hasPostalAddress']?.['pair:addressLocality'] ;
   const zipCode = record?.['pair:hasPostalAddress']?.['pair:addressZipCode']?.slice(0, 2) ;
+
   return (
     <>
       <TextField variant="h2" component="div" record={record} source="pair:label" className={classes.title} />
-      {record['pair:hasPostalAddress'] && city && zipCode ? (
+      {record['pair:hasPostalAddress'] && (city!==undefined) && (zipCode!==undefined) ? (
       <Chip icon={<PlaceIcon />}>
         <Typography variant="body1" className={classes.address}>
           {city+' ('+zipCode+')'}
