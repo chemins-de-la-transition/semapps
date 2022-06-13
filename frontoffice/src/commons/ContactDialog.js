@@ -55,7 +55,8 @@ const ContactDialog = ({ open, onClose }) => {
       onClose();
       notify('Votre message a bien été envoyé', 'success');
     } else {
-      notify('Erreur lors de votre envoi de message', 'error');
+      const json = await result.json();
+      notify(json.message, 'error');
     }
   };
 

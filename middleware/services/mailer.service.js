@@ -47,31 +47,27 @@ module.exports = {
         webId: 'system'
       });
 
-      switch(resource.type) {
-        case 'pair:Place':
-          to = resource['pair:e-mail'];
-          resourceLabel = resource['pair:label'];
-          resourceFrontPath = 'Place';
-          break;
+      const types = Array.isArray(resource.type) ? resource.type : [resource.type];
 
-        case 'pair:Organization':
-          to = resource['pair:e-mail'];
-          resourceLabel = resource['pair:label'];
-          resourceFrontPath = 'Organization';
-          break;
-
-        case 'pair:Person':
-          const account = await ctx.call('auth.account.findByWebId', { webId: resourceUri });
-          to = account && account.email;
-          resourceLabel = "votre profil";
-          resourceFrontPath = 'Person';
-          break;
-
-        case 'pair:Path':
-          to = "bonjour@lescheminsdelantransition.org";
-          resourceLabel = resource['pair:label'];
-          resourceFrontPath = 'Path';
-          break;
+      if( types.includes('pair:Place') ) {
+        to = resource['pair:e-mail'];
+        resourceLabel = resource['pair:label'];
+        resourceFrontPath = 'Place';
+      } else if( types.includes('pair:Organization') ) {
+        to = resource['pair:e-mail'];
+        resourceLabel = resource['pair:label'];
+        resourceFrontPath = 'Organization';
+      } else if( types.includes('pair:Person') ) {
+        const account = await ctx.call('auth.account.findByWebId', { webId: resourceUri });
+        to = account && account.email;
+        resourceLabel = "votre profil";
+        resourceFrontPath = 'Person';
+      } else if( types.includes('pair:Path') ) {
+        to = "bonjour@lescheminsdelantransition.org";
+        resourceLabel = resource['pair:label'];
+        resourceFrontPath = 'Path';
+      } else {
+        throw new Error('Impossible de contacter ce type de ressource: ' + resource.type);
       }
 
       if (!to) throw new Error('Aucune adresse mail définie pour ' + resourceLabel + '!')
