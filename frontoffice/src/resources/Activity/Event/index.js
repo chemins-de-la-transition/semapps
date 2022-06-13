@@ -60,7 +60,7 @@ export default {
         'cdlt:hasMentor': 'Intervenant(e)s', /*Person*/
         'cdlt:eventOn': 'Chemins', /*Path*/
         'pair:hasFinality': 'Finalités',
-        //'cdlt:targetAudience': 'Public cible',
+        'cdlt:hasTargetAudience': 'Public cible',
         'cdlt:pedagogicalMeans': 'Moyens matériels et pédagogiques',
         'cdlt:evaluationMethod': 'Modalités d\'évaluation',
         'cdlt:minimumCapacity': 'Capacité d\'accueil minimum',
