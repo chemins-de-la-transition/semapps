@@ -108,11 +108,11 @@ const FeaturedList = ({ resource, basePath, title, subtitle, logo, linkText, Car
             <NextEvents />
           </Box>
         : 
-        <Box className={classes.listBase}>
-          <ListBase resource={resource} basePath={basePath} perPage={4} sort={{ field: 'dc:created', order: 'DESC' }} filter={filter ? {[filter.field]:filter.value} : null}>
-            <ItemsGrid CardSubHeaderComponent={CardSubHeaderComponent} resource={resource}/>
-          </ListBase>
-        </Box>
+          <Box className={classes.listBase}>
+            <ListBase resource={resource} basePath={basePath} perPage={4} sort={{ field: 'dc:created', order: 'DESC' }} filter={filter ? {[filter.field]:filter.value} : null}>
+              <ItemsGrid CardSubHeaderComponent={CardSubHeaderComponent} resource={resource}/>
+            </ListBase>
+          </Box>
         }
       </LargeContainer>
     </FullWidthBox>
