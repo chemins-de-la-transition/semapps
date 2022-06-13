@@ -11,10 +11,10 @@ import {
   PersonsInput,
   ThemesInput,
   SectorsInput,
-  StatusInput,
+//  StatusInput,
   TypesInput,
   SkillsInput,
-  DocumentsType,
+//  DocumentsType,
   RegistrationInput,
   TargetAudienceInput
 } from '../../../../pair';
