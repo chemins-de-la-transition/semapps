@@ -194,7 +194,7 @@ const CardBlock = ({ record, basePath, CardSubHeaderComponent, resource }) => {
                 >
                   <SeparatedListField 
                     separator=" / " 
-                    link={linkToFilteredList('Place', 'pair:hasType')}
+                    link={linkToFilteredList('LEP', 'pair:hasType')}
                   >
                     <TextField source="pair:label" />
                   </SeparatedListField>
