@@ -20,6 +20,7 @@ import {
   TargetAudienceInput,
   TypeInput
 } from '../../../../pair';
+import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
 import EventTitle from './EventTitle';
 
 const EventEdit = (props) => (
@@ -86,6 +87,8 @@ const EventEdit = (props) => (
           registrationLinkSource="cdlt:registrationLink"          
           fullWidth
         />
+
+        <ReminderBeforeRecording />
 
       </FormTab>
 

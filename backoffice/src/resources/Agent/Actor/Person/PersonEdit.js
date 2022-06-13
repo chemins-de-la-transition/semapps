@@ -16,6 +16,7 @@ import {
   StatusInput
 } from '../../../../pair';
 import { ImageField } from '@semapps/semantic-data-provider';
+import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
 import PersonTitle from './PersonTitle';
 
 export const PersonEdit = (props) => (
@@ -52,6 +53,7 @@ export const PersonEdit = (props) => (
         <MarkdownInput source="cdlt:asAnOrganiserIntentions" fullWidth />
         <MarkdownInput source="cdlt:asATravelerIntentions" fullWidth />
         */}
+        <ReminderBeforeRecording />
       </FormTab>
       <FormTab label="Relations">
         <OrganizationsInput source="pair:affiliatedBy" />

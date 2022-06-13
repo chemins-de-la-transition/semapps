@@ -15,6 +15,7 @@ import {
   ThemesInput,
   TypesInput,
 } from '../../pair';
+import ReminderBeforeRecording from '../../commons/ReminderBeforeRecording';
 
 const PlaceForm = ({ mode, ...rest }) => {
   const { identity } = useGetIdentity();
@@ -64,6 +65,7 @@ const PlaceForm = ({ mode, ...rest }) => {
             registrationLinkSource="cdlt:registrationLink"          
             fullWidth
         />
+        <ReminderBeforeRecording />
       </FormTab>
       <FormTab label="Relations">
         <PersonsInput source="cdlt:proposedBy" fullWidth />
