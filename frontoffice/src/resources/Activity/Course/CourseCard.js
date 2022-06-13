@@ -9,6 +9,7 @@ import CourseIcon from '../../../svg/CourseIcon';
 import CalendarIcon from '../../../svg/CalendarIcon';
 import DurationIcon from '../../../svg/DurationIcon';
 import ThemeIcon from '../../../svg/ThemeIcon';
+import { linkToFilteredList } from "../../../utils";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -49,7 +50,7 @@ const CourseCard = ({ record, variant }) => {
       {record['cdlt:hasCourseType'] && (
         <Chip icon={<CourseIcon />}>
           <ReferenceArrayField record={record} source="cdlt:hasCourseType" reference="Type">
-            <SeparatedListField separator=" / " link={false}>
+            <SeparatedListField separator=" / " link={linkToFilteredList( 'LEP', 'cdlt:hasCourseType')}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
