@@ -110,7 +110,7 @@ const AgendaFilter = ({ eventType, setEventType, category, setCategory, region, 
                 <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>Région</InputLabel>
                 <SelectResources
                   reference="Region"
-                  inverseSource="pair:locationOf"
+                  inverseSource="cdlt:regionOf"
                   selectIcon={ChevronIcon}
                   labelId="demo-select-area-label"
                   value={region}
