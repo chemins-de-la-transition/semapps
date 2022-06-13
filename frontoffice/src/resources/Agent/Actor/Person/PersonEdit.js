@@ -25,7 +25,6 @@ export const PersonEdit = (props) => {
                   ? data['pair:alternativeLabel']
                   : `${data['pair:firstName']} ${data['pair:lastName']?.toUpperCase()}`
             })}
-            actions={null}
             {...props}
           >
             <PersonForm />

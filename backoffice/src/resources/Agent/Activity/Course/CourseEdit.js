@@ -15,7 +15,8 @@ import {
   TypesInput,
   SkillsInput,
   DocumentsType,
-  RegistrationInput
+  RegistrationInput,
+  TargetAudienceInput
 } from '../../../../pair';
 import CourseTitle from './CourseTitle';
 import { DateInput } from '@semapps/date-components';
@@ -51,6 +52,7 @@ const CourseEdit = (props) => (
           fullWidth
         />
         <MarkdownInput source="pair:description" fullWidth />
+        <TargetAudienceInput source="cdlt:hasTargetAudience" fullWidth/>
         <MarkdownInput source="cdlt:organizerDescription" fullWidth />
         <MarkdownInput source="cdlt:mentorDescription" fullWidth />
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
@@ -71,7 +73,6 @@ const CourseEdit = (props) => (
       </FormTab>
       <FormTab label="Relations">
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
-        <StatusInput source="pair:hasStatus" filter={{ a: 'cdlt:CourseStatus' }} />
         <EventsInput source="pair:hasPart" fullWidth />
         <PathsInput source="cdlt:courseOn" />
         <SectorsInput source="pair:hasSector" />

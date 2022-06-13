@@ -53,7 +53,7 @@ module.exports = {
         template: 'contact-place',
         data: {
           place,
-          placeFrontUri: `https://app.lescheminsdelatransition.org/Place/${encodeURIComponent(placeUri)}/show`,
+          placeFrontUri: `https://lescheminsdelatransition.org/Place/${encodeURIComponent(placeUri)}/show`,
           name,
           email,
           content,
@@ -76,7 +76,7 @@ module.exports = {
         data: {
           actor,
           account: accountData,
-          loginUri: `https://app.lescheminsdelatransition.org/login`
+          loginUri: `https://lescheminsdelatransition.org/login`
         }
       });
     },

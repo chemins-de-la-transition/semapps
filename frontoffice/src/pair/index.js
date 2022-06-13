@@ -97,7 +97,7 @@ export const UsersInput = ({ label, source }) => (
 );
 
 export const StatusInput = (props) => (
-  <ReferenceInput reference="Status" {...props}>
+  <ReferenceInput reference="Status" {...props} allowEmpty>
     <SelectInput optionText="pair:label" />
   </ReferenceInput>
 );
@@ -109,7 +109,7 @@ export const TypesInput = (props) => (
 );
 
 export const TypeInput = (props) => (
-  <ReferenceArrayInput reference="Type" {...props}>
+  <ReferenceArrayInput reference="Type" {...props} allowEmpty>
     <SelectInput optionText="pair:label" />
   </ReferenceArrayInput>
 );
@@ -127,7 +127,7 @@ export const CoursesInput = (props) => (
 );
 
 export const CourseInput = (props) => (
-  <ReferenceArrayInput reference="Course" {...props}>
+  <ReferenceArrayInput reference="Course" {...props} allowEmpty>
     <SelectInput optionText="pair:label" />
   </ReferenceArrayInput>
 );
@@ -140,6 +140,12 @@ export const PathsInput = (props) => (
 
 export const RegionsInput = ({ label, source, ...rest }) => (
   <ReferenceArrayInput label={label} reference="Region" source={source} {...rest}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  </ReferenceArrayInput>
+);
+
+export const TargetAudienceInput = ({ label, source, ...rest }) => (
+  <ReferenceArrayInput label={label} reference="TargetAudience" source={source} {...rest}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />
   </ReferenceArrayInput>
 );

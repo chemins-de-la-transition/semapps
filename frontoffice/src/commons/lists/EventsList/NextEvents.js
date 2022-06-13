@@ -12,14 +12,17 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 40
   },
   eventsBox: {
-    overflow: 'scroll',
+    overflowX: 'hidden',
+    [theme.breakpoints.down('xs')]: {
+      overflowX: 'scroll',
+    },
   }
 }));
 
-const NextEvents = () => {
+const NextEvents = ({ similarRecord }) => {
   const classes = useStyles();
   const futureEventSparql = useFutureEventSparql();
-
+  
   const [eventType, setEventType] = useState("");
   const [category, setCategory] = useState("");
   const [region, setRegion] = useState("");
@@ -43,12 +46,12 @@ const NextEvents = () => {
         resource="Event"
         basePath="/Event"
         className={classes.eventListBase}
-        perPage={4}
+        perPage={similarRecord ? 5 : 4}
         filter={{ ...eventTypeFilter, ...categoryFilter, ...regionFilter }}
         filterDefaultValues={{ sparqlWhere: futureEventSparql }}
         sort={{ field: 'pair:startDate', order: 'ASC' }}
       >
-        <EventItemsGrid />
+        <EventItemsGrid similarRecord={similarRecord}/>
       </ListBase>
       </Box>
     </>

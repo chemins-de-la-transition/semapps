@@ -1,7 +1,6 @@
 import React from 'react';
-import { useGetList, Loading } from 'react-admin';
-import { makeStyles, Typography, Box } from '@material-ui/core';
-import Alert from '@material-ui/lab/Alert';
+import { useGetList } from 'react-admin';
+import { makeStyles, Typography, Box, LinearProgress } from '@material-ui/core';
 import FullWidthBox from '../../commons/FullWidthBox';
 import LargeContainer from '../../commons/LargeContainer';
 import ademe from '../../icons/ademe.png';
@@ -58,6 +57,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+// TODO: put this in the semantic data ?
+const partnersWeight = {
+  'Assemblée Virtuelle': 3,
+  'MES Occitanie': 2
+};
+
 const Partners = () => {
   const { data, ids, loading, error } = useGetList(
     'Organization',
@@ -66,64 +71,54 @@ const Partners = () => {
     { 'pair:partnerOf': process.env.REACT_APP_MIDDLEWARE_URL + 'organizations/les-chemins-de-la-transition' }
   );
 
-  const sortedIds = [
-    ...ids.filter(id => data[id]['pair:label']==="Assemblée Virtuelle"),
-    ...ids.filter(id => data[id]['pair:label']==="MES Occitanie"),
-    ...ids.filter(id => !["Assemblée Virtuelle","MES Occitanie"].includes(data[id]['pair:label'])),
-  ]
+  // Reorder partners by weight
+  ids.sort((a, b) => (partnersWeight[data[b]?.['pair:label']] || 0) - (partnersWeight[data[a]?.['pair:label']] || 0));
 
   const classes = useStyles();
   return (
     <FullWidthBox className={classes.mainBox}>
       <LargeContainer className={classes.container}>
-        { loading &&
-          <Loading />
-        }
-        { ! loading && error &&
-          <Alert severity="error" className={classes.errorContainer}>Un problème est survenu</Alert>
-        }
-        { ! loading && ! error &&
-        <>
-          <Box>
-            <Typography variant="h2">Avec le soutien de</Typography>
-            <Typography variant="h3" component="div" className={classes.subTitle}>nos partenaires financiers</Typography>
-            <ul className={classes.partnersList}>
-                <a href={'https://www.ademe.fr/'} target="_blank" rel="noopener noreferrer">
-                  <img className={classes.logo} src={ademe} alt={"logo ademe"}/>
-                </a>
-                <a href={'https://www.associations.gouv.fr/FDVA.html'} target="_blank" rel="noopener noreferrer">
-                  <img className={classes.logo} src={fdva} alt={"logo fdva"}/>
-                </a>
-                <a href={'https://agence-cohesion-territoires.gouv.fr/'} target="_blank" rel="noopener noreferrer">
-                  <img className={classes.logo} src={ANCT} alt={"logo anct"}/>
-                </a>
-                <a href={'https://www.laregion.fr/'} target="_blank" rel="noopener noreferrer">
-                  <img className={classes.logo} src={region_occitanie} alt={"logo region occitanie"}/>
-                </a>
-            </ul>
-          </Box>
-          <Box>
-          <Typography variant="h3" component="div" className={classes.subTitle}>nos partenaires métiers</Typography>
+        <Box>
+          <Typography variant="h2">Avec le soutien de</Typography>
+          <Typography variant="h3" component="div" className={classes.subTitle}>nos partenaires financiers</Typography>
           <ul className={classes.partnersList}>
-            {sortedIds.map(id => {
-              if ( data[id] && data[id]['pair:label'] && data[id]['pair:depictedBy'] ) {
-                const label = data[id]['pair:label'];
-                const imgSrc = data[id]['pair:depictedBy'];
-                const homePage = data[id]['pair:homePage'];
-                return (
-                  <li key={id}>
-                    <a href={homePage} target="_blank" rel="noopener noreferrer">
-                      <img src={imgSrc} alt={label}/>
-                    </a>
-                  </li>
-                )
-              } else {
-                return null;
-              }
-            })}
+            <a href={'https://www.ademe.fr/'} target="_blank" rel="noopener noreferrer">
+              <img className={classes.logo} src={ademe} alt={"logo ademe"}/>
+            </a>
+            <a href={'https://www.associations.gouv.fr/FDVA.html'} target="_blank" rel="noopener noreferrer">
+              <img className={classes.logo} src={fdva} alt={"logo fdva"}/>
+            </a>
+            <a href={'https://agence-cohesion-territoires.gouv.fr/'} target="_blank" rel="noopener noreferrer">
+              <img className={classes.logo} src={ANCT} alt={"logo anct"}/>
+            </a>
+            <a href={'https://www.laregion.fr/'} target="_blank" rel="noopener noreferrer">
+              <img className={classes.logo} src={region_occitanie} alt={"logo region occitanie"}/>
+            </a>
           </ul>
         </Box>
-        </>
+        {loading && <LinearProgress />}
+        {!loading && !error &&
+          <Box>
+            <Typography variant="h3" component="div" className={classes.subTitle}>nos partenaires métiers</Typography>
+            <ul className={classes.partnersList}>
+              {ids.map(id => {
+                if ( data[id] && data[id]['pair:label'] && data[id]['pair:depictedBy'] ) {
+                  const label = data[id]['pair:label'];
+                  const imgSrc = data[id]['pair:depictedBy'];
+                  const homePage = data[id]['pair:homePage'];
+                  return (
+                    <li key={id}>
+                      <a href={homePage} target="_blank" rel="noopener noreferrer">
+                        <img src={imgSrc} alt={label}/>
+                      </a>
+                    </li>
+                  )
+                } else {
+                  return null;
+                }
+              })}
+            </ul>
+          </Box>
         }
       </LargeContainer>
     </FullWidthBox>

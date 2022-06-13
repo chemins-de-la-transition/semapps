@@ -26,8 +26,9 @@ import {
   RegistrationInput,
   SectorsInput,
   SkillsInput,
+  TargetAudienceInput,
   ThemesInput,
-  TypeInput
+  TypeInput,
 } from '../../../pair';
 import frLocale from 'date-fns/locale/fr';
 import { Box, FormControlLabel, Slide, LinearProgress, makeStyles, Switch } from '@material-ui/core';
@@ -48,6 +49,17 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: 'center',
       alignItems: 'center',
     }
+  },
+  formTab: {
+    /*
+    fontSize: 14,
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
+    '&:hover': {
+      color: 'white',
+      fontWeight: 'bold',
+    }
+    */
   }
 }));
 
@@ -138,9 +150,9 @@ const EventForm = ({ mode, ...rest }) => {
     <TabbedForm
       initialValues={ initalValues(mode) }
       {...rest}
-      redirect="/MyEvents"
+      redirect="show"
     >
-      <FormTab label="Données">
+      <FormTab label="Données" className={classes.formTab}>
 
         <TextInput source="pair:label" fullWidth validate={[required()]} />
         { ['create', 'duplicate'].includes(mode)  &&
@@ -205,7 +217,7 @@ const EventForm = ({ mode, ...rest }) => {
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} />
-        {/*<TextInput multiline source="cdlt:targetAudience" fullWidth />*/}
+        <TargetAudienceInput source="cdlt:hasTargetAudience" fullWidth />
         <MarkdownInput source="cdlt:organizerDescription" fullWidth />
         <MarkdownInput source="cdlt:mentorDescription" fullWidth />
 
@@ -235,8 +247,8 @@ const EventForm = ({ mode, ...rest }) => {
           fullWidth
         />
       </FormTab>
-      <FormTab label="Relations">
-        <ActorsInput source="cdlt:organizedBy"/>
+      <FormTab label="Relations" className={classes.formTab}>
+        <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
         <PlaceInput source="pair:hostedIn" fullWidth />
         <CoursesInput source="pair:partOf" fullWidth />
@@ -249,7 +261,7 @@ const EventForm = ({ mode, ...rest }) => {
         <SkillsInput source="pair:produces" fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
-      <FormTab label="Contact">
+      <FormTab label="Contact" className={classes.formTab}>
         <TextInput source="pair:e-mail" fullWidth validate={[required(), email()]} />
         <TextInput source="pair:phone" fullWidth />
         <TextInput source="pair:aboutPage" fullWidth />

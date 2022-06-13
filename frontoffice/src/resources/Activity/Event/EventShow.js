@@ -11,6 +11,7 @@ import MarkdownField from '../../../commons/fields/MarkdownField';
 import HeaderShow from '../../../commons/HeaderShow';
 import StickyCard from '../../../commons/StickyCard';
 import BodyList from '../../../commons/lists/BodyList/BodyList';
+import SimilarEvents from "../../../commons/lists/EventsList/SimilarEvents";
 import EventDetails from './EventDetails';
 import EventAlert from "./EventAlert";
 import ContactDialog from "../../../commons/ContactDialog";
@@ -19,8 +20,6 @@ import SectorField from '../../../commons/fields/SectorField';
 import ApplyButton from "../../../commons/buttons/ApplyButton";
 import GroupOfFields from '../../../commons/fields/GroupOfFields';
 import { linkToFilteredList } from "../../../utils";
-import FeaturedList from '../../../commons/lists/FeaturedList/FeaturedList';
-import PictoAgenda from '../../../icons/PictoAgenda.png' ;
 
 const useStyles = resourceShowStyle;
 
@@ -74,6 +73,11 @@ const EventShow = (props) => {
                   <ChipField source="pair:label" color="primary" className={classes.chipField}/>
                 </SeparatedListField>
               </ReferenceArrayField>
+              <ReferenceArrayField reference="TargetAudience" source="cdlt:hasTargetAudience" >
+                <SeparatedListField link={false} separator=" / ">
+                  <TextField source="pair:label" />
+                </SeparatedListField>
+              </ReferenceArrayField>
               <MarkdownField source="pair:description" />
             </GroupOfFields>
             <GroupOfFields
@@ -125,15 +129,7 @@ const EventShow = (props) => {
             />
             <UrlField source="pair:aboutPage" label="Liens" className={classes.urlField} />
           </BodyList>
-          <FeaturedList
-            resource="Event"
-            basePath="/Event"
-            title="Les événements"
-            subtitle="similaires"
-            logo={PictoAgenda}
-            linkText="Voir tous les événements"
-            isAgenda={true}
-          />
+          <SimilarEvents />
           <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
         </Box>
       </ShowBase>

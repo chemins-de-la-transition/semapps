@@ -22,7 +22,7 @@ const PlaceForm = ({ mode, ...rest }) => {
     <TabbedForm 
       initialValues={mode === 'create' ? { 'cdlt:proposedBy': identity?.id } : undefined}
       {...rest}
-      redirect="Show"
+      redirect="show"
     >
       <FormTab label="Données">
 

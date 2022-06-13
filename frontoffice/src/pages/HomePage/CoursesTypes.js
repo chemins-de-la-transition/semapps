@@ -59,8 +59,8 @@ const useStyles = makeStyles((theme) => ({
 const LocalGridItem = ({ title, text, icon, type }) => {
   const classes = useStyles();
   const filters = {'cdlt:hasCourseType':process.env.REACT_APP_MIDDLEWARE_URL+"types/"+type}
-  const link = window.location.href +`Course?filter=${encodeURIComponent(JSON.stringify(filters))}`
-
+  const link = window.location.href +`LEP?filter=${encodeURIComponent(JSON.stringify(filters))}`
+  
   return (
     <Grid item sm={6} md={3}>
       <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column">

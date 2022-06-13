@@ -839,6 +839,12 @@
     },
     "cdlt:regionOf" : {
       "@type" : "@id"
+    },
+    "cdlt:hasTargetAudience": {
+      "@type": "@id"
+    },
+    "cdlt:targetAudienceOf": {
+      "@type": "@id"
     }
   }
 }
