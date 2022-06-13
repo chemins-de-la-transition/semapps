@@ -7,7 +7,7 @@ import { DateTimeInput } from '@semapps/date-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import {
   ActorsInput,
-  CourseInput,
+  CoursesInput,
   FinalitiesInput,
   PairLocationInput,
   PathsInput,
@@ -93,7 +93,7 @@ const EventEdit = (props) => (
         <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
         <PlaceInput source="pair:hostedIn" fullWidth />
-        <CourseInput source="pair:partOf" fullWidth />
+        <CoursesInput source="pair:partOf" fullWidth />
         <PathsInput source="cdlt:eventOn" />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
