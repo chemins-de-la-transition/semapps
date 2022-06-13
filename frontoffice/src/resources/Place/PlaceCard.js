@@ -30,8 +30,6 @@ const PlaceCard = ({ record, variant }) => {
   const city = record?.['pair:hasPostalAddress']?.['pair:addressLocality'] ;
   const zipCode = record?.['pair:hasPostalAddress']?.['pair:addressZipCode']?.slice(0, 2) ;
 
-  console.log(city)
-
   return (
     <>
       <TextField variant="h2" component="div" record={record} source="pair:label" className={classes.title} />
