@@ -6,9 +6,9 @@ import { ImageField } from '@semapps/semantic-data-provider';
 import {
   PathsInput, 
   ActorsInput,
+  EventsInput,
   FinalitiesInput,
   PersonsInput,
-  /*EventsInput,*/
   ThemesInput,
   SectorsInput,
   StatusInput,
@@ -72,8 +72,8 @@ const CourseEdit = (props) => (
         />
       </FormTab>
       <FormTab label="Relations">
-        {/*<PathInput source="cdlt:courseOn" />*/}
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
+        <EventsInput source="pair:hasPart" fullWidth />
         <PathsInput source="cdlt:courseOn" />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />

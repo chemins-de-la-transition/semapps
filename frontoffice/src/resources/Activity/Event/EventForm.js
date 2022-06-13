@@ -15,9 +15,9 @@ import {
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { DateTimeInput } from '@semapps/date-components';
-import { 
+import {
   ActorsInput,
-  CourseInput,
+  CoursesInput,
   FinalitiesInput,
   PairLocationInput,
   PathsInput,
@@ -251,7 +251,7 @@ const EventForm = ({ mode, ...rest }) => {
         <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
         <PlaceInput source="pair:hostedIn" fullWidth />
-        <CourseInput source="pair:partOf" fullWidth />
+        <CoursesInput source="pair:partOf" fullWidth />
         <PathsInput source="cdlt:eventOn" fullWidth />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
