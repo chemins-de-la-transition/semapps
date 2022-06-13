@@ -58,7 +58,7 @@ const TopBar = () => {
           >
             ?
           </Button>
-          <a href="https://lescheminsdelatransition.org/faire-un-don/" target="_blank" rel="noopener noreferrer">
+          <a href="https://projet.lescheminsdelatransition.org/accueil/faire-un-don/" target="_blank" rel="noopener noreferrer">
             <Button
               className={classes.topBarButton}
               variant="outlined"
