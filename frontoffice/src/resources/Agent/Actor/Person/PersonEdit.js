@@ -1,5 +1,5 @@
 import React from 'react';
-import { Edit, ShowButton } from 'react-admin';
+import { Edit } from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import personTheme from '../../../../config/themes/personTheme';
 import { useCheckPermissions } from '@semapps/auth-provider';

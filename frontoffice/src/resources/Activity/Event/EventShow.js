@@ -20,8 +20,6 @@ import SectorField from '../../../commons/fields/SectorField';
 import ApplyButton from "../../../commons/buttons/ApplyButton";
 import GroupOfFields from '../../../commons/fields/GroupOfFields';
 import { linkToFilteredList } from "../../../utils";
-import FeaturedList from '../../../commons/lists/FeaturedList/FeaturedList';
-import PictoAgenda from '../../../icons/PictoAgenda.png' ;
 
 const useStyles = resourceShowStyle;
 
