@@ -31,7 +31,7 @@ const RegistrationButton = (props) => {
     : null;
   const priceRange = record["cdlt:priceRange"];
   const label = record["pair:label"];
-  const hasType = record["pair:hasType"];
+  const hasType = Array.isArray(record["pair:hasType"]) ? record["pair:hasType"] : [record["pair:hasType"]];
 
   const jotformQuery = jotformLink + qs.stringify(
     Object.assign(
