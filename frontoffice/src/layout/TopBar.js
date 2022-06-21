@@ -33,7 +33,17 @@ const useStyles = makeStyles((theme) => ({
   },
   topBarButton: {
     flexShrink: 0,
-  }
+  },
+  betaButton: {
+    paddingLeft: 20,
+    '& .MuiButton-outlinedPrimary': {
+      backgroundColor: theme.palette.white.main,
+      color: theme.palette.primary.main,
+    },
+    '& .MuiButton-outlined': {
+      padding: 5,
+    }
+  },
 }));
 
 const TopBar = () => {
@@ -45,7 +55,19 @@ const TopBar = () => {
         <Box display="flex" width={1} height={1} alignItems="center" className={classes.topBarIncluded}>
           {
             (xs) ? ''
-            : <Typography variant="subtitle2">Le lieu pour partager et apprendre en voyageant</Typography>
+            : 
+            <>
+              <Typography variant="subtitle2">Le lieu pour partager et apprendre en voyageant</Typography>
+              <a className={classes.betaButton}>
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  typographyVariant="button1"
+                >
+                  Version bêta
+                </Button>
+              </a>
+            </>
           }
           <Box flexGrow={1} />
           <Button
