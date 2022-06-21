@@ -34,7 +34,8 @@ const resourceShowStyle = makeStyles((theme) => ({
     }
   },
   chipField: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    maxWidth: "-webkit-fill-available",
   }
 }));
 
