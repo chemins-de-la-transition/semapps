@@ -141,6 +141,9 @@ const Footer = ({ title }) => {
               Contact
             </Link>
             <div className={classes.textBar} />
+            <Link variant="body2" to="/Page/charte-des-chemins-de-la-transition/show" align={xs ? "center" : undefined} className={classes.textLinks}>
+              Charte des chemins de la transition
+            </Link>
             <Link variant="body2" to="/Page/mentions-legales/show" align={xs ? "center" : undefined} className={classes.textLinks}>
               Mentions légales
             </Link>
