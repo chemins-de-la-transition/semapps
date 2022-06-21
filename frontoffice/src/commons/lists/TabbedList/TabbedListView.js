@@ -49,6 +49,10 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: 10,
       paddingRight: 10,
     },
+    [theme.breakpoints.down('xs')]: {
+      display: '-webkit-box',
+      overflow: 'scroll',
+    },
   },
   addButton: {
     backgroundColor: 'white',
@@ -63,11 +67,6 @@ const useStyles = makeStyles((theme) => ({
   removeFiltersButton: {
     padding: '8px 20px',
   },
-  tabs: {
-    [theme.breakpoints.down('xs')]: {
-      display: 'inline-table',
-    },
-  }
 }));
 
 const TabbedListView = ({ tabs, filters }) => {
@@ -145,7 +144,7 @@ const TabbedListView = ({ tabs, filters }) => {
         </Grid>
       )}
       <Grid item xs={12} sm={8} className={classes.results}>
-        <Box bgcolor="primary.main" height={{ xs: 44, sm: 48 }} className={classes.tabs}>
+        <Box bgcolor="primary.main" height={{ xs: 44, sm: 48 }}>
           <Box className={classes.icons}>
             {dataByTabs && tabs.map(tab => Object.keys(dataByTabs[tab.resource]).length > 0 && (
               <ResourceTab
