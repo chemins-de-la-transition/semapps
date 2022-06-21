@@ -28,7 +28,7 @@ import {
   SkillsInput,
   TargetAudienceInput,
   ThemesInput,
-  TypeInput,
+  TypesInput,
 } from '../../../pair';
 import ReminderBeforeRecording from '../../../commons/ReminderBeforeRecording';
 import frLocale from 'date-fns/locale/fr';
@@ -257,8 +257,8 @@ const EventForm = ({ mode, ...rest }) => {
         <PathsInput source="cdlt:eventOn" fullWidth />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
-        <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
-        <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
+        <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
+        <TypesInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
         <SkillsInput source="cdlt:requiredSkills" fullWidth />
         <SkillsInput source="pair:produces" fullWidth />
         <FinalitiesInput source="pair:hasFinality" />

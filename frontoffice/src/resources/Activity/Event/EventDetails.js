@@ -36,9 +36,11 @@ const EventDetails = (props) => {
           </ReferenceArrayField>
         }
         { ( !isVertical || sm ) && 
-          <ReferenceField source="pair:hasType" reference="Type" link={linkToFilteredList('LEP', 'pair:hasType')} icon={<TypeIcon />}>
-            <TextField source="pair:label" />
-          </ReferenceField>
+          <ReferenceArrayField source="pair:hasType" reference="Type" icon={<TypeIcon />}>
+            <SeparatedListField link={linkToFilteredList('Event', 'pair:hasType')} separator={separator}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
         }
         { ( !isVertical || sm ) && 
           <ReferenceArrayField reference="Path" source="cdlt:eventOn" icon={<PathIcon />} label="Type de chemin">

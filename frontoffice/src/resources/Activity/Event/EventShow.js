@@ -65,7 +65,7 @@ const EventShow = (props) => {
               </ReferenceArrayField>
               <ReferenceArrayField reference="Type" source="cdlt:hasCourseType">
                 <SeparatedListField link={false} separator=" / ">
-                <TextField variant="body2" color="secondary" source="pair:label" />
+                  <TextField variant="body2" color="secondary" source="pair:label" />
                 </SeparatedListField>
               </ReferenceArrayField>
               <ReferenceArrayField reference="Theme" source="pair:hasTopic">
