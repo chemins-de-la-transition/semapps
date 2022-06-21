@@ -18,7 +18,7 @@ import {
   SkillsInput,
   ThemesInput,
   TargetAudienceInput,
-  TypeInput
+  TypesInput
 } from '../../../../pair';
 import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
 import EventTitle from './EventTitle';
@@ -100,8 +100,8 @@ const EventEdit = (props) => (
         <PathsInput source="cdlt:eventOn" />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
-        <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
-        <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
+        <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
+        <TypesInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
         <SkillsInput source="cdlt:requiredSkills" />
         <SkillsInput source="pair:produces" />
         <FinalitiesInput source="pair:hasFinality" />
