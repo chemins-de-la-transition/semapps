@@ -50,7 +50,7 @@ const ChevronIcon = (props) => (
 );
 
 const SelectResources = ({ reference, inverseSource, selectIcon, filter, ...rest }) =>{
-    const { data, ids } = useGetList(reference, undefined, { field: 'pair:label', order: 'ASC' }, filter);
+    const { data, ids } = useGetList(reference, { perPage: 999, page: 1 }, { field: 'pair:label', order: 'ASC' }, filter);
     return (
       <Select {...rest} IconComponent = {selectIcon}>
         <MenuItem value="">Choisir...</MenuItem>
