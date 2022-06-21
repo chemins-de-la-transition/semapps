@@ -79,6 +79,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main, 
     color: theme.palette.secondary.contrastText,
     width: '100%',
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: 50,
+    },
   }
 }));
 
