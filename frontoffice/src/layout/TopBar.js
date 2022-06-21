@@ -64,7 +64,7 @@ const TopBar = () => {
                   color="primary"
                   typographyVariant="button1"
                 >
-                  Version beta
+                  Version bêta
                 </Button>
               </a>
             </>
