@@ -182,6 +182,12 @@ module.exports = [
     newResourcesPermissions: anonReadPermission,
   },
   {
+    path: '/registrations',
+    acceptedTypes: ['cdlt:Registration'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: anonReadPermission,
+  },
+  {
     path: '/files'
   }
 ];
