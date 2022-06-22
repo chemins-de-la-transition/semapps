@@ -1,5 +1,7 @@
 import React from 'react';
 import { ListBase } from 'react-admin';
+import { ThemeProvider } from '@material-ui/core';
+import organizationTheme from '../config/themes/organizationTheme';
 import { useCheckAuthenticated } from '@semapps/auth-provider';
 import CardsList from '../commons/lists/CardsList';
 import OrganizationCard from '../resources/Agent/Actor/Organization/OrganizationCard';
@@ -13,17 +15,17 @@ const actions = [<Button to="/Organization/create">Ajouter</Button>];
 const MyOrganizationsPage = () => {
   const { identity } = useCheckAuthenticated();
   return (
-    <>
+    <ThemeProvider theme={organizationTheme}>
       <HeaderTitle actions={actions}>Mes organisations</HeaderTitle>
       <br />
       <FullWidthBox>
         <LargeContainer>
           <ListBase resource="Organization" basePath="/Organization" filter={{ 'pair:affiliatedBy': identity?.id }}>
-            <CardsList CardComponent={OrganizationCard} link="edit" />
+            <CardsList CardComponent={OrganizationCard} link="show" />
           </ListBase>
         </LargeContainer>
       </FullWidthBox>
-    </>
+    </ThemeProvider>
   );
 };
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import { ChipField, SingleFieldList, TextField, EmailField } from 'react-admin';
+import { ChipField, SingleFieldList, TextField, EmailField, UrlField } from 'react-admin';
 import { Grid } from '@material-ui/core';
 import { MainList, SideList, Hero, GridList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MapField } from '@semapps/geo-components';
 import PersonTitle from './PersonTitle';
 import HomeIcon from '@material-ui/icons/Home';
@@ -19,6 +19,10 @@ const PersonShow = (props) => (
           <TextField source="pair:lastName" />
           <TextField source="pair:alternativeLabel" />
           <TextField source="pair:comment" />
+          <ReferenceField source="cdlt:hasRegion" reference="Region" link={false}>
+            <TextField source="pair:label" />
+          </ReferenceField>
+          <UrlField source="pair:homePage" />
           <MarkdownField source="pair:description" />
           <EmailField source="foaf:email" />
           <TextField source="pair:phone" />
@@ -34,7 +38,7 @@ const PersonShow = (props) => (
           </ReferenceArrayField>
         </Hero>
         <MainList>
-          <ReferenceArrayField  reference="Sector" source="pair:hasSector">
+          <ReferenceArrayField reference="Sector" source="pair:hasSector">
             <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
@@ -44,15 +48,13 @@ const PersonShow = (props) => (
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Skill" source="pair:offers">
-            <SingleFieldList linkType={false}>
-              <ChipField source="pair:label" />
-            </SingleFieldList>
-          </ReferenceArrayField>
+          {/*
           <MarkdownField source="cdlt:asAHostIntentions" />
           <MarkdownField source="cdlt:asAMentorIntentions" />
           <MarkdownField source="cdlt:asAnOrganiserIntentions" />
           <MarkdownField source="cdlt:asATravelerIntentions" />
+          */}
+          <MarkdownField source="cdlt:intentions" />
           <ReferenceArrayField reference="Finality" source="pair:hasFinality">
             <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
@@ -75,6 +77,13 @@ const PersonShow = (props) => (
               </AvatarField>
             </GridList>
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Organization" source="pair:inspiredBy">
+            <GridList xs={6} linkType="show">
+              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
+                <HomeIcon />
+              </AvatarField>
+            </GridList>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Place" source="cdlt:proposes">
             <SingleFieldList linkType="show">
               <ChipWithResourceIcon source="pair:label" />
@@ -85,9 +94,24 @@ const PersonShow = (props) => (
               <ChipWithResourceIcon source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Path" source="cdlt:supports">
+            <SingleFieldList linkType="show">
+              <ChipWithResourceIcon source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Activity" source="cdlt:mentorOn">
             <SingleFieldList linkType="show">
               <ChipWithResourceIcon source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Skill" source="pair:offers">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Skill" source="pair:aims">
+            <SingleFieldList linkType="show">
+              <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
         </SideList>

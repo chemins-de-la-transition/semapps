@@ -70,7 +70,7 @@ export const SkillsInput = ({ label, source }) => (
       shouldRenderSuggestions={(value) => value.length > 1}
       create={
         <LexiconCreateDialog
-          fetchLexicon={fetchESCO}
+          fetchLexicon={fetchESCO('https://esco.commondata.one')}
           selectData={data => ({
             'pair:label': data.label,
             'http://www.w3.org/ns/prov#wasDerivedFrom': data.uri,
@@ -89,7 +89,7 @@ export const ThemesInput = ({ label, source }) => (
       shouldRenderSuggestions={(value) => value.length > 1}
       create={
         <LexiconCreateDialog
-          fetchLexicon={fetchWikidata}
+          fetchLexicon={fetchWikidata()}
           selectData={data => ({
             'pair:label': data.label,
             'pair:comment': data.summary,
@@ -158,6 +158,12 @@ export const PathInput = ({ label, source, ...rest }) => (
 
 export const RegionsInput = ({ label, source, ...rest }) => (
   <ReferenceArrayInput label={label} reference="Region" source={source} {...rest}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  </ReferenceArrayInput>
+);
+
+export const TargetAudienceInput = ({ label, source }) => (
+  <ReferenceArrayInput label={label} reference="TargetAudience" source={source}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />
   </ReferenceArrayInput>
 );

@@ -2,9 +2,12 @@ import React from "react";
 import { useResourceDefinition } from "react-admin";
 import { Button, makeStyles, useMediaQuery } from "@material-ui/core";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   icon: {
     marginLeft: 8,
+    [theme.breakpoints.down('xs')]: {
+      display: 'flex',
+    },
   },
   iconSelected: {
     marginLeft: 8,

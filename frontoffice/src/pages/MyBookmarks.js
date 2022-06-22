@@ -1,8 +1,6 @@
 import React from 'react';
-import { ListBase } from 'react-admin';
 import { Box } from '@material-ui/core';
 import { useCheckAuthenticated } from '@semapps/auth-provider';
-import CardsList from '../commons/lists/CardsList';
 import FullWidthBox from '../commons/FullWidthBox';
 import LargeContainer from '../commons/LargeContainer';
 import HeaderTitle from '../commons/HeaderTitle';
@@ -60,10 +58,6 @@ const MyBookmarksPage = () => {
               />
             </Box>
           }
-        
-          <ListBase resource="Place" basePath="/Place" filter={{ 'cdlt:proposedBy': identity?.id }}>
-            <CardsList CardComponent={PlaceCard} link="edit" />
-          </ListBase>
         </LargeContainer>
       </FullWidthBox>
     </>

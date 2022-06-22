@@ -14,7 +14,7 @@ import theme from './config/theme';
 import customRoutes from './customRoutes';
 
 const history = createBrowserHistory();
-const LoginPageWithText = props => <SsoLoginPage text="Si vous avez été invité en tant qu'acteur sur la plateforme, vous pouvez vous connecter ci-dessous. Si vous souhaitez devenir acteur, merci de nous contacter." {...props} />;
+const LoginPageWithText = props => <SsoLoginPage text="Bienvenue sur les Chemins de la Transition ! Créer un compte sur la plateforme va te permettre de renseigner ton profil : Qui tu es, dans quoi tu t'impliques, ce que tu recherches et ce que tu as à offrir. Il va également te permettre d'enregistrer tes coups de coeur en favoris (acteurs, lieux, evenements, voyages), et de rejoindre la communauté des Chemins de la Transition !" {...props} />;
 
 const App = () => (
   <Admin

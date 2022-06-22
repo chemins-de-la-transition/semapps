@@ -1,27 +1,69 @@
 import * as React from 'react';
-import { makeStyles, Grid, Box, Typography, Hidden } from '@material-ui/core';
-import { ListBase, useShowContext } from 'react-admin';
+import { makeStyles, Box, Typography } from '@material-ui/core';
+import { useShowContext } from 'react-admin';
 import { Link } from 'react-router-dom';
 import LargeContainer from '../../LargeContainer';
 import FullWidthBox from '../../FullWidthBox';
-import Button from '../../Button';
-import ItemsGrid from './ItemsGrid';
+import NextEvents from './NextEvents';
+import ChevronRightIcon from '../../../svg/ChevronRightIcon';
+import PictoAgenda from '../../../icons/PictoAgenda.png' ;
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
     paddingTop: '60px',
     paddingBottom: '60px',
   },
-  similarEventsImage: {
-    maxWidth: '100%',
-    marginTop: 20
+  logo: {
+    height: 91,
+    [theme.breakpoints.down('xs')]: {
+      height: 64,
+    },
   },
-  eventListBase: {
-    marginBottom: '40px',
-    color: theme.palette.primary.contrastText,
+  header: {
+    display: 'flex',
+    [theme.breakpoints.down('xs')]: {
+      flexWrap: 'wrap',
+    },
   },
+  subTitle: {
+    marginTop: -5,
+    marginBottom: 5
+  },
+  link: {
+    alignSelf: 'flex-end',
+    flexShrink: '0',
+    textDecoration: 'none',
+    display: 'flex',
+    flewWrap: 'nowrap',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    flexGrow: '10',
+    marginLeft: 20,
+    marginTop: 10,
+    color: theme.palette.secondary.main,
+    '& .MuiTypography-root': {
+      color: theme.palette.secondary.main,
+    },
+    '& svg [fill]': {
+      fill: theme.palette.secondary.main,
+    },
+    '& svg': {
+      height: '12px',
+    }
+  },
+  linkText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: theme.palette.secondary.main,
+    '&:hover': {
+      color: theme.palette.primary.main,
+    }
+  },  
+  agenda: {
+    boxShadow: "0px 1.2px 3.6px rgba(0, 0, 0, 0.1), 0px 6.4px 14.4px rgba(0, 0, 0, 0.13)",
+    borderRadius: 4,
+    padding: 28,
+  }
 }));
 
 const SimilarEvents = () => {
@@ -29,32 +71,25 @@ const SimilarEvents = () => {
   const { record } = useShowContext();
   return (
     <FullWidthBox className={classes.background}>
-      <LargeContainer>
-        <Grid container spacing={3}>
-          <Grid item sm={7}>
-            <Hidden smUp>
-              <Box mb={2}>
-                <Typography variant="h1" component="div">
-                Événements similaires
-                </Typography>
-              </Box>
-            </Hidden>
-            <ListBase resource="Event" basePath="/Event" className={classes.eventListBase}>
-              <ItemsGrid similarRecord={record} />
-            </ListBase>
-            <Button to="/Event" variant="contained" color="primary" component={Link} typographyVariant="button1">
-              Voir tous les évènements
-            </Button>
-          </Grid>
-          <Hidden xsDown>
-            <Grid item sm={1} />
-            <Grid item sm={4}>
-              <Box display="flex" alignItems="center" justifyContent="center" >
-                <img src={process.env.PUBLIC_URL + '/similar-events.png'} alt="Événements similaires"  className={classes.similarEventsImage} />
-              </Box>
-            </Grid>
-          </Hidden>
-        </Grid>
+      <LargeContainer className={classes.agenda}>
+        <Box>
+          <Box width={1} className={classes.header}>
+            <img src={PictoAgenda} alt="logo" className={classes.logo}/>
+            <Box>
+              <Typography variant="h2">Les Événements</Typography>
+              <Typography variant="h3" component="div" className={classes.subTitle}>
+                similaires
+              </Typography>
+            </Box>
+            <Link to='/Event' className={classes.link}>
+              <Typography component="span" className={classes.linkText}>
+                Voir tous les événements
+              </Typography>
+              <ChevronRightIcon />
+            </Link>
+          </Box>
+          <NextEvents similarRecord={record}/>
+        </Box>
       </LargeContainer>
     </FullWidthBox>
   );

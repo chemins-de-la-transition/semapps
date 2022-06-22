@@ -26,16 +26,19 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     fontSize: '1.8rem',
   },
-  divider: {
+  divider: (props) => ({
     backgroundColor: 'white',
-  },
+    margin: props.isVertical ? 0 : '4px 0 8px'
+  }),
   primary: (props) => ({
     whiteSpace: props.isVertical ? undefined : 'nowrap',
+    [theme.breakpoints.down('sm')]: {
+      whiteSpace: undefined,
+    },
   }),
   secondary: (props) => ({
     paddingTop: 2,
     fontSize: 14,
-    whiteSpace: props.isVertical ? undefined : 'nowrap',
     color: 'white',
     '& a, & span': {
       color: 'white'
@@ -49,10 +52,10 @@ const IconsList = ({ orientation, children }) => {
   const classes = useStyles({ isVertical });
   const { basePath, loaded, record, resource } = useShowContext();
 
-  if (!loaded) return null;
+  if (!loaded || !record) return null;
 
   const fields = React.Children.toArray(children).filter(
-    (field) => field && record[field.props.source] && React.isValidElement(field)
+    (field) => field && record && record[field.props.source] && React.isValidElement(field)
   );
 
   const dividerOrientation = isVertical ? 'horizontal' : 'vertical';

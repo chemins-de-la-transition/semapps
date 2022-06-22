@@ -6,6 +6,7 @@ import { makeStyles, Typography } from '@material-ui/core';
 import Chip from '../../commons/Chip';
 import PlaceIcon from '../../svg/PlaceIcon';
 import ThemeIcon from '../../svg/ThemeIcon';
+import { linkToFilteredList } from "../../utils";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -32,7 +33,7 @@ const PlaceCard = ({ record, variant }) => {
   return (
     <>
       <TextField variant="h2" component="div" record={record} source="pair:label" className={classes.title} />
-      {record['pair:hasPostalAddress'] ? (
+      {record['pair:hasPostalAddress'] && (city!==undefined) && (zipCode!==undefined) ? (
       <Chip icon={<PlaceIcon />}>
         <Typography variant="body1" className={classes.address}>
           {city+' ('+zipCode+')'}
@@ -46,10 +47,19 @@ const PlaceCard = ({ record, variant }) => {
           </ReferenceField>
         </Chip>
       ))}
+      {record['pair:hasSector'] && (
+        <Chip icon={<ThemeIcon />}>
+          <ReferenceArrayField record={record} reference="Sector" perPage={2} source="pair:hasSector">
+            <SeparatedListField link={false} separator=" /">
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+        </Chip>
+      )}
       {record['pair:hasTopic'] && (
         <Chip icon={<ThemeIcon />}>
           <ReferenceArrayField record={record} perPage={2} reference="Theme" source="pair:hasTopic">
-            <SeparatedListField link={false} separator=" / ">
+            <SeparatedListField link={linkToFilteredList( 'LEP', 'pair:hasTopic')} separator=" / ">
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>

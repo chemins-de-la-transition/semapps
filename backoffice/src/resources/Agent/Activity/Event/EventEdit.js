@@ -5,7 +5,22 @@ import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { DateTimeInput } from '@semapps/date-components';
 import { ImageField } from '@semapps/semantic-data-provider';
-import { PairLocationInput, ActorsInput, FinalitiesInput, PathsInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput, RegistrationInput } from '../../../../pair';
+import {
+  ActorsInput,
+  CoursesInput,
+  FinalitiesInput,
+  PairLocationInput,
+  PathsInput,
+  PersonsInput,
+  PlaceInput,
+  RegistrationInput,
+  SectorsInput,
+  SkillsInput,
+  ThemesInput,
+  TargetAudienceInput,
+  TypesInput
+} from '../../../../pair';
+import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
 import EventTitle from './EventTitle';
 
 const EventEdit = (props) => (
@@ -42,7 +57,7 @@ const EventEdit = (props) => (
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} />
-        <TextInput multiline source="cdlt:targetAudience" fullWidth />
+        <TargetAudienceInput source="cdlt:hasTargetAudience" fullWidth/>
         <MarkdownInput source="cdlt:organizerDescription" fullWidth />
         <MarkdownInput source="cdlt:mentorDescription" fullWidth />
         
@@ -51,17 +66,19 @@ const EventEdit = (props) => (
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <MarkdownInput source="cdlt:pedagogicalMeans" fullWidth />
-        <MarkdownInput source="cdlt:evaluationMethod" fullWidth />
 
         <MarkdownInput source="cdlt:practicalConditions" helperText="Précisez si besoin équipements, inscription, hébergement, repas..." fullWidth />
-        <NumberInput source="cdlt:attendeesMin" fullWidth />
-        <NumberInput source="cdlt:attendeesMax" fullWidth />
+        <NumberInput source="cdlt:minimumCapacity" fullWidth />
+        <NumberInput source="cdlt:maximumCapacity" fullWidth />
         <BooleanInput source="cdlt:full" helperText="Cochez si l'événement est complet" fullWidth />
         <TextInput multiline source="cdlt:accessibility" helperText="Précisez l'accessibilité de l'événement aux personnes en situation de handicap" fullWidth />
         
-        <NumberInput source="cdlt:price" fullWidth />
+        {/*<NumberInput source="cdlt:price" fullWidth />*/}
         <TextInput multiline source="cdlt:economicalConditions" fullWidth />
         <TextInput multiline source="cdlt:financialSupport" helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" fullWidth />
+        <TextInput multiline source="cdlt:evaluationMethod" fullWidth />
+        
+        <PairLocationInput source="pair:hasLocation" fullWidth />
         
         <RegistrationInput 
           directRegistrationSource="cdlt:directRegistration"
@@ -70,25 +87,28 @@ const EventEdit = (props) => (
           registrationLinkSource="cdlt:registrationLink"          
           fullWidth
         />
-        
-        <PairLocationInput source="pair:hasLocation" fullWidth />
+
+        <ReminderBeforeRecording />
+
       </FormTab>
 
       <FormTab label="Relations">
         <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
-        <PlaceInput source="pair:hostedIn" />
-        <CourseInput source="pair:partOf" />
+        <PlaceInput source="pair:hostedIn" fullWidth />
+        <CoursesInput source="pair:partOf" fullWidth />
         <PathsInput source="cdlt:eventOn" />
-        <ThemesInput source="pair:hasSector" />
-        <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />
-        <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} />
-        <SkillsInput source="pair:produces" fullWidth />
+        <SectorsInput source="pair:hasSector" />
+        <ThemesInput source="pair:hasTopic" />
+        <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
+        <TypesInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
+        <SkillsInput source="cdlt:requiredSkills" />
+        <SkillsInput source="pair:produces" />
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
       <FormTab label="Contact">
-        <TextInput source="pair:e-mail" fullWidth validate={[required(), email()]} />
-        <TextInput source="pair:phone" fullWidth />
+        <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />
+        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
         <TextInput source="pair:aboutPage" fullWidth />
       </FormTab>
     </TabbedForm>

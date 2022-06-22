@@ -21,8 +21,9 @@ export default {
       'pair:PlaceType',
       'pair:EventType',
       'pair:DocumentType',
+      'pair:OrganizationType',
       'cdlt:CourseType',
-      'cdlt:PathType'
+      'cdlt:PathType',
     ],
     fieldsMapping: {
       title: 'pair:label'

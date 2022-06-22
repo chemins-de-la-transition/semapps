@@ -10,7 +10,7 @@ import ItemsGrid from './ItemsGrid';
 const useStyles = makeStyles((theme) => ({
   background: {
     marginTop: 40,
-    borderTop: '1px lightgrey solid',
+    borderTop: '0px lightgrey solid',
   },
   container: {
     marginTop: 40,
@@ -33,14 +33,16 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: '10',
     marginLeft: '20px',
     marginTop: '10px',
-    '& .MuiTypography-root': {
-      color: theme.palette.secondary.main,
-    },
-    '& svg [fill]': {
-      fill: theme.palette.secondary.main,
+    '& span': {
+      textTransform: 'unset',
+      fontWeight: 600,
+      '&:hover': {
+        textDecoration: 'underline',
+      }
     },
     '& svg': {
       height: '12px',
+      fill: 'unset'
     },
   },
   listBase: {
@@ -57,15 +59,22 @@ const useStyles = makeStyles((theme) => ({
       flexShrink: '0',
     },
   },
+  logo: {
+    height: 91,
+    [theme.breakpoints.down('xs')]: {
+      height: 64,
+    },
+  }
 }));
 
-const SimilarList = ({ resource, basePath, title, subtitle, headComment, linkText, CardSubHeaderComponent }) => {
+const SimilarList = ({ resource, basePath, title, subtitle, logo, headComment, linkText, CardSubHeaderComponent }) => {
   const classes = useStyles();
   const { record } = useShowContext();
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer className={classes.container}>
         <Box width={1} className={classes.header}>
+          <img src={logo} alt="logo" className={classes.logo}/>
           <Box>
             <Typography variant="h2">{title}</Typography>
             <Typography variant="h3" component="div">
@@ -76,7 +85,7 @@ const SimilarList = ({ resource, basePath, title, subtitle, headComment, linkTex
             </Typography>
           </Box>
           <Link to={basePath} className={classes.link}>
-            <Typography variant="button" className="button2">
+            <Typography variant="button" color="secondary">
               {linkText}
             </Typography>
             <ChevronRightIcon />

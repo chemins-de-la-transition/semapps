@@ -7,13 +7,17 @@ import LargeContainer from '../../LargeContainer';
 import SubAppBar from './SubAppBar';
 
 const useStyles = makeStyles((theme) => ({
+  mainContainer: {
+    '& h6': {
+      borderTop: '1px lightgrey solid',
+      paddingTop: 8,
+      paddingBottom: 8,
+      margin: 0
+    }
+  },
   divider: {
     paddingTop: 5,
     paddingBottom: 20,
-    borderBottom: '1px lightgrey solid',
-    '&:last-child': {
-      borderBottom: 'none',
-    },
   },
 }));
 
@@ -22,16 +26,16 @@ const BodyList = ({ children, aside, alert }) => {
   const classes = useStyles();
   const { basePath, loaded, record, resource } = useShowContext();
 
-  if (!loaded) return null;
+  if (!loaded || !record) return null;
 
   const fields = React.Children.toArray(children).filter(
-    (field) => field.props.title || (field && record[field.props.source] && React.isValidElement(field))
+    (field) => field.props.title || (field && record && record[field.props.source] && React.isValidElement(field))
   );
 
   return (
     <>
       <SubAppBar fields={fields} />
-      <FullWidthBox>
+      <FullWidthBox className={classes.mainContainer}>
         <LargeContainer>
           <Grid container spacing={2}>
             <Grid item md={9} sm={12} xs={12}>

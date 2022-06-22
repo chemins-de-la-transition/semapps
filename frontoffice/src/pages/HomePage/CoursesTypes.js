@@ -59,8 +59,8 @@ const useStyles = makeStyles((theme) => ({
 const LocalGridItem = ({ title, text, icon, type }) => {
   const classes = useStyles();
   const filters = {'cdlt:hasCourseType':process.env.REACT_APP_MIDDLEWARE_URL+"types/"+type}
-  const link = window.location.href +`Course?filter=${encodeURIComponent(JSON.stringify(filters))}`
-
+  const link = window.location.href +`LEP?filter=${encodeURIComponent(JSON.stringify(filters))}`
+  
   return (
     <Grid item sm={6} md={3}>
       <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column">
@@ -87,30 +87,30 @@ const CoursesTypes = () => {
           Apprendre en voyageant
         </Typography>
         <Typography variant="h3" className={classes.subTitle}>
-          à son rythme
+          en mode
         </Typography>
         <Grid container spacing={3}>
           <LocalGridItem
             title="Découverte"
-            text="Je suis curieux, j’ouvre les yeux sur des métiers liés à la transition qui existent en visitant des lieux inspirants pendant mon voyage"
+            text="En solo, en famille ou avec vos amis, baladez-vous, à pied, à cheval ou à vélo, de lieux en lieux sur les Chemins de la Transition"
             icon={Type1Icon}
             type="ecotourisme" 
           />
           <LocalGridItem
             title="Apprenant"
-            text="Une pratique m’intéresse, j’ai envie d’en savoir plus. Profitez de ces voyages sur quelques jours pour visiter différents lieux et rencontrer les porteurs de projets"
+            text="Rencontrez le temps de quelques heures ou d’une journée des acteurs de la transition afin de vous enrichir de leurs pratiques"
             icon={Type2Icon}
             type="voyage-apprenant1"
           />
           <LocalGridItem
             title="Immersif"
-            text="J’ai envie d’apprendre en participant. Ces voyages sur quelques semaines vous permettront d’experimenter par le faire et de participer à un projet de votre choix"
+            text="Contribuez et apprenez en contribuant, contre le gîte et le couvert, en immersion auprès d’acteurs de la transition."
             icon={Type3Icon}
             type="immersion-longue"
           />
           <LocalGridItem
             title="Compagnonnage"
-            text="Je décide de me lancer pour me former à une pratique. Vous serez en immersion longue au sein d’un lieu et suivrez des modules théoriques pour une validation d’acquis."
+            text="Inscrivez-vous à des formations itinérantes, certifiées et qualifiantes en immersion auprès d’acteurs experts dans leur domaine."
             icon={Type4Icon}
             type="compagnonnage"
           />

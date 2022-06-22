@@ -25,7 +25,7 @@ const ProjectFilterSidebar = () => {
       <CardContent className={classes.cardContent}>
         <ReferenceFilter reference="Status" source="pair:hasStatus" filter={{ a: 'cdlt:CourseStatus' }} />
         <ReferenceFilter reference="Type" source="pair:hasType" filter={{ a: 'cdlt:CourseType' }} />
-        <ReferenceFilter reference="Theme" source="pair:hasTopic" />
+        <ReferenceFilter reference="Sector" source="pair:hasSector" />
       </CardContent>
     </Card>
   );

@@ -44,7 +44,7 @@ const Filter = ({ reference, source, inverseSource, limit, sort, filter, label, 
       <Select labelId="region" value={filterValues[source] || ''} onChange={changeFilter}>
         <MenuItem>---</MenuItem>
         {ids
-          .filter((id) => !inverseSource || data[id][inverseSource])
+          .filter((id) => !inverseSource || data[id]?.[inverseSource])
           .map((id) => (
             <MenuItem key={id} value={id}>
               {data[id]?.['pair:label']}

@@ -128,6 +128,12 @@ module.exports = [
     newResourcesPermissions: writePermissionToCreator,
   },
   {
+    path: '/target-audiences',
+    acceptedTypes: ['cdlt:TargetAudience'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator,
+  },
+  {
     path: '/sectors',
     acceptedTypes: ['pair:Sector'],
     permissions: anonReadPermission,
@@ -147,7 +153,7 @@ module.exports = [
   },
   {
     path: '/types',
-    acceptedTypes: ['cdlt:PathType', 'cdlt:CourseType', 'pair:PlaceType', 'pair:EventType', 'pair:PersonType'],
+    acceptedTypes: ['cdlt:PathType', 'cdlt:CourseType', 'pair:PlaceType', 'pair:EventType', 'pair:PersonType', 'pair:OrganizationType'],
     permissions: anonReadPermission,
     newResourcesPermissions: writePermissionToCreator,
   },

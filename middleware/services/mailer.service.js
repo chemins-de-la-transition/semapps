@@ -29,31 +29,56 @@ module.exports = {
       route: {
         bodyParsers: { json: true },
         aliases: {
-          [`POST _mailer/contact-place`]: 'mailer.contactPlace'
+          [`POST _mailer/contact`]: 'mailer.contact'
         }
       }
     });
   },
   actions: {
-    async contactPlace(ctx) {
-      let { placeUri, name, email, content } = ctx.params;
+    async contact(ctx) {
+      const { resourceUri, name, email, content } = ctx.params;
+      let to, resourceLabel, resourceFrontPath;
 
-      if( !placeUri ) {
-        throw new Error('One or more parameters are missing');
-      }
+      if( !resourceUri ) throw new Error('Un ou plusieurs paramètres sont manquants');
 
-      const place = await ctx.call('ldp.resource.get', {
-        resourceUri: placeUri,
-        accept: MIME_TYPES.JSON
+      const resource = await ctx.call('ldp.resource.get', {
+        resourceUri,
+        accept: MIME_TYPES.JSON,
+        webId: 'system'
       });
 
+      const types = Array.isArray(resource.type) ? resource.type : [resource.type];
+
+      if( types.includes('pair:Place') ) {
+        to = resource['pair:e-mail'];
+        resourceLabel = resource['pair:label'];
+        resourceFrontPath = 'Place';
+      } else if( types.includes('pair:Organization') ) {
+        to = resource['pair:e-mail'];
+        resourceLabel = resource['pair:label'];
+        resourceFrontPath = 'Organization';
+      } else if( types.includes('pair:Person') ) {
+        const account = await ctx.call('auth.account.findByWebId', { webId: resourceUri });
+        to = account && account.email;
+        resourceLabel = "votre profil";
+        resourceFrontPath = 'Person';
+      } else if( types.includes('pair:Path') ) {
+        to = "bonjour@lescheminsdelantransition.org";
+        resourceLabel = resource['pair:label'];
+        resourceFrontPath = 'Path';
+      } else {
+        throw new Error('Impossible de contacter ce type de ressource: ' + resource.type);
+      }
+
+      if (!to) throw new Error('Aucune adresse mail définie pour ' + resourceLabel + '!')
+
       await ctx.call('mailer.send', {
-        to: place['pair:e-mail'],
+        to,
         replyTo: `${name} <${email}>`,
-        template: 'contact-place',
+        template: 'contact',
         data: {
-          place,
-          placeFrontUri: `https://app.lescheminsdelatransition.org/Place/${encodeURIComponent(placeUri)}/show`,
+          resourceLabel,
+          resourceFrontUrl: `https://lescheminsdelatransition.org/${resourceFrontPath}/${encodeURIComponent(resourceUri)}/show`,
           name,
           email,
           content,
@@ -76,7 +101,7 @@ module.exports = {
         data: {
           actor,
           account: accountData,
-          loginUri: `https://app.lescheminsdelatransition.org/login`
+          loginUri: `https://lescheminsdelatransition.org/login`
         }
       });
     },

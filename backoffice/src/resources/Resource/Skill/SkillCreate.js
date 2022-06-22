@@ -5,7 +5,7 @@ import { LexiconImportForm, fetchESCO } from "@semapps/interop-components";
 const SkillCreate = (props) => (
   <Create {...props}>
     <LexiconImportForm
-      fetchLexicon={fetchESCO}
+      fetchLexicon={fetchESCO('https://esco.commondata.one')}
       selectData={data => ({
         'pair:label': data.label,
         'http://www.w3.org/ns/prov#wasDerivedFrom': data.uri,

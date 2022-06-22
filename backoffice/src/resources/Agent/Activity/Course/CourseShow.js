@@ -1,6 +1,7 @@
 import React from "react";
 import {
   ChipField,
+  NumberField,
   SingleFieldList,
   TextField,
   UrlField,
@@ -30,14 +31,16 @@ const CourseShow = (props) => (
           <DateField source="pair:startDate" />
           <DateField source="pair:endDate" />
           <TextField source="cdlt:priceRange" />
-          <ReferenceArrayField source="pair:hasCourseType" reference="Type">
+          <ReferenceArrayField source="cdlt:hasCourseType" reference="Type">
             <SeparatedListField link={false}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
-          <ReferenceField source="cdlt:hasRegion" reference="Region" link={false}>
-            <TextField source="pair:label" />
-          </ReferenceField>
+          <ReferenceArrayField source="cdlt:hasRegion" reference="Region">
+            <SeparatedListField link={false}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
           <EmailField source="pair:e-mail" />
           <TextField source="pair:phone" />
           <UrlField source="pair:homePage" />
@@ -54,12 +57,20 @@ const CourseShow = (props) => (
         />
         <MainList>
           <MarkdownField source="pair:description" />
+          <ReferenceArrayField reference="TargetAudience" source="cdlt:hasTargetAudience">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
           <MarkdownField source="cdlt:organizerDescription" />
           <MarkdownField source="cdlt:mentorDescription" />
           <MarkdownField source="cdlt:prerequisites" />
           <MarkdownField source="cdlt:practicalConditions" />
+          <NumberField source="cdlt:minimumCapacity" />
+          <NumberField source="cdlt:maximumCapacity" />
           <MarkdownField source="cdlt:learningObjectives" />
           <MarkdownField source="cdlt:economicalConditions" />
+          <MarkdownField source="cdlt:financialSupport" />
           <ReferenceArrayField
             label="Déroulé"
             reference="Event"
@@ -89,6 +100,7 @@ const CourseShow = (props) => (
               scrollWheelZoom
             />
           </ReferenceArrayField>
+          {/*
           <ReferenceArrayField label="Documents liés" reference="Document" source="pair:documentedBy" sort={{ field: 'dc:created', order: 'DESC' }}>
             <Datagrid rowClick="show">
               <DateField label="Date" source="dc:created" />
@@ -102,6 +114,7 @@ const CourseShow = (props) => (
               <ShowButton />
             </Datagrid>
           </ReferenceArrayField>
+          */}
         </MainList>
       </Grid>
       <Grid item xs={12} sm={3}>
@@ -123,13 +136,23 @@ const CourseShow = (props) => (
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Sector" source="pair:hasSector">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-            <SingleFieldList linkType="show">
+            <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Finality" source="pair:hasFinality">
             <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Skill" source="cdlt:requiredSkills">
+            <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>

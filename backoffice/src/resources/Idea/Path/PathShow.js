@@ -1,13 +1,12 @@
 import React from 'react';
 import { ChipField, Datagrid, DateField, ShowButton, SingleFieldList, TextField } from 'react-admin';
 import { Grid } from '@material-ui/core';
-import { MainList, SideList, Hero, GridList, AvatarField } from '@semapps/archipelago-layout';
+import { MainList, SideList, Hero, GridList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { MarkdownField } from '@semapps/markdown-components';
 import { MapList } from '@semapps/geo-components';
 import PathTitle from './PathTitle';
-import RegistrationButton from '../../../commons/RegistrationButton';
 
 const PathShow = (props) => (
   <ShowWithPermissions title={<PathTitle />} {...props}>
@@ -15,31 +14,14 @@ const PathShow = (props) => (
       <Grid item xs={12} sm={9}>
         <Hero>
           <TextField source="pair:comment" />
-          {/*
-          <ReferenceArrayField source="pair:hasType" reference="Type">
+          <ReferenceArrayField source="cdlt:hasCourseType" reference="Type">
             <SeparatedListField link={false}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
-          <ReferenceField source="pair:hasStatus" reference="Status" link={false}>
-            <TextField source="pair:label" />
-          </ReferenceField>
-          */}
         </Hero>
-        <RegistrationButton 
-          directRegistrationSource="cdlt:directRegistration"
-          registrationOptionSource="cdlt:registrationOption"
-          jotformLinkSource="cdlt:jotformLink"
-          registrationLinkSource="cdlt:registrationLink" 
-        />
         <MainList>
           <MarkdownField source="pair:description" />
-          {/*
-          <MarkdownField source="cdlt:forWhom" />
-          <MarkdownField source="cdlt:prerequisites" />
-          <MarkdownField source="cdlt:learningObjectives" />
-          <MarkdownField source="cdlt:professionalPerspectives" />
-          */}
           <ReferenceArrayField
             reference="Course"
             source="cdlt:hasCourse"
@@ -77,6 +59,7 @@ const PathShow = (props) => (
               boundToMarkers
             />
           </ReferenceArrayField>
+          <MarkdownField source="cdlt:learningObjectives" />
         </MainList>
       </Grid>
       <Grid item xs={12} sm={3}>
@@ -91,8 +74,13 @@ const PathShow = (props) => (
               <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Sector" source="pair:hasSector">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Theme" source="pair:hasTopic">
-            <SingleFieldList linkType="show">
+            <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>

@@ -1,20 +1,22 @@
 import React from 'react';
-import { FormTab, ImageInput, TabbedForm, TextInput } from 'react-admin';
+import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput, email } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
 import {
   PathsInput, 
   ActorsInput,
+  EventsInput,
   FinalitiesInput,
   PersonsInput,
-  /*EventsInput,*/
   ThemesInput,
-  StatusInput,
+  SectorsInput,
+//  StatusInput,
   TypesInput,
   SkillsInput,
-  DocumentsType,
-  RegistrationInput
+//  DocumentsType,
+  RegistrationInput,
+  TargetAudienceInput
 } from '../../../../pair';
 import CourseTitle from './CourseTitle';
 import { DateInput } from '@semapps/date-components';
@@ -50,13 +52,17 @@ const CourseEdit = (props) => (
           fullWidth
         />
         <MarkdownInput source="pair:description" fullWidth />
+        <TargetAudienceInput source="cdlt:hasTargetAudience" fullWidth/>
         <MarkdownInput source="cdlt:organizerDescription" fullWidth />
         <MarkdownInput source="cdlt:mentorDescription" fullWidth />
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
         <MarkdownInput source="cdlt:practicalConditions" fullWidth />
+        <NumberInput source="cdlt:minimumCapacity" fullWidth />
+        <NumberInput source="cdlt:maximumCapacity" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <TextInput source="cdlt:priceRange" fullWidth />
         <MarkdownInput source="cdlt:economicalConditions" fullWidth />
+        <MarkdownInput source="cdlt:financialSupport" fullWidth />
         <RegistrationInput 
           directRegistrationSource="cdlt:directRegistration"
           registrationOptionSource="cdlt:registrationOption"
@@ -66,22 +72,22 @@ const CourseEdit = (props) => (
         />
       </FormTab>
       <FormTab label="Relations">
-        {/*<PathInput source="cdlt:courseOn" />*/}
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
-        <StatusInput source="pair:hasStatus" filter={{ a: 'cdlt:CourseStatus' }} />
+        <EventsInput source="pair:hasPart" fullWidth />
         <PathsInput source="cdlt:courseOn" />
+        <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
-        {/*<EventsInput source="pair:hasPart" />*/}
+        <SkillsInput source="cdlt:requiredSkills" />
         <SkillsInput source="pair:produces" />
         <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
-        <DocumentsType source="pair:documentedBy" />
+        {/*<DocumentsType source="pair:documentedBy" />*/}
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
       <FormTab label="Contact">
-        <TextInput source="pair:e-mail" fullWidth />
-        <TextInput source="pair:phone" fullWidth />
-        <TextInput source="pair:homePage" fullWidth />
+        <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[email()]} />
+        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
+        <TextInput source="pair:homePage" fullWidth/>
       </FormTab>
     </TabbedForm>
   </EditWithPermissions>

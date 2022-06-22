@@ -15,7 +15,22 @@ import {
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { DateTimeInput } from '@semapps/date-components';
-import { PairLocationInput, FinalitiesInput, PathsInput, PersonsInput, PlaceInput, SkillsInput, ThemesInput, TypeInput, CourseInput, ActorsInput } from '../../../pair';
+import {
+  ActorsInput,
+  CoursesInput,
+  FinalitiesInput,
+  PairLocationInput,
+  PathsInput,
+  PersonsInput,
+  PlaceInput,
+  RegistrationInput,
+  SectorsInput,
+  SkillsInput,
+  TargetAudienceInput,
+  ThemesInput,
+  TypesInput,
+} from '../../../pair';
+import ReminderBeforeRecording from '../../../commons/ReminderBeforeRecording';
 import frLocale from 'date-fns/locale/fr';
 import { Box, FormControlLabel, Slide, LinearProgress, makeStyles, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
@@ -35,6 +50,17 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: 'center',
       alignItems: 'center',
     }
+  },
+  formTab: {
+    /*
+    fontSize: 14,
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
+    '&:hover': {
+      color: 'white',
+      fontWeight: 'bold',
+    }
+    */
   }
 }));
 
@@ -125,9 +151,9 @@ const EventForm = ({ mode, ...rest }) => {
     <TabbedForm
       initialValues={ initalValues(mode) }
       {...rest}
-      redirect="/MyEvents"
+      redirect="show"
     >
-      <FormTab label="Données">
+      <FormTab label="Données" className={classes.formTab}>
 
         <TextInput source="pair:label" fullWidth validate={[required()]} />
         { ['create', 'duplicate'].includes(mode)  &&
@@ -192,7 +218,7 @@ const EventForm = ({ mode, ...rest }) => {
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} />
-        <TextInput multiline source="cdlt:targetAudience" fullWidth />
+        <TargetAudienceInput source="cdlt:hasTargetAudience" fullWidth />
         <MarkdownInput source="cdlt:organizerDescription" fullWidth />
         <MarkdownInput source="cdlt:mentorDescription" fullWidth />
 
@@ -201,36 +227,45 @@ const EventForm = ({ mode, ...rest }) => {
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <MarkdownInput source="cdlt:pedagogicalMeans" fullWidth />
-        <MarkdownInput source="cdlt:evaluationMethod" fullWidth />
 
         <MarkdownInput source="cdlt:practicalConditions" helperText="Précisez si besoin équipements, inscription, hébergement, repas..." fullWidth />
-        <NumberInput source="cdlt:attendeesMin" fullWidth />
-        <NumberInput source="cdlt:attendeesMax" fullWidth />
+        <NumberInput source="cdlt:minimumCapacity" fullWidth />
+        <NumberInput source="cdlt:maximumCapacity" fullWidth />
         <BooleanInput source="cdlt:full" helperText="Cochez si l'événement est complet" fullWidth />
         <TextInput multiline helperText="Précisez l'accessibilité de l'événement aux personnes en situation de handicap" source="cdlt:accessibility" fullWidth />
 
-        <NumberInput source="cdlt:price" fullWidth />
+        {/*<NumberInput source="cdlt:price" fullWidth />*/}
         <TextInput multiline source="cdlt:economicalConditions" fullWidth />
         <TextInput multiline helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" source="cdlt:financialSupport" fullWidth />
+        <TextInput multiline source="cdlt:evaluationMethod" fullWidth />
 
         <PairLocationInput source="pair:hasLocation" fullWidth />
-        <BooleanInput source="cdlt:directRegistration" fullWidth />
+        <RegistrationInput 
+          directRegistrationSource="cdlt:directRegistration"
+          registrationOptionSource="cdlt:registrationOption"
+          jotformLinkSource="cdlt:jotformLink"
+          registrationLinkSource="cdlt:registrationLink"          
+          fullWidth
+        />
+        <ReminderBeforeRecording />
       </FormTab>
-      <FormTab label="Relations">
-        <ActorsInput source="cdlt:organizedBy"/>
+      <FormTab label="Relations" className={classes.formTab}>
+        <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
-        <PlaceInput source="pair:hostedIn" />
-        <CourseInput source="pair:partOf" />
+        <PlaceInput source="pair:hostedIn" fullWidth />
+        <CoursesInput source="pair:partOf" fullWidth />
         <PathsInput source="cdlt:eventOn" fullWidth />
-        <ThemesInput source="pair:hasSector" />
-        <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />
-        <TypeInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} />
+        <SectorsInput source="pair:hasSector" />
+        <ThemesInput source="pair:hasTopic" />
+        <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
+        <TypesInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
+        <SkillsInput source="cdlt:requiredSkills" fullWidth />
         <SkillsInput source="pair:produces" fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
-      <FormTab label="Contact">
-        <TextInput source="pair:e-mail" fullWidth validate={[required(), email()]} />
-        <TextInput source="pair:phone" fullWidth />
+      <FormTab label="Contact" className={classes.formTab}>
+        <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />
+        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
         <TextInput source="pair:aboutPage" fullWidth />
       </FormTab>
     </TabbedForm>

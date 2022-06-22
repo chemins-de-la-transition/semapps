@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, useNotify, required, useShowContext } from 'react-admin';
-import { Dialog, DialogTitle, DialogContent, DialogActions, makeStyles, TextField } from '@material-ui/core';
+import { useNotify, required, useShowContext } from 'react-admin';
+import { Dialog, DialogTitle, DialogContent, DialogActions, makeStyles, TextField, Button } from '@material-ui/core';
 import { Form, Field } from 'react-final-form';
 import SendIcon from '@material-ui/icons/Send';
 
@@ -10,7 +10,11 @@ const useStyles = makeStyles(() => ({
     paddingBottom: 8
   },
   actions: {
-    padding: 15
+    padding: 20,
+    paddingTop: 10,
+    '& button': {
+      padding: 10
+    }
   },
   addForm: {
     paddingTop: 0
@@ -41,24 +45,25 @@ const ContactDialog = ({ open, onClose }) => {
   const notify = useNotify();
 
   const onSubmit = async values => {
-    const result = await fetch(process.env.REACT_APP_MIDDLEWARE_URL + '_mailer/contact-place', {
+    const result = await fetch(process.env.REACT_APP_MIDDLEWARE_URL + '_mailer/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ placeUri: record['@id'] || record.id, ...values })
+      body: JSON.stringify({ resourceUri: record['@id'] || record.id, ...values })
     });
 
     if( result.ok ) {
       onClose();
       notify('Votre message a bien été envoyé', 'success');
     } else {
-      notify('Erreur lors de votre envoi de message', 'error');
+      const json = await result.json();
+      notify(json.message, 'error');
     }
   };
 
   return (
     <Form
       onSubmit={onSubmit}
-      render={({ handleSubmit, form, submitting, pristine }) => (
+      render={({ handleSubmit, form, submitting }) => (
         <form onSubmit={handleSubmit}>
           <Dialog fullWidth open={open} onClose={onClose}>
             <DialogTitle className={classes.title}>Contacter {record?.['pair:label']}</DialogTitle>
@@ -68,8 +73,8 @@ const ContactDialog = ({ open, onClose }) => {
               <Field name="content" component={FinalFormTextField} label="Message" variant="filled" margin="dense" fullWidth multiline rows={7} validate={required('Champ requis')} />
             </DialogContent>
             <DialogActions className={classes.actions}>
-              <Button label="ra.action.close" variant="text" onClick={onClose} />
-              <Button type="submit" label="Envoyer" variant="contained" endIcon={<SendIcon />} onClick={() => form.submit()} disabled={submitting || pristine} />
+              <Button variant="text" onClick={onClose}>Fermer</Button>
+              <Button type="submit" variant="contained" color="primary" endIcon={<SendIcon />} onClick={() => form.submit()} disabled={submitting}>Envoyer</Button>
             </DialogActions>
           </Dialog>
         </form>

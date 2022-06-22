@@ -1,27 +1,13 @@
 import React, { useMemo } from 'react';
 import {makeStyles, Typography, List, ListItem, ListItemText, Box } from '@material-ui/core';
-import { DateField, useListContext, TextField, FunctionField } from 'react-admin';
+import { DateField, useListContext, ImageField, TextField, FunctionField, SingleFieldList } from 'react-admin';
 import DurationField from '../../fields/DurationField';
 import { Link } from 'react-router-dom';
-import { ReferenceField } from '@semapps/semantic-data-provider';
+import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import { sortBySimilarity } from "../../../utils";
 import CalendarIcon from '../../../svg/CalendarIcon';
 import DurationIcon from '../../../svg/DurationIcon' ;
 import PlaceIcon from '../../../svg/PlaceIcon' ;
-import AgricultureAlimentation_PictoSeul from '../../../icons/AgricultureAlimentation_PictoSeul.png' ;
-import Artisanat_PictoSeul from '../../../icons/Artisanat_PictoSeul.png' ;
-import Communication_PictoSeul from '../../../icons/Communication_PictoSeul.png' ;
-import CultureModeVie_PictoSeul from '../../../icons/CultureModeVie_PictoSeul.png' ;
-import DevTerritorial_PictoSeul from '../../../icons/DevTerritorial_PictoSeul.png' ;
-import Ecologie_PictoSeul from '../../../icons/Ecologie_PictoSeul.png' ;
-import Energie_PictoSeul from '../../../icons/Energie_PictoSeul.png' ;
-import Gouvernance_PictoSeul from '../../../icons/Gouvernance_PictoSeul.png' ;
-import Habitat_PictoSeul from '../../../icons/Habitat_PictoSeul.png' ;
-import JusticeSociale_PictoSeul from '../../../icons/JusticeSociale_PictoSeul.png' ;
-import Mobilite_PictoSeul from '../../../icons/Mobilite_PictoSeul.png' ;
-import Sante_Bienetre_PictoSeul from '../../../icons/Sante_Bienetre_PictoSeul.png' ;
-import ScienceTech_PictoSeul from '../../../icons/ScienceTech_PictoSeul.png' ;
-
 
 const useStyles = makeStyles((theme) => ({
   eventType: {
@@ -68,10 +54,14 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 12,
     }
   },
+  dataField: {
+    color: theme.palette.primary.contrastText
+  },
   eventDescription: {
     color: theme.palette.primary.contrastText,
   },
   listItem: {
+    position: 'relative',
     padding: 20,
     alignItems: 'flex-start',
     backgroundColor: theme.palette.secondary.main+'99',
@@ -101,6 +91,10 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.secondary.main+'CC',
     },
   },
+  listItemText: {
+    position: 'relative',
+    zIndex: 2,
+  },
   icon: {
     color: theme.palette.white.main,
     width: 10,
@@ -112,8 +106,18 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     position: 'relative',
   },
+  sector: {
+    '& img': {
+      position: 'absolute',
+      width: 'calc(100% - 40px)',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      objectFit: 'cover',
+      margin: 0,
+      zIndex: 1
+    }
+  }
 }));
-
 
 const EventItemsGrid = ({ similarRecord }) => {
   const classes = useStyles();
@@ -123,44 +127,34 @@ const EventItemsGrid = ({ similarRecord }) => {
     if( !similarRecord ) return ids;
     return ids
       .filter(id => data[id] && id !== similarRecord.id )
-      .sort(sortBySimilarity(data, similarRecord, 'pair:hasType'))
+      .sort(sortBySimilarity(data, similarRecord, 'pair:hasSector'))
+      .sort(sortBySimilarity(data, similarRecord, 'pair:hasRegion'))
       .sort(sortBySimilarity(data, similarRecord, 'cdlt:hasCourseType'))
-      .sort(sortBySimilarity(data, similarRecord, 'pair:hasLocation'))
+      .sort(sortBySimilarity(data, similarRecord, 'pair:hasType'))
       .slice(0, 4);
   }, [ids, data, similarRecord]);
-
-  function ChoosePicture(categories) {
-    const category=Array.isArray(categories) ? categories[0] : categories;
-    const pictoCategories = {
-      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/agriculture-et-alimentation"] : AgricultureAlimentation_PictoSeul,
-      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/artisanat-commerce-industrie"] : Artisanat_PictoSeul,
-      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/decentralisation-du-web"] : Communication_PictoSeul,
-      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/education-alternative"] : CultureModeVie_PictoSeul,
-      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/developpement-territorial"] : DevTerritorial_PictoSeul,
-      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/ecopsychologie"] : Ecologie_PictoSeul,
-      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/web-semantique"] : Energie_PictoSeul,
-      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/open-hardware"] : Gouvernance_PictoSeul,
-      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/tiers-lieu"] : Habitat_PictoSeul,
-      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/justice-sociale"] : JusticeSociale_PictoSeul,
-      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/mobilites"] : Mobilite_PictoSeul,
-      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/sante-et-bien-etre"] : Sante_Bienetre_PictoSeul,
-      [process.env.REACT_APP_MIDDLEWARE_URL+"themes/low-tech"] : ScienceTech_PictoSeul,
-    }
-    return pictoCategories[category]
-  }
 
   return (
     <List className={classes.listBox}>
       {sortedIds.map((id) => (
         <ListItem
           className={classes.listItem}
-          style={{backgroundImage:`url(${ChoosePicture(data[id]['pair:hasTopic'])})`}}
           button={true}
           component={Link}
           to={'/Event/' + encodeURIComponent(id) + '/show'}
           key={id}
         >
+          { data[id]['pair:hasSector'] &&
+            <Box className={classes.sector}>
+              <ReferenceArrayField source="pair:hasSector" reference="Sector" perPage={1} record={data[id]}>
+                <SingleFieldList>
+                  <ImageField source="cdlt:alternativeImage" title="pair:label" />
+                </SingleFieldList>
+              </ReferenceArrayField>
+            </Box>
+          }
           <ListItemText
+            className={classes.listItemText}
             primary={
               <>
                 {data[id]['pair:hasType'] && (
@@ -220,11 +214,13 @@ const EventItemsGrid = ({ similarRecord }) => {
                       record={data[id]}
                       source="pair:startDate"
                       options={{ year: 'numeric', month: 'numeric', day: 'numeric' }}
+                      className={classes.dataField}
                     /> {" au "}
                     <DateField
                       record={data[id]}
                       source="pair:endDate"
                       options={{ year: 'numeric', month: 'numeric', day: 'numeric' }}
+                      className={classes.dataField}
                     />
                 </Typography>
                 </div>

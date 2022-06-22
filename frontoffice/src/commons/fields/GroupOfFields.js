@@ -3,28 +3,39 @@ import { useTranslate, getFieldLabelTranslationArgs, useShowContext } from 'reac
 import { makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
+  mainContainer: {
+    paddingTop: 5,
+    color: theme.palette.grey40.main,
+    '& h6': {
+      paddingBottom: 3,
+      marginTop: 0
+    },
+  },
   fieldClass: {
     paddingTop: 5,
     paddingBottom: 20,
   },
-  divider: {
-    borderBottom: '1px lightgrey solid',
+  noBorder: {
+    marginTop: 8,
+    '& h6': {
+      border: 'none'
+    },
   }
 }));
 
-const GroupOfFields = ({ children, source, title }) => {
+const GroupOfFields = ({ children, source, title, noBorder }) => {
   const translate = useTranslate();
   const classes = useStyles();
   const { basePath, loaded, record, resource } = useShowContext();
-  if (!loaded) return null;
+  if (!loaded || !record) return null;
 
   const fields = React.Children.toArray(children).filter(
-    (field) => field && record[field.props.source] && React.isValidElement(field)
+    (field) => field && record && record[field.props.source] && React.isValidElement(field)
   );
 
   return (
-    <div> 
-    {(fields.length > 0) && <Typography variant="h6" color="secondary" className={classes.divider} style={{marginBottom:30}}>
+    <div className={`${classes.mainContainer} ${noBorder ? classes.noBorder : ''}`}> 
+    {(fields.length > 0) && <Typography variant="h6" color="secondary">
         {title}
     </Typography>
     }
@@ -32,7 +43,7 @@ const GroupOfFields = ({ children, source, title }) => {
     <div key={field.props.source} id={field.props.source} className={classes.fieldClass}>
         {field.props.addLabel ? (
         <>
-            <Typography variant="h5" color="secondary" style={{fontWeight:500}}>
+            <Typography variant="h5" component="div" color="secondary" style={{fontWeight:500}}>
                 {translate(
                 ...getFieldLabelTranslationArgs({
                     label: field.props.label,

@@ -52,7 +52,11 @@ const EventShow = (props) => (
         />
         <MainList>
           <MarkdownField source="pair:description"/>
-          <MarkdownField source="cdlt:targetAudience"/>
+          <ReferenceArrayField reference="TargetAudience" source="cdlt:hasTargetAudience">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
           <MarkdownField source="cdlt:organizerDescription" />
           <MarkdownField source="cdlt:mentorDescription" />
           
@@ -61,17 +65,17 @@ const EventShow = (props) => (
           <MarkdownField source="cdlt:prerequisites" addLabel />
           <MarkdownField source="cdlt:learningObjectives" addLabel />
           <MarkdownField source="cdlt:pedagogicalMeans" />
-          <MarkdownField source="cdlt:evaluationMethod" />
 
           <MarkdownField source="cdlt:practicalConditions" />
-          <NumberField source="cdlt:attendeesMin" />
-          <NumberField source="cdlt:attendeesMax" />
+          <NumberField source="cdlt:minimumCapacity" />
+          <NumberField source="cdlt:maximumCapacity" />
           <BooleanField source="cdlt:full" />
           <MarkdownField source="cdlt:accessibility" />
         
-          <NumberField source="cdlt:price" />
+          {/*<NumberField source="cdlt:price" />*/}
           <MarkdownField source="cdlt:economicalConditions" />
           <MarkdownField source="cdlt:financialSupport" />
+          <MarkdownField source="cdlt:evaluationMethod" />
         
           <BooleanField source="cdlt:directRegistration" />
           <EventMapField source="pair:hasLocation" />
@@ -99,13 +103,23 @@ const EventShow = (props) => (
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Theme" source="pair:hasSector">
-            <SingleFieldList linkType="show">
+          <ReferenceArrayField reference="Sector" source="pair:hasSector">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+            <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Finality" source="pair:hasFinality">
             <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Skill" source="cdlt:requiredSkills">
+            <SingleFieldList linkType="show">
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>

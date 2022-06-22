@@ -50,18 +50,19 @@ const ChevronIcon = (props) => (
 );
 
 const SelectResources = ({ reference, inverseSource, selectIcon, filter, ...rest }) =>{
-    const { data, ids } = useGetList(reference, undefined, { field: 'pair:label', order: 'ASC' }, filter);
+    const { data, ids } = useGetList(reference, { perPage: 999, page: 1 }, { field: 'pair:label', order: 'ASC' }, filter);
     return (
-        <Select {...rest} IconComponent = {selectIcon}>
+      <Select {...rest} IconComponent = {selectIcon}>
         <MenuItem value="">Choisir...</MenuItem>
         {ids
-        .filter((id) => !inverseSource || data[id][inverseSource])
-        .map((id) => (
+          .filter((id) => !inverseSource || data[id]?.[inverseSource])
+          .map((id) => (
             <MenuItem key={id} value={id}>
-            {data[id]['pair:label']}
+              {data[id]['pair:label']}
             </MenuItem>
-        ))}
-        </Select>
+          ))
+        }
+      </Select>
     );
 };
   
@@ -93,8 +94,8 @@ const AgendaFilter = ({ eventType, setEventType, category, setCategory, region, 
               <FormControl className={classes.formControl} size="small" fullWidth>
                 <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>Secteur d'activité</InputLabel>
                 <SelectResources
-                  reference="Theme"
-                  inverseSource="pair:topicOf"
+                  reference="Sector"
+                  inverseSource="pair:sectorOf"
                   selectIcon={ChevronIcon}
                   labelId="demo-select-area-label"
                   value={category}
@@ -109,7 +110,7 @@ const AgendaFilter = ({ eventType, setEventType, category, setCategory, region, 
                 <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>Région</InputLabel>
                 <SelectResources
                   reference="Region"
-                  inverseSource="pair:locationOf"
+                  inverseSource="cdlt:regionOf"
                   selectIcon={ChevronIcon}
                   labelId="demo-select-area-label"
                   value={region}

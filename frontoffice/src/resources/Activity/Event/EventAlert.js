@@ -19,21 +19,27 @@ const useStyles = makeStyles(theme => ({
 const EventAlert = () => {
   const classes = useStyles();
   const { record } = useShowContext();
-  if( record && record['pair:partOf'] ) {
-    if( Array.isArray(record['pair:partOf']) ) record['pair:partOf'] = record['pair:partOf'][0];
+  if( record && ( record['pair:partOf'] || record['cdlt:full'] ) ) {
+    if( record['pair:partOf'] && Array.isArray(record['pair:partOf']) ) {
+      record['pair:partOf'] = record['pair:partOf'][0];
+    }
     return (
       <Box pt={3} pb={1}>
-        <Alert severity="warning" classes={classes}>
-          Cet événement fait partie du voyage&nbsp;
-          <ReferenceField record={record} reference="Course" source="pair:partOf" link="show">
-            <TextField source="pair:label" />
-          </ReferenceField>
-        </Alert>
+        { record['cdlt:full'] &&
+          <Alert severity="warning" classes={classes}>Cet événement est complet</Alert>
+        }
+        { record['pair:partOf'] &&
+          <Alert severity="warning" classes={classes}>
+            Cet événement fait partie du voyage&nbsp;
+            <ReferenceField record={record} reference="Course" source="pair:partOf" link="show">
+              <TextField source="pair:label" />
+            </ReferenceField>
+          </Alert>
+        }
       </Box>
     );
-  } else {
-    return null;
   }
+  return null;
 };
 
 export default EventAlert;
