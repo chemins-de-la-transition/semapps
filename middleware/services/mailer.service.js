@@ -62,7 +62,7 @@ module.exports = {
         to = account && account.email;
         resourceLabel = "votre profil";
         resourceFrontPath = 'Person';
-      } else if( types.includes('pair:Path') ) {
+      } else if( types.includes('cdlt:Path') ) {
         to = "bonjour@lescheminsdelantransition.org";
         resourceLabel = resource['pair:label'];
         resourceFrontPath = 'Path';
