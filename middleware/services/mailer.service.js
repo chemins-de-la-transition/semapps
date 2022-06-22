@@ -63,7 +63,7 @@ module.exports = {
         resourceLabel = "votre profil";
         resourceFrontPath = 'Person';
       } else if( types.includes('cdlt:Path') ) {
-        to = "bonjour@lescheminsdelantransition.org";
+        to = "bonjour@lescheminsdelatransition.org";
         resourceLabel = resource['pair:label'];
         resourceFrontPath = 'Path';
       } else {
