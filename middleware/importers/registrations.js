@@ -3,9 +3,14 @@ const { JotformImporterMixin } = require('@semapps/importer');
 const QueueMixin = require("moleculer-bull");
 const CONFIG = require('../config');
 
-const categoriesMapping = {
-  22: '/paths/chemin-des-tiers-lieux'
-};
+const jotformDateToIsoString = value => {
+  const day = parseInt(value.day, 10);
+  const month = parseInt(value.month, 10);
+  const year = parseInt(value.year, 10);
+  const date = new Date(year, month-1, day);
+  // Remove the timezone offset to avoid having the previous day ending with 22:00:00+0200
+  return (new Date(date.getTime() - date.getTimezoneOffset()*60000)).toISOString();
+}
 
 module.exports = {
   name: 'importer.registrations',
@@ -26,15 +31,27 @@ module.exports = {
     } : undefined
   },
   methods: {
-    async transform(topic) {
-      if( !Object.keys(categoriesMapping).includes(`${topic.category_id}`) ) return false;
+    getAnswer(answers, name) {
+      const result = Object.values(answers).find(a => a.name === name);
+      return result && result.answer;
+    },
+    async transform(submission) {
+      const lepId = this.getAnswer(submission.answers, 'lepid');
+      const webId = this.getAnswer(submission.answers, 'webid');
+      const startDate = this.getAnswer(submission.answers, 'dateArrivee');
+      const endDate = this.getAnswer(submission.answers, 'dateDepart');
+
+      if (!lepId || !webId || !startDate || !endDate) {
+        this.logger.info('Some required fields are missing for submission ' + submission.id + ', skipping...');
+        return false;
+      }
 
       return({
-        '@type': 'pair:Debate',
-        'pair:label': topic.title,
-        'pair:description': topic.post_stream.posts[0].cooked,
-        'pair:nourishes': urlJoin(CONFIG.HOME_URL, categoriesMapping[topic.category_id]),
-        'pair:webPage': urlJoin(this.settings.source.discourse.baseUrl, 't', `${topic.id}`)
+        '@type': 'cdlt:Registration',
+        'cdlt:registrationFor': lepId,
+        'cdlt:registrant': webId,
+        'pair:startDate': jotformDateToIsoString(startDate),
+        'pair:endDate': jotformDateToIsoString(endDate),
       })
     }
   }
