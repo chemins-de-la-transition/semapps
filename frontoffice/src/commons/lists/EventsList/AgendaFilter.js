@@ -1,5 +1,5 @@
-import React from 'react';
-import { makeStyles, Grid, FormControl, InputLabel, Select, MenuItem, SvgIcon } from '@material-ui/core';
+import React, { useState } from 'react';
+import { makeStyles, Grid, FormControl, InputLabel, Select, MenuItem, SvgIcon, useMediaQuery, Button } from '@material-ui/core';
 import { useGetList } from 'react-admin';
 
 const useStyles = makeStyles((theme) => ({
@@ -41,11 +41,35 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 14,
       top: -10,
     },
+    filtersButton: {
+      backgroundColor: theme.palette.secondary.main,
+      color: theme.palette.secondary.contrastText,
+      borderRadius: 20,
+      paddingLeft: 50,
+      paddingRight: 50,
+      '&:hover': {
+        backgroundColor: theme.palette.secondary.main,
+        color: theme.palette.secondary.contrastText,
+      }
+    },
+    chevronUp: {
+      transform: "rotate(180deg)",
+    },
+    filters: {
+      [theme.breakpoints.down('xs')]: {
+        display: 'flex',
+        placeContent: 'center',
+        padding: 20,
+      },
+      '&.MuiGrid-spacing-xs-2': {
+        width: '100% !important',
+      }
+    }
 }));
   
 const ChevronIcon = (props) => (
     <SvgIcon {...props} width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16.6027 7.64582C16.7984 7.84073 16.7989 8.15731 16.604 8.35292L11.139 13.8374C10.9241 14.0531 10.5748 14.0531 10.3598 13.8374L4.89484 8.35292C4.69993 8.15731 4.70049 7.84073 4.8961 7.64582C5.09171 7.4509 5.40829 7.45147 5.60321 7.64708L10.7494 12.8117L15.8956 7.64708C16.0906 7.45147 16.4071 7.4509 16.6027 7.64582Z" fill="#203142"/>
+      <path d="M16.6027 7.64582C16.7984 7.84073 16.7989 8.15731 16.604 8.35292L11.139 13.8374C10.9241 14.0531 10.5748 14.0531 10.3598 13.8374L4.89484 8.35292C4.69993 8.15731 4.70049 7.84073 4.8961 7.64582C5.09171 7.4509 5.40829 7.45147 5.60321 7.64708L10.7494 12.8117L15.8956 7.64708C16.0906 7.45147 16.4071 7.4509 16.6027 7.64582Z"/>
     </SvgIcon>
 );
 
@@ -69,13 +93,25 @@ const SelectResources = ({ reference, inverseSource, selectIcon, filter, ...rest
 
 const AgendaFilter = ({ eventType, setEventType, category, setCategory, region, setRegion }) => {
     const classes = useStyles();
-
+    const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
+    const [areFiltersOpen, openFilters] = useState(false);
+    
     return (
-        <Grid container spacing={2} className={classes.box}>
-        <Grid item xs={12} sm={10}>
-          <Grid container spacing={2}>
+        <Grid container className={classes.box}>
+        <Grid item xs={12} spacing={2} sm={10}>
+          <Grid container spacing={2} className={classes.filters}>
+          {xs ?
+            <Button IconComponent={ChevronIcon} className={classes.filtersButton} onClick={() => openFilters(!areFiltersOpen)}>
+              Afficher les filtres
+              {areFiltersOpen ? <ChevronIcon className={classes.chevronUp}/> : <ChevronIcon />}
+            </Button>
+            :
+            null
+          }
+          {(!xs || areFiltersOpen) ?
+            <>
             <Grid item xs={12} sm={3}>
-              <FormControl className={classes.formControl} size="small" fullWidth>
+                <FormControl className={classes.formControl} size="small" fullWidth>  
                 <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>Événements</InputLabel>
                 <SelectResources
                   reference="Type"
@@ -120,6 +156,8 @@ const AgendaFilter = ({ eventType, setEventType, category, setCategory, region, 
                 />
               </FormControl>
             </Grid>
+            </>
+            : null }
           </Grid>
         </Grid>
       </Grid>

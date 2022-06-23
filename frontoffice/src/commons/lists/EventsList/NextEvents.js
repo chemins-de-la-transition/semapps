@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react' ;
-import { makeStyles, Box } from '@material-ui/core';
+import { makeStyles, Box, useMediaQuery } from '@material-ui/core';
 import { ListBase } from 'react-admin';
 import EventItemsGrid from './EventItemsGrid';
 import AgendaFilter from './AgendaFilter';
@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
 const NextEvents = ({ similarRecord }) => {
   const classes = useStyles();
   const futureEventSparql = useFutureEventSparql();
-  
+  const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
+
   const [eventType, setEventType] = useState("");
   const [category, setCategory] = useState("");
   const [region, setRegion] = useState("");
@@ -46,7 +47,7 @@ const NextEvents = ({ similarRecord }) => {
         resource="Event"
         basePath="/Event"
         className={classes.eventListBase}
-        perPage={similarRecord ? 5 : 4}
+        perPage={similarRecord ? 5 : xs ? 10 : 4}
         filter={{ ...eventTypeFilter, ...categoryFilter, ...regionFilter }}
         filterDefaultValues={{ sparqlWhere: futureEventSparql }}
         sort={{ field: 'pair:startDate', order: 'ASC' }}

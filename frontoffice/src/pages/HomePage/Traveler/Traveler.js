@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import FullWidthBox from '../../../commons/FullWidthBox';
 import LargeContainer from '../../../commons/LargeContainer';
 import Button from '../../../commons/Button';
-import Path from './BackgroundImages/Path';
-import PathBottom from './BackgroundImages/PathBottom';
-import FirstMan from './BackgroundImages/FirstMan';
-import Woman from './BackgroundImages/Woman';
-import SecondMan from './BackgroundImages/SecondMan';
-import ThirdMan from './BackgroundImages/ThirdMan';
+// import Path from './BackgroundImages/Path';
+// import PathBottom from './BackgroundImages/PathBottom';
+// import FirstMan from './BackgroundImages/FirstMan';
+// import Woman from './BackgroundImages/Woman';
+// import SecondMan from './BackgroundImages/SecondMan';
+// import ThirdMan from './BackgroundImages/ThirdMan';
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -136,7 +136,7 @@ const Traveler = () => {
   const classes = useStyles();
   return (
     <>
-    <FullWidthBox className={classes.box}>
+    {/* <FullWidthBox className={classes.box}>
       <LargeContainer className={classes.container}>
         <Typography variant="h1" className={classes.title}>
           Le voyageur comme pollinisateur
@@ -151,13 +151,13 @@ const Traveler = () => {
       <Woman className={classes.woman}/>
       <SecondMan className={classes.secondMan}/>
       <ThirdMan className={classes.thirdMan}/>
-    </FullWidthBox>
+    </FullWidthBox> */}
     <FullWidthBox className={classes.messageBox}>
       <LargeContainer className={classes.messageContainer}>
         <Typography variant="h1" className={classes.title2}>
-          Vous souhaitez proposer un lieu, un événement pour partager vos connaissances ?
+          Vous souhaitez proposer un lieu, un événement ou des idées de voyage ?
         </Typography>
-        <Button to="" variant="contained" color="primary" component={Link} typographyVariant="button1" className={classes.button}>
+        <Button to={{ pathname: "https://forums.lescheminsdelatransition.org/" }} target="_blank" variant="contained" color="primary" component={Link} typographyVariant="button1" className={classes.button}>
             Rejoignez la communauté
         </Button>
       </LargeContainer>

@@ -26,9 +26,15 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     marginTop: 40,
+    [theme.breakpoints.down('xs')]: {
+      textAlign: 'center',
+    },
   },
   subTitle: {
     marginBottom: 40,
+    [theme.breakpoints.down('xs')]: {
+      textAlign: 'center',
+    },
   },
   itemTitle: {
     marginBottom: 8

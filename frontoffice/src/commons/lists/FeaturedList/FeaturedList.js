@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Typography, Box } from '@material-ui/core';
+import { makeStyles, Typography, Box, useMediaQuery } from '@material-ui/core';
 import FullWidthBox from '../../FullWidthBox';
 import LargeContainer from '../../LargeContainer';
 import ChevronRightIcon from '../../../svg/ChevronRightIcon';
@@ -17,17 +17,26 @@ const useStyles = makeStyles((theme) => ({
   container: {
     marginTop: 60,
     marginBottom: '0',
+    [theme.breakpoints.down('xs')]: {
+      padding: 0,
+    },
   },
   logo: {
     height: 91,
     [theme.breakpoints.down('xs')]: {
-      height: 64,
+      display: 'none',
     },
   },
   header: {
     display: 'flex',
     [theme.breakpoints.down('xs')]: {
-      flexWrap: 'wrap',
+      display: 'block',
+    },
+  },
+  title:{
+    [theme.breakpoints.down('xs')]: {
+      display: 'block',
+      textAlign: 'center',
     },
   },
   subTitle: {
@@ -54,7 +63,10 @@ const useStyles = makeStyles((theme) => ({
     },
     '& svg': {
       height: '12px',
-    }
+    },
+    [theme.breakpoints.down('xs')]: {
+      justifyContent: 'center',
+    },
   },
   linkText: {
     fontSize: 16,
@@ -80,17 +92,23 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 1.2px 3.6px rgba(0, 0, 0, 0.1), 0px 6.4px 14.4px rgba(0, 0, 0, 0.13)",
     borderRadius: 4,
     padding: 28,
+    [theme.breakpoints.down('xs')]: {
+      paddingLeft: 0,
+      paddingRight: 0,
+    },
   }
 }));
 
 const FeaturedList = ({ resource, basePath, title, subtitle, logo, linkText, CardSubHeaderComponent, filter, isAgenda }) => {
   const classes = useStyles();
+  const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
+
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer className={classes.container + (isAgenda ? ' '+ classes.agenda : '')}>
         <Box width={1} className={classes.header}>
           <img src={logo} alt="logo" className={classes.logo}/>
-          <Box>
+          <Box className={classes.title}>
             <Typography variant="h2">{title}</Typography>
             <Typography variant="h3" component="div" className={classes.subTitle}>
               {subtitle}
@@ -109,7 +127,7 @@ const FeaturedList = ({ resource, basePath, title, subtitle, logo, linkText, Car
           </Box>
         : 
           <Box className={classes.listBase}>
-            <ListBase resource={resource} basePath={basePath} perPage={4} sort={{ field: 'dc:created', order: 'DESC' }} filter={filter ? {[filter.field]:filter.value} : null}>
+            <ListBase resource={resource} basePath={basePath} perPage={xs ? 10 : 4} sort={{ field: 'dc:created', order: 'DESC' }} filter={filter ? {[filter.field]:filter.value} : null}>
               <ItemsGrid CardSubHeaderComponent={CardSubHeaderComponent} resource={resource}/>
             </ListBase>
           </Box>
