@@ -137,7 +137,7 @@ const Footer = ({ title }) => {
             <Link variant="body2" to={{ pathname: "https://forums.lescheminsdelatransition.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
               Notre forum
             </Link>
-            <Link variant="body2" to={{ pathname: "https://projet.lescheminsdelatransition.org/accueil/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to={{ pathname: "https://projet.lescheminsdelatransition.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
               Notre site web
             </Link>
             <Link variant="body2" to="/Page/contact/show" align={xs ? "center" : undefined} className={classes.textLinks}>
