@@ -36,14 +36,18 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     flexDirection: 'column',
   },
-  searchBackgroundXs :{
+  boxXs: {
     backgroundColor: theme.palette.primary.main,
+    paddingTop: 20,
+    paddingBottom: 20,
   },
-  containerXs:{
-    paddingTop: 32,
-    paddingBottom: 32,
-    color: theme.palette.secondary.contrastText,
-    fontWeight: 500,
+  searchBackgroundXs :{
+    backgroundColor: theme.palette.secondary.contrastText,
+    color: theme.palette.secondary.main,
+    marginLeft: 15,
+    marginRight: 15,
+    padding: '20px 20px 24px',
+    borderRadius: 4,
   },
   formContainer: {
     width: '100%',
@@ -89,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     padding: '10px 18px',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       '& .MuiTypography-body1' : {
         fontSize: 12,
       }
@@ -224,10 +228,10 @@ const SearchContent = () => {
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
   if (xs) {
     return (
-      <FullWidthBox className={classes.searchBackgroundXs}>
-        <LargeContainer className={classes.commonsSearch + ' ' + classes.containerXs}>
+      <FullWidthBox className={classes.boxXs}>
+        <LargeContainer className={classes.searchBackgroundXs + ' ' + classes.commonsSearch}>
           <Typography variant="subtitle1" className={classes.searchTitle}>
-            Que recherchez-vous ?
+            Partez sur les chemins de la transition
           </Typography>
           <FormBox />
         </LargeContainer>
