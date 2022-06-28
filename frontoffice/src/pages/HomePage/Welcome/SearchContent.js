@@ -5,6 +5,7 @@ import FullWidthBox from '../../../commons/FullWidthBox';
 import Button from '../../../commons/Button';
 import  { useHistory } from 'react-router-dom';
 import { useGetList } from 'react-admin';
+import { typeOfCourseWeight } from '../../../commons/Weights';
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -130,6 +131,7 @@ const SelectResources = ({ reference, inverseSource, selectIcon, ...rest }) =>{
       <MenuItem value="">Choisir...</MenuItem>
       {ids
         .filter((id) => !inverseSource || data[id]?.[inverseSource])
+        .sort((a, b) => (typeOfCourseWeight[data[b]?.['pair:label']] || 0) - (typeOfCourseWeight[data[a]?.['pair:label']] || 0))
         .map((id) => (
           <MenuItem key={id} value={id}>
             {data[id]['pair:label']}
