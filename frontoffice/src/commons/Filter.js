@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { useGetList, getResources, useListFilterContext } from 'react-admin';
 import { shallowEqual, useSelector } from 'react-redux';
 import { FormControl, InputLabel, makeStyles, MenuItem, Select } from '@material-ui/core';
+import { typeOfCourseWeight } from './Weights';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -29,7 +30,7 @@ const Filter = ({ reference, source, inverseSource, limit, sort, filter, label, 
   const resources = useSelector(getResources, shallowEqual);
   const currentResource = resources.filter((r) => r?.name === reference)[0];
   const { filterValues, setFilters } = useListFilterContext();
-
+  
   const changeFilter = useCallback(
     (e) => {
       setFilters({ ...filterValues, [source]: e.target.value }, null, false);
@@ -45,6 +46,7 @@ const Filter = ({ reference, source, inverseSource, limit, sort, filter, label, 
         <MenuItem>---</MenuItem>
         {ids
           .filter((id) => !inverseSource || data[id]?.[inverseSource])
+          .sort((a, b) => (typeOfCourseWeight[data[b]?.['pair:label']] || 0) - (typeOfCourseWeight[data[a]?.['pair:label']] || 0))
           .map((id) => (
             <MenuItem key={id} value={id}>
               {data[id]?.['pair:label']}
