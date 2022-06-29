@@ -20,26 +20,26 @@ import PathTitle from './PathTitle';
 const PathEdit = (props) => (
   <EditWithPermissions title={<PathTitle />} {...props}>
     <TabbedForm redirect="show">
-      <FormTab label="Données">
-        <TextInput source="pair:label" fullWidth />
-        <TextInput source="pair:comment" fullWidth />
-        <MarkdownInput source="pair:description" fullWidth />
+      <FormTab label="A propos du chemin">
         <ImageInput source="pair:depictedBy" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
+        <TextInput source="pair:label" fullWidth />
+        <TextInput source="pair:comment" fullWidth />
+        <MarkdownInput source="pair:description" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
+        <FinalitiesInput source="pair:hasFinality" />
+        <SectorsInput source="pair:hasSector" />
+        <ThemesInput source="pair:hasTopic" />
+        <SkillsInput source="pair:produces" />
+        <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} fullWidth />
       </FormTab>
-      <FormTab label="Relations">
+      <FormTab label="En lien avec le chemin">
+        <PersonsInput source="cdlt:proposedBy" />
+        <OrganizationsInput source="cdlt:supportedBy" />
         <PlacesInput source="cdlt:hasPlace" />
         <EventsInput source="cdlt:hasEvent" />
         <CoursesInput source="cdlt:hasCourse" />
-        <PersonsInput source="cdlt:proposedBy" />
-        <OrganizationsInput source="cdlt:supportedBy" />
-        <SkillsInput source="pair:produces" />
-        <SectorsInput source="pair:hasSector" />
-        <ThemesInput source="pair:hasTopic" />
-        <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} fullWidth />
-        <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
     </TabbedForm>
   </EditWithPermissions>

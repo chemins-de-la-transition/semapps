@@ -22,17 +22,11 @@ import ReminderBeforeRecording from '../../commons/ReminderBeforeRecording';
 export const PlaceEdit = (props) => (
   <EditWithPermissions title={<PlaceTitle />} {...props}>
     <TabbedForm redirect="show">
-      <FormTab label="Données">
-        <TextInput source="pair:label" fullWidth />
-        <TextInput source="pair:comment" fullWidth />
+      <FormTab label="A propos du lieu">
         <ImageInput source="pair:depictedBy" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
-        <MarkdownInput source="pair:description" fullWidth />
-        <MarkdownInput source="cdlt:hostDescription" fullWidth />
-        <MarkdownInput source="cdlt:activities" fullWidth />
-        <MarkdownInput source="cdlt:practicalConditions" fullWidth />
-        <NumberInput source="cdlt:maximumCapacity" fullWidth />
+        <TextInput source="pair:label" fullWidth />
         <LocationInput
           mapboxConfig={{
             access_token: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
@@ -54,6 +48,12 @@ export const PlaceEdit = (props) => (
           optionText={(resource) => resource['pair:label']}
           fullWidth
         />
+        <TextInput source="pair:comment" fullWidth />
+        <MarkdownInput source="pair:description" fullWidth />
+        <MarkdownInput source="cdlt:hostDescription" fullWidth />
+        <MarkdownInput source="cdlt:activities" fullWidth />
+        <MarkdownInput source="cdlt:practicalConditions" fullWidth />
+        <NumberInput source="cdlt:maximumCapacity" fullWidth />
         <RegistrationInput 
           directRegistrationSource="cdlt:directRegistration"
           registrationOptionSource="cdlt:registrationOption"
@@ -61,21 +61,22 @@ export const PlaceEdit = (props) => (
           registrationLinkSource="cdlt:registrationLink"          
           fullWidth
         />
-        <ReminderBeforeRecording />
-      </FormTab>
-      <FormTab label="Relations">
-        <PersonsInput source="cdlt:proposedBy" />
-        <PathsInput source="cdlt:placeOn" />
+        <FinalitiesInput source="pair:hasFinality" />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
-        <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
-        <TypesInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} />
-        {/*<StatusInput source="pair:hasStatus" filter={{ a: 'pair:PlaceStatus' }} />*/}
-        {/*<EventsInput source="pair:hosts" fullWidth />*/}
         <SkillsInput source="pair:produces" fullWidth />
         <SkillsInput source="pair:aims" fullWidth />
-        <FinalitiesInput source="pair:hasFinality" />
+        <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
+        <TypesInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} />
+        
+        <ReminderBeforeRecording />
+      </FormTab>
+      <FormTab label="En lien avec le lieu">
+        {/*<StatusInput source="pair:hasStatus" filter={{ a: 'pair:PlaceStatus' }} />*/}
+        {/*<EventsInput source="pair:hosts" fullWidth />*/}
         <OrganizationsInput source="cdlt:hostsOrganization" />
+        <PersonsInput source="cdlt:proposedBy" />
+        <PathsInput source="cdlt:placeOn" />
       </FormTab>
       <FormTab label="Contact">
         <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />  

@@ -30,15 +30,15 @@ export default {
         'pair:alternativeLabel': 'Nom d\'utilisateur',
         'pair:comment': 'En quelques mots',
         'pair:description': 'Description',
-        'pair:homePage': 'Site web',
+        'pair:homePage': 'Site internet',
         'pair:depictedBy': 'Photo',
         'pair:hasType': 'Type',
         'pair:hasStatus': 'Statut',
-        'pair:hasSector': 'Secteurs d\'activité',
-        'pair:hasTopic': 'Mots clé', /*Theme*/
+        'pair:hasSector': "Vos secteurs d'activité",
+        'pair:hasTopic': "Les mots-clés (centres d'intérêts) qui vous caractérisent", /*Theme*/
         'pair:hasLocation': 'Localisation',
-        'pair:hasFinality': 'Finalités',
-        'cdlt:intentions': 'Mes intentions en venant sur les chemins de la transition',
+        'pair:hasFinality': 'Les finalités que vous poursuivez',
+        'cdlt:intentions': 'Vos intentions en venant sur les chemins de la transition',
         /*
         'cdlt:asAHostIntentions': 'Intention en tant qu\'hôte',
         'cdlt:asAMentorIntentions': 'Intention en tant qu\'intervenant.e',
@@ -51,8 +51,8 @@ export default {
         'cdlt:proposes': 'Est hôte de',
         'foaf:email': 'Adresse email',
         'pair:phone': 'Téléphone',
-        'pair:offers': 'Compétences actuelles', /*Skill*/
-        'pair:aims': 'Compétences recherchées', /*Skill*/
+        'pair:offers': 'Vos compétences actuelles', /*Skill*/
+        'pair:aims': 'Les compétences que vous recherchez', /*Skill*/
         'pair:inspiredBy': 'Est inspirée par', /*Organization*/
         'cdlt:supports': 'Chemins', /*Paths*/
       },

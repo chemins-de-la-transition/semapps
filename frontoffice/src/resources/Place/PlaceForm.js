@@ -25,18 +25,11 @@ const PlaceForm = ({ mode, ...rest }) => {
       {...rest}
       redirect="show"
     >
-      <FormTab label="Données">
-
-        <TextInput source="pair:label" fullWidth validate={[required()]} />
-        <TextInput source="pair:comment" fullWidth validate={[required()]} />
+      <FormTab label="A propos du lieu">
         <ImageInput source="pair:depictedBy" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
-        <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />
-        <MarkdownInput source="cdlt:hostDescription" fullWidth />
-        <MarkdownInput source="cdlt:activities" fullWidth />
-        <MarkdownInput source="cdlt:practicalConditions" fullWidth />
-        <NumberInput source="cdlt:maximumCapacity" fullWidth />
+        <TextInput source="pair:label" fullWidth validate={[required()]} />
         <LocationInput
           mapboxConfig={{
             access_token: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
@@ -58,6 +51,12 @@ const PlaceForm = ({ mode, ...rest }) => {
           validate={[required()]}
           fullWidth
         />
+        <TextInput source="pair:comment" fullWidth validate={[required()]} />
+        <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />
+        <MarkdownInput source="cdlt:hostDescription" fullWidth />
+        <MarkdownInput source="cdlt:activities" fullWidth />
+        <MarkdownInput source="cdlt:practicalConditions" fullWidth />
+        <NumberInput source="cdlt:maximumCapacity" fullWidth />
         <RegistrationInput 
             directRegistrationSource="cdlt:directRegistration"
             registrationOptionSource="cdlt:registrationOption"
@@ -65,20 +64,20 @@ const PlaceForm = ({ mode, ...rest }) => {
             registrationLinkSource="cdlt:registrationLink"          
             fullWidth
         />
-        <ReminderBeforeRecording />
-      </FormTab>
-      <FormTab label="Relations">
-        <PersonsInput source="cdlt:proposedBy" fullWidth />
-        <PathsInput source="cdlt:placeOn" fullWidth />
+        <FinalitiesInput source="pair:hasFinality" />
         <SectorsInput source="pair:hasSector" fullWidth />
         <ThemesInput source="pair:hasTopic" fullWidth />
-        <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />        
-        <TypesInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} validate={[required()]} />
-        {/*<StatusInput source="pair:hasStatus" filter={{ a: 'pair:PlaceStatus' }} fullWidth />*/}
         <SkillsInput source="pair:produces" fullWidth />
         <SkillsInput source="pair:aims" fullWidth />
-        <FinalitiesInput source="pair:hasFinality" />
+        <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />        
+        <TypesInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} validate={[required()]} />
+        <ReminderBeforeRecording />
+      </FormTab>
+      <FormTab label="En lien avec le lieu">
+        {/*<StatusInput source="pair:hasStatus" filter={{ a: 'pair:PlaceStatus' }} fullWidth />*/}       
         <OrganizationsInput source="cdlt:hostsOrganization" />
+        <PersonsInput source="cdlt:proposedBy" fullWidth />
+        <PathsInput source="cdlt:placeOn" fullWidth />
       </FormTab>
       <FormTab label="Contact">
       <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />  
