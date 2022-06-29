@@ -36,9 +36,6 @@ const EventItemsGrid = ({ similarRecord }) => {
   let { ids, data } = useListContext();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
 
-  const [activeStep, setActiveStep] = useState(0);
-  const maxSteps = ids.length;
-
   const handleNext = () => {
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -55,8 +52,10 @@ const EventItemsGrid = ({ similarRecord }) => {
       .sort(sortBySimilarity(data, similarRecord, 'pair:hasRegion'))
       .sort(sortBySimilarity(data, similarRecord, 'cdlt:hasCourseType'))
       .sort(sortBySimilarity(data, similarRecord, 'pair:hasType'))
-      .slice(0, 4);
   }, [ids, data, similarRecord]);
+
+  const [activeStep, setActiveStep] = useState(0);
+  const maxSteps = sortedIds.length;
 
   return (
     <List className={classes.cardContainer}>
