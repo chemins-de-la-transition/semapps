@@ -40,6 +40,11 @@ const EventList = (props) => {
           /*inverseSource="cdlt:typeOf"*/ filter={{ a: 'pair:EventType' }}
           label="Type d'événement"
         />,
+        <Filter 
+          reference="TargetAudience"
+          source="cdlt:hasTargetAudience"
+          label="Public cible"
+        />,
       ]}
       views={{
         list: {
