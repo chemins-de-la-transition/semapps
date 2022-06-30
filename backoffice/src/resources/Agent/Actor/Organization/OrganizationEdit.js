@@ -24,34 +24,35 @@ export const OrganizationEdit = (props) => (
     <TabbedForm
       redirect="show"
     >
-      <FormTab label="Principal">
-        <TextInput source="pair:label" fullWidth />
-        <TextInput source="pair:comment" fullWidth />
-        <MarkdownInput source="pair:description" fullWidth />
-        <TextInput source="pair:homePage" fullWidth />
-        <ImageInput source="pair:depictedBy" accept="image/*">
+      <FormTab label="A propos de l'organisation">
+      <ImageInput source="pair:depictedBy" accept="image/*">
           <ImageField source="src" />
         </ImageInput>
+        <TextInput source="pair:label" fullWidth />
+        <TextInput source="pair:homePage" fullWidth />
+        <TextInput source="pair:e-mail" fullWidth />
+        <PairLocationInput source="pair:hasLocation" fullWidth />
+        <TextInput source="pair:comment" fullWidth />
+        <MarkdownInput source="pair:description" fullWidth />
         <MarkdownInput source="cdlt:intentions" fullWidth />
+        <FinalitiesInput source="pair:hasFinality" />
+        <SectorsInput source="pair:hasSector" />
+        <ThemesInput source="pair:hasTopic" />
+        <SkillsInput source="pair:produces" fullWidth />
+        <SkillsInput source="pair:aims" fullWidth />        
         <MarkdownInput source="cdlt:practicalConditions" fullWidth />
         <NumberInput source="cdlt:maximumCapacity" fullWidth />
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <TypesInput source="pair:hasType" filter={{ a: 'pair:OrganizationType' }} />
-        <PairLocationInput source="pair:hasLocation" fullWidth />
         <ReminderBeforeRecording />
       </FormTab>
-      <FormTab label="Relations">
+      <FormTab label="En lien avec l'organisation">
         <OrganizationsInput source="pair:partnerOf" />
         <OrganizationsInput source="pair:inspiredBy" />
-        <UsersInput source="pair:affiliates" />
-        <ActivitiesInput source="cdlt:organizes" />
-        <SectorsInput source="pair:hasSector" />
-        <ThemesInput source="pair:hasTopic" />
-        <PathsInput source="cdlt:supports" />
         <PlacesInput source="cdlt:organizationHostedIn" fullWidth />
-        <SkillsInput source="pair:produces" fullWidth />
-        <SkillsInput source="pair:aims" fullWidth />
-        <FinalitiesInput source="pair:hasFinality" />
+        <ActivitiesInput source="cdlt:organizes" />
+        <UsersInput source="pair:affiliates" />
+        <PathsInput source="cdlt:supports" />  
       </FormTab>
     </TabbedForm>
   </EditWithPermissions>

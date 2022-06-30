@@ -32,18 +32,24 @@ export const PersonEdit = (props) => (
     {...props}
   >
     <TabbedForm redirect="show">
-      <FormTab label="Principal">
-        <TextInput source="pair:firstName" fullWidth />
-        <TextInput source="pair:lastName" fullWidth />
-        <TextInput source="pair:alternativeLabel" fullWidth />
-        <TextInput source="pair:comment" fullWidth />
-        <MarkdownInput source="pair:description" fullWidth />
-        <TextInput source="pair:homePage" fullWidth />
+      <FormTab label="A propos de la personne">
         <ImageInput source="pair:depictedBy" accept="image/*">
           <ImageField source="src" />
         </ImageInput>
+        <TextInput source="pair:firstName" fullWidth />
+        <TextInput source="pair:lastName" fullWidth />
+        <TextInput source="pair:alternativeLabel" fullWidth />
+        <TextInput source="pair:homePage" fullWidth />
+        <TextInput source="pair:phone" fullWidth />
+        <PairLocationInput source="pair:hasLocation" fullWidth />
+        <TextInput source="pair:comment" fullWidth />
+        <MarkdownInput source="pair:description" fullWidth />
         <MarkdownInput source="cdlt:intentions" fullWidth />
-        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
+        <FinalitiesInput source="pair:hasFinality" />
+        <SectorsInput source="pair:hasSector" />
+        <ThemesInput source="pair:hasTopic" />
+        <SkillsInput source="pair:offers" />
+        <SkillsInput source="pair:aims" fullWidth />
         <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
         <PairLocationInput source="pair:hasLocation" fullWidth />
@@ -55,18 +61,13 @@ export const PersonEdit = (props) => (
         */}
         <ReminderBeforeRecording />
       </FormTab>
-      <FormTab label="Relations">
+      <FormTab label="En lien avec la personne">
         <OrganizationsInput source="pair:affiliatedBy" />
         <OrganizationsInput source="pair:inspiredBy" />
         <PlacesInput source="cdlt:proposes" />
-        <ActivitiesInput source="cdlt:mentorOn" />
         <ActivitiesInput source="cdlt:organizes" />
-        <SectorsInput source="pair:hasSector" />
-        <ThemesInput source="pair:hasTopic" />
+        <ActivitiesInput source="cdlt:mentorOn" />
         <PathsInput source="cdlt:supports" />
-        <SkillsInput source="pair:offers" />
-        <SkillsInput source="pair:aims" fullWidth />
-        <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
     </TabbedForm>
   </EditWithPermissions>

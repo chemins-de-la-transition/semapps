@@ -25,12 +25,11 @@ import frLocale from 'date-fns/locale/fr';
 const CourseEdit = (props) => (
   <EditWithPermissions title={<CourseTitle />} {...props}>
     <TabbedForm redirect="show">
-      <FormTab label="Données">
-        <TextInput source="pair:label" fullWidth />
-        <TextInput source="pair:comment" fullWidth />
+      <FormTab label="A propos du voyage">
         <ImageInput source="pair:depictedBy" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
+        <TextInput source="pair:label" fullWidth />        
         <DateInput
           source="pair:startDate"
           options={{
@@ -51,6 +50,7 @@ const CourseEdit = (props) => (
           }}
           fullWidth
         />
+        <TextInput source="pair:comment" fullWidth />
         <MarkdownInput source="pair:description" fullWidth />
         <TargetAudienceInput source="cdlt:hasTargetAudience" fullWidth/>
         <MarkdownInput source="cdlt:organizerDescription" fullWidth />
@@ -70,19 +70,19 @@ const CourseEdit = (props) => (
           registrationLinkSource="cdlt:registrationLink"          
           fullWidth
         />
-      </FormTab>
-      <FormTab label="Relations">
-        <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
-        <EventsInput source="pair:hasPart" fullWidth />
-        <PathsInput source="cdlt:courseOn" />
+        <FinalitiesInput source="pair:hasFinality" />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
         <SkillsInput source="cdlt:requiredSkills" />
         <SkillsInput source="pair:produces" />
+        <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
+      </FormTab>
+      <FormTab label="En lien avec le voyage">
+        <EventsInput source="pair:hasPart" fullWidth />
         <ActorsInput source="cdlt:organizedBy" />
         <PersonsInput source="cdlt:hasMentor" />
+        <PathsInput source="cdlt:courseOn" />
         {/*<DocumentsType source="pair:documentedBy" />*/}
-        <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
       <FormTab label="Contact">
         <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[email()]} />
