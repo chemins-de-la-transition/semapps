@@ -4,7 +4,7 @@ import Chip from '../../../../commons/Chip';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { makeStyles, Typography } from '@material-ui/core';
-import ThemeIcon from '../../../../svg/ThemeIcon';
+import TopicIcon from '../../../../svg/TopicIcon';
 import TypeIcon from '../../../../svg/TypeIcon';
 import CalendarIcon from '../../../../svg/CalendarIcon';
 import PlaceIcon from '../../../../svg/PlaceIcon';
@@ -88,7 +88,7 @@ const EventCard = ({ record, variant }) => {
       )}
       </div>
       {record['pair:hasSector'] && (
-        <Chip icon={<ThemeIcon />}>
+        <Chip icon={<TopicIcon />}>
           <ReferenceArrayField record={record} reference="Sector" perPage={2} source="pair:hasSector">
             <SeparatedListField link={false} separator=" /">
               <TextField source="pair:label" />
@@ -97,8 +97,8 @@ const EventCard = ({ record, variant }) => {
         </Chip>
       )}
       {record['pair:hasTopic'] && (
-        <Chip icon={<ThemeIcon />}>
-          <ReferenceArrayField record={record} reference="Theme" perPage={2} source="pair:hasTopic">
+        <Chip icon={<TopicIcon />}>
+          <ReferenceArrayField record={record} reference="Topic" perPage={2} source="pair:hasTopic">
             <SeparatedListField link={linkToFilteredList( 'LEP', 'pair:hasSector')} separator=" / ">
               <TextField source="pair:label" />
             </SeparatedListField>

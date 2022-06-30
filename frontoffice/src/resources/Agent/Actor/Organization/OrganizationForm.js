@@ -11,7 +11,7 @@ import {
   PlacesInput,
   SectorsInput,
   SkillsInput,
-  ThemesInput,
+  TopicsInput,
   TypesInput,
   UsersInput,
 } from '../../../../pair';
@@ -48,7 +48,7 @@ const OrganizationForm = ({ mode, ...rest }) => {
         <ActivitiesInput source="cdlt:organizes" />
         <PathsInput source="cdlt:supports" />
         <SectorsInput source="pair:hasSector" />
-        <ThemesInput source="pair:hasTopic" />
+        <TopicsInput source="pair:hasTopic" />
         <PlacesInput source="cdlt:organizationHostedIn" fullWidth />
         <SkillsInput source="pair:produces" fullWidth />
         <SkillsInput source="pair:aims" fullWidth />

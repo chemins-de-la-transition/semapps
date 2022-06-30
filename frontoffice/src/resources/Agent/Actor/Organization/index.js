@@ -36,7 +36,7 @@ export default {
         'pair:partnerOf': 'A pour partenaires', /*Organization*/
         'pair:inspiredBy': 'Est inspirée par', /*Organization*/
         'pair:hasSector': 'Secteurs d\'activité',
-        'pair:hasTopic': 'Mots clé', /*Theme*/
+        'pair:hasTopic': 'Mots clé', /*Topic*/
         'pair:hasLocation': 'Localisation',
         'cdlt:organizes': 'Organise',
         'cdlt:hasRegion': 'Région(s)',

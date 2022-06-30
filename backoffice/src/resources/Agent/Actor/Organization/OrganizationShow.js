@@ -37,7 +37,7 @@ const OrganizationShow = (props) => (
               <ChipField source="pair:label" />
             </SingleFieldList>
           </ReferenceArrayField>
-          <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+          <ReferenceArrayField reference="Topic" source="pair:hasTopic">
             <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>

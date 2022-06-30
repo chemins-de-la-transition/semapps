@@ -6,7 +6,7 @@ import { Box, useMediaQuery } from '@material-ui/core';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { linkToFilteredList } from "../../utils";
 import IconsList from '../../commons/lists/IconsList';
-import ThemeIcon from '../../svg/ThemeIcon';
+import TopicIcon from '../../svg/TopicIcon';
 import CourseIcon from '../../svg/CourseIcon';
 import PathIcon from '../../svg/PathIcon';
 import PlaceIcon from '../../svg/PlaceIcon';
@@ -54,7 +54,7 @@ const PlaceDetails = (props) => {
             </ReferenceArrayField>
           }
           { ( !isVertical || sm ) && 
-            <ReferenceArrayField reference="Sector" source="pair:hasSector" icon={<ThemeIcon />}>
+            <ReferenceArrayField reference="Sector" source="pair:hasSector" icon={<TopicIcon />}>
               <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasSector')} separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>

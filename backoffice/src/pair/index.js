@@ -78,8 +78,8 @@ export const SkillsInput = (props) => (
   </ReferenceArrayInput>
 );
 
-export const ThemesInput = (props) => (
-  <ReferenceArrayInput reference="Theme" enableGetChoices={ifTwoLetters} {...props}>
+export const TopicsInput = (props) => (
+  <ReferenceArrayInput reference="Topic" enableGetChoices={ifTwoLetters} {...props}>
     <AutocompleteArrayInput
       optionText="pair:label"
       shouldRenderSuggestions={(value) => value.length > 1}

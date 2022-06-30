@@ -121,8 +121,8 @@ module.exports = [
     newResourcesPermissions: writePermissionToCreator
   },
   {
-    path: '/themes',
-    acceptedTypes: ['pair:Theme'],
+    path: '/topics',
+    acceptedTypes: ['pair:Topic'],
     permissions: anonReadPermission,
     newResourcesPermissions: writePermissionToCreator,
   },

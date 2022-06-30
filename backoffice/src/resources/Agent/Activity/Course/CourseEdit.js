@@ -9,7 +9,7 @@ import {
   EventsInput,
   FinalitiesInput,
   PersonsInput,
-  ThemesInput,
+  TopicsInput,
   SectorsInput,
 //  StatusInput,
   TypesInput,
@@ -76,7 +76,7 @@ const CourseEdit = (props) => (
         <EventsInput source="pair:hasPart" fullWidth />
         <PathsInput source="cdlt:courseOn" />
         <SectorsInput source="pair:hasSector" />
-        <ThemesInput source="pair:hasTopic" />
+        <TopicsInput source="pair:hasTopic" />
         <SkillsInput source="cdlt:requiredSkills" />
         <SkillsInput source="pair:produces" />
         <ActorsInput source="cdlt:organizedBy" />

@@ -33,7 +33,7 @@ export default {
         'pair:hasType': "Type d'événement",
         'pair:hasStatus': 'Statut',
         'pair:hasSector': 'Secteurs d\'activité',
-        'pair:hasTopic': 'Mots clé', /*Theme*/
+        'pair:hasTopic': 'Mots clé', /*Topic*/
         'pair:produces': 'Compétences visées', /*Skill*/
         'cdlt:requiredSkills': 'Compétences requises', /*Skill*/
         'pair:startDate': 'Date de début',

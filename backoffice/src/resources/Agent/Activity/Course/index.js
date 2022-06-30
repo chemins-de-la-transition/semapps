@@ -30,7 +30,7 @@ export default {
         'pair:depictedBy': 'Image',
         'cdlt:hasCourseType': 'Mode de voyage',
         'pair:hasSector': 'Secteurs d\'activité',
-        'pair:hasTopic': 'Mots clé', /*Theme*/
+        'pair:hasTopic': 'Mots clé', /*Topic*/
         'cdlt:hasRegion': 'Région(s)',
         'pair:produces': 'Compétences visées', /*Skill*/
         'cdlt:requiredSkills': 'Compétences requises', /*Skill*/

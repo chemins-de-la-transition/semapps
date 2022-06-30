@@ -11,7 +11,7 @@ import {
   PersonsInput,
   PlacesInput,
   SectorsInput,
-  ThemesInput,
+  TopicsInput,
   SkillsInput,
   TypesInput
 } from '../../../pair';
@@ -38,7 +38,7 @@ const PathEdit = (props) => (
         <OrganizationsInput source="cdlt:supportedBy" />
         <SkillsInput source="pair:produces" />
         <SectorsInput source="pair:hasSector" />
-        <ThemesInput source="pair:hasTopic" />
+        <TopicsInput source="pair:hasTopic" />
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>

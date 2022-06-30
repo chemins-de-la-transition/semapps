@@ -37,7 +37,7 @@ export default {
         'cdlt:hasEvent': 'Evénements', /*Event*/
         'cdlt:hasCourse': 'Voyages', /*Course*/
         'pair:hasSector': 'Secteurs d\'activité',
-        'pair:hasTopic': 'Mots clé', /*Theme*/
+        'pair:hasTopic': 'Mots clé', /*Topic*/
         'pair:hasFinality': 'Finalités',
         'pair:nourishes': 'Discussions',
         'cdlt:hasCourseType': 'Mode de voyage',

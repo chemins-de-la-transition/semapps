@@ -5,10 +5,10 @@ import { Hero, MainList, SideList } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
-import ThemeTitle from './ThemeTitle';
+import TopicTitle from './TopicTitle';
 
-const ThemeShow = (props) => (
-  <ShowWithPermissions title={<ThemeTitle />} {...props}>
+const TopicShow = (props) => (
+  <ShowWithPermissions title={<TopicTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
         <Hero>
@@ -31,4 +31,4 @@ const ThemeShow = (props) => (
   </ShowWithPermissions>
 );
 
-export default ThemeShow;
+export default TopicShow;

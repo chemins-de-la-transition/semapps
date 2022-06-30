@@ -12,7 +12,7 @@ import {
   PlacesInput,
   SectorsInput,
   SkillsInput,
-  ThemesInput,
+  TopicsInput,
   TypesInput,
   UsersInput,
   StatusInput,
@@ -48,7 +48,7 @@ export const OrganizationEdit = (props) => (
         <UsersInput source="pair:affiliates" />
         <ActivitiesInput source="cdlt:organizes" />
         <SectorsInput source="pair:hasSector" />
-        <ThemesInput source="pair:hasTopic" />
+        <TopicsInput source="pair:hasTopic" />
         <PathsInput source="cdlt:supports" />
         <PlacesInput source="cdlt:organizationHostedIn" fullWidth />
         <SkillsInput source="pair:produces" fullWidth />
