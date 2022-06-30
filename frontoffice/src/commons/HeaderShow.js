@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   makeStyles,
   Typography,
@@ -61,7 +61,6 @@ resourceLink: {
   images: {
     marginBottom: 15,
     '& img': {
-      width: '100%',
       display: 'block',
       borderRadius: 8,
       backgroundSize: 'cover',
@@ -71,10 +70,15 @@ resourceLink: {
       margin: '5px 0 10px 0',
       height: '100%',
       maxHeight: '15rem',
-      [theme.breakpoints.down('xs')]: {
-        maxHeight: '8rem',
-      }
+      maxWidth: "-webkit-fill-available",
     },
+  },
+  fullWidth: {
+    width: '100%'
+  },
+  leftImage: {
+    float: 'left',
+    margin: '5px 10px 20px 0 !important',
   },
   drawer: {
     backgroundColor: theme.palette.primary.main,
@@ -90,22 +94,29 @@ resourceLink: {
 }));
 
 const MultipleImagesField = ({ source, max = 2 }) => {
+  const classes = useStyles();
   const record = useRecordContext();
-  if( !record ) return null;
+  const [imageWidth, setImageWidth] = useState(0);
 
+  const onImgLoad = ({ target: img }) => {
+    const { offsetWidth } = img;
+    setImageWidth(offsetWidth);
+  };
+
+  if( !record ) return null;
   if( Array.isArray(record[source]) ) {
     return(
       <Grid container spacing={2}>
         {record[source].slice(0,max).map((url, i) => (
-          <Grid item xs={6} key={i}>
-            <img src={url} alt={record['pair:label']} />
+          <Grid item xs={6} key={i} >
+            <img src={url} className={classes.fullWidth} alt={record['pair:label']} />
           </Grid>
         ))}
       </Grid>
     )
   } else {
     return(
-      <img src={record[source]} alt={record['pair:label']} />
+      <img src={record[source]} onLoad={onImgLoad} className={(imageWidth > 1000) ? classes.fullWidth : (imageWidth < 400) ? classes.leftImage :''} alt={record['pair:label']} />
     )
   }
 };

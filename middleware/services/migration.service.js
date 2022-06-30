@@ -11,6 +11,9 @@ module.exports = {
     baseUrl: CONFIG.HOME_URL
   },
   mixins: [MigrationService],
+  settings: {
+    baseUrl: CONFIG.HOME_URL
+  },
   actions: {
     async activateActivityPub(ctx) {
       const actors = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'users') });

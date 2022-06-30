@@ -845,6 +845,18 @@
     },
     "cdlt:targetAudienceOf": {
       "@type": "@id"
+    },
+    "cdlt:registrationFor": {
+      "@type" : "@id"
+    },
+    "cdlt:hasRegistration": {
+      "@type" : "@id"
+    },
+    "cdlt:registrant": {
+      "@type" : "@id"
+    },
+    "cdlt:registeredFor": {
+      "@type" : "@id"
     }
   }
 }

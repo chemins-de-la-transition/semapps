@@ -9,6 +9,7 @@ import Partners from './Partners';
 import PictoLieu from '../../icons/PictoLieu.png' ;
 import PictoParcours from '../../icons/PictoParcours.png' ;
 import PictoAgenda from '../../icons/PictoAgenda.png' ;
+import Traveler from './Traveler/Traveler';
 
 const HomePage = () => (
   <>
@@ -41,8 +42,7 @@ const HomePage = () => (
       linkText="Voir tous les voyages"
       CardSubHeaderComponent={CourseSubHeader}
     />
-    {/* TODO : Add when the illustration is ready and responsive */}
-    {/* <Traveler /> */}
+    <Traveler />
     <FeaturedList
       resource="Event"
       basePath="/Event"

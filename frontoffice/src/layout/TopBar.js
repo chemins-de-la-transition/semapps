@@ -36,6 +36,8 @@ const useStyles = makeStyles((theme) => ({
   },
   betaButton: {
     paddingLeft: 20,
+    pointerEvents: 'none',
+    cursor: 'default',
     '& .MuiButton-outlinedPrimary': {
       backgroundColor: theme.palette.white.main,
       color: theme.palette.primary.main,
@@ -58,7 +60,7 @@ const TopBar = () => {
             : 
             <>
               <Typography variant="subtitle2">Le lieu pour partager et apprendre en voyageant</Typography>
-              <a className={classes.betaButton}>
+              <a href="#top" aria-current="page" className={classes.betaButton}>
                 <Button
                   variant="outlined"
                   color="primary"

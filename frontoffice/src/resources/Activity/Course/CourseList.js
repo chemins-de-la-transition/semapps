@@ -28,6 +28,11 @@ const CourseList = (props) => {
           /*inverseSource="cdlt:typeOfCourse"*/ filter={{ a: 'cdlt:CourseType' }}
           label="Mode de voyage"
         />,
+        <Filter 
+          reference="TargetAudience"
+          source="cdlt:hasTargetAudience"
+          label="Public cible"
+        />,
       ]}
       views={{
         list: {
