@@ -28,3 +28,4 @@ export { default as TargetAudience } from './Concept/TargetAudience';
 export { default as Page } from './Page';
 export { default as Place } from './Place';
 export { default as LEP } from './LEP';
+export { default as Registration } from './Registration';

@@ -23,6 +23,7 @@ const dataServers = {
         'cdlt:Course': ['/courses'],
         'semapps:Page': ['/pages'],
         'cdlt:TargetAudience': ['/target-audiences'],
+        'cdlt:Registration':['/registrations'],
       }
     },
     uploadsContainer: '/files'
