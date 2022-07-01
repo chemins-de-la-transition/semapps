@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: 8,
       paddingBottom: 8,
       margin: 0
-    }
+    },
   },
   divider: {
     paddingTop: 5,
@@ -29,8 +29,12 @@ const BodyList = ({ children, aside, alert }) => {
   if (!loaded || !record) return null;
 
   const fields = React.Children.toArray(children).filter(
-    (field) => field.props.title || (field && record && record[field.props.source] && React.isValidElement(field))
-  );
+    (field) => (
+      field.props.sources ? (field.props.sources.filter(source=>record[source]).length >0) 
+      : field.props.title || (field && record && record[field.props.source] && React.isValidElement(field))
+  ));
+
+
 
   return (
     <>
@@ -41,7 +45,7 @@ const BodyList = ({ children, aside, alert }) => {
             <Grid item md={9} sm={12} xs={12}>
               {alert && React.cloneElement(alert)}
               {fields.map((field) => (
-                <div key={field.props.source} id={field.props.source} className={field.props.title ? '' : classes.divider}>
+                <div key={field.props.title ? field.props.title : field.props.source} id={field.props.title ? field.props.title : field.props.source} className={field.props.title ? '' : classes.divider}>
                   {field.props.addLabel && !field.props.title ? (
                     <>
                       <BodyLabel>

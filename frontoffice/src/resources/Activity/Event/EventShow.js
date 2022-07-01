@@ -47,7 +47,7 @@ const EventShow = (props) => {
           >
             <GroupOfFields
               title="A propos de l'événement"
-              source="pair:description"
+              sources={["cdlt:referenceNumber","pair:description"]}
               addLabel
               noBorder
             >
@@ -84,7 +84,7 @@ const EventShow = (props) => {
             </GroupOfFields>
             <GroupOfFields
               title="Compétences"
-              source="pair:produces"
+              sources={["cdlt:requiredSkills","cdlt:prerequisites","pair:produces","cdlt:learningObjectives"]}
               addLabel
             >
               <ReferenceArrayField reference="Skill" source="cdlt:requiredSkills">
@@ -102,7 +102,7 @@ const EventShow = (props) => {
             </GroupOfFields>
             <GroupOfFields
               title="Modalités d'accueil"
-              source="cdlt:practicalConditions"
+              sources={["cdlt:practicalConditions","cdlt:minimumCapacity","cdlt:maximumCapacity"]}
               addLabel
             >
               <MarkdownField source="cdlt:practicalConditions" addLabel={false} />
@@ -111,7 +111,7 @@ const EventShow = (props) => {
             </GroupOfFields>
             <GroupOfFields
               title="Conditions financières"
-              source="cdlt:economicalConditions"
+              sources={["cdlt:economicalConditions","cdlt:financialSupport","cdlt:evaluationMethod"]}
               addLabel
             >
               <MarkdownField source="cdlt:economicalConditions" addLabel={false} />

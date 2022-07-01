@@ -46,7 +46,7 @@ const PersonShow = (props) => {
           >
             <GroupOfFields
               title="A propos de la personne"
-              source="pair:description"
+              sources={["pair:description","pair:comment","pair:hasFinality","pair:hasSector","pair:hasTopic","cdlt:intentions"]}
               addLabel
               noBorder
             >
@@ -71,7 +71,7 @@ const PersonShow = (props) => {
             </GroupOfFields>
             <GroupOfFields
               title="Compétences"
-              source="pair:produces"
+              sources={["pair:produces","pair:offers","pair:aims"]}
               addLabel
             >
               <ReferenceArrayField reference="Skill" source="pair:produces">
@@ -79,12 +79,6 @@ const PersonShow = (props) => {
                   <ChipField source="pair:label" color="primary" className={classes.chipField} />
                 </SeparatedListField>
               </ReferenceArrayField>
-            </GroupOfFields>    
-            <GroupOfFields
-              title="Compétences"
-              source="pair:produces"
-              addLabel
-            >
               <ReferenceArrayField reference="Skill" source="pair:offers">
                 <SeparatedListField link={linkToFilteredList('LEP', 'pair:offers')} separator="">
                   <ChipField source="pair:label" color="primary" className={classes.chipField} />
@@ -96,14 +90,7 @@ const PersonShow = (props) => {
                 </SeparatedListField>
               </ReferenceArrayField>
             </GroupOfFields>     
-          
-            <GroupOfFields
-              title="Modalités d'accueil"
-              source="cdlt:practicalConditions"
-              addLabel
-            >
-              <MarkdownField source="cdlt:practicalConditions" addLabel={false}/>
-            </GroupOfFields>
+            <MarkdownField source="cdlt:practicalConditions" addLabel={false}/>
             <ReferenceArrayField source="pair:inspiredBy" reference="Organization" className={classes.cardsList} label="Est inspirée par">
               <Box pt={1}>
                 <CardsList CardComponent={OrganizationCard} />

@@ -48,7 +48,7 @@ const CourseShow = (props) => {
           >
             <GroupOfFields
               title="A propos du voyage"
-              source="pair:description"
+              sources={["cdlt:referenceNumber","pair:comment","pair:hasFinality","pair:hasSector","cdlt:hasCourseType","pair:hasTopic","cdlt:hasTargetAudience","pair:description"]}
               addLabel
               noBorder
             >
@@ -83,7 +83,7 @@ const CourseShow = (props) => {
             </GroupOfFields>
             <GroupOfFields
               title="Compétences"
-              source="pair:produces"
+              sources={["cdlt:requiredSkills","pair:produces","cdlt:learningObjectives"]}
               addLabel
             >
               <ReferenceArrayField reference="Skill" source="cdlt:requiredSkills">
@@ -111,7 +111,7 @@ const CourseShow = (props) => {
             <MarkdownField source="cdlt:mentorDescription" />
             <GroupOfFields
               title="Modalités d'accueil"
-              source="cdlt:practicalConditions"
+              sources={["cdlt:practicalConditions","cdlt:minimumCapacity","cdlt:maximumCapacity"]}
               addLabel
             >
               <MarkdownField source="cdlt:practicalConditions" addLabel={false} />
@@ -120,7 +120,7 @@ const CourseShow = (props) => {
             </GroupOfFields>
             <GroupOfFields
               title="Conditions financières"
-              source="cdlt:economicalConditions"
+              sources={["cdlt:economicalConditions","cdlt:financialSupport"]}
               addLabel
             >
               <MarkdownField source="cdlt:economicalConditions" addLabel={false} />
