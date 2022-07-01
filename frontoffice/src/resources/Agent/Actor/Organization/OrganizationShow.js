@@ -48,7 +48,7 @@ const OrganizationShow = (props) => {
           >
             <GroupOfFields
               title="A propos de cette organisation"
-              source="pair:description"
+              sources={["pair:comment","pair:hasFinality","pair:hasSector","pair:hasType","pair:hasTopic","cdlt:intentions","pair:description"]}
               addLabel
               noBorder
             >
@@ -78,7 +78,7 @@ const OrganizationShow = (props) => {
             </GroupOfFields>
             <GroupOfFields
               title="Compétences"
-              source="pair:produces"
+              sources={["pair:produces","pair:aims"]}
               addLabel
             >
               <ReferenceArrayField reference="Skill" source="pair:produces">
@@ -94,7 +94,7 @@ const OrganizationShow = (props) => {
             </GroupOfFields>     
             <GroupOfFields
               title="Modalités d'accueil"
-              source="cdlt:practicalConditions"
+              sources={["cdlt:practicalConditions","cdlt:maximumCapacity"]}
               addLabel
             >
               <MarkdownField source="cdlt:practicalConditions" addLabel={false}/>

@@ -48,7 +48,7 @@ const PathShow = (props) => {
           >
             <GroupOfFields
               title="A propos du chemin"
-              source="pair:description"
+              sources={["pair:comment","pair:hasFinality","pair:hasSector","pair:hasTopic","cdlt:hasCourseType","pair:description"]}
               addLabel
               noBorder
             >
@@ -78,7 +78,7 @@ const PathShow = (props) => {
 
             <GroupOfFields
               title="Compétences"
-              source="pair:produces"
+              sources={["pair:produces","cdlt:learningObjectives"]}
               addLabel
             >
               <ReferenceArrayField reference="Skill" source="pair:produces">

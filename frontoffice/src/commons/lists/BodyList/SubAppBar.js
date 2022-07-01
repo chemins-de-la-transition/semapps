@@ -55,7 +55,7 @@ const SubAppBar = ({ fields }) => {
               return (
                 <Scrollchor
                   key={i}
-                  to={field.props.source}
+                  to={field.props.title ? field.props.title : field.props.source}
                   animate={{ offset: -appBarHeight - subAppBarHeight }}
                   className={classes.link}
                 >

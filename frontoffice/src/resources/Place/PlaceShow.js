@@ -50,7 +50,7 @@ const PlaceShow = (props) => {
           >
             <GroupOfFields
               title="A propos du lieu"
-              source="pair:description"
+              sources={["pair:comment","pair:hasFinality","pair:hasSector","pair:hasType","cdlt:hasCourseType","pair:hasTopic","pair:description","cdlt:hostDescription","cdlt:activities"]}
               addLabel
               noBorder
             >
@@ -86,7 +86,7 @@ const PlaceShow = (props) => {
             </GroupOfFields>
             <GroupOfFields
               title="Compétences"
-              source="pair:produces"
+              sources={["pair:produces","pair:aims"]}
               addLabel
             >
               <ReferenceArrayField reference="Skill" source="pair:produces">
@@ -102,7 +102,7 @@ const PlaceShow = (props) => {
             </GroupOfFields>            
             <GroupOfFields
               title="Modalités d'accueil"
-              source="cdlt:practicalConditions"
+              sources={["cdlt:practicalConditions","cdlt:maximumCapacity"]}
               addLabel
             >
               <MarkdownField source="cdlt:practicalConditions" addLabel={false}/>
