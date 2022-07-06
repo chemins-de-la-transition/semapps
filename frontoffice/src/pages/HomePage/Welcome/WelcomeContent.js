@@ -70,7 +70,7 @@ const WelcomeContent = () => {
       <LargeContainer className={classes.container}>
         <Box display="flex" justifyContent="center" flexDirection="column" justifySelf="center">
           <Typography variant="h1" className={classes.text}>
-            Voyager, explorer, essaimer
+            Apprendre en voyageant 
           </Typography>
           <div className={classes.textBar} />
           <Typography variant="body1" className={classes.subtitleText} component="div">
