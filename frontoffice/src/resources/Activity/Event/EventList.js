@@ -52,7 +52,7 @@ const EventList = (props) => {
           icon: ListIcon,
           perPage: 1000,
           sort: { field: 'pair:startDate', order: 'ASC' },
-          filterDefaultValues: { sparqlWhere: futureEventSparql, dereference: [] },
+          filterDefaultValues: { sparqlWhere: futureEventSparql, blankNodes: [] },
           list: (
             <Box p={xs ? 2 : 3}>
               <CardsList CardComponent={EventCard} />
@@ -65,7 +65,7 @@ const EventList = (props) => {
               label: 'Vue calendrier',
               icon: Calendar,
               perPage: 1000,
-              filterDefaultValues: { dereference: [] },
+              filterDefaultValues: { blankNodes: [] },
               list: (
                 <Box p={3}>
                   <CalendarList

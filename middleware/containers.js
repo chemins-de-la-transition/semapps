@@ -69,6 +69,7 @@ module.exports = [
   {
     path: '/organizations',
     acceptedTypes: ['pair:Organization'],
+    preferredView: '/Organization',
     dereference: ['pair:hasLocation/pair:hasPostalAddress'],
     permissions: {
       ...anonReadPermission,
@@ -80,12 +81,14 @@ module.exports = [
   {
     path: '/paths',
     acceptedTypes: ['cdlt:Path'],
+    preferredView: '/Path',
     permissions: anonReadPermission,
     newResourcesPermissions: writePermissionToCreator
   },
   {
     path: '/courses',
     acceptedTypes: ['cdlt:Course'],
+    preferredView: '/Course',
     permissions: {
       ...anonReadPermission,
       ...writePermissionToActors,
@@ -96,6 +99,7 @@ module.exports = [
   {
     path: '/events',
     acceptedTypes: ['pair:Event'],
+    preferredView: '/Event',
     dereference: ['pair:hasLocation/pair:hasPostalAddress'],
     permissions: {
       ...anonReadPermission,
@@ -107,6 +111,7 @@ module.exports = [
   {
     path: '/places',
     acceptedTypes: ['pair:Place'],
+    preferredView: '/Place',
     dereference: ['pair:hasPostalAddress'],
     permissions: {
       ...anonReadPermission,
@@ -172,6 +177,7 @@ module.exports = [
   {
     path: '/pages',
     acceptedTypes: ['semapps:Page'],
+    preferredView: '/Page',
     permissions: anonReadPermission,
     newResourcesPermissions: writePermissionToCreator,
   },
@@ -186,6 +192,12 @@ module.exports = [
     acceptedTypes: ['cdlt:Registration'],
     permissions: anonReadPermission,
     newResourcesPermissions: anonReadPermission,
+  },
+  {
+    path: '/bots',
+    acceptedTypes: [ACTOR_TYPES.APPLICATION],
+    dereference: ['sec:publicKey'],
+    excludeFromMirror: true
   },
   {
     path: '/files'

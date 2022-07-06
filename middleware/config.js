@@ -5,6 +5,9 @@ require('dotenv-flow').config();
 module.exports = {
   NODE_ENV: process.env.NODE_ENV,
   HOME_URL: process.env.SEMAPPS_HOME_URL,
+  FRONTOFFICE_URL: process.env.SEMAPPS_FRONTOFFICE_URL,
+  INSTANCE_NAME: process.env.INSTANCE_NAME,
+  INSTANCE_DESCRIPTION: process.env.INSTANCE_DESCRIPTION,
   SPARQL_ENDPOINT: process.env.SEMAPPS_SPARQL_ENDPOINT,
   MAIN_DATASET: process.env.SEMAPPS_MAIN_DATASET,
   JENA_USER: process.env.SEMAPPS_JENA_USER,
