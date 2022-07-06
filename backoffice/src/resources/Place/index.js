@@ -26,8 +26,7 @@ export default {
     list: {
       containers: {
         cdlt: ['/places']
-      },
-      dereference: ['pair:hasPostalAddress'],
+      }
     },
     fieldsMapping: {
       title: 'pair:label'

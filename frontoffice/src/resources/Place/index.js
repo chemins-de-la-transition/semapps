@@ -26,7 +26,6 @@ export default {
       containers: {
         cdlt: ['/places']
       },
-      dereference: ['pair:hasPostalAddress'],
       explicitEmbedOnFraming: false // Increase performance since explicit embed is not necessary
     },
     fieldsMapping: {
