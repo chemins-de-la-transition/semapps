@@ -3,56 +3,58 @@ import { ReferenceArrayInput, ReferenceInput } from '@semapps/semantic-data-prov
 import { AutocompleteInput, AutocompleteArrayInput, SelectInput } from 'react-admin';
 import { LexiconCreateDialog, fetchESCO, fetchWikidata } from "@semapps/interop-components";
 
-export const ActorsInput = ({ label, source }) => (
-  <ReferenceArrayInput label={label} reference="Actor" source={source}>
+const ifTwoLetters = ({ q }) => !!(q && q.length > 1);
+
+export const ActorsInput = (props) => (
+  <ReferenceArrayInput reference="Actor" enableGetChoices={ifTwoLetters} {...props}>
     <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
   </ReferenceArrayInput>
 );
 
-export const OrganizationsInput = ({ label, source }) => (
-  <ReferenceArrayInput label={label} reference="Organization" source={source}>
+export const OrganizationsInput = (props) => (
+  <ReferenceArrayInput reference="Organization" enableGetChoices={ifTwoLetters} {...props}>
     <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
   </ReferenceArrayInput>
 );
 
 export const PersonsInput = (props) => (
-  <ReferenceArrayInput reference="Person" {...props}>
-    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  <ReferenceArrayInput reference="Person" enableGetChoices={ifTwoLetters} {...props}>
+    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
   </ReferenceArrayInput>
 );
 
-export const ActivitiesInput = ({ label, source }) => (
-  <ReferenceArrayInput label={label} reference="Activity" source={source}>
+export const ActivitiesInput = (props) => (
+  <ReferenceArrayInput reference="Activity" enableGetChoices={ifTwoLetters} {...props}>
     <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
   </ReferenceArrayInput>
 );
 
 export const EventsInput = (props) => (
-  <ReferenceArrayInput reference="Event" {...props}>
+  <ReferenceArrayInput reference="Event" enableGetChoices={ifTwoLetters} {...props}>
     <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
   </ReferenceArrayInput>
 );
 
 export const PlacesInput = (props) => (
-  <ReferenceArrayInput reference="Place" {...props}>
+  <ReferenceArrayInput reference="Place" enableGetChoices={ifTwoLetters} {...props}>
+    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
+  </ReferenceArrayInput>
+);
+
+export const FinalitiesInput = (props) => (
+  <ReferenceArrayInput reference="Finality" enableGetChoices={ifTwoLetters} {...props}>
+    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
+  </ReferenceArrayInput>
+);
+
+export const SectorsInput = (props) => (
+  <ReferenceArrayInput reference="Sector" {...props}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />
   </ReferenceArrayInput>
 );
 
-export const FinalitiesInput = ({ label, source }) => (
-  <ReferenceArrayInput label={label} reference="Finality" source={source}>
-    <AutocompleteArrayInput optionText="pair:label" fullWidth />
-  </ReferenceArrayInput>
-);
-
-export const SectorsInput = ({ label, source }) => (
-  <ReferenceArrayInput label={label} reference="Sector" source={source}>
-    <AutocompleteArrayInput optionText="pair:label" fullWidth />
-  </ReferenceArrayInput>
-);
-
-export const SkillsInput = ({ label, source }) => (
-  <ReferenceArrayInput label={label} reference="Skill" source={source}>
+export const SkillsInput = (props) => (
+  <ReferenceArrayInput reference="Skill" enableGetChoices={ifTwoLetters} {...props}>
     <AutocompleteArrayInput
       optionText="pair:label"
       shouldRenderSuggestions={(value) => value.length > 1}
@@ -70,8 +72,8 @@ export const SkillsInput = ({ label, source }) => (
   </ReferenceArrayInput>
 );
 
-export const ThemesInput = ({ label, source }) => (
-  <ReferenceArrayInput label={label} reference="Theme" source={source}>
+export const ThemesInput = (props) => (
+  <ReferenceArrayInput reference="Theme" enableGetChoices={ifTwoLetters} {...props}>
     <AutocompleteArrayInput
       optionText="pair:label"
       shouldRenderSuggestions={(value) => value.length > 1}
@@ -90,14 +92,14 @@ export const ThemesInput = ({ label, source }) => (
   </ReferenceArrayInput>
 );
 
-export const UsersInput = ({ label, source }) => (
-  <ReferenceArrayInput label={label} reference="Person" source={source}>
+export const UsersInput = (props) => (
+  <ReferenceArrayInput reference="Person" enableGetChoices={ifTwoLetters} {...props}>
     <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
   </ReferenceArrayInput>
 );
 
 export const StatusInput = (props) => (
-  <ReferenceInput reference="Status" {...props} allowEmpty>
+  <ReferenceInput reference="Status" allowEmpty {...props}>
     <SelectInput optionText="pair:label" />
   </ReferenceInput>
 );
@@ -109,26 +111,26 @@ export const TypesInput = (props) => (
 );
 
 export const TypeInput = (props) => (
-  <ReferenceArrayInput reference="Type" {...props} allowEmpty>
+  <ReferenceArrayInput reference="Type" allowEmpty {...props}>
     <SelectInput optionText="pair:label" />
   </ReferenceArrayInput>
 );
 
 export const PlaceInput = (props) => (
-  <ReferenceInput reference="Place" {...props} allowEmpty>
-    <AutocompleteInput optionText="pair:label" />
+  <ReferenceInput reference="Place" allowEmpty enableGetChoices={ifTwoLetters} {...props}>
+    <AutocompleteInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} />
   </ReferenceInput>
 );
 
 export const CoursesInput = (props) => (
-  <ReferenceArrayInput reference="Course" {...props}>
-    <AutocompleteArrayInput optionText="pair:label" fullWidth />
+  <ReferenceArrayInput reference="Course" enableGetChoices={ifTwoLetters} {...props}>
+    <AutocompleteArrayInput optionText="pair:label" fullWidth shouldRenderSuggestions={(value) => value.length > 1} />
   </ReferenceArrayInput>
 );
 
 export const CourseInput = (props) => (
-  <ReferenceArrayInput reference="Course" {...props} allowEmpty>
-    <SelectInput optionText="pair:label" />
+  <ReferenceArrayInput reference="Course" allowEmpty enableGetChoices={ifTwoLetters} {...props}>
+    <SelectInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} />
   </ReferenceArrayInput>
 );
 
@@ -138,14 +140,14 @@ export const PathsInput = (props) => (
   </ReferenceArrayInput>
 );
 
-export const RegionsInput = ({ label, source, ...rest }) => (
-  <ReferenceArrayInput label={label} reference="Region" source={source} {...rest}>
+export const RegionsInput = (props) => (
+  <ReferenceArrayInput reference="Region" {...props}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />
   </ReferenceArrayInput>
 );
 
-export const TargetAudienceInput = ({ label, source, ...rest }) => (
-  <ReferenceArrayInput label={label} reference="TargetAudience" source={source} {...rest}>
+export const TargetAudienceInput = (props) => (
+  <ReferenceArrayInput reference="TargetAudience" {...props}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />
   </ReferenceArrayInput>
 );
