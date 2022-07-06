@@ -18,9 +18,6 @@ export default {
   },
   dataModel: {
     types: ['pair:Person', 'foaf:Person', 'Person'],
-    list: {
-      dereference: ['sec:publicKey', 'pair:hasLocation/pair:hasPostalAddress'],
-    },
     fieldsMapping: {
       title: ['pair:firstName', 'pair:lastName']
     }

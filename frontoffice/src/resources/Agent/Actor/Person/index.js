@@ -14,9 +14,6 @@ export default {
   },
   dataModel: {
     types: ['pair:Person', 'foaf:Person'],
-    list: {
-      dereference: ['pair:hasLocation/pair:hasPostalAddress'],
-    },
     fieldsMapping: {
       title: ['pair:firstName', 'pair:lastName']
     }
