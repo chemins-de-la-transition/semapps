@@ -5,6 +5,7 @@ import BodyLabel from './BodyLabel';
 import FullWidthBox from '../../FullWidthBox';
 import LargeContainer from '../../LargeContainer';
 import SubAppBar from './SubAppBar';
+import PopoverButton from '../../buttons/PopoverButton';
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -56,6 +57,7 @@ const BodyList = ({ children, aside, alert }) => {
                             source: field.props.source,
                           })
                         )}
+                        {field.props.popover &&  <PopoverButton popover={field.props.popover}/>}
                       </BodyLabel>
                       {React.cloneElement(field, {
                         record,
