@@ -5,6 +5,12 @@ import { LexiconCreateDialog, fetchESCO, fetchWikidata } from "@semapps/interop-
 
 const ifTwoLetters = ({ q }) => !!(q && q.length > 1);
 
+export const AgentsInput = (props) => (
+  <ReferenceArrayInput reference="Agent" enableGetChoices={ifTwoLetters} {...props}>
+    <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
+  </ReferenceArrayInput>
+);
+
 export const ActorsInput = (props) => (
   <ReferenceArrayInput reference="Actor" enableGetChoices={ifTwoLetters} {...props}>
     <AutocompleteArrayInput optionText="pair:label" shouldRenderSuggestions={(value) => value.length > 1} fullWidth />
