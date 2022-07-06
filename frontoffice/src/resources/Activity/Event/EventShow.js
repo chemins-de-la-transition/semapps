@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
+import { ChipField, ShowBase, SingleFieldList, TextField, UrlField, Link, linkToRecord } from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import resourceTheme from '../../../config/themes/resourceTheme';
 import resourceShowStyle from '../../../commons/style/resourceShowStyle';
@@ -7,6 +7,7 @@ import { MapField } from '@semapps/geo-components';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { Box } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import urlJoin from 'url-join';
 import MarkdownField from '../../../commons/fields/MarkdownField';
 import HeaderShow from '../../../commons/HeaderShow';
 import StickyCard from '../../../commons/StickyCard';
@@ -51,7 +52,7 @@ const EventShow = (props) => {
               addLabel
               noBorder
             >
-              <TextField variant="body2" source="cdlt:referenceNumber"/>
+              <TextField variant="body2" source="cdlt:referenceNumber" />
               <TextField variant="body2" source="pair:comment"/>
               <ReferenceArrayField reference="Finality" source="pair:hasFinality">
                 <SeparatedListField link={false} separator=" / ">
@@ -114,8 +115,9 @@ const EventShow = (props) => {
               sources={["cdlt:economicalConditions","cdlt:financialSupport","cdlt:evaluationMethod"]}
               addLabel
             >
-              <MarkdownField source="cdlt:economicalConditions" addLabel={false} />
-              <MarkdownField source="cdlt:financialSupport" />
+              <MarkdownField source="cdlt:economicalConditions" />
+              <MarkdownField source="cdlt:financialSupport" popover=
+              {<Link to={linkToRecord("/Page",urlJoin(process.env.REACT_APP_MIDDLEWARE_URL, 'pages', 'dispositifs-de-financements'),"show")} target="_blank" rel="noopener noreferrer">Découvrir les différents dispositifs de financement</Link>}/>
               <MarkdownField source="cdlt:evaluationMethod" />
             </GroupOfFields>
             <MarkdownField source="cdlt:organizerDescription" />
