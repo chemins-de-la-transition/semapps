@@ -22,13 +22,13 @@ const SearchFilter = () => {
   const textInput = useRef(null);
 
   const changeFilter = debounce(query => {
-    if (!query) return setFilters(filterValues, null, false);
     setFilters({ ...filterValues, q: query}, null, false);
   }, 500)
 
   useEffect(() => {
     if (!filterValues.q) {textInput.current.value=""}
-  }, [filterValues]);
+    if (filterValues.q && textInput.current.value==="") {textInput.current.value=filterValues.q}
+  }, [filterValues, setFilters]);
   
   return (  
     <FormControl className={classes.formControl}>

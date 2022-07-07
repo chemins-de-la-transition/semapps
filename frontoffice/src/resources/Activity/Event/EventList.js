@@ -52,7 +52,7 @@ const EventList = (props) => {
           icon: ListIcon,
           perPage: 1000,
           sort: { field: 'pair:startDate', order: 'ASC' },
-          filterDefaultValues: { sparqlWhere: futureEventSparql, dereference: [] },
+          filterDefaultValues: { sparqlWhere: futureEventSparql },
           list: (
             <Box p={xs ? 2 : 3}>
               <CardsList CardComponent={EventCard} />
