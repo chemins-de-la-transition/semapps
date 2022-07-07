@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Scrollchor } from 'react-scrollchor';
 import { useTranslate, getFieldLabelTranslationArgs, useShowContext } from 'react-admin';
 import { makeStyles, AppBar as MuiAppBar, Tabs, Tab, useMediaQuery } from '@material-ui/core';
@@ -16,12 +16,18 @@ const useStyles = makeStyles((theme) => ({
   tab: {
     minWidth: 0,
   },
+  active: {
+    textDecoration: 'underline',
+    textDecorationThickness: 2,
+    textUnderlineOffset: '10px !important',
+    minWidth: 0,
+  },
   link: {
     textDecoration: 'none',
     color: 'black',
     '&:hover': {
       color: theme.palette.primary.main
-    }
+    },
   },
 }));
 
@@ -30,6 +36,7 @@ const SubAppBar = ({ fields }) => {
   const translate = useTranslate();
   const { resource } = useShowContext();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
+  const [active, setActive] = useState(null)
 
   const appBarHeight = 97;
   const subAppBarHeight = 48;
@@ -58,8 +65,9 @@ const SubAppBar = ({ fields }) => {
                   to={field.props.title ? field.props.title : field.props.source}
                   animate={{ offset: -appBarHeight - subAppBarHeight }}
                   className={classes.link}
+                  afterAnimate={() => setActive(i)}
                 >
-                  <Tab label={label} className={classes.tab} />
+                  <Tab label={label} className={active===i ? classes.active : classes.tab} />
                 </Scrollchor>
               );
             })}
