@@ -15,6 +15,7 @@ import TypeIcon from '../../../../svg/TypeIcon';
 import ActorIcon from '../../../../svg/ActorIcon';
 import CalendarIcon from '../../../../svg/CalendarIcon';
 import DurationIcon from '../../../../svg/DurationIcon';
+import CapacityField from '../../../../commons/fields/CapacityField';
 
 const useStyles = resourceDetailsStyle;
 
@@ -38,13 +39,6 @@ const EventDetails = (props) => {
         { ( !isVertical || sm ) && 
           <ReferenceArrayField source="pair:hasType" reference="Type" icon={<TypeIcon />}>
             <SeparatedListField link={linkToFilteredList('Event', 'pair:hasType')} separator={separator}>
-              <TextField source="pair:label" />
-            </SeparatedListField>
-          </ReferenceArrayField>
-        }
-        { ( !isVertical || sm ) && 
-          <ReferenceArrayField reference="Path" source="cdlt:eventOn" icon={<PathIcon />} label="Type de chemin">
-            <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:eventOn')} separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
@@ -99,6 +93,19 @@ const EventDetails = (props) => {
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
+        }
+        { (isVertical || sm ) && 
+          <ReferenceArrayField reference="TargetAudience" source="cdlt:hasTargetAudience" >
+            <SeparatedListField link={linkToFilteredList('Event', 'cdlt:hasTargetAudience')} separator=" / ">
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+        }
+        { (isVertical || sm ) &&         
+          <CapacityField label="Capacité d'accueil" source="cdlt:minimumCapacity" min="cdlt:minimumCapacity" max="cdlt:maximumCapacity" color="grey40" />
+        }
+        { (isVertical || sm ) && 
+           <TextField variant="body2" source="cdlt:referenceNumber"/>
         }
       </IconsList>
     </Box>
