@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CardsList = ({ CardComponent, link, hasLike, external }) => {
+const CardsList = ({ CardComponent, link, hasLike, external, onlyFutureEvents }) => {
   const classes = useStyles();
   const { ids, data, basePath, loading } = useListContext();
   return loading ? (
@@ -54,6 +54,7 @@ const CardsList = ({ CardComponent, link, hasLike, external }) => {
   ) : (
     ids.map((id) => {
       if( !data[id] ) return null;
+      if ( onlyFutureEvents && data[id]?.['pair:endDate']<(new Date()).toISOString()) return null;
       const image = data[id]?.['pair:depictedBy'];
       const card =
         <Card className={classes.details}>
