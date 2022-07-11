@@ -37,7 +37,7 @@ const SparqlFilter = ({ checked, setChecked, sparqlWhere, label }) => {
 
   useEffect(() => {
     if (!filterValues.sparqlWhere) {setChecked(false)}
-  }, [filterValues, setFilters, setChecked]);
+  }, [filterValues, setChecked]);
 
   return (
     <FormGroup className={classes.formGroup}>

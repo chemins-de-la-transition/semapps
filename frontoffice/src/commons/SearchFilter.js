@@ -28,7 +28,7 @@ const SearchFilter = () => {
   useEffect(() => {
     if (!filterValues.q) {textInput.current.value=""}
     if (filterValues.q && textInput.current.value==="") {textInput.current.value=filterValues.q}
-  }, [filterValues, setFilters]);
+  }, [filterValues, textInput ]);
   
   return (  
     <FormControl className={classes.formControl}>
