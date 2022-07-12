@@ -2,7 +2,7 @@ import React from 'react';
 import { ListBase } from 'react-admin';
 import { useCheckAuthenticated } from '@semapps/auth-provider';
 import CardsList from '../commons/lists/CardsList';
-import EventCard from '../resources/Activity/Event/EventCard';
+import EventCard from '../resources/Agent/Activity/Event/EventCard';
 import FullWidthBox from '../commons/FullWidthBox';
 import LargeContainer from '../commons/LargeContainer';
 import HeaderTitle from '../commons/HeaderTitle';

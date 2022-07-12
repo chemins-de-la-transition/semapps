@@ -12,7 +12,7 @@ import HeaderShow from '../../commons/HeaderShow';
 import StickyCard from '../../commons/StickyCard';
 import BodyList from '../../commons/lists/BodyList/BodyList';
 import PlaceDetails from './PlaceDetails';
-import EventCard from '../Activity/Event/EventCard';
+import EventCard from '../Agent/Activity/Event/EventCard';
 import CardsList from '../../commons/lists/CardsList';
 import ContactDialog from "../../commons/ContactDialog";
 import NumberWithUnitField from '../../commons/fields/NumberWithUnitField';

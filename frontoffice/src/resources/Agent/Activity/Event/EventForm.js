@@ -29,8 +29,8 @@ import {
   TargetAudienceInput,
   ThemesInput,
   TypesInput,
-} from '../../../pair';
-import ReminderBeforeRecording from '../../../commons/ReminderBeforeRecording';
+} from '../../../../pair';
+import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
 import frLocale from 'date-fns/locale/fr';
 import { Box, FormControlLabel, Slide, LinearProgress, makeStyles, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';

@@ -3,7 +3,7 @@ import Welcome from './Welcome/Welcome';
 import FeaturedList from '../../commons/lists/FeaturedList/FeaturedList';
 import PlaceSubHeader from '../../resources/Place/PlaceSubHeader';
 import CoursesTypes from './CoursesTypes';
-import CourseSubHeader from "../../resources/Activity/Course/CourseSubHeader";
+import CourseSubHeader from "../../resources/Agent/Activity/Course/CourseSubHeader";
 import PathSubHeader from '../../resources/Idea/Path/PathSubHeader';
 import Partners from './Partners';
 import PictoLieu from '../../icons/PictoLieu.png' ;

@@ -7,8 +7,8 @@ import HeaderTitle from '../commons/HeaderTitle';
 import LikedList from '../commons/lists/LikedList';
 import PathCard from '../resources/Idea/Path/PathCard';
 import PlaceCard from '../resources/Place/PlaceCard';
-import EventCard from '../resources/Activity/Event/EventCard';
-import CourseCard from '../resources/Activity/Course/CourseCard';
+import EventCard from '../resources/Agent/Activity/Event/EventCard';
+import CourseCard from '../resources/Agent/Activity/Course/CourseCard';
 
 const MyBookmarksPage = () => {
   const { identity } = useCheckAuthenticated();

@@ -3,9 +3,9 @@ export { default as Path } from './Idea/Path';
 export { default as Debate } from './Idea/Debate';
 
 // Activities
-export { default as Course } from './Activity/Course';
-export { default as Event } from './Activity/Event';
-export { default as Activity } from './Activity/Activity';
+export { default as Course } from './Agent/Activity/Course';
+export { default as Event } from './Agent/Activity/Event';
+export { default as Activity } from './Agent/Activity/Activity';
 
 // Actors
 export { default as Organization } from './Agent/Actor/Organization';

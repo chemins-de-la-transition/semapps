@@ -4,16 +4,16 @@ import { Box, useMediaQuery } from '@material-ui/core';
 import frLocale from '@fullcalendar/core/locales/fr';
 import { CalendarList } from '@semapps/date-components';
 import { MapList } from '@semapps/geo-components';
-import MultiViewsFilterList from '../../../commons/lists/MultiViewsFilterList/MultiViewsFilterList';
-import Calendar from '../../../svg/CalendarIcon';
-import MapIcon from '../../../svg/MapIcon';
+import MultiViewsFilterList from '../../../../commons/lists/MultiViewsFilterList/MultiViewsFilterList';
+import Calendar from '../../../../svg/CalendarIcon';
+import MapIcon from '../../../../svg/MapIcon';
 import ListIcon from '@material-ui/icons/List';
-import Filter from '../../../commons/Filter';
-import SparqlFilter from '../../../commons/SparqlFilter';
-import SearchFilter from '../../../commons/SearchFilter';
-import CardsList from '../../../commons/lists/CardsList';
+import Filter from '../../../../commons/Filter';
+import SparqlFilter from '../../../../commons/SparqlFilter';
+import SearchFilter from '../../../../commons/SearchFilter';
+import CardsList from '../../../../commons/lists/CardsList';
 import EventCard from './EventCard';
-import useFutureEventSparql from "../../../hooks/useFutureEventSparql";
+import useFutureEventSparql from "../../../../hooks/useFutureEventSparql";
 
 const EventList = (props) => {
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
