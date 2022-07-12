@@ -20,13 +20,15 @@ import NumberWithUnitField from '../../../../commons/fields/NumberWithUnitField'
 import SectorField from '../../../../commons/fields/SectorField';
 import ContactButton from "../../../../commons/buttons/ContactButton";
 import GroupOfFields from '../../../../commons/fields/GroupOfFields';
-import { linkToFilteredList } from "../../../../utils";
+import { linkToRecord } from 'react-admin';
+import { linkToFilteredList } from '../../../../utils';
 
 const useStyles = resourceShowStyle;
 
 const OrganizationShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
   const classes = useStyles();
+
   return (
     <ThemeProvider theme={organizationTheme}>
       <ShowBase {...props}>
@@ -34,6 +36,7 @@ const OrganizationShow = (props) => {
           <HeaderShow
             type="pair:hasType"
             linkToListText="Liste des organisations"
+            link={linkToRecord("/LEP","organizations")}
             details={<OrganizationDetails />}
             actionButton={<ContactButton label="Contacter l'organisation" />}
           />
