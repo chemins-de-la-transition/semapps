@@ -3,13 +3,13 @@ import { TextField, DateField } from 'react-admin';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { makeStyles, Box } from '@material-ui/core';
-import Chip from '../../../commons/Chip';
-import DurationField from "../../../commons/fields/DurationField";
-import CourseIcon from '../../../svg/CourseIcon';
-import CalendarIcon from '../../../svg/CalendarIcon';
-import DurationIcon from '../../../svg/DurationIcon';
-import ThemeIcon from '../../../svg/ThemeIcon';
-import { linkToFilteredList } from "../../../utils";
+import Chip from '../../../../commons/Chip';
+import DurationField from "../../../../commons/fields/DurationField";
+import CourseIcon from '../../../../svg/CourseIcon';
+import CalendarIcon from '../../../../svg/CalendarIcon';
+import DurationIcon from '../../../../svg/DurationIcon';
+import ThemeIcon from '../../../../svg/ThemeIcon';
+import { linkToFilteredList } from "../../../../utils";
 
 const useStyles = makeStyles((theme) => ({
   title: {

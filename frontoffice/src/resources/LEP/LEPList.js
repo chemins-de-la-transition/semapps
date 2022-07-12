@@ -1,9 +1,9 @@
 import React from 'react';
 import TabbedList from "../../commons/lists/TabbedList/TabbedList";
 import Filter from '../../commons/Filter';
-import CourseCard from '../Activity/Course/CourseCard';
+import CourseCard from '../Agent/Activity/Course/CourseCard';
 import PlaceCard from "../Place/PlaceCard";
-import EventCard from "../Activity/Event/EventCard";
+import EventCard from "../Agent/Activity/Event/EventCard";
 import OrganizationCard from '../Agent/Actor/Organization/OrganizationCard';
 import SearchFilter from '../../commons/SearchFilter';
 

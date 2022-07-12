@@ -1,17 +1,17 @@
 import React from 'react';
-import resourceDetailsStyle from '../../../commons/style/resourceDetailsStyle';
+import resourceDetailsStyle from '../../../../commons/style/resourceDetailsStyle';
 import { TextField } from 'react-admin';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Box, useMediaQuery } from '@material-ui/core';
 import { SeparatedListField } from '@semapps/archipelago-layout';
-import { linkToFilteredList } from "../../../utils";
-import IconsList from '../../../commons/lists/IconsList';
-import RangeDateField from '../../../commons/fields/RangeDateField';
-import CourseIcon from '../../../svg/CourseIcon';
-import PathIcon from '../../../svg/PathIcon';
-import PlaceIcon from '../../../svg/PlaceIcon';
-import ActorIcon from '../../../svg/ActorIcon';
-import CalendarIcon from '../../../svg/CalendarIcon';
+import { linkToFilteredList } from "../../../../utils";
+import IconsList from '../../../../commons/lists/IconsList';
+import RangeDateField from '../../../../commons/fields/RangeDateField';
+import CourseIcon from '../../../../svg/CourseIcon';
+import PathIcon from '../../../../svg/PathIcon';
+import PlaceIcon from '../../../../svg/PlaceIcon';
+import ActorIcon from '../../../../svg/ActorIcon';
+import CalendarIcon from '../../../../svg/CalendarIcon';
 
 const useStyles = resourceDetailsStyle;
 

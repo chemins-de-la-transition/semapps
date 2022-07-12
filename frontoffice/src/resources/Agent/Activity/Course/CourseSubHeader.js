@@ -1,12 +1,12 @@
 import React from 'react';
 import { makeStyles, Box, Typography } from '@material-ui/core';
 import { ReferenceField, TextField, DateField } from 'react-admin';
-import DurationIcon from '../../../svg/DurationIcon';
-import CourseIcon from '../../../svg/CourseIcon';
-import DurationField from "../../../commons/fields/DurationField";
-import Chip from "../../../commons/Chip";
-import PlaceIcon from "../../../svg/PlaceIcon";
-import CalendarIcon from "../../../svg/CalendarIcon";
+import DurationIcon from '../../../../svg/DurationIcon';
+import CourseIcon from '../../../../svg/CourseIcon';
+import DurationField from "../../../../commons/fields/DurationField";
+import Chip from "../../../../commons/Chip";
+import PlaceIcon from "../../../../svg/PlaceIcon";
+import CalendarIcon from "../../../../svg/CalendarIcon";
 
 const useStyles = makeStyles((theme) => ({
   courseSubHeader: {

@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
-import resourceTheme from '../../../config/themes/resourceTheme';
-import resourceShowStyle from '../../../commons/style/resourceShowStyle';
+import resourceTheme from '../../../../config/themes/resourceTheme';
+import resourceShowStyle from '../../../../commons/style/resourceShowStyle';
 import { MapField } from '@semapps/geo-components';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { Box } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
-import MarkdownField from '../../../commons/fields/MarkdownField';
-import HeaderShow from '../../../commons/HeaderShow';
-import StickyCard from '../../../commons/StickyCard';
-import BodyList from '../../../commons/lists/BodyList/BodyList';
-import SimilarEvents from "../../../commons/lists/EventsList/SimilarEvents";
+import MarkdownField from '../../../../commons/fields/MarkdownField';
+import HeaderShow from '../../../../commons/HeaderShow';
+import StickyCard from '../../../../commons/StickyCard';
+import BodyList from '../../../../commons/lists/BodyList/BodyList';
+import SimilarEvents from "../../../../commons/lists/EventsList/SimilarEvents";
 import EventDetails from './EventDetails';
 import EventAlert from "./EventAlert";
-import ContactDialog from "../../../commons/ContactDialog";
-import NumberWithUnitField from '../../../commons/fields/NumberWithUnitField';
-import SectorField from '../../../commons/fields/SectorField';
-import ApplyButton from "../../../commons/buttons/ApplyButton";
-import GroupOfFields from '../../../commons/fields/GroupOfFields';
-import { linkToFilteredList } from "../../../utils";
+import ContactDialog from "../../../../commons/ContactDialog";
+import NumberWithUnitField from '../../../../commons/fields/NumberWithUnitField';
+import SectorField from '../../../../commons/fields/SectorField';
+import ApplyButton from "../../../../commons/buttons/ApplyButton";
+import GroupOfFields from '../../../../commons/fields/GroupOfFields';
+import { linkToFilteredList } from "../../../../utils";
 
 const useStyles = resourceShowStyle;
 

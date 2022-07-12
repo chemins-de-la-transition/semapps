@@ -1,15 +1,15 @@
 import React from 'react';
 import { DateField, TextField, FunctionField, Link, linkToRecord } from 'react-admin';
-import Chip from '../../../commons/Chip';
+import Chip from '../../../../commons/Chip';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { makeStyles, Typography } from '@material-ui/core';
-import ThemeIcon from '../../../svg/ThemeIcon';
-import TypeIcon from '../../../svg/TypeIcon';
-import CalendarIcon from '../../../svg/CalendarIcon';
-import PlaceIcon from '../../../svg/PlaceIcon';
-import CheckIcon from '../../../svg/CheckIcon' ;
-import { linkToFilteredList } from "../../../utils";
+import ThemeIcon from '../../../../svg/ThemeIcon';
+import TypeIcon from '../../../../svg/TypeIcon';
+import CalendarIcon from '../../../../svg/CalendarIcon';
+import PlaceIcon from '../../../../svg/PlaceIcon';
+import CheckIcon from '../../../../svg/CheckIcon' ;
+import { linkToFilteredList } from "../../../../utils";
 
 const useStyles = makeStyles((theme) => ({
   title: {
