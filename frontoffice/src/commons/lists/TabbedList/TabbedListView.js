@@ -5,6 +5,7 @@ import { Box, Grid, Typography, IconButton, makeStyles, useMediaQuery, Button, D
 import { useDataModels } from "@semapps/semantic-data-provider";
 import SearchIcon from '@material-ui/icons/Search';
 import CloseIcon from '@material-ui/icons/Close';
+import  { useHistory } from 'react-router-dom';
 import CardsList from "../CardsList";
 import ResourceTab from "./ResourceTab";
 
@@ -69,12 +70,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const getTabFromPathname = (pathname) => {
+  switch (pathname) {
+    case "/LEP/organizations":
+      return 3;
+    case "/LEP/places":
+      return 2;
+    case "/LEP/events":
+      return 1;
+    default:
+      return 0;
+  }
+};
+
 const TabbedListView = ({ tabs, filters }) => {
   const classes = useStyles();
   const { ids, data, loaded, loading } = useListContext();
   const dataModels = useDataModels();
   const [areFiltersOpen, openFilters] = useState(false);
-  const [currentTab, setCurrentTab] = useState(tabs[0].resource);
+  const history = useHistory();
+  const [currentTab, setCurrentTab] = useState(tabs[getTabFromPathname(history.location.pathname)].resource);
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
   const { filterValues, setFilters } = useListFilterContext();
 

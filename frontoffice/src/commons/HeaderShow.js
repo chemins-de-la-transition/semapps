@@ -121,7 +121,7 @@ const MultipleImagesField = ({ source, max = 2 }) => {
   }
 };
 
-const HeaderShow = ({ linkToListText, details, content, actionButton, hasComment, variant }) => {
+const HeaderShow = ({ linkToListText, details, content, actionButton, hasComment, variant, link }) => {
   const classes = useStyles({variant});
   const { basePath, loaded } = useShowContext();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
@@ -142,7 +142,7 @@ const HeaderShow = ({ linkToListText, details, content, actionButton, hasComment
           separator={<NavigateNextIcon fontSize="small" className={classes.chevronIcon} />}
           className={classes.breadcrumbs}
         >
-          <Link to={basePath} underline="none" color="inherit" className={classes.basePath}>
+          <Link to={link ? link : basePath} underline="none" color="inherit" className={classes.basePath}>
             <Typography>{linkToListText}</Typography>
           </Link>
           <TextField source="pair:label" variant="body2" className={classes.resourceLink} />
