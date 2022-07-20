@@ -47,10 +47,10 @@ export default {
         'pair:hostedIn': 'Lieu', /*Place*/
         'pair:hasLocation': 'Localisation',
         'cdlt:hasRegion': 'Région',
-        'cdlt:prerequisites': 'Autres prérequis',
+        'cdlt:prerequisites': 'Prérequis',
         'cdlt:practicalConditions': "Modalités d'accueil",
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
-        'cdlt:economicalConditions': 'Conditions financières',
+        'cdlt:economicalConditions': 'Prix',
         'pair:partOf': 'Voyage associé', /*Course*/
         'pair:e-mail': 'Adresse e-mail',
         'pair:phone': 'Téléphone',
@@ -73,6 +73,7 @@ export default {
         'cdlt:jotformLink':"Formulaire d'inscription JotForm",
         'cdlt:registrationLink':"Lien du système d'inscription",
         'cdlt:referenceNumber':"N° de l'événement",
+        'cdlt:jobOpportunities':"Idées de débouchés vers des métiers de transition",
       },
     },
   },

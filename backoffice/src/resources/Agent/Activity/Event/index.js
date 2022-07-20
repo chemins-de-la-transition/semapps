@@ -71,6 +71,7 @@ export default {
         'cdlt:jotformLink':"Formulaire d'inscription JotForm",
         'cdlt:registrationLink':"Lien du système d'inscription",
         'cdlt:referenceNumber':"Numéro de référence",
+        "cdlt:jobOpportunities":"Idées de débouchés vers des métiers de transition"
       },
     },
   },

@@ -66,6 +66,7 @@ const EventEdit = (props) => (
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <MarkdownInput source="cdlt:pedagogicalMeans" fullWidth />
+        <TextInput source="cdlt:jobOpportunities" fullWidth />
 
         <MarkdownInput source="cdlt:practicalConditions" helperText="Précisez si besoin équipements, inscription, hébergement, repas..." fullWidth />
         <NumberInput source="cdlt:minimumCapacity" fullWidth />
