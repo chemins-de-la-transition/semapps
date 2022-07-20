@@ -2,6 +2,7 @@ import React, { forwardRef, useMemo } from 'react';
 import { UserMenu as RaUserMenu, MenuItemLink, useGetIdentity } from 'react-admin';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PlaceIcon from '../svg/PlaceIcon';
+import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import EventIcon from '@material-ui/icons/Event';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
@@ -20,6 +21,10 @@ const MyEventsMenu = forwardRef(({ onClick }, ref) => (
 
 const MyOrganizationsMenu = forwardRef(({ onClick }, ref) => (
   <MenuItemLink ref={ref} to="/MyOrganizations" primaryText="Mes organisations" leftIcon={<HomeIcon />} onClick={onClick} />
+));
+
+const MyReservationsMenu = forwardRef(({ onClick }, ref) => (
+  <MenuItemLink ref={ref} to="/MyReservations" primaryText="Mes réservations" leftIcon={<WorkOutlineIcon />} onClick={onClick} />
 ));
 
 const LoginMenu = forwardRef(({ onClick }, ref) => (
@@ -63,6 +68,7 @@ const UserMenu = ({ logout, ...otherProps }) => {
             <MyOrganizationsMenu key="my-organizations" />,
             <MyPlacesMenu key="my-places" />,
             <MyEventsMenu key="my-events" />,
+            <MyReservationsMenu key="my-reservations" />,
             React.cloneElement(logout, { key: 'logout' }),
           ]
         )

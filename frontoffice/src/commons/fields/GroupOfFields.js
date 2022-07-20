@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslate, getFieldLabelTranslationArgs, useShowContext } from 'react-admin';
-import { makeStyles, Typography } from '@material-ui/core';
+import { makeStyles, Typography, Box } from '@material-ui/core';
+import PopoverButton from '../buttons/PopoverButton';
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -43,6 +44,7 @@ const GroupOfFields = ({ children, source, title, noBorder }) => {
     <div key={field.props.source} id={field.props.source} className={classes.fieldClass}>
         {field.props.addLabel ? (
         <>
+          <Box sx={{ display: 'flex' }}>
             <Typography variant="h5" component="div" color="secondary" style={{fontWeight:500}}>
                 {translate(
                 ...getFieldLabelTranslationArgs({
@@ -52,6 +54,8 @@ const GroupOfFields = ({ children, source, title, noBorder }) => {
                 })
                 )}
             </Typography>
+            {field.props.popover &&  <PopoverButton popover={field.props.popover}/>}
+            </Box>
             {React.cloneElement(field, {
             record,
             resource,

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useListFilterContext } from 'react-admin';
 import { Checkbox, FormControlLabel, FormGroup, makeStyles } from '@material-ui/core';
 
@@ -34,6 +34,10 @@ const SparqlFilter = ({ checked, setChecked, sparqlWhere, label }) => {
     },
     [filterValues, setFilters, sparqlWhere, setChecked]
   );
+
+  useEffect(() => {
+    if (!filterValues.sparqlWhere) {setChecked(false)}
+  }, [filterValues, setChecked]);
 
   return (
     <FormGroup className={classes.formGroup}>
