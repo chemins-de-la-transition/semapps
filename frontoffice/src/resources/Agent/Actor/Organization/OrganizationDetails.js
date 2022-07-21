@@ -12,6 +12,7 @@ import GuardianIcon from '../../../../svg/GuardianIcon';
 import ActorIcon from '../../../../svg/ActorIcon';
 import PathIcon from '../../../../svg/PathIcon';
 import CourseIcon from '../../../../svg/CourseIcon';
+import CalendarIcon from '../../../../svg/CalendarIcon';
 
 const useStyles = resourceDetailsStyle;
 
@@ -24,17 +25,14 @@ const OrganizationDetails = (props) => {
 
   const FilteredEvents = () => {
     const { ids, data, basePath } = useListContext();
+    const futureEvents = ids.filter((id) => data[id] && (data[id]?.['pair:endDate']>(new Date()).toISOString()) )
     return (
-      ids.map((id) => {
-        if( !data[id] ) return null;
-        if ( data[id]?.['pair:endDate']<(new Date()).toISOString()) return null;
-        return (
-          <Link to={linkToRecord(basePath, id, "show")}>
-            <TextField record={data[id]} source="pair:label" />
-          </Link>
-        )
-      })
-    );
+      futureEvents.slice(0,5).map((id) =>
+        <Link to={linkToRecord(basePath, id, "show")}>
+          <TextField record={data[id]} source="pair:label" />
+        </Link>
+      )
+    )
   };
 
   return(
@@ -88,11 +86,8 @@ const OrganizationDetails = (props) => {
             </ReferenceArrayField>
           }
           {  (isVertical && ! sm ) && 
-            <ReferenceArrayField reference="Activity" source="cdlt:organizes" icon={<ActorIcon />} >
-              <FilteredEvents label="Organisateur de"/>
-              {/* <SeparatedListField link="show" separator={separator}>
-                <TextField source="pair:label" />
-              </SeparatedListField> */}
+            <ReferenceArrayField reference="Activity" source="cdlt:organizes" icon={<CalendarIcon />} label="Prochaines activités">
+              <FilteredEvents />
             </ReferenceArrayField>
           }
           {  (isVertical && ! sm ) && 

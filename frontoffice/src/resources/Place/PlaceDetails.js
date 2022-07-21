@@ -26,19 +26,15 @@ const PlaceDetails = (props) => {
 
   const FilteredEvents = () => {
     const { ids, data, basePath } = useListContext();
+    const futureEvents = ids.filter((id) => data[id] && (data[id]?.['pair:endDate']>(new Date()).toISOString()) )
     return (
-      ids.map((id) => {
-        if( !data[id] ) return null;
-        if ( data[id]?.['pair:endDate']<(new Date()).toISOString()) return null;
-        return (
-          <Link to={linkToRecord(basePath, id, "show")}>
-            <TextField record={data[id]} source="pair:label" />
-          </Link>
-        )
-      })
-    );
+      futureEvents.slice(0,5).map((id) =>
+        <Link to={linkToRecord(basePath, id, "show")}>
+          <TextField record={data[id]} source="pair:label" />
+        </Link>
+      )
+    )
   };
-  
 
   return(
     <Box className={classes.mainContainer}>
@@ -96,8 +92,8 @@ const PlaceDetails = (props) => {
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField source="pair:hosts" reference="Event" icon={<CalendarIcon />} label="Accueille" sort={{ field: 'pair:startDate', order: 'ASC' }}>
-              <FilteredEvents label="Accueille" />
+            <ReferenceArrayField source="pair:hosts" reference="Event" icon={<CalendarIcon />} label="Prochains événements">
+              <FilteredEvents />
             </ReferenceArrayField>
           }
         </IconsList>
