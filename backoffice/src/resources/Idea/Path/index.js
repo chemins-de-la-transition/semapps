@@ -42,6 +42,7 @@ export default {
         'pair:nourishes': 'Discussions',
         'cdlt:hasCourseType': 'Mode de voyage',
         'cdlt:learningObjectives': 'Objectifs pédagogiques',
+        "cdlt:jobOpportunities":"Idées de débouchés vers des métiers de transition"
       },
     },
   },

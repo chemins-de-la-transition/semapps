@@ -87,6 +87,7 @@ const PathShow = (props) => {
                 </SeparatedListField>
               </ReferenceArrayField>
               <MarkdownField source="cdlt:learningObjectives" />
+              <MarkdownField source="cdlt:jobOpportunities" />
             </GroupOfFields>  
       
             <ReferenceArrayField source="cdlt:hasPlace" reference="Place" className={classes.cardsList} label="Lieux">
