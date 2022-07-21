@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
-import { ThemeProvider } from '@material-ui/core';
+import { ThemeProvider, FormControlLabel, Checkbox, FormGroup } from '@material-ui/core';
 import organizationTheme from '../../../../config/themes/organizationTheme';
 import resourceShowStyle from '../../../../commons/style/resourceShowStyle';
 import { MapField } from '@semapps/geo-components';
@@ -27,6 +27,7 @@ const useStyles = resourceShowStyle;
 
 const OrganizationShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
+  const [onlyFutureEvents, setOnlyFutureEvents] = useState(true);
   const classes = useStyles();
 
   return (
@@ -103,12 +104,23 @@ const OrganizationShow = (props) => {
               <MarkdownField source="cdlt:practicalConditions" addLabel={false}/>
               <NumberWithUnitField source="cdlt:maximumCapacity" addLabel unit='personnes' color="grey40" />
             </GroupOfFields>
-            <ReferenceArrayField source="cdlt:organizes" reference="Activity" sort={{ field: 'pair:startDate', order: 'ASC' }} className={classes.cardsList} label="Activités">
+            {/* <ReferenceArrayField source="cdlt:organizes" reference="Activity" sort={{ field: 'pair:startDate', order: 'ASC' }} className={classes.cardsList} label="Activités">
               <Box pt={1}>
                 <Typography variant="body2" component="div" className={classes.textBody} >
                   Cette organisation est impliquée dans plusieurs activités. Cliquez dessus pour en savoir plus et/ou participer.
                 </Typography>
                 <CardsList CardComponent={EventCard} />
+              </Box>
+            </ReferenceArrayField> */}
+            <ReferenceArrayField source="cdlt:organizes" reference="Activity" sort={{ field: 'pair:startDate', order: 'ASC' }} className={classes.cardsList} label="Activités">
+              <Box pt={1}>
+                <Typography variant="body2" component="div" className={classes.textBody}>
+                  Cette organisation est impliquée dans plusieurs activités. Cliquez dessus pour en savoir plus et/ou participer.
+                  <FormGroup >
+                    <FormControlLabel control={<Checkbox checked={onlyFutureEvents} />} label={"N'afficher que les activités à venir"} onChange={() => setOnlyFutureEvents(!onlyFutureEvents)}/>
+                  </FormGroup>
+                </Typography>
+                <CardsList onlyFutureEvents={onlyFutureEvents} CardComponent={EventCard} />
               </Box>
             </ReferenceArrayField>
             <ReferenceArrayField source="pair:inspiredBy" reference="Organization" className={classes.cardsList} label="Est inspirée par">
