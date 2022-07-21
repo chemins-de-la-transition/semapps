@@ -107,6 +107,9 @@ const TabbedListView = ({ tabs, filters, futureActivities }) => {
           }
         }
       }
+      if (dataByTabs['Place']) {
+        dataByTabs['Place']=Object.fromEntries(Object.entries(dataByTabs['Place']).filter(key => key[1]['id'].includes(process.env.REACT_APP_MIDDLEWARE_URL)))
+      }
       if (dataByTabs['Course']) {
         dataByTabs['Course']=Object.fromEntries(Object.entries(dataByTabs['Course']).filter(key => key[1]['pair:hasStatus']===process.env.REACT_APP_MIDDLEWARE_URL+"status/valide"))
         if (futureActivities) {
