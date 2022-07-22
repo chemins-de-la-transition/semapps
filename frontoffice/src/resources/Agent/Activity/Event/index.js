@@ -74,6 +74,7 @@ export default {
         'cdlt:registrationLink':"Lien du système d'inscription",
         'cdlt:referenceNumber':"N° de l'événement",
         'cdlt:jobOpportunities':"Idées de débouchés vers des métiers de transition",
+        "cdlt:registrationOutsideCourse": "Possibilité de s'inscrire à l'événement en dehors du voyage",
       },
     },
   },
