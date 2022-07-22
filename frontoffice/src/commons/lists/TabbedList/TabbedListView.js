@@ -83,7 +83,7 @@ const getTabFromPathname = (pathname) => {
   }
 };
 
-const TabbedListView = ({ tabs, filters }) => {
+const TabbedListView = ({ tabs, filters, futureActivities }) => {
   const classes = useStyles();
   const { ids, data, loaded, loading } = useListContext();
   const dataModels = useDataModels();
@@ -107,15 +107,28 @@ const TabbedListView = ({ tabs, filters }) => {
           }
         }
       }
+      if (dataByTabs['Place']) {
+        dataByTabs['Place']=Object.fromEntries(Object.entries(dataByTabs['Place']).filter(key => key[1]['id'].includes(process.env.REACT_APP_MIDDLEWARE_URL)))
+      }
+      if (dataByTabs['Course']) {
+        dataByTabs['Course']=Object.fromEntries(Object.entries(dataByTabs['Course']).filter(key => key[1]['pair:hasStatus']===process.env.REACT_APP_MIDDLEWARE_URL+"status/valide"))
+        if (futureActivities) {
+          dataByTabs['Course']=Object.fromEntries(Object.entries(dataByTabs['Course']).filter(key => key[1]['pair:endDate']>(new Date()).toISOString()))
+        }
+      }
+      if (futureActivities && dataByTabs['Event']) {
+        dataByTabs['Event']=Object.fromEntries(Object.entries(dataByTabs['Event']).filter(key => key[1]['pair:endDate']>(new Date()).toISOString()))
+      }
       return dataByTabs;
     }
-  }, [ids, data, tabs, dataModels]);
+  }, [ids, data, tabs, dataModels, futureActivities]);
 
   useEffect(() => {
     if( dataByTabs && Object.keys(dataByTabs[currentTab]).length === 0 ) {
       setCurrentTab(Object.keys(dataByTabs).find(t => Object.keys(dataByTabs[t]).length > 0));
     }
   }, [dataByTabs, currentTab, setCurrentTab]);
+
 
   return (
     <Grid container>
