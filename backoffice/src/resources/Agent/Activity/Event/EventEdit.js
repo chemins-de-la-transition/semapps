@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabbedForm, FormTab, TextInput, ImageInput, BooleanInput, NumberInput, email, required } from 'react-admin';
+import { TabbedForm, FormTab, TextInput, ImageInput, BooleanInput, NumberInput, email, required, FormDataConsumer } from 'react-admin';
 import frLocale from 'date-fns/locale/fr';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
@@ -98,6 +98,12 @@ const EventEdit = (props) => (
         <PersonsInput source="cdlt:hasMentor" />
         <PlaceInput source="pair:hostedIn" fullWidth />
         <CoursesInput source="pair:partOf" fullWidth />
+        <FormDataConsumer fullWidth>
+          {({ formData, ...rest }) => (
+            (formData["pair:partOf"]?.length > 0) &&
+            <BooleanInput source="cdlt:registrationOutsideCourse" {...rest} />
+          )}
+        </FormDataConsumer>
         <PathsInput source="cdlt:eventOn" />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />

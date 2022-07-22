@@ -11,6 +11,7 @@ import {
   required,
   useDataProvider,
   useGetIdentity,
+  FormDataConsumer
 } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
@@ -255,6 +256,12 @@ const EventForm = ({ mode, ...rest }) => {
         <PersonsInput source="cdlt:hasMentor" />
         <PlaceInput source="pair:hostedIn" fullWidth />
         <CoursesInput source="pair:partOf" fullWidth />
+        <FormDataConsumer fullWidth>
+          {({ formData, ...rest }) => (
+            (formData["pair:partOf"]?.length > 0) &&
+            <BooleanInput source="cdlt:registrationOutsideCourse" {...rest} />
+          )}
+        </FormDataConsumer>
         <PathsInput source="cdlt:eventOn" fullWidth />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
