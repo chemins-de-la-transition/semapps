@@ -11,7 +11,7 @@ module.exports = {
     acceptedTypes: ['pair:Person', 'foaf:Person', ACTOR_TYPES.PERSON],
     preferredView: '/Person',
     dereference: ['sec:publicKey', 'pair:hasLocation/pair:hasPostalAddress'],
-    excludeFromMirror: true
+    excludeFromMirror: false
   },
   actions: {
     // When a user is created, create an account with the email
