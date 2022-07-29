@@ -65,6 +65,8 @@ const EventShow = (props) => (
           <MarkdownField source="cdlt:prerequisites" addLabel />
           <MarkdownField source="cdlt:learningObjectives" addLabel />
           <MarkdownField source="cdlt:pedagogicalMeans" />
+          <TextField source="cdlt:jobOpportunities" />
+
 
           <MarkdownField source="cdlt:practicalConditions" />
           <NumberField source="cdlt:minimumCapacity" />

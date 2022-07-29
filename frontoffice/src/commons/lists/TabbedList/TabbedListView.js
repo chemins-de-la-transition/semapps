@@ -5,6 +5,7 @@ import { Box, Grid, Typography, IconButton, makeStyles, useMediaQuery, Button, D
 import { useDataModels } from "@semapps/semantic-data-provider";
 import SearchIcon from '@material-ui/icons/Search';
 import CloseIcon from '@material-ui/icons/Close';
+import  { useHistory } from 'react-router-dom';
 import CardsList from "../CardsList";
 import ResourceTab from "./ResourceTab";
 
@@ -69,12 +70,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TabbedListView = ({ tabs, filters }) => {
+const getTabFromPathname = (pathname) => {
+  switch (pathname) {
+    case "/LEP/organizations":
+      return 3;
+    case "/LEP/places":
+      return 2;
+    case "/LEP/events":
+      return 1;
+    default:
+      return 0;
+  }
+};
+
+const TabbedListView = ({ tabs, filters, futureActivities }) => {
   const classes = useStyles();
   const { ids, data, loaded, loading } = useListContext();
   const dataModels = useDataModels();
   const [areFiltersOpen, openFilters] = useState(false);
-  const [currentTab, setCurrentTab] = useState(tabs[0].resource);
+  const history = useHistory();
+  const [currentTab, setCurrentTab] = useState(tabs[getTabFromPathname(history.location.pathname)].resource);
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
   const { filterValues, setFilters } = useListFilterContext();
 
@@ -92,15 +107,28 @@ const TabbedListView = ({ tabs, filters }) => {
           }
         }
       }
+      if (dataByTabs['Place']) {
+        dataByTabs['Place']=Object.fromEntries(Object.entries(dataByTabs['Place']).filter(key => key[1]['id'].includes(process.env.REACT_APP_MIDDLEWARE_URL)))
+      }
+      if (dataByTabs['Course']) {
+        dataByTabs['Course']=Object.fromEntries(Object.entries(dataByTabs['Course']).filter(key => key[1]['pair:hasStatus']===process.env.REACT_APP_MIDDLEWARE_URL+"status/valide"))
+        if (futureActivities) {
+          dataByTabs['Course']=Object.fromEntries(Object.entries(dataByTabs['Course']).filter(key => key[1]['pair:endDate']>(new Date()).toISOString()))
+        }
+      }
+      if (futureActivities && dataByTabs['Event']) {
+        dataByTabs['Event']=Object.fromEntries(Object.entries(dataByTabs['Event']).filter(key => key[1]['pair:endDate']>(new Date()).toISOString()))
+      }
       return dataByTabs;
     }
-  }, [ids, data, tabs, dataModels]);
+  }, [ids, data, tabs, dataModels, futureActivities]);
 
   useEffect(() => {
     if( dataByTabs && Object.keys(dataByTabs[currentTab]).length === 0 ) {
       setCurrentTab(Object.keys(dataByTabs).find(t => Object.keys(dataByTabs[t]).length > 0));
     }
   }, [dataByTabs, currentTab, setCurrentTab]);
+
 
   return (
     <Grid container>

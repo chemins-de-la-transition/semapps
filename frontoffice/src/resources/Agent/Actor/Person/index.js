@@ -31,7 +31,7 @@ export default {
         'pair:depictedBy': 'Photo',
         'pair:hasType': 'Type',
         'pair:hasStatus': 'Statut',
-        'pair:hasSector': 'Secteurs d\'activité',
+        'pair:hasSector': "Centres d'intérêt",
         'pair:hasTopic': 'Mots clé', /*Theme*/
         'pair:hasLocation': 'Localisation',
         'pair:hasFinality': 'Finalités',

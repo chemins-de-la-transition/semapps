@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Box, useMediaQuery } from '@material-ui/core';
-import MultiViewsFilterList from '../../../commons/lists/MultiViewsFilterList/MultiViewsFilterList';
+import MultiViewsFilterList from '../../../../commons/lists/MultiViewsFilterList/MultiViewsFilterList';
 import ListIcon from '@material-ui/icons/List';
-import Filter from '../../../commons/Filter';
-import CardsList from '../../../commons/lists/CardsList';
+import Filter from '../../../../commons/Filter';
+import CardsList from '../../../../commons/lists/CardsList';
 import CourseCard from './CourseCard';
-import SearchFilter from '../../../commons/SearchFilter';
-import SparqlFilter from '../../../commons/SparqlFilter';
-import useFutureEventSparql from "../../../hooks/useFutureEventSparql";
+import SearchFilter from '../../../../commons/SearchFilter';
+import SparqlFilter from '../../../../commons/SparqlFilter';
+import useFutureEventSparql from "../../../../hooks/useFutureEventSparql";
 
 const CourseList = (props) => {
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });

@@ -1,6 +1,6 @@
 import React from 'react';
 import resourceDetailsStyle from '../../../../commons/style/resourceDetailsStyle';
-import { TextField } from 'react-admin';
+import { TextField, Link, useListContext, linkToRecord } from 'react-admin';
 import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Box, useMediaQuery } from '@material-ui/core';
 import { SeparatedListField } from '@semapps/archipelago-layout';
@@ -12,6 +12,7 @@ import GuardianIcon from '../../../../svg/GuardianIcon';
 import ActorIcon from '../../../../svg/ActorIcon';
 import PathIcon from '../../../../svg/PathIcon';
 import CourseIcon from '../../../../svg/CourseIcon';
+import CalendarIcon from '../../../../svg/CalendarIcon';
 
 const useStyles = resourceDetailsStyle;
 
@@ -21,6 +22,19 @@ const OrganizationDetails = (props) => {
   const separator = isVertical ? "" : ", "
   const classes = useStyles({ isVertical });
   const sm = useMediaQuery((theme) => theme.breakpoints.down('sm'), { noSsr: true });
+
+  const FilteredEvents = () => {
+    const { ids, data, basePath } = useListContext();
+    const futureEvents = ids.filter((id) => data[id] && (data[id]?.['pair:endDate']>(new Date()).toISOString()) )
+    return (
+      futureEvents.slice(0,5).map((id) =>
+        <Link to={linkToRecord(basePath, id, "show")}>
+          <TextField record={data[id]} source="pair:label" />
+        </Link>
+      )
+    )
+  };
+
   return(
     <Box className={classes.mainContainer}>
         <IconsList {...props}>
@@ -72,10 +86,8 @@ const OrganizationDetails = (props) => {
             </ReferenceArrayField>
           }
           {  (isVertical && ! sm ) && 
-            <ReferenceArrayField reference="Activity" source="cdlt:organizes" icon={<ActorIcon />} label="Organisateur de">
-              <SeparatedListField link="show" separator={separator}>
-                <TextField source="pair:label" />
-              </SeparatedListField>
+            <ReferenceArrayField reference="Activity" source="cdlt:organizes" icon={<CalendarIcon />} label="Prochaines activités">
+              <FilteredEvents />
             </ReferenceArrayField>
           }
           {  (isVertical && ! sm ) && 

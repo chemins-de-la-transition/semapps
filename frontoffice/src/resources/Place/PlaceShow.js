@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
-import { ThemeProvider } from '@material-ui/core';
+import { ThemeProvider, Checkbox, FormGroup, FormControlLabel } from '@material-ui/core';
 import resourceTheme from '../../config/themes/resourceTheme';
 import resourceShowStyle from '../../commons/style/resourceShowStyle';
 import { MapField } from '@semapps/geo-components';
@@ -12,7 +12,7 @@ import HeaderShow from '../../commons/HeaderShow';
 import StickyCard from '../../commons/StickyCard';
 import BodyList from '../../commons/lists/BodyList/BodyList';
 import PlaceDetails from './PlaceDetails';
-import EventCard from '../Activity/Event/EventCard';
+import EventCard from '../Agent/Activity/Event/EventCard';
 import CardsList from '../../commons/lists/CardsList';
 import ContactDialog from "../../commons/ContactDialog";
 import NumberWithUnitField from '../../commons/fields/NumberWithUnitField';
@@ -28,6 +28,7 @@ const useStyles = resourceShowStyle;
 
 const PlaceShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
+  const [onlyFutureEvents, setOnlyFutureEvents] = useState(true);
   const classes = useStyles();
   return (
     <ThemeProvider theme={resourceTheme}>
@@ -36,7 +37,7 @@ const PlaceShow = (props) => {
           <HeaderShow
             type="pair:hasType"
             linkToListText="Liste des lieux"
-            details={<PlaceDetails />}
+            details={<PlaceDetails onlyFutureEvents={onlyFutureEvents} />}
             actionButton={<ContactButton label="Contacter le lieu" />}
           />
           <BodyList
@@ -108,12 +109,15 @@ const PlaceShow = (props) => {
               <MarkdownField source="cdlt:practicalConditions" addLabel={false}/>
               <NumberWithUnitField source="cdlt:maximumCapacity" addLabel unit='personnes' color="grey40" />
             </GroupOfFields>
-            <ReferenceArrayField source="pair:hosts" reference="Event" sort={{ field: 'pair:startDate', order: 'ASC' }} className={classes.cardsList}>
+            <ReferenceArrayField source="pair:hosts" reference="Event" sort={{ field: 'pair:startDate', order: 'ASC' }}>
               <Box pt={1}>
-                <Typography variant="body2" component="div" className={classes.textBody}>
+                <Typography variant="body2" component="div">
                   Ce lieu propose plusieurs événements. Cliquez dessus pour en savoir plus et/ou participer.
+                  <FormGroup >
+                    <FormControlLabel control={<Checkbox checked={onlyFutureEvents} />} label={"N'afficher que les événements à venir"} onChange={() => setOnlyFutureEvents(!onlyFutureEvents)}/>
+                  </FormGroup>
                 </Typography>
-                <CardsList CardComponent={EventCard} />
+                <CardsList onlyFutureEvents={onlyFutureEvents} CardComponent={EventCard} />
               </Box>
             </ReferenceArrayField>
             <MapField

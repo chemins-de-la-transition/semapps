@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
-import { useShowContext, useNotify } from "react-admin";
-import { IconButton, makeStyles } from "@material-ui/core";
+import { useShowContext, useNotify, Link } from "react-admin";
+import { IconButton, makeStyles, Tooltip } from "@material-ui/core";
 import { useOutbox, useCollection, ACTIVITY_TYPES, PUBLIC_URI } from "@semapps/activitypub-components";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -64,7 +64,16 @@ const LikeButton = (props) => {
       )
     }
   } else {
-    return null;
+    return(
+      <Link to="/login" >
+        <Tooltip title="Connectez-vous pour ajouter une page à vos favoris" placement="top" arrow>
+          <IconButton className={classes.button+ ' ' + props.class} >
+            <FavoriteBorderIcon />
+          </IconButton>
+        </Tooltip>
+      </Link>
+      
+    )
   }
 }
 

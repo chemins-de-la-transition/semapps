@@ -2,12 +2,12 @@ import React from 'react';
 import { Create } from 'react-admin';
 import { useCheckPermissions } from '@semapps/auth-provider';
 import { useCreateContainer } from '@semapps/semantic-data-provider';
-import FullWidthBox from '../../../commons/FullWidthBox';
-import LargeContainer from '../../../commons/LargeContainer';
-import HeaderTitle from '../../../commons/HeaderTitle';
+import FullWidthBox from '../../../../commons/FullWidthBox';
+import LargeContainer from '../../../../commons/LargeContainer';
+import HeaderTitle from '../../../../commons/HeaderTitle';
 import EventTitle from './EventTitle';
 import EventForm from './EventForm';
-import Button from '../../../commons/Button';
+import Button from '../../../../commons/Button';
 
 const actions = [<Button to="/MyEvents">Liste</Button>];
 

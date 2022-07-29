@@ -1,6 +1,6 @@
 import React from 'react';
 import resourceDetailsStyle from '../../commons/style/resourceDetailsStyle';
-import { TextField } from 'react-admin';
+import { TextField,useListContext, Link, linkToRecord } from 'react-admin';
 import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Box, useMediaQuery } from '@material-ui/core';
 import { SeparatedListField } from '@semapps/archipelago-layout';
@@ -23,6 +23,19 @@ const PlaceDetails = (props) => {
   const separator = isVertical ? "" : ", "
   const classes = useStyles({ isVertical });
   const sm = useMediaQuery((theme) => theme.breakpoints.down('sm'), { noSsr: true });
+
+  const FilteredEvents = () => {
+    const { ids, data, basePath } = useListContext();
+    const futureEvents = ids.filter((id) => data[id] && (data[id]?.['pair:endDate']>(new Date()).toISOString()) )
+    return (
+      futureEvents.slice(0,5).map((id) =>
+        <Link to={linkToRecord(basePath, id, "show")}>
+          <TextField record={data[id]} source="pair:label" />
+        </Link>
+      )
+    )
+  };
+
   return(
     <Box className={classes.mainContainer}>
         <IconsList {...props}>
@@ -79,10 +92,8 @@ const PlaceDetails = (props) => {
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField reference="Event" source="pair:hosts" icon={<CalendarIcon />} label="Accueille">
-              <SeparatedListField link="show" separator={separator}>
-                <TextField source="pair:label" />
-              </SeparatedListField>
+            <ReferenceArrayField source="pair:hosts" reference="Event" icon={<CalendarIcon />} label="Prochains événements">
+              <FilteredEvents />
             </ReferenceArrayField>
           }
         </IconsList>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Edit } from 'react-admin';
 import { usePermissionsWithRefetch } from '@semapps/auth-provider';
-import FullWidthBox from '../../../commons/FullWidthBox';
-import LargeContainer from '../../../commons/LargeContainer';
-import HeaderTitle from '../../../commons/HeaderTitle';
+import FullWidthBox from '../../../../commons/FullWidthBox';
+import LargeContainer from '../../../../commons/LargeContainer';
+import HeaderTitle from '../../../../commons/HeaderTitle';
 import EventTitle from './EventTitle';
 import EventForm from './EventForm';
-import Button from '../../../commons/Button';
+import Button from '../../../../commons/Button';
 
 const actions = [<Button to="/MyEvents">Liste</Button>];
 

@@ -11,6 +11,7 @@ import {
   required,
   useDataProvider,
   useGetIdentity,
+  FormDataConsumer
 } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
@@ -29,8 +30,8 @@ import {
   TargetAudienceInput,
   ThemesInput,
   TypesInput,
-} from '../../../pair';
-import ReminderBeforeRecording from '../../../commons/ReminderBeforeRecording';
+} from '../../../../pair';
+import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
 import frLocale from 'date-fns/locale/fr';
 import { Box, FormControlLabel, Slide, LinearProgress, makeStyles, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
@@ -227,6 +228,7 @@ const EventForm = ({ mode, ...rest }) => {
         <MarkdownInput source="cdlt:prerequisites" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
         <MarkdownInput source="cdlt:pedagogicalMeans" fullWidth />
+        <TextInput source="cdlt:jobOpportunities" fullWidth />
 
         <MarkdownInput source="cdlt:practicalConditions" helperText="Précisez si besoin équipements, inscription, hébergement, repas..." fullWidth />
         <NumberInput source="cdlt:minimumCapacity" fullWidth />
@@ -254,6 +256,12 @@ const EventForm = ({ mode, ...rest }) => {
         <PersonsInput source="cdlt:hasMentor" />
         <PlaceInput source="pair:hostedIn" fullWidth />
         <CoursesInput source="pair:partOf" fullWidth />
+        <FormDataConsumer fullWidth>
+          {({ formData, ...rest }) => (
+            (formData["pair:partOf"]?.length > 0) &&
+            <BooleanInput source="cdlt:registrationOutsideCourse" {...rest} />
+          )}
+        </FormDataConsumer>
         <PathsInput source="cdlt:eventOn" fullWidth />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />

@@ -6,7 +6,7 @@ import ContactButton from "./ContactButton";
 const ApplyButton = () => {
   const { record } = useShowContext();
   if (!record) return null;
-  return record.type === "pair:Event" && record["pair:partOf"] ? (
+  return record.type === "pair:Event" && record["pair:partOf"] && !record["cdlt:registrationOutsideCourse"] ? (
     <Link
       to={linkToRecord(
         "/Course",

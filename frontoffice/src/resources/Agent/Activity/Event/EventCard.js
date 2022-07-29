@@ -1,15 +1,15 @@
 import React from 'react';
-import { DateField, TextField, FunctionField } from 'react-admin';
-import Chip from '../../../commons/Chip';
+import { DateField, TextField, FunctionField, Link, linkToRecord } from 'react-admin';
+import Chip from '../../../../commons/Chip';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { makeStyles, Typography } from '@material-ui/core';
-import ThemeIcon from '../../../svg/ThemeIcon';
-import TypeIcon from '../../../svg/TypeIcon';
-import CalendarIcon from '../../../svg/CalendarIcon';
-import PlaceIcon from '../../../svg/PlaceIcon';
-import CheckIcon from '../../../svg/CheckIcon' ;
-import { linkToFilteredList } from "../../../utils";
+import ThemeIcon from '../../../../svg/ThemeIcon';
+import TypeIcon from '../../../../svg/TypeIcon';
+import CalendarIcon from '../../../../svg/CalendarIcon';
+import PlaceIcon from '../../../../svg/PlaceIcon';
+import CheckIcon from '../../../../svg/CheckIcon' ;
+import { linkToFilteredList } from "../../../../utils";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -35,7 +35,11 @@ const EventCard = ({ record, variant }) => {
   const classes = useStyles();
   return (
     <>
-      <TextField variant="h2" record={record} component="div" source="pair:label" className={classes.title} />
+      <Link
+        to={linkToRecord("/Event", record?.id, 'show')}
+      >
+        <TextField variant="h2" record={record} component="div" source="pair:label" className={classes.title} />
+      </Link>
       <div style={{display:"flex"}}>
         <Chip icon={<CalendarIcon />}>
           <DateField

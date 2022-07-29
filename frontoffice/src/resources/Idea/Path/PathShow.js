@@ -11,8 +11,8 @@ import HeaderShow from '../../../commons/HeaderShow';
 import StickyCard from '../../../commons/StickyCard';
 import BodyList from '../../../commons/lists/BodyList/BodyList';
 import PathDetails from './PathDetails';
-import CourseCard from '../../../resources/Activity/Course/CourseCard';
-import EventCard from '../../../resources/Activity/Event/EventCard';
+import CourseCard from '../../../resources/Agent/Activity/Course/CourseCard';
+import EventCard from '../../Agent/Activity/Event/EventCard';
 import PlaceCard from '../../../resources/Place/PlaceCard';
 import CardsList from '../../../commons/lists/CardsList';
 import ContactDialog from "../../../commons/ContactDialog";
@@ -87,6 +87,7 @@ const PathShow = (props) => {
                 </SeparatedListField>
               </ReferenceArrayField>
               <MarkdownField source="cdlt:learningObjectives" />
+              <MarkdownField source="cdlt:jobOpportunities" />
             </GroupOfFields>  
       
             <ReferenceArrayField source="cdlt:hasPlace" reference="Place" className={classes.cardsList} label="Lieux">
