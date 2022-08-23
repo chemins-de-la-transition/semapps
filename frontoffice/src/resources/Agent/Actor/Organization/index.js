@@ -29,6 +29,7 @@ export default {
         'pair:description': 'Description',
         'pair:homePage': 'Site web',
         'pair:e-mail': 'Adresse mail',
+        'pair:phone': 'Téléphone',
         'pair:depictedBy': 'Logo',
         'pair:affiliates': 'A pour membres', /*Person*/
         'pair:partnerOf': 'A pour partenaires', /*Organization*/
