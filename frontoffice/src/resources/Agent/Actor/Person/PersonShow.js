@@ -31,7 +31,6 @@ const PersonShow = (props) => {
         <Box className={classes.mainContainer}>
           <HeaderShow
             type="pair:hasType"
-            linkToListText="Liste des personnes"
             details={<PersonDetails />}
             actionButton={<ContactButton label="Contacter la personne" />}
           />
