@@ -1,5 +1,5 @@
 import React from 'react';
-import { Admin, Resource } from 'react-admin';
+import { Admin, Resource, Link } from 'react-admin';
 import { createBrowserHistory } from 'history';
 import { SsoLoginPage, LogoutButton } from '@semapps/auth-provider';
 
@@ -14,7 +14,17 @@ import theme from './config/theme';
 import customRoutes from './customRoutes';
 
 const history = createBrowserHistory();
-const LoginPageWithText = props => <SsoLoginPage text="Bienvenue sur les Chemins de la Transition ! Créer un compte sur la plateforme va te permettre de renseigner ton profil : Qui tu es, dans quoi tu t'impliques, ce que tu recherches et ce que tu as à offrir. Il va également te permettre d'enregistrer tes coups de coeur en favoris (acteurs, lieux, evenements, voyages), et de rejoindre la communauté des Chemins de la Transition !" {...props} />;
+const LoginPageWithText = props => 
+<SsoLoginPage 
+text={<span>
+Bienvenue sur les Chemins de la Transition ! 
+Créer un compte sur la plateforme va te permettre de renseigner ton profil : 
+Qui tu es, dans quoi tu t'impliques, ce que tu recherches et ce que tu as à offrir. 
+Il va également te permettre d'enregistrer tes coups de coeur en favoris (acteurs, lieux, evenements, voyages), 
+et de rejoindre la communauté des Chemins de la Transition ! 
+En te connectant, tu confirmes adhérer à la <Link to="/Page/charte-des-chemins-de-la-transition/show" target="_blank">Charte des Chemins de la Transition</Link>.
+</span>}
+{...props} />;
 
 const App = () => (
   <Admin
