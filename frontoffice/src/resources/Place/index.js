@@ -57,6 +57,7 @@ export default {
         'cdlt:proposedBy': 'Proposé par',
         'pair:e-mail': 'Adresse e-mail',
         'pair:phone': 'Téléphone',
+        'cdlt:publicPhone':'Téléphone',
         'pair:homePage': 'Site web',
         'cdlt:placeOn': 'Fait partie d\'un chemin',
         'pair:hasFinality': 'Finalités',

@@ -138,6 +138,7 @@ const OrganizationShow = (props) => {
               dragging={false}
             />
             <UrlField source="pair:homePage" label="Liens" className={classes.urlField} />
+            <TextField source="cdlt:publicPhone" />
 {/*
             <ReferenceArrayField reference="Project" source="pair:involvedIn">
               <SingleFieldList linkType="show">

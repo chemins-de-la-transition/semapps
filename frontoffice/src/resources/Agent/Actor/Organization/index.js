@@ -30,6 +30,7 @@ export default {
         'pair:homePage': 'Site web',
         'pair:e-mail': 'Adresse mail',
         'pair:phone': 'Téléphone',
+        'cdlt:publicPhone':'Téléphone',
         'pair:depictedBy': 'Logo',
         'pair:affiliates': 'A pour membres', /*Person*/
         'pair:partnerOf': 'A pour partenaires', /*Organization*/

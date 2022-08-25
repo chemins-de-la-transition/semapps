@@ -37,6 +37,7 @@ const PlaceShow = (props) => (
           */}
           <EmailField source="pair:e-mail" />
           <TextField source="pair:phone" />
+          <TextField source="cdlt:publicPhone" label="Numéro de téléphone public" />
           <UrlField source="pair:homePage" />
           <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
