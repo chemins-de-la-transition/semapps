@@ -51,6 +51,7 @@ export default {
         'pair:hasType': 'Type d\'organisation',
         'pair:e-mail': 'Adresse e-mail',
         'pair:phone': 'Téléphone',
+        'cdlt:publicPhone':'Téléphone',
       },
     },
   },

@@ -23,6 +23,7 @@ const OrganizationShow = (props) => (
           <UrlField source="pair:homePage" />
           <EmailField source="pair:e-mail" />
           <TextField source="pair:phone" />
+          <TextField source="cdlt:publicPhone" label="Numéro de téléphone public" />
           <ReferenceArrayField source="pair:hasType" reference="Type">
             <SeparatedListField link={false}>
               <TextField source="pair:label" />

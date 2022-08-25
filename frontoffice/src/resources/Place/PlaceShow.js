@@ -130,6 +130,7 @@ const PlaceShow = (props) => {
               dragging={false}
             />
             <UrlField source="pair:homePage" label="Liens" className={classes.urlField} />
+            <TextField source="cdlt:publicPhone" />
           </BodyList>
           <SimilarList
             resource="Place"

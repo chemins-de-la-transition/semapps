@@ -56,6 +56,7 @@ export const OrganizationEdit = (props) => (
       <FormTab label="Contact">
         <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[email()]} />
         <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
+        <TextInput source="cdlt:publicPhone" fullWidth helperText="Numéro public affiché sur la page" />
       </FormTab>
     </TabbedForm>
   </EditWithPermissions>
