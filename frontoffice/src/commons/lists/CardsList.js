@@ -25,18 +25,20 @@ const useStyles = makeStyles((theme) => ({
   details: {
     display: 'flex',
     marginBottom: 15,
+    minHeight: 160,
     [theme.breakpoints.down('xs')]: {
       flexDirection: 'column',
     },
   },
   image: {
-    width: 180,
-    minWidth: 180,
-    minHeight: 145,
-    backgroundColor: theme.palette.grey['300'],
+    minWidth: '25%',
     [theme.breakpoints.down('xs')]: {
       width: '100%',
     },
+  },
+  background: {
+    minWidth: '25%',
+    backgroundColor: theme.palette.secondary.main+'99',
   },
   content: {
     // flex: '1 0 auto',
@@ -58,9 +60,11 @@ const CardsList = ({ CardComponent, link, hasLike, external, onlyFutureEvents })
       const image = data[id]?.['pair:depictedBy'];
       const card =
         <Card className={classes.details}>
-          {image && (
+          {image ? (
             <CardMedia className={classes.image} image={Array.isArray(image) ? image[0] : image} />
-          )}
+          ) :
+            <Box className={classes.background}/>
+          }
           <CardContent className={classes.content}>
             <CardComponent record={data[id]} basePath={basePath} />
           </CardContent>
