@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput, useGetIdentity } from 'react-admin';
+import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput, useGetIdentity, email } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/semantic-data-provider';
 import { 
@@ -30,7 +30,6 @@ const OrganizationForm = ({ mode, ...rest }) => {
         <TextInput source="pair:comment" fullWidth />
         <MarkdownInput source="pair:description" fullWidth />
         <TextInput source="pair:homePage" fullWidth />
-        <TextInput source="pair:e-mail" fullWidth />
         <ImageInput source="pair:depictedBy" accept="image/*">
           <ImageField source="src" />
         </ImageInput>
@@ -54,6 +53,10 @@ const OrganizationForm = ({ mode, ...rest }) => {
         <SkillsInput source="pair:produces" fullWidth />
         <SkillsInput source="pair:aims" fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
+      </FormTab>
+      <FormTab label="Contact" >
+        <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[email()]} />
+        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
       </FormTab>
     </TabbedForm>
   );

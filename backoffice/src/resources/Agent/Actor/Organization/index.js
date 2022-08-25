@@ -49,6 +49,8 @@ export default {
         'pair:produces': 'Compétences présentes dans l\'organisation',
         'pair:aims': 'Compétences recherchées par l\'organisation',
         'pair:hasType': 'Type d\'organisation',
+        'pair:e-mail': 'Adresse e-mail',
+        'pair:phone': 'Téléphone',
       },
     },
   },
