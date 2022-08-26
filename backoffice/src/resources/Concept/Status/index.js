@@ -15,7 +15,7 @@ export default {
     },
   },
   dataModel: {
-    types: ['pair:AgentStatus', 'pair:EventStatus', 'pair:Status', 'cdlt:CourseStatus'],
+    types: ['pair:AgentStatus', 'pair:EventStatus', 'pair:Status', 'cdlt:CourseStatus', 'pair:OrganizationStatus'],
     fieldsMapping: {
       title: 'pair:label'
     }

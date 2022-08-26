@@ -15,6 +15,7 @@ import {
   ThemesInput,
   TypesInput,
   UsersInput,
+  StatusInput,
 } from '../../../../pair';
 import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
 import OrganizationTitle from './OrganizationTitle';
@@ -42,6 +43,7 @@ export const OrganizationEdit = (props) => (
       </FormTab>
       <FormTab label="Relations">
         <OrganizationsInput source="pair:partnerOf" />
+        <StatusInput source="pair:hasStatus" filter={{ a: 'pair:OrganizationStatus' }} fullWidth helperText="Un statut de partenaire permettra d'afficher l'organisation sur la page d'accueil"/>
         <OrganizationsInput source="pair:inspiredBy" />
         <UsersInput source="pair:affiliates" />
         <ActivitiesInput source="cdlt:organizes" />

@@ -68,7 +68,7 @@ const Partners = () => {
     'Organization',
     { page: 1, perPage: 99 },
     null,
-    { 'pair:partnerOf': process.env.REACT_APP_MIDDLEWARE_URL + 'organizations/les-chemins-de-la-transition' }
+    { 'pair:hasStatus':process.env.REACT_APP_MIDDLEWARE_URL + 'status/partenaire'}
   );
 
   // Reorder partners by weight

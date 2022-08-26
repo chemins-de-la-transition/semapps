@@ -106,7 +106,7 @@ export const UsersInput = (props) => (
 
 export const StatusInput = (props) => (
   <ReferenceInput reference="Status" allowEmpty {...props}>
-    <SelectInput optionText="pair:label" />
+    <SelectInput optionText="pair:label" helperText={props.helperText} />
   </ReferenceInput>
 );
 
