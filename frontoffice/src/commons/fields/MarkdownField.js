@@ -26,6 +26,7 @@ const MarkdownField = (props) => {
   return (
     <SemAppsMarkdownField
       overrides={{
+        a: { props: { target: '_blank', rel: 'nofollow noopener' }},
         p: (props) => <Typography variant="body2" color="secondary" {...props} className={classes.p} />,
         span: (props) => <Typography variant="body2" color="secondary" {...props} className={classes.p} />,
         h1: (props) => <Typography variant="subtitle1" color="primary" paragraph {...props} className={classes.h} />,

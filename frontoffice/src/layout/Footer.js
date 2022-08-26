@@ -102,21 +102,23 @@ const Footer = ({ title }) => {
           <Typography align={"center"}>
               <IconButton
                 aria-label="facebook"
+                target="_blank" 
                 color="secondary"
                 href="https://www.facebook.com/groups/lescheminsdelatransition"
                 className={classes.icon}
               >
                 <FacebookIcon fontSize="large" />
               </IconButton>
-              <IconButton aria-label="twitter" color="secondary" href="https://twitter.com/CDLTransition" className={classes.icon}>
+              <IconButton aria-label="twitter" target="_blank" color="secondary" href="https://twitter.com/CDLTransition" className={classes.icon}>
                 <TwitterIcon fontSize="large" />
               </IconButton>
-              <IconButton aria-label="linkedin" color="secondary" href="https://www.linkedin.com/company/les-chemins-de-la-transition/" className={classes.icon}>
+              <IconButton aria-label="linkedin" target="_blank" color="secondary" href="https://www.linkedin.com/company/les-chemins-de-la-transition/" className={classes.icon}>
                 <LinkedInIcon fontSize="large" />
               </IconButton>
               <IconButton
                 aria-label="facebook"
                 color="secondary"
+                target="_blank"
                 href="https://www.facebook.com/CdlTOccitanie"
                 className={classes.icon}
               >
