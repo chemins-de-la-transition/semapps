@@ -52,6 +52,7 @@ export default {
         'pair:e-mail': 'Adresse e-mail',
         'pair:phone': 'Téléphone',
         'cdlt:publicPhone':'Téléphone',
+        'pair:hasStatus':'Statut',
       },
     },
   },
