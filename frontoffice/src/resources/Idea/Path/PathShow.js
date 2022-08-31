@@ -6,6 +6,7 @@ import resourceShowStyle from '../../../commons/style/resourceShowStyle';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { Box } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { CommentsField, useMentions } from '@semapps/activitypub-components';
 import MarkdownField from '../../../commons/fields/MarkdownField';
 import HeaderShow from '../../../commons/HeaderShow';
 import StickyCard from '../../../commons/StickyCard';
@@ -26,6 +27,7 @@ const useStyles = resourceShowStyle;
 
 const PathShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
+  const mentions = useMentions('Person');
   const classes = useStyles();
   return (
     <ThemeProvider theme={resourceTheme}>
@@ -105,11 +107,10 @@ const PathShow = (props) => {
                 <CardsList CardComponent={CourseCard} />
               </Box>
             </ReferenceArrayField>
-
             <ReferenceArrayField reference="Debate" source="pair:nourishes" perPage={5} sort={{ field: 'dc:created', sort: 'ASC' }}>
               <CardsList CardComponent={DebateCard} external link={record => record['pair:webPage']} />
             </ReferenceArrayField>
-              
+            <CommentsField userResource="Person" mentions={mentions} />
           </BodyList>
           <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
         </Box>

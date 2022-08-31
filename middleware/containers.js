@@ -1,10 +1,18 @@
 const urlJoin = require('url-join');
-const { ACTOR_TYPES } = require('@semapps/activitypub');
+const { ACTOR_TYPES, OBJECT_TYPES } = require('@semapps/activitypub');
 const CONFIG = require('./config');
 
 const anonReadPermission = {
   anon: {
     read: true
+  }
+};
+
+const anonReadWritePermission = {
+  anon: {
+    read: true,
+    append: true,
+    write: true,
   }
 };
 
@@ -192,6 +200,12 @@ module.exports = [
     acceptedTypes: ['cdlt:Registration'],
     permissions: anonReadPermission,
     newResourcesPermissions: anonReadPermission,
+  },
+  {
+    path: '/notes',
+    acceptedTypes: [OBJECT_TYPES.NOTE],
+    permissions: anonReadWritePermission,
+    newResourcesPermissions: writePermissionToCreator,
   },
   {
     path: '/bots',
