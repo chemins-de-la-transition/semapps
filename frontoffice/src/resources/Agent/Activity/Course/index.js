@@ -64,6 +64,7 @@ export default {
         'cdlt:registrationLink':"Lien du système d'inscription",
         'cdlt:referenceNumber': 'N° du voyage',
         'cdlt:hasTargetAudience': 'Public cible',
+        "cdlt:hasJobOpportunities":"Idées de débouchés vers des métiers de transition",
       },
     },
   },

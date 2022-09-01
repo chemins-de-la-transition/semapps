@@ -60,7 +60,11 @@ const PathShow = (props) => (
             />
           </ReferenceArrayField>
           <MarkdownField source="cdlt:learningObjectives" />
-          <MarkdownField source="cdlt:jobOpportunities" />
+          <ReferenceArrayField reference="JobOpportunities" source="cdlt:hasJobOpportunities">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
         </MainList>
       </Grid>
       <Grid item xs={12} sm={3}>

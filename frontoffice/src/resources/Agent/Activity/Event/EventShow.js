@@ -84,12 +84,16 @@ const EventShow = (props) => {
             </GroupOfFields>
             <GroupOfFields
               title="Ressources et évaluation"
-              sources={["cdlt:pedagogicalMeans","cdlt:evaluationMethod","cdlt:jobOpportunities"]}
+              sources={["cdlt:pedagogicalMeans","cdlt:evaluationMethod","cdlt:hasJobOpportunities"]}
               addLabel
             >
               <MarkdownField source="cdlt:pedagogicalMeans" />
               <MarkdownField source="cdlt:evaluationMethod" />
-              <TextField source="cdlt:jobOpportunities"/>
+              <ReferenceArrayField reference="JobOpportunities" source="cdlt:hasJobOpportunities">
+                <SingleFieldList linkType={false}>
+                  <ChipField source="pair:label" />
+                </SingleFieldList>
+              </ReferenceArrayField>
             </GroupOfFields>
             <GroupOfFields
               title="Conditions financières"
