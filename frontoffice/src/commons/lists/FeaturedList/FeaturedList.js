@@ -44,7 +44,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 5
   },
   link: {
-    alignSelf: 'flex-end',
     flexShrink: '0',
     textDecoration: 'none',
     display: 'flex',
@@ -69,12 +68,20 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   linkText: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
     '&:hover': {
       color: theme.palette.primary.main,
     }
   },  
+  comment: {
+    fontWeight: 500,
+    marginTop: 20,
+    [theme.breakpoints.down('xs')]: {
+      margin: 20,
+      textAlign: '-webkit-center',
+    },
+  },
   listBase: {
     margin: '0',
     [theme.breakpoints.down('sm')]: {
@@ -92,6 +99,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 1.2px 3.6px rgba(0, 0, 0, 0.1), 0px 6.4px 14.4px rgba(0, 0, 0, 0.13)",
     borderRadius: 4,
     padding: 28,
+    marginBottom: 80,
     [theme.breakpoints.down('xs')]: {
       paddingLeft: 0,
       paddingRight: 0,
@@ -99,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const FeaturedList = ({ resource, basePath, title, subtitle, logo, linkText, CardSubHeaderComponent, filter, isAgenda }) => {
+const FeaturedList = ({ resource, basePath, title, subtitle, comment, logo, linkText, CardSubHeaderComponent, filter, isAgenda }) => {
   const classes = useStyles();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
 
@@ -120,6 +128,9 @@ const FeaturedList = ({ resource, basePath, title, subtitle, logo, linkText, Car
             </Typography>
             <ChevronRightIcon />
           </Link>
+        </Box>
+        <Box className={classes.comment}>
+          <Typography variant="body">{comment}</Typography>
         </Box>
         {isAgenda ? 
           <Box>
