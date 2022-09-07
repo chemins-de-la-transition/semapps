@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   subTitle: {
-    marginTop: -5
+    marginTop: 5
   },
   logo: {
     height: 100,
@@ -38,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
   partnersList: {
     listStyle: 'none',
     padding: 0,
-    marginTop: 20,
+    marginTop: 30,
+    marginBottom: 40,
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',

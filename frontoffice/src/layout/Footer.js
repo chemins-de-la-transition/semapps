@@ -85,13 +85,49 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Footer = ({ title }) => {
+
+
+const Footer = () => {
   const classes = useStyles();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
-  return (
-    <div className={classes.bloc}>
-        
-        <div className={classes.footer1}>
+
+  const LinkBloc = () => {
+    return (
+      <div className={classes.footer2}>
+          <div className={classes.footerContent1}>
+            <Typography variant="h3" align={xs ? "center" : undefined} className={classes.size}>
+              Liens utiles
+            </Typography>
+            <Link variant="body2" to="/About" align={xs ? "center" : undefined} className={classes.textLinks}>
+              A propos
+            </Link>
+            <Link variant="body2" to={{ pathname: "https://forums.lescheminsdelatransition.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
+              Notre forum
+            </Link>
+            <Link variant="body2" to={{ pathname: "https://projet.lescheminsdelatransition.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
+              Notre site web
+            </Link>
+            <Link variant="body2" to="/Page/contact/show" align={xs ? "center" : undefined} className={classes.textLinks}>
+              Contact
+            </Link>
+            <div className={classes.textBar} />
+            <Link variant="body2" to="/Page/charte-des-chemins-de-la-transition/show" align={xs ? "center" : undefined} className={classes.textLinks}>
+              Charte des chemins de la transition
+            </Link>
+            <Link variant="body2" to="/Page/mentions-legales/show" align={xs ? "center" : undefined} className={classes.textLinks}>
+              Mentions légales
+            </Link>
+            <Link variant="body2" to="/Page/rgpd/show" align={xs ? "center" : undefined} className={classes.textLinks}>
+              Politique de gestion des données
+            </Link>
+          </div>
+        </div>
+    )
+  }
+
+  const FollowBloc = () => {
+    return (
+      <div className={classes.footer1}>
           <Typography align={"center"}>
             <img src={process.env.PUBLIC_URL + '/logoCut512.png'} alt="logo" className={classes.logo} />
           </Typography>
@@ -127,38 +163,12 @@ const Footer = ({ title }) => {
           </Typography>
           </div>
         </div>
+    )
+  }
 
-        <div className={classes.footer2}>
-          <div className={classes.footerContent1}>
-            <Typography variant="h3" align={xs ? "center" : undefined} className={classes.size}>
-              Liens utiles
-            </Typography>
-            <Link variant="body2" to="/About" align={xs ? "center" : undefined} className={classes.textLinks}>
-              A propos
-            </Link>
-            <Link variant="body2" to={{ pathname: "https://forums.lescheminsdelatransition.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
-              Notre forum
-            </Link>
-            <Link variant="body2" to={{ pathname: "https://projet.lescheminsdelatransition.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
-              Notre site web
-            </Link>
-            <Link variant="body2" to="/Page/contact/show" align={xs ? "center" : undefined} className={classes.textLinks}>
-              Contact
-            </Link>
-            <div className={classes.textBar} />
-            <Link variant="body2" to="/Page/charte-des-chemins-de-la-transition/show" align={xs ? "center" : undefined} className={classes.textLinks}>
-              Charte des chemins de la transition
-            </Link>
-            <Link variant="body2" to="/Page/mentions-legales/show" align={xs ? "center" : undefined} className={classes.textLinks}>
-              Mentions légales
-            </Link>
-            <Link variant="body2" to="/Page/rgpd/show" align={xs ? "center" : undefined} className={classes.textLinks}>
-              Politique de gestion des données
-            </Link>
-          </div>
-        </div>
-        
-        <div className={classes.footer3}>
+  const JoinBloc = () => {
+    return (
+      <div className={classes.footer3}>
           <div className={classes.footerContent1}>
             <Typography variant="h3" align={xs ? "center" : undefined} className={classes.size}>
               Rejoindre la communauté
@@ -174,6 +184,14 @@ const Footer = ({ title }) => {
             </Button>
           </div>
         </div>
+    )
+  }
+
+  return (
+    <div className={classes.bloc}>
+      <FollowBloc/>
+      <LinkBloc/>     
+      <JoinBloc/>  
     </div>
   );
 };
