@@ -114,6 +114,7 @@ const useStyles = makeStyles((theme) => ({
 
 const EventCardBlock = ({ record }) => {
   const classes = useStyles();
+  const address = record['pair:hasLocation']?.['pair:label'];
 
   return (
         <ListItem
@@ -161,15 +162,26 @@ const EventCardBlock = ({ record }) => {
                 <Typography variant="h4" component="div" className={classes.eventLabel}>
                   {record['pair:label']}
                 </Typography>
-
                 {record['pair:hostedIn'] ? (
                   <div style={{display: 'flex'}}>
                   <PlaceIcon className={classes.icon}/>
-                  <ReferenceField record={record} source="pair:hostedIn" reference="Region" link={false}>
-                    <FunctionField className={classes.eventAddress} label="Localisation" render={record => `${record['pair:hasPostalAddress']?.['pair:addressLocality']} (${record['pair:hasPostalAddress']?.['pair:addressZipCode']?.slice(0,2)})`} />
+                  <ReferenceField record={record} source="pair:hostedIn" reference="Place" link={false}>
+                    <FunctionField className={classes.eventAddress} label="Localisation" render={record => 
+                    record['pair:hasPostalAddress'] ?
+                      `${record['pair:hasPostalAddress']['pair:addressLocality']} (${record['pair:hasPostalAddress']['pair:addressZipCode']?.slice(0,2)}) - ${record['pair:label']}`
+                    : record['pair:label']
+                    }/>
                   </ReferenceField>
                 </div>
                 ) :
+                address ? 
+                <div style={{display: 'flex'}}>
+                  <PlaceIcon className={classes.icon}/>
+                  <Typography variant="body1" className={classes.eventAddress} component="div">
+                    {address}
+                </Typography>
+                </div>
+                :
                 (record['pair:hasLocation'] && (
                   <div style={{display: 'flex'}}>
                     <PlaceIcon className={classes.icon}/>
@@ -181,6 +193,8 @@ const EventCardBlock = ({ record }) => {
                   </div>
                 ))
                 }
+                
+
 
                 <div style={{display: 'flex', marginBottom:'30px'}}>
                   <DurationIcon className={classes.icon}/>

@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '14px',
     },
   },
-  fullEvent: {
+  eventDetails: {
     fontSize: 12,
     fontWeight: "bold",
   },
@@ -60,6 +60,13 @@ const EventCard = ({ record, variant }) => {
             </ReferenceField>
           </Chip>
         ) :
+          record['pair:hasLocation']?.['pair:label'] ?
+          <Chip icon={<PlaceIcon />}>
+            <Typography variant="body2" className={classes.eventDetails} component="div">
+              {record['pair:hasLocation']?.['pair:label']}
+          </Typography>
+          </Chip>
+          :   
         (record['pair:hasLocation'] && (
           <Chip icon={<PlaceIcon />}>
             <ReferenceField record={record} source="pair:hasLocation" reference="Place" link={false}>
@@ -83,7 +90,7 @@ const EventCard = ({ record, variant }) => {
       )}
       {record['cdlt:full'] && (
         <Chip icon={<CheckIcon />}>
-          <Typography variant="body2" className={classes.fullEvent}>Événement complet</Typography>
+          <Typography variant="body2" className={classes.eventDetails}>Événement complet</Typography>
         </Chip>
       )}
       </div>
