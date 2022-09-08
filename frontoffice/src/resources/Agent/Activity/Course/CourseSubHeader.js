@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles, Box, Typography } from '@material-ui/core';
 import { ReferenceField, TextField, DateField } from 'react-admin';
+import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { SeparatedListField } from '@semapps/archipelago-layout';
 import DurationIcon from '../../../../svg/DurationIcon';
 import CourseIcon from '../../../../svg/CourseIcon';
 import DurationField from "../../../../commons/fields/DurationField";
@@ -34,13 +36,24 @@ const CourseSubHeader = ({ record }) => {
   const classes = useStyles();
   return (
     <Box className={classes.courseSubHeader}>
-      {record['cdlt:hasRegion'] && (
+      {record['cdlt:hasRegion'] && !Array.isArray(record['cdlt:hasRegion']) ? (
         <Chip icon={<PlaceIcon />}>
           <ReferenceField record={record} source="cdlt:hasRegion" reference="Region" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
         </Chip>
-      )}
+      )
+      :
+      Array.isArray(record['cdlt:hasRegion']) && (
+        <Chip icon={<PlaceIcon />}>
+          <ReferenceArrayField record={record} source="cdlt:hasRegion" reference="Region">
+            <SeparatedListField link={false}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+        </Chip>
+      )
+      }
       <div className={classes.eventDuration}>
       {record['pair:startDate'] && record['pair:endDate'] && (
         <Chip icon={<DurationIcon />}>
