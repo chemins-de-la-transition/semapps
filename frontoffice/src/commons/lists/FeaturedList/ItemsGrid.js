@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '60px',
     display: 'flex',
     position: 'relative',
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: 0,
+    },
   },
   boxContainer: {
     width: '100%',
