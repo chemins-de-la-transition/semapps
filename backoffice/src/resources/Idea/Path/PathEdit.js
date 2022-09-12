@@ -13,7 +13,8 @@ import {
   SectorsInput,
   ThemesInput,
   SkillsInput,
-  TypesInput
+  TypesInput,
+  JobOpportunitiesInput
 } from '../../../pair';
 import PathTitle from './PathTitle';
 
@@ -28,7 +29,7 @@ const PathEdit = (props) => (
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
-        <MarkdownInput source="cdlt:jobOpportunities" fullWidth />
+        <JobOpportunitiesInput source="cdlt:hasJobOpportunities" fullWidth />
       </FormTab>
       <FormTab label="Relations">
         <PlacesInput source="cdlt:hasPlace" />

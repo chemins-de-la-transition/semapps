@@ -152,5 +152,23 @@ export const TargetAudienceInput = (props) => (
   </ReferenceArrayInput>
 );
 
+export const JobOpportunitiesInput = (props) => (
+  <ReferenceArrayInput reference="JobOpportunities" {...props}>
+    <AutocompleteArrayInput
+      optionText="pair:label"
+      shouldRenderSuggestions={(value) => value.length > 1}
+      create={
+        <LexiconCreateDialog
+          fetchLexicon={fetchESCO()}
+          selectData={data => ({
+            'pair:label': data.label,
+          })}
+        />
+      }
+      fullWidth
+    />
+  </ReferenceArrayInput>
+);
+
 export { default as PairLocationInput } from './PairLocationInput';
 export { default as RegistrationInput } from './RegistrationInput';

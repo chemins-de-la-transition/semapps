@@ -99,6 +99,11 @@ const CourseShow = (props) => {
                 </SeparatedListField>
               </ReferenceArrayField>
               <MarkdownField source="cdlt:learningObjectives" />
+              <ReferenceArrayField reference="JobOpportunities" source="cdlt:hasJobOpportunities">
+                <SingleFieldList linkType={false}>
+                  <ChipField source="pair:label" />
+                </SingleFieldList>
+              </ReferenceArrayField>
             </GroupOfFields>
             <ReferenceArrayField
               label="Itinéraire"

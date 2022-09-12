@@ -16,7 +16,8 @@ import {
   SkillsInput,
 //  DocumentsType,
   RegistrationInput,
-  TargetAudienceInput
+  TargetAudienceInput,
+  JobOpportunitiesInput,
 } from '../../../../pair';
 import CourseTitle from './CourseTitle';
 import { DateInput } from '@semapps/date-components';
@@ -60,6 +61,7 @@ const CourseEdit = (props) => (
         <NumberInput source="cdlt:minimumCapacity" fullWidth />
         <NumberInput source="cdlt:maximumCapacity" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
+        <JobOpportunitiesInput source="cdlt:hasJobOpportunities" fullWidth />
         <TextInput source="cdlt:priceRange" fullWidth />
         <MarkdownInput source="cdlt:economicalConditions" fullWidth />
         <MarkdownInput source="cdlt:financialSupport" fullWidth />

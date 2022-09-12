@@ -69,6 +69,11 @@ const CourseShow = (props) => (
           <NumberField source="cdlt:minimumCapacity" />
           <NumberField source="cdlt:maximumCapacity" />
           <MarkdownField source="cdlt:learningObjectives" />
+          <ReferenceArrayField reference="JobOpportunities" source="cdlt:hasJobOpportunities">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
           <MarkdownField source="cdlt:economicalConditions" />
           <MarkdownField source="cdlt:financialSupport" />
           <ReferenceArrayField
