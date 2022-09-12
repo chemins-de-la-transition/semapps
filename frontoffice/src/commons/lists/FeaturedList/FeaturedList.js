@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
   comment: {
     fontWeight: 500,
     marginTop: 20,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       margin: 20,
       textAlign: '-webkit-center',
     },
@@ -103,6 +103,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       paddingLeft: 0,
       paddingRight: 0,
+      marginBottom: 0,
     },
   }
 }));
