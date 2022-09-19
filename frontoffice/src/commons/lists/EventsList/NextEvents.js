@@ -30,7 +30,7 @@ const NextEvents = ({ similarRecord }) => {
 
   const eventTypeFilter = eventType ? { 'pair:hasType': eventType } : {};
   const categoryFilter = category ? { 'pair:hasSector': category } : {};
-  const regionFilter = region ? { 'pair:hasLocation': region } : {};
+  const regionFilter = region ? { 'cdlt:hasRegion': region } : {};
 
   return (
     <>

@@ -25,7 +25,7 @@ const OrganizationDetails = (props) => {
 
   const FilteredEvents = () => {
     const { ids, data, basePath } = useListContext();
-    const futureEvents = ids.filter((id) => data[id] && (data[id]?.['pair:endDate']>(new Date()).toISOString()) )
+    const futureEvents = ids.filter((id) => data[id] && (data[id]?.['pair:startDate']>(new Date()).toISOString()) )
     return (
       futureEvents.slice(0,5).map((id) =>
         <Link to={linkToRecord(basePath, id, "show")}>

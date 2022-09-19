@@ -118,6 +118,7 @@ const EventShow = (props) => {
             >
               <MarkdownField source="cdlt:practicalConditions" />
               <MarkdownField source="cdlt:accessibility" />
+              <TextField source="pair:hasLocation"/>
               <MapField
                 source="pair:hasLocation"
                 address={(record) => record?.['pair:hasLocation']?.['pair:label']}
@@ -129,10 +130,10 @@ const EventShow = (props) => {
               />
             </GroupOfFields>
             <ReferenceArrayField reference="Sector" source="pair:hasSector">
-                <SingleFieldList linkType={false}>
-                  <SectorField />
-                </SingleFieldList>
-              </ReferenceArrayField>
+              <SingleFieldList linkType={false}>
+                <SectorField />
+              </SingleFieldList>
+            </ReferenceArrayField>
           </BodyList>
           <SimilarEvents />
           <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />

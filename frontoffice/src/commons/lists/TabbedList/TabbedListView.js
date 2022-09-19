@@ -113,11 +113,11 @@ const TabbedListView = ({ tabs, filters, futureActivities }) => {
       if (dataByTabs['Course']) {
         dataByTabs['Course']=Object.fromEntries(Object.entries(dataByTabs['Course']).filter(key => key[1]['pair:hasStatus']===process.env.REACT_APP_MIDDLEWARE_URL+"status/valide"))
         if (futureActivities) {
-          dataByTabs['Course']=Object.fromEntries(Object.entries(dataByTabs['Course']).filter(key => key[1]['pair:endDate']>(new Date()).toISOString()))
+          dataByTabs['Course']=Object.fromEntries(Object.entries(dataByTabs['Course']).filter(key => key[1]['pair:startDate']>(new Date()).toISOString()))
         }
       }
       if (futureActivities && dataByTabs['Event']) {
-        dataByTabs['Event']=Object.fromEntries(Object.entries(dataByTabs['Event']).filter(key => key[1]['pair:endDate']>(new Date()).toISOString()))
+        dataByTabs['Event']=Object.fromEntries(Object.entries(dataByTabs['Event']).filter(key => key[1]['pair:startDate']>(new Date()).toISOString()))
       }
       return dataByTabs;
     }

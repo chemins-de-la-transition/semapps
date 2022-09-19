@@ -56,7 +56,7 @@ const CardsList = ({ CardComponent, link, hasLike, external, onlyFutureEvents })
   ) : (
     ids.map((id) => {
       if( !data[id] ) return null;
-      if ( onlyFutureEvents && data[id]?.['pair:endDate']<(new Date()).toISOString()) return null;
+      if ( onlyFutureEvents && data[id]?.['pair:startDate']<(new Date()).toISOString()) return null;
       const image = data[id]?.['pair:depictedBy'];
       const card =
         <Card className={classes.details}>
