@@ -84,12 +84,16 @@ const EventShow = (props) => {
             </GroupOfFields>
             <GroupOfFields
               title="Ressources et évaluation"
-              sources={["cdlt:pedagogicalMeans","cdlt:evaluationMethod","cdlt:jobOpportunities"]}
+              sources={["cdlt:pedagogicalMeans","cdlt:evaluationMethod","cdlt:hasJobOpportunities"]}
               addLabel
             >
               <MarkdownField source="cdlt:pedagogicalMeans" />
               <MarkdownField source="cdlt:evaluationMethod" />
-              <TextField source="cdlt:jobOpportunities"/>
+              <ReferenceArrayField reference="JobOpportunities" source="cdlt:hasJobOpportunities">
+                <SingleFieldList linkType={false}>
+                  <ChipField source="pair:label" />
+                </SingleFieldList>
+              </ReferenceArrayField>
             </GroupOfFields>
             <GroupOfFields
               title="Conditions financières"
@@ -114,6 +118,7 @@ const EventShow = (props) => {
             >
               <MarkdownField source="cdlt:practicalConditions" />
               <MarkdownField source="cdlt:accessibility" />
+              <TextField source="pair:hasLocation"/>
               <MapField
                 source="pair:hasLocation"
                 address={(record) => record?.['pair:hasLocation']?.['pair:label']}
@@ -125,10 +130,10 @@ const EventShow = (props) => {
               />
             </GroupOfFields>
             <ReferenceArrayField reference="Sector" source="pair:hasSector">
-                <SingleFieldList linkType={false}>
-                  <SectorField />
-                </SingleFieldList>
-              </ReferenceArrayField>
+              <SingleFieldList linkType={false}>
+                <SectorField />
+              </SingleFieldList>
+            </ReferenceArrayField>
           </BodyList>
           <SimilarEvents />
           <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />

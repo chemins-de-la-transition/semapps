@@ -9,8 +9,8 @@ const useFutureEventSparql = () => {
         triples: [
           {
             "subject": { termType: "Variable", value:"s1" },
-            "predicate": { termType:"NameNode", value: "http://virtual-assembly.org/ontologies/pair#endDate" },
-            "object": { termType:"Variable", value: "endDate" }
+            "predicate": { termType:"NameNode", value: "http://virtual-assembly.org/ontologies/pair#startDate" },
+            "object": { termType:"Variable", value: "startDate" }
           }
         ]
       },{
@@ -21,7 +21,7 @@ const useFutureEventSparql = () => {
           args:[
             {
               termType: "Variable",
-              value: "endDate"
+              value: "startDate"
             },
             {
               termType: "Literal",

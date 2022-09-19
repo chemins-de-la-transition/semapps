@@ -23,7 +23,7 @@ const Layout = ({ logout, theme, children, title }) => {
       <TopBar />
       <AppBar title={title} logout={logout} menuItems={menuItems} setSidebarOpen={setSidebarOpen} />
       <Box>{children}</Box>
-      <Footer title={title} />
+      <Footer />
       {/* Required for react-admin optimistic update */}
       <Notification />
     </ThemeProvider>

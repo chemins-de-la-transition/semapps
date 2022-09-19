@@ -13,7 +13,8 @@ import {
   SectorsInput,
   ThemesInput,
   SkillsInput,
-  TypeInput
+  TypesInput,
+  JobOpportunitiesInput
 } from '../../../pair';
 import PathTitle from './PathTitle';
 
@@ -28,7 +29,7 @@ const PathEdit = (props) => (
           <ImageField source="src" />
         </ImageInput>
         <MarkdownInput source="cdlt:learningObjectives" fullWidth />
-        <MarkdownInput source="cdlt:jobOpportunities" fullWidth />
+        <JobOpportunitiesInput source="cdlt:hasJobOpportunities" fullWidth />
       </FormTab>
       <FormTab label="Relations">
         <PlacesInput source="cdlt:hasPlace" />
@@ -39,7 +40,7 @@ const PathEdit = (props) => (
         <SkillsInput source="pair:produces" />
         <SectorsInput source="pair:hasSector" />
         <ThemesInput source="pair:hasTopic" />
-        <TypeInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} fullWidth />
+        <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
     </TabbedForm>

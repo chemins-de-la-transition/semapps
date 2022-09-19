@@ -23,6 +23,7 @@ export { default as Theme } from './Concept/Theme';
 export { default as Type } from './Concept/Type';
 export { default as Region } from './Concept/Region';
 export { default as TargetAudience } from './Concept/TargetAudience';
+export { default as JobOpportunities } from './Concept/JobOpportunities';
 
 // Other
 export { default as Page } from './Page';

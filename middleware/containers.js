@@ -147,6 +147,12 @@ module.exports = [
     newResourcesPermissions: writePermissionToCreator,
   },
   {
+    path: '/job-opportunities',
+    acceptedTypes: ['cdlt:JobOpportunities'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator,
+  },
+  {
     path: '/sectors',
     acceptedTypes: ['pair:Sector'],
     permissions: anonReadPermission,

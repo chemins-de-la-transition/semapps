@@ -65,8 +65,11 @@ const EventShow = (props) => (
           <MarkdownField source="cdlt:prerequisites" addLabel />
           <MarkdownField source="cdlt:learningObjectives" addLabel />
           <MarkdownField source="cdlt:pedagogicalMeans" />
-          <TextField source="cdlt:jobOpportunities" />
-
+          <ReferenceArrayField reference="JobOpportunities" source="cdlt:hasJobOpportunities">
+            <SingleFieldList linkType={false}>
+              <ChipField source="pair:label" />
+            </SingleFieldList>
+          </ReferenceArrayField>
 
           <MarkdownField source="cdlt:practicalConditions" />
           <NumberField source="cdlt:minimumCapacity" />
