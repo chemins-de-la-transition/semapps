@@ -15,7 +15,8 @@ export default {
   dataModel: {
     types: ['pair:Person', 'foaf:Person'],
     fieldsMapping: {
-      title: ['pair:firstName', 'pair:lastName']
+      title: 'pair:label',
+      image: 'pair:depictedBy'
     }
   },
   translations: {

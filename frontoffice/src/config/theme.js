@@ -265,8 +265,8 @@ let theme = createTheme({
         '&:disabled': {
           color: grey40,
           borderColor: grey10,
-          backgroundColor: grey10,
-          boxShadow: '7px 7px ' + white,
+          backgroundColor: primary,
+          boxShadow: 'none',
         },
       },
       containedSecondary: {
@@ -289,8 +289,8 @@ let theme = createTheme({
         '&:disabled': {
           color: grey40,
           borderColor: grey10,
-          backgroundColor: grey10,
-          boxShadow: '7px 7px ' + white,
+          backgroundColor: secondary,
+          boxShadow: 'none',
         },
       },
       outlined: {
@@ -317,7 +317,7 @@ let theme = createTheme({
           backgroundColor: white,
         },
         '&:disabled': {
-          color: grey40,
+          color: primary,
           borderColor: grey10,
           backgroundColor: grey10,
         },
@@ -336,7 +336,7 @@ let theme = createTheme({
           backgroundColor: white,
         },
         '&:disabled': {
-          color: grey40,
+          color: secondary,
           borderColor: grey10,
           backgroundColor: grey10,
         },
