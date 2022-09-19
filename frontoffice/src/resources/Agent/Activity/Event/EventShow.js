@@ -5,6 +5,7 @@ import resourceTheme from '../../../../config/themes/resourceTheme';
 import resourceShowStyle from '../../../../commons/style/resourceShowStyle';
 import { MapField } from '@semapps/geo-components';
 import { SeparatedListField } from '@semapps/archipelago-layout';
+import { CommentsField, useMentions } from "@semapps/activitypub-components";
 import { Box } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../../../commons/fields/MarkdownField';
@@ -24,6 +25,7 @@ const useStyles = resourceShowStyle;
 
 const EventShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
+  const mentions = useMentions('Person');
   const classes = useStyles();
   return (
     <ThemeProvider theme={resourceTheme}>
@@ -134,6 +136,7 @@ const EventShow = (props) => {
                 <SectorField />
               </SingleFieldList>
             </ReferenceArrayField>
+            <CommentsField userResource="Person" mentions={mentions} />
           </BodyList>
           <SimilarEvents />
           <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />

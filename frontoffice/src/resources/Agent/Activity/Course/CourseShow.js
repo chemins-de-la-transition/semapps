@@ -6,6 +6,7 @@ import resourceShowStyle from '../../../../commons/style/resourceShowStyle';
 import { MapList } from '@semapps/geo-components';
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { Box } from '@material-ui/core';
+import { CommentsField, useMentions } from "@semapps/activitypub-components";
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../../../commons/fields/MarkdownField';
 import HeaderShow from '../../../../commons/HeaderShow';
@@ -28,6 +29,7 @@ const useStyles = resourceShowStyle;
 
 const CourseShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
+  const mentions = useMentions('Person');
   const classes = useStyles();
   return (
     <ThemeProvider theme={resourceTheme}>
@@ -153,6 +155,7 @@ const CourseShow = (props) => {
               />
             </ReferenceArrayField>
             <UrlField source="pair:homePage" label="Liens" className={classes.urlField} />
+            <CommentsField userResource="Person" mentions={mentions} />
           </BodyList>
           <SimilarList
             resource="Course"
