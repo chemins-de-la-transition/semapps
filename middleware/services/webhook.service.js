@@ -34,7 +34,6 @@ module.exports = {
   },
   actions: {
     async process(ctx) {
-
       const getResource = id => ctx.call('ldp.resource.get', {
         resourceUri: id,
         accept: MIME_TYPES.JSON
@@ -62,7 +61,12 @@ module.exports = {
         nom: nomComplet.last
       });
 
-      return { hello: 'World' };
+      await ctx.call('pipedream.postRegistration', {
+        name: nomComplet.first + ' ' + nomComplet.last,
+        email,
+        resourceLabel: lep['pair:label'],
+        resourceUri: lepid
+      });
     }
   }
 };

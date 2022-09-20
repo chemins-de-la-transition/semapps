@@ -1,5 +1,4 @@
 const path = require('path');
-const urlJoin = require('url-join');
 const MailerService = require('moleculer-mail');
 const { MIME_TYPES } = require('@semapps/mime-types');
 const CONFIG = require('../config');
@@ -72,18 +71,27 @@ module.exports = {
 
       if (!to) throw new Error('Aucune adresse mail définie pour ' + resourceLabel + '!')
 
+      const resourceFrontUrl = `https://lescheminsdelatransition.org/${resourceFrontPath}/${encodeURIComponent(resourceUri)}/show`;
+
       await ctx.call('mailer.send', {
         to,
         replyTo: `${name} <${email}>`,
         template: 'contact',
         data: {
           resourceLabel,
-          resourceFrontUrl: `https://lescheminsdelatransition.org/${resourceFrontPath}/${encodeURIComponent(resourceUri)}/show`,
+          resourceFrontUrl,
           name,
           email,
           content,
           contentWithBr: content.replace(/\r\n|\r|\n/g, '<br />')
         }
+      });
+
+      await ctx.call('pipedream.postContact', {
+        name,
+        email,
+        resourceLabel: resource['pair:label'],
+        resourceUri: resourceFrontUrl
       });
     },
     async inviteActor(ctx) {

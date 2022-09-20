@@ -3,7 +3,7 @@ import { useShowContext, Link, linkToRecord } from "react-admin";
 import Button from "../Button";
 import ContactButton from "./ContactButton";
 
-const ApplyButton = () => {
+const ApplyButton = ({ mainButton }) => {
   const { record } = useShowContext();
   if (!record) return null;
   return record.type === "pair:Event" && record["pair:partOf"] && !record["cdlt:registrationOutsideCourse"] ? (
@@ -21,7 +21,7 @@ const ApplyButton = () => {
       </Button>
     </Link>
   ) : (
-    <ContactButton label="Je candidate" />
+    <ContactButton label="Je candidate" mainButton={mainButton} />
   );
 };
 

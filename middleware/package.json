@@ -34,6 +34,7 @@
     "cross-env": "^7.0.3",
     "dotenv-flow": "^3.2.0",
     "handlebars": "^4.7.7",
+    "node-fetch": "^2.6.7",
     "ioredis": "^4.17.3",
     "moleculer": "^0.14.18",
     "moleculer-bull": "0.2.8",
