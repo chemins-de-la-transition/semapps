@@ -1,64 +1,82 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import qs from "query-string";
 import { lightFormat } from "date-fns";
-import { useGetIdentity, useShowContext } from "react-admin";
+import { useGetIdentity, useShowContext, useDataProvider } from "react-admin";
+import { useHistory } from 'react-router';
+import { AuthDialog } from "@semapps/auth-provider";
+import { defaultToArray } from "../../utils";
 import Button from "../Button";
 
-const RegistrationButton = ({ label: labelProp }) => {
+const RegistrationButton = ({ label: labelProp, mainButton }) => {
   const [types, setTypes] = useState();
   const { identity } = useGetIdentity();
+  const dataProvider = useDataProvider();
   const { record = {} } = useShowContext();
-
-  const registrationOption= record["cdlt:registrationOption"];
-  const jotformLink= record["cdlt:jotformLink"];
-  const registrationLink= record["cdlt:registrationLink"];
-
-  const id = record.id;
-  const startDate = record["pair:startDate"]
-    ? new Date(record["pair:startDate"])
-    : null;
-  const endDate = record["pair:endDate"]
-    ? new Date(record["pair:endDate"])
-    : null;
-  const priceRange = record["cdlt:priceRange"];
-  const label = record["pair:label"];
-  const hasType = record["pair:hasType"];
+  const history = useHistory();
+  const [openAuth, setOpenAuth] = useState(false);
 
   useEffect(() => {
-    if (!hasType) return;
-    const promisesArray = Array.isArray(hasType) ? hasType : [hasType];
-    Promise.all(
-      promisesArray.map((t) => {
-        return fetch(t).then((e) => e.json());
-      })
-    ).then(setTypes);
-  }, [hasType]);
+    if (record['pair:hasType']) {
+      dataProvider
+        .getMany('Type', { ids: defaultToArray(record['pair:hasType']) })
+        .then(({ data }) => setTypes(data));
+    }
+  }, [record, dataProvider, setTypes]);
+
+  const registrationLink = useMemo(() => {
+    if (types && record && identity && identity.id !== '') {
+      if (![0,1].includes(record['cdlt:registrationOption'])) {
+        return record['cdlt:registrationLink'];
+      } else {
+        const startDate = record['pair:startDate'] ? new Date(record['pair:startDate']) : null;
+        const endDate = record['pair:endDate'] ? new Date(record['pair:endDate']) : null;
+        return record['cdlt:jotformLink'] +
+          qs.stringify(
+            Object.assign(
+              {},
+              startDate && {
+                "dateArrivee[day]": lightFormat(startDate, "dd"),
+                "dateArrivee[month]": lightFormat(startDate, "MM"),
+                "dateArrivee[year]": lightFormat(startDate, "yyyy"),
+              },
+              endDate && {
+                "dateDepart[day]": lightFormat(endDate, "dd"),
+                "dateDepart[month]": lightFormat(endDate, "MM"),
+                "dateDepart[year]": lightFormat(endDate, "yyyy"),
+              },
+              types && {
+                typeVoyage: types.map((t) => t['pair:label']).join(", "),
+              },
+              record['cdlt:priceRange'] && { prix: record['cdlt:priceRange'].replace(/[^0-9]/g, "") },
+              {
+                label: record['pair:label'],
+                lepid: record.id,
+                webid: identity.id,
+                "nomComplet[first]": identity.webIdData['pair:firstName'],
+                "nomComplet[last]": identity.webIdData['pair:lastName'],
+              }
+            )
+          );
+      }
+    }
+  }, [record, types, identity])
+
+  useEffect(() => {
+    if (mainButton && registrationLink) {
+      const query = new URLSearchParams(history.location.search);
+      if (query.has('register') && identity) {
+        if (identity.id !== '') {
+          history.replace(history.location.pathname);
+          setOpenAuth(false);
+          window.location.href = registrationLink;
+        } else {
+          setOpenAuth(true);
+        }
+      }
+    }
+  }, [mainButton, history, identity, registrationLink]);
 
   if (record.hasType && !types) return null;
-
-  const jotformQuery =
-    jotformLink +
-    qs.stringify(
-      Object.assign(
-        {},
-        startDate && {
-          "dateArrivee[day]": lightFormat(startDate, "dd"),
-          "dateArrivee[month]": lightFormat(startDate, "MM"),
-          "dateArrivee[year]": lightFormat(startDate, "yyyy"),
-        },
-        endDate && {
-          "dateDepart[day]": lightFormat(endDate, "dd"),
-          "dateDepart[month]": lightFormat(endDate, "MM"),
-          "dateDepart[year]": lightFormat(endDate, "yyyy"),
-        },
-        types && {
-          typeVoyage: types.map((t) => t["pair:label"]).join(", "),
-        },
-        { label },
-        { lepid: id, webid: identity?.id },
-        priceRange && { prix: priceRange.replace(/[^0-9]/g, "") }
-      )
-    );
 
   return (
     <>
@@ -66,10 +84,17 @@ const RegistrationButton = ({ label: labelProp }) => {
         variant="contained"
         color="primary"
         typographyVariant="button1"
-        href={[0,1].includes(registrationOption) ? jotformQuery : registrationLink }
+        href={identity && identity.id === '' ? undefined : registrationLink}
+        onClick={identity && identity.id === '' ? () => setOpenAuth(true) : undefined}
       >
         {labelProp}
       </Button>
+      <AuthDialog
+        open={openAuth}
+        onClose={() => setOpenAuth(false)}
+        redirect={history.location.pathname + '?register'}
+        message="Vous devez vous connecter pour pouvoir vous inscrire"
+      />
     </>
   );
 };

@@ -18,7 +18,7 @@ const ContactButton = ({ label, mainButton }) => {
       const query = new URLSearchParams(history.location.search);
       if (query.has('contact') && identity) {
         if (identity.id !== '') {
-          history.replace(history.location.pathname)
+          history.replace(history.location.pathname);
           setOpenAuth(false);
           setOpenContact(true);
         } else {
@@ -27,10 +27,10 @@ const ContactButton = ({ label, mainButton }) => {
         }
       }
     }
-  }, [mainButton, history, identity, setOpenContact])
+  }, [mainButton, history, identity, setOpenContact]);
 
   if (record["cdlt:directRegistration"]) {
-    return <RegistrationButton label="Je m'inscris" />;
+    return <RegistrationButton label="Je m'inscris" mainButton={mainButton} />;
   }
 
   return (
@@ -52,7 +52,12 @@ const ContactButton = ({ label, mainButton }) => {
         {label}
       </Button>
       <ContactDialog open={openContact} onClose={() => setOpenContact(false)} />
-      <AuthDialog open={openAuth} onClose={() => setOpenAuth(false)} redirect={history.location.pathname + '?contact'} message="Veuillez vous connecter pour accéder au formulaire de contact" />
+      <AuthDialog
+        open={openAuth}
+        onClose={() => setOpenAuth(false)}
+        redirect={history.location.pathname + '?contact'}
+        message="Veuillez vous connecter pour accéder au formulaire de contact"
+      />
     </>
   );
 };
