@@ -56,7 +56,7 @@ module.exports = {
         await ctx.call('triplestore.update', {
           query: `
             PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
-            INSERT { ${regionsUris.map(uri => `<${uri}>`).join(', ')} cdlt:regionOf ?p1 }
+            INSERT { ${regionsUris.map(uri => `<${uri}> cdlt:regionOf ?p1 .`)} }
             WHERE { BIND(<${resourceUri}> AS ?p1) }
           `,
           webId: 'system'
