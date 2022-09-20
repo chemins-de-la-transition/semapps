@@ -1,5 +1,5 @@
 const path = require('path');
-const urlJoin = require('url-join');
+const fetch = require('node-fetch');
 const MailerService = require('moleculer-mail');
 const { MIME_TYPES } = require('@semapps/mime-types');
 const CONFIG = require('../config');
@@ -84,6 +84,15 @@ module.exports = {
           content,
           contentWithBr: content.replace(/\r\n|\r|\n/g, '<br />')
         }
+      });
+
+      await fetch('https://eozmaiweichanh3.m.pipedream.net', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, resourceLabel, resourceFrontPath })
       });
     },
     async inviteActor(ctx) {
