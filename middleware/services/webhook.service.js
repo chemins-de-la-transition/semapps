@@ -2,6 +2,8 @@ const multiparty = require('multiparty');
 const { MIME_TYPES } = require('@semapps/mime-types');
 const CONFIG = require('../config');
 
+const defaultToArray = value => (!value ? [] : Array.isArray(value) ? value : [value]);
+
 const formDataMiddleware = (req, res, next) => {
   const form = new multiparty.Form();
   form.parse(req, (err, fields, files) => {
@@ -48,11 +50,11 @@ module.exports = {
       const { lepid, nomComplet, email } = json;
 
       const lep = await getResource(lepid)
-      const organizers = await Promise.all(lep['cdlt:organizedBy'].map(getResource));
+      const organizers = await Promise.all(defaultToArray(lep['cdlt:organizedBy']).map(getResource));
 
       await Promise.all(organizers.map(async o => {
         await ctx.call('mailer.notifyOrganizer', { to:  o['foaf:email'], lep: lep['pair:label'], });
-      }))
+      }));
 
       await ctx.call('mailer.notifyVisitor', {
         to:  email,
