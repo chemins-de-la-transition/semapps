@@ -19,7 +19,7 @@ module.exports = {
       attachToObjectTypes: ['cdlt:Path', 'cdlt:Course', 'pair:Event', 'pair:Place', 'pair:Person', 'pair:Organization']
     },
     reply: {
-      attachToObjectTypes: ['cdlt:Path', 'cdlt:Course', 'pair:Event', 'pair:Place']
+      attachToObjectTypes: ['cdlt:Path', 'cdlt:Course', 'pair:Event', 'pair:Place', 'pair:Organization']
     }
   }
 };

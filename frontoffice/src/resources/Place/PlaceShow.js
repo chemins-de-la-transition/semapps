@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
-import { ThemeProvider, Checkbox, FormGroup, FormControlLabel } from '@material-ui/core';
+import { ThemeProvider, Checkbox, FormGroup, FormControlLabel, Box, Typography } from '@material-ui/core';
 import resourceTheme from '../../config/themes/resourceTheme';
 import resourceShowStyle from '../../commons/style/resourceShowStyle';
 import { MapField } from '@semapps/geo-components';
 import { SeparatedListField } from '@semapps/archipelago-layout';
-import { Box, Typography } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { CommentsField, useMentions } from "@semapps/activitypub-components";
 import MarkdownField from '../../commons/fields/MarkdownField';
 import HeaderShow from '../../commons/HeaderShow';
 import StickyCard from '../../commons/StickyCard';
@@ -29,6 +29,7 @@ const useStyles = resourceShowStyle;
 const PlaceShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
   const [onlyFutureEvents, setOnlyFutureEvents] = useState(true);
+  const mentions = useMentions('Person');
   const classes = useStyles();
   return (
     <ThemeProvider theme={resourceTheme}>
@@ -131,6 +132,7 @@ const PlaceShow = (props) => {
             />
             <UrlField source="pair:homePage" label="Liens" className={classes.urlField} />
             <TextField source="cdlt:publicPhone" />
+            <CommentsField userResource="Person" mentions={mentions} />
           </BodyList>
           <SimilarList
             resource="Place"

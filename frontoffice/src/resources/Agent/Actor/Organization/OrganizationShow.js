@@ -5,6 +5,7 @@ import organizationTheme from '../../../../config/themes/organizationTheme';
 import resourceShowStyle from '../../../../commons/style/resourceShowStyle';
 import { MapField } from '@semapps/geo-components';
 import { SeparatedListField } from '@semapps/archipelago-layout';
+import { CommentsField, useMentions } from "@semapps/activitypub-components";
 import { Box, Typography } from '@material-ui/core';
 import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../../../commons/fields/MarkdownField';
@@ -28,6 +29,7 @@ const useStyles = resourceShowStyle;
 const OrganizationShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
   const [onlyFutureEvents, setOnlyFutureEvents] = useState(true);
+  const mentions = useMentions('Person');
   const classes = useStyles();
 
   return (
@@ -139,6 +141,7 @@ const OrganizationShow = (props) => {
             />
             <UrlField source="pair:homePage" label="Liens" className={classes.urlField} />
             <TextField source="cdlt:publicPhone" />
+            <CommentsField userResource="Person" mentions={mentions} />
 {/*
             <ReferenceArrayField reference="Project" source="pair:involvedIn">
               <SingleFieldList linkType="show">
