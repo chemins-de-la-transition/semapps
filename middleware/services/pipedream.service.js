@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 module.exports = {
   name: 'pipedream',
   settings: {
-    webhookUrl: 'https://eozmaiweichanh3.m.pipedream.net'
+    webhookUrl: 'https://eoxe7g2vooldrlq.m.pipedream.net'
   },
   actions: {
     async post(ctx) {

@@ -1,5 +1,4 @@
 const path = require('path');
-const fetch = require('node-fetch');
 const MailerService = require('moleculer-mail');
 const { MIME_TYPES } = require('@semapps/mime-types');
 const CONFIG = require('../config');
