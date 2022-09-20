@@ -175,15 +175,17 @@ const HeaderShow = ({ linkToListText, details, content, actionButton, hasComment
           </Box>
           {xs && (
             <Box pb={3}>
-              {actionButton && React.cloneElement(actionButton)}
+              {actionButton && React.cloneElement(actionButton, { mainButton: true })}
             </Box>
           )}
         </Box>
-        <Drawer anchor="bottom" open={xs && showDrawer} hideBackdrop disableScrollLock variant="persistent">
-          <Box className={classes.drawer} pt={1} pb={2}>
-            {actionButton && React.cloneElement(actionButton)}
-          </Box>
-        </Drawer>
+        {xs &&
+          <Drawer anchor="bottom" open={showDrawer} hideBackdrop disableScrollLock variant="persistent">
+            <Box className={classes.drawer} pt={1} pb={2}>
+              {actionButton && React.cloneElement(actionButton, { mainButton: false })}
+            </Box>
+          </Drawer>
+        }
       </LargeContainer>
     </FullWidthBox>
   );
