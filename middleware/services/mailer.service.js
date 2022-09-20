@@ -72,13 +72,15 @@ module.exports = {
 
       if (!to) throw new Error('Aucune adresse mail définie pour ' + resourceLabel + '!')
 
+      const resourceFrontUrl = `https://lescheminsdelatransition.org/${resourceFrontPath}/${encodeURIComponent(resourceUri)}/show`;
+
       await ctx.call('mailer.send', {
         to,
         replyTo: `${name} <${email}>`,
         template: 'contact',
         data: {
           resourceLabel,
-          resourceFrontUrl: `https://lescheminsdelatransition.org/${resourceFrontPath}/${encodeURIComponent(resourceUri)}/show`,
+          resourceFrontUrl,
           name,
           email,
           content,
@@ -92,7 +94,7 @@ module.exports = {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, resourceLabel, resourceFrontPath })
+        body: JSON.stringify({ name, email, resourceLabel: resource['pair:label'], resourceFrontUrl })
       });
     },
     async inviteActor(ctx) {
