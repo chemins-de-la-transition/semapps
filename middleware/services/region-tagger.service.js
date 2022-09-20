@@ -18,6 +18,11 @@ module.exports = {
         if( regionUri ) regionsUris.push(regionUri);
       }
 
+      // Remove duplicates
+      regionsUris = regionsUris.filter(function(item, pos, self) {
+        return self.indexOf(item) === pos;
+      });
+
       if( regionsUris.length > 0 ) {
         // Delete hasRegion relation
         await ctx.call('triplestore.update', {

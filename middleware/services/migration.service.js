@@ -7,9 +7,6 @@ const CONFIG = require("../config");
 
 module.exports = {
   name: 'migration',
-  settings: {
-    baseUrl: CONFIG.HOME_URL
-  },
   mixins: [MigrationService],
   settings: {
     baseUrl: CONFIG.HOME_URL
