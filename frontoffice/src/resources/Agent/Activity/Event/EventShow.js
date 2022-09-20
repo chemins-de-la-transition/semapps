@@ -120,7 +120,6 @@ const EventShow = (props) => {
             >
               <MarkdownField source="cdlt:practicalConditions" />
               <MarkdownField source="cdlt:accessibility" />
-              <TextField source="pair:hasLocation"/>
               <MapField
                 source="pair:hasLocation"
                 address={(record) => record?.['pair:hasLocation']?.['pair:label']}
