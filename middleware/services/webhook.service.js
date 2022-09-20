@@ -61,14 +61,11 @@ module.exports = {
         nom: nomComplet.last
       });
 
-      await ctx.call('pipedream.post', {
-        sheet: 'Inscriptions',
-        data: {
-          name: nomComplet.first + ' ' + nomComplet.last,
-          email,
-          resourceLabel: lep['pair:label'],
-          resourceFrontUrl: lepid
-        }
+      await ctx.call('pipedream.postRegistration', {
+        name: nomComplet.first + ' ' + nomComplet.last,
+        email,
+        resourceLabel: lep['pair:label'],
+        resourceUri: lepid
       });
     }
   }

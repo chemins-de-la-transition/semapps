@@ -87,14 +87,11 @@ module.exports = {
         }
       });
 
-      await ctx.call('pipedream.post', {
-        sheet: 'Contacts',
-        data: {
-          name,
-          email,
-          resourceLabel: resource['pair:label'],
-          resourceFrontUrl
-        }
+      await ctx.call('pipedream.postContact', {
+        name,
+        email,
+        resourceLabel: resource['pair:label'],
+        resourceUri: resourceFrontUrl
       });
     },
     async inviteActor(ctx) {
