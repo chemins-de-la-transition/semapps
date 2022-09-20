@@ -51,7 +51,11 @@ const ContactButton = ({ label, mainButton }) => {
       >
         {label}
       </Button>
-      <ContactDialog open={openContact} onClose={() => setOpenContact(false)} />
+      <ContactDialog
+        open={openContact}
+        name={identity?.webIdData?.['pair:label']}
+        onClose={() => setOpenContact(false)}
+      />
       <AuthDialog
         open={openAuth}
         onClose={() => setOpenAuth(false)}

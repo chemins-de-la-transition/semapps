@@ -39,7 +39,7 @@ const FinalFormTextField = ({ input: { name, onChange, value, ...restInput }, me
   />
 );
 
-const ContactDialog = ({ open, onClose }) => {
+const ContactDialog = ({ open, onClose, name }) => {
   const classes = useStyles();
   const { record } = useShowContext();
   const notify = useNotify();
@@ -63,6 +63,7 @@ const ContactDialog = ({ open, onClose }) => {
   return (
     <Form
       onSubmit={onSubmit}
+      initialValues={{ name }}
       render={({ handleSubmit, form, submitting }) => (
         <form onSubmit={handleSubmit}>
           <Dialog fullWidth open={open} onClose={onClose}>
