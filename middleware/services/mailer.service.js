@@ -88,13 +88,14 @@ module.exports = {
         }
       });
 
-      await fetch('https://eozmaiweichanh3.m.pipedream.net', {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email, resourceLabel: resource['pair:label'], resourceFrontUrl })
+      await ctx.call('pipedream.post', {
+        sheet: 'Contacts',
+        data: {
+          name,
+          email,
+          resourceLabel: resource['pair:label'],
+          resourceFrontUrl
+        }
       });
     },
     async inviteActor(ctx) {
