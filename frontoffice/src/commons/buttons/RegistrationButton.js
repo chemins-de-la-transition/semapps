@@ -1,27 +1,18 @@
 import React, { useState, useEffect, useMemo } from "react";
 import qs from "query-string";
 import { lightFormat } from "date-fns";
-import { useGetIdentity, useShowContext, useDataProvider } from "react-admin";
+import { useGetIdentity, useShowContext, useGetMany } from "react-admin";
 import { useHistory } from 'react-router';
 import { AuthDialog } from "@semapps/auth-provider";
 import { defaultToArray } from "../../utils";
 import Button from "../Button";
 
 const RegistrationButton = ({ label: labelProp, mainButton }) => {
-  const [types, setTypes] = useState();
   const { identity } = useGetIdentity();
-  const dataProvider = useDataProvider();
   const { record = {} } = useShowContext();
   const history = useHistory();
   const [openAuth, setOpenAuth] = useState(false);
-
-  useEffect(() => {
-    if (record['pair:hasType']) {
-      dataProvider
-        .getMany('Type', { ids: defaultToArray(record['pair:hasType']) })
-        .then(({ data }) => setTypes(data));
-    }
-  }, [record, dataProvider, setTypes]);
+  const { data: types, loading } = useGetMany('Type', defaultToArray(record['pair:hasType']));
 
   const registrationLink = useMemo(() => {
     if (types && record && identity && identity.id !== '') {
@@ -76,7 +67,7 @@ const RegistrationButton = ({ label: labelProp, mainButton }) => {
     }
   }, [mainButton, history, identity, registrationLink]);
 
-  if (record.hasType && !types) return null;
+  if (record['pair:hasType'] && loading) return null;
 
   return (
     <>
