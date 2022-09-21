@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PlaceCard = ({ record, variant }) => {
   const classes = useStyles();
-  const city = record?.['pair:hasPostalAddress']?.['pair:addressLocality'] ;
+  const city = record?.['pair:hasPostalAddress']?.['pair:addressLocality'];
   const zipCode = record?.['pair:hasPostalAddress']?.['pair:addressZipCode']?.slice(0, 2) ;
 
   return (
@@ -43,6 +43,13 @@ const PlaceCard = ({ record, variant }) => {
           {city+' ('+zipCode+')'}
         </Typography>
       </Chip>
+      ) :
+      record['pair:hasPostalAddress'] && (city===undefined) && (zipCode!==undefined) ? (
+        <Chip icon={<PlaceIcon />}>
+          <Typography variant="body1" className={classes.address}>
+            {record?.['pair:hasPostalAddress']?.['pair:label'].split(',')[0]+' ('+zipCode+')'}
+          </Typography>
+        </Chip>
       ) :
       (record['cdlt:hasRegion'] && (
         <Chip icon={<PlaceIcon />}>
