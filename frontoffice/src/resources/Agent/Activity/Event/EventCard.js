@@ -40,7 +40,7 @@ const EventCard = ({ record, variant }) => {
         return `${record['pair:hasPostalAddress']['pair:addressLocality']} (${record['pair:hasPostalAddress']['pair:addressZipCode']?.slice(0,2)}) - ${record['pair:label']}`;
       } else {
         // Department
-        return `${record['pair:hasPostalAddress']['pair:label'].split(',')[0]} (${record['pair:hasPostalAddress']['pair:addressZipCode']}) - ${record['pair:label']}`;
+        return `${record['pair:hasPostalAddress']['pair:label']?.split(',')[0]} (${record['pair:hasPostalAddress']['pair:addressZipCode']}) - ${record['pair:label']}`;
       }
     } else {
       // No location, display label
