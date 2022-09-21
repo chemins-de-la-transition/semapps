@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { DateField, TextField, FunctionField, Link, linkToRecord } from 'react-admin';
 import Chip from '../../../../commons/Chip';
 import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
@@ -33,6 +33,20 @@ const useStyles = makeStyles((theme) => ({
 
 const EventCard = ({ record, variant }) => {
   const classes = useStyles();
+  const renderLocation = useCallback(record => {
+    if (record['pair:hasPostalAddress']) {
+      if (record['pair:hasPostalAddress']['pair:addressLocality']) {
+        // Locality
+        return `${record['pair:hasPostalAddress']['pair:addressLocality']} (${record['pair:hasPostalAddress']['pair:addressZipCode']?.slice(0,2)}) - ${record['pair:label']}`;
+      } else {
+        // Department
+        return `${record['pair:hasPostalAddress']['pair:label'].split(',')[0]} (${record['pair:hasPostalAddress']['pair:addressZipCode']}) - ${record['pair:label']}`;
+      }
+    } else {
+      // No location, display label
+      return record['pair:label'];
+    }
+  }, []);
   return (
     <>
       <Link
@@ -52,11 +66,7 @@ const EventCard = ({ record, variant }) => {
         {record['pair:hostedIn'] ? (
           <Chip icon={<PlaceIcon />}>
             <ReferenceField record={record} source="pair:hostedIn" reference="Place" link={false}>
-              <FunctionField label="Localisation" render={record => 
-              record['pair:hasPostalAddress'] ?
-                `${record['pair:hasPostalAddress']['pair:addressLocality']} (${record['pair:hasPostalAddress']['pair:addressZipCode']?.slice(0,2)}) - ${record['pair:label']}`
-              : record['pair:label']
-              }/>
+              <FunctionField render={renderLocation}/>
             </ReferenceField>
           </Chip>
         ) :
@@ -70,9 +80,7 @@ const EventCard = ({ record, variant }) => {
         (record['pair:hasLocation'] && (
           <Chip icon={<PlaceIcon />}>
             <ReferenceField record={record} source="pair:hasLocation" reference="Place" link={false}>
-              <FunctionField label="Localisation" render={record => 
-                `${record['pair:hasPostalAddress']?.['pair:addressLocality']} (${record['pair:hasPostalAddress']?.['pair:addressZipCode']?.slice(0,2)})`
-              }/>
+              <FunctionField label="Localisation" render={renderLocation}/>
             </ReferenceField>
           </Chip>
         ))
