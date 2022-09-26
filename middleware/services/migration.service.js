@@ -1,7 +1,7 @@
 const urlJoin = require("url-join");
 const { v4: uuid } = require('uuid');
 const { MigrationService } = require('@semapps/migration');
-const { getContainerFromUri } = require("@semapps/ldp");
+const { getContainerFromUri, defaultToArray} = require("@semapps/ldp");
 const { MIME_TYPES } = require("@semapps/mime-types");
 const CONFIG = require("../config");
 
@@ -12,6 +12,36 @@ module.exports = {
     baseUrl: CONFIG.HOME_URL
   },
   actions: {
+    async fixOrganizationsRights(ctx) {
+      const organizationsUris = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'organizations') });
+      for( let organizationUri of organizationsUris ) {
+        this.logger.info('Fixing rights for ' + organizationUri + '...');
+        const organization = await ctx.call('ldp.resource.get', {
+          resourceUri: organizationUri,
+          accept: MIME_TYPES.JSON,
+          webId: 'system'
+        });
+        const usersUris = defaultToArray(organization['pair:affiliates']);
+        if (usersUris) {
+          this.logger.info(`Adding rights to ${usersUris.length} affiliated users`);
+          for (let userUri of usersUris) {
+            await ctx.call('webacl.resource.addRights', {
+              resourceUri: organizationUri,
+              additionalRights: {
+                user: {
+                  uri: userUri,
+                  read: true,
+                  write: true
+                }
+              },
+              webId: 'system'
+            });
+          }
+        } else {
+          this.logger.warn('No affiliated users found!')
+        }
+      }
+    },
     async activateActivityPub(ctx) {
       const actors = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'users') });
       for( let actorUri of actors ) {
