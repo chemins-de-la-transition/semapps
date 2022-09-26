@@ -13,14 +13,15 @@ import Button from '../commons/Button';
 const actions = [<Button to="/Organization/create">Ajouter</Button>];
 
 const MyOrganizationsPage = () => {
-  const { identity } = useCheckAuthenticated();
+  const { identity, loading } = useCheckAuthenticated();
+  if (loading) return null;
   return (
     <ThemeProvider theme={organizationTheme}>
       <HeaderTitle actions={actions}>Mes organisations</HeaderTitle>
       <br />
       <FullWidthBox>
         <LargeContainer>
-          <ListBase resource="Organization" basePath="/Organization" filter={{ 'pair:affiliatedBy': identity?.id }}>
+          <ListBase resource="Organization" basePath="/Organization" filter={{ 'pair:affiliates': identity?.id }}>
             <CardsList CardComponent={OrganizationCard} link="show" />
           </ListBase>
         </LargeContainer>

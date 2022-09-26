@@ -11,7 +11,8 @@ import Button from '../commons/Button';
 const actions = [<Button to="/Event/create">Ajouter</Button>];
 
 const MyEventsPage = () => {
-  const { identity } = useCheckAuthenticated();
+  const { identity, loading } = useCheckAuthenticated();
+  if (loading) return null;
   return (
     <>
       <HeaderTitle actions={actions}>Mes événements</HeaderTitle>

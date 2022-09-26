@@ -11,7 +11,8 @@ import Button from '../commons/Button';
 const actions = [<Button to="/Place/create">Ajouter</Button>];
 
 const MyPlacesPage = () => {
-  const { identity } = useCheckAuthenticated();
+  const { identity, loading } = useCheckAuthenticated();
+  if (loading) return null;
   return (
     <>
       <HeaderTitle actions={actions}>Mes lieux</HeaderTitle>
