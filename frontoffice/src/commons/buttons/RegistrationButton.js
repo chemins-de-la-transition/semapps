@@ -15,7 +15,7 @@ const RegistrationButton = ({ label: labelProp, mainButton }) => {
   const { data: types, loading } = useGetMany('Type', defaultToArray(record['pair:hasType']));
 
   const registrationLink = useMemo(() => {
-    if (types && record && identity && identity.id !== '') {
+    if (!loading && record && identity && identity.id !== '') {
       if (![0,1].includes(record['cdlt:registrationOption'])) {
         return record['cdlt:registrationLink'];
       } else {
@@ -36,7 +36,7 @@ const RegistrationButton = ({ label: labelProp, mainButton }) => {
                 "dateDepart[year]": lightFormat(endDate, "yyyy"),
               },
               types && {
-                typeVoyage: types.map((t) => t['pair:label']).join(", "),
+                typeVoyage: types.filter(t => t).map((t) => t['pair:label']).join(", "),
               },
               record['cdlt:priceRange'] && { prix: record['cdlt:priceRange'].replace(/[^0-9]/g, "") },
               {
@@ -50,7 +50,7 @@ const RegistrationButton = ({ label: labelProp, mainButton }) => {
           );
       }
     }
-  }, [record, types, identity])
+  }, [record, types, loading, identity])
 
   useEffect(() => {
     if (mainButton && registrationLink) {
