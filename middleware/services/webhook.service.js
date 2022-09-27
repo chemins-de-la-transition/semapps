@@ -66,8 +66,10 @@ module.exports = {
       await ctx.call('pipedream.postRegistration', {
         name: nomComplet.first + ' ' + nomComplet.last,
         email,
-        resourceLabel: lep['pair:label'],
-        resourceUri: lepid
+        formData: json,
+        resource: lep,
+        resourceType: defaultToArray(lep.type).join(', '),
+        resourceEmail: organizers.map(o => o['foaf:email']).join(', ')
       });
     }
   }

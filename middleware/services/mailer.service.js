@@ -90,8 +90,9 @@ module.exports = {
       await ctx.call('pipedream.postContact', {
         name,
         email,
-        resourceLabel: resource['pair:label'],
-        resourceUri: resourceFrontUrl
+        resource,
+        resourceType: resourceFrontPath,
+        resourceEmail: to
       });
     },
     async inviteActor(ctx) {

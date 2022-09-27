@@ -5,26 +5,24 @@ module.exports = {
   actions: {
     async post(ctx) {
       const { url, data } = ctx.params;
+      const now = new Date();
       await fetch(url, {
         method: 'POST',
         mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({
+          posted: `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`,
+          ...data,
+        })
       });
     },
     async postContact(ctx) {
-      const { name, email, resourceLabel, resourceUri } = ctx.params;
       this.actions.post(
         {
           url: 'https://eozmaiweichanh3.m.pipedream.net',
-          data: {
-            name,
-            email,
-            resourceLabel,
-            resourceUri
-          }
+          data: ctx.params
         },
         {
         parentCtx: ctx
@@ -32,16 +30,10 @@ module.exports = {
       );
     },
     async postRegistration(ctx) {
-      const { name, email, resourceLabel, resourceUri } = ctx.params;
       this.actions.post(
         {
           url: 'https://eoxe7g2vooldrlq.m.pipedream.net',
-          data: {
-            name,
-            email,
-            resourceLabel,
-            resourceUri
-          }
+          data: ctx.params
         },
         {
           parentCtx: ctx
