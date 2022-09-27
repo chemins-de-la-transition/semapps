@@ -13,7 +13,9 @@ module.exports = {
   },
   actions: {
     async migrateThemesToTopics(ctx) {
-      const themesUris = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'themes') });
+      const themesContainerUri = urlJoin(CONFIG.HOME_URL, 'themes');
+      const themesUris = await ctx.call('ldp.container.getUris', { containerUri: themesContainerUri });
+      
       for( let themeUri of themesUris ) {
         const theme = await ctx.call('ldp.resource.get', {
           resourceUri: themeUri,
@@ -26,7 +28,7 @@ module.exports = {
             ...theme,
             type: 'pair:Topic'
           },
-          contentType: MIME_TYPES,
+          contentType: MIME_TYPES.JSON,
           webId: 'system'
         });
 
@@ -35,6 +37,17 @@ module.exports = {
           newResourceUri: urlJoin(CONFIG.HOME_URL, 'topics', getSlugFromUri(themeUri)),
         });
       }
+
+      await ctx.call('triplestore.update', {
+        query: `
+          DELETE
+          WHERE {
+            <${themesContainerUri}> a ?containerType
+          }
+        `,
+        accept: MIME_TYPES.JSON,
+        webId: 'system'
+      });
     },
     async fixOrganizationsRights(ctx) {
       const organizationsUris = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'organizations') });
