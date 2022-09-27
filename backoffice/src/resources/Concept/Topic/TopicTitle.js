@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ThemeTitle = ({ record }) => {
+const TopicTitle = ({ record }) => {
   return <span>{record?.['pair:label']}</span>;
 };
 
-export default ThemeTitle;
+export default TopicTitle;

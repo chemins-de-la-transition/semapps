@@ -11,7 +11,7 @@ import {
   PlacesInput,
   SectorsInput,
   SkillsInput,
-  ThemesInput
+  TopicsInput
 } from '../../../../pair';
 import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
 
@@ -61,7 +61,7 @@ const PersonForm = ({ ...rest }) => {
           </>
         }
         <SectorsInput source="pair:hasSector" />
-        <ThemesInput source="pair:hasTopic" />
+        <TopicsInput source="pair:hasTopic" />
         <SkillsInput source="pair:offers" />
         <SkillsInput source="pair:aims" fullWidth />
         <FinalitiesInput source="pair:hasFinality" />
