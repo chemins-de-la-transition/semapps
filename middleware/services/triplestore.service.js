@@ -4,9 +4,15 @@ const CONFIG = require('../config');
 module.exports = {
   mixins: [TripleStoreService],
   settings: {
-    sparqlEndpoint: CONFIG.SPARQL_ENDPOINT,
+    url: CONFIG.SPARQL_ENDPOINT,
+    user: CONFIG.JENA_USER,
+    password: CONFIG.JENA_PASSWORD,
     mainDataset: CONFIG.MAIN_DATASET,
-    jenaUser: CONFIG.JENA_USER,
-    jenaPassword: CONFIG.JENA_PASSWORD
+  },
+  async started() {
+    await this.broker.call('triplestore.dataset.create', {
+      dataset: CONFIG.MAIN_DATASET,
+      secure: true
+    });
   }
 };
