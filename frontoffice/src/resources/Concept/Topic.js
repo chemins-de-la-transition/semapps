@@ -1,6 +1,6 @@
 export default {
   dataModel: {
-    types: ['pair:Theme'],
+    types: ['pair:Topic'],
     fieldsMapping: {
       title: 'pair:label'
     }

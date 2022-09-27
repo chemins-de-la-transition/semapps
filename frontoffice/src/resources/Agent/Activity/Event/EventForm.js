@@ -29,7 +29,7 @@ import {
   SectorsInput,
   SkillsInput,
   TargetAudienceInput,
-  ThemesInput,
+  TopicsInput,
   TypesInput,
 } from '../../../../pair';
 import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
@@ -265,7 +265,7 @@ const EventForm = ({ mode, ...rest }) => {
         </FormDataConsumer>
         <PathsInput source="cdlt:eventOn" fullWidth />
         <SectorsInput source="pair:hasSector" />
-        <ThemesInput source="pair:hasTopic" />
+        <TopicsInput source="pair:hasTopic" />
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
         <TypesInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
         <SkillsInput source="cdlt:requiredSkills" fullWidth />

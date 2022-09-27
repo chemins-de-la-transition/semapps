@@ -5,7 +5,7 @@ import { SeparatedListField } from '@semapps/archipelago-layout';
 import { makeStyles, Typography } from '@material-ui/core';
 import Chip from '../../commons/Chip';
 import PlaceIcon from '../../svg/PlaceIcon';
-import ThemeIcon from '../../svg/ThemeIcon';
+import TopicIcon from '../../svg/TopicIcon';
 import { linkToFilteredList } from "../../utils";
 
 const useStyles = makeStyles((theme) => ({
@@ -59,7 +59,7 @@ const PlaceCard = ({ record, variant }) => {
         </Chip>
       ))}
       {record['pair:hasSector'] && (
-        <Chip icon={<ThemeIcon />}>
+        <Chip icon={<TopicIcon />}>
           <ReferenceArrayField record={record} reference="Sector" perPage={2} source="pair:hasSector">
             <SeparatedListField link={false} separator=" /">
               <TextField source="pair:label" />
@@ -68,8 +68,8 @@ const PlaceCard = ({ record, variant }) => {
         </Chip>
       )}
       {record['pair:hasTopic'] && (
-        <Chip icon={<ThemeIcon />}>
-          <ReferenceArrayField record={record} perPage={2} reference="Theme" source="pair:hasTopic">
+        <Chip icon={<TopicIcon />}>
+          <ReferenceArrayField record={record} perPage={2} reference="Topic" source="pair:hasTopic">
             <SeparatedListField link={linkToFilteredList( 'LEP', 'pair:hasTopic')} separator=" / ">
               <TextField source="pair:label" />
             </SeparatedListField>

@@ -12,7 +12,7 @@ import {
   SectorsInput,
   SkillsInput,
 //  StatusInput,
-  ThemesInput,
+  TopicsInput,
   TypesInput,
 } from '../../pair';
 import ReminderBeforeRecording from '../../commons/ReminderBeforeRecording';
@@ -74,7 +74,7 @@ const PlaceForm = ({ mode, ...rest }) => {
         <PersonsInput source="cdlt:proposedBy" fullWidth />
         <PathsInput source="cdlt:placeOn" fullWidth />
         <SectorsInput source="pair:hasSector" fullWidth />
-        <ThemesInput source="pair:hasTopic" fullWidth />
+        <TopicsInput source="pair:hasTopic" fullWidth />
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />        
         <TypesInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} validate={[required()]} />
         {/*<StatusInput source="pair:hasStatus" filter={{ a: 'pair:PlaceStatus' }} fullWidth />*/}

@@ -16,7 +16,7 @@ import {
   RegistrationInput,
   SectorsInput,
   SkillsInput,
-  ThemesInput,
+  TopicsInput,
   TargetAudienceInput,
   TypesInput,
   JobOpportunitiesInput,
@@ -107,7 +107,7 @@ const EventEdit = (props) => (
         </FormDataConsumer>
         <PathsInput source="cdlt:eventOn" />
         <SectorsInput source="pair:hasSector" />
-        <ThemesInput source="pair:hasTopic" />
+        <TopicsInput source="pair:hasTopic" />
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
         <TypesInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
         <SkillsInput source="cdlt:requiredSkills" />

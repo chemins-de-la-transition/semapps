@@ -2,7 +2,7 @@ import React from 'react';
 import { Create } from '@semapps/archipelago-layout';
 import { LexiconImportForm, fetchWikidata } from "@semapps/interop-components";
 
-const ThemeCreate = (props) => (
+const TopicCreate = (props) => (
   <Create {...props}>
     <LexiconImportForm
       fetchLexicon={fetchWikidata()}
@@ -16,4 +16,4 @@ const ThemeCreate = (props) => (
   </Create>
 );
 
-export default ThemeCreate;
+export default TopicCreate;

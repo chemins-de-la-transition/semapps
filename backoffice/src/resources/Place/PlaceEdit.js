@@ -14,7 +14,7 @@ import {
   RegistrationInput,
   SkillsInput, 
 //  StatusInput, 
-  ThemesInput, 
+  TopicsInput, 
   TypesInput, 
 } from '../../pair';
 import ReminderBeforeRecording from '../../commons/ReminderBeforeRecording';
@@ -69,7 +69,7 @@ export const PlaceEdit = (props) => (
         <PersonsInput source="cdlt:proposedBy" />
         <PathsInput source="cdlt:placeOn" />
         <SectorsInput source="pair:hasSector" />
-        <ThemesInput source="pair:hasTopic" />
+        <TopicsInput source="pair:hasTopic" />
         <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} />
         <TypesInput source="pair:hasType" filter={{ a: 'pair:PlaceType' }} />
         {/*<StatusInput source="pair:hasStatus" filter={{ a: 'pair:PlaceStatus' }} />*/}

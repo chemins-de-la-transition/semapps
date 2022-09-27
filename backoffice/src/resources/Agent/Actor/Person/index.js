@@ -36,7 +36,7 @@ export default {
         'pair:hasType': 'Type',
         'pair:hasStatus': 'Statut',
         'pair:hasSector': 'Secteurs d\'activité',
-        'pair:hasTopic': 'Mots clé', /*Theme*/
+        'pair:hasTopic': 'Mots clé', /*Topic*/
         'pair:hasLocation': 'Adresse',
         'cdlt:hasRegion': 'Région',
         'pair:hasFinality': 'Finalités',

@@ -24,7 +24,7 @@ export { default as Resource } from './Resource/Resource';
 export { default as Finality } from './Concept/Finality';
 export { default as Sector } from './Concept/Sector';
 export { default as Status } from './Concept/Status';
-export { default as Theme } from './Concept/Theme';
+export { default as Topic } from './Concept/Topic';
 export { default as Type } from './Concept/Type';
 export { default as Region } from './Concept/Region';
 export { default as Concept } from './Concept/Concept';

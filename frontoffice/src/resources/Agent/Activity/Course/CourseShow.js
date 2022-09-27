@@ -72,7 +72,7 @@ const CourseShow = (props) => {
                   <TextField variant="body2" color="secondary" source="pair:label" />
                 </SeparatedListField>
               </ReferenceArrayField>
-              <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+              <ReferenceArrayField reference="Topic" source="pair:hasTopic">
                 <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator="">
                   <ChipField source="pair:label" color="primary" className={classes.chipField}/>
                 </SeparatedListField>
