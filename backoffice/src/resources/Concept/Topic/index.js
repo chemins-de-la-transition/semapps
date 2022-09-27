@@ -1,15 +1,15 @@
-import ThemeCreate from "./ThemeCreate";
-import ThemeEdit from './ThemeEdit';
-import ThemeList from './ThemeList';
-import ThemeShow from './ThemeShow';
+import TopicCreate from "./TopicCreate";
+import TopicEdit from './TopicEdit';
+import TopicList from './TopicList';
+import TopicShow from './TopicShow';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 
 export default {
   config: {
-    list: ThemeList,
-    show: ThemeShow,
-    create: ThemeCreate,
-    edit: ThemeEdit,
+    list: TopicList,
+    show: TopicShow,
+    create: TopicCreate,
+    edit: TopicEdit,
     icon: LocalOfferIcon,
     options: {
       label: 'Mots clé',
@@ -17,7 +17,7 @@ export default {
     },
   },
   dataModel: {
-    types: ['pair:Theme'],
+    types: ['pair:Topic'],
     fieldsMapping: {
       title: 'pair:label'
     }

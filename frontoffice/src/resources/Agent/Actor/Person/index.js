@@ -32,8 +32,8 @@ export default {
         'pair:depictedBy': 'Photo',
         'pair:hasType': 'Type',
         'pair:hasStatus': 'Statut',
-        'pair:hasSector': "Centres d'intérêt",
-        'pair:hasTopic': 'Mots clé', /*Theme*/
+        'pair:hasSector': 'Secteurs d\'activité',
+        'pair:hasTopic': 'Mots clé', /*Topic*/
         'pair:hasLocation': 'Localisation',
         'pair:hasFinality': 'Finalités',
         'cdlt:intentions': 'Mes intentions en venant sur les chemins de la transition',

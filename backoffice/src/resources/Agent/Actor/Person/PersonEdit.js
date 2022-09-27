@@ -11,7 +11,7 @@ import {
   PlacesInput,
   SectorsInput,
   SkillsInput,
-  ThemesInput,
+  TopicsInput,
   TypeInput,
   StatusInput
 } from '../../../../pair';
@@ -62,7 +62,7 @@ export const PersonEdit = (props) => (
         <ActivitiesInput source="cdlt:mentorOn" />
         <ActivitiesInput source="cdlt:organizes" />
         <SectorsInput source="pair:hasSector" />
-        <ThemesInput source="pair:hasTopic" />
+        <TopicsInput source="pair:hasTopic" />
         <PathsInput source="cdlt:supports" />
         <SkillsInput source="pair:offers" />
         <SkillsInput source="pair:aims" fullWidth />

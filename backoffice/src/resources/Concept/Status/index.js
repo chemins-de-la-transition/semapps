@@ -1,5 +1,5 @@
 import StatusCreate from './StatusCreate';
-import TypeEdit from './StatusEdit';
+import StatusEdit from './StatusEdit';
 import StatusList from './StatusList';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 
@@ -7,7 +7,7 @@ export default {
   config: {
     list: StatusList,
     create: StatusCreate,
-    edit: TypeEdit,
+    edit: StatusEdit,
     icon: VisibilityIcon,
     options: {
       label: 'Statuts',
