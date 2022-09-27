@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
+import { ChipField, ShowBase, SingleFieldList, TextField } from 'react-admin';
 import { ThemeProvider, FormControlLabel, Checkbox, FormGroup } from '@material-ui/core';
 import organizationTheme from '../../../../config/themes/organizationTheme';
 import resourceShowStyle from '../../../../commons/style/resourceShowStyle';
 import { MapField } from '@semapps/geo-components';
+import { MultiUrlField } from "@semapps/field-components";
 import { SeparatedListField } from '@semapps/archipelago-layout';
 import { CommentsField, useMentions } from "@semapps/activitypub-components";
 import { Box, Typography } from '@material-ui/core';
@@ -139,7 +140,7 @@ const OrganizationShow = (props) => {
               scrollWheelZoom={false}
               dragging={false}
             />
-            <UrlField source="pair:homePage" label="Liens" className={classes.urlField} />
+            <MultiUrlField source="pair:homePage" />
             <TextField source="cdlt:publicPhone" />
             <CommentsField userResource="Person" mentions={mentions} />
 {/*

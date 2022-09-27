@@ -3,7 +3,8 @@ import { FormTab, NumberInput, TabbedForm, TextInput, ImageInput, email } from '
 import { MarkdownInput } from '@semapps/markdown-components';
 import { EditWithPermissions } from '@semapps/auth-provider';
 import { ImageField } from '@semapps/semantic-data-provider';
-import { 
+import { MultiLinesInput } from "@semapps/input-components";
+import {
   ActivitiesInput,
   FinalitiesInput,
   OrganizationsInput,
@@ -29,7 +30,6 @@ export const OrganizationEdit = (props) => (
         <TextInput source="pair:label" fullWidth />
         <TextInput source="pair:comment" fullWidth />
         <MarkdownInput source="pair:description" fullWidth />
-        <TextInput source="pair:homePage" fullWidth />
         <ImageInput source="pair:depictedBy" accept="image/*">
           <ImageField source="src" />
         </ImageInput>
@@ -56,6 +56,7 @@ export const OrganizationEdit = (props) => (
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
       <FormTab label="Contact">
+        <MultiLinesInput source="pair:homePage" fullWidth />
         <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[email()]} />
         <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
         <TextInput source="cdlt:publicPhone" fullWidth helperText="Numéro public affiché sur la page" />

@@ -4,6 +4,7 @@ import { MainList, SideList, Hero, AvatarField, GridList } from '@semapps/archip
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MapField } from '@semapps/geo-components';
 import { SeparatedListField } from '@semapps/archipelago-layout';
+import { MultiUrlField } from "@semapps/field-components";
 import { MarkdownField } from '@semapps/markdown-components';
 import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Grid } from '@material-ui/core';
@@ -20,7 +21,7 @@ const OrganizationShow = (props) => (
           <ReferenceField source="cdlt:hasRegion" reference="Region" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
-          <UrlField source="pair:homePage" />
+          <MultiUrlField source="pair:homePage" />
           <EmailField source="pair:e-mail" />
           <TextField source="pair:phone" />
           <TextField source="cdlt:publicPhone" label="Numéro de téléphone public" />

@@ -29,7 +29,7 @@ export default {
         'pair:label': 'Nom',
         'pair:comment': 'Courte description',
         'pair:description': 'Description',
-        'pair:homePage': 'Site web',
+        'pair:homePage': 'Liens',
         'pair:depictedBy': 'Logo',
         'pair:affiliates': 'A pour membres', /*Person*/
         'pair:partnerOf': 'A pour partenaires', /*Organization*/

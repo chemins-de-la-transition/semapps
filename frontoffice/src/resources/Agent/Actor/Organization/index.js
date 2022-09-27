@@ -27,7 +27,7 @@ export default {
         'pair:label': 'Nom',
         'pair:comment': 'En quelques mots',
         'pair:description': 'Description',
-        'pair:homePage': 'Site web',
+        'pair:homePage': 'Liens',
         'pair:e-mail': 'Adresse mail',
         'pair:phone': 'Téléphone',
         'cdlt:publicPhone':'Téléphone',
