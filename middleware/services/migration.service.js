@@ -1,7 +1,7 @@
 const urlJoin = require("url-join");
 const { v4: uuid } = require('uuid');
 const { MigrationService } = require('@semapps/migration');
-const { getContainerFromUri, defaultToArray} = require("@semapps/ldp");
+const { getContainerFromUri, defaultToArray, getSlugFromUri} = require("@semapps/ldp");
 const { MIME_TYPES } = require("@semapps/mime-types");
 const CONFIG = require("../config");
 
@@ -12,6 +12,30 @@ module.exports = {
     baseUrl: CONFIG.HOME_URL
   },
   actions: {
+    async migrateThemesToTopics(ctx) {
+      const themesUris = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'themes') });
+      for( let themeUri of themesUris ) {
+        const theme = await ctx.call('ldp.resource.get', {
+          resourceUri: themeUri,
+          accept: MIME_TYPES.JSON,
+          webId: 'system'
+        });
+
+        await ctx.call('ldp.resource.put', {
+          resource: {
+            ...theme,
+            type: 'pair:Topic'
+          },
+          contentType: MIME_TYPES,
+          webId: 'system'
+        });
+
+        await this.actions.moveResource({
+          oldResourceUri: themeUri,
+          newResourceUri: urlJoin(CONFIG.HOME_URL, 'topics', getSlugFromUri(themeUri)),
+        });
+      }
+    },
     async fixOrganizationsRights(ctx) {
       const organizationsUris = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'organizations') });
       for( let organizationUri of organizationsUris ) {

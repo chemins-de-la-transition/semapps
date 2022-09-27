@@ -8,6 +8,13 @@ const anonReadPermission = {
   }
 };
 
+const loggedUsersReadWritePermission = {
+  anyUser: {
+    read: true,
+    write: true
+  }
+}
+
 const anonReadWritePermission = {
   anon: {
     read: true,
@@ -131,7 +138,10 @@ module.exports = [
   {
     path: '/themes',
     acceptedTypes: ['pair:Theme'],
-    permissions: anonReadPermission,
+    permissions: {
+      ...anonReadPermission,
+      ...loggedUsersReadWritePermission
+    },
     newResourcesPermissions: writePermissionToCreator,
   },
   {
@@ -149,7 +159,10 @@ module.exports = [
   {
     path: '/job-opportunities',
     acceptedTypes: ['cdlt:JobOpportunities'],
-    permissions: anonReadPermission,
+    permissions: {
+      ...anonReadPermission,
+      ...loggedUsersReadWritePermission
+    },
     newResourcesPermissions: writePermissionToCreator,
   },
   {
@@ -161,7 +174,10 @@ module.exports = [
   {
     path: '/skills',
     acceptedTypes: ['pair:Skill'],
-    permissions: anonReadPermission,
+    permissions: {
+      ...anonReadPermission,
+      ...loggedUsersReadWritePermission
+    },
     newResourcesPermissions: writePermissionToCreator,
   },
   {
