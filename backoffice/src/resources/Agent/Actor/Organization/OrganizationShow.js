@@ -1,5 +1,5 @@
 import React from 'react';
-import { NumberField, TextField, UrlField, ChipField, SingleFieldList, EmailField } from 'react-admin';
+import { NumberField, TextField, ChipField, SingleFieldList, EmailField } from 'react-admin';
 import { MainList, SideList, Hero, AvatarField, GridList } from '@semapps/archipelago-layout';
 import { ShowWithPermissions } from '@semapps/auth-provider';
 import { MapField } from '@semapps/geo-components';
