@@ -1,8 +1,7 @@
 import React from 'react';
 import { makeStyles, Typography, Card, CardContent, CardHeader, CardMedia, CardActionArea, Chip } from '@material-ui/core';
 import { ImageField, TextField } from 'react-admin';
-import { SeparatedListField } from '@semapps/archipelago-layout';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { SeparatedListField, ReferenceArrayField } from '@semapps/field-components';
 import { Link } from 'react-router-dom';
 import { linkToFilteredList } from "../../../utils";
 import LikeButton from '../../buttons/LikeButton';

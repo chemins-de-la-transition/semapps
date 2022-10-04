@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { FormTab, ImageInput, TabbedForm, TextInput, useGetIdentity } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
-import { ImageField } from '@semapps/semantic-data-provider';
+import { ImageField } from '@semapps/field-components';
 import { 
   ActivitiesInput,
   FinalitiesInput,
@@ -19,7 +19,7 @@ const PersonForm = ({ ...rest }) => {
   const { identity } = useGetIdentity();
   const TRAVELER_TYPE_URL = process.env.REACT_APP_MIDDLEWARE_URL + 'types/traveler';
   const isTraveler = useMemo( () => {
-    return ! identity?.webIdData?.['pair:hasType'] || identity.webIdData.['pair:hasType'] === TRAVELER_TYPE_URL
+    return ! identity?.webIdData?.['pair:hasType'] || identity.webIdData?.['pair:hasType'] === TRAVELER_TYPE_URL
   }, [identity, TRAVELER_TYPE_URL]);
 
   return (

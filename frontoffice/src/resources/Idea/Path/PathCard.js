@@ -1,7 +1,6 @@
 import React from 'react';
 import { TextField, Link, linkToRecord } from 'react-admin';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
-import { SeparatedListField } from '@semapps/archipelago-layout';
+import { SeparatedListField, ReferenceArrayField } from '@semapps/field-components';
 import { makeStyles, Typography } from '@material-ui/core';
 import Chip from '../../../commons/Chip';
 import TopicIcon from '../../../svg/TopicIcon';

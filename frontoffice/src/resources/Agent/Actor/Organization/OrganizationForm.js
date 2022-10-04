@@ -2,7 +2,7 @@ import React from 'react';
 import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput, useGetIdentity, email } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { MultiLinesInput } from '@semapps/input-components';
-import { ImageField } from '@semapps/semantic-data-provider';
+import { ImageField } from '@semapps/field-components';
 import { 
   ActivitiesInput,
   FinalitiesInput,

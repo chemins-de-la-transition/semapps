@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import {makeStyles, Typography, List, ListItem, ListItemText, ListItemAvatar, Box, Hidden} from '@material-ui/core';
 import { DateField, useListContext, TextField, ImageField } from 'react-admin';
 import { Link } from 'react-router-dom';
-import { ReferenceField } from '@semapps/semantic-data-provider';
+import { ReferenceField } from '@semapps/field-components';
 import { sortBySimilarity } from "../../../utils";
 import CalendarIcon from '../../../svg/CalendarIcon';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';

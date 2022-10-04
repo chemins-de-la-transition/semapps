@@ -1,9 +1,8 @@
 import React from 'react';
 import resourceDetailsStyle from '../../../../commons/style/resourceDetailsStyle';
 import { TextField, Link, useListContext, linkToRecord } from 'react-admin';
-import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Box, useMediaQuery } from '@material-ui/core';
-import { SeparatedListField } from '@semapps/archipelago-layout';
+import { SeparatedListField, ReferenceField, ReferenceArrayField } from '@semapps/field-components';
 import { linkToFilteredList } from "../../../../utils";
 import IconsList from '../../../../commons/lists/IconsList';
 import TopicIcon from '../../../../svg/TopicIcon';

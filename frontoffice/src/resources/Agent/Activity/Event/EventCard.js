@@ -1,8 +1,7 @@
 import React, { useCallback } from 'react';
 import { DateField, TextField, FunctionField, Link, linkToRecord } from 'react-admin';
 import Chip from '../../../../commons/Chip';
-import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
-import { SeparatedListField } from '@semapps/archipelago-layout';
+import { SeparatedListField, ReferenceArrayField, ReferenceField } from '@semapps/field-components';
 import { makeStyles, Typography } from '@material-ui/core';
 import TopicIcon from '../../../../svg/TopicIcon';
 import TypeIcon from '../../../../svg/TypeIcon';

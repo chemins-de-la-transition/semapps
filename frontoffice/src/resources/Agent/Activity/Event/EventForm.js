@@ -14,7 +14,7 @@ import {
   FormDataConsumer
 } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
-import { ImageField } from '@semapps/semantic-data-provider';
+import { ImageField } from '@semapps/field-components';
 import { DateTimeInput } from '@semapps/date-components';
 import {
   ActorsInput,
