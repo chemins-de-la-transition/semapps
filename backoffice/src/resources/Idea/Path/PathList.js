@@ -1,12 +1,11 @@
 import React from 'react';
-import { SimpleList } from '@semapps/archipelago-layout';
-import { ListWithPermissions } from '@semapps/auth-provider';
 import { Avatar } from '@material-ui/core';
 import TimelineIcon from '@material-ui/icons/Timeline';
-// import PathFilterSidebar from './PathFilterSidebar';
+import List from "../../../layout/list/List";
+import SimpleList from "../../../common/list/SimpleList";
 
 const PathList = (props) => (
-  <ListWithPermissions /*aside={<PathFilterSidebar />}*/ {...props}>
+  <List /*aside={<PathFilterSidebar />}*/ {...props}>
     <SimpleList
       primaryText={(record) => record['pair:label']}
       leftAvatar={(record) => (
@@ -16,7 +15,7 @@ const PathList = (props) => (
       )} 
       linkType="show"
     />
-  </ListWithPermissions>
+  </List>
 );
 
 export default PathList;

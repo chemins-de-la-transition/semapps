@@ -1,12 +1,12 @@
 import React from 'react';
-import { SimpleList } from '@semapps/archipelago-layout';
-import { ListWithPermissions } from '@semapps/auth-provider';
 import DescriptionIcon from '@material-ui/icons/Description';
+import List from "../../../layout/list/List";
+import SimpleList from "../../../common/list/SimpleList";
 
 const DocumentList = props => (
-  <ListWithPermissions {...props}>
+  <List {...props}>
     <SimpleList primaryText={record => record['pair:label']} leftAvatar={() => <DescriptionIcon />} linkType="show" />
-  </ListWithPermissions>
+  </List>
 );
 
 export default DocumentList;

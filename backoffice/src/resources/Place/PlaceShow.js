@@ -1,16 +1,17 @@
 import React from 'react';
 import { TextField, UrlField, EmailField, ChipField, NumberField, SingleFieldList, BooleanField } from 'react-admin';
 import { Grid } from '@material-ui/core';
-import { AvatarField, GridList, Hero, MainList, SeparatedListField, SideList } from '@semapps/archipelago-layout';
-import { ShowWithPermissions } from '@semapps/auth-provider';
+import { AvatarWithLabelField, SeparatedListField, ReferenceArrayField, ReferenceField } from '@semapps/field-components';
 import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
-import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
+import { GridList } from '@semapps/list-components';
 import PlaceTitle from './PlaceTitle';
-import RegistrationButton from '../../commons/RegistrationButton';
+import RegistrationButton from '../../common/buttons/RegistrationButton';
+import Show from "../../layout/show/Show";
+import { MainList, SideList, Hero } from "../../common/list";
 
 const PlaceShow = (props) => (
-  <ShowWithPermissions title={<PlaceTitle />} {...props}>
+  <Show title={<PlaceTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
         <Hero image="pair:depictedBy">
@@ -65,7 +66,7 @@ const PlaceShow = (props) => (
         <SideList>
           <ReferenceArrayField reference="Person" source="cdlt:proposedBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
+              <AvatarWithLabelField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Organization" source="cdlt:hostsOrganization">
@@ -106,7 +107,7 @@ const PlaceShow = (props) => (
         </SideList>
       </Grid>
     </Grid>
-  </ShowWithPermissions>
+  </Show>
 );
 
 export default PlaceShow;

@@ -12,17 +12,19 @@ import {
   BooleanField
 } from 'react-admin';
 import { Grid } from '@material-ui/core';
-import { GridList, Hero, MainList, SideList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
-import { ShowWithPermissions } from '@semapps/auth-provider';
+import { AvatarWithLabelField, SeparatedListField, ReferenceArrayField, ReferenceField } from '@semapps/field-components';
+import { GridList } from '@semapps/list-components';
+import { Hero, MainList, SideList } from '../../../../common/list';
 import { MapList } from '@semapps/geo-components';
 import { MarkdownField } from '@semapps/markdown-components';
-import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
-import RegistrationButton from '../../../../commons/RegistrationButton';
+import RegistrationButton from '../../../../common/buttons/RegistrationButton';
 import CourseTitle from './CourseTitle';
 import HomeIcon from '@material-ui/icons/Home';
+import Show from "../../../../layout/show/Show";
+
 
 const CourseShow = (props) => (
-  <ShowWithPermissions title={<CourseTitle />} {...props}>
+  <Show title={<CourseTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
         <Hero image="pair:depictedBy">
@@ -126,14 +128,14 @@ const CourseShow = (props) => (
         <SideList>
           <ReferenceArrayField reference="Actor" source="cdlt:organizedBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
+              <AvatarWithLabelField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
                 <HomeIcon />
-              </AvatarField>
+              </AvatarWithLabelField>
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Person" source="cdlt:hasMentor">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
+              <AvatarWithLabelField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Path" source="cdlt:courseOn">
@@ -169,7 +171,7 @@ const CourseShow = (props) => (
         </SideList>
       </Grid>
     </Grid>
-  </ShowWithPermissions>
+  </Show>
 );
 
 export default CourseShow;

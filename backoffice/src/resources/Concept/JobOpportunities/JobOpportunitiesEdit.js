@@ -1,14 +1,14 @@
 import React from 'react';
 import { SimpleForm, TextInput } from 'react-admin';
-import { EditWithPermissions } from '@semapps/auth-provider';
 import JobOpportunitiesTitle from './JobOpportunitiesTitle';
+import Edit from "../../../layout/edit/Edit";
 
 export const JobOpportunitiesEdit = (props) => (
-  <EditWithPermissions title={<JobOpportunitiesTitle />} {...props}>
+  <Edit title={<JobOpportunitiesTitle />} {...props}>
     <SimpleForm>
       <TextInput source="pair:label" fullWidth />
     </SimpleForm>
-  </EditWithPermissions>
+  </Edit>
 );
 
 export default JobOpportunitiesEdit;

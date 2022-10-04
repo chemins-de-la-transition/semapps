@@ -1,8 +1,7 @@
 import React from 'react';
 import { ImageInput, TabbedForm, TextInput, FormTab } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
-import { EditWithPermissions } from '@semapps/auth-provider';
-import { ImageField } from '@semapps/semantic-data-provider';
+import { ImageField } from '@semapps/field-components';
 import {
   CoursesInput,
   EventsInput,
@@ -17,9 +16,10 @@ import {
   JobOpportunitiesInput
 } from '../../../pair';
 import PathTitle from './PathTitle';
+import Edit from "../../../layout/edit/Edit";
 
 const PathEdit = (props) => (
-  <EditWithPermissions title={<PathTitle />} {...props}>
+  <Edit title={<PathTitle />} {...props}>
     <TabbedForm redirect="show">
       <FormTab label="Données">
         <TextInput source="pair:label" fullWidth />
@@ -44,7 +44,7 @@ const PathEdit = (props) => (
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
     </TabbedForm>
-  </EditWithPermissions>
+  </Edit>
 );
 
 export default PathEdit;

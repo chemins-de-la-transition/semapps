@@ -1,8 +1,8 @@
 import React from 'react';
-import {SelectInput, SimpleForm, TextInput} from 'react-admin';
-import { Create } from '@semapps/archipelago-layout';
+import { SelectInput, SimpleForm, TextInput } from 'react-admin';
 import { CourseInput } from "../../../pair";
-import {ReferenceInput} from "@semapps/semantic-data-provider";
+import { ReferenceInput } from "@semapps/input-components";
+import Create from "../../../layout/create/Create";
 
 const DocumentCreate = (props) => (
   <Create {...props}>

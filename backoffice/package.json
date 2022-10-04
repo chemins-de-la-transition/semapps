@@ -2,7 +2,6 @@
   "name": "cdlt-backoffice",
   "private": true,
   "dependencies": {
-    "@semapps/archipelago-layout": "0.4.0-alpha.36",
     "@semapps/auth-provider": "0.4.0-alpha.36",
     "@semapps/field-components": "0.4.0-alpha.36",
     "@semapps/geo-components": "0.4.0-alpha.36",

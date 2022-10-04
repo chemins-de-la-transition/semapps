@@ -1,6 +1,6 @@
 import React from 'react';
-import { ReferenceArrayInput, ReferenceInput } from '@semapps/semantic-data-provider';
 import { AutocompleteInput, AutocompleteArrayInput, SelectInput } from 'react-admin';
+import { ReferenceArrayInput, ReferenceInput } from '@semapps/input-components';
 import { LexiconCreateDialog, fetchESCO, fetchWikidata } from "@semapps/interop-components";
 
 const ifTwoLetters = ({ q }) => !!(q && q.length > 1);

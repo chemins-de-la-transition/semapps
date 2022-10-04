@@ -1,7 +1,7 @@
 import React from 'react';
 import { SimpleForm, TextInput } from 'react-admin';
-import { Create } from '@semapps/archipelago-layout';
 import { v4 as uuid } from 'uuid';
+import Create from "../../../../layout/create/Create";
 
 const transform = (data) => {
     return ({
