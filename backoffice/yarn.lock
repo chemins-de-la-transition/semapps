@@ -1741,6 +1741,13 @@
     lodash.throttle "^4.1.1"
     url-join "^4.0.1"
 
+"@semapps/list-components@0.4.0-alpha.38":
+  version "0.4.0-alpha.38"
+  resolved "https://registry.yarnpkg.com/@semapps/list-components/-/list-components-0.4.0-alpha.38.tgz#339812fabb27b4fc985f5f2722489bc346952bf3"
+  integrity sha512-oK4l4QvT7hWLqaTIgVCmqmYqBfVuD5A9sa8iKW6DWNwOjZcArn+h7tC4lpH7EwCMWpvdSkzBLsUh+xFv5URwLA==
+  dependencies:
+    react-masonry-css "^1.0.14"
+
 "@semapps/markdown-components@0.4.0-alpha.38":
   version "0.4.0-alpha.38"
   resolved "https://registry.yarnpkg.com/@semapps/markdown-components/-/markdown-components-0.4.0-alpha.38.tgz#1bf8262a69abbfb144ff3d597bb2221b99bb51f9"
@@ -9951,6 +9958,11 @@ react-leaflet@^3.0.0:
   integrity sha512-Z3KZ+4SijsRbbrt2I1a3ZDY6+V6Pm91eYTdxTN18G6IOkFRsJo1BuSPLFnyFrlF3WDjQFPEcTPkEgD1VEeAoBg==
   dependencies:
     "@react-leaflet/core" "^1.1.1"
+
+react-masonry-css@^1.0.14:
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/react-masonry-css/-/react-masonry-css-1.0.16.tgz#72b28b4ae3484e250534700860597553a10f1a2c"
+  integrity sha512-KSW0hR2VQmltt/qAa3eXOctQDyOu7+ZBevtKgpNDSzT7k5LA/0XntNa9z9HKCdz3QlxmJHglTZ18e4sX4V8zZQ==
 
 react-mde@^11.5.0:
   version "11.5.0"

@@ -8,6 +8,7 @@
     "@semapps/date-components": "0.4.0-alpha.38",
     "@semapps/input-components": "0.4.0-alpha.38",
     "@semapps/interop-components": "0.4.0-alpha.38",
+    "@semapps/list-components": "0.4.0-alpha.38",
     "@semapps/markdown-components": "0.4.0-alpha.38",
     "@semapps/semantic-data-provider": "0.4.0-alpha.38",
     "@fullcalendar/core": "^5.7.2",
