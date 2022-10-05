@@ -1,19 +1,18 @@
 import React from 'react';
 import { NumberField, TextField, ChipField, SingleFieldList, EmailField } from 'react-admin';
-import { MainList, SideList, Hero, AvatarField, GridList } from '@semapps/archipelago-layout';
-import { ShowWithPermissions } from '@semapps/auth-provider';
+import { GridList } from '@semapps/list-components';
 import { MapField } from '@semapps/geo-components';
-import { SeparatedListField } from '@semapps/archipelago-layout';
-import { MultiUrlField } from "@semapps/field-components";
+import { MultiUrlField, SeparatedListField, AvatarWithLabelField, ReferenceField, ReferenceArrayField } from '@semapps/field-components';
 import { MarkdownField } from '@semapps/markdown-components';
-import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
 import { Grid } from '@material-ui/core';
 import OrganizationTitle from './OrganizationTitle';
 import HomeIcon from '@material-ui/icons/Home';
-import ChipWithResourceIcon from '../../../../commons/ChipWithResourceIcon';
+import ChipWithResourceIcon from '../../../../common/ChipWithResourceIcon';
+import { MainList, SideList, Hero } from "../../../../common/list";
+import Show from "../../../../layout/show/Show";
 
 const OrganizationShow = (props) => (
-  <ShowWithPermissions title={<OrganizationTitle />} {...props}>
+  <Show title={<OrganizationTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
         <Hero image="pair:depictedBy">
@@ -68,21 +67,21 @@ const OrganizationShow = (props) => (
           </ReferenceArrayField>
           <ReferenceArrayField reference="Person" source="pair:affiliates">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
+              <AvatarWithLabelField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Organization" source="pair:partnerOf">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
+              <AvatarWithLabelField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
                 <HomeIcon />
-              </AvatarField>
+              </AvatarWithLabelField>
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Organization" source="pair:inspiredBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
+              <AvatarWithLabelField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
                 <HomeIcon />
-              </AvatarField>
+              </AvatarWithLabelField>
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Project" source="pair:involvedIn">
@@ -135,7 +134,7 @@ const OrganizationShow = (props) => (
         </SideList>
       </Grid>
     </Grid>
-  </ShowWithPermissions>
+  </Show>
 );
 
 export default OrganizationShow;

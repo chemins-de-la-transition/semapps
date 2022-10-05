@@ -1,11 +1,11 @@
 import React from 'react';
 import { ShowBase, Title } from 'react-admin';
-import { MainList } from '@semapps/archipelago-layout';
 import MarkdownField from '../../commons/fields/MarkdownField';
 import HeaderTitle from '../../commons/HeaderTitle';
 import FullWidthBox from '../../commons/FullWidthBox';
 import LargeContainer from '../../commons/LargeContainer';
 import PageTitle from './PageTitle';
+import BodyList from "../../commons/lists/BodyList/BodyList";
 
 const PageShow = ({ id, ...rest }) => {
   if (!id.startsWith('http')) {
@@ -16,10 +16,10 @@ const PageShow = ({ id, ...rest }) => {
       <HeaderTitle />
       <FullWidthBox>
         <LargeContainer>
-          <MainList>
+          <BodyList>
             <Title source="semapps:title" title={<PageTitle />} />
             <MarkdownField source="semapps:content" addLabel={false} />
-          </MainList>
+          </BodyList>
         </LargeContainer>
       </FullWidthBox>
     </ShowBase>

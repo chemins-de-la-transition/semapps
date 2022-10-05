@@ -4,11 +4,9 @@ import { ThemeProvider, FormControlLabel, Checkbox, FormGroup } from '@material-
 import organizationTheme from '../../../../config/themes/organizationTheme';
 import resourceShowStyle from '../../../../commons/style/resourceShowStyle';
 import { MapField } from '@semapps/geo-components';
-import { MultiUrlField } from "@semapps/field-components";
-import { SeparatedListField } from '@semapps/archipelago-layout';
+import { MultiUrlField, SeparatedListField, ReferenceArrayField } from "@semapps/field-components";
 import { CommentsField, useMentions } from "@semapps/activitypub-components";
 import { Box, Typography } from '@material-ui/core';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../../../commons/fields/MarkdownField';
 import HeaderShow from '../../../../commons/HeaderShow';
 import StickyCard from '../../../../commons/StickyCard';

@@ -3,7 +3,7 @@ import {makeStyles, Typography, ListItem, ListItemText, Box } from '@material-ui
 import { DateField, ImageField, TextField, FunctionField, SingleFieldList } from 'react-admin';
 import DurationField from '../../fields/DurationField';
 import { Link } from 'react-router-dom';
-import { ReferenceArrayField, ReferenceField } from '@semapps/semantic-data-provider';
+import { ReferenceArrayField, ReferenceField } from '@semapps/field-components';
 import CalendarIcon from '../../../svg/CalendarIcon';
 import DurationIcon from '../../../svg/DurationIcon' ;
 import PlaceIcon from '../../../svg/PlaceIcon' ;

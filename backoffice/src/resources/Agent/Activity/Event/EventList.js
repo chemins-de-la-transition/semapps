@@ -1,15 +1,15 @@
 import React from 'react';
 import { Datagrid, DateField, EditButton, ShowButton, TextField } from 'react-admin';
-import { MultiViewsList } from '@semapps/archipelago-layout';
-import { ListWithPermissions } from '@semapps/auth-provider';
+import { MultiViewsList } from '@semapps/list-components';
 import { CalendarList } from '@semapps/date-components';
 import frLocale from '@fullcalendar/core/locales/fr';
 import ListIcon from '@material-ui/icons/List';
 import EventIcon from '@material-ui/icons/Event';
+import List from "../../../../layout/list/List";
 
 const EventList = props => (
   <MultiViewsList
-    ListComponent={ListWithPermissions}
+    ListComponent={List}
     views={{
       list: {
         label: 'Liste',

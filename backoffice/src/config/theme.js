@@ -1,8 +1,73 @@
-import { theme } from '@semapps/archipelago-layout';
+import { createTheme } from '@material-ui/core';
 
-theme.palette.primary.main = '#D4A24C';
-theme.palette.primary.contrastText = '#fff';
-theme.palette.secondary.main = '#D4A24C';
-theme.palette.primary.contrastText = '#fff';
+// Allow to use breakpoints
+const defaultTheme = createTheme();
+
+const theme = createTheme({
+  palette: {
+    primary: { main: '#D4A24C', contrastText: '#fff' },
+    secondary: { main: '#D4A24C' },
+    grey: { main: '#e0e0e0' }
+  },
+  typography: {
+    details: {
+      fontSize: 8
+    }
+  },
+  overrides: {
+    RaChipField: {
+      chip: {
+        marginLeft: 0,
+        marginTop: 0,
+        marginRight: 8,
+        marginBottom: 8
+      }
+    },
+    RaShow: {
+      card: {
+        padding: 25,
+        [defaultTheme.breakpoints.down('xs')]: {
+          padding: 15
+        }
+      }
+    },
+    RaList: {
+      content: {
+        padding: 25,
+        [defaultTheme.breakpoints.down('xs')]: {
+          padding: 15,
+          paddingTop: 0,
+          marginTop: -8
+        }
+      }
+    },
+    RaListToolbar: {
+      toolbar: {
+        paddingLeft: '0 !important'
+      }
+    },
+    RaSingleFieldList: {
+      root: {
+        marginTop: 0,
+        marginBottom: 0
+      }
+    },
+    MuiTab: {
+      labelIcon: {
+        paddingTop: 0
+        // minHeight: 0
+      }
+      // wrapper: {
+      //   alignItems: null,
+      //   flexDirection: null
+      // }
+    },
+    MuiChip: {
+      colorSecondary: {
+        color: 'black !important'
+      }
+    }
+  }
+});
 
 export default theme;

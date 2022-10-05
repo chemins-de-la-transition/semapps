@@ -1,18 +1,18 @@
 import React from 'react';
 import { Datagrid, TextField, ShowButton, EditButton } from 'react-admin';
-import { ListWithPermissions } from '@semapps/auth-provider';
 import CourseFilterSidebar from './CourseFilterSidebar';
 import PublishButton from '../../../../pair/PublishButton';
+import List from "../../../../layout/list/List";
 
 const CourseList = (props) => (
-  <ListWithPermissions aside={<CourseFilterSidebar />} {...props}>
+  <List aside={<CourseFilterSidebar />} {...props}>
     <Datagrid rowClick="show">
       <TextField source="pair:label" />
       <ShowButton />
       <EditButton />
       <PublishButton />
     </Datagrid>
-  </ListWithPermissions>
+  </List>
 );
 
 export default CourseList;

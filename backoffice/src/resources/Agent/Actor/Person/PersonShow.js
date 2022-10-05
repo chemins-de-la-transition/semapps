@@ -1,17 +1,18 @@
 import React from 'react';
 import { ChipField, SingleFieldList, TextField, EmailField, UrlField } from 'react-admin';
 import { Grid } from '@material-ui/core';
-import { MainList, SideList, Hero, GridList, AvatarField, SeparatedListField } from '@semapps/archipelago-layout';
-import { ShowWithPermissions } from '@semapps/auth-provider';
+import { GridList } from '@semapps/list-components';
 import { MarkdownField } from '@semapps/markdown-components';
-import { ReferenceField, ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { ReferenceField, ReferenceArrayField, AvatarWithLabelField, SeparatedListField } from '@semapps/field-components';
 import { MapField } from '@semapps/geo-components';
 import PersonTitle from './PersonTitle';
 import HomeIcon from '@material-ui/icons/Home';
-import ChipWithResourceIcon from '../../../../commons/ChipWithResourceIcon';
+import ChipWithResourceIcon from '../../../../common/ChipWithResourceIcon';
+import { MainList, SideList, Hero } from "../../../../common/list";
+import Show from "../../../../layout/show/Show";
 
 const PersonShow = (props) => (
-  <ShowWithPermissions title={<PersonTitle />} {...props}>
+  <Show title={<PersonTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
         <Hero image="pair:depictedBy">
@@ -72,16 +73,16 @@ const PersonShow = (props) => (
         <SideList>
           <ReferenceArrayField reference="Organization" source="pair:affiliatedBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
+              <AvatarWithLabelField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
                 <HomeIcon />
-              </AvatarField>
+              </AvatarWithLabelField>
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Organization" source="pair:inspiredBy">
             <GridList xs={6} linkType="show">
-              <AvatarField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
+              <AvatarWithLabelField label="pair:label" image="pair:depictedBy" labelColor="grey.300">
                 <HomeIcon />
-              </AvatarField>
+              </AvatarWithLabelField>
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Place" source="cdlt:proposes">
@@ -117,7 +118,7 @@ const PersonShow = (props) => (
         </SideList>
       </Grid>
     </Grid>
-  </ShowWithPermissions>
+  </Show>
 );
 
 export default PersonShow;

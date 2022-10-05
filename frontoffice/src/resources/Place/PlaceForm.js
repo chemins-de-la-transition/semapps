@@ -1,7 +1,7 @@
 import React from 'react';
 import { TabbedForm, FormTab, ImageInput, NumberInput, TextInput, useGetIdentity, email, required } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
-import { ImageField } from '@semapps/semantic-data-provider';
+import { ImageField } from '@semapps/field-components';
 import { extractContext, LocationInput } from '@semapps/geo-components';
 import { 
   FinalitiesInput,

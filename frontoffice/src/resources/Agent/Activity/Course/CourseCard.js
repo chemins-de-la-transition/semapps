@@ -1,7 +1,6 @@
 import React from 'react';
 import { TextField, DateField } from 'react-admin';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
-import { SeparatedListField } from '@semapps/archipelago-layout';
+import { SeparatedListField, ReferenceArrayField } from '@semapps/field-components';
 import { makeStyles, Box } from '@material-ui/core';
 import Chip from '../../../../commons/Chip';
 import DurationField from "../../../../commons/fields/DurationField";

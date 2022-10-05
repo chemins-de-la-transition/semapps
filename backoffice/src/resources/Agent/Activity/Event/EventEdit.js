@@ -2,9 +2,8 @@ import React from 'react';
 import { TabbedForm, FormTab, TextInput, ImageInput, BooleanInput, NumberInput, email, required, FormDataConsumer } from 'react-admin';
 import frLocale from 'date-fns/locale/fr';
 import { MarkdownInput } from '@semapps/markdown-components';
-import { EditWithPermissions } from '@semapps/auth-provider';
 import { DateTimeInput } from '@semapps/date-components';
-import { ImageField } from '@semapps/semantic-data-provider';
+import { ImageField } from '@semapps/field-components';
 import {
   ActorsInput,
   CoursesInput,
@@ -21,11 +20,12 @@ import {
   TypesInput,
   JobOpportunitiesInput,
 } from '../../../../pair';
-import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
+import ReminderBeforeRecording from '../../../../common/ReminderBeforeRecording';
 import EventTitle from './EventTitle';
+import Edit from "../../../../layout/edit/Edit";
 
 const EventEdit = (props) => (
-  <EditWithPermissions title={<EventTitle />} {...props}>
+  <Edit title={<EventTitle />} {...props}>
     <TabbedForm redirect="show">
       <FormTab label="Données">
         <TextInput source="pair:label" fullWidth validate={[required()]} />
@@ -120,7 +120,7 @@ const EventEdit = (props) => (
         <TextInput source="pair:aboutPage" fullWidth />
       </FormTab>
     </TabbedForm>
-  </EditWithPermissions>
+  </Edit>
 );
 
 export default EventEdit;

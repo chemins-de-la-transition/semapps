@@ -1,6 +1,5 @@
 import React from 'react';
 import { ImageInput, FormTab, TabbedForm, TextInput } from 'react-admin';
-import { EditWithPermissions } from '@semapps/auth-provider';
 import { MarkdownInput } from '@semapps/markdown-components';
 import {
   ActivitiesInput,
@@ -15,12 +14,13 @@ import {
   TypeInput,
   StatusInput
 } from '../../../../pair';
-import { ImageField } from '@semapps/semantic-data-provider';
-import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
+import { ImageField } from '@semapps/field-components';
+import ReminderBeforeRecording from '../../../../common/ReminderBeforeRecording';
 import PersonTitle from './PersonTitle';
+import Edit from "../../../../layout/edit/Edit";
 
 export const PersonEdit = (props) => (
-  <EditWithPermissions
+  <Edit
     title={<PersonTitle />}
     transform={(data) => ({
       ...data,
@@ -69,7 +69,7 @@ export const PersonEdit = (props) => (
         <FinalitiesInput source="pair:hasFinality" />
       </FormTab>
     </TabbedForm>
-  </EditWithPermissions>
+  </Edit>
 );
 
 export default PersonEdit;

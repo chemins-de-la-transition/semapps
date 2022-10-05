@@ -1,11 +1,11 @@
 import React from 'react';
 import { ImageInput, SimpleForm, TextInput } from 'react-admin';
-import { EditWithPermissions } from '@semapps/auth-provider';
-import { ImageField } from '@semapps/semantic-data-provider';
+import { ImageField } from '@semapps/field-components';
 import SectorTitle from './SectorTitle';
+import Edit from "../../../layout/edit/Edit";
 
 export const SectorEdit = (props) => (
-  <EditWithPermissions title={<SectorTitle />} {...props}>
+  <Edit title={<SectorTitle />} {...props}>
     <SimpleForm>
       <TextInput source="pair:label" fullWidth />
       <ImageInput source="pair:depictedBy" accept="image/*">
@@ -15,7 +15,7 @@ export const SectorEdit = (props) => (
         <ImageField source="src" />
       </ImageInput>
     </SimpleForm>
-  </EditWithPermissions>
+  </Edit>
 );
 
 export default SectorEdit;

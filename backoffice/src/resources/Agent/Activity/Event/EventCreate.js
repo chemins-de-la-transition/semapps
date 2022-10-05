@@ -7,10 +7,10 @@ import {
   useDataProvider,
   useGetIdentity,
 } from 'react-admin';
-import { Create } from '@semapps/archipelago-layout';
 import { Box, FormControlLabel, LinearProgress, makeStyles, Slide, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import { v4 as uuid } from 'uuid';
+import Create from "../../../../layout/create/Create";
 
 const useStyles = makeStyles((theme) => ({
   duplicateContainer: {

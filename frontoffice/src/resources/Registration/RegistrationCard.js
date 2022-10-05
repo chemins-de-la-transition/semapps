@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextField, DateField } from 'react-admin';
-import { ReferenceField } from '@semapps/semantic-data-provider';
+import { ReferenceField } from '@semapps/field-components';
 import { makeStyles, Typography } from '@material-ui/core';
 import CalendarIcon from '../../svg/CalendarIcon';
 import Chip from '../../commons/Chip';

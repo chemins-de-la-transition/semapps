@@ -1,13 +1,13 @@
 import React from 'react';
 import { SelectInput, SimpleForm, TextInput } from 'react-admin';
-import { EditWithPermissions } from '@semapps/auth-provider';
-import { ReferenceInput } from '@semapps/semantic-data-provider';
+import { ReferenceInput } from '@semapps/input-components';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { CourseInput } from '../../../pair';
 import DocumentTitle from './DocumentTitle';
+import Edit from "../../../layout/edit/Edit";
 
 export const DocumentEdit = props => (
-  <EditWithPermissions title={<DocumentTitle />} {...props}>
+  <Edit title={<DocumentTitle />} {...props}>
     <SimpleForm redirect="show">
       <TextInput source="pair:label" fullWidth />
       <MarkdownInput multiline source="pair:description" fullWidth />
@@ -16,7 +16,7 @@ export const DocumentEdit = props => (
       </ReferenceInput>
       <CourseInput source="pair:documents" />
     </SimpleForm>
-  </EditWithPermissions>
+  </Edit>
 );
 
 export default DocumentEdit;

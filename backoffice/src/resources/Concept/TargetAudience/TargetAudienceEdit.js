@@ -1,14 +1,14 @@
 import React from 'react';
 import { SimpleForm, TextInput } from 'react-admin';
-import { EditWithPermissions } from '@semapps/auth-provider';
 import TargetAudienceTitle from './TargetAudienceTitle';
+import Edit from "../../../layout/edit/Edit";
 
 export const TargetAudienceEdit = (props) => (
-  <EditWithPermissions title={<TargetAudienceTitle />} {...props}>
+  <Edit title={<TargetAudienceTitle />} {...props}>
     <SimpleForm>
       <TextInput source="pair:label" fullWidth />
     </SimpleForm>
-  </EditWithPermissions>
+  </Edit>
 );
 
 export default TargetAudienceEdit;

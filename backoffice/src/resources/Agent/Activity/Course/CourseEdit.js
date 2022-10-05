@@ -1,8 +1,7 @@
 import React from 'react';
 import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput, email } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
-import { EditWithPermissions } from '@semapps/auth-provider';
-import { ImageField } from '@semapps/semantic-data-provider';
+import { ImageField } from '@semapps/field-components';
 import {
   PathsInput, 
   ActorsInput,
@@ -22,9 +21,10 @@ import {
 import CourseTitle from './CourseTitle';
 import { DateInput } from '@semapps/date-components';
 import frLocale from 'date-fns/locale/fr';
+import Edit from "../../../../layout/edit/Edit";
 
 const CourseEdit = (props) => (
-  <EditWithPermissions title={<CourseTitle />} {...props}>
+  <Edit title={<CourseTitle />} {...props}>
     <TabbedForm redirect="show">
       <FormTab label="Données">
         <TextInput source="pair:label" fullWidth />
@@ -92,7 +92,7 @@ const CourseEdit = (props) => (
         <TextInput source="pair:homePage" fullWidth/>
       </FormTab>
     </TabbedForm>
-  </EditWithPermissions>
+  </Edit>
 );
 
 export default CourseEdit;

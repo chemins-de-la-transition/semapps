@@ -1,8 +1,7 @@
 import React from 'react';
 import { TextField } from 'react-admin';
 import Chip from '../../../../commons/Chip';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
-import { SeparatedListField } from '@semapps/archipelago-layout';
+import { SeparatedListField, ReferenceArrayField } from '@semapps/field-components';
 import { makeStyles } from '@material-ui/core';
 import TopicIcon from '../../../../svg/TopicIcon';
 

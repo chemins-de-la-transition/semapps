@@ -2,7 +2,7 @@ import React from 'react';
 import Alert from '@material-ui/lab/Alert';
 import {TextField, useShowContext} from "react-admin";
 import { makeStyles, Box } from "@material-ui/core";
-import { ReferenceField } from "@semapps/semantic-data-provider";
+import { ReferenceField } from "@semapps/field-components";
 
 const useStyles = makeStyles(theme => ({
   root: {

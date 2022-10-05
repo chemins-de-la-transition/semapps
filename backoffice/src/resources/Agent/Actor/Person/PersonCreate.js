@@ -1,7 +1,7 @@
 import React from 'react';
 import { SimpleForm, TextInput } from 'react-admin';
-import { Create } from '@semapps/archipelago-layout';
 import { TypeInput } from '../../../../pair';
+import Create from "../../../../layout/create/Create";
 
 const PersonCreate = (props) => (
   <Create

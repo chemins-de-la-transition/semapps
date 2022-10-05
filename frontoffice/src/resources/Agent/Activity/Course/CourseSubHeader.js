@@ -1,8 +1,7 @@
 import React from 'react';
 import { makeStyles, Box, Typography } from '@material-ui/core';
 import { ReferenceField, TextField, DateField } from 'react-admin';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
-import { SeparatedListField } from '@semapps/archipelago-layout';
+import { SeparatedListField, ReferenceArrayField } from '@semapps/field-components';
 import DurationIcon from '../../../../svg/DurationIcon';
 import CourseIcon from '../../../../svg/CourseIcon';
 import DurationField from "../../../../commons/fields/DurationField";

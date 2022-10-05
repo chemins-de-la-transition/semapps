@@ -1,14 +1,14 @@
 import React from 'react';
 import { SimpleForm, TextInput } from 'react-admin';
-import { EditWithPermissions } from '@semapps/auth-provider';
 import FinalityTitle from './FinalityTitle';
+import Edit from "../../../layout/edit/Edit";
 
 export const FinalityEdit = (props) => (
-  <EditWithPermissions title={<FinalityTitle />} {...props}>
+  <Edit title={<FinalityTitle />} {...props}>
     <SimpleForm>
       <TextInput source="pair:label" fullWidth />
     </SimpleForm>
-  </EditWithPermissions>
+  </Edit>
 );
 
 export default FinalityEdit;

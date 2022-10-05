@@ -4,10 +4,9 @@ import { ThemeProvider } from '@material-ui/core';
 import resourceTheme from '../../../../config/themes/resourceTheme';
 import resourceShowStyle from '../../../../commons/style/resourceShowStyle';
 import { MapField } from '@semapps/geo-components';
-import { SeparatedListField } from '@semapps/archipelago-layout';
+import { SeparatedListField, ReferenceArrayField } from '@semapps/field-components';
 import { CommentsField, useMentions } from "@semapps/activitypub-components";
 import { Box } from '@material-ui/core';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
 import MarkdownField from '../../../../commons/fields/MarkdownField';
 import HeaderShow from '../../../../commons/HeaderShow';
 import StickyCard from '../../../../commons/StickyCard';
@@ -55,7 +54,7 @@ const EventShow = (props) => {
               <TextField variant="body2" source="pair:comment"/>
               <MarkdownField source="pair:description" />
               <MarkdownField source="cdlt:program" />
-              <ReferenceArrayField reference="Theme" source="pair:hasTopic">
+              <ReferenceArrayField reference="Topic" source="pair:hasTopic">
               <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator="">
                 <ChipField source="pair:label" color="primary" className={classes.chipField}/>
               </SeparatedListField>

@@ -1,8 +1,7 @@
 import React from 'react';
 import { FormTab, NumberInput, TabbedForm, TextInput, ImageInput, email } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
-import { EditWithPermissions } from '@semapps/auth-provider';
-import { ImageField } from '@semapps/semantic-data-provider';
+import { ImageField } from '@semapps/field-components';
 import { MultiLinesInput } from "@semapps/input-components";
 import {
   ActivitiesInput,
@@ -18,11 +17,12 @@ import {
   UsersInput,
   StatusInput,
 } from '../../../../pair';
-import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
+import ReminderBeforeRecording from '../../../../common/ReminderBeforeRecording';
 import OrganizationTitle from './OrganizationTitle';
+import Edit from "../../../../layout/edit/Edit";
 
 export const OrganizationEdit = (props) => (
-  <EditWithPermissions title={<OrganizationTitle />} {...props}>
+  <Edit title={<OrganizationTitle />} {...props}>
     <TabbedForm
       redirect="show"
     >
@@ -62,7 +62,7 @@ export const OrganizationEdit = (props) => (
         <TextInput source="cdlt:publicPhone" fullWidth helperText="Numéro public affiché sur la page" />
       </FormTab>
     </TabbedForm>
-  </EditWithPermissions>
+  </Edit>
 );
 
 export default OrganizationEdit;

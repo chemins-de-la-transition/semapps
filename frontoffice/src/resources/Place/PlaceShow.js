@@ -4,8 +4,7 @@ import { ThemeProvider, Checkbox, FormGroup, FormControlLabel, Box, Typography }
 import resourceTheme from '../../config/themes/resourceTheme';
 import resourceShowStyle from '../../commons/style/resourceShowStyle';
 import { MapField } from '@semapps/geo-components';
-import { SeparatedListField } from '@semapps/archipelago-layout';
-import { ReferenceArrayField } from '@semapps/semantic-data-provider';
+import { SeparatedListField, ReferenceArrayField } from '@semapps/field-components';
 import { CommentsField, useMentions } from "@semapps/activitypub-components";
 import MarkdownField from '../../commons/fields/MarkdownField';
 import HeaderShow from '../../commons/HeaderShow';

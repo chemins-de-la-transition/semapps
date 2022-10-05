@@ -1,7 +1,7 @@
 import React from 'react';
 import { Show } from 'react-admin';
-import { RedirectByType } from '@semapps/archipelago-layout';
 import ExploreIcon from '@material-ui/icons/Explore';
+import RedirectByType from "../../../commons/RedirectByType";
 
 const ActivityRedirect = (props) => (
   <Show {...props}>

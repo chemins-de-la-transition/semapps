@@ -1,14 +1,14 @@
 import React from 'react';
-import { SimpleList } from '@semapps/archipelago-layout';
-import { ListWithPermissions } from '@semapps/auth-provider';
 import VisibilityIcon from '@material-ui/icons/Visibility';
+import List from "../../../layout/list/List";
+import SimpleList from "../../../common/list/SimpleList";
 
 const TargetAudienceList = (props) => (
-  <ListWithPermissions {...props}>
+  <List {...props}>
     <SimpleList
       primaryText={(record) => record['pair:label']} leftAvatar={() => <VisibilityIcon />} linkType="edit" 
     />
-  </ListWithPermissions>
+  </List>
 );
 
 export default TargetAudienceList;

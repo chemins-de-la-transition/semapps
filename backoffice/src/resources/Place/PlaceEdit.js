@@ -2,8 +2,7 @@ import React from 'react';
 import { ImageInput, TabbedForm, FormTab, NumberInput, TextInput, email, required } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { extractContext, LocationInput } from '@semapps/geo-components';
-import { EditWithPermissions } from '@semapps/auth-provider';
-import { ImageField } from '@semapps/semantic-data-provider';
+import { ImageField } from '@semapps/field-components';
 import PlaceTitle from './PlaceTitle';
 import { 
   FinalitiesInput, 
@@ -17,10 +16,11 @@ import {
   TopicsInput, 
   TypesInput, 
 } from '../../pair';
-import ReminderBeforeRecording from '../../commons/ReminderBeforeRecording';
+import ReminderBeforeRecording from '../../common/ReminderBeforeRecording';
+import Edit from "../../layout/edit/Edit";
 
 export const PlaceEdit = (props) => (
-  <EditWithPermissions title={<PlaceTitle />} {...props}>
+  <Edit title={<PlaceTitle />} {...props}>
     <TabbedForm redirect="show">
       <FormTab label="Données">
         <TextInput source="pair:label" fullWidth />
@@ -86,7 +86,7 @@ export const PlaceEdit = (props) => (
         <TextInput source="pair:homePage" fullWidth helperText="Lien affiché sur la page"/>
       </FormTab>
     </TabbedForm>
-  </EditWithPermissions>
+  </Edit>
 );
 
 export default PlaceEdit;

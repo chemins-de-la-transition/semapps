@@ -1,6 +1,6 @@
 import React from 'react';
-import { Create } from '@semapps/archipelago-layout';
 import { LexiconImportForm, fetchESCO } from "@semapps/interop-components";
+import Create from "../../../layout/create/Create";
 
 const SkillCreate = (props) => (
   <Create {...props}>
