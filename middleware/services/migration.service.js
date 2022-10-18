@@ -29,13 +29,8 @@ module.exports = {
           delete user['foaf:email'];
         }
 
-        if (!user['foaf:name'] ) {
-          user['foaf:name'] = user['pair:firstName'];
-        }
-
-        if (!user['foaf:familyName'] ) {
-          user['foaf:name'] = user['pair:lastName'];
-        }
+        user['foaf:name'] = user['pair:firstName'];
+        user['foaf:familyName'] = user['pair:lastName'];
 
         await ctx.call('ldp.resource.put', {
           resource: user,
