@@ -34,7 +34,6 @@ const PathShow = (props) => {
         <Box className={classes.mainContainer}>
           <HeaderShow
             type="pair:hasType"
-            linkToListText="Liste des chemins"
             details={<PathDetails />}
             actionButton={<ContactButton label="Contacter les instigateurs de ce chemin" />}
           />

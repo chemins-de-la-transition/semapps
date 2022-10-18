@@ -1,10 +1,8 @@
 import React, { useRef, useState } from 'react';
 import {
   makeStyles,
-  Typography,
   Box,
   Grid,
-  Breadcrumbs,
   Drawer,
   useMediaQuery,
   useScrollTrigger,
@@ -12,13 +10,11 @@ import {
 import {
   TextField,
   useShowContext,
-  Link,
   useRecordContext,
   Loading
 } from 'react-admin';
 import FullWidthBox from './FullWidthBox';
 import LargeContainer from './LargeContainer';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import EditButton from "./buttons/EditButton";
 import LikeButton from "./buttons/LikeButton";
 
@@ -30,13 +26,6 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     flexDirection: 'column',
-  },
-  breadcrumbs: {
-    paddingTop: 15,
-    paddingBottom: 10,
-    '& a:hover': {
-      color: 'white'
-    }
   },
   title: {
     lineHeight: 1.15,
@@ -51,14 +40,8 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 14    
     }
   },
-resourceLink: {
-    color: theme.palette.theme_3.contrastText,
-    fontWeight: 'bold',
-  },
-  chevronIcon: {
-    color: 'white',
-  },
   images: {
+    marginTop: 15,
     marginBottom: 15,
     '& img': {
       display: 'block',
@@ -121,9 +104,9 @@ const MultipleImagesField = ({ source, max = 2 }) => {
   }
 };
 
-const HeaderShow = ({ linkToListText, details, content, actionButton, hasComment, variant, link }) => {
+const HeaderShow = ({ details, content, actionButton, hasComment, variant }) => {
   const classes = useStyles({variant});
-  const { basePath, loaded } = useShowContext();
+  const { loaded } = useShowContext();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
 
   // Calculate header height
@@ -138,15 +121,6 @@ const HeaderShow = ({ linkToListText, details, content, actionButton, hasComment
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer ref={headerRef}>
-        <Breadcrumbs
-          separator={<NavigateNextIcon fontSize="small" className={classes.chevronIcon} />}
-          className={classes.breadcrumbs}
-        >
-          <Link to={link ? link : basePath} underline="none" color="inherit" className={classes.basePath}>
-            <Typography>{linkToListText}</Typography>
-          </Link>
-          <TextField source="pair:label" variant="body2" className={classes.resourceLink} />
-        </Breadcrumbs>
         <Box className={classes.images}>
           <MultipleImagesField source="pair:depictedBy" max={2} />
         </Box>

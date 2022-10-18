@@ -36,7 +36,6 @@ const PlaceShow = (props) => {
         <Box className={classes.mainContainer}>
           <HeaderShow
             type="pair:hasType"
-            linkToListText="Liste des lieux"
             details={<PlaceDetails onlyFutureEvents={onlyFutureEvents} />}
             actionButton={<ContactButton label="Contacter le lieu" />}
           />

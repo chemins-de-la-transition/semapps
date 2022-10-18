@@ -35,7 +35,6 @@ const CourseShow = (props) => {
       <ShowBase {...props}>
         <Box className={classes.mainContainer}>
           <HeaderShow
-            linkToListText="Liste des voyages"
             details={<CourseDetails />}
             actionButton={<ApplyButton />}
           />
