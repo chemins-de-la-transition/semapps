@@ -12,6 +12,38 @@ module.exports = {
     baseUrl: CONFIG.HOME_URL
   },
   actions: {
+    async appendFoafProperties(ctx) {
+      const usersContainerUri = urlJoin(CONFIG.HOME_URL, 'users');
+      const usersUris = await ctx.call('ldp.container.getUris', { containerUri: usersContainerUri });
+
+      for( let userUri of usersUris ) {
+        this.logger.info('Migrating user ' + userUri + '...');
+
+        const user = await ctx.call('ldp.resource.get', {
+          resourceUri: userUri,
+          accept: MIME_TYPES.JSON,
+          webId: 'system'
+        });
+
+        if (user['foaf:email']) {
+          delete user['foaf:email'];
+        }
+
+        if (!user['foaf:name'] ) {
+          user['foaf:name'] = user['pair:firstName'];
+        }
+
+        if (!user['foaf:familyName'] ) {
+          user['foaf:name'] = user['pair:lastName'];
+        }
+
+        await ctx.call('ldp.resource.put', {
+          resource: user,
+          contentType: MIME_TYPES.JSON,
+          webId: 'system'
+        });
+      }
+    },
     async migrateThemesToTopics(ctx) {
       const themesContainerUri = urlJoin(CONFIG.HOME_URL, 'themes');
       const themesUris = await ctx.call('ldp.container.getUris', { containerUri: themesContainerUri });
