@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 20,
   },
   title: {
-    fontSize: '1.2em',
+    fontSize: 16,
     lineHeight: 1.15,
   },
   block: {

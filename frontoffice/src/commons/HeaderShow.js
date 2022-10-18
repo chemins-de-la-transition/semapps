@@ -24,10 +24,11 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.contrastText
   },
   container: {
-    display: 'flex',
-    flexDirection: 'column',
+    marginTop: 25,
+    marginBottom: 10,
   },
   title: {
+    fontSize: 40,
     lineHeight: 1.15,
   },
   iconsContainer: {
@@ -41,8 +42,6 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   images: {
-    marginTop: 15,
-    marginBottom: 15,
     '& img': {
       display: 'block',
       borderRadius: 8,
@@ -61,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
   leftImage: {
     float: 'left',
-    margin: '5px 10px 20px 0 !important',
+    margin: '5px 15px 20px 0 !important',
   },
   drawer: {
     backgroundColor: theme.palette.primary.main,
@@ -120,7 +119,7 @@ const HeaderShow = ({ details, content, actionButton, hasComment, variant }) => 
 
   return (
     <FullWidthBox className={classes.background}>
-      <LargeContainer ref={headerRef}>
+      <LargeContainer ref={headerRef} className={classes.container}>
         <Box className={classes.images}>
           <MultipleImagesField source="pair:depictedBy" max={2} />
         </Box>
