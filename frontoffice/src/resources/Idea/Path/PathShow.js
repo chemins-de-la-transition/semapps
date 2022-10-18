@@ -21,6 +21,7 @@ import ContactButton from "../../../commons/buttons/ContactButton";
 import GroupOfFields from '../../../commons/fields/GroupOfFields';
 import { linkToFilteredList } from "../../../utils";
 import DebateCard from "../Debate/DebateCard";
+import Traveler from "../../../pages/HomePage/Traveler/Traveler";
 
 const useStyles = resourceShowStyle;
 
@@ -114,6 +115,8 @@ const PathShow = (props) => {
             </ReferenceArrayField>
             <CommentsField userResource="Person" mentions={mentions} />
           </BodyList>
+          <Traveler />
+          <br />
           <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
         </Box>
       </ShowBase>

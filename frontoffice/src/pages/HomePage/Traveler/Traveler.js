@@ -89,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
   messageBox: {
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.secondary.contrastText,
-    position: 'relative',
+    position: 'relative'
   },
   messageContainer: {
     display: 'flex',
@@ -111,8 +111,6 @@ const useStyles = makeStyles((theme) => ({
   },
   title2: {
     fontSize: 40,
-    backgroundColor: theme.palette.white.main,
-    color: theme.palette.secondary.main,
     lineHeight: 'inherit',
     width: '70%',
     [theme.breakpoints.down('sm')]: {
@@ -124,6 +122,11 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
       marginBottom: 20,
     },
+  },
+  span: {
+    color: theme.palette.secondary.main,
+    backgroundColor: theme.palette.white.main,
+    lineHeight: '2em'
   },
   button: {
 
@@ -155,7 +158,7 @@ const Traveler = () => {
     <FullWidthBox className={classes.messageBox}>
       <LargeContainer className={classes.messageContainer}>
         <Typography variant="h1" className={classes.title2}>
-          Vous souhaitez proposer un lieu, un événement ou des idées de voyage ?
+          <span className={classes.span}>Vous souhaitez proposer un lieu, un événement ou des idées de voyage ?</span>
         </Typography>
         <Button to={{ pathname: "https://forums.lescheminsdelatransition.org/" }} target="_blank" variant="contained" color="primary" component={Link} typographyVariant="button1" className={classes.button}>
             Rejoignez la communauté

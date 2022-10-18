@@ -19,6 +19,7 @@ import SectorField from '../../../../commons/fields/SectorField';
 import ApplyButton from "../../../../commons/buttons/ApplyButton";
 import GroupOfFields from '../../../../commons/fields/GroupOfFields';
 import { linkToFilteredList } from "../../../../utils";
+import Traveler from "../../../../pages/HomePage/Traveler/Traveler";
 
 const useStyles = resourceShowStyle;
 
@@ -159,6 +160,8 @@ const EventShow = (props) => {
             <CommentsField userResource="Person" mentions={mentions} />
           </BodyList>
           <SimilarEvents />
+          <Traveler />
+          <br />
           <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
         </Box>
       </ShowBase>

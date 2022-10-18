@@ -6,6 +6,7 @@ import CoursesTypes from './CoursesTypes';
 import CourseSubHeader from "../../resources/Agent/Activity/Course/CourseSubHeader";
 import PathSubHeader from '../../resources/Idea/Path/PathSubHeader';
 import Partners from './Partners';
+import Traveler from './Traveler/Traveler';
 import PictoLieu from '../../icons/PictoLieu.png' ;
 import PictoParcours from '../../icons/PictoParcours.png' ;
 import PictoAgenda from '../../icons/PictoAgenda.png' ;
@@ -23,6 +24,7 @@ const HomePage = () => (
       linkText="Voir tous les lieux"
       CardSubHeaderComponent={PlaceSubHeader}
     />
+    <Traveler />
     <FeaturedList
       resource="Event"
       basePath="/Event"

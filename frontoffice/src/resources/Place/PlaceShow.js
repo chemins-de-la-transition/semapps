@@ -22,6 +22,7 @@ import ContactButton from "../../commons/buttons/ContactButton";
 import GroupOfFields from '../../commons/fields/GroupOfFields';
 import { linkToFilteredList } from "../../utils";
 import PictoLieu from '../../icons/PictoLieu.png' ;
+import Traveler from "../../pages/HomePage/Traveler/Traveler";
 
 const useStyles = resourceShowStyle;
 
@@ -142,6 +143,8 @@ const PlaceShow = (props) => {
             linkText="Voir tous les lieux"
             CardSubHeaderComponent={PlaceSubHeader}
           />
+          <Traveler />
+          <br />
           <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
         </Box>
       </ShowBase>

@@ -23,6 +23,7 @@ import TimelineList from '../../../../commons/lists/TimelineList';
 import { linkToFilteredList } from "../../../../utils";
 import PictoParcours from '../../../../icons/PictoParcours.png' ;
 import urlJoin from 'url-join';
+import Traveler from "../../../../pages/HomePage/Traveler/Traveler";
 
 const useStyles = resourceShowStyle;
 
@@ -165,6 +166,8 @@ const CourseShow = (props) => {
             linkText="Voir tous les voyages"
             CardSubHeaderComponent={CourseSubHeader}
           />
+          <Traveler />
+          <br />
           <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
         </Box>
       </ShowBase>
