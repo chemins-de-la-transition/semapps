@@ -31,6 +31,17 @@ const useStyles = makeStyles((theme) => ({
 
 const generateReference = () => uuid().slice(0,8).toUpperCase()
 
+const FILTERED_PREDICATES = [
+  'id',
+  'type',
+  'dc:created',
+  'dc:modified',
+  'dc:creator',
+  'replies',
+  'cdlt:organizedBy',
+  'pair:label'
+];
+
 const EventCreate = (props) => {
   const { identity } = useGetIdentity();
   const dataProvider = useDataProvider();
@@ -71,22 +82,17 @@ const EventCreate = (props) => {
     getAllEvents();
   }, [getAllEvents]);
   
-  const getFormatedEvent = useCallback((chosenEvent, identity) => {
-    let formatedEvent = {};  
+  const getFormattedEvent = useCallback((chosenEvent, identity) => {
+    let formattedEvent = {};
     for (const property in chosenEvent) {
-      if (! ['id','dc','type'].includes(property.split(':')[0])) {
-        if ( ! [
-          'cdlt:organizedBy',
-          'pair:label',
-        ].includes(property)) {
-          formatedEvent = { ...formatedEvent, [property]: chosenEvent[property] };
-        }
+      if (!FILTERED_PREDICATES.includes(property)) {
+        formattedEvent = { ...formattedEvent, [property]: chosenEvent[property] };
       }
     }
     if (identity?.id) {
-      formatedEvent = { ...formatedEvent, 'cdlt:organizedBy': identity?.id };
+      formattedEvent = { ...formattedEvent, 'cdlt:organizedBy': identity?.id };
     }
-    return { ...formatedEvent, 'cdlt:referenceNumber':generateReference()}
+    return { ...formattedEvent, 'cdlt:referenceNumber':generateReference()}
   }, []);
   
   const chosenEventRef = useRef(null);
@@ -96,7 +102,7 @@ const EventCreate = (props) => {
   
   const transform = useCallback((data) => {
     if (chosenEventRef.current) {
-      const duplicateData = getFormatedEvent(chosenEventRef.current, identityRef.current);
+      const duplicateData = getFormattedEvent(chosenEventRef.current, identityRef.current);
       return ({
         ...duplicateData,
         'pair:label':data['pair:label']
@@ -107,7 +113,7 @@ const EventCreate = (props) => {
         'cdlt:referenceNumber':generateReference()
       })
     }
-  }, [getFormatedEvent]);
+  }, [getFormattedEvent]);
   
   const classes = useStyles();
   return (
