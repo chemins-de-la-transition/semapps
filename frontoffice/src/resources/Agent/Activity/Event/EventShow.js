@@ -56,27 +56,17 @@ const EventShow = (props) => {
               <MarkdownField source="cdlt:program" />
               <ReferenceArrayField reference="Topic" source="pair:hasTopic">
               <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator="">
-                <ChipField source="pair:label" color="primary" className={classes.chipField}/>
-              </SeparatedListField>
-            </ReferenceArrayField>
+                  <ChipField source="pair:label" color="primary" className={classes.chipField}/>
+                </SeparatedListField>
+              </ReferenceArrayField>
               <ReferenceArrayField reference="Finality" source="pair:hasFinality">
                 <SeparatedListField link={false} separator=" / ">
                   <TextField variant="body2" source="pair:label" />
                 </SeparatedListField>
               </ReferenceArrayField>
-              <ReferenceArrayField reference="Sector" source="pair:hasSector">
-                <SingleFieldList linkType={false}>
-                  <SectorField />
-                </SingleFieldList>
-              </ReferenceArrayField>
               <ReferenceArrayField reference="Type" source="cdlt:hasCourseType">
                 <SeparatedListField link={false} separator=" / ">
                   <TextField variant="body2" color="secondary" source="pair:label" />
-                </SeparatedListField>
-              </ReferenceArrayField>
-              <ReferenceArrayField reference="Topic" source="pair:hasTopic">
-                <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator="">
-                  <ChipField source="pair:label" color="primary" className={classes.chipField}/>
                 </SeparatedListField>
               </ReferenceArrayField>
               <ReferenceArrayField reference="TargetAudience" source="cdlt:hasTargetAudience" >
@@ -84,7 +74,6 @@ const EventShow = (props) => {
                   <TextField source="pair:label" />
                 </SeparatedListField>
               </ReferenceArrayField>
-              <MarkdownField source="pair:description" />
               <MarkdownField source="cdlt:pedagogicalMeans" />
               <MarkdownField source="cdlt:accessibility" />
             </GroupOfFields>
