@@ -74,7 +74,6 @@ const EventShow = (props) => {
                   <TextField source="pair:label" />
                 </SeparatedListField>
               </ReferenceArrayField>
-              <MarkdownField source="cdlt:pedagogicalMeans" />
               <MarkdownField source="cdlt:accessibility" />
             </GroupOfFields>
             <GroupOfFields
