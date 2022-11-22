@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import qs from "query-string";
 import { lightFormat } from "date-fns";
 import { useGetIdentity, useShowContext, useGetMany } from "react-admin";
@@ -67,6 +67,23 @@ const RegistrationButton = ({ label: labelProp, mainButton }) => {
     }
   }, [mainButton, history, identity, registrationLink]);
 
+  const register = useCallback(async () => {
+    try {
+      await fetch(process.env.REACT_APP_MIDDLEWARE_URL + '_stats/click', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userUri: identity.id,
+          resourceUri: record.id
+        })
+      });
+    } catch(e) {
+      // Ignore if there is an error
+      console.error(e);
+    }
+    window.location.href = registrationLink;
+  }, [registrationLink, record, identity]);
+
   if (record['pair:hasType'] && loading) return null;
 
   return (
@@ -75,8 +92,7 @@ const RegistrationButton = ({ label: labelProp, mainButton }) => {
         variant="contained"
         color="primary"
         typographyVariant="button1"
-        href={identity && identity.id === '' ? undefined : registrationLink}
-        onClick={identity && identity.id === '' ? () => setOpenAuth(true) : undefined}
+        onClick={identity && identity.id === '' ? () => setOpenAuth(true) : register}
       >
         {labelProp}
       </Button>
