@@ -57,12 +57,20 @@ module.exports = {
     },
     async click(ctx) {
       const { userUri, resourceUri } = ctx.params;
+      let user = { 'pair:label': 'Anonyme' }, account = {};
 
-      const user = await ctx.call('ldp.resource.get', {
-        resourceUri: userUri,
-        accept: MIME_TYPES.JSON,
-        webId: 'system'
-      });
+      if (userUri) {
+        try {
+          account = await ctx.call('auth.account.findByWebId', { webId: userUri });
+          user = await ctx.call('ldp.resource.get', {
+            resourceUri: userUri,
+            accept: MIME_TYPES.JSON,
+            webId: 'system'
+          });
+        } catch(e) {
+          console.error(e);
+        }
+      }
 
       const resource = await ctx.call('ldp.resource.get', {
         resourceUri: resourceUri,
@@ -75,7 +83,8 @@ module.exports = {
           url: 'https://eo36jy5cssig664.m.pipedream.net',
           data: {
             user,
-            resource
+            resource,
+            account
           }
         },
         {
