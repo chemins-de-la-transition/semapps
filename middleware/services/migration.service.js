@@ -1,4 +1,5 @@
 const urlJoin = require("url-join");
+const { namedNode, triple, literal } = require('@rdfjs/data-model');
 const { v4: uuid } = require('uuid');
 const { MigrationService } = require('@semapps/migration');
 const { getContainerFromUri, defaultToArray, getSlugFromUri} = require("@semapps/ldp");
@@ -143,11 +144,10 @@ module.exports = {
 
       for( let eventUri of events ) {
         await ctx.call('ldp.resource.patch', {
-          resource: {
-            '@id': eventUri,
-            'cdlt:referenceNumber': uuid().slice(0,8).toUpperCase()
-          },
-          contentType: MIME_TYPES.JSON,
+          resourceUri: eventUri,
+          triplesToAdd: [
+            triple(namedNode(eventUri), namedNode('http://virtual-assembly.org/ontologies/cdlt#referenceNumber'), literal(uuid().slice(0,8).toUpperCase())),
+          ],
           webId: 'system'
         });
       }

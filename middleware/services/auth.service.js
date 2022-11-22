@@ -1,4 +1,5 @@
 const path = require('path');
+const { namedNode, triple, literal } = require('@rdfjs/data-model');
 const { AuthOIDCService } = require('@semapps/auth');
 const { MIME_TYPES } = require('@semapps/mime-types');
 const CONFIG = require('../config');
@@ -27,15 +28,14 @@ module.exports = {
       const { webId, profileData } = ctx.params;
 
       await ctx.call('ldp.resource.patch', {
-        resource: {
-          '@id': webId,
-          '@type': ['pair:Person', 'foaf:Person'],
-          'pair:label': `${profileData.name} ${profileData.familyName.toUpperCase()}`,
-          'pair:firstName': profileData.name,
-          'pair:lastName': profileData.familyName,
-          'pair:hasType': CONFIG.HOME_URL + 'types/traveler',
-        },
-        contentType: MIME_TYPES.JSON,
+        resourceUri: webId,
+        triplesToAdd: [
+          triple(namedNode(webId), namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), namedNode('http://virtual-assembly.org/ontologies/pair#Person')),
+          triple(namedNode(webId), namedNode('http://virtual-assembly.org/ontologies/pair#label'), literal(`${profileData.name} ${profileData.familyName.toUpperCase()}`)),
+          triple(namedNode(webId), namedNode('http://virtual-assembly.org/ontologies/pair#firstName'), literal(profileData.name)),
+          triple(namedNode(webId), namedNode('http://virtual-assembly.org/ontologies/pair#lastName'), literal(profileData.familyName)),
+          triple(namedNode(webId), namedNode('http://virtual-assembly.org/ontologies/pair#hasType'), namedNode(urlJoin(CONFIG.HOME_URL, 'types/traveler'))),
+        ],
         webId: 'system'
       });
     },
