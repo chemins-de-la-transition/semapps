@@ -13,6 +13,7 @@
     "unlink-semapps-packages": "yarn unlink @semapps/activitypub @semapps/auth @semapps/backup @semapps/fuseki-admin @semapps/importer @semapps/inference @semapps/jsonld @semapps/ldp @semapps/middlewares @semapps/migration @semapps/mime-types @semapps/mirror @semapps/pod @semapps/signature @semapps/sparql-endpoint @semapps/triplestore @semapps/void @semapps/webacl @semapps/webfinger @semapps/webhooks @semapps/webid"
   },
   "dependencies": {
+    "@rdfjs/data-model": "^1.3.4",
     "@semapps/activitypub": "0.4.0-alpha.44",
     "@semapps/auth": "0.4.0-alpha.44",
     "@semapps/backup": "0.4.0-alpha.44",
