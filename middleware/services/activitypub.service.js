@@ -11,15 +11,14 @@ module.exports = {
     jsonContext: urlJoin(CONFIG.HOME_URL, 'context.json'),
     containers,
     selectActorData: resource => ({
-      '@type': ACTOR_TYPES.PERSON,
-      name: resource['pair:label'],
-      preferredUsername: getSlugFromUri(resource.id)
+      'https://www.w3.org/ns/activitystreams#name': resource['pair:label']
     }),
     like: {
       attachToObjectTypes: ['cdlt:Path', 'cdlt:Course', 'pair:Event', 'pair:Place', 'pair:Person', 'pair:Organization']
     },
     reply: {
       attachToObjectTypes: ['cdlt:Path', 'cdlt:Course', 'pair:Event', 'pair:Place', 'pair:Organization']
-    }
+    },
+    relay: true
   }
 };
