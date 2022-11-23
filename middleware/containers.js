@@ -234,8 +234,5 @@ module.exports = [
     acceptedTypes: [ACTOR_TYPES.APPLICATION],
     dereference: ['sec:publicKey'],
     excludeFromMirror: true
-  },
-  {
-    path: '/files'
   }
 ];
