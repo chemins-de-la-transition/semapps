@@ -35,8 +35,6 @@ const BodyList = ({ children, aside, alert }) => {
       : field.props.title || (field && record && record[field.props.source] && React.isValidElement(field))
   ));
 
-
-
   return (
     <>
       <SubAppBar fields={fields} />

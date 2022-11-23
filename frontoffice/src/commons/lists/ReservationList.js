@@ -30,7 +30,7 @@ const ReservationList = ({ CardComponent }) => {
     <Loading loadingPrimary="ra.page.loading" loadingSecondary="ra.message.loading" className={classes.loading} />
   ) : (
     ids.map((id) => {
-      if( !data[id] ) return null;
+      if( !data[id] || data[id]['_error'] ) return null;
       return (
         <Box key={id} className={classes.mainContainer}>
           <Card className={classes.details}>

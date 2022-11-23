@@ -38,7 +38,7 @@ const TimelineList = () => {
   return (
     <Box className={classes.root}>
       {ids.map((id) => {
-        if( !data[id] ) return null;
+        if( !data[id] || data[id]['_error'] ) return null;
         return (
           <Box position="relative" className={classes.event}>
             <Icon className={classes.roundIcon} color="secondary">

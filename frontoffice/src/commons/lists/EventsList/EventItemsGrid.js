@@ -47,7 +47,7 @@ const EventItemsGrid = ({ similarRecord }) => {
   const sortedIds = useMemo(() => {
     if( !similarRecord ) return ids;
     return ids
-      .filter(id => data[id] && id !== similarRecord.id )
+      .filter(id => data[id] && !data[id]['_error'] && id !== similarRecord.id )
       .sort(sortBySimilarity(data, similarRecord, 'pair:hasSector'))
       .sort(sortBySimilarity(data, similarRecord, 'pair:hasRegion'))
       .sort(sortBySimilarity(data, similarRecord, 'cdlt:hasCourseType'))
