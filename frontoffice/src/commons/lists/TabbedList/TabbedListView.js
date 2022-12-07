@@ -96,13 +96,13 @@ const TabbedListView = ({ tabs, filters, futureActivities }) => {
   const removeFilters = () => {setFilters({})}
 
   const dataByTabs = useMemo(() => {
-    if( ids.length > 0 && dataModels ) {
+    if (ids.length > 0 && dataModels) {
       // Ensure entries are on the right order
       let dataByTabs = Object.fromEntries(tabs.map(t => [t.resource, {}]));
-      for( let [id, record] of Object.entries(data) ) {
+      for (let [id, record] of Object.entries(data)) {
         const recordTypes = Array.isArray(record.type) ? record.type : [record.type];
-        for( let resource of Object.keys(dataModels) ) {
-          if( dataByTabs[resource] && recordTypes.some(t => dataModels[resource].types.includes(t)) ) {
+        for (let resource of Object.keys(dataModels)) {
+          if (dataByTabs[resource] && recordTypes.some(t => dataModels[resource].types.includes(t))) {
             dataByTabs[resource][id] = record;
           }
         }
@@ -123,12 +123,24 @@ const TabbedListView = ({ tabs, filters, futureActivities }) => {
     }
   }, [ids, data, tabs, dataModels, futureActivities]);
 
+  const filteredIds = useMemo(() => {
+    let filteredIds = [];
+    if (dataByTabs) {
+      for (let resource of Object.keys(dataByTabs)) {
+        if (Object.keys(dataByTabs[resource]).length > 0) {
+          filteredIds.push(Object.keys(dataByTabs[resource]));
+        }
+      }
+    }
+    return filteredIds;
+  }, [dataByTabs])
+
   useEffect(() => {
     if( dataByTabs && Object.keys(dataByTabs[currentTab]).length === 0 ) {
-      setCurrentTab(Object.keys(dataByTabs).find(t => Object.keys(dataByTabs[t]).length > 0));
+      const firstTab = Object.keys(dataByTabs).find(t => Object.keys(dataByTabs[t]).length > 0);
+      if (firstTab) setCurrentTab(firstTab);
     }
   }, [dataByTabs, currentTab, setCurrentTab]);
-
 
   return (
     <Grid container>
@@ -185,7 +197,7 @@ const TabbedListView = ({ tabs, filters, futureActivities }) => {
             ))}
           </Box>
         </Box>
-        {!loading && ids.length === 0 ?
+        {!loading && filteredIds.length === 0 ?
           <Box display="flex" alignItems="center" justifyContent="center" height={400} flexDirection="column">
             <Typography variant="h6" component="div">Aucun résultat trouvé</Typography>
             <br />
