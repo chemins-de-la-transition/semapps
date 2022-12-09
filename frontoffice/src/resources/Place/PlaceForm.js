@@ -27,7 +27,7 @@ const PlaceForm = ({ mode, ...rest }) => {
     >
       <FormTab label="A propos du lieu">
 
-        <TextInput source="pair:label" label="Quel est le nom du lieu ?" fullWidth validate={[required()]} />
+        <TextInput source="pair:label" label="Quel est le nom de votre lieu ?" fullWidth validate={[required()]} />
         <TextInput source="pair:comment" label="Pourriez-vous le décrire en une phrase" fullWidth validate={[required()]} />
         <ImageInput source="pair:depictedBy" label="Vous pouvez mettre 2 photos (en format paysage) !" accept="image/*" multiple>
           <ImageField source="src" />
