@@ -70,11 +70,11 @@ const WelcomeContent = () => {
       <LargeContainer className={classes.container}>
         <Box display="flex" justifyContent="center" flexDirection="column" justifySelf="center">
           <Typography variant="h1" className={classes.text}>
-            Apprendre en voyageant 
+            Bienvenue sur les Chemins de la Transition ! 
           </Typography>
           <div className={classes.textBar} />
           <Typography variant="body1" className={classes.subtitleText} component="div">
-          Vous êtes curieux des expériences et métiers qui se développent, qui redonnent du sens à nos actions ? Nous vous proposons de partir découvrir ces initiatives, d'apprendre et de vous former au contact des professionnels qui font déjà le monde de demain. Embarquez sur les chemins de votre transition, à la rencontre des acteurs et de lieux inspirants et découvrez leurs savoir-faire. Plusieurs modalités s'offrent à vous...
+          Une université ouverte, nomade et pair à pair autour des enjeux et des métiers de la transition. Pour apprendre en voyageant et partager des connaissances, expériences et savoir-faire liés aux enjeux écologiques, énergétiques, culturels, sociaux, économiques, technologiques et sociétaux de notre temps.
           </Typography>
         </Box>
       </LargeContainer>
