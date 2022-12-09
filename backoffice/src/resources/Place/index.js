@@ -61,7 +61,7 @@ export default {
         'pair:homePage': 'Site web',
         'cdlt:placeOn': 'Est un lieu de',
         'pair:hasFinality': 'Finalités',
-        'cdlt:directRegistration' : "Possibilité de s'inscrire directement",
+        'cdlt:directRegistration' : "Les voyageurs peuvent-ils s'inscrire directement ? (Si non, ils devront vous contacter avant)",
         'cdlt:registrationOption' : "Option d'inscription",
         'cdlt:jotformLink':"Formulaire d'inscription JotForm",
         'cdlt:registrationLink':"Lien du système d'inscription",
