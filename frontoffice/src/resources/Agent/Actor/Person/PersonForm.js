@@ -24,23 +24,23 @@ const PersonForm = ({ ...rest }) => {
 
   return (
     <TabbedForm {...rest} redirect="show">
-      <FormTab label="Principal">
-        <TextInput source="pair:firstName" fullWidth />
-        <TextInput source="pair:lastName" fullWidth />
-        <TextInput source="pair:alternativeLabel" fullWidth />
-        <TextInput source="pair:comment" fullWidth />
-        <MarkdownInput source="pair:description" fullWidth />
-        <TextInput source="pair:homePage" fullWidth />
-        <ImageInput source="pair:depictedBy" accept="image/*">
+      <FormTab label="A propos de toi">
+        <TextInput source="pair:firstName" label="Ton prénom" fullWidth />
+        <TextInput source="pair:lastName" label="Ton nom de famille" fullWidth />
+        <TextInput source="pair:alternativeLabel" label="Ton nom d'utilisateur" fullWidth />
+        <TextInput source="pair:comment" label="Qui es-tu en une phrase ?" fullWidth />
+        <MarkdownInput source="pair:description" label="N\'hésite pas à te décrire plus longuement !" fullWidth />
+        <TextInput source="pair:homePage" label="Un lien à propos de toi ?" fullWidth />
+        <ImageInput source="pair:depictedBy" label="Ta photo ! (C'est important pour la convivialité de la plateforme)" accept="image/*">
           <ImageField source="src" />
         </ImageInput>
-        <MarkdownInput source="cdlt:intentions" fullWidth />
-        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
+        <MarkdownInput source="cdlt:intentions" label="Tes intentions en venant sur les chemins de la transition ?" fullWidth />
+        <TextInput source="pair:phone" label="Ton numéro de téléphone ? fullWidth helperText="Non visible sur la plateforme" />
         {/*
         <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
         */}
-        <PairLocationInput source="pair:hasLocation" fullWidth />
+        <PairLocationInput source="pair:hasLocation" label="Tu vis où ?" fullWidth />
         {/*
         <MarkdownInput source="cdlt:asAHostIntentions" fullWidth />
         <MarkdownInput source="cdlt:asAMentorIntentions" fullWidth />
@@ -49,10 +49,10 @@ const PersonForm = ({ ...rest }) => {
         */}
         <ReminderBeforeRecording />
       </FormTab>
-      <FormTab label="Relations">
+      <FormTab label="Autres infos">
         { ! isTraveler && 
           <>
-            <OrganizationsInput source="pair:affiliatedBy" />
+            <OrganizationsInput source="pair:affiliatedBy" label="Membre d'une (ou plusieurs) organisations ?" />
             <OrganizationsInput source="pair:inspiredBy" />
             <PlacesInput source="cdlt:proposes" />
             <ActivitiesInput source="cdlt:mentorOn" />
@@ -60,11 +60,11 @@ const PersonForm = ({ ...rest }) => {
             <PathsInput source="cdlt:supports" />
           </>
         }
-        <SectorsInput source="pair:hasSector" />
-        <TopicsInput source="pair:hasTopic" />
-        <SkillsInput source="pair:offers" />
-        <SkillsInput source="pair:aims" fullWidth />
-        <FinalitiesInput source="pair:hasFinality" />
+        <SectorsInput source="pair:hasSector" label="Tu t'intéresses à des secteurs d'activité en particulier ?" />
+        <TopicsInput source="pair:hasTopic" label="C'est quoi tes centres d'intérêts ?" />
+        <SkillsInput source="pair:offers" label="C\'est quoi tes compétences actuelles ?" />
+        <SkillsInput source="pair:aims" label="Quelles sont les compétences que tu recherches ?" fullWidth />
+        <FinalitiesInput source="pair:hasFinality" label="Quelles sont les finalités que tu poursuis ?" />
       </FormTab>
     </TabbedForm>
   );
