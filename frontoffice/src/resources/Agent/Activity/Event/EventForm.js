@@ -155,9 +155,9 @@ const EventForm = ({ mode, ...rest }) => {
       {...rest}
       redirect="show"
     >
-      <FormTab label="Données" className={classes.formTab}>
+      <FormTab label="A propos de l'événement" className={classes.formTab}>
 
-        <TextInput source="pair:label" fullWidth validate={[required()]} />
+        <TextInput source="pair:label" label="Quel est le titre de votre événement ?" fullWidth validate={[required()]} />
         { ['create', 'duplicate'].includes(mode)  &&
           <Box className={classes.duplicateContainer}>
             { eventsListIsLoading &&
@@ -191,7 +191,7 @@ const EventForm = ({ mode, ...rest }) => {
             }
           </Box>
         }
-        <TextInput source="pair:comment" fullWidth validate={[required()]} />
+        <TextInput source="pair:comment" label="Comment le décririez-vous en une phrase ?" fullWidth validate={[required()]} />
         <DateTimeInput
           source="pair:startDate"
           options={{
@@ -216,31 +216,31 @@ const EventForm = ({ mode, ...rest }) => {
           fullWidth
           validate={[required()]}
         />
-        <ImageInput source="pair:depictedBy" accept="image/*" multiple>
+        <ImageInput source="pair:depictedBy" label="Vous pouvez mettre 2 images (en format paysage) !" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
-        <MarkdownInput source="pair:description" fullWidth validate={[required()]} />
-        <TargetAudienceInput source="cdlt:hasTargetAudience" fullWidth />
-        <MarkdownInput source="cdlt:organizerDescription" fullWidth />
-        <MarkdownInput source="cdlt:mentorDescription" fullWidth />
+        <MarkdownInput source="pair:description" label="Décrivez votre événement" fullWidth validate={[required()]} />
+        <TargetAudienceInput source="cdlt:hasTargetAudience" label="A qui s'adresse t'il ?" fullWidth />
+        <MarkdownInput source="cdlt:organizerDescription" label="Qui sont les organisateurs ?" fullWidth />
+        <MarkdownInput source="cdlt:mentorDescription" fullWidth label="Qui sont les intervenants ?" />
 
         <MarkdownInput source="cdlt:program" fullWidth />
 
-        <MarkdownInput source="cdlt:prerequisites" fullWidth />
-        <MarkdownInput source="cdlt:learningObjectives" fullWidth />
-        <MarkdownInput source="cdlt:pedagogicalMeans" fullWidth />
-        <JobOpportunitiesInput source="cdlt:hasJobOpportunities" fullWidth />
+        <MarkdownInput source="cdlt:prerequisites" label="Y a t'il des prérequis pour participer à votre événement ? Si oui, lesquels ?" fullWidth />
+        <MarkdownInput source="cdlt:learningObjectives" label="Quels sont les objectifs pédagogiques ?" fullWidth />
+        <MarkdownInput source="cdlt:pedagogicalMeans" label="Utilisez-vous des méthodes ou des matériels pédagogiques en particulier ?" fullWidth />  
+        <JobOpportunitiesInput source="cdlt:hasJobOpportunities" "Peut-il ouvrir sur des opportunités d'activité ou d'emploi ? Si oui, lesquelles ?"  fullWidth />
         
-        <MarkdownInput source="cdlt:practicalConditions" helperText="Précisez si besoin équipements, inscription, hébergement, repas..." fullWidth />
-        <NumberInput source="cdlt:minimumCapacity" fullWidth />
-        <NumberInput source="cdlt:maximumCapacity" fullWidth />
-        <BooleanInput source="cdlt:full" helperText="Cochez si l'événement est complet" fullWidth />
-        <TextInput multiline helperText="Précisez l'accessibilité de l'événement aux personnes en situation de handicap" source="cdlt:accessibility" fullWidth />
+        <MarkdownInput source="cdlt:practicalConditions" label="Quelles sont les modalités d'accueil et les infos pratiques ?" helperText="Précisez si besoin équipements, inscription, hébergement, repas..." fullWidth />
+        <NumberInput source="cdlt:minimumCapacity" label="Nombre minimum de participants pour que l'événement ait lieu" fullWidth />
+        <NumberInput source="cdlt:maximumCapacity" label="Nombre maximum de participants" fullWidth />
+        <BooleanInput source="cdlt:full" helperText="Cochez cette case si l'événement est complet" fullWidth />
+        <TextInput multiline helperText="Précisez l'accessibilité de l'événement aux personnes en situation de handicap" source="cdlt:accessibility" label="L'événement est-il accessible aux personnes en situation de handicap ?" fullWidth />
 
         {/*<NumberInput source="cdlt:price" fullWidth />*/}
-        <TextInput multiline source="cdlt:economicalConditions" fullWidth />
-        <TextInput multiline helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" source="cdlt:financialSupport" fullWidth />
-        <TextInput multiline source="cdlt:evaluationMethod" fullWidth />
+        <TextInput multiline source="cdlt:economicalConditions" label="Y a t'il des conditions financières pour y participer ?" fullWidth />
+        <TextInput multiline helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" source="cdlt:financialSupport" label="Est-ce que l'événement est éligible à des dispositifs de financement ?" fullWidth />
+        <TextInput multiline source="cdlt:evaluationMethod" label="Dans le cas de s formations financées ou qualifiantes, quelles sont les modalités d'évaluation ?" fullWidth />
 
         <PairLocationInput source="pair:hasLocation" fullWidth />
         <RegistrationInput 
@@ -252,25 +252,25 @@ const EventForm = ({ mode, ...rest }) => {
         />
         <ReminderBeforeRecording />
       </FormTab>
-      <FormTab label="Relations" className={classes.formTab}>
-        <ActorsInput source="cdlt:organizedBy" />
-        <PersonsInput source="cdlt:hasMentor" />
-        <PlaceInput source="pair:hostedIn" fullWidth />
-        <CoursesInput source="pair:partOf" fullWidth />
+      <FormTab label="En lien avec l'événement" className={classes.formTab}>
+        <ActorsInput source="cdlt:organizedBy" label="Qui sont les organisateur.trice.s (indivuds et/organisations) ?" />
+        <PersonsInput source="cdlt:hasMentor" label="Qui sont les intervenant.e.s ?" />
+        <PlaceInput source="pair:hostedIn" label="Où se déroule l'événement ?" fullWidth />
+        <CoursesInput source="pair:partOf" label="Fait-il partie d'un voyage ?" fullWidth />
         <FormDataConsumer fullWidth>
           {({ formData, ...rest }) => (
             (formData["pair:partOf"]?.length > 0) &&
             <BooleanInput source="cdlt:registrationOutsideCourse" {...rest} />
           )}
         </FormDataConsumer>
-        <PathsInput source="cdlt:eventOn" fullWidth />
-        <SectorsInput source="pair:hasSector" />
-        <TopicsInput source="pair:hasTopic" />
-        <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
-        <TypesInput source="pair:hasType" filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
-        <SkillsInput source="cdlt:requiredSkills" fullWidth />
-        <SkillsInput source="pair:produces" fullWidth />
-        <FinalitiesInput source="pair:hasFinality" />
+        <PathsInput source="cdlt:eventOn" label="Fait-il partie d'un chemin ?" fullWidth />
+        <SectorsInput source="pair:hasSector" label="Dans quel secteur(s) d'activité(s) s'inscrit-il ?" />
+        <TopicsInput source="pair:hasTopic" label="Quels mots-clés choisiriez-vous pour le caractériser ?" />
+        <TypesInput source="cdlt:hasCourseType" label="A quel mode de voyage correspond-il ?" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
+        <TypesInput source="pair:hasType" label="A quel type d'événement correspond-il ? filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
+        <SkillsInput source="cdlt:requiredSkills" label="Quelles sont les compétences requises ?" fullWidth />
+        <SkillsInput source="pair:produces" label="Quelles compétences permet-il d'acquérir ?" fullWidth />
+        <FinalitiesInput source="pair:hasFinality" label="A quoi contribue t'il ?" />
       </FormTab>
       <FormTab label="Contact" className={classes.formTab}>
         <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />
