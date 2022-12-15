@@ -241,10 +241,10 @@ const EventForm = ({ mode, ...rest }) => {
       </FormTab>
       <FormTab label="Volet pédagogique" className={classes.formTab}>
         <PersonsInput source="cdlt:hasMentor" label="Qui sont les intervenant.e.s ?" />
-        <MarkdownInput source="cdlt:mentorDescription" fullWidth label="Vous pouvez les décrire" />
+        <MarkdownInput source="cdlt:mentorDescription" fullWidth label="Vous pouvez les décrire ici" />
         <SkillsInput source="cdlt:requiredSkills" label="Quelles sont les compétences requises ?" fullWidth />
+        <MarkdownInput source="cdlt:prerequisites" label="Vous pouvez les décrire ici" fullWidth />
         <SkillsInput source="pair:produces" label="Quelles compétences permet-il d'acquérir ?" fullWidth />
-        <MarkdownInput source="cdlt:prerequisites" label="Y a t'il des prérequis pour participer à votre événement ? Si oui, lesquels ?" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" label="Quels sont les objectifs pédagogiques ?" fullWidth />
         <MarkdownInput source="cdlt:pedagogicalMeans" label="Utilisez-vous des méthodes ou des matériels pédagogiques en particulier ?" fullWidth />  
         <JobOpportunitiesInput source="cdlt:hasJobOpportunities" "Peut-il ouvrir sur des opportunités d'activité ou d'emploi ? Si oui, lesquelles ?"  fullWidth />        
@@ -252,11 +252,11 @@ const EventForm = ({ mode, ...rest }) => {
         />
       </FormTab>
       <FormTab label="Infos pratiques" className={classes.formTab}>
-        <MarkdownInput source="cdlt:practicalConditions" label="Quelles sont les modalités d'accueil et les infos pratiques ?" helperText="Précisez si besoin équipements, inscription, hébergement, repas..." fullWidth />
+        <BooleanInput source="cdlt:full" helperText="Cochez cette case si l'événement est complet" fullWidth />
+        <MarkdownInput source="cdlt:practicalConditions" label="Quelles sont les modalités d'accueil ?" helperText="Précisez si besoin équipements, modalités d'inscription, hébergement, repas..." fullWidth />
         <NumberInput source="cdlt:minimumCapacity" label="Nombre minimum de participants pour que l'événement ait lieu" fullWidth />
         <NumberInput source="cdlt:maximumCapacity" label="Nombre maximum de participants" fullWidth />
-        <BooleanInput source="cdlt:full" helperText="Cochez cette case si l'événement est complet" fullWidth />
-        <TextInput multiline helperText="Précisez l'accessibilité de l'événement aux personnes en situation de handicap" source="cdlt:accessibility" label="L'événement est-il accessible aux personnes en situation de handicap ?" fullWidth />
+        <TextInput multiline helperText="Précisez l'accessibilité de l'événement aux personnes en situation de handicap" source="cdlt:accessibility" label="Accessibilité" fullWidth />
         {/*<NumberInput source="cdlt:price" fullWidth />*/}
         <TextInput multiline source="cdlt:economicalConditions" label="Y a t'il des conditions financières pour y participer ?" fullWidth />
         <TextInput multiline helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" source="cdlt:financialSupport" label="Est-ce que l'événement est éligible à des dispositifs de financement ?" fullWidth />
