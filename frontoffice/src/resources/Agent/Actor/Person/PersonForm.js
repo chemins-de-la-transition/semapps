@@ -61,10 +61,6 @@ const PersonForm = ({ ...rest }) => {
           <>
             <OrganizationsInput source="pair:affiliatedBy" label="Membre d'une (ou plusieurs) organisations ?" />
             <PersonsInput source="pair:inspiredBy" label="Des personnes t'inspirent ?" />
-            <PlacesInput source="cdlt:proposes" />
-            <ActivitiesInput source="cdlt:mentorOn" />
-            <ActivitiesInput source="cdlt:organizes" />
-            <PathsInput source="cdlt:supports" />
           </>
         }
       </FormTab>
