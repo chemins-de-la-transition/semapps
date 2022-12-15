@@ -45,7 +45,6 @@ const OrganizationForm = ({ mode, ...rest }) => {
       </FormTab>
       <FormTab label="En lien avec l'organisation">
         <OrganizationsInput source="pair:partnerOf" label="Avez-vous des partenaires sur les Chemins de la Transition ?" />
-        <StatusInput source="pair:hasStatus" filter={{ a: 'pair:OrganizationStatus' }} fullWidth helperText="Un statut de partenaire permettra d'afficher l'organisation sur la page d'accueil"/>
         <OrganizationsInput source="pair:inspiredBy" label="Des organisations qui vous inspirent ?" />
         <UsersInput source="pair:affiliates" label="Des membres de votre organisation sur les Chemins de la Transition ?" />
         <PathsInput source="cdlt:supports" label="Vous inscrivez-vous sur un chemin ?" />
