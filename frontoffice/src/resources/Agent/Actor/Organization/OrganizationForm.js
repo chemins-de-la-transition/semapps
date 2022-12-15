@@ -28,6 +28,7 @@ const OrganizationForm = ({ mode, ...rest }) => {
     >
       <FormTab label="A propos de l'organisation">
         <TextInput source="pair:label" label="Quel est le nom de votre organisation ?" fullWidth />
+        <TypesInput source="pair:hasType" label="Quel type d'organisation ?" filter={{ a: 'pair:OrganizationType' }} />
         <TextInput source="pair:comment" label="Pourriez-vous le décrire en une phrase" fullWidth />
         <MarkdownInput source="pair:description" label="N'hésitez pas à le décrire plus longuement ici" fullWidth />
         <ImageInput source="pair:depictedBy" label="Mettez un logo !" accept="image/*">
@@ -35,11 +36,12 @@ const OrganizationForm = ({ mode, ...rest }) => {
         </ImageInput>
         <SectorsInput source="pair:hasSector" label="Dans quels secteurs d'activités s'inscrit-elle ?"  />
         <TopicsInput source="pair:hasTopic" label="Quels mots-clés utiliseriez-vous pour la caractériser ?" />
+        <FinalitiesInput source="pair:hasFinality" label="Quelles sont les finalités que vous poursuivez" />
         <MarkdownInput source="cdlt:intentions" label="Quelles sont vos intentions en venant sur les chemins de la transition" fullWidth />
         <MarkdownInput source="cdlt:practicalConditions" label="Pouvez-vous accueillir des voyageurs ? Si oui, dans quelles conditions ?" fullWidth />
         <NumberInput source="cdlt:maximumCapacity" label="Combien de voyageurs au maximum ?" fullWidth />
         <TypesInput source="cdlt:hasCourseType" label="Selon quels modes de voyages pouvez-vous accueillir des voyageurs ?" filter={{ a: 'cdlt:CourseType' }} />
-        <TypesInput source="pair:hasType" label="Quel type d'organisation ?" filter={{ a: 'pair:OrganizationType' }} />
+        <SkillsInput source="pair:produces" label="Quelles sont les compétences que vous pouvez offrir" fullWidth />
         <PairLocationInput source="pair:hasLocation" fullWidth />
         <ReminderBeforeRecording />
       </FormTab>
@@ -49,8 +51,6 @@ const OrganizationForm = ({ mode, ...rest }) => {
         <UsersInput source="pair:affiliates" label="Des membres de votre organisation sur les Chemins de la Transition ?" />
         <PathsInput source="cdlt:supports" label="Vous inscrivez-vous sur un chemin ?" />
         <PlacesInput source="cdlt:organizationHostedIn" label="Dans quel(s) lieu(x) êtes vous présent ? fullWidth />
-        <SkillsInput source="pair:produces" label="Quelles sont les compétences que vous pouvez offrir" fullWidth />
-        <FinalitiesInput source="pair:hasFinality" label="Quelles sont les finalités que vous poursuivez" />
       </FormTab>
       <FormTab label="Contact">
         <MultiLinesInput source="pair:homePage" fullWidth />
