@@ -4,6 +4,7 @@ import { MarkdownInput } from '@semapps/markdown-components';
 import {
   ActivitiesInput,
   FinalitiesInput,
+  PersonsInput,
   OrganizationsInput,
   PairLocationInput,
   PathsInput,
@@ -62,11 +63,10 @@ export const PersonEdit = (props) => (
       </FormTab>
       <FormTab label="En lien avec lui/elle">
         <OrganizationsInput source="pair:affiliatedBy" label="Il/elle est membre d'une (ou plusieurs) organisations ?" />
-        <OrganizationsInput source="pair:inspiredBy" />
+        <PersonsInput source="pair:inspiredBy" />
         <PlacesInput source="cdlt:proposes" />
         <ActivitiesInput source="cdlt:mentorOn" />
         <ActivitiesInput source="cdlt:organizes" />
-
         <PathsInput source="cdlt:supports" />
       </FormTab>
     </TabbedForm>
