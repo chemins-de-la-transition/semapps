@@ -29,8 +29,10 @@ const PersonForm = ({ ...rest }) => {
         <TextInput source="pair:lastName" label="Ton nom de famille" fullWidth />
         <TextInput source="pair:alternativeLabel" label="Ton nom d'utilisateur" fullWidth />
         <TextInput source="pair:comment" label="Qui es-tu en une phrase ?" fullWidth />
-        <MarkdownInput source="pair:description" label="N\'hésite pas à te décrire plus longuement !" fullWidth />
         <TextInput source="pair:homePage" label="Un lien à propos de toi ?" fullWidth />
+        <MarkdownInput source="pair:description" label="N\'hésite pas à te décrire plus longuement !" fullWidth />
+        <MarkdownInput source="cdlt:intentions" label="Tes intentions en venant sur les chemins de la transition ?" fullWidth />
+
         <ImageInput source="pair:depictedBy" label="Ta photo ! (C'est important pour la convivialité de la plateforme)" accept="image/*">
           <ImageField source="src" />
         </ImageInput>
@@ -39,7 +41,6 @@ const PersonForm = ({ ...rest }) => {
         <SkillsInput source="pair:offers" label="C\'est quoi tes compétences actuelles ?" />
         <SkillsInput source="pair:aims" label="Quelles sont les compétences que tu recherches ?" fullWidth />
         <FinalitiesInput source="pair:hasFinality" label="Quelles sont les finalités que tu poursuis ?" />
-        <MarkdownInput source="cdlt:intentions" label="Tes intentions en venant sur les chemins de la transition ?" fullWidth />
         <TextInput source="pair:phone" label="Ton numéro de téléphone ? fullWidth helperText="Non visible sur la plateforme" />
         {/*
         <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
@@ -54,7 +55,7 @@ const PersonForm = ({ ...rest }) => {
         */}
         <ReminderBeforeRecording />
       </FormTab>
-      <FormTab label="Autres infos">
+      <FormTab label="En lien avec toi">
         { ! isTraveler && 
           <>
             <OrganizationsInput source="pair:affiliatedBy" label="Membre d'une (ou plusieurs) organisations ?" />
