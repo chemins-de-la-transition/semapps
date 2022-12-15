@@ -5,6 +5,7 @@ import { ImageField } from '@semapps/field-components';
 import { 
   ActivitiesInput,
   FinalitiesInput,
+  PersonsInput,
   OrganizationsInput,
   PairLocationInput,
   PathsInput,
@@ -59,7 +60,7 @@ const PersonForm = ({ ...rest }) => {
         { ! isTraveler && 
           <>
             <OrganizationsInput source="pair:affiliatedBy" label="Membre d'une (ou plusieurs) organisations ?" />
-            <OrganizationsInput source="pair:inspiredBy" />
+            <PersonsInput source="pair:inspiredBy" label="Des personnes t'inspirent ?" />
             <PlacesInput source="cdlt:proposes" />
             <ActivitiesInput source="cdlt:mentorOn" />
             <ActivitiesInput source="cdlt:organizes" />
