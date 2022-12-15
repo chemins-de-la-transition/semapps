@@ -34,6 +34,11 @@ const PersonForm = ({ ...rest }) => {
         <ImageInput source="pair:depictedBy" label="Ta photo ! (C'est important pour la convivialité de la plateforme)" accept="image/*">
           <ImageField source="src" />
         </ImageInput>
+        <SectorsInput source="pair:hasSector" label="Tu t'intéresses à des secteurs d'activité en particulier ?" />
+        <TopicsInput source="pair:hasTopic" label="C'est quoi tes centres d'intérêts ?" />
+        <SkillsInput source="pair:offers" label="C\'est quoi tes compétences actuelles ?" />
+        <SkillsInput source="pair:aims" label="Quelles sont les compétences que tu recherches ?" fullWidth />
+        <FinalitiesInput source="pair:hasFinality" label="Quelles sont les finalités que tu poursuis ?" />
         <MarkdownInput source="cdlt:intentions" label="Tes intentions en venant sur les chemins de la transition ?" fullWidth />
         <TextInput source="pair:phone" label="Ton numéro de téléphone ? fullWidth helperText="Non visible sur la plateforme" />
         {/*
@@ -60,11 +65,6 @@ const PersonForm = ({ ...rest }) => {
             <PathsInput source="cdlt:supports" />
           </>
         }
-        <SectorsInput source="pair:hasSector" label="Tu t'intéresses à des secteurs d'activité en particulier ?" />
-        <TopicsInput source="pair:hasTopic" label="C'est quoi tes centres d'intérêts ?" />
-        <SkillsInput source="pair:offers" label="C\'est quoi tes compétences actuelles ?" />
-        <SkillsInput source="pair:aims" label="Quelles sont les compétences que tu recherches ?" fullWidth />
-        <FinalitiesInput source="pair:hasFinality" label="Quelles sont les finalités que tu poursuis ?" />
       </FormTab>
     </TabbedForm>
   );
