@@ -50,7 +50,7 @@ export const OrganizationEdit = (props) => (
         <OrganizationsInput source="pair:inspiredBy" label="Des organisations qui vous inspirent ?" />
         <UsersInput source="pair:affiliates" label="Des membres de votre organisation sur les Chemins de la Transition ?" />
         <PathsInput source="cdlt:supports" label="Vous inscrivez-vous sur un chemin ?" />
-        <PlacesInput source="cdlt:organizationHostedIn" label="Dans quel(s) lieu(x) êtes vous présent ? fullWidth />
+        <PlacesInput source="cdlt:organizationHostedIn" label="Dans quel(s) lieu(x) êtes vous présent ?" fullWidth />
       </FormTab>
       <FormTab label="Contact">
         <MultiLinesInput source="pair:homePage" fullWidth />
