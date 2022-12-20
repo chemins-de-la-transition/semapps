@@ -247,7 +247,7 @@ const EventForm = ({ mode, ...rest }) => {
         <SkillsInput source="pair:produces" label="Quelles compétences permet-il d'acquérir ?" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" label="Quels sont les objectifs pédagogiques ?" fullWidth />
         <MarkdownInput source="cdlt:pedagogicalMeans" label="Utilisez-vous des méthodes ou des matériels pédagogiques en particulier ?" fullWidth />  
-        <JobOpportunitiesInput source="cdlt:hasJobOpportunities" label "Peut-il ouvrir sur des opportunités d'activité ou d'emploi ? Si oui, lesquelles ?"  fullWidth />        
+        <JobOpportunitiesInput source="cdlt:hasJobOpportunities" label="Peut-il ouvrir sur des opportunités d'activité ou d'emploi ? Si oui, lesquelles ?"  fullWidth />        
         <TextInput multiline source="cdlt:evaluationMethod" label="Dans le cas de formations financées ou qualifiantes, quelles sont les modalités d'évaluation ?" fullWidth />
         />
       </FormTab>
