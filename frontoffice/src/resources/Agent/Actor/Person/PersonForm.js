@@ -42,7 +42,7 @@ const PersonForm = ({ ...rest }) => {
         <SkillsInput source="pair:offers" label="C\'est quoi tes compétences actuelles ?" />
         <SkillsInput source="pair:aims" label="Quelles sont les compétences que tu recherches ?" fullWidth />
         <FinalitiesInput source="pair:hasFinality" label="Quelles sont les finalités que tu poursuis ?" />
-        <TextInput source="pair:phone" label="Ton numéro de téléphone ? fullWidth helperText="Non visible sur la plateforme" />
+        <TextInput source="pair:phone" label="Ton numéro de téléphone ?" fullWidth helperText="Non visible sur la plateforme" />
         {/*
         <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
