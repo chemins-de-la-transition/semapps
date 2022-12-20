@@ -70,7 +70,7 @@ const CourseEdit = (props) => (
         <MarkdownInput source="cdlt:prerequisites" label="Vous pouvez décrire les prérequis ici" fullWidth />
         <SkillsInput source="pair:produces" label="Quelles compétences permet-il d'acquérir ?" />
         <MarkdownInput source="cdlt:learningObjectives" label="Quels sont les objectifs pédagogiques ?" fullWidth />
-        <JobOpportunitiesInput source="cdlt:hasJobOpportunities" "Peut-il ouvrir sur des opportunités d'activité ou d'emploi ? Si oui, lesquelles ?" fullWidth />
+        <JobOpportunitiesInput source="cdlt:hasJobOpportunities" label="Peut-il ouvrir sur des opportunités d'activité ou d'emploi ? Si oui, lesquelles ?" fullWidth />
         {/*<DocumentsType source="pair:documentedBy" />*/}
       </FormTab>
       <FormTab label="Infos pratiques">
