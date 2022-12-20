@@ -96,7 +96,7 @@ const EventEdit = (props) => (
         <TopicsInput source="pair:hasTopic" label="Quels mots-clés choisiriez-vous pour le caractériser ?" />
         <FinalitiesInput source="pair:hasFinality" label="A quoi contribue t'il ?" />
         <TypesInput source="cdlt:hasCourseType" label="A quel mode de voyage correspond-il ?" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
-        <TypesInput source="pair:hasType" label="A quel type d'événement correspond-il ? filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
+        <TypesInput source="pair:hasType" label="A quel type d'événement correspond-il ?" filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
         <TargetAudienceInput source="cdlt:hasTargetAudience" label="A qui s'adresse t'il ?" fullWidth />
         <ActorsInput source="cdlt:organizedBy" label="Qui sont les organisateur.trice.s (individus et/ou organisations) ?" />  
         <MarkdownInput source="cdlt:organizerDescription" label="Vous pouvez les décrire" fullWidth />
