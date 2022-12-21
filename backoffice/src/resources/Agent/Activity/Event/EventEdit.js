@@ -27,42 +27,8 @@ import Edit from "../../../../layout/edit/Edit";
 const EventEdit = (props) => (
   <Edit title={<EventTitle />} {...props}>
     <TabbedForm redirect="show">
-      <FormTab label="A propos de l'évènement" className={classes.formTab}>
-
+      <FormTab label="A propos de l'évènement">
         <TextInput source="pair:label" label="Quel est le titre de votre événement ?" fullWidth validate={[required()]} />
-        { ['create', 'duplicate'].includes(mode)  &&
-          <Box className={classes.duplicateContainer}>
-            { eventsListIsLoading &&
-              <LinearProgress className={classes.duplicateLoading}/>
-            }
-            { ! eventsListIsLoading &&
-              <>
-                <FormControlLabel control={
-                    <Switch
-                        color="primary"
-                        checked={duplicateIsOpen}
-                        onClick={ handleClickToggleDuplicate(duplicateIsOpen) }
-                    />
-                  }
-                  label={"Dupliquer un événement existant ?"}
-                />
-                { duplicateIsOpen && ! eventsListIsLoading && eventsListIsOnError &&
-                  <Alert severity="error" className={classes.errorContainer}>Un problème est survenu</Alert>
-                }
-                { duplicateIsOpen && ! eventsListIsLoading && ! eventsListIsOnError &&
-                  <Slide direction="up" in={duplicateIsOpen} mountOnEnter unmountOnExit>
-                    <div>
-                      <SelectInput label="Choisissez un événement" source="eventsList" fullWidth
-                        choices={ eventsList.map(event => ({ id: event.id, name: event["pair:label"] })) }
-                        onChange={ handleChangeSelectEvent(eventsList) }
-                      />
-                    </div>
-                  </Slide>
-                }
-              </>
-            }
-          </Box>
-        }
         <TextInput source="pair:comment" label="Comment le décririez-vous en une phrase ?" fullWidth validate={[required()]} />
         <DateTimeInput
           source="pair:startDate"
@@ -111,7 +77,7 @@ const EventEdit = (props) => (
         <PathsInput source="cdlt:eventOn" label="Fait-il partie d'un chemin ?" fullWidth />
         <ReminderBeforeRecording />
       </FormTab>
-      <FormTab label="Volet pédagogique" className={classes.formTab}>
+      <FormTab label="Volet pédagogique">
         <PersonsInput source="cdlt:hasMentor" label="Qui sont les intervenant.e.s ?" />
         <MarkdownInput source="cdlt:mentorDescription" fullWidth label="Vous pouvez les décrire" />
         <SkillsInput source="cdlt:requiredSkills" label="Quelles sont les compétences requises ?" fullWidth />
@@ -121,9 +87,8 @@ const EventEdit = (props) => (
         <MarkdownInput source="cdlt:pedagogicalMeans" label="Utilisez-vous des méthodes ou des matériels pédagogiques en particulier ?" fullWidth />  
         <JobOpportunitiesInput source="cdlt:hasJobOpportunities" label="Peut-il ouvrir sur des opportunités d'activité ou d'emploi ? Si oui, lesquelles ?"  fullWidth />        
         <TextInput multiline source="cdlt:evaluationMethod" label="Dans le cas de formations financées ou qualifiantes, quelles sont les modalités d'évaluation ?" fullWidth />
-        />
       </FormTab>
-      <FormTab label="Infos pratiques" className={classes.formTab}>
+      <FormTab label="Infos pratiques">
         <MarkdownInput source="cdlt:practicalConditions" label="Quelles sont les modalités d'accueil et les infos pratiques ?" helperText="Précisez si besoin équipements, inscription, hébergement, repas..." fullWidth />
         <NumberInput source="cdlt:minimumCapacity" label="Nombre minimum de participants pour que l'événement ait lieu" fullWidth />
         <NumberInput source="cdlt:maximumCapacity" label="Nombre maximum de participants" fullWidth />
