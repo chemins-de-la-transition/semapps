@@ -3,13 +3,10 @@ import { FormTab, ImageInput, TabbedForm, TextInput, useGetIdentity } from 'reac
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/field-components';
 import { 
-  ActivitiesInput,
   FinalitiesInput,
   PersonsInput,
   OrganizationsInput,
   PairLocationInput,
-  PathsInput,
-  PlacesInput,
   SectorsInput,
   SkillsInput,
   TopicsInput

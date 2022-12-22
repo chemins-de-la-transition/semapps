@@ -4,7 +4,6 @@ import { MarkdownInput } from '@semapps/markdown-components';
 import { MultiLinesInput } from '@semapps/input-components';
 import { ImageField } from '@semapps/field-components';
 import { 
-  ActivitiesInput,
   FinalitiesInput,
   OrganizationsInput,
   PairLocationInput,

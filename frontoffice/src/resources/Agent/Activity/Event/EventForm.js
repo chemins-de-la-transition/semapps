@@ -246,10 +246,9 @@ const EventForm = ({ mode, ...rest }) => {
         <MarkdownInput source="cdlt:prerequisites" label="Vous pouvez les décrire ici" fullWidth />
         <SkillsInput source="pair:produces" label="Quelles compétences permet-il d'acquérir ?" fullWidth />
         <MarkdownInput source="cdlt:learningObjectives" label="Quels sont les objectifs pédagogiques ?" fullWidth />
-        <MarkdownInput source="cdlt:pedagogicalMeans" label="Utilisez-vous des méthodes ou des matériels pédagogiques en particulier ?" fullWidth />  
-        <JobOpportunitiesInput source="cdlt:hasJobOpportunities" label="Peut-il ouvrir sur des opportunités d'activité ou d'emploi ? Si oui, lesquelles ?"  fullWidth />        
+        <MarkdownInput source="cdlt:pedagogicalMeans" label="Utilisez-vous des méthodes ou des matériels pédagogiques en particulier ?" fullWidth />
+        <JobOpportunitiesInput source="cdlt:hasJobOpportunities" label="Peut-il ouvrir sur des opportunités d'activité ou d'emploi ? Si oui, lesquelles ?"  fullWidth />
         <TextInput multiline source="cdlt:evaluationMethod" label="Dans le cas de formations financées ou qualifiantes, quelles sont les modalités d'évaluation ?" fullWidth />
-        />
       </FormTab>
       <FormTab label="Infos pratiques" className={classes.formTab}>
         <BooleanInput source="cdlt:full" helperText="Cochez cette case si l'événement est complet" fullWidth />
@@ -261,15 +260,15 @@ const EventForm = ({ mode, ...rest }) => {
         <TextInput multiline source="cdlt:economicalConditions" label="Y a t'il des conditions financières pour y participer ?" fullWidth />
         <TextInput multiline helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" source="cdlt:financialSupport" label="Est-ce que l'événement est éligible à des dispositifs de financement ?" fullWidth />
         <PairLocationInput source="pair:hasLocation" fullWidth />
-        <PlaceInput source="pair:hostedIn" label="Où se déroule l'événement ?" fullWidth />  
+        <PlaceInput source="pair:hostedIn" label="Où se déroule l'événement ?" fullWidth />
         <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />
         <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
         <TextInput source="pair:aboutPage" fullWidth />
-        <RegistrationInput 
+        <RegistrationInput
           directRegistrationSource="cdlt:directRegistration"
           registrationOptionSource="cdlt:registrationOption"
           jotformLinkSource="cdlt:jotformLink"
-          registrationLinkSource="cdlt:registrationLink"          
+          registrationLinkSource="cdlt:registrationLink"
           fullWidth
         />
       </FormTab>
