@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@material-ui/core";
-import { useRecordContext } from "ra-core";
+import { useShowContext } from "react-admin";
 import axios from "axios";
 import qs from "query-string";
 import { lightFormat } from "date-fns";
 
 const RegistrationButton = (props) => {
-  const record = useRecordContext();
+  const { record = {} } = useShowContext();
   const directRegistration= record[props.directRegistrationSource];
   const registrationOption= record[props.registrationOptionSource];
   const jotformLink= record[props.jotformLinkSource];
@@ -31,7 +31,7 @@ const RegistrationButton = (props) => {
     : null;
   const priceRange = record["cdlt:priceRange"];
   const label = record["pair:label"];
-  const hasType = Array.isArray(record["pair:hasType"]) ? record["pair:hasType"] : [record["pair:hasType"]];
+  const hasType = !record["pair:hasType"] ? null : Array.isArray(record["pair:hasType"]) ? record["pair:hasType"] : [record["pair:hasType"]];
 
   const jotformQuery = jotformLink + qs.stringify(
     Object.assign(
@@ -80,7 +80,7 @@ const RegistrationButton = (props) => {
           : ([0,1].includes(registrationOption) ? "🔗 Lien vers le formulaire JotForm" : registrationOption===2 ? "🔗 Lien vers le système d'inscription" : "")
         }
       </Button>
-    : <></>
+    : null
   );
 };
 
