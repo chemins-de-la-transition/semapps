@@ -16,6 +16,11 @@ export default {
   },
   dataModel: {
     types: ['pair:Organization'],
+    list: {
+      filter: {
+        'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/valide'
+      }
+    },
     fieldsMapping: {
       title: ['pair:label']
     }
@@ -25,6 +30,7 @@ export default {
       name: 'Organisation |||| Organisations',
       fields: {
         'pair:label': 'Nom',
+        'cdlt:hasPublicationStatus':'Statut de publication',
         'pair:comment': 'En quelques mots',
         'pair:description': 'Description',
         'pair:homePage': 'Liens',

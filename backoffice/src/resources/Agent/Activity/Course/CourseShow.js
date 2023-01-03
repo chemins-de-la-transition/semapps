@@ -46,7 +46,7 @@ const CourseShow = (props) => (
           <EmailField source="pair:e-mail" />
           <TextField source="pair:phone" />
           <UrlField source="pair:homePage" />
-          <ReferenceField source="pair:hasStatus" reference="Status" link={false}>
+          <ReferenceField source="cdlt:hasPublicationStatus" reference="PublicationStatus" link={false}>
             <TextField source="pair:label" />
           </ReferenceField>
           <BooleanField addLabel source="cdlt:directRegistration" />

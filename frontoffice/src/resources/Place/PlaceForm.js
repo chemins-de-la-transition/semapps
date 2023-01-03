@@ -39,7 +39,6 @@ const PlaceForm = ({ mode, ...rest }) => {
         <TopicsInput source="pair:hasTopic" label="Quels mots-clés utiliseriez-vous pour caractériser le lieu ?" fullWidth />
         <FinalitiesInput source="pair:hasFinality" label="Quelles sont les finalités poursuivies par le lieu ?" />          
         <TypesInput source="cdlt:hasCourseType" label="Selon quelles modes de voyage acceptez-vous d'accueilir des gens sur votre lieux ?" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />        
-        {/*<StatusInput source="pair:hasStatus" filter={{ a: 'pair:PlaceStatus' }} fullWidth />*/}
         <SkillsInput source="pair:produces" label="Quelles sont les compétences que vous pouvez offrir" fullWidth />
         <MarkdownInput source="cdlt:practicalConditions" label="Quelles sont les modalités d'accueil et les infos pratiques ?"  fullWidth />
         <NumberInput source="cdlt:maximumCapacity" label="Combien de personnes pouvez-vous accueillir" fullWidth />

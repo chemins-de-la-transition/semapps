@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChipField, Datagrid, DateField, ShowButton, SingleFieldList, TextField } from 'react-admin';
 import { Grid } from '@material-ui/core';
-import { ReferenceArrayField, AvatarWithLabelField, SeparatedListField } from '@semapps/field-components';
+import { ReferenceArrayField, AvatarWithLabelField, ReferenceField, SeparatedListField } from '@semapps/field-components';
 import { GridList } from '@semapps/list-components';
 import { MarkdownField } from '@semapps/markdown-components';
 import { MapList } from '@semapps/geo-components';
@@ -20,6 +20,9 @@ const PathShow = (props) => (
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
+          <ReferenceField source="cdlt:hasPublicationStatus" reference="PublicationStatus" link={false}>
+            <TextField source="pair:label" />
+          </ReferenceField>
         </Hero>
         <MainList>
           <MarkdownField source="pair:description" />

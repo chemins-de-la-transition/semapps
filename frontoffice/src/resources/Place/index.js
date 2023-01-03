@@ -26,7 +26,10 @@ export default {
       containers: {
         cdlt: ['/places']
       },
-      explicitEmbedOnFraming: false // Increase performance since explicit embed is not necessary
+      explicitEmbedOnFraming: false, // Increase performance since explicit embed is not necessary
+      filter: {
+        'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/valide'
+      }
     },
     fieldsMapping: {
       title: 'pair:label'
@@ -37,6 +40,7 @@ export default {
       name: 'Lieu |||| Lieux',
       fields: {
         'pair:label': 'Nom',
+        'cdlt:hasPublicationStatus':'Statut de publication',
         'pair:comment': 'En quelques mots',
         'pair:depictedBy': 'Image',
         'cdlt:hasRegion': 'Région',

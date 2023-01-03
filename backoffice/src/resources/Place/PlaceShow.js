@@ -29,17 +29,13 @@ const PlaceShow = (props) => (
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
-          {/*
-          <ReferenceArrayField source="pair:hasStatus" reference="Status">
-            <SeparatedListField link={false}>
-              <TextField source="pair:label" />
-            </SeparatedListField>
-          </ReferenceArrayField>
-          */}
           <EmailField source="pair:e-mail" />
           <TextField source="pair:phone" />
           <TextField source="cdlt:publicPhone" label="Numéro de téléphone public" />
           <UrlField source="pair:homePage" />
+          <ReferenceField source="cdlt:hasPublicationStatus" reference="PublicationStatus" link={false}>
+            <TextField source="pair:label" />
+          </ReferenceField>
           <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
         <RegistrationButton 
