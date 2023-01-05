@@ -16,7 +16,7 @@ export default {
     types: ['cdlt:Path'],
     list: {
       filter: {
-        'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/valide'
+        'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide'
       }
     },
     fieldsMapping: {

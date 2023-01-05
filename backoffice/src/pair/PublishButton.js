@@ -4,8 +4,8 @@ import { Button } from '@material-ui/core';
 import PublishIcon from '@material-ui/icons/Publish';
 import GetAppIcon from '@material-ui/icons/GetApp';
 
-const PUBLISHED_STATUS = process.env.REACT_APP_MIDDLEWARE_URL + 'status/valide';
-const UNPUBLISHED_STATUS = process.env.REACT_APP_MIDDLEWARE_URL + 'status/en-cours';
+const PUBLISHED_STATUS = process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide';
+const UNPUBLISHED_STATUS = process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/en-cours';
 const ANONYMOUS_AGENT = 'foaf:Agent';
 const CLASS_AGENT = 'acl:agentClass';
 const ACL_READ = 'acl:Read';

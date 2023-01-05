@@ -242,25 +242,26 @@ module.exports = {
           webId: 'system'
         });
         let status = resource["pair:hasStatus"];
-        const publicationStatus = resource["cdlt:hasPublicationStatus"];
+        let publicationStatus = resource["cdlt:hasPublicationStatus"];
         
         if ( publicationStatus ) {
           this.logger.info(resourceUri + ' already processed. Skipped...');
           continue;
-        }
-        if ( status ) {
-          if ( status !== urlJoin(CONFIG.HOME_URL, 'status/en-cours') ) {
-            status = urlJoin(CONFIG.HOME_URL, 'status/valide');
+        } else {
+          if ( status && status === urlJoin(CONFIG.HOME_URL, 'status/en-cours') ) {
+            publicationStatus = urlJoin(CONFIG.HOME_URL, 'publication-status/en-cours');
+          } else {
+            publicationStatus = urlJoin(CONFIG.HOME_URL, 'publication-status/valide');
           }
+          this.broker.call('triplestore.update', {
+            query: `
+              PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
+              INSERT DATA { <${resourceUri}> cdlt:hasPublicationStatus <${publicationStatus}> }
+            `,
+            webId: 'system'
+          });
+          this.logger.info('Adding ' + publicationStatus + ' to ' + resourceUri + '...');
         }
-        this.broker.call('triplestore.update', {
-          query: `
-            PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
-            INSERT DATA { <${resourceUri}> cdlt:hasPublicationStatus <${status}> }
-          `,
-          webId: 'system'
-        });
-        this.logger.info('Adding hasPublicationStatus to ' + resourceUri + '...');
       }
     }
   },
