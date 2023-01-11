@@ -89,9 +89,8 @@ const PlaceForm = ({ mode, record, ...rest }) => {
         />
       </FormTab>
       <FormTab label="Visibilité">
-        <BooleanInput source="cdlt:hasPublicationStatus" helperText="Cochez cette case si l'organisation peut être visible sur le site" fullWidth />
+        <BooleanInput source="cdlt:hasPublicationStatus" helperText="Cochez cette case si le lieu peut être visible sur le site" fullWidth />
       </FormTab>
-      
     </TabbedForm>
   );
 };

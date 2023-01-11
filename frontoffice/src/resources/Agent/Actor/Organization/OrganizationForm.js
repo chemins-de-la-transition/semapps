@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput, useGetIdentity, email } from 'react-admin';
+import { FormTab, ImageInput, BooleanInput, NumberInput, TabbedForm, TextInput, useGetIdentity, email } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { MultiLinesInput } from '@semapps/input-components';
 import { ImageField } from '@semapps/field-components';
@@ -16,9 +16,11 @@ import {
   UsersInput,
 } from '../../../../pair';
 import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
+import { publicationStatusInitialize } from '../../../common';
 
-const OrganizationForm = ({ mode, ...rest }) => {
+const OrganizationForm = ({ mode, record, ...rest }) => {
   const { identity } = useGetIdentity();
+  record = publicationStatusInitialize(record);
   return (
     <TabbedForm 
       initialValues={mode === 'create' ? { 'pair:affiliatedBy': identity?.id } : undefined}
@@ -56,6 +58,9 @@ const OrganizationForm = ({ mode, ...rest }) => {
         <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[email()]} />
         <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
         <TextInput source="cdlt:publicPhone" fullWidth helperText="Numéro public affiché sur la page" />
+      </FormTab>
+      <FormTab label="Visibilité">
+        <BooleanInput source="cdlt:hasPublicationStatus" helperText="Cochez cette case si l'organisation peut être visible sur le site" fullWidth />
       </FormTab>
     </TabbedForm>
   );

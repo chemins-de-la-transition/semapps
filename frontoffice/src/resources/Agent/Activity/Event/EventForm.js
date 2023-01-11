@@ -37,6 +37,7 @@ import frLocale from 'date-fns/locale/fr';
 import { Box, FormControlLabel, Slide, LinearProgress, makeStyles, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import { v4 as uuid } from 'uuid';
+import { publicationStatusInitialize } from '../../../common';
 
 const useStyles = makeStyles((theme) => ({
   duplicateContainer: {
@@ -66,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const EventForm = ({ mode, ...rest }) => {
+const EventForm = ({ mode, record, ...rest }) => {
   const { identity } = useGetIdentity();
   const dataProvider = useDataProvider();
   const [eventsList, setEventsList] = useState([]);
@@ -147,6 +148,8 @@ const EventForm = ({ mode, ...rest }) => {
   if (chosenEvent) {
     mode = 'duplicate';
   }
+  
+  record = publicationStatusInitialize(record);
 
   const classes = useStyles();
   return (
@@ -271,6 +274,9 @@ const EventForm = ({ mode, ...rest }) => {
           registrationLinkSource="cdlt:registrationLink"
           fullWidth
         />
+      </FormTab>
+      <FormTab label="Visibilité">
+        <BooleanInput source="cdlt:hasPublicationStatus" helperText="Cochez cette case si l'événement peut être visible sur le site" fullWidth />
       </FormTab>
     </TabbedForm>
   );
