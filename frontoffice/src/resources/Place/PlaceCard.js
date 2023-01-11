@@ -6,6 +6,7 @@ import Chip from '../../commons/Chip';
 import PlaceIcon from '../../svg/PlaceIcon';
 import TopicIcon from '../../svg/TopicIcon';
 import { linkToFilteredList } from "../../utils";
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -21,6 +22,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 12,
     fontWeight: 'bold',
     color: theme.palette.secondary.main
+  },
+  visibilityIcon: {
+    position: 'absolute',
+    top: 16,
+    right: 16
   }
 }));
 
@@ -80,6 +86,9 @@ const PlaceCard = ({ record, variant }) => {
           <strong>Description: </strong>
           <TextField record={record} source="pair:comment" variant="body2" color="secondary" />
         </Typography>
+      )}
+      {record['cdlt:hasPublicationStatus'] !== process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' && (
+        <VisibilityOffIcon className={classes.visibilityIcon} />
       )}
     </>
   );

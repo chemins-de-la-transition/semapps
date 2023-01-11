@@ -27,9 +27,6 @@ export default {
         cdlt: ['/places']
       },
       explicitEmbedOnFraming: false, // Increase performance since explicit embed is not necessary
-      filter: {
-        'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide'
-      }
     },
     fieldsMapping: {
       title: 'pair:label'

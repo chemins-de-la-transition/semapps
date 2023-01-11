@@ -14,6 +14,7 @@ const PlaceList = (props) => {
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
   return (
     <MultiViewsFilterList
+      filter= {{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}
       filters={[
         <SearchFilter />,
         <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label="Région" />,

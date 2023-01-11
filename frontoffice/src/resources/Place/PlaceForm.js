@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabbedForm, FormTab, ImageInput, NumberInput, TextInput, useGetIdentity, email, required } from 'react-admin';
+import { TabbedForm, FormTab, BooleanInput, ImageInput, NumberInput, TextInput, useGetIdentity, email, required } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/field-components';
 import { extractContext, LocationInput } from '@semapps/geo-components';
@@ -16,9 +16,11 @@ import {
   TypesInput,
 } from '../../pair';
 import ReminderBeforeRecording from '../../commons/ReminderBeforeRecording';
+import { publicationStatusInitialize } from '../common';
 
-const PlaceForm = ({ mode, ...rest }) => {
+const PlaceForm = ({ mode, record, ...rest }) => {
   const { identity } = useGetIdentity();
+  record = publicationStatusInitialize(record);
   return (
     <TabbedForm 
       initialValues={mode === 'create' ? { 'cdlt:proposedBy': identity?.id } : undefined}
@@ -86,6 +88,10 @@ const PlaceForm = ({ mode, ...rest }) => {
           fullWidth
         />
       </FormTab>
+      <FormTab label="Visibilité">
+        <BooleanInput source="cdlt:hasPublicationStatus" helperText="Cochez cette case si l'organisation peut être visible sur le site" fullWidth />
+      </FormTab>
+      
     </TabbedForm>
   );
 };

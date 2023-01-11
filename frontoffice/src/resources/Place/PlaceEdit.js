@@ -7,6 +7,7 @@ import HeaderTitle from '../../commons/HeaderTitle';
 import PlaceTitle from './PlaceTitle';
 import PlaceForm from './PlaceForm';
 import Button from '../../commons/Button';
+import { publicationStatusTransform } from '../common';
 
 const actions = [<Button to="/MyPlaces">Mes lieux</Button>];
 
@@ -17,7 +18,7 @@ const PlaceEdit = (props) => {
       <HeaderTitle actions={actions} />
       <FullWidthBox>
         <LargeContainer>
-          <Edit title={<PlaceTitle />} {...props}>
+          <Edit title={<PlaceTitle />} {...props} transform={publicationStatusTransform}>
             <PlaceForm mode="edit" />
           </Edit>
         </LargeContainer>
