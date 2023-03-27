@@ -52,6 +52,10 @@ module.exports = {
         to = resource['pair:e-mail'];
         resourceLabel = resource['pair:label'];
         resourceFrontPath = 'Place';
+      } else if( types.includes('pair:Event') ) {
+        to = resource['pair:e-mail'];
+        resourceLabel = resource['pair:label'];
+        resourceFrontPath = 'Event';
       } else if( types.includes('pair:Organization') ) {
         to = resource['pair:e-mail'];
         resourceLabel = resource['pair:label'];
