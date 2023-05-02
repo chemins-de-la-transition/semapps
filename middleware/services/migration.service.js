@@ -5,7 +5,6 @@ const { MigrationService } = require('@semapps/migration');
 const { getContainerFromUri, defaultToArray, getSlugFromUri} = require("@semapps/ldp");
 const { MIME_TYPES } = require("@semapps/mime-types");
 const CONFIG = require("../config");
-// const { Exception } = require("handlebars/runtime");
 
 module.exports = {
   name: 'migration',
@@ -253,7 +252,7 @@ module.exports = {
           } else {
             publicationStatus = urlJoin(CONFIG.HOME_URL, 'publication-status/valide');
           }
-          this.broker.call('triplestore.update', {
+          await this.broker.call('triplestore.update', {
             query: `
               PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
               INSERT DATA { <${resourceUri}> cdlt:hasPublicationStatus <${publicationStatus}> }

@@ -11,6 +11,20 @@ const PlaceList = (props) => (
   <MultiViewsList
     ListComponent={List}
     views={{
+      list: {
+        label: 'Liste',
+        icon: ListIcon,
+        sort: { field: 'pair:label', order: 'DESC' },
+        perPage: 25,
+        list: (
+          <Datagrid rowClick="show">
+            <TextField source="pair:label" />
+            <ShowButton />
+            <EditButton />
+            <PublishButton />
+          </Datagrid>
+        ),
+      },
       map: {
         label: 'Carte',
         icon: MapIcon,
@@ -24,20 +38,6 @@ const PlaceList = (props) => (
             description={(record) => record?.['pair:comment']}
             scrollWheelZoom
           />
-        ),
-      },
-      list: {
-        label: 'Liste',
-        icon: ListIcon,
-        sort: { field: 'pair:label', order: 'DESC' },
-        perPage: 25,
-        list: (
-          <Datagrid rowClick="show">
-            <TextField source="pair:label" />
-            <ShowButton />
-            <EditButton />
-            <PublishButton />
-          </Datagrid>
         ),
       },
     }}
