@@ -17,11 +17,11 @@ const ApplyButton = ({ mainButton }) => {
       )}
     >
       <Button variant="contained" color="primary" typographyVariant="button1">
-        Je candidate au voyage
+        Contacter les organisateurs·ices
       </Button>
     </Link>
   ) : (
-    <ContactButton label="Je candidate" mainButton={mainButton} />
+    <ContactButton label="Contacter les organisateurs·ices" mainButton={mainButton} />
   );
 };
 
