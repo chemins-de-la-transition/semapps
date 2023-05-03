@@ -24,7 +24,7 @@ import {
   PairLocationInput,
   PathsInput,
   PersonsInput,
-  PlaceInput,
+  PlaceInput, PublicationStatusInput,
   RegistrationInput,
   SectorsInput,
   SkillsInput,
@@ -37,7 +37,6 @@ import frLocale from 'date-fns/locale/fr';
 import { Box, FormControlLabel, Slide, LinearProgress, makeStyles, Switch } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import { v4 as uuid } from 'uuid';
-import { publicationStatusInitialize } from '../../../common';
 
 const useStyles = makeStyles((theme) => ({
   duplicateContainer: {
@@ -139,6 +138,7 @@ const EventForm = ({ mode, record, ...rest }) => {
         'pair:hasType': null,
         'pair:produces': null,
         'cdlt:referenceNumber': generateReference(),
+        'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide'
       }
       case 'duplicate': return getFormatedEvent(chosenEvent)
       default: return undefined
@@ -149,8 +149,6 @@ const EventForm = ({ mode, record, ...rest }) => {
     mode = 'duplicate';
   }
   
-  record = publicationStatusInitialize(record);
-
   const classes = useStyles();
   return (
     <TabbedForm
@@ -159,7 +157,6 @@ const EventForm = ({ mode, record, ...rest }) => {
       redirect="show"
     >
       <FormTab label="A propos de l'évènement" className={classes.formTab}>
-
         <TextInput source="pair:label" label="Quel est le titre de votre événement ?" fullWidth validate={[required()]} />
         { ['create', 'duplicate'].includes(mode)  &&
           <Box className={classes.duplicateContainer}>
@@ -276,7 +273,7 @@ const EventForm = ({ mode, record, ...rest }) => {
         />
       </FormTab>
       <FormTab label="Visibilité">
-        <BooleanInput source="cdlt:hasPublicationStatus" helperText="Cochez cette case si l'événement peut être visible sur le site" fullWidth />
+        <PublicationStatusInput source="cdlt:hasPublicationStatus" />
       </FormTab>
     </TabbedForm>
   );

@@ -9,7 +9,6 @@ import HeaderTitle from '../../../../commons/HeaderTitle';
 import OrganizationTitle from './OrganizationTitle';
 import OrganizationForm from './OrganizationForm';
 import Button from '../../../../commons/Button';
-import { publicationStatusTransform } from '../../../common';
 
 const actions = [<Button to="/MyOrganizations">Mes organisations</Button>];
 
@@ -20,8 +19,8 @@ const OrganizationEdit = (props) => {
       <HeaderTitle actions={actions} />
       <FullWidthBox>
         <LargeContainer>
-          <Edit title={<OrganizationTitle />} {...props} transform={publicationStatusTransform}>
-            <OrganizationForm mode="edit" />
+          <Edit title={<OrganizationTitle />} {...props}>
+            <OrganizationForm />
           </Edit>
         </LargeContainer>
       </FullWidthBox>

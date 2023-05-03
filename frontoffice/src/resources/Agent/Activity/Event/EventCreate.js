@@ -8,7 +8,6 @@ import HeaderTitle from '../../../../commons/HeaderTitle';
 import EventTitle from './EventTitle';
 import EventForm from './EventForm';
 import Button from '../../../../commons/Button';
-import { publicationStatusTransform } from '../../../common';
 
 const actions = [<Button to="/MyEvents">Liste</Button>];
 
@@ -20,7 +19,7 @@ const EventCreate = (props) => {
       <HeaderTitle actions={actions}>Ajouter un événement</HeaderTitle>
       <FullWidthBox>
         <LargeContainer>
-          <Create title={<EventTitle />} actions={null} {...props} transform={publicationStatusTransform}>
+          <Create title={<EventTitle />} actions={null} {...props}>
             <EventForm mode="create" />
           </Create>
         </LargeContainer>
