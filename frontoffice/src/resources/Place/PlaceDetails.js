@@ -16,24 +16,24 @@ import CalendarIcon from '../../svg/CalendarIcon';
 
 const useStyles = resourceDetailsStyle;
 
+const FilteredEvents = () => {
+  const { ids, data, basePath } = useListContext();
+  const futureEvents = ids.filter((id) => data[id] && (data[id]?.['pair:startDate']>(new Date()).toISOString()) )
+  return (
+    futureEvents.slice(0,5).map((id) =>
+      <Link to={linkToRecord(basePath, id, "show")} key={id}>
+        <TextField record={data[id]} source="pair:label" />
+      </Link>
+    )
+  )
+};
+
 const PlaceDetails = (props) => { 
   const { orientation } = props;
   const isVertical = orientation === 'vertical';
   const separator = isVertical ? "" : ", "
   const classes = useStyles({ isVertical });
   const sm = useMediaQuery((theme) => theme.breakpoints.down('sm'), { noSsr: true });
-
-  const FilteredEvents = () => {
-    const { ids, data, basePath } = useListContext();
-    const futureEvents = ids.filter((id) => data[id] && (data[id]?.['pair:startDate']>(new Date()).toISOString()) )
-    return (
-      futureEvents.slice(0,5).map((id) =>
-        <Link to={linkToRecord(basePath, id, "show")} key={id}>
-          <TextField record={data[id]} source="pair:label" />
-        </Link>
-      )
-    )
-  };
 
   return(
     <Box className={classes.mainContainer}>
@@ -79,7 +79,7 @@ const PlaceDetails = (props) => {
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField source="cdlt:hostsOrganization" reference="Organization" icon={<GuardianIcon />}>
+            <ReferenceArrayField source="cdlt:hostsOrganization" reference="Organization" icon={<GuardianIcon />} filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}>
               <SeparatedListField linkType="show">
                 <TextField source="pair:label" />
               </SeparatedListField>
@@ -93,7 +93,7 @@ const PlaceDetails = (props) => {
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField source="pair:hosts" reference="Event" icon={<CalendarIcon />} label="Prochains événements">
+            <ReferenceArrayField source="pair:hosts" reference="Event" icon={<CalendarIcon />} label="Prochains événements" filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}>
               <FilteredEvents />
             </ReferenceArrayField>
           }

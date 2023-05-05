@@ -53,21 +53,21 @@ const PathDetails = (props) => {
           </ReferenceArrayField>
         }
         { (isVertical || sm ) && 
-          <ReferenceArrayField reference="Place" source="cdlt:hasPlace" icon={<PlaceIcon />} label="Dans quels lieux">
+          <ReferenceArrayField reference="Place" source="cdlt:hasPlace" icon={<PlaceIcon />} label="Dans quels lieux" filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}>
             <SeparatedListField link="show" separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
         }
         { (isVertical || sm ) && 
-          <ReferenceArrayField reference="Event" source="cdlt:hasEvent" icon={<CalendarIcon />} label="Quels événements">
+          <ReferenceArrayField reference="Event" source="cdlt:hasEvent" icon={<CalendarIcon />} label="Quels événements" filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}>
             <SeparatedListField link="show" separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
         }
         { (isVertical || sm ) && 
-          <ReferenceArrayField reference="Course" source="cdlt:hasCourse" icon={<CourseIcon />} label="Quels voyages">
+          <ReferenceArrayField reference="Course" source="cdlt:hasCourse" icon={<CourseIcon />} label="Quels voyages" filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}>
             <SeparatedListField link="show" separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
