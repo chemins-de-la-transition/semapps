@@ -104,6 +104,12 @@ export const StatusInput = (props) => (
   </ReferenceInput>
 );
 
+export const PublicationStatusInput = (props) => (
+  <ReferenceInput reference="PublicationStatus" {...props}>
+    <SelectInput optionText="pair:label" />
+  </ReferenceInput>
+);
+
 export const TypesInput = (props) => (
   <ReferenceArrayInput reference="Type" {...props}>
     <AutocompleteArrayInput optionText="pair:label" fullWidth />

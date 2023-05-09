@@ -37,6 +37,7 @@ export default {
       name: 'Lieu |||| Lieux',
       fields: {
         'pair:label': 'Nom',
+        'cdlt:hasPublicationStatus':'Statut de publication',
         'pair:comment': "Phrase d'accroche",
         'pair:depictedBy': 'Image',
         'cdlt:hasRegion': 'Région',

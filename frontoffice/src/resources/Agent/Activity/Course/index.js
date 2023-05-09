@@ -15,7 +15,7 @@ export default {
     types: ['cdlt:Course'],
     list: {
       filter: {
-        'pair:hasStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'status/valide'
+        'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide'
       }
     },
     fieldsMapping: {
@@ -27,6 +27,7 @@ export default {
       name: 'Voyage |||| Voyages',
       fields: {
         'pair:label': 'Titre',
+        'cdlt:hasPublicationStatus':'Statut de publication',
         'pair:depictedBy': 'Image',
         'cdlt:hasCourseType': 'Mode de voyage',
         'pair:hasSector': 'Secteurs d\'activité',
@@ -54,7 +55,6 @@ export default {
         'pair:comment': 'En quelques mots',
         'cdlt:hasMentor': 'A pour intervenant', /*Person*/
         'cdlt:organizedBy': 'Organisé par', /*Actor*/
-        'pair:hasStatus': 'Statut',
         //'pair:documentedBy': 'Documents',
         'cdlt:courseOn': 'Chemins', /*Path*/
         'pair:hasFinality': 'Finalités',

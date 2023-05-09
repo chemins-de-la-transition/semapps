@@ -24,7 +24,7 @@ import {
   PairLocationInput,
   PathsInput,
   PersonsInput,
-  PlaceInput,
+  PlaceInput, PublicationStatusInput,
   RegistrationInput,
   SectorsInput,
   SkillsInput,
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const EventForm = ({ mode, ...rest }) => {
+const EventForm = ({ mode, record, ...rest }) => {
   const { identity } = useGetIdentity();
   const dataProvider = useDataProvider();
   const [eventsList, setEventsList] = useState([]);
@@ -138,6 +138,7 @@ const EventForm = ({ mode, ...rest }) => {
         'pair:hasType': null,
         'pair:produces': null,
         'cdlt:referenceNumber': generateReference(),
+        'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide'
       }
       case 'duplicate': return getFormatedEvent(chosenEvent)
       default: return undefined
@@ -147,7 +148,7 @@ const EventForm = ({ mode, ...rest }) => {
   if (chosenEvent) {
     mode = 'duplicate';
   }
-
+  
   const classes = useStyles();
   return (
     <TabbedForm
@@ -156,7 +157,6 @@ const EventForm = ({ mode, ...rest }) => {
       redirect="show"
     >
       <FormTab label="A propos de l'évènement" className={classes.formTab}>
-
         <TextInput source="pair:label" label="Quel est le titre de votre événement ?" fullWidth validate={[required()]} />
         { ['create', 'duplicate'].includes(mode)  &&
           <Box className={classes.duplicateContainer}>
@@ -271,6 +271,9 @@ const EventForm = ({ mode, ...rest }) => {
           registrationLinkSource="cdlt:registrationLink"
           fullWidth
         />
+      </FormTab>
+      <FormTab label="Visibilité">
+        <PublicationStatusInput source="cdlt:hasPublicationStatus" />
       </FormTab>
     </TabbedForm>
   );

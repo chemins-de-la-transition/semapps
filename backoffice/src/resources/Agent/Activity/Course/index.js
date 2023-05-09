@@ -27,6 +27,7 @@ export default {
       name: 'Voyage |||| Voyages',
       fields: {
         'pair:label': 'Titre',
+        'cdlt:hasPublicationStatus':'Statut de publication',
         'pair:depictedBy': 'Image',
         'cdlt:hasCourseType': 'Mode de voyage',
         'pair:hasSector': 'Secteurs d\'activité',

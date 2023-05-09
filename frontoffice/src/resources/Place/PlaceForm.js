@@ -3,25 +3,24 @@ import { TabbedForm, FormTab, ImageInput, NumberInput, TextInput, useGetIdentity
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/field-components';
 import { extractContext, LocationInput } from '@semapps/geo-components';
-import { 
+import {
   FinalitiesInput,
   OrganizationsInput,
   PathsInput,
-  PersonsInput,
+  PersonsInput, PublicationStatusInput,
   RegistrationInput,
   SectorsInput,
   SkillsInput,
-//  StatusInput,
   TopicsInput,
   TypesInput,
 } from '../../pair';
 import ReminderBeforeRecording from '../../commons/ReminderBeforeRecording';
 
-const PlaceForm = ({ mode, ...rest }) => {
+const PlaceForm = ({ mode, record, ...rest }) => {
   const { identity } = useGetIdentity();
   return (
     <TabbedForm 
-      initialValues={mode === 'create' ? { 'cdlt:proposedBy': identity?.id } : undefined}
+      initialValues={mode === 'create' ? { 'cdlt:proposedBy': identity?.id, 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' } : undefined}
       {...rest}
       redirect="show"
     >
@@ -39,7 +38,6 @@ const PlaceForm = ({ mode, ...rest }) => {
         <TopicsInput source="pair:hasTopic" label="Quels mots-clés utiliseriez-vous pour caractériser le lieu ?" fullWidth />
         <FinalitiesInput source="pair:hasFinality" label="Quelles sont les finalités poursuivies par le lieu ?" />          
         <TypesInput source="cdlt:hasCourseType" label="Selon quelles modes de voyage acceptez-vous d'accueilir des gens sur votre lieux ?" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />        
-        {/*<StatusInput source="pair:hasStatus" filter={{ a: 'pair:PlaceStatus' }} fullWidth />*/}
         <SkillsInput source="pair:produces" label="Quelles sont les compétences que vous pouvez offrir" fullWidth />
         <MarkdownInput source="cdlt:practicalConditions" label="Quelles sont les modalités d'accueil et les infos pratiques ?"  fullWidth />
         <NumberInput source="cdlt:maximumCapacity" label="Combien de personnes pouvez-vous accueillir" fullWidth />
@@ -86,6 +84,9 @@ const PlaceForm = ({ mode, ...rest }) => {
           validate={[required()]}
           fullWidth
         />
+      </FormTab>
+      <FormTab label="Visibilité">
+        <PublicationStatusInput source="cdlt:hasPublicationStatus" />
       </FormTab>
     </TabbedForm>
   );

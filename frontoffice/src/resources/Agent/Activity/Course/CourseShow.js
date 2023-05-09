@@ -111,6 +111,7 @@ const CourseShow = (props) => {
               reference="Event"
               source="pair:hasPart"
               sort={{ field: 'pair:startDate', order: 'ASC' }}
+              filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}
             >
               <TimelineList />
             </ReferenceArrayField>
@@ -140,6 +141,7 @@ const CourseShow = (props) => {
               reference="Event"
               source="pair:hasPart"
               sort={{ field: 'pair:startDate', order: 'ASC' }}
+              filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}
             >
               <MapList
                 latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}

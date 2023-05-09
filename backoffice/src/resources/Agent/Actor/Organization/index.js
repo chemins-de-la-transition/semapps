@@ -27,6 +27,7 @@ export default {
       name: 'Organisation |||| Organisations',
       fields: {
         'pair:label': 'Nom',
+        'cdlt:hasPublicationStatus':'Statut de publication',
         'pair:comment': 'Courte description',
         'pair:description': 'Description',
         'pair:homePage': 'Liens',

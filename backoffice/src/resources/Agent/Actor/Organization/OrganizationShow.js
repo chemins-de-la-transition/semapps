@@ -29,6 +29,9 @@ const OrganizationShow = (props) => (
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
+          <ReferenceField source="cdlt:hasPublicationStatus" reference="PublicationStatus" link={false}>
+            <TextField source="pair:label" />
+          </ReferenceField>
         </Hero>
         <MainList>
           <MarkdownField source="pair:description" />

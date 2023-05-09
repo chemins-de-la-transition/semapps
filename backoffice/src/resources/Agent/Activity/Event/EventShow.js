@@ -43,6 +43,9 @@ const EventShow = (props) => (
           <EmailField source="pair:e-mail" />
           <TextField source="pair:phone" />
           <UrlField source="pair:aboutPage" />
+          <ReferenceField source="cdlt:hasPublicationStatus" reference="PublicationStatus" link={false}>
+            <TextField source="pair:label" />
+          </ReferenceField>
           <BooleanField addLabel source="cdlt:directRegistration" />
         </Hero>
         <RegistrationButton 

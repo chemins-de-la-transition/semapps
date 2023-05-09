@@ -28,6 +28,7 @@ export { default as Topic } from './Concept/Topic';
 export { default as Type } from './Concept/Type';
 export { default as Region } from './Concept/Region';
 export { default as Concept } from './Concept/Concept';
+export { default as PublicationStatus } from './Concept/PublicationStatus';
 export { default as TargetAudience } from './Concept/TargetAudience';
 export { default as JobOpportunities } from './Concept/JobOpportunities';
 

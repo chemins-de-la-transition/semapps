@@ -55,8 +55,9 @@ const CardsList = ({ CardComponent, link, hasLike, external, onlyFutureEvents })
     <Loading loadingPrimary="ra.page.loading" loadingSecondary="ra.message.loading" className={classes.loading} />
   ) : (
     ids.map((id) => {
-      if( !data[id] || data[id]['_error'] ) return null;
-      if ( onlyFutureEvents && data[id]?.['pair:startDate']<(new Date()).toISOString()) return null;
+      if (!data[id] || data[id]['_error']) return null;
+      if (data[id]?.['cdlt:hasPublicationStatus'] !== process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide') return null;
+      if (onlyFutureEvents && data[id]?.['pair:startDate']<(new Date()).toISOString()) return null;
       const image = data[id]?.['pair:depictedBy'];
       const card =
         <Card className={classes.details}>

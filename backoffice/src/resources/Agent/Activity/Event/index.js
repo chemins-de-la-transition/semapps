@@ -27,6 +27,7 @@ export default {
       name: 'Événement |||| Événements',
       fields: {
         'pair:label': 'Titre',
+        'cdlt:hasPublicationStatus':'Statut de publication',
         'pair:comment': "Phrase d'accroche",
         'pair:depictedBy': 'Image',
         'cdlt:hasCourseType': 'Mode de voyage',

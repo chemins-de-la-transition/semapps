@@ -18,7 +18,7 @@ export default {
   dataModel: {
     types: ['pair:Event'],
     list: {
-      explicitEmbedOnFraming: false // Increase performance since explicit embed is not necessary
+      explicitEmbedOnFraming: false, // Increase performance since explicit embed is not necessary
     },
     fieldsMapping: {
       title: 'pair:label'
@@ -29,6 +29,7 @@ export default {
       name: 'Événement |||| Événements',
       fields: {
         'pair:label': 'Titre',
+        'cdlt:hasPublicationStatus':'Statut de publication',
         'pair:comment': "En quelques mots",
         'pair:depictedBy': 'Image',
         'cdlt:hasCourseType': 'Mode de voyage',

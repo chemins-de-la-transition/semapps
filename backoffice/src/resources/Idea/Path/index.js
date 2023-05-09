@@ -27,6 +27,7 @@ export default {
       name: 'Chemin |||| Chemins',
       fields: {
         'pair:label': 'Titre',
+        'cdlt:hasPublicationStatus':'Statut de publication',
         'pair:comment': 'En quelques mots',
         'pair:description': 'Description',
         'pair:depictedBy': 'Image',

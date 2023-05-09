@@ -1,5 +1,5 @@
 const urlJoin = require("url-join");
-const { namedNode, triple, literal } = require('@rdfjs/data-model');
+const { namedNode, quad, triple, literal } = require('@rdfjs/data-model');
 const { v4: uuid } = require('uuid');
 const { MigrationService } = require('@semapps/migration');
 const { getContainerFromUri, defaultToArray, getSlugFromUri} = require("@semapps/ldp");
@@ -226,6 +226,43 @@ module.exports = {
       await this.actions.replacePredicate({ oldPredicate: 'http://virtual-assembly.org/ontologies/pair#hasTopic', newPredicate: 'http://virtual-assembly.org/ontologies/pair#hasSector' }, { parentCtx: ctx });
       await this.actions.replacePredicate({ oldPredicate: 'http://virtual-assembly.org/ontologies/pair#topicOf', newPredicate: 'http://virtual-assembly.org/ontologies/pair#sectorOf' }, { parentCtx: ctx });
     },
+    async publicationStatusInitialization(ctx) {
+
+      const courses = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'courses') });
+      const events = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'events') });
+      const paths = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'paths') });
+      const places = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'places') });
+      const organizations = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'organizations') });
+
+      for( let resourceUri of courses.concat(events).concat(paths).concat(places).concat(organizations) ) {
+        const resource = await this.broker.call('ldp.resource.get', {
+          resourceUri: resourceUri,
+          accept: MIME_TYPES.JSON,
+          webId: 'system'
+        });
+        let status = resource["pair:hasStatus"];
+        let publicationStatus = resource["cdlt:hasPublicationStatus"];
+        
+        if ( publicationStatus ) {
+          this.logger.info(resourceUri + ' already processed. Skipped...');
+          continue;
+        } else {
+          if ( status && status === urlJoin(CONFIG.HOME_URL, 'status/en-cours') ) {
+            publicationStatus = urlJoin(CONFIG.HOME_URL, 'publication-status/en-cours');
+          } else {
+            publicationStatus = urlJoin(CONFIG.HOME_URL, 'publication-status/valide');
+          }
+          await this.broker.call('triplestore.update', {
+            query: `
+              PREFIX cdlt: <http://virtual-assembly.org/ontologies/cdlt#>
+              INSERT DATA { <${resourceUri}> cdlt:hasPublicationStatus <${publicationStatus}> }
+            `,
+            webId: 'system'
+          });
+          this.logger.info('Adding ' + publicationStatus + ' to ' + resourceUri + '...');
+        }
+      }
+    }
   },
   methods: {
     async setWritePermissionsToCreatorForASingleResource(ctx, resourceSlug) {

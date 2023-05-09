@@ -4,6 +4,7 @@ import Chip from '../../../../commons/Chip';
 import { SeparatedListField, ReferenceArrayField } from '@semapps/field-components';
 import { makeStyles } from '@material-ui/core';
 import TopicIcon from '../../../../svg/TopicIcon';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -19,6 +20,11 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '14px',
     },
   },
+  visibilityIcon: {
+    position: 'absolute',
+    top: 16,
+    right: 16
+  }
 }));
 
 const OrganizationCard = ({ record, variant }) => {
@@ -49,6 +55,9 @@ const OrganizationCard = ({ record, variant }) => {
           <strong>Description: </strong>
           <TextField record={record} source="pair:comment" />
         </div>
+      )}
+      {record['cdlt:hasPublicationStatus'] !== process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' && (
+        <VisibilityOffIcon className={classes.visibilityIcon} />
       )}
     </>
   );

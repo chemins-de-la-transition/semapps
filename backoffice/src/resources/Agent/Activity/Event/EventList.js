@@ -5,6 +5,7 @@ import { CalendarList } from '@semapps/date-components';
 import frLocale from '@fullcalendar/core/locales/fr';
 import ListIcon from '@material-ui/icons/List';
 import EventIcon from '@material-ui/icons/Event';
+import PublishButton from '../../../../pair/PublishButton';
 import List from "../../../../layout/list/List";
 
 const EventList = props => (
@@ -23,6 +24,7 @@ const EventList = props => (
             <DateField source="pair:startDate" />
             <ShowButton />
             <EditButton />
+            <PublishButton />
           </Datagrid>
         )
       },

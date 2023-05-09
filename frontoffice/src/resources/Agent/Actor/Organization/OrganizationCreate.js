@@ -1,5 +1,5 @@
 import React from 'react';
-import { Create } from 'react-admin';
+import { Create, useGetIdentity } from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import organizationTheme from '../../../../config/themes/organizationTheme';
 import { useCheckPermissions } from '@semapps/auth-provider';
@@ -15,6 +15,7 @@ const actions = [<Button to="/MyOrganizations">Mes organisations</Button>];
 
 const OrganizationCreate = (props) => {
   const createContainerUri = useCreateContainer(props.resource);
+  const { identity } = useGetIdentity();
   useCheckPermissions(createContainerUri, 'create');
   return (
     <ThemeProvider theme={organizationTheme}>
@@ -22,7 +23,7 @@ const OrganizationCreate = (props) => {
       <FullWidthBox>
         <LargeContainer>
           <Create title={<OrganizationTitle />} actions={null} {...props}>
-            <OrganizationForm mode="create" />
+            <OrganizationForm initialValues={{ 'pair:affiliatedBy': identity?.id, 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }} />
           </Create>
         </LargeContainer>
       </FullWidthBox>

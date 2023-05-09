@@ -108,16 +108,24 @@ const TabbedListView = ({ tabs, filters, futureActivities }) => {
         }
       }
       if (dataByTabs['Place']) {
-        dataByTabs['Place']=Object.fromEntries(Object.entries(dataByTabs['Place']).filter(key => key[1]['id'].includes(process.env.REACT_APP_MIDDLEWARE_URL)))
+        dataByTabs['Place']=Object.fromEntries(Object.entries(dataByTabs['Place'])
+          .filter(key => key[1]['id'].includes(process.env.REACT_APP_MIDDLEWARE_URL))
+          .filter(key => key[1]['cdlt:hasPublicationStatus']===process.env.REACT_APP_MIDDLEWARE_URL+"publication-status/valide"))
       }
       if (dataByTabs['Course']) {
-        dataByTabs['Course']=Object.fromEntries(Object.entries(dataByTabs['Course']).filter(key => key[1]['pair:hasStatus']===process.env.REACT_APP_MIDDLEWARE_URL+"status/valide"))
+        dataByTabs['Course']=Object.fromEntries(Object.entries(dataByTabs['Course']).filter(key => key[1]['cdlt:hasPublicationStatus']===process.env.REACT_APP_MIDDLEWARE_URL+"publication-status/valide"))
         if (futureActivities) {
           dataByTabs['Course']=Object.fromEntries(Object.entries(dataByTabs['Course']).filter(key => key[1]['pair:startDate']>(new Date()).toISOString()))
         }
       }
       if (futureActivities && dataByTabs['Event']) {
-        dataByTabs['Event']=Object.fromEntries(Object.entries(dataByTabs['Event']).filter(key => key[1]['pair:startDate']>(new Date()).toISOString()))
+        dataByTabs['Event']=Object.fromEntries(Object.entries(dataByTabs['Event'])
+          .filter(key => key[1]['pair:startDate']>(new Date()).toISOString())
+          .filter(key => key[1]['cdlt:hasPublicationStatus']===process.env.REACT_APP_MIDDLEWARE_URL+"publication-status/valide"))
+      }
+      if (dataByTabs['Organization']) {
+        dataByTabs['Organization']=Object.fromEntries(Object.entries(dataByTabs['Organization'])
+          .filter(key => key[1]['cdlt:hasPublicationStatus']===process.env.REACT_APP_MIDDLEWARE_URL+"publication-status/valide"))
       }
       return dataByTabs;
     }

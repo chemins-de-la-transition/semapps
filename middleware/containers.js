@@ -76,6 +76,12 @@ module.exports = [
     newResourcesPermissions: writePermissionToCreator,
   },
   {
+    path: '/publication-status',
+    acceptedTypes: ['cdlt:PublicationStatus'],
+    permissions: anonReadPermission,
+    newResourcesPermissions: writePermissionToCreator,
+  },
+  {
     path: '/target-audiences',
     acceptedTypes: ['cdlt:TargetAudience'],
     permissions: anonReadPermission,

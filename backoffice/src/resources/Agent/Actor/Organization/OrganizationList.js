@@ -1,12 +1,11 @@
 import React from 'react';
+import { Datagrid, TextField, ShowButton, EditButton } from 'react-admin';
 import { MultiViewsList } from '@semapps/list-components';
 import { MapList } from '@semapps/geo-components';
-import { Avatar } from '@material-ui/core';
 import MapIcon from '@material-ui/icons/Map';
 import ListIcon from '@material-ui/icons/List';
-import HomeIcon from '@material-ui/icons/Home';
+import PublishButton from '../../../../pair/PublishButton';
 import List from "../../../../layout/list/List";
-import SimpleList from "../../../../common/list/SimpleList";
 
 const OrganizationList = (props) => (
   <MultiViewsList
@@ -18,16 +17,12 @@ const OrganizationList = (props) => (
         sort: { field: 'pair:label', order: 'DESC' },
         perPage: 25,
         list: (
-          <SimpleList
-            primaryText={(record) => record['pair:label']}
-            secondaryText={(record) => record['pair:comment']}
-            leftIcon={(record) => (
-              <Avatar src={record['pair:depictedBy']} alt={record['pair:label']}>
-                <HomeIcon />
-              </Avatar>
-            )}
-            linkType="show"
-          />
+          <Datagrid rowClick="show">
+            <TextField source="pair:label" />
+            <ShowButton />
+            <EditButton />
+            <PublishButton />
+          </Datagrid>
         ),
       },
       map: {
