@@ -1,0 +1,98 @@
+version: '3.5'
+services:
+  traefik:
+    image: traefik:v2.3
+    container_name: traefik
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+      - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.email=myemail@mydomain.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - ./letsencrypt:/letsencrypt
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  fuseki:
+    image: semapps/jena-fuseki-webacl
+    container_name: fuseki
+    volumes:
+      - ./data/fuseki:/fuseki
+      - ./data/staging:/staging
+    ports:
+      - "3030:3030"
+    expose:
+      - "3030"
+    environment:
+      ADMIN_PASSWORD: "mypassword"
+      JAVA_MX_RAM: "4G"
+
+  redis:
+    image: redis
+    container_name: redis
+    expose:
+      - "6379"
+    volumes:
+      - ./data/redis:/data
+    command: ["redis-server", "--appendonly", "yes"]
+
+  middleware:
+    build:
+      context: ./middleware
+      args:
+        - SELECTED_BRANCH=master
+    container_name: middleware
+    depends_on:
+      - fuseki
+      - redis
+    volumes:
+      - ./middleware/logs:/app/logs
+      - ./middleware/jwt:/app/jwt
+      - ./middleware/actors:/app/actors
+      - ./middleware/uploads:/app/uploads
+      - ./data/fuseki/backups:/app/fuseki-backups # Needed to backup fuseki datasets
+    expose:
+      - "3000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.middleware.rule=Host(`data.mydomain.com`)"
+      - "traefik.http.routers.middleware.entrypoints=websecure"
+      - "traefik.http.routers.middleware.tls.certresolver=myresolver"
+
+  frontoffice:
+    build:
+      context: ./frontoffice
+      args:
+        - SELECTED_BRANCH=master
+    container_name: frontoffice
+    expose:
+      - "4000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontoffice.rule=Host(`mydomain.com`)"
+      - "traefik.http.routers.frontoffice.entrypoints=websecure"
+      - "traefik.http.routers.frontoffice.tls.certresolver=myresolver"
+
+  backoffice:
+    build:
+      context: ./backoffice
+      args:
+        - SELECTED_BRANCH=master
+    container_name: backoffice
+    expose:
+      - "4000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backoffice.rule=Host(`admin.mydomain.com`)"
+      - "traefik.http.routers.backoffice.entrypoints=websecure"
+      - "traefik.http.routers.backoffice.tls.certresolver=myresolver"
