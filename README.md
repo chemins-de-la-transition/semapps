@@ -32,6 +32,29 @@ Import the types (actor, administrator, contributor, traveler):
 call importer.types.freshImport
 ```
 
+Create your first admin user
+
+```bash
+call users.createAdmin --email john@domain.com --username john 
+```
+
+### Launch the back office
+
+Create a `.env.local` file in the /backoffice directory with the same Mapbox access token:
+
+```dotenv
+REACT_APP_MAPBOX_ACCESS_TOKEN=
+```
+
+You can now launch the back office:
+
+```bash
+cd backoffice
+yarn install
+yarn start
+```
+
+
 ### Launch the front office
 
 Ask a develop for the Mapbox access token and add it in a new `.env.local` file in the /frontoffice directory:
@@ -46,22 +69,6 @@ You can now launch the front office:
 
 ```bash
 cd frontoffice
-yarn install
-yarn start
-```
-
-### Launch the front office
-
-Create a `.env.local` file in the /backoffice directory with the same Mapbox access token:
-
-```dotenv
-REACT_APP_MAPBOX_ACCESS_TOKEN=
-```
-
-You can now launch the back office:
-
-```bash
-cd backoffice
 yarn install
 yarn start
 ```

@@ -1,7 +1,8 @@
-const { ControlledContainerMixin } = require('@semapps/ldp');
 const urlJoin = require("url-join");
-const CONFIG = require("../config");
+const { ControlledContainerMixin } = require('@semapps/ldp');
 const { ACTOR_TYPES } = require("@semapps/activitypub");
+const { MIME_TYPES } = require("@semapps/mime-types");
+const CONFIG = require("../config");
 
 module.exports = {
   name: 'users',
@@ -11,7 +12,7 @@ module.exports = {
     acceptedTypes: ['pair:Person', 'foaf:Person', ACTOR_TYPES.PERSON],
     preferredView: '/Person',
     dereference: ['sec:publicKey', 'pair:hasLocation/pair:hasPostalAddress'],
-    excludeFromMirror: false
+    excludeFromMirror: true
   },
   actions: {
     // When a user is created, create an account with the email
@@ -36,6 +37,37 @@ module.exports = {
       }
 
       return actorUri;
+    },
+    async createAdmin(ctx) {
+      const { email, username } = ctx.params;
+      const containerUri = await this.actions.getContainerUri({}, { parentCtx: ctx });;
+
+      const adminUri = await this.actions.post({
+        containerUri,
+        slug: username,
+        resource: {
+          'pair:label': 'Admin',
+          'pair:firstName': 'Admin',
+          'foaf:name': 'Admin',
+          'foaf:email': email,
+          'pair:hasType': urlJoin(CONFIG.HOME_URL, 'types', 'admin')
+        },
+        contentType: MIME_TYPES.JSON
+      }, { parentCtx: ctx, meta: { webId: 'system' } });
+
+      await ctx.call('webacl.resource.addRights', {
+        resourceUri: adminUri,
+        additionalRights: {
+          user: {
+            uri: adminUri,
+            write: true,
+            control: true
+          }
+        },
+        webId: 'system',
+      });
+
+      this.logger.info(`Created an admin with URI ${adminUri}`);
     }
   },
   hooks: {
