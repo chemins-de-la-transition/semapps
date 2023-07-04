@@ -28,9 +28,11 @@ module.exports = {
       const accountData = await ctx.call('auth.account.create', { email: resource['foaf:email'] });
       delete resource['foaf:email'];
 
-      const actorUri = await ctx.call('ldp.container.post', { containerUri, slug, resource, contentType });
-
+      // Attach webId to account before calling ldp.container.post, otherwise signature generation will fail
+      const actorUri = await ctx.call('ldp.resource.generateId', { containerUri, slug });
       await ctx.call('auth.account.attachWebId', { accountUri: accountData['@id'], webId: actorUri });
+
+      await ctx.call('ldp.container.post', { containerUri, slug, resource, contentType });
 
       if( resource['pair:hasType'] === urlJoin(CONFIG.HOME_URL, 'types', 'actor')) {
         await ctx.call('mailer.inviteActor', { actorUri, accountData });
@@ -40,7 +42,7 @@ module.exports = {
     },
     async createAdmin(ctx) {
       const { email, username } = ctx.params;
-      const containerUri = await this.actions.getContainerUri({}, { parentCtx: ctx });;
+      const containerUri = await this.actions.getContainerUri({}, { parentCtx: ctx });
 
       const adminUri = await this.actions.post({
         containerUri,
