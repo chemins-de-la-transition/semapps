@@ -30,6 +30,8 @@ Import the types (actor, administrator, contributor, traveler):
 
 ```bash
 call importer.types.freshImport
+call importer.status.freshImport
+call importer.publication-status.freshImport
 ```
 
 Create your first admin user

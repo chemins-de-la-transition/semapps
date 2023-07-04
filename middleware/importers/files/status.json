@@ -1,0 +1,37 @@
+[
+  {
+    "type": "pair:AgentStatus",
+    "slug": "connected",
+    "pair:label": "Connecté"
+  },
+  {
+    "type": "cdlt:CourseStatus",
+    "slug": "termine",
+    "pair:label": "Terminé"
+  },
+  {
+    "type": "pair:AgentStatus",
+    "slug": "invited",
+    "pair:label": "Invité"
+  },
+  {
+    "type": "pair:EventStatus",
+    "slug": "coming",
+    "pair:label": "A venir"
+  },
+  {
+    "type": "pair:Status",
+    "slug": "featured",
+    "pair:label": "Mis en avant"
+  },
+  {
+    "type": "cdlt:CourseStatus",
+    "slug": "complet",
+    "pair:label": "Complets"
+  },
+  {
+    "type": "pair:EventStatus",
+    "slug": "finished",
+    "pair:label": "Terminé"
+  }
+]

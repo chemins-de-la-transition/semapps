@@ -1,0 +1,12 @@
+[
+  {
+    "type": "cdlt:PublicationStatus",
+    "slug": "valide",
+    "pair:label": "Validé"
+  },
+  {
+    "type": "cdlt:PublicationStatus",
+    "slug": "en-cours",
+    "pair:label": "En cours"
+  }
+]
