@@ -46,6 +46,7 @@ module.exports = {
         containerUri,
         slug: username,
         resource: {
+          type: ACTOR_TYPES.PERSON,
           'pair:label': 'Admin',
           'pair:firstName': 'Admin',
           'foaf:name': 'Admin',
