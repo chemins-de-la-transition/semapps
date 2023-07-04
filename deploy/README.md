@@ -33,7 +33,7 @@ In `middleware/app/.env.local`:
 
 - Replace `data.mydomain.com` with the domain name where your data will be stored
 - Replace `mypassword` by the previously set Fuseki password
-- Add the configuration required to connect to your OIDC server
+- Add the configuration required to connect to your OIDC server. You may need to add your domain name in the valid redirection URLs.
 
 In `frontoffice/app/.env.local`:
 
