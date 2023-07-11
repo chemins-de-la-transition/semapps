@@ -23,13 +23,17 @@ import Edit from "../../../../layout/edit/Edit";
 export const PersonEdit = (props) => (
   <Edit
     title={<PersonTitle />}
-    transform={(data) => ({
-      ...data,
-      'pair:label': 
-        data['pair:alternativeLabel']
-          ? data['pair:alternativeLabel']
-          : `${data['pair:firstName']} ${data['pair:lastName']?.toUpperCase()}`
-    })}
+    transform={(data) => {
+      const label = data['pair:alternativeLabel']
+        ? data['pair:alternativeLabel']
+        : `${data['pair:firstName']} ${data['pair:lastName']?.toUpperCase()}`;
+      return ({
+        ...data,
+        name: label,
+        'foaf:name': label,
+        'pair:label': label
+      });
+    }}
     {...props}
   >
     <TabbedForm redirect="show">
