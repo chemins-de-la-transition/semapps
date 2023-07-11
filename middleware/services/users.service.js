@@ -70,6 +70,8 @@ module.exports = {
         webId: 'system',
       });
 
+      await ctx.call('webacl.resource.refreshContainersRights');
+
       this.logger.info(`Created an admin with URI ${adminUri}`);
     }
   },

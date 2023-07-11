@@ -67,3 +67,9 @@ docker compose exec middleware pm2 attach 0
 ```
 docker compose exec middleware pm2 logs
 ```
+
+### Flush redis cache
+
+```
+docker compose exec redis redis-cli FLUSHALL
+```
