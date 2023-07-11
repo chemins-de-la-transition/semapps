@@ -19,6 +19,6 @@ module.exports = {
     reply: {
       attachToObjectTypes: ['cdlt:Path', 'cdlt:Course', 'pair:Event', 'pair:Place', 'pair:Organization']
     },
-    relay: true
+    relay: false
   }
 };
