@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
+import { ChipField, ShowBase, SingleFieldList, TextField, UrlField, useTranslate } from 'react-admin';
 import { ThemeProvider, Checkbox, FormGroup, FormControlLabel, Box, Typography } from '@material-ui/core';
 import resourceTheme from '../../config/themes/resourceTheme';
 import resourceShowStyle from '../../commons/style/resourceShowStyle';
@@ -29,6 +29,7 @@ const useStyles = resourceShowStyle;
 const PlaceShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
   const [onlyFutureEvents, setOnlyFutureEvents] = useState(true);
+  const translate = useTranslate();
   const mentions = useMentions('Person');
   const classes = useStyles();
   return (
@@ -38,12 +39,12 @@ const PlaceShow = (props) => {
           <HeaderShow
             type="pair:hasType"
             details={<PlaceDetails onlyFutureEvents={onlyFutureEvents} />}
-            actionButton={<ContactButton label="Contacter le lieu" />}
+            actionButton={<ContactButton label={translate('app.action.contactPlace')} />}
           />
           <BodyList
             aside={
               <StickyCard
-                actionButton={<ContactButton label="Contacter le lieu" />}
+                actionButton={<ContactButton label={translate('app.action.contactPlace')} />}
               >
                 <PlaceDetails orientation="vertical" />
               </StickyCard>
