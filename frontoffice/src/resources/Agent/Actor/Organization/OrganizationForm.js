@@ -23,7 +23,7 @@ const OrganizationForm = ({ record, ...rest }) => {
   return (
     <TabbedForm {...rest} redirect="show">
       <FormTab label={translate('app.tab.organization.about')}>
-        <TextInput source="pair:label" label="Quel est le nom de votre organisation ?" fullWidth />
+        <TextInput source="pair:label" label={translate('app.tab.organization.name')} fullWidth />
         <TypesInput source="pair:hasType" label="Quel type d'organisation ?" filter={{ a: 'pair:OrganizationType' }} />
         <TextInput source="pair:comment" label="Pourriez-vous le décrire en une phrase" fullWidth />
         <MarkdownInput source="pair:description" label="N'hésitez pas à le décrire plus longuement ici" fullWidth />

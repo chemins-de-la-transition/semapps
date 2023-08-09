@@ -30,7 +30,8 @@ module.exports = {
         about: "A propos de l'organisation",
         links: "En lien avec l'organisation",
         contact: "Contact",
-        visibility: "Visibilité"
+        visibility: "Visibilité",
+        name: "Quel est le nom de votre organisation ?"
       }
     },
     notification: {},
