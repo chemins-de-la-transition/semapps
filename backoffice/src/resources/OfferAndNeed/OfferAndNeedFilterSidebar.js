@@ -23,8 +23,8 @@ const OfferAndNeedSidebar = () => {
   return (
     <Card className={classes.card}>
       <CardContent className={classes.cardContent}>
-        <ReferenceFilter reference="Status" source="pair:hasStatus" filter={{ a: 'cdlt:CourseStatus' }} />
-        <ReferenceFilter reference="Type" source="pair:hasType" filter={{ a: 'cdlt:CourseType' }} />
+        <ReferenceFilter reference="PublicationStatus" source="cdlt:hasPublicationStatus" />
+        <ReferenceFilter reference="Type" source="pair:hasType" filter={{ a: 'cdlt:OfferAndNeedType' }} />
         <ReferenceFilter reference="Sector" source="pair:hasSector" />
       </CardContent>
     </Card>

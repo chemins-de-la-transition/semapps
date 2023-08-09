@@ -6,6 +6,7 @@ import {
   PersonsInput,
   SectorsInput,
   TopicsInput,
+  TypeInput
 } from '../../pair';
 import { PairLocationInput } from '../../pair';
 // import ReminderBeforeRecording from '../../commons/ReminderBeforeRecording';
@@ -19,6 +20,7 @@ const OfferAndNeedForm = ({ mode, record, ...rest }) => {
       redirect="show"
     >
       <FormTab label="Principal">
+        <TypeInput source="pair:hasType" filter={{ a: 'cdlt:OfferAndNeedType' }} validate={[required()]} />
         <TextInput source="pair:label" fullWidth validate={[required()]} />
         <TextInput source="pair:comment" fullWidth validate={[required()]} />
         <ImageInput source="pair:depictedBy" accept="image/*" multiple>
@@ -26,8 +28,6 @@ const OfferAndNeedForm = ({ mode, record, ...rest }) => {
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />
         <SectorsInput source="pair:hasSector" fullWidth />
-        <TopicsInput source="pair:hasTopic" fullWidth />
-        {/*<TypesInput source="pair:hasType" filter={{ a: 'pair:OfferAndNeedType' }} validate={[required()]} />*/}
         <PersonsInput source="cdlt:proposedBy" fullWidth />
         <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />  
         <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />

@@ -42,7 +42,7 @@ export default {
         'pair:description': "Description",
         'pair:depictedBy': 'Image',
         'cdlt:proposedBy': 'Proposé par',
-//        'pair:hasType': 'Type d\'annonce',
+        'pair:hasType': 'Type d\'annonce',
         'pair:hasStatus': 'Statut',
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé',

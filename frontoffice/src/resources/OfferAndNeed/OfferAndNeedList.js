@@ -17,14 +17,13 @@ const OfferAndNeedList = (props) => {
       filter= {{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}
       filters={[
         <SearchFilter />,
-        <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label="Région" />,
-        <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label="Secteur d'activité" />,
         <Filter
           reference="Type"
           source="pair:hasType"
-          /*inverseSource="cdlt:typeOf"*/ filter={{ a: 'pair:OfferAndNeedType' }}
-          label="Type de lieu"
+          /*inverseSource="pair:typeOf"*/ filter={{ a: 'cdlt:OfferAndNeedType' }}
+          label="Type d'annonce"
         />,
+        <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label="Secteur d'activité" />,
       ]}
       views={{
         map: {
