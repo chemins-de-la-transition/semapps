@@ -69,6 +69,10 @@ module.exports = {
         to = "bonjour@lescheminsdelatransition.org";
         resourceLabel = resource['pair:label'];
         resourceFrontPath = 'Path';
+      } else if( types.includes('cdlt:OfferAndNeed') ) {
+        to = resource['pair:e-mail'];
+        resourceLabel = resource['pair:label'];
+        resourceFrontPath = 'OfferAndNeed';
       } else {
         throw new Error('Impossible de contacter ce type de ressource: ' + resource.type);
       }
