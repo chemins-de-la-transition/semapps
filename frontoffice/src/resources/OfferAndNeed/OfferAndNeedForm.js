@@ -5,7 +5,6 @@ import { ImageField } from '@semapps/field-components';
 import {
   PersonsInput,
   SectorsInput,
-  TopicsInput,
   TypeInput
 } from '../../pair';
 import { PairLocationInput } from '../../pair';
