@@ -64,6 +64,7 @@ module.exports = [
     path: '/offers-and-needs',
     acceptedTypes: ['cdlt:OfferAndNeed'],
     preferredView: '/OfferAndNeed',
+    dereference: ['pair:hasLocation/pair:hasPostalAddress'],
     permissions: {
       ...anonReadPermission,
       ...writePermissionToActors,

@@ -21,12 +21,6 @@ const OfferAndNeedList = (props) => {
         <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label="Secteur d'activité" />,
         <Filter
           reference="Type"
-          source="cdlt:hasCourseType"
-          /*inverseSource="cdlt:typeOfCourse"*/ filter={{ a: 'cdlt:CourseType' }}
-          label="Mode de voyage"
-        />,
-        <Filter
-          reference="Type"
           source="pair:hasType"
           /*inverseSource="cdlt:typeOf"*/ filter={{ a: 'pair:OfferAndNeedType' }}
           label="Type de lieu"
@@ -39,10 +33,9 @@ const OfferAndNeedList = (props) => {
           perPage: 1000,
           list: (
             <MapList
-              height={xs ? 'calc(100vh - 146px)' : 'calc(100vh - 196px)'}
-              latitude={(record) => record?.['pair:hasPostalAddress']?.['pair:latitude']}
-              longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
-              scrollWheelZoom
+              height={xs ? 'calc(100vh - 143px)' : 'calc(100vh - 193px)'}
+              latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
+              longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
               popupContent={({ record, basePath }) => (
                 <>
                   <OfferAndNeedCard record={record} basePath={basePath} variant="compact" />

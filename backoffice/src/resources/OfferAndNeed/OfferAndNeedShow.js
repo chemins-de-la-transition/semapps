@@ -33,10 +33,13 @@ const OfferAndNeedShow = (props) => (
         <MainList>
           <MarkdownField source="pair:description" addLabel />
           <MapField
-            source="pair:hasPostalAddress"
-            address={(record) => record?.['pair:hasPostalAddress']?.['pair:label']}
-            latitude={(record) => record?.['pair:hasPostalAddress']?.['pair:latitude']}
-            longitude={(record) => record?.['pair:hasPostalAddress']?.['pair:longitude']}
+            source="pair:hasLocation"
+            address={(record) => record?.['pair:hasLocation']?.['pair:label']}
+            latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
+            longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
+            typographyProps={{ variant: 'body2', color: 'secondary' }}
+            scrollWheelZoom={false}
+            dragging={false}
           />
         </MainList>
       </Grid>
