@@ -24,6 +24,7 @@
     "@semapps/migration": "0.4.6",
     "@semapps/mime-types": "0.4.6",
     "@semapps/mirror": "0.4.6",
+    "@semapps/notifications": "0.4.6",
     "@semapps/signature": "0.4.6",
     "@semapps/sparql-endpoint": "0.4.6",
     "@semapps/triplestore": "0.4.6",
