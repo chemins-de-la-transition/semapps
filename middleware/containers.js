@@ -61,6 +61,17 @@ module.exports = [
     newResourcesPermissions: writePermissionToCreator
   },
   {
+    path: '/offers-and-needs',
+    acceptedTypes: ['cdlt:OfferAndNeed'],
+    preferredView: '/OfferAndNeed',
+    permissions: {
+      ...anonReadPermission,
+      ...writePermissionToActors,
+      ...defaultWritePermissionToContributors
+    },
+    newResourcesPermissions: writePermissionToCreator
+  },
+  {
     path: '/topics',
     acceptedTypes: ['pair:Topic'],
     permissions: {
