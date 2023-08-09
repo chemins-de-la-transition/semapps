@@ -14,15 +14,15 @@ const OfferAndNeedShow = (props) => (
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
         <Hero image="pair:depictedBy">
-          <TextField source="pair:comment" />
-          <ReferenceField source="cdlt:hasRegion" reference="Region" link={false}>
-            <TextField source="pair:label" />
-          </ReferenceField>
           <ReferenceArrayField source="pair:hasType" reference="Type">
             <SeparatedListField link={false}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
+          <TextField source="pair:comment" />
+          <ReferenceField source="cdlt:hasRegion" reference="Region" link={false}>
+            <TextField source="pair:label" />
+          </ReferenceField>
           <EmailField source="pair:e-mail" />
           <TextField source="pair:phone" />
           <UrlField source="pair:homePage" />
@@ -51,11 +51,6 @@ const OfferAndNeedShow = (props) => (
             </GridList>
           </ReferenceArrayField>
           <ReferenceArrayField reference="Sector" source="pair:hasSector">
-            <SingleFieldList linkType={false}>
-              <ChipField source="pair:label" />
-            </SingleFieldList>
-          </ReferenceArrayField>
-          <ReferenceArrayField reference="Topic" source="pair:hasTopic">
             <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
             </SingleFieldList>

@@ -15,7 +15,7 @@ import Edit from "../../layout/edit/Edit";
 export const OfferAndNeedEdit = (props) => (
   <Edit title={<OfferAndNeedTitle />} {...props}>
     <TabbedForm redirect="show">
-      <FormTab label="Principal">
+    <FormTab label="Description">
         <TypeInput source="pair:hasType" filter={{ a: 'cdlt:OfferAndNeedType' }} validate={[required()]} />
         <TextInput source="pair:label" fullWidth validate={[required()]} />
         <TextInput source="pair:comment" fullWidth validate={[required()]} />
@@ -25,10 +25,12 @@ export const OfferAndNeedEdit = (props) => (
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />
         <SectorsInput source="pair:hasSector" fullWidth />
         <PersonsInput source="cdlt:proposedBy" fullWidth />
+        <PairLocationInput source="pair:hasLocation" fullWidth />
+      </FormTab>
+      <FormTab label="Contact">
         <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />  
         <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
-        <TextInput source="pair:homePage" fullWidth helperText="Lien affiché sur la page"/>    
-        <PairLocationInput source="pair:hasLocation" fullWidth />    
+        <TextInput source="pair:homePage" fullWidth helperText="Lien affiché sur la page"/>        
       </FormTab>
     </TabbedForm>
   </Edit>

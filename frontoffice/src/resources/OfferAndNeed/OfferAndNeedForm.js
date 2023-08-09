@@ -19,7 +19,7 @@ const OfferAndNeedForm = ({ mode, record, ...rest }) => {
       {...rest}
       redirect="show"
     >
-      <FormTab label="Principal">
+      <FormTab label="Description">
         <TypeInput source="pair:hasType" filter={{ a: 'cdlt:OfferAndNeedType' }} validate={[required()]} />
         <TextInput source="pair:label" fullWidth validate={[required()]} />
         <TextInput source="pair:comment" fullWidth validate={[required()]} />
@@ -29,10 +29,12 @@ const OfferAndNeedForm = ({ mode, record, ...rest }) => {
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />
         <SectorsInput source="pair:hasSector" fullWidth />
         <PersonsInput source="cdlt:proposedBy" fullWidth />
+        <PairLocationInput source="pair:hasLocation" fullWidth />
+      </FormTab>
+      <FormTab label="Contact">
         <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />  
         <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
         <TextInput source="pair:homePage" fullWidth helperText="Lien affiché sur la page"/>        
-        <PairLocationInput source="pair:hasLocation" fullWidth />
       </FormTab>
     </TabbedForm>
   );
