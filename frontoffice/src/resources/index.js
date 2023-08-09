@@ -26,6 +26,9 @@ export { default as PublicationStatus } from './Concept/PublicationStatus';
 export { default as TargetAudience } from './Concept/TargetAudience';
 export { default as JobOpportunities } from './Concept/JobOpportunities';
 
+// Announces
+export { default as OfferAndNeed } from './OfferAndNeed';
+
 // Other
 export { default as Page } from './Page';
 export { default as Place } from './Place';
