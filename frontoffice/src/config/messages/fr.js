@@ -5,11 +5,26 @@ module.exports = {
     action: {
       search: "Rechercher",
       contactPlace: "Contacter le lieu",
+      organization: {
+        contact: "Contacter l'organisation",
+        create: "Ajouter une organisation",
+        myOrganizations: "Mes organisations"
+    },
     },
     page: {
       home: "Bienvenue sur les Chemins de la Transition !",
     },
-    card: {},
+    card: {
+      organization: {
+        description: "Description",
+        hasRegion: "Région",
+        organizationHostedIn: "Où sommes nous",
+        affiliates: "A pour contributeur.trice",
+        supports: "Contributeur de",
+        organizes:"Prochaines activités",
+        partnerOf: "Partenaire de"
+      }
+    },
     block: {
       search: "Partez sur les chemins de la transition"
     },
@@ -35,27 +50,33 @@ module.exports = {
         inspiredBy: "Des organisations qui vous inspirent ?",
         affiliates: "Des membres de votre organisation sur les Chemins de la Transition ?",
         supports: "Vous inscrivez-vous sur un chemin ?",
-        organizationHostedIn: "Dans quel(s) lieu(x) êtes vous présent ?",
+        organizationHostedIn: "Dans quel(s) lieu(x) êtes vous présent ?",        
+        capacityUnit: "personnes",
       },
     },
     helper: {
       choose: "Choisir...",
       organization: {
-        emailHelperText: "Non visible sur la plateforme",
-        phoneHelperText: "Non visible sur la plateforme",
-        publicPhoneHelperText: "Numéro public affiché sur la page",
+        email: "Non visible sur la plateforme",
+        phone: "Non visible sur la plateforme",
+        publicPhone: "Numéro public affiché sur la page",
       },
     },
     message: {
-      welcome:
-        "Une université ouverte, nomade et pair à pair autour des enjeux et des métiers de la transition. Pour apprendre en voyageant et partager des connaissances, expériences et savoir-faire liés aux enjeux écologiques, énergétiques, culturels, sociaux, économiques, technologiques et sociétaux de notre temps.",
-    },
+      welcome: "Une université ouverte, nomade et pair à pair autour des enjeux et des métiers de la transition. Pour apprendre en voyageant et partager des connaissances, expériences et savoir-faire liés aux enjeux écologiques, énergétiques, culturels, sociaux, économiques, technologiques et sociétaux de notre temps.",
+        organization: {
+          involvedActivities: "Cette organisation est impliquée dans plusieurs activités. Cliquez dessus pour en savoir plus et/ou participer.",
+        },},
     tab: {
       organization: {
         about: "A propos de l'organisation",
         links: "En lien avec l'organisation",
         contact: "Contact",
-        visibility: "Visibilité"
+        visibility: "Visibilité",
+        skills: "Compétences",
+        accommodation: "Modalités d'accueil",
+        activities: "Activités",
+        inspiredBy: "Inspiré par",
       }
     },
     notification: {},

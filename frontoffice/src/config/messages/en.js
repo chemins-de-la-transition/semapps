@@ -4,14 +4,29 @@ module.exports = {
   app: {
     action: {
       search: "Search",
-      contactPlace: "Contact the place"
+      contactPlace: "Contact the place",
+      organization: {
+        contact: "Contact the organization",
+        create: "Add an organization",
+        myOrganizations: "My organizations"
+      },
     },
     page: {
       home: "Welcome to the Transition Pathways !",
     },
-    card: {},
+    card: {
+      organization: {
+        description: "Description",
+        hasRegion: "Region",
+        organizationHostedIn: "Where are we",
+        affiliates: "Has contributor",
+        supports: "Contributor of",
+        organizes: "Upcoming activities",
+        partnerOf: "Partner of"
+      }
+    },
     block: {
-      search: "Follow the pathways of transition"
+      search: "Follow the pathways of transition",
     },
     input: {
       courseType: "Course type",
@@ -36,6 +51,7 @@ module.exports = {
         affiliates: "Members of your organization on the Paths of Transition?",
         supports: "Are you joining a path?",
         organizationHostedIn: "In which place(s) are you present?",
+        capacityUnit: "persons",
       },
     },
     helper: {
@@ -49,14 +65,21 @@ module.exports = {
     message: {
       welcome:
         "An open, nomadic, peer-to-peer university focusing on transition issues and professions. Learn while you travel, and share knowledge, experience and know-how on the ecological, energy, cultural, social, economic, technological and societal issues of our time.",
+      organization: {
+        involvedActivities: "This organization is involved in multiple activities. Click to learn more and/or participate.",
+      },
     },
     tab: {
       organization: {
         about: "About the organization",
-        links: "Organisation links",
+        links: "Organization links",
         contact: "Contact",
-        visibility: "Visibility"
-      }
+        visibility: "Visibility",
+        skills: "Skills",
+        accommodation: "Accommodation",
+        activities: "Activities",
+        inspiredBy: "Inspired by",
+      },
     },
     notification: {},
     validation: {},
