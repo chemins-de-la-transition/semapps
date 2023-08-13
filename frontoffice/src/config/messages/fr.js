@@ -17,9 +17,34 @@ module.exports = {
       courseType: "Mode de voyage",
       sector: "Secteur d'activité",
       region: "Région",
+      organization: {
+        label: "Nom de l'organisation",
+        hasType: "Quel type d'organisation ?",
+        comment: "Pourriez-vous le décrire en une phrase",
+        description: "N'hésitez pas à le décrire plus longuement ici",
+        depictedBy: "Mettez un logo !",
+        hasSector: "Dans quels secteurs d'activités s'inscrit-elle ?",
+        hasTopic: "Quels mots-clés utiliseriez-vous pour la caractériser ?",
+        hasFinality: "Quelles sont les finalités que vous poursuivez",
+        intentions: "Quelles sont vos intentions en venant sur les chemins de la transition",
+        practicalConditions: "Pouvez-vous accueillir des voyageurs ? Si oui, dans quelles conditions ?",
+        maximumCapacity: "Combien de voyageurs au maximum ?",
+        hasCourseType: "Selon quels modes de voyages pouvez-vous accueillir des voyageurs ?",
+        produces: "Quelles sont les compétences que vous pouvez offrir",
+        partnerOf: "Avez-vous des partenaires sur les Chemins de la Transition ?",
+        inspiredBy: "Des organisations qui vous inspirent ?",
+        affiliates: "Des membres de votre organisation sur les Chemins de la Transition ?",
+        supports: "Vous inscrivez-vous sur un chemin ?",
+        organizationHostedIn: "Dans quel(s) lieu(x) êtes vous présent ?",
+      },
     },
     helper: {
-      choose: "Choisir..."
+      choose: "Choisir...",
+      organization: {
+        emailHelperText: "Non visible sur la plateforme",
+        phoneHelperText: "Non visible sur la plateforme",
+        publicPhoneHelperText: "Numéro public affiché sur la page",
+      },
     },
     message: {
       welcome:
@@ -30,8 +55,7 @@ module.exports = {
         about: "A propos de l'organisation",
         links: "En lien avec l'organisation",
         contact: "Contact",
-        visibility: "Visibilité",
-        name: "Quel est le nom de votre organisation ?"
+        visibility: "Visibilité"
       }
     },
     notification: {},
