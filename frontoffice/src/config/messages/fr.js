@@ -10,6 +10,9 @@ module.exports = {
         create: "Ajouter une organisation",
         myOrganizations: "Mes organisations"
     },
+    person: {
+      contact: "Contact",
+  },
     },
     page: {
       home: "Bienvenue sur les Chemins de la Transition !",
@@ -23,6 +26,15 @@ module.exports = {
         supports: "Contributeur de",
         organizes:"Prochaines activités",
         partnerOf: "Partenaire de"
+      },
+      person: {
+        hasRegion: "Région",
+        hasType: "Type de personne",
+        proposes: "Hôte de",
+        affiliatedBy: "Membre de",
+        supports: "Contributeur de",
+        organizes: "Organisateur de",
+        mentorOn: "Intervenant sur",
       }
     },
     block: {
@@ -53,10 +65,34 @@ module.exports = {
         organizationHostedIn: "Dans quel(s) lieu(x) êtes vous présent ?",        
         capacityUnit: "personnes",
       },
+      person: {
+        firstName: "Ton prénom",
+        lastName: "Ton nom de famille",
+        alternativeLabel: "Ton nom d'utilisateur",
+        comment: "Qui es-tu en une phrase ?",
+        homePage: "Un lien à propos de toi ?",
+        description: "N'hésite pas à te décrire plus longuement !",
+        intentions: "Tes intentions en venant sur les chemins de la transition ?",
+        depictedBy: "Ta photo ! (C'est important pour la convivialité de la plateforme)",
+        hasSector: "Tu t'intéresses à des secteurs d'activité en particulier ?",
+        hasTopic: "C'est quoi tes centres d'intérêts ?",
+        offers: "C'est quoi tes compétences actuelles ?",
+        aims: "Quelles sont les compétences que tu recherches ?",
+        hasFinality: "Quelles sont les finalités que tu poursuis ?",
+        phone: "Ton numéro de téléphone ?",
+        hasLocation: "Tu vis où ?",
+        affiliatedBy: "Membre d'une (ou plusieurs) organisations ?",
+        inspiredBy: "Des personnes t'inspirent ?"
+      }
     },
     helper: {
       choose: "Choisir...",
       organization: {
+        email: "Non visible sur la plateforme",
+        phone: "Non visible sur la plateforme",
+        publicPhone: "Numéro public affiché sur la page",
+      },
+      person: {
         email: "Non visible sur la plateforme",
         phone: "Non visible sur la plateforme",
         publicPhone: "Numéro public affiché sur la page",
@@ -76,6 +112,15 @@ module.exports = {
         skills: "Compétences",
         accommodation: "Modalités d'accueil",
         activities: "Activités",
+        inspiredBy: "Inspiré par",
+      },
+      person: {
+        about: "A propos de la personne",
+        affiliates: "En lien avec toi",
+        links: "En lien avec l'organisation",
+        contact: "Contact",
+        visibility: "Visibilité",
+        skills: "Compétences",
         inspiredBy: "Inspiré par",
       }
     },
