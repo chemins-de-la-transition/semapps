@@ -5,6 +5,7 @@ import { ImageField } from '@semapps/field-components';
 import OfferAndNeedTitle from './OfferAndNeedTitle';
 import { PairLocationInput } from '../../pair';
 import { 
+  OrganizationsInput,
   PersonsInput, 
   SectorsInput,
   TopicsInput,
@@ -16,7 +17,7 @@ import Edit from "../../layout/edit/Edit";
 export const OfferAndNeedEdit = (props) => (
   <Edit title={<OfferAndNeedTitle />} {...props}>
     <TabbedForm redirect="show">
-    <FormTab label="Description">
+      <FormTab label="Description">
         <TypeInput source="pair:hasType" filter={{ a: 'cdlt:OfferAndNeedType' }} validate={[required()]} />
         <TextInput source="pair:label" fullWidth validate={[required()]} />
         <TextInput source="pair:comment" fullWidth validate={[required()]} />
@@ -27,6 +28,7 @@ export const OfferAndNeedEdit = (props) => (
         <SectorsInput source="pair:hasSector" fullWidth />
         <TopicsInput source="pair:hasTopic" fullWidth />
         <PersonsInput source="cdlt:proposedBy" fullWidth />
+        <OrganizationsInput source="cdlt:sponsoredBy" fullWidth />
         <PairLocationInput source="pair:hasLocation" fullWidth />
       </FormTab>
       <FormTab label="Contact">

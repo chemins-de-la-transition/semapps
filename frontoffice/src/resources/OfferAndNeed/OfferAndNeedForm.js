@@ -3,6 +3,7 @@ import { TabbedForm, FormTab, ImageInput, TextInput, useGetIdentity, email, requ
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/field-components';
 import {
+  OrganizationsInput,
   PersonsInput,
   PublicationStatusInput,
   SectorsInput,
@@ -31,6 +32,7 @@ const OfferAndNeedForm = ({ mode, record, ...rest }) => {
         <SectorsInput source="pair:hasSector" fullWidth />
         <TopicsInput source="pair:hasTopic" fullWidth />
         <PersonsInput source="cdlt:proposedBy" fullWidth />
+        <OrganizationsInput source="cdlt:sponsoredBy" fullWidth />
         <PairLocationInput source="pair:hasLocation" fullWidth />
       </FormTab>
       <FormTab label="Contact">

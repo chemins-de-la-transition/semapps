@@ -48,6 +48,13 @@ const OfferAndNeedDetails = (props) => {
               </SeparatedListField>
             </ReferenceArrayField>
           }
+          { (isVertical || sm ) && 
+          <ReferenceArrayField reference="Organization" source="cdlt:sponsoredBy" icon={<ActorIcon />}>
+            <SeparatedListField link="show" separator={separator}>
+              <TextField source="pair:label" />
+            </SeparatedListField>
+          </ReferenceArrayField>
+        }
         </IconsList>
     </Box>
   );

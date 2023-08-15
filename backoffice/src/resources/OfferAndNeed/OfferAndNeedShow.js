@@ -50,6 +50,11 @@ const OfferAndNeedShow = (props) => (
               <AvatarWithLabelField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>
           </ReferenceArrayField>
+          <ReferenceArrayField reference="Organization" source="cdlt:sponsoredBy">
+            <GridList xs={6} linkType="show">
+              <AvatarWithLabelField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
+            </GridList>
+          </ReferenceArrayField>
           <ReferenceArrayField reference="Sector" source="pair:hasSector">
             <SingleFieldList linkType={false}>
               <ChipField source="pair:label" />
