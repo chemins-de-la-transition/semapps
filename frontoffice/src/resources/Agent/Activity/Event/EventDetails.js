@@ -1,6 +1,6 @@
 import React from 'react';
 import resourceDetailsStyle from '../../../../commons/style/resourceDetailsStyle';
-import { TextField } from 'react-admin';
+import { TextField, useTranslate } from 'react-admin';
 import { Box, useMediaQuery } from '@material-ui/core';
 import { SeparatedListField, ReferenceField, ReferenceArrayField } from '@semapps/field-components';
 import { linkToFilteredList } from "../../../../utils";
@@ -24,6 +24,7 @@ const EventDetails = (props) => {
   const separator = isVertical ? "" : ", "
   const classes = useStyles({ isVertical });
   const sm = useMediaQuery((theme) => theme.breakpoints.down('sm'), { noSsr: true });
+  const translate = useTranslate();
   return(
     <Box className={classes.mainContainer}>
       <IconsList {...props}>
@@ -43,11 +44,11 @@ const EventDetails = (props) => {
           </ReferenceArrayField>
         }
         { ( !isVertical || sm ) && 
-          <RangeDateField source="pair:startDate" toSource="pair:endDate" icon={<CalendarIcon />} label="Dates" />
+          <RangeDateField source="pair:startDate" toSource="pair:endDate" icon={<CalendarIcon />}  />
         }
         { ( !isVertical || sm ) && 
           <DurationField
-            label="Durée"
+            label={translate('app.card.event.duration')}
             source="pair:startDate"
             startDate="pair:startDate"
             endDate="pair:endDate"
@@ -60,34 +61,34 @@ const EventDetails = (props) => {
           </ReferenceField>
         }
         { ( !isVertical || sm ) && 
-          <ReferenceField label="Région" reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList('LEP', 'cdlt:hasRegion')}>
+          <ReferenceField reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList('LEP', 'cdlt:hasRegion')}>
             <TextField source="pair:label" />
           </ReferenceField>
         }
         {/*Aside*/}
         { (isVertical || sm ) && 
-          <ReferenceArrayField reference="Actor" source="cdlt:organizedBy" icon={<ActorIcon />} label="Qui organise">
+          <ReferenceArrayField reference="Actor" source="cdlt:organizedBy" icon={<ActorIcon />}>
             <SeparatedListField link="show" separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
         }
         { (isVertical || sm ) && 
-          <ReferenceArrayField reference="Person" source="cdlt:hasMentor" icon={<ActorIcon />} label="Qui intervient">
+          <ReferenceArrayField reference="Person" source="cdlt:hasMentor" icon={<ActorIcon />}>
             <SeparatedListField link="show" separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
         }
         { (isVertical || sm ) && 
-          <ReferenceArrayField reference="Path" source="cdlt:eventOn" icon={<PathIcon />} label="Sur quel chemin">
+          <ReferenceArrayField reference="Path" source="cdlt:eventOn" icon={<PathIcon />}>
             <SeparatedListField link="show" separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
         }
         { (isVertical || sm ) && 
-          <ReferenceArrayField reference="Path" source="pair:partOf" icon={<CourseIcon />} label="Sur quel voyage">
+          <ReferenceArrayField reference="Path" source="pair:partOf" icon={<CourseIcon />}>
             <SeparatedListField link="show" separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
@@ -101,7 +102,7 @@ const EventDetails = (props) => {
           </ReferenceArrayField>
         }
         { (isVertical || sm ) &&         
-          <CapacityField label="Capacité d'accueil" source="cdlt:minimumCapacity" min="cdlt:minimumCapacity" max="cdlt:maximumCapacity" color="grey40" />
+          <CapacityField source="cdlt:maximumCapacity" min="cdlt:minimumCapacity" max="cdlt:maximumCapacity" color="grey40" />
         }
         { (isVertical || sm ) && 
            <TextField variant="body2" source="cdlt:referenceNumber"/>

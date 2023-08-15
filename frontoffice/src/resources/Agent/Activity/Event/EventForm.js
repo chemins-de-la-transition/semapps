@@ -11,7 +11,8 @@ import {
   required,
   useDataProvider,
   useGetIdentity,
-  FormDataConsumer
+  FormDataConsumer,
+  useTranslate
 } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/field-components';
@@ -150,14 +151,16 @@ const EventForm = ({ mode, record, ...rest }) => {
   }
   
   const classes = useStyles();
+  const translate = useTranslate();
+
   return (
     <TabbedForm
       initialValues={ initalValues(mode) }
       {...rest}
       redirect="show"
     >
-      <FormTab label="A propos de l'évènement" className={classes.formTab}>
-        <TextInput source="pair:label" label="Quel est le titre de votre événement ?" fullWidth validate={[required()]} />
+      <FormTab label={translate('app.tab.event.about')} className={classes.formTab}>
+        <TextInput source="pair:label" fullWidth validate={[required()]} />
         { ['create', 'duplicate'].includes(mode)  &&
           <Box className={classes.duplicateContainer}>
             { eventsListIsLoading &&
@@ -172,7 +175,7 @@ const EventForm = ({ mode, record, ...rest }) => {
                         onClick={ handleClickToggleDuplicate(duplicateIsOpen) }
                     />
                   }
-                  label={"Dupliquer un événement existant ?"}
+                  label={translate('app.input.event.duplicate')}
                 />
                 { duplicateIsOpen && ! eventsListIsLoading && eventsListIsOnError &&
                   <Alert severity="error" className={classes.errorContainer}>Un problème est survenu</Alert>
@@ -180,7 +183,7 @@ const EventForm = ({ mode, record, ...rest }) => {
                 { duplicateIsOpen && ! eventsListIsLoading && ! eventsListIsOnError &&
                   <Slide direction="up" in={duplicateIsOpen} mountOnEnter unmountOnExit>
                     <div>
-                      <SelectInput label="Choisissez un événement" source="eventsList" fullWidth
+                      <SelectInput source="eventsList" fullWidth
                         choices={ eventsList.map(event => ({ id: event.id, name: event["pair:label"] })) }
                         onChange={ handleChangeSelectEvent(eventsList) }
                       />
@@ -191,7 +194,7 @@ const EventForm = ({ mode, record, ...rest }) => {
             }
           </Box>
         }
-        <TextInput source="pair:comment" label="Comment le décririez-vous en une phrase ?" fullWidth validate={[required()]} />
+        <TextInput source="pair:comment"  fullWidth validate={[required()]} />
         <DateTimeInput
           source="pair:startDate"
           options={{
@@ -216,53 +219,53 @@ const EventForm = ({ mode, record, ...rest }) => {
           fullWidth
           validate={[required()]}
         />
-        <ImageInput source="pair:depictedBy" label="Vous pouvez mettre 2 images (en format paysage) !" accept="image/*" multiple>
+        <ImageInput source="pair:depictedBy"  accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
-        <MarkdownInput source="pair:description" label="Décrivez votre événement" fullWidth validate={[required()]} />
-        <SectorsInput source="pair:hasSector" label="Dans quel secteur(s) d'activité(s) s'inscrit-il ?" />
-        <TopicsInput source="pair:hasTopic" label="Quels mots-clés choisiriez-vous pour le caractériser ?" />
-        <FinalitiesInput source="pair:hasFinality" label="A quoi contribue t'il ?" />
-        <TypesInput source="cdlt:hasCourseType" label="A quel mode de voyage correspond-il ?" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
-        <TypesInput source="pair:hasType" label="A quel type d'événement correspond-il ?" filter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
-        <TargetAudienceInput source="cdlt:hasTargetAudience" label="A qui s'adresse t'il ?" fullWidth />
-        <ActorsInput source="cdlt:organizedBy" label="Qui sont les organisateur.trice.s (individus et/ou organisations) ?" />  
-        <MarkdownInput source="cdlt:organizerDescription" label="Vous pouvez les décrire" fullWidth />
+        <MarkdownInput source="pair:description"  fullWidth validate={[required()]} />
+        <SectorsInput source="pair:hasSector"  />
+        <TopicsInput source="pair:hasTopic"  />
+        <FinalitiesInput source="pair:hasFinality" />
+        <TypesInput source="cdlt:hasCourseType"  filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
+        <TypesInput source="pair:hasType" lfilter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
+        <TargetAudienceInput source="cdlt:hasTargetAudience"  fullWidth />
+        <ActorsInput source="cdlt:organizedBy"  />  
+        <MarkdownInput source="cdlt:organizerDescription"  fullWidth />
         <MarkdownInput source="cdlt:program" fullWidth />
-        <CoursesInput source="pair:partOf" label="Fait-il partie d'un voyage ?" fullWidth />
+        <CoursesInput source="pair:partOf" fullWidth />
         <FormDataConsumer fullWidth>
           {({ formData, ...rest }) => (
             (formData["pair:partOf"]?.length > 0) &&
             <BooleanInput source="cdlt:registrationOutsideCourse" {...rest} />
           )}
         </FormDataConsumer>
-        <PathsInput source="cdlt:eventOn" label="Fait-il partie d'un chemin ?" fullWidth />
+        <PathsInput source="cdlt:eventOn"  fullWidth />
         <ReminderBeforeRecording />
       </FormTab>
-      <FormTab label="Volet pédagogique" className={classes.formTab}>
-        <PersonsInput source="cdlt:hasMentor" label="Qui sont les intervenant.e.s ?" />
-        <MarkdownInput source="cdlt:mentorDescription" fullWidth label="Vous pouvez les décrire ici" />
-        <SkillsInput source="cdlt:requiredSkills" label="Quelles sont les compétences requises ?" fullWidth />
-        <MarkdownInput source="cdlt:prerequisites" label="Vous pouvez les décrire ici" fullWidth />
-        <SkillsInput source="pair:produces" label="Quelles compétences permet-il d'acquérir ?" fullWidth />
-        <MarkdownInput source="cdlt:learningObjectives" label="Quels sont les objectifs pédagogiques ?" fullWidth />
-        <MarkdownInput source="cdlt:pedagogicalMeans" label="Utilisez-vous des méthodes ou des matériels pédagogiques en particulier ?" fullWidth />
-        <JobOpportunitiesInput source="cdlt:hasJobOpportunities" label="Peut-il ouvrir sur des opportunités d'activité ou d'emploi ? Si oui, lesquelles ?"  fullWidth />
-        <TextInput multiline source="cdlt:evaluationMethod" label="Dans le cas de formations financées ou qualifiantes, quelles sont les modalités d'évaluation ?" fullWidth />
+      <FormTab label={translate('app.tab.event.learningObjectives')} className={classes.formTab}>
+        <PersonsInput source="cdlt:hasMentor" />
+        <MarkdownInput source="cdlt:mentorDescription" fullWidth />
+        <SkillsInput source="cdlt:requiredSkills" fullWidth />
+        <MarkdownInput source="cdlt:prerequisites" fullWidth />
+        <SkillsInput source="pair:produces"  fullWidth />
+        <MarkdownInput source="cdlt:learningObjectives" fullWidth />
+        <MarkdownInput source="cdlt:pedagogicalMeans"  fullWidth />
+        <JobOpportunitiesInput source="cdlt:hasJobOpportunities"  fullWidth />
+        <TextInput multiline source="cdlt:evaluationMethod" fullWidth />
       </FormTab>
-      <FormTab label="Infos pratiques" className={classes.formTab}>
-        <BooleanInput source="cdlt:full" helperText="Cochez cette case si l'événement est complet" fullWidth />
-        <MarkdownInput source="cdlt:practicalConditions" label="Quelles sont les modalités d'accueil ?" helperText="Précisez si besoin équipements, modalités d'inscription, hébergement, repas..." fullWidth />
-        <NumberInput source="cdlt:minimumCapacity" label="Nombre minimum de participants pour que l'événement ait lieu" fullWidth />
-        <NumberInput source="cdlt:maximumCapacity" label="Nombre maximum de participants" fullWidth />
-        <TextInput multiline helperText="Précisez l'accessibilité de l'événement aux personnes en situation de handicap" source="cdlt:accessibility" label="Accessibilité" fullWidth />
+      <FormTab label={translate('app.tab.event.practicalConditions')} className={classes.formTab}>
+        <BooleanInput source="cdlt:full" helperText={translate('app.helper.full')} fullWidth />
+        <MarkdownInput source="cdlt:practicalConditions"  helperText={translate('app.helper.practicalConditions')} fullWidth />
+        <NumberInput source="cdlt:minimumCapacity"  fullWidth />
+        <NumberInput source="cdlt:maximumCapacity"  fullWidth />
+        <TextInput multiline helperText={translate('app.helper.accessibility')}  source="cdlt:accessibility" fullWidth />
         {/*<NumberInput source="cdlt:price" fullWidth />*/}
-        <TextInput multiline source="cdlt:economicalConditions" label="Y a t'il des conditions financières pour y participer ?" fullWidth />
-        <TextInput multiline helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" source="cdlt:financialSupport" label="Est-ce que l'événement est éligible à des dispositifs de financement ?" fullWidth />
+        <TextInput multiline source="cdlt:economicalConditions"  fullWidth />
+        <TextInput multiline helperText={translate('app.helper.financialSupport')} source="cdlt:financialSupport"  fullWidth />
         <PairLocationInput source="pair:hasLocation" fullWidth />
-        <PlaceInput source="pair:hostedIn" label="Où se déroule l'événement ?" fullWidth />
-        <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />
-        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
+        <PlaceInput source="pair:hostedIn"  fullWidth />
+        <TextInput source="pair:e-mail" fullWidth helperText={translate('app.helper.nonVisible')}  validate={[required(), email()]} />
+        <TextInput source="pair:phone" fullWidth helperText={translate('app.helper.nonVisible')} />
         <TextInput source="pair:aboutPage" fullWidth />
         <RegistrationInput
           directRegistrationSource="cdlt:directRegistration"
@@ -272,7 +275,7 @@ const EventForm = ({ mode, record, ...rest }) => {
           fullWidth
         />
       </FormTab>
-      <FormTab label="Visibilité">
+      <FormTab label={translate('app.tab.visibility')} >
         <PublicationStatusInput source="cdlt:hasPublicationStatus" />
       </FormTab>
     </TabbedForm>

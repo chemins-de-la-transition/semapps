@@ -13,7 +13,7 @@ import Button from '../../../../commons/Button';
 
 
 const OrganizationCreate = (props) => {
-  const translate = useTranslate(); // Move the translate function here
+  const translate = useTranslate();
 
   const actions = [<Button to="/MyOrganizations">{translate('app.action.organization.myOrganizations')}</Button>];
 

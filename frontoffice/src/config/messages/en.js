@@ -10,9 +10,19 @@ module.exports = {
         create: "Add an organization",
         myOrganizations: "My organizations"
       },
-    person: {
-      contact: "Contact",
-  },
+      person: {
+        contact: "Contact",
+      },
+      event: {
+        contact: "Contact the organizers",
+        create: "Add an event",
+        myEvents: "List",
+        register: "I register",
+      },
+      place: {
+        myPlaces: "My places",
+        create: "Add a place",
+      }
     },
     page: {
       home: "Welcome to the Transition Pathways !",
@@ -25,6 +35,7 @@ module.exports = {
         affiliates: "Has contributor",
         supports: "Contributor of",
         organizes: "Upcoming activities",
+        onlyFutureEvents: "Display only upcoming activities",
         partnerOf: "Partner of"
       },
       person: {
@@ -35,6 +46,18 @@ module.exports = {
         supports: "Contributor of",
         organizes: "Organizer of",
         mentorOn: "Mentor on",
+      },
+      event: {
+        duration: "Duration",
+        onlyFutureEvents: "Display only upcoming events",
+      },
+      course: {
+        onlyFutureCourse: "Only display upcoming trips",
+      },
+      registration: {
+        bookingPeriod: "Booking date: from ",
+        to: " to ",
+        bookedOn: " Booked on: "
       }
     },
     block: {
@@ -44,6 +67,13 @@ module.exports = {
       courseType: "Course type",
       sector: "Activity sector",
       region: "Region",
+      targetAudience: "Target Audience",
+      listView: 'List View',
+      dates: 'Dates',
+      organizer: 'Organizer',
+      facilitator: 'Facilitator',
+      linkedPath: 'Linked Path',
+      placeType: "Place type",
       organization: {
         label: "Organization Name",
         hasType: "What type of organization?",
@@ -65,6 +95,12 @@ module.exports = {
         organizationHostedIn: "In which place(s) are you present?",
         capacityUnit: "persons",
       },
+      event: {
+        type: "Event type",
+        hasTargetAudience: "Target Audience",
+        listView: 'List View',
+        duplicate: "Duplicate an existing event?",
+      },
       person: {
         firstName: "Your first name",
         lastName: "Your last name",
@@ -84,7 +120,6 @@ module.exports = {
         affiliatedBy: "Member of one (or more) organizations?",
         inspiredBy: "Are there individuals who inspire you?"
       }
-      
     },
     helper: {
       choose: "Choose...",
@@ -98,17 +133,27 @@ module.exports = {
         phone: "Not visible on the platform",
         publicPhone: "Public number displayed on the page",
       },
+      nonVisible: "Not visible on the platform",
+      publicPhone: "Publicly displayed phone number on the page",
+      publicLink: "Link publicly displayed on the page",
+      directRegistration: "If not, travelers will need to contact you directly via a contact form beforehand",
+      practicalConditions: "Specify if equipment is needed, registration procedures, accommodation, meals...",
+      accessibility: "Specify the event's accessibility for people with disabilities",
+      full: "Check this box if the event is full",
+      financialSupport: "If eligible, specify the types of funding (CPF, Qualiopi...)"
     },
     message: {
-      welcome:
-        "An open, nomadic, peer-to-peer university focusing on transition issues and professions. Learn while you travel, and share knowledge, experience and know-how on the ecological, energy, cultural, social, economic, technological and societal issues of our time.",
+      welcome: "An open, nomadic, peer-to-peer university focusing on transition issues and professions. Learn while you travel, and share knowledge, experience and know-how on the ecological, energy, cultural, social, economic, technological and societal issues of our time.",
       organization: {
         involvedActivities: "This organization is involved in multiple activities. Click to learn more and/or participate.",
       },
+      errorAuth: "Please log in to access the contact form",
+      errorRegistration: "You must be logged in to register",
+      moreEvents: "This place offers multiple events. Click on it to learn more and/or participate."
     },
     tab: {
       organization: {
-        about: "About the organization",
+        about: "About this organization",
         links: "Organization links",
         contact: "Contact",
         visibility: "Visibility",
@@ -126,8 +171,50 @@ module.exports = {
         skills: "Skills",
         inspiredBy: "Inspired by",
       },
+      course: {
+        about: "About the journey",
+        pathway: "Journey program",
+        location: "Location",
+        title: "Our journeys",
+        subtitle: "For more inspiration",
+        linkText: "View all journeys",
+      },
+      event: {
+        about: "About ",
+        pathway: "Journey Program",
+        location: "Location",
+        title: "Our journeys",
+        subtitle: "For more inspiration",
+        linkText: "See all journeys",
+        learningObjectives: "Learning Objectives",
+        practicalConditions: "Practical Information",
+      },
+      place: {
+        about: "About the place",
+        link: "Related to the place",
+        contact: "Contact",
+        title:"More places",
+        subtitle: "For more inspiration",
+        linkText: "See all places"
+      },
+      economicalConditions: 'Economical Conditions',
+      accommodation: 'Accommodation',
+      contact: 'Contact',
+      visibility: 'Visibility',
+      skills: 'Skills',
+      inspiredBy: 'Inspired by',
+      links: 'Links',
+      description: 'Description',
+      dates: 'Dates',
+      organizer: 'Organizer',
+      facilitator: 'Facilitator',
+      linkedPath: 'Linked Path',
     },
-    notification: {},
+    notification: {
+      full: "This event is full",
+      partOf: "This event is part of the journey&nbsp;",
+      financialSupport: "Discover various funding mechanisms",
+    },
     validation: {},
   },
 };

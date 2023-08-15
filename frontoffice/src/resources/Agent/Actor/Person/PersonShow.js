@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  ChipField,  ShowBase,  SingleFieldList,  TextField,  UrlField,  useTranslate,} from 'react-admin';
+import {  ChipField,  ShowBase,  SingleFieldList,  TextField,  UrlField,  useTranslate} from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import personTheme from '../../../../config/themes/personTheme';
 import resourceShowStyle from '../../../../commons/style/resourceShowStyle';
@@ -44,7 +44,7 @@ const PersonShow = (props) => {
             }
           >
             <GroupOfFields
-              title="A propos de la personne"
+              title={translate('app.tab.person.about')}
               sources={["pair:description","pair:comment","pair:hasFinality","pair:hasSector","pair:hasTopic","cdlt:intentions"]}
               addLabel
               noBorder

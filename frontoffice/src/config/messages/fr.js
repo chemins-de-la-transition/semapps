@@ -9,10 +9,20 @@ module.exports = {
         contact: "Contacter l'organisation",
         create: "Ajouter une organisation",
         myOrganizations: "Mes organisations"
-    },
-    person: {
-      contact: "Contact",
-  },
+      },
+      person: {
+        contact: "Contact",
+      },
+      event: {
+        contact: "Contacter les organisateurs·ices",
+        create: "Ajouter un événement",
+        myEvents: "Liste",
+        register: "Je m'inscris",
+      },
+      place: {
+        myPlaces: "Mes lieux",
+        create: "Ajouter un lieu",
+      }
     },
     page: {
       home: "Bienvenue sur les Chemins de la Transition !",
@@ -24,7 +34,8 @@ module.exports = {
         organizationHostedIn: "Où sommes nous",
         affiliates: "A pour contributeur.trice",
         supports: "Contributeur de",
-        organizes:"Prochaines activités",
+        organizes: "Prochaines activités",
+        onlyFutureEvents: "N'afficher que les activités à venir",
         partnerOf: "Partenaire de"
       },
       person: {
@@ -35,6 +46,18 @@ module.exports = {
         supports: "Contributeur de",
         organizes: "Organisateur de",
         mentorOn: "Intervenant sur",
+      },
+      event: {
+        duration: "Durée",
+        onlyFutureEvents: "N'afficher que les événements à venir",
+      },
+      course: {
+        onlyFutureCourse: "N'afficher que les voyages à venir",
+      },
+      registration: {
+        bookingPeriod: "Date de la réservation : du ",
+        to: " au ",
+        bookedOn: " Réservé le : "
       }
     },
     block: {
@@ -43,7 +66,14 @@ module.exports = {
     input: {
       courseType: "Mode de voyage",
       sector: "Secteur d'activité",
-      region: "Région",
+      region: "Région(s)",
+      TargetAudience: "Public cible",
+      listView: 'Vue liste',
+      dates: "Dates",
+      organizer: "Qui organise",
+      facilitator: "Qui intervient",
+      linkedPath: "Fait partie de",
+      placeType: "Type de lieu",
       organization: {
         label: "Nom de l'organisation",
         hasType: "Quel type d'organisation ?",
@@ -62,8 +92,14 @@ module.exports = {
         inspiredBy: "Des organisations qui vous inspirent ?",
         affiliates: "Des membres de votre organisation sur les Chemins de la Transition ?",
         supports: "Vous inscrivez-vous sur un chemin ?",
-        organizationHostedIn: "Dans quel(s) lieu(x) êtes vous présent ?",        
+        organizationHostedIn: "Dans quel(s) lieu(x) êtes vous présent ?",
         capacityUnit: "personnes",
+      },
+      event: {
+        type: "Type d'événement",
+        hasTargetAudience: "Public cible",
+        listView: 'Vue liste',
+        duplicate: "Dupliquer un événement existant ?"
       },
       person: {
         firstName: "Ton prénom",
@@ -97,15 +133,27 @@ module.exports = {
         phone: "Non visible sur la plateforme",
         publicPhone: "Numéro public affiché sur la page",
       },
+      nonVisible: "Non visible sur la plateforme",
+      publicPhone: "Numéro public affiché sur la page",
+      publicLink: "Lien affiché sur la page",
+      directRegistration: "Si non, les voyageurs devront vous écrire via un formulaire de contact au préalable",
+      practicalConditions: "Précisez si besoin équipements, modalités d'inscription, hébergement, repas...",
+      accessibility: "Précisez l'accessibilité de l'événement aux personnes en situation de handicap",
+      full: "Cochez cette case si l'événement est complet",
+      financialSupport: "Si éligible, précisez les types de financements (CPF, Qualiopi...)",
     },
     message: {
       welcome: "Une université ouverte, nomade et pair à pair autour des enjeux et des métiers de la transition. Pour apprendre en voyageant et partager des connaissances, expériences et savoir-faire liés aux enjeux écologiques, énergétiques, culturels, sociaux, économiques, technologiques et sociétaux de notre temps.",
-        organization: {
-          involvedActivities: "Cette organisation est impliquée dans plusieurs activités. Cliquez dessus pour en savoir plus et/ou participer.",
-        },},
+      organization: {
+        involvedActivities: "Cette organisation est impliquée dans plusieurs activités. Cliquez dessus pour en savoir plus et/ou participer.",
+      },
+      errorAuth: "Veuillez vous connecter pour accéder au formulaire de contact",
+      errorRegistration: "Vous devez vous connecter pour pouvoir vous inscrire",
+      moreEvents: "Ce lieu propose plusieurs événements. Cliquez dessus pour en savoir plus et/ou participer."
+    },
     tab: {
       organization: {
-        about: "A propos de l'organisation",
+        about: "A propos de cette organisation",
         links: "En lien avec l'organisation",
         contact: "Contact",
         visibility: "Visibilité",
@@ -122,9 +170,55 @@ module.exports = {
         visibility: "Visibilité",
         skills: "Compétences",
         inspiredBy: "Inspiré par",
-      }
+      },
+      course: {
+        about: "A propos du voyage",
+        pathway: "Programme du voyage",
+        location: "Localisation",
+        title: "Nos voyages",
+        subtitle: "Similaires",
+        linkText: "Voir tous les voyages",
+      },
+      event: {
+        about: "A propos de ",
+        pathway: "Programme du voyage",
+        location: "Localisation",
+        title: "Nos voyages",
+        subtitle: "Similaires",
+        linkText: "Voir tous les voyages",
+        learningObjectives: "Objectifs pédagogiques",
+        practicalConditions: "Infos pratiques",
+      },      
+      place: {
+        about: "A propos du lieu",
+        link: "En lien avec le lieu",
+        contact: "Contact",
+        title:"Les lieux",
+        subtitle: "Similaires",
+        linkText:"Voir tous les lieux"
+
+      },
+      economicalConditions: "Conditions financières",
+      accommodation: "Modalités d'accueil",
+      contact: "Contact",
+      visibility: "Visibilité",
+      skills: "Compétences",
+      inspiredBy: "Inspiré par",
+      links: "Liens",
+      description: "Description",
+      dates: "Dates",
+      organizer: "Qui organise",
+      facilitator: "Qui intervient",
+      linkedPath: "Fait partie de",
     },
-    notification: {},
+    notification: {
+      full: "Cet événement est complet",
+      partOf: "Cet événement fait partie du voyage&nbsp;",
+      financialSupport: "Découvrir les différents dispositifs de financement",
+    },
     validation: {},
+    menu:{
+
+    }
   },
 };

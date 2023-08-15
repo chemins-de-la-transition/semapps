@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useTranslate } from 'react-admin';
 import { Box, useMediaQuery } from '@material-ui/core';
 import MultiViewsFilterList from '../../../../commons/lists/MultiViewsFilterList/MultiViewsFilterList';
 import ListIcon from '@material-ui/icons/List';
@@ -14,29 +15,30 @@ const CourseList = (props) => {
   const [checked, setChecked] = useState(true);
   const clearFilters = () => setChecked(false);
   const futureCoursesSparql = useFutureEventSparql();
+  const translate = useTranslate();
 
   return (
     <MultiViewsFilterList
       filters={[
         <SearchFilter />,
-        <SparqlFilter checked={checked} setChecked={setChecked} sparqlWhere={futureCoursesSparql} label="N'afficher que les voyages à venir" />,
-        <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label="Région" />,
-        <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label="Secteur d'activité" />,
+        <SparqlFilter checked={checked} setChecked={setChecked} sparqlWhere={futureCoursesSparql} label={translate('app.card.course.onlyFutureCourse')}/>,
+        <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label={translate('app.input.region')} />,
+        <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label={translate('app.input.sector')} />,
         <Filter
           reference="Type"
           source="cdlt:hasCourseType"
           /*inverseSource="cdlt:typeOfCourse"*/ filter={{ a: 'cdlt:CourseType' }}
-          label="Mode de voyage"
+          label={translate('app.input.courseType')}
         />,
         <Filter 
           reference="TargetAudience"
           source="cdlt:hasTargetAudience"
-          label="Public cible"
+          label={translate('app.input.targetAudience')}
         />,
       ]}
       views={{
         list: {
-          label: 'Vue liste',
+          label: 'Vue liste', //@
           icon: ListIcon,
           perPage: 1000,
           sort: { field: 'pair:startDate', order: 'ASC' },

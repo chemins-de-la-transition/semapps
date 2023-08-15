@@ -67,12 +67,12 @@ const PlaceDetails = (props) => {
             </ReferenceArrayField>
           }
           { ( !isVertical || sm ) && 
-            <ReferenceField label="Région" reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList('LEP', 'cdlt:hasRegion')}>
+            <ReferenceField  reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList('LEP', 'cdlt:hasRegion')}>
               <TextField source="pair:label" />
             </ReferenceField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField label="Hôte" reference="Person" source="cdlt:proposedBy" icon={<ActorIcon/>}>
+            <ReferenceArrayField reference="Person" source="cdlt:proposedBy" icon={<ActorIcon/>}>
               <SeparatedListField linkType="show">
                 <TextField source="pair:label" />
               </SeparatedListField>
@@ -86,14 +86,14 @@ const PlaceDetails = (props) => {
             </ReferenceArrayField>
           }
           {  (isVertical && ! sm ) && 
-            <ReferenceArrayField reference="Path" source="cdlt:placeOn" icon={<PathIcon />} label="Fait partie de">
+            <ReferenceArrayField reference="Path" source="cdlt:placeOn" icon={<PathIcon />} >
               <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField source="pair:hosts" reference="Event" icon={<CalendarIcon />} label="Prochains événements" filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}>
+            <ReferenceArrayField source="pair:hosts" reference="Event" icon={<CalendarIcon />} filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}>
               <FilteredEvents />
             </ReferenceArrayField>
           }

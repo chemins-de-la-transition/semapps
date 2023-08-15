@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShowButton } from 'react-admin';
+import { ShowButton, useTranslate } from 'react-admin';
 import { Box, useMediaQuery } from '@material-ui/core';
 import { MapList } from '@semapps/geo-components';
 import MultiViewsFilterList from '../../commons/lists/MultiViewsFilterList/MultiViewsFilterList';
@@ -12,29 +12,30 @@ import SearchFilter from '../../commons/SearchFilter';
 
 const PlaceList = (props) => {
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
+  const translate = useTranslate();
   return (
     <MultiViewsFilterList
       filter= {{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}
       filters={[
         <SearchFilter />,
-        <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label="Région" />,
-        <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label="Secteur d'activité" />,
+        <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label={translate('app.input.region')} />,
+        <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label={translate('app.input.sector')} />,
         <Filter
           reference="Type"
           source="cdlt:hasCourseType"
           /*inverseSource="cdlt:typeOfCourse"*/ filter={{ a: 'cdlt:CourseType' }}
-          label="Mode de voyage"
+          label={translate('app.input.courseType')}
         />,
         <Filter
           reference="Type"
           source="pair:hasType"
           /*inverseSource="cdlt:typeOf"*/ filter={{ a: 'pair:PlaceType' }}
-          label="Type de lieu"
+          label={translate('app.input.placeType')}
         />,
       ]}
       views={{
         map: {
-          label: 'Vue carte',
+          label: 'Vue carte', // srosset81 how to translate this?
           icon: MapIcon,
           perPage: 1000,
           list: (
@@ -54,7 +55,7 @@ const PlaceList = (props) => {
           ),
         },
         list: {
-          label: 'Vue liste',
+          label: 'Vue liste', // srosset81 how to translate this?
           icon: ListIcon,
           perPage: 1000,
           list: (
