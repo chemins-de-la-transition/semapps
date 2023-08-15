@@ -9,6 +9,7 @@ import MyEventsPage from './pages/MyEventsPage';
 import MyOrganizationsPage from './pages/MyOrganizationsPage';
 import MyReservationsPage from './pages/MyReservationsPage';
 import MyOffersAndNeedsPage from './pages/MyOffersAndNeedsPage';
+import MyAlertsPage from './pages/MyAlertsPage';
 
 export default [
   <Route exact path="/" component={HomePage} />,
@@ -19,4 +20,5 @@ export default [
   <Route exact path="/MyOrganizations" component={MyOrganizationsPage} />,
   <Route exact path="/MyReservations" component={MyReservationsPage} />,
   <Route exact path="/MyOffersAndNeeds" component={MyOffersAndNeedsPage} />,
+  <Route exact path="/MyAlerts" component={MyAlertsPage} />,
 ];
