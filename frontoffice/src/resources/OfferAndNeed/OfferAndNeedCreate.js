@@ -9,14 +9,14 @@ import OfferAndNeedTitle from './OfferAndNeedTitle';
 import OfferAndNeedForm from './OfferAndNeedForm';
 import Button from '../../commons/Button';
 
-const actions = [<Button to="/MyOfferAndNeeds">Mes lieux</Button>];
+const actions = [<Button to="/MyOfferAndNeeds">Mes annonces</Button>];
 
 const OfferAndNeedCreate = (props) => {
   const createContainerUri = useCreateContainer(props.resource);
   useCheckPermissions(createContainerUri, 'create');
   return (
     <>
-      <HeaderTitle actions={actions}>Ajouter un lieu</HeaderTitle>
+      <HeaderTitle actions={actions}>Ajouter une annonce</HeaderTitle>
       <FullWidthBox>
         <LargeContainer>
           <Create title={<OfferAndNeedTitle />} actions={null} {...props}>

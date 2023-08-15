@@ -4,6 +4,7 @@ import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/field-components';
 import {
   PersonsInput,
+  PublicationStatusInput,
   SectorsInput,
   TopicsInput,
   TypeInput
@@ -36,6 +37,9 @@ const OfferAndNeedForm = ({ mode, record, ...rest }) => {
         <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />  
         <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
         <TextInput source="pair:homePage" fullWidth helperText="Lien affiché sur la page"/>        
+      </FormTab>
+      <FormTab label="Visibilité">
+        <PublicationStatusInput source="cdlt:hasPublicationStatus" />
       </FormTab>
     </TabbedForm>
   );
