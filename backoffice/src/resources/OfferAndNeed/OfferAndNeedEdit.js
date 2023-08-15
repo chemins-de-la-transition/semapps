@@ -6,7 +6,8 @@ import OfferAndNeedTitle from './OfferAndNeedTitle';
 import { PairLocationInput } from '../../pair';
 import { 
   PersonsInput, 
-  SectorsInput, 
+  SectorsInput,
+  TopicsInput,
   TypeInput, 
 } from '../../pair';
 // import ReminderBeforeRecording from '../../common/ReminderBeforeRecording';
@@ -24,6 +25,7 @@ export const OfferAndNeedEdit = (props) => (
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />
         <SectorsInput source="pair:hasSector" fullWidth />
+        <TopicsInput source="pair:hasTopic" fullWidth />
         <PersonsInput source="cdlt:proposedBy" fullWidth />
         <PairLocationInput source="pair:hasLocation" fullWidth />
       </FormTab>

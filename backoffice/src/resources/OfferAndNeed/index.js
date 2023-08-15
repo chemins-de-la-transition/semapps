@@ -44,6 +44,7 @@ export default {
         'pair:hasType': 'Type d\'annonce',
         'pair:hasStatus': 'Statut',
         'pair:hasSector': 'Secteurs d\'activité',
+        'pair:hasTopic': 'Mots clé',
         'pair:hasLocation': 'Localisation',
         'cdlt:hasRegion': 'Région',
         'pair:e-mail': 'Adresse e-mail',

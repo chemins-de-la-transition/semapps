@@ -24,6 +24,7 @@ const OfferAndNeedList = (props) => {
           label="Type d'annonce"
         />,
         <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label="Secteur d'activité" />,
+        <Filter reference="Topic" source="pair:hasTopic" inverseSource="pair:topicOf" label="Mots clé" />,
       ]}
       views={{
         map: {

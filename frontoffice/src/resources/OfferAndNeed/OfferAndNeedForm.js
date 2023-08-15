@@ -5,6 +5,7 @@ import { ImageField } from '@semapps/field-components';
 import {
   PersonsInput,
   SectorsInput,
+  TopicsInput,
   TypeInput
 } from '../../pair';
 import { PairLocationInput } from '../../pair';
@@ -27,6 +28,7 @@ const OfferAndNeedForm = ({ mode, record, ...rest }) => {
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />
         <SectorsInput source="pair:hasSector" fullWidth />
+        <TopicsInput source="pair:hasTopic" fullWidth />
         <PersonsInput source="cdlt:proposedBy" fullWidth />
         <PairLocationInput source="pair:hasLocation" fullWidth />
       </FormTab>

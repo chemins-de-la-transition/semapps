@@ -43,16 +43,16 @@ const OfferAndNeedShow = (props) => {
               addLabel
               noBorder
             >
+              <ReferenceArrayField source="pair:hasType" reference="Type">
+                <SeparatedListField link={false} separator=" / ">
+                  <TextField variant="body2" source="pair:label" />
+                </SeparatedListField>
+              </ReferenceArrayField>
               <TextField variant="body2" source="pair:comment"/>
               <ReferenceArrayField reference="Sector" source="pair:hasSector">
                 <SingleFieldList linkType={false}>
                   <SectorField />
                 </SingleFieldList>
-              </ReferenceArrayField>
-              <ReferenceArrayField source="pair:hasType" reference="Type">
-                <SeparatedListField link={false} separator=" / ">
-                  <TextField variant="body2" source="pair:label" />
-                </SeparatedListField>
               </ReferenceArrayField>
               <ReferenceArrayField reference="Topic" source="pair:hasTopic">
                 <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator="">
