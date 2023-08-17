@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import StickyBox from 'react-sticky-box';
-import { useListContext, useListFilterContext, ListContextProvider } from 'react-admin';
+import { useListContext, useListFilterContext, ListContextProvider, useTranslate } from 'react-admin';
 import { Box, Grid, Typography, IconButton, makeStyles, useMediaQuery, Button, Drawer } from '@material-ui/core';
 import { useDataModels } from "@semapps/semantic-data-provider";
 import SearchIcon from '@material-ui/icons/Search';
@@ -84,6 +84,7 @@ const getTabFromPathname = (pathname) => {
 };
 
 const TabbedListView = ({ tabs, filters, futureActivities }) => {
+  const translate = useTranslate();
   const classes = useStyles();
   const { ids, data, loaded, loading } = useListContext();
   const dataModels = useDataModels();
@@ -207,7 +208,7 @@ const TabbedListView = ({ tabs, filters, futureActivities }) => {
         </Box>
         {!loading && filteredIds.length === 0 ?
           <Box display="flex" alignItems="center" justifyContent="center" height={400} flexDirection="column">
-            <Typography variant="h6" component="div">Aucun résultat trouvé</Typography>
+            <Typography variant="h6" component="div">{translate('app.message.noResult')}</Typography>
             <br />
             {Object.keys(filterValues).length > 0 &&
               <Button variant="contained" color="primary" className={classes.removeFiltersButton} onClick={() => setFilters({})}>Enlever tous les filtres</Button>

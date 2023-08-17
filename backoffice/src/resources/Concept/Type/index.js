@@ -24,6 +24,7 @@ export default {
       'pair:OrganizationType',
       'cdlt:CourseType',
       'cdlt:PathType',
+      'cdlt:OfferAndNeedType',
     ],
     fieldsMapping: {
       title: 'pair:label'

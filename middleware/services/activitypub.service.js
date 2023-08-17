@@ -14,10 +14,10 @@ module.exports = {
       'https://www.w3.org/ns/activitystreams#name': resource['pair:label']
     }),
     like: {
-      attachToObjectTypes: ['cdlt:Path', 'cdlt:Course', 'pair:Event', 'pair:Place', 'pair:Person', 'pair:Organization']
+      attachToObjectTypes: ['cdlt:Path', 'cdlt:Course', 'pair:Event', 'pair:Place', 'pair:Person', 'pair:Organization', 'cdlt:OfferAndNeed']
     },
     reply: {
-      attachToObjectTypes: ['cdlt:Path', 'cdlt:Course', 'pair:Event', 'pair:Place', 'pair:Organization']
+      attachToObjectTypes: ['cdlt:Path', 'cdlt:Course', 'pair:Event', 'pair:Place', 'pair:Organization', 'cdlt:OfferAndNeed']
     },
     relay: false
   }

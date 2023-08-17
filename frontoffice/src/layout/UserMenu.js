@@ -6,6 +6,8 @@ import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import EventIcon from '@material-ui/icons/Event';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
+import AnnouncementIcon from '@material-ui/icons/Announcement';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 
 const MyBookmarks = forwardRef(({ onClick }, ref) => {
   const translate = useTranslate();
@@ -47,6 +49,19 @@ const MyEventsMenu = forwardRef(({ onClick }, ref) => {
       onClick={onClick}
     />
   );
+});
+const MyOfferAndNeedMenu = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
+  return (
+    <MenuItemLink ref={ref} to="/MyOffersAndNeeds" primaryText={translate('app.action.offerAndNeed.mine')} leftIcon={<AnnouncementIcon />} onClick={onClick} />
+  )
+});
+
+const MyAlertMenu = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
+  return (
+    <MenuItemLink ref={ref} to="/MyAlerts" primaryText={translate('app.action.alert.mine')} leftIcon={<NotificationsIcon />} onClick={onClick} />
+  )
 });
 
 const MyOrganizationsMenu = forwardRef(({ onClick }, ref) => {
@@ -140,6 +155,8 @@ const UserMenu = ({ logout, ...otherProps }) => {
             <MyPlacesMenu key="my-places" />,
             <MyEventsMenu key="my-events" />,
             <MyReservationsMenu key="my-reservations" />,
+            <MyOfferAndNeedMenu key="my-offers-and-needs" />,
+            <MyAlertMenu key="my-alerts" />,
             React.cloneElement(logout, { key: 'logout' }),
           ]
         )
