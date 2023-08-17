@@ -37,7 +37,7 @@ export default {
         'pair:hasSector': 'Secteurs d\'activité',
         'pair:hasTopic': 'Mots clé',
         'pair:hasLocation': 'Localisation',
-        'cdlt:radius': 'Rayon',
+        'cdlt:radius': 'Rayon (km)',
         'cdlt:hasRegion': 'Région',
       },
     },
