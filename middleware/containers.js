@@ -61,6 +61,30 @@ module.exports = [
     newResourcesPermissions: writePermissionToCreator
   },
   {
+    path: '/offers-and-needs',
+    acceptedTypes: ['cdlt:OfferAndNeed'],
+    preferredView: '/OfferAndNeed',
+    dereference: ['pair:hasLocation/pair:hasPostalAddress'],
+    permissions: {
+      ...anonReadPermission,
+      ...writePermissionToActors,
+      ...defaultWritePermissionToContributors
+    },
+    newResourcesPermissions: writePermissionToCreator
+  },
+  {
+    path: '/alerts',
+    acceptedTypes: ['cdlt:Alert'],
+    preferredView: '/Alert',
+    dereference: ['pair:hasLocation/pair:hasPostalAddress'],
+    permissions: {
+      ...anonReadPermission,
+      ...writePermissionToActors,
+      ...defaultWritePermissionToContributors
+    },
+    newResourcesPermissions: writePermissionToCreator
+  },
+  {
     path: '/topics',
     acceptedTypes: ['pair:Topic'],
     permissions: {
