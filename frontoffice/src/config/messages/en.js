@@ -5,6 +5,8 @@ module.exports = {
     action: {
       search: "Search",
       contactPlace: "Contact the place",
+      close:"Close",
+      send:"Send",
       organization: {
         contact: "Contact the organization",
         create: "Add an organization",
@@ -104,6 +106,8 @@ module.exports = {
       person: {
         firstName: "Your first name",
         lastName: "Your last name",
+        email: "Your email",
+        message: "Message",
         alternativeLabel: "Your username",
         comment: "Who are you in one sentence?",
         homePage: "A link about you?",
@@ -216,5 +220,15 @@ module.exports = {
       financialSupport: "Discover various funding mechanisms",
     },
     validation: {},
+    menu:{
+      bookmarks: "My bookmarks",
+      places: "My Places",
+      events: "My Events",
+      organizations: "My Organizations",
+      reservations: "My Reservations",
+      login: "Login",
+      signup: "Sign Up",
+      profile: "My Profile",
+    }
   },
 };
