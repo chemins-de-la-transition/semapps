@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import StickyBox from 'react-sticky-box';
-import { useListContext, Link, usePermissionsOptimized, useListFilterContext } from 'react-admin';
+import { useListContext, Link, usePermissionsOptimized, useListFilterContext, useTranslate } from 'react-admin';
 import { useCreateContainer } from '@semapps/semantic-data-provider';
 import { useLocation } from 'react-router';
 import { Box, Grid, Typography, IconButton, makeStyles, useMediaQuery, Button, Drawer } from '@material-ui/core';
@@ -75,6 +75,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MultiViewsFilterListView = ({ views, filters, currentView, setView, clearFilters }) => {
+  const translate = useTranslate();
   const classes = useStyles();
   const { resource, basePath, hasCreate, ids, loading } = useListContext();
   const createContainerUri = useCreateContainer(resource);
@@ -94,21 +95,21 @@ const MultiViewsFilterListView = ({ views, filters, currentView, setView, clearF
         <Grid item xs={12}>
           <Box p={1} className={classes.filtersBar}>
             <Button startIcon={<SearchIcon />} className={classes.filtersButton} onClick={() => openFilters(true)}>
-              Filtres
+              {translate('app.action.filters')}
             </Button>
             <Drawer anchor="left" open={areFiltersOpen} classes={{ paper: classes.filtersDrawer }}>
               <IconButton onClick={() => openFilters(false)} className={classes.closeButton}>
                 <CloseIcon />
               </IconButton>
               <Box p={2} textAlign="center">
-                <Typography variant="subtitle1">Filtres</Typography>
+                <Typography variant="subtitle1">{translate('app.action.filters')}</Typography>
               </Box>
               <Box p={2}>
                 {filters.map((filter, i) => React.cloneElement(filter, { key: i, onSelect: () => openFilters(false) }))}
               </Box>
               <Box p={2}>
                 {Object.keys(filterValues).length > 0 &&
-                  <Button variant="outlined" color="secondary" onClick={() => removeFilters()}>Effacer les filtres</Button>
+                  <Button variant="outlined" color="secondary" onClick={() => removeFilters()}>{translate('app.action.removeFilters')}</Button>
                 }
               </Box>
             </Drawer>
@@ -117,13 +118,13 @@ const MultiViewsFilterListView = ({ views, filters, currentView, setView, clearF
       ) : (
         <Grid item sm={4} className={classes.filters}>
           <Box p={2} className={classes.filtersTitle}>
-            <Typography variant="subtitle1">Filtres:</Typography>
+            <Typography variant="subtitle1">{translate('app.action.filters')}:</Typography>
           </Box>
           <StickyBox offsetTop={100}>
             <Box p={2}>{filters.map((filter, i) => React.cloneElement(filter, { key: i }))}</Box>
             <Box p={2}>
               {Object.keys(filterValues).length > 0 &&
-                <Button variant="outlined" color="secondary" onClick={() => removeFilters()}>Effacer les filtres</Button>
+                <Button variant="outlined" color="secondary" onClick={() => removeFilters()}>{translate('app.action.removeFilters')}</Button>
               }
             </Box>
           </StickyBox>
@@ -161,24 +162,24 @@ const MultiViewsFilterListView = ({ views, filters, currentView, setView, clearF
                 })}
                 {!xs && hasCreate && !!permissions && permissions.some(p => ['acl:Append', 'acl:Write'].includes(p['acl:mode'])) &&
                   <Link to={`${basePath}/create`}>
-                    <Button className={classes.addButton}>Ajouter</Button>
+                    <Button className={classes.addButton}>{translate('app.action.create')}</Button>
                   </Link>
                 }
               </Box>
             </Grid>
             <Grid item xs={4}>
               <Box textAlign="right" p={2}>
-                <Typography variant="body2">{ids.length} résultat(s)</Typography>
+                <Typography variant="body2">{ids.length} {translate('app.message.results')}</Typography>
               </Box>
             </Grid>
           </Grid>
         </Box>
         {!loading && ids.length === 0 ?
           <Box display="flex" alignItems="center" justifyContent="center" height={400} flexDirection="column">
-            <Typography variant="h6" component="div">Aucun résultat trouvé</Typography>
+            <Typography variant="h6" component="div">{translate('app.message.noResult')}</Typography>
             <br />
             {Object.keys(filterValues).length > 0 &&
-              <Button variant="contained" color="primary" className={classes.removeFiltersButton} onClick={() => removeFilters()}>Enlever tous les filtres</Button>
+              <Button variant="contained" color="primary" className={classes.removeFiltersButton} onClick={() => removeFilters()}>{translate('app.action.removeFilters')}</Button>
             }
           </Box>
           :

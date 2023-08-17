@@ -3,8 +3,14 @@
 module.exports = {
   app: {
     action: {
+      create: "Add",
       search: "Search",
+      newSearch: "Start a new search",
       contactPlace: "Contact the place",
+      listView: "list view",
+      mapView: "map view",
+      filters: "filters",
+      removeFilters: "remove all filters",
       organization: {
         contact: "Contact the organization",
         create: "Add an organization",
@@ -22,6 +28,14 @@ module.exports = {
       place: {
         myPlaces: "My places",
         create: "Add a place",
+      },
+      offerAndNeed: {
+        mine: "My announcements",
+        create: "Add an announcement",
+      },
+      alert: {
+        mine: "My alerts",
+        create: "Add an alert",
       }
     },
     page: {
@@ -66,6 +80,7 @@ module.exports = {
     input: {
       courseType: "Course type",
       sector: "Activity sector",
+      topic: "Keyword",
       region: "Region",
       targetAudience: "Target Audience",
       listView: 'List View',
@@ -74,6 +89,7 @@ module.exports = {
       facilitator: 'Facilitator',
       linkedPath: 'Linked Path',
       placeType: "Place type",
+      offerAndNeedType: "Announcement type",
       organization: {
         label: "Organization Name",
         hasType: "What type of organization?",
@@ -149,7 +165,9 @@ module.exports = {
       },
       errorAuth: "Please log in to access the contact form",
       errorRegistration: "You must be logged in to register",
-      moreEvents: "This place offers multiple events. Click on it to learn more and/or participate."
+      moreEvents: "This place offers multiple events. Click on it to learn more and/or participate.",
+      results: "result(s)",
+      noResult: "No result found"
     },
     tab: {
       organization: {
@@ -197,6 +215,11 @@ module.exports = {
         subtitle: "For more inspiration",
         linkText: "See all places"
       },
+      offerAndNeed: {
+        description: "Description",
+        contact: "Contact",
+        visibility: "Visibility"
+      },
       economicalConditions: 'Economical Conditions',
       accommodation: 'Accommodation',
       contact: 'Contact',
@@ -216,5 +239,21 @@ module.exports = {
       financialSupport: "Discover various funding mechanisms",
     },
     validation: {},
+    menu:{
+      offerAndNeed: "Announcements"
+    },
+    bookmark: {
+      title: "My bookmarks",
+      path: "paths",
+      place: "places",
+      event: "events",
+      course: "courses",
+      offerAndNeed: "announcements",
+      pathHeadComment:"To compose my trip",
+      placeHeadComment: "To compose my trip",
+      eventHeadComment: "To compose my trip",
+      courseHeadComment: "To compose my trip",
+      offerAndNeedHeadComment: "To compose my trip",
+    }
   },
 };

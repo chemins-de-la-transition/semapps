@@ -42,7 +42,7 @@ const OfferAndNeedDetails = (props) => {
             </ReferenceField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField label="Hôte" reference="Person" source="cdlt:proposedBy" icon={<ActorIcon/>}>
+            <ReferenceArrayField reference="Person" source="cdlt:proposedBy" icon={<ActorIcon/>}>
               <SeparatedListField linkType="show">
                 <TextField source="pair:label" />
               </SeparatedListField>

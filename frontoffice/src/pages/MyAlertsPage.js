@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListBase, SimpleList } from 'react-admin';
+import { ListBase, SimpleList, useTranslate } from 'react-admin';
 import { useCheckAuthenticated } from '@semapps/auth-provider';
 import FullWidthBox from '../commons/FullWidthBox';
 import LargeContainer from '../commons/LargeContainer';
@@ -7,14 +7,14 @@ import HeaderTitle from '../commons/HeaderTitle';
 import Button from '../commons/Button';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
-const actions = [<Button to="/Alert/create">Ajouter</Button>];
-
 const MyAlertsPage = () => {
   const { identity, loading } = useCheckAuthenticated();
+  const translate = useTranslate();
+  const actions = [<Button to="/Alert/create">{translate('app.action.alert.create')}</Button>];
   if (loading) return null;
   return (
     <>
-      <HeaderTitle actions={actions}>Mes alertes</HeaderTitle>
+      <HeaderTitle actions={actions}>{translate('app.action.alert.mine')}</HeaderTitle>
       <br />
       <FullWidthBox>
         <LargeContainer>

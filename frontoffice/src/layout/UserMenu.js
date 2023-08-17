@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo } from 'react';
-import { UserMenu as RaUserMenu, MenuItemLink, useGetIdentity } from 'react-admin';
+import { UserMenu as RaUserMenu, MenuItemLink, useGetIdentity, useTranslate } from 'react-admin';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PlaceIcon from '../svg/PlaceIcon';
 import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
@@ -9,9 +9,12 @@ import HomeIcon from '@material-ui/icons/Home';
 import AnnouncementIcon from '@material-ui/icons/Announcement';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
-const MyBookmarks = forwardRef(({ onClick }, ref) => (
-  <MenuItemLink ref={ref} to="/MyBookmarks" primaryText="Mes favoris" leftIcon={<FavoriteIcon />} onClick={onClick} />
-));
+const MyBookmarks = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
+  return (
+    <MenuItemLink ref={ref} to="/MyBookmarks" primaryText={translate('app.bookmark.title')} leftIcon={<FavoriteIcon />} onClick={onClick} />
+  )
+});
 
 const MyPlacesMenu = forwardRef(({ onClick }, ref) => (
   <MenuItemLink ref={ref} to="/MyPlaces" primaryText="Mes lieux" leftIcon={<PlaceIcon />} onClick={onClick} />
@@ -29,13 +32,19 @@ const MyReservationsMenu = forwardRef(({ onClick }, ref) => (
   <MenuItemLink ref={ref} to="/MyReservations" primaryText="Mes réservations" leftIcon={<WorkOutlineIcon />} onClick={onClick} />
 ));
 
-const MyOfferAndNeedMenu = forwardRef(({ onClick }, ref) => (
-  <MenuItemLink ref={ref} to="/MyOffersAndNeeds" primaryText="Mes annonces" leftIcon={<AnnouncementIcon />} onClick={onClick} />
-));
+const MyOfferAndNeedMenu = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
+  return (
+    <MenuItemLink ref={ref} to="/MyOffersAndNeeds" primaryText={translate('app.action.offerAndNeed.mine')} leftIcon={<AnnouncementIcon />} onClick={onClick} />
+  )
+});
 
-const MyAlertMenu = forwardRef(({ onClick }, ref) => (
-  <MenuItemLink ref={ref} to="/MyAlerts" primaryText="Mes alertes" leftIcon={<NotificationsIcon />} onClick={onClick} />
-));
+const MyAlertMenu = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
+  return (
+    <MenuItemLink ref={ref} to="/MyAlerts" primaryText={translate('app.action.alert.mine')} leftIcon={<NotificationsIcon />} onClick={onClick} />
+  )
+});
 
 const LoginMenu = forwardRef(({ onClick }, ref) => (
   <MenuItemLink ref={ref} to="/login" primaryText="Se connecter" onClick={onClick} />
