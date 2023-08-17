@@ -31,6 +31,14 @@ module.exports = {
         myPlaces: "My places",
         create: "Add a place",
       },
+      offerAndNeed: {
+        mine: "My announcements",
+        create: "Add an announcement",
+      },
+      alert: {
+        mine: "My alerts",
+        create: "Add an alert",
+      }
     },
     page: {
       home: "Welcome to the Transition Pathways !",
@@ -85,6 +93,7 @@ module.exports = {
       linkedPath: 'Linked Path',
       placeType: "Place type",
       skills: "Skills",
+      offerAndNeedType: "Announcement type",
       organization: {
         label: "Organization Name",
         hasType: "What type of organization?",
@@ -212,6 +221,11 @@ module.exports = {
         subtitle: "For more inspiration",
         linkText: "See all places"
       },
+      offerAndNeed: {
+        description: "Description",
+        contact: "Contact",
+        visibility: "Visibility"
+      },
       economicalConditions: 'Economical Conditions',
       accommodation: 'Accommodation',
       contact: 'Contact',
@@ -246,6 +260,7 @@ module.exports = {
       place: "Places",
       event: "Events",
       course: "Courses",
+      offerAndNeed: "Announcements"
     },
     bookmark: {
       title: "My bookmarks",
@@ -253,10 +268,12 @@ module.exports = {
       place: "places",
       event: "events",
       course: "courses",
+      offerAndNeed: "announcements",
       pathHeadComment:"To compose my trip",
       placeHeadComment: "To compose my trip",
       eventHeadComment: "To compose my trip",
       courseHeadComment: "To compose my trip",
+      offerAndNeedHeadComment: "To compose my trip",
     }
   },
 };

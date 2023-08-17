@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListBase } from 'react-admin';
+import { ListBase, useTranslate } from 'react-admin';
 import { useCheckAuthenticated } from '@semapps/auth-provider';
 import CardsList from '../commons/lists/CardsList';
 import OfferAndNeedCard from '../resources/OfferAndNeed/OfferAndNeedCard';
@@ -8,14 +8,14 @@ import LargeContainer from '../commons/LargeContainer';
 import HeaderTitle from '../commons/HeaderTitle';
 import Button from '../commons/Button';
 
-const actions = [<Button to="/OfferAndNeed/create">Ajouter</Button>];
-
 const MyOffersAndNeedsPage = () => {
   const { identity, loading } = useCheckAuthenticated();
+  const translate = useTranslate();
   if (loading) return null;
+  const actions = [<Button to="/OfferAndNeed/create">{translate('app.action.offerAndNeed.create')}</Button>];
   return (
     <>
-      <HeaderTitle actions={actions}>Mes annonces</HeaderTitle>
+      <HeaderTitle actions={actions}>{translate('app.action.offerAndNeed.mine')}</HeaderTitle>
       <br />
       <FullWidthBox>
         <LargeContainer>

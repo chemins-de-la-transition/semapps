@@ -31,6 +31,14 @@ module.exports = {
         myPlaces: "Mes lieux",
         create: "Ajouter un lieu",
       },
+      offerAndNeed: {
+        mine: "Mes annonces",
+        create: "Ajouter une annonce",
+      },
+      alert: {
+        mine: "Mes alerts",
+        create: "Ajouter une alerte",
+      }
     },
     page: {
       home: "Bienvenue sur les Chemins de la Transition !",
@@ -84,6 +92,7 @@ module.exports = {
       facilitator: "Qui intervient",
       linkedPath: "Fait partie de",
       placeType: "Type de lieu",
+      offerAndNeedType: "Type d'annonce",
       organization: {
         label: "Nom de l'organisation",
         hasType: "Quel type d'organisation ?",
@@ -212,6 +221,11 @@ module.exports = {
         linkText:"Voir tous les lieux"
 
       },
+      offerAndNeed: {
+        description: "Description",
+        contact: "Contact",
+        visibility: "Visibilité"
+      },
       economicalConditions: "Conditions financières",
       accommodation: "Modalités d'accueil",
       contact: "Contact",
@@ -246,6 +260,7 @@ module.exports = {
       place: "Lieux",
       event: "Evénements",
       course: "Voyages",
+      offerAndNeed: "Annonces"
     },
     bookmark: {
       title: "Mes favoris",
@@ -253,10 +268,12 @@ module.exports = {
       place: "les lieux",
       event: "les événements",
       course: "les voyages",
+      offerAndNeed: "les annonces",
       pathHeadComment:"Pour composer mon voyage à la carte",
       placeHeadComment: "Pour composer mon voyage à la carte",
       eventHeadComment: "Pour composer mon voyage à la carte",
       courseHeadComment: "Pour composer mon voyage à la carte",
+      offerAndNeedHeadComment: "Pour composer mon voyage à la carte",
     }
   },
 };
