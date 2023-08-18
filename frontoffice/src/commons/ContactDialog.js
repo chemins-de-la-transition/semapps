@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNotify, required, useShowContext } from 'react-admin';
+import { useNotify, required, useShowContext, useTranslate } from 'react-admin';
 import { Dialog, DialogTitle, DialogContent, DialogActions, makeStyles, TextField, Button } from '@material-ui/core';
 import { Form, Field } from 'react-final-form';
 import SendIcon from '@material-ui/icons/Send';
@@ -43,6 +43,7 @@ const ContactDialog = ({ open, onClose, name }) => {
   const classes = useStyles();
   const { record } = useShowContext();
   const notify = useNotify();
+  const translate = useTranslate();
 
   const onSubmit = async values => {
     const result = await fetch(process.env.REACT_APP_MIDDLEWARE_URL + '_mailer/contact', {
@@ -53,7 +54,7 @@ const ContactDialog = ({ open, onClose, name }) => {
 
     if( result.ok ) {
       onClose();
-      notify('Votre message a bien été envoyé', 'success');
+      notify('Votre message a bien été envoyé', 'success'); // #TODO @srosset81 or @VincentFarcy how do I internationlize this? 
     } else {
       const json = await result.json();
       notify(json.message, 'error');
@@ -69,13 +70,13 @@ const ContactDialog = ({ open, onClose, name }) => {
           <Dialog fullWidth open={open} onClose={onClose}>
             <DialogTitle className={classes.title}>Contacter {record?.['pair:label']}</DialogTitle>
             <DialogContent className={classes.addForm}>
-              <Field name="name" component={FinalFormTextField} label="Votre nom" variant="filled" margin="dense" fullWidth validate={required('Champ requis')} />
-              <Field name="email" component={FinalFormTextField} label="Votre adresse mail" variant="filled" margin="dense" fullWidth validate={required('Champ requis')} />
-              <Field name="content" component={FinalFormTextField} label="Message" variant="filled" margin="dense" fullWidth multiline rows={7} validate={required('Champ requis')} />
+              <Field name="name" component={FinalFormTextField} label={translate('app.input.person.lastName')} variant="filled" margin="dense" fullWidth validate={required('Champ requis')} />
+              <Field name="email" component={FinalFormTextField} label={translate('app.input.person.email')} variant="filled" margin="dense" fullWidth validate={required('Champ requis')} />
+              <Field name="content" component={FinalFormTextField} label={translate('app.input.person.message')} variant="filled" margin="dense" fullWidth multiline rows={7} validate={required('Champ requis')} />
             </DialogContent>
             <DialogActions className={classes.actions}>
-              <Button variant="text" onClick={onClose}>Fermer</Button>
-              <Button type="submit" variant="contained" color="primary" endIcon={<SendIcon />} onClick={() => form.submit()} disabled={submitting}>Envoyer</Button>
+              <Button variant="text" onClick={onClose}>{translate('app.action.close')}</Button>
+              <Button type="submit" variant="contained" color="primary" endIcon={<SendIcon />} onClick={() => form.submit()} disabled={submitting}>{translate('app.action.send')}</Button>
             </DialogActions>
           </Dialog>
         </form>

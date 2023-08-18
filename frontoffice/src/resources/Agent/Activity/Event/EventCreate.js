@@ -1,5 +1,5 @@
 import React from 'react';
-import { Create } from 'react-admin';
+import { Create, useTranslate} from 'react-admin';
 import { useCheckPermissions } from '@semapps/auth-provider';
 import { useCreateContainer } from '@semapps/semantic-data-provider';
 import FullWidthBox from '../../../../commons/FullWidthBox';
@@ -9,14 +9,16 @@ import EventTitle from './EventTitle';
 import EventForm from './EventForm';
 import Button from '../../../../commons/Button';
 
-const actions = [<Button to="/MyEvents">Liste</Button>];
 
 const EventCreate = (props) => {
   const createContainerUri = useCreateContainer(props.resource);
   useCheckPermissions(createContainerUri, 'create');
+  const translate = useTranslate();
+  const actions = [<Button to="/MyEvents">{translate('app.action.event.myEvents')}</Button>];
+
   return (
     <>
-      <HeaderTitle actions={actions}>Ajouter un événement</HeaderTitle>
+      <HeaderTitle actions={actions}>{translate('app.action.event.create')}</HeaderTitle>
       <FullWidthBox>
         <LargeContainer>
           <Create title={<EventTitle />} actions={null} {...props}>

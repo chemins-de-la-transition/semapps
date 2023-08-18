@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField } from 'react-admin';
+import { TextField, useTranslate} from 'react-admin';
 import Chip from '../../../../commons/Chip';
 import { SeparatedListField, ReferenceArrayField } from '@semapps/field-components';
 import { makeStyles } from '@material-ui/core';
@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 const OrganizationCard = ({ record, variant }) => {
   const classes = useStyles();
+  const translate = useTranslate();
   return (
     <>
       <TextField variant="h2" record={record} component="div" source="pair:label" className={classes.title} />
@@ -52,7 +53,7 @@ const OrganizationCard = ({ record, variant }) => {
       )}
       {variant === 'full' && (
         <div className={classes.description}>
-          <strong>Description: </strong>
+          <strong>{translate('app.card.organization.description')}: </strong>
           <TextField record={record} source="pair:comment" />
         </div>
       )}

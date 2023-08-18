@@ -19,7 +19,7 @@ export default {
     icon: PersonIcon,
     show: ActorRedirect,
     options: {
-      label: 'Acteurs',
+      label: 'Acteurs', 
     },
   },
   dataModel: {
@@ -28,6 +28,9 @@ export default {
   translations: {
     fr: {
       name: 'Acteur |||| Acteurs',
+    },
+    en: {
+      name: 'Actor |||| Actors',
     },
   },
 };

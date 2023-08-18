@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChipField, ShowBase, SingleFieldList, TextField } from 'react-admin';
+import { ChipField, ShowBase, SingleFieldList, TextField, useTranslate} from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import resourceTheme from '../../../config/themes/resourceTheme';
 import resourceShowStyle from '../../../commons/style/resourceShowStyle';
@@ -29,6 +29,8 @@ const PathShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
   const mentions = useMentions('Person');
   const classes = useStyles();
+  const translate = useTranslate();
+
   return (
     <ThemeProvider theme={resourceTheme}>
       <ShowBase {...props}>
@@ -78,7 +80,7 @@ const PathShow = (props) => {
             </GroupOfFields>
 
             <GroupOfFields
-              title="Compétences"
+              label={translate('app.input.skills')}
               sources={["pair:produces","cdlt:learningObjectives"]}
               addLabel
             >

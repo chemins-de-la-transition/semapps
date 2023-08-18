@@ -1,6 +1,6 @@
 import React from 'react';
 import {makeStyles, Typography, ListItem, ListItemText, Box } from '@material-ui/core';
-import { DateField, ImageField, TextField, FunctionField, SingleFieldList } from 'react-admin';
+import { DateField, ImageField, TextField, FunctionField, SingleFieldList, useTranslate  } from 'react-admin';
 import DurationField from '../../fields/DurationField';
 import { Link } from 'react-router-dom';
 import { ReferenceArrayField, ReferenceField } from '@semapps/field-components';
@@ -115,6 +115,7 @@ const useStyles = makeStyles((theme) => ({
 const EventCardBlock = ({ record }) => {
   const classes = useStyles();
   const address = record['pair:hasLocation']?.['pair:label'];
+  const translate = useTranslate();
 
   return (
         <ListItem
@@ -166,7 +167,7 @@ const EventCardBlock = ({ record }) => {
                   <div style={{display: 'flex'}}>
                   <PlaceIcon className={classes.icon}/>
                   <ReferenceField record={record} source="pair:hostedIn" reference="Place" link={false}>
-                    <FunctionField className={classes.eventAddress} label="Localisation" render={record => 
+                    <FunctionField className={classes.eventAddress} label={translate('app.card.localisation')} render={record => 
                     record['pair:hasPostalAddress'] ?
                       `${record['pair:hasPostalAddress']['pair:addressLocality']} (${record['pair:hasPostalAddress']['pair:addressZipCode']?.slice(0,2)}) - ${record['pair:label']}`
                     : record['pair:label']

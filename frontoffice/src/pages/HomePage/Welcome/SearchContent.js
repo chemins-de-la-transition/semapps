@@ -4,7 +4,7 @@ import LargeContainer from '../../../commons/LargeContainer';
 import FullWidthBox from '../../../commons/FullWidthBox';
 import Button from '../../../commons/Button';
 import  { useHistory } from 'react-router-dom';
-import { useGetList } from 'react-admin';
+import { useGetList, useTranslate } from 'react-admin';
 import { typeOfCourseWeight } from '../../../commons/Weights';
 
 const useStyles = makeStyles((theme) => ({
@@ -125,10 +125,11 @@ const ChevronIcon = (props) => (
  );
 
 const SelectResources = ({ reference, inverseSource, selectIcon, ...rest }) =>{
+  const translate = useTranslate();
   const { data, ids } = useGetList(reference, { perPage: 999, page: 1 }, { field: 'pair:label', order: 'ASC' });
   return (
     <Select {...rest} IconComponent = {selectIcon}>
-      <MenuItem value="">Choisir...</MenuItem>
+      <MenuItem value="">{translate('app.helper.choose')}</MenuItem>
       {ids
         .filter((id) => !inverseSource || data[id]?.[inverseSource])
         .sort((a, b) => (typeOfCourseWeight[data[b]?.['pair:label']] || 0) - (typeOfCourseWeight[data[a]?.['pair:label']] || 0))
@@ -145,6 +146,7 @@ const SelectResources = ({ reference, inverseSource, selectIcon, ...rest }) =>{
 const FormBox = () => {
   const classes = useStyles();
   const history = useHistory();
+  const translate = useTranslate();
 
   const [type, setType] = useState("");
   const [category, setCategory] = useState("");
@@ -164,7 +166,7 @@ const FormBox = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
             <FormControl className={classes.formControl} size="small" fullWidth>
-              <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>Mode de voyage</InputLabel>
+              <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>{translate('app.input.courseType')}</InputLabel>
               <SelectResources
                 reference="Type"
                 inverseSource="cdlt:typeOfCourse"
@@ -179,7 +181,7 @@ const FormBox = () => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <FormControl className={classes.formControl} size="small" fullWidth>
-              <InputLabel id="demo-select-sector-label" className={classes.inputLabelText}>Secteur d'activité</InputLabel>
+              <InputLabel id="demo-select-sector-label" className={classes.inputLabelText}>{translate('app.input.sector')}</InputLabel>
               <SelectResources
                 reference="Sector"
                 inverseSource="pair:sectorOf"
@@ -194,7 +196,7 @@ const FormBox = () => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <FormControl className={classes.formControl} size="small" fullWidth>
-              <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>Région</InputLabel>
+              <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>{translate('app.input.region')}</InputLabel>
               <SelectResources
                 reference="Region"
                 inverseSource="cdlt:regionOf"
@@ -217,7 +219,7 @@ const FormBox = () => {
             className={classes.button}
             onClick={search}
           >
-            Rechercher
+            {translate('app.action.search')}
         </Button>
         </Box>
       </Grid>
@@ -227,13 +229,14 @@ const FormBox = () => {
 
 const SearchContent = () => {
   const classes = useStyles();
+  const translate = useTranslate();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
   if (xs) {
     return (
       <FullWidthBox className={classes.boxXs}>
         <LargeContainer className={classes.searchBackgroundXs + ' ' + classes.commonsSearch}>
           <Typography variant="subtitle1" className={classes.searchTitle}>
-            Partez sur les chemins de la transition
+            {translate('app.block.search')}
           </Typography>
           <FormBox />
         </LargeContainer>
@@ -246,7 +249,7 @@ const SearchContent = () => {
           <LargeContainer>
             <Box className={classes.searchBackground + ' ' + classes.commonsSearch}>
               <Typography variant="subtitle1" className={classes.searchTitle}>
-                Partez sur les chemins de la transition
+                {translate('app.block.search')}
               </Typography>
               <FormBox />
             </Box>

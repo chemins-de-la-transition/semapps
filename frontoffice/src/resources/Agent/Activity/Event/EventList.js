@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShowButton } from 'react-admin';
+import { ShowButton, useTranslate } from 'react-admin';
 import { Box, useMediaQuery } from '@material-ui/core';
 import frLocale from '@fullcalendar/core/locales/fr';
 import { CalendarList } from '@semapps/date-components';
@@ -20,31 +20,32 @@ const EventList = (props) => {
   const [checked, setChecked] = useState(true);
   const clearFilters = () => setChecked(false);
   const futureEventSparql = useFutureEventSparql();
+  const translate = useTranslate();
 
   return (
     <MultiViewsFilterList
       filter= {{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}
       filters={[
         <SearchFilter />,
-        <SparqlFilter checked={checked} setChecked={setChecked} sparqlWhere={futureEventSparql} label="N'afficher que les événements à venir" />,
-        <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label="Région" />,
-        <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label="Secteur d'activité" />,
+        <SparqlFilter checked={checked} setChecked={setChecked} sparqlWhere={futureEventSparql} label={translate('app.card.event.onlyFutureEvents')} />,
+        <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label={translate('app.input.region')} />,
+        <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label={translate('app.input.sector')} />,
         <Filter
           reference="Type"
           source="cdlt:hasCourseType"
           /*inverseSource="cdlt:typeOfCourse"*/ filter={{ a: 'cdlt:CourseType' }}
-          label="Mode de voyage"
+          label={translate('app.input.courseType')}
         />,
         <Filter
           reference="Type"
           source="pair:hasType"
           /*inverseSource="cdlt:typeOf"*/ filter={{ a: 'pair:EventType' }}
-          label="Type d'événement"
+          label={translate('app.input.event.type')}
         />,
         <Filter 
           reference="TargetAudience"
           source="cdlt:hasTargetAudience"
-          label="Public cible"
+          label={translate('app.input.event.hasTargetAudience')}
         />,
       ]}
       views={{

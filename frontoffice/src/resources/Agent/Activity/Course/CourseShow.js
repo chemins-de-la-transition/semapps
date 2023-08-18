@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChipField, ShowBase, SingleFieldList, TextField, UrlField, Link, linkToRecord } from 'react-admin';
+import { ChipField, ShowBase, SingleFieldList, TextField, UrlField, Link, linkToRecord , useTranslate} from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import resourceTheme from '../../../../config/themes/resourceTheme';
 import resourceShowStyle from '../../../../commons/style/resourceShowStyle';
@@ -31,6 +31,7 @@ const CourseShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
   const mentions = useMentions('Person');
   const classes = useStyles();
+  const translate = useTranslate();
   return (
     <ThemeProvider theme={resourceTheme}>
       <ShowBase {...props}>
@@ -49,7 +50,7 @@ const CourseShow = (props) => {
             }
           >
             <GroupOfFields
-              title="A propos du voyage"
+              title={translate('app.tab.course.about')}
               sources={["cdlt:referenceNumber","pair:comment","pair:hasFinality","pair:hasSector","cdlt:hasCourseType","pair:hasTopic","cdlt:hasTargetAudience","pair:description"]}
               addLabel
               noBorder
@@ -84,7 +85,7 @@ const CourseShow = (props) => {
               <MarkdownField source="pair:description" />
             </GroupOfFields>
             <GroupOfFields
-              title="Compétences"
+              title={translate('app.tab.skills')}
               sources={["cdlt:requiredSkills","pair:produces","cdlt:learningObjectives"]}
               addLabel
             >
@@ -107,7 +108,7 @@ const CourseShow = (props) => {
               </ReferenceArrayField>
             </GroupOfFields>
             <ReferenceArrayField
-              label="Itinéraire"
+              label={translate('app.tab.course.pathway')}
               reference="Event"
               source="pair:hasPart"
               sort={{ field: 'pair:startDate', order: 'ASC' }}
@@ -118,7 +119,7 @@ const CourseShow = (props) => {
             <MarkdownField source="cdlt:organizerDescription" />
             <MarkdownField source="cdlt:mentorDescription" />
             <GroupOfFields
-              title="Modalités d'accueil"
+              title={translate('app.tab.accommodation')}
               sources={["cdlt:practicalConditions","cdlt:minimumCapacity","cdlt:maximumCapacity"]}
               addLabel
             >
@@ -127,17 +128,17 @@ const CourseShow = (props) => {
               <NumberWithUnitField source="cdlt:maximumCapacity" addLabel unit='personnes' color="grey40" />
             </GroupOfFields>
             <GroupOfFields
-              title="Conditions financières"
+              title={translate('app.tab.economicalConditions')}
               sources={["cdlt:economicalConditions","cdlt:financialSupport"]}
               addLabel
             >
               <MarkdownField source="cdlt:economicalConditions" />
               <MarkdownField source="cdlt:financialSupport" popover=
-              {<Link to={linkToRecord("/Page",urlJoin(process.env.REACT_APP_MIDDLEWARE_URL, 'pages', 'dispositifs-de-financements'),"show")} target="_blank" rel="noopener noreferrer">Découvrir les différents dispositifs de financement</Link>}/>
+              {<Link to={linkToRecord("/Page",urlJoin(process.env.REACT_APP_MIDDLEWARE_URL, 'pages', 'dispositifs-de-financements'),"show")} target="_blank" rel="noopener noreferrer">{translate('app.notification.financialSupport')}</Link>}/>
               <MarkdownField source="cdlt:evaluationMethod" />
             </GroupOfFields>
             <ReferenceArrayField
-              label="Localisation"
+              label={translate('app.tab.course.location')}
               reference="Event"
               source="pair:hasPart"
               sort={{ field: 'pair:startDate', order: 'ASC' }}
@@ -155,17 +156,17 @@ const CourseShow = (props) => {
                 dragging={false}
               />
             </ReferenceArrayField>
-            <UrlField source="pair:homePage" label="Liens" className={classes.urlField} />
+            <UrlField source="pair:homePage" label={translate('app.tab.links')} className={classes.urlField} />
             <CommentsField userResource="Person" mentions={mentions} />
           </BodyList>
           <SimilarList
             resource="Course"
             basePath="/Course"
             logo={PictoParcours}
-            title="Nos voyages"
-            subtitle="Similaires"
+            title={translate('app.tab.course.title')}
+            subtitle={translate('app.tab.course.subtitle')}
             headComment=""
-            linkText="Voir tous les voyages"
+            linkText={translate('app.tab.course.linkText')}
             CardSubHeaderComponent={CourseSubHeader}
           />
           <Traveler />

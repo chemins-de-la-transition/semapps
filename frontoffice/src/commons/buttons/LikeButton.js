@@ -32,7 +32,7 @@ const LikeButton = (props) => {
       object: record.id,
       to: PUBLIC_URI
     });
-    notify('Ajouté à vos favoris', 'success');
+    notify('Ajouté à vos favoris', 'success'); // @srosset81 how do we translate here?
   }, [outbox, record, notify, addItem]);
 
   const unlike = useCallback(async () => {

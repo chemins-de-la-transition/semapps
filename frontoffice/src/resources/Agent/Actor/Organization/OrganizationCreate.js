@@ -1,5 +1,5 @@
 import React from 'react';
-import { Create, useGetIdentity } from 'react-admin';
+import { Create, useGetIdentity, useTranslate} from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import organizationTheme from '../../../../config/themes/organizationTheme';
 import { useCheckPermissions } from '@semapps/auth-provider';
@@ -11,9 +11,12 @@ import OrganizationTitle from './OrganizationTitle';
 import OrganizationForm from './OrganizationForm';
 import Button from '../../../../commons/Button';
 
-const actions = [<Button to="/MyOrganizations">Mes organisations</Button>];
 
 const OrganizationCreate = (props) => {
+  const translate = useTranslate();
+
+  const actions = [<Button to="/MyOrganizations">{translate('app.action.organization.myOrganizations')}</Button>];
+
   const createContainerUri = useCreateContainer(props.resource);
   const { identity } = useGetIdentity();
   useCheckPermissions(createContainerUri, 'create');

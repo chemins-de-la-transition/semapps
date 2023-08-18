@@ -29,5 +29,8 @@ export default {
     fr: {
       name: 'Activité |||| Activités',
     },
+    en: {
+      name: 'Activity |||| Activities',
+    },
   },
 };

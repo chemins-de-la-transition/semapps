@@ -1,10 +1,11 @@
 import React from "react";
-import { useShowContext, Link, linkToRecord } from "react-admin";
+import { useShowContext, Link, linkToRecord, useTranslate } from "react-admin";
 import Button from "../Button";
 import ContactButton from "./ContactButton";
 
 const ApplyButton = ({ mainButton }) => {
   const { record } = useShowContext();
+  const translate = useTranslate();
   if (!record) return null;
   return record.type === "pair:Event" && record["pair:partOf"] && !record["cdlt:registrationOutsideCourse"] ? (
     <Link
@@ -17,11 +18,11 @@ const ApplyButton = ({ mainButton }) => {
       )}
     >
       <Button variant="contained" color="primary" typographyVariant="button1">
-        Contacter les organisateurs·ices
+      label={translate('app.action.event.contact')}
       </Button>
     </Link>
   ) : (
-    <ContactButton label="Contacter les organisateurs·ices" mainButton={mainButton} />
+    <ContactButton label={translate('app.action.event.contact')} mainButton={mainButton} />
   );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormTab, NumberInput, TabbedForm, TextInput, ImageInput, email } from 'react-admin';
+import { FormTab, NumberInput, TabbedForm, TextInput, ImageInput, email, useTranslate } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/field-components';
 import { MultiLinesInput } from "@semapps/input-components";
@@ -20,7 +20,9 @@ import ReminderBeforeRecording from '../../../../common/ReminderBeforeRecording'
 import OrganizationTitle from './OrganizationTitle';
 import Edit from "../../../../layout/edit/Edit";
 
-export const OrganizationEdit = (props) => (
+export const OrganizationEdit = (props) => {
+  const translate = useTranslate();
+  return (
   <Edit title={<OrganizationTitle />} {...props}>
     <TabbedForm
       redirect="show"
@@ -53,13 +55,14 @@ export const OrganizationEdit = (props) => (
       </FormTab>
       <FormTab label="Contact">
         <MultiLinesInput source="pair:homePage" fullWidth />
-        <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[email()]} />
-        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
-        <TextInput source="cdlt:publicPhone" fullWidth helperText="Numéro public affiché sur la page" />
+        <TextInput source="pair:e-mail" fullWidth helperText={translate('app.helper.nonVisible')} validate={[email()]} />
+        <TextInput source="pair:phone" fullWidth helperText={translate('app.helper.nonVisible')} />
+        <TextInput source="cdlt:publicPhone" fullWidth helperText={translate('app.helper.publicPhone')} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:OrganizationStatus' }} fullWidth helperText="Un statut de partenaire permettra d'afficher l'organisation sur la page d'accueil"/>
       </FormTab>
     </TabbedForm>
   </Edit>
-);
+  );
+}
 
 export default OrganizationEdit;

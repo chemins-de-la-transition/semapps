@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useGetIdentity, useShowContext } from "react-admin";
+import { useGetIdentity, useShowContext, useTranslate } from "react-admin";
 import { useHistory } from 'react-router';
 import { AuthDialog } from "@semapps/auth-provider";
 import ContactDialog from "../../commons/ContactDialog";
@@ -12,6 +12,7 @@ const ContactButton = ({ label, mainButton }) => {
   const [openContact, setOpenContact] = useState(false);
   const [openAuth, setOpenAuth] = useState(false);
   const { record = {} } = useShowContext();
+  const translate = useTranslate();
 
   useEffect(() => {
     if (mainButton) {
@@ -30,7 +31,7 @@ const ContactButton = ({ label, mainButton }) => {
   }, [mainButton, history, identity, setOpenContact]);
 
   if (record["cdlt:directRegistration"]) {
-    return <RegistrationButton label="Je m'inscris" mainButton={mainButton} />;
+    return <RegistrationButton label={translate('app.action.event.register')} mainButton={mainButton} />;
   }
 
   return (
@@ -60,7 +61,7 @@ const ContactButton = ({ label, mainButton }) => {
         open={openAuth}
         onClose={() => setOpenAuth(false)}
         redirect={history.location.pathname + '?contact'}
-        message="Veuillez vous connecter pour accéder au formulaire de contact"
+        message={translate('app.message.errorAuth')}
       />
     </>
   );
