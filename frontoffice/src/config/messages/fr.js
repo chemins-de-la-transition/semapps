@@ -3,10 +3,16 @@
 module.exports = {
   app: {
     action: {
+      create: "Ajouter",
       search: "Rechercher",
+      newSearch: "Commencez votre recherche",
       contactPlace: "Contacter le lieu",
       close:"Fermer",
       send:"Envoyer",
+      listView: "vue liste",
+      mapView: "vue carte",
+      filters: "filtres",
+      removeFilters: "Enlever tous les filtres",
       organization: {
         contact: "Contacter l'organisation",
         create: "Ajouter une organisation",
@@ -24,7 +30,7 @@ module.exports = {
       place: {
         myPlaces: "Mes lieux",
         create: "Ajouter un lieu",
-      }
+      },
     },
     page: {
       home: "Bienvenue sur les Chemins de la Transition !",
@@ -69,6 +75,7 @@ module.exports = {
     input: {
       courseType: "Mode de voyage",
       sector: "Secteur d'activité",
+      topic: "Mot clé",
       region: "Région(s)",
       TargetAudience: "Public cible",
       listView: 'Vue liste',
@@ -154,7 +161,9 @@ module.exports = {
       },
       errorAuth: "Veuillez vous connecter pour accéder au formulaire de contact",
       errorRegistration: "Vous devez vous connecter pour pouvoir vous inscrire",
-      moreEvents: "Ce lieu propose plusieurs événements. Cliquez dessus pour en savoir plus et/ou participer."
+      moreEvents: "Ce lieu propose plusieurs événements. Cliquez dessus pour en savoir plus et/ou participer.",
+      results: "resultat(s)",
+      noResult: "Aucun résultat trouvé"
     },
     tab: {
       organization: {
@@ -231,6 +240,17 @@ module.exports = {
       login: "Se connecter",
       signup: "Créer un compte",
       profile: "Mon profil",
+    },
+    bookmark: {
+      title: "Mes favoris",
+      path: "les chemins",
+      place: "les lieux",
+      event: "les événements",
+      course: "les voyages",
+      pathHeadComment:"Pour composer mon voyage à la carte",
+      placeHeadComment: "Pour composer mon voyage à la carte",
+      eventHeadComment: "Pour composer mon voyage à la carte",
+      courseHeadComment: "Pour composer mon voyage à la carte",
     }
   },
 };

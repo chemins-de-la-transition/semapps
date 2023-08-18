@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslate } from 'react-admin';
 import { Box } from '@material-ui/core';
 import { useCheckAuthenticated } from '@semapps/auth-provider';
 import FullWidthBox from '../commons/FullWidthBox';
@@ -12,9 +13,10 @@ import CourseCard from '../resources/Agent/Activity/Course/CourseCard';
 
 const MyBookmarksPage = () => {
   const { identity } = useCheckAuthenticated();
+  const translate = useTranslate();
   return (
     <>
-      <HeaderTitle>Mes favoris</HeaderTitle>
+      <HeaderTitle>{translate('app.bookmark.title')}</HeaderTitle>
       <br />
       <FullWidthBox>
         <LargeContainer>
@@ -24,36 +26,36 @@ const MyBookmarksPage = () => {
                 id={identity.id}
                 resource="Path"
                 type="cdlt:Path" 
-                title="Mes favoris" 
-                subtitle="les chemins"
-                headComment="Pour composer mon voyage à la carte" 
+                title={translate('app.bookmark.title')}
+                subtitle={translate('app.bookmark.path')}
+                headComment={translate('app.bookmark.pathHeadComment')}
                 CardComponent={PathCard}
               />
               <LikedList
                 id={identity.id}
                 resource="Place"
                 type="pair:Place"
-                title="Mes favoris"
-                subtitle="les lieux"
-                headComment="Pour composer mon voyage à la carte"
+                title={translate('app.bookmark.title')}
+                subtitle={translate('app.bookmark.place')}
+                headComment={translate('app.bookmark.placeHeadComment')}
                 CardComponent={PlaceCard}
               />
               <LikedList
                 id={identity.id}
                 resource="Event"
                 type="pair:Event"
-                title="Mes favoris"
-                subtitle="les événements"
-                headComment="Pour composer mon voyage à la carte"
+                title={translate('app.bookmark.title')}
+                subtitle={translate('app.bookmark.event')}
+                headComment={translate('app.bookmark.eventHeadComment')}
                 CardComponent={EventCard}
               />
               <LikedList
                 id={identity.id}
                 resource="Course"
                 type="cdlt:Course"
-                title="Mes favoris"
-                subtitle="les voyages"
-                headComment="Pour composer mon voyage à la carte"
+                title={translate('app.bookmark.title')}
+                subtitle={translate('app.bookmark.course')}
+                headComment={translate('app.bookmark.courseHeadComment')}
                 CardComponent={CourseCard}
               />
             </Box>

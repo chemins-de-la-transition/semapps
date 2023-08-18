@@ -3,10 +3,16 @@
 module.exports = {
   app: {
     action: {
+      create: "Add",
       search: "Search",
+      newSearch: "Start a new search",
       contactPlace: "Contact the place",
       close:"Close",
       send:"Send",
+      listView: "list view",
+      mapView: "map view",
+      filters: "filters",
+      removeFilters: "remove all filters",
       organization: {
         contact: "Contact the organization",
         create: "Add an organization",
@@ -24,7 +30,7 @@ module.exports = {
       place: {
         myPlaces: "My places",
         create: "Add a place",
-      }
+      },
     },
     page: {
       home: "Welcome to the Transition Pathways !",
@@ -69,6 +75,7 @@ module.exports = {
     input: {
       courseType: "Course type",
       sector: "Activity sector",
+      topic: "Keyword",
       region: "Region",
       targetAudience: "Target Audience",
       listView: 'List View',
@@ -155,7 +162,9 @@ module.exports = {
       },
       errorAuth: "Please log in to access the contact form",
       errorRegistration: "You must be logged in to register",
-      moreEvents: "This place offers multiple events. Click on it to learn more and/or participate."
+      moreEvents: "This place offers multiple events. Click on it to learn more and/or participate.",
+      results: "result(s)",
+      noResult: "No result found"
     },
     tab: {
       organization: {
@@ -231,6 +240,17 @@ module.exports = {
       login: "Login",
       signup: "Sign Up",
       profile: "My Profile",
+    },
+    bookmark: {
+      title: "My bookmarks",
+      path: "paths",
+      place: "places",
+      event: "events",
+      course: "courses",
+      pathHeadComment:"To compose my trip",
+      placeHeadComment: "To compose my trip",
+      eventHeadComment: "To compose my trip",
+      courseHeadComment: "To compose my trip",
     }
   },
 };

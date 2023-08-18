@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Notification } from 'react-admin';
+import { Notification, useTranslate } from 'react-admin';
 import { Box, /* useMediaQuery, */ ThemeProvider } from '@material-ui/core';
 import AppBar from './AppBar';
 import Footer from './Footer';
@@ -8,6 +8,7 @@ import SideMenu from './SideMenu';
 import TopBar from './TopBar';
 
 const Layout = ({ logout, theme, children, title }) => {
+  const translate = useTranslate();
   const menuItems = [
     { link: '/Path', name: 'Chemins' },
     { link: '/Place', name: 'Lieux' },

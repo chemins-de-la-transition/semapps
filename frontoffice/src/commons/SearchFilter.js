@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useListFilterContext } from 'react-admin';
+import { useListFilterContext, useTranslate } from 'react-admin';
 import { FormControl, makeStyles, Input } from '@material-ui/core';
 import SearchIcon from "@material-ui/icons/Search";
 import debounce from 'lodash.debounce';
@@ -20,6 +20,7 @@ const SearchFilter = () => {
   const classes = useStyles();
   const { filterValues, setFilters } = useListFilterContext();
   const textInput = useRef(null);
+  const translate = useTranslate();
 
   const changeFilter = debounce(query => {
     setFilters({ ...filterValues, q: query}, null, false);
@@ -36,7 +37,7 @@ const SearchFilter = () => {
         onChange={event => (changeFilter(event.target.value))} 
         endAdornment={<SearchIcon/>}
         disableUnderline={true}
-        placeholder="Commencez votre recherche"
+        placeholder={translate('app.action.newSearch')}
         className={classes.input}
         inputRef={textInput}
       />

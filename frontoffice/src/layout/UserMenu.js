@@ -9,6 +9,47 @@ import HomeIcon from '@material-ui/icons/Home';
 
 const MyBookmarks = forwardRef(({ onClick }, ref) => {
   const translate = useTranslate();
+  return (
+    <MenuItemLink ref={ref} to="/MyBookmarks" primaryText={translate('app.bookmark.title')} leftIcon={<FavoriteIcon />} onClick={onClick} />
+  )
+});
+
+const MyPlacesMenu = forwardRef(({ onClick }, ref) => (
+  <MenuItemLink ref={ref} to="/MyPlaces" primaryText="Mes lieux" leftIcon={<PlaceIcon />} onClick={onClick} />
+));
+
+const MyEventsMenu = forwardRef(({ onClick }, ref) => (
+  <MenuItemLink ref={ref} to="/MyEvents" primaryText="Mes événements" leftIcon={<EventIcon />} onClick={onClick} />
+));
+
+const MyOrganizationsMenu = forwardRef(({ onClick }, ref) => (
+  <MenuItemLink ref={ref} to="/MyOrganizations" primaryText="Mes organisations" leftIcon={<HomeIcon />} onClick={onClick} />
+));
+
+const MyReservationsMenu = forwardRef(({ onClick }, ref) => (
+  <MenuItemLink ref={ref} to="/MyReservations" primaryText="Mes réservations" leftIcon={<WorkOutlineIcon />} onClick={onClick} />
+));
+
+const LoginMenu = forwardRef(({ onClick }, ref) => (
+  <MenuItemLink ref={ref} to="/login" primaryText="Se connecter" onClick={onClick} />
+));
+
+const SignupMenu = forwardRef(({ onClick }, ref) => (
+  <MenuItemLink ref={ref} to="/login?signup=true" primaryText="Créer un compte" onClick={onClick} />
+));
+
+const EditProfileMenu = forwardRef(({ onClick, webId }, ref) => (
+  <MenuItemLink
+    ref={ref}
+    to={`/Person/${encodeURIComponent(webId)}/show`}
+    primaryText="Mon profil"
+    leftIcon={<AccountCircleIcon />}
+    onClick={onClick}
+  />
+));
+
+const MyBookmarks = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
 
   return (
     <MenuItemLink
