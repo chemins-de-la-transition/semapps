@@ -10,10 +10,10 @@ import TopBar from './TopBar';
 const Layout = ({ logout, theme, children, title }) => {
   const translate = useTranslate();
   const menuItems = [
-    { link: '/Path', name: 'Chemins' },
-    { link: '/Place', name: 'Lieux' },
-    { link: '/Event', name: 'Événements' },
-    { link: '/Course', name: 'Voyages' },
+    { link: '/Path', name: translate('app.nav.path') },
+    { link: '/Place', name: translate('app.nav.place') },
+    { link: '/Event', name: translate('app.nav.event') },
+    { link: '/Course', name: translate('app.nav.course') },
   ];
   // const xs = useMediaQuery(theme.breakpoints.down('xs'));
   const [sidebarOpen, setSidebarOpen] = useState(false);

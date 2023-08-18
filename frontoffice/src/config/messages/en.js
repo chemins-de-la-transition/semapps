@@ -241,6 +241,12 @@ module.exports = {
       signup: "Sign Up",
       profile: "My Profile",
     },
+    nav:{
+      path: "Paths",
+      place: "Places",
+      event: "Events",
+      course: "Courses",
+    },
     bookmark: {
       title: "My bookmarks",
       path: "paths",

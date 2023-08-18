@@ -241,6 +241,12 @@ module.exports = {
       signup: "Créer un compte",
       profile: "Mon profil",
     },
+    nav:{
+      path: "Chemins",
+      place: "Lieux",
+      event: "Evénements",
+      course: "Voyages",
+    },
     bookmark: {
       title: "Mes favoris",
       path: "les chemins",
