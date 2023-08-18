@@ -27,6 +27,7 @@ module.exports = {
       status: "Statut",
       publicationStatus: "Statut de publication",
       type: "Type",
+      offerAndNeedType: "Type d'annonce",
       organization: {
         label: "Nom de l'organisation",
         hasType: "Quel type d'organisation ?",
@@ -144,6 +145,11 @@ module.exports = {
         subtitle: "Similaires",
         linkText:"Voir tous les lieux"
 
+      },
+      offerAndNeed: {
+        description: "Description",
+        contact: "Contact",
+        visibility: "Visibilité"
       },
       economicalConditions: "Conditions financières",
       accommodation: "Modalités d'accueil",
