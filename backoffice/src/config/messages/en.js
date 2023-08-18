@@ -26,6 +26,9 @@ module.exports = {
       placeType: "Place type",
       offerAndNeedType: "Announcement type",
       skills: "Skills",
+      status: "Status",
+      publicationStatus: "Publication status",
+      type: "Type",
       organization: {
         label: "Organization Name",
         hasType: "What type of organization?",

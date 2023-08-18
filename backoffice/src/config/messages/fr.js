@@ -25,6 +25,9 @@ module.exports = {
       linkedPath: "Fait partie de",
       placeType: "Type de lieu",
       offerAndNeedType: "Type d'annonce",
+      status: "Statut",
+      publicationStatus: "Statut de publication",
+      type: "Type",
       organization: {
         label: "Nom de l'organisation",
         hasType: "Quel type d'organisation ?",
