@@ -24,6 +24,9 @@ module.exports = {
       facilitator: "Qui intervient",
       linkedPath: "Fait partie de",
       placeType: "Type de lieu",
+      status: "Statut",
+      publicationStatus: "Statut de publication",
+      type: "Type",
       organization: {
         label: "Nom de l'organisation",
         hasType: "Quel type d'organisation ?",

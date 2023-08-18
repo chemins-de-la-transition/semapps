@@ -25,6 +25,9 @@ module.exports = {
       linkedPath: 'Linked Path',
       placeType: "Place type",
       skills: "Skills",
+      status: "Status",
+      publicationStatus: "Publication status",
+      type: "Type",
       organization: {
         label: "Organization Name",
         hasType: "What type of organization?",
