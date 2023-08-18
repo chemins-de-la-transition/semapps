@@ -1,5 +1,5 @@
 import React from 'react';
-import { getResources } from 'react-admin';
+import { getResources, useTranslate } from 'react-admin';
 import { Grid, Select, MenuItem, TextField, Button } from '@material-ui/core';
 import { Form, Field } from 'react-final-form';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -41,6 +41,8 @@ const SearchForm = () => {
     }
   };
 
+  const translate = useTranslate();
+
   return (
     <Form
       onSubmit={onSubmit}
@@ -49,7 +51,7 @@ const SearchForm = () => {
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={5}>
-              <Field name="filter" component={FilterText} placeholder="Rechercher..." fullWidth />
+              <Field name="filter" component={FilterText} placeholder={translate('app.action.search') + "..."} fullWidth />
             </Grid>
             <Grid item xs={5}>
               <Field name="type" component={TypeSelect} fullWidth />

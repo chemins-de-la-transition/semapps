@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabbedForm, FormTab, TextInput, ImageInput, BooleanInput, NumberInput, email, required, FormDataConsumer } from 'react-admin';
+import { TabbedForm, FormTab, TextInput, ImageInput, BooleanInput, NumberInput, email, required, FormDataConsumer, useTranslate } from 'react-admin';
 import frLocale from 'date-fns/locale/fr';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { DateTimeInput } from '@semapps/date-components';
@@ -24,7 +24,9 @@ import ReminderBeforeRecording from '../../../../common/ReminderBeforeRecording'
 import EventTitle from './EventTitle';
 import Edit from "../../../../layout/edit/Edit";
 
-const EventEdit = (props) => (
+const EventEdit = (props) => {
+  const translate = useTranslate();
+  return (
   <Edit title={<EventTitle />} {...props}>
     <TabbedForm redirect="show">
       <FormTab label="A propos de l'évènement">
@@ -99,8 +101,8 @@ const EventEdit = (props) => (
         <TextInput multiline helperText="Si éligible, précisez les types de financements (CPF, Qualiopi...)" source="cdlt:financialSupport" label="Est-ce que l'événement est éligible à des dispositifs de financement ?" fullWidth />
         <PairLocationInput source="pair:hasLocation" fullWidth />
         <PlaceInput source="pair:hostedIn" label="Où se déroule l'événement ?" fullWidth />  
-        <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />
-        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
+        <TextInput source="pair:e-mail" fullWidth helperText={translate('app.helper.nonVisible')} validate={[required(), email()]} />
+        <TextInput source="pair:phone" fullWidth helperText={translate('app.helper.nonVisible')} />
         <TextInput source="pair:aboutPage" fullWidth />
         <RegistrationInput 
           directRegistrationSource="cdlt:directRegistration"
@@ -112,6 +114,7 @@ const EventEdit = (props) => (
       </FormTab>
     </TabbedForm>
   </Edit>
-);
+  );
+}
 
 export default EventEdit;
