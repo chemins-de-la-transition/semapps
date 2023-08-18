@@ -66,6 +66,7 @@ module.exports = {
       event: {
         duration: "Duration",
         onlyFutureEvents: "Display only upcoming events",
+        localisation: "Localisation",
       },
       course: {
         onlyFutureCourse: "Only display upcoming trips",
@@ -92,6 +93,7 @@ module.exports = {
       linkedPath: 'Linked Path',
       placeType: "Place type",
       offerAndNeedType: "Announcement type",
+      skills: "Skills",
       organization: {
         label: "Organization Name",
         hasType: "What type of organization?",

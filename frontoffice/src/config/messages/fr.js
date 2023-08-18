@@ -66,6 +66,7 @@ module.exports = {
       event: {
         duration: "Durée",
         onlyFutureEvents: "N'afficher que les événements à venir",
+        localisation: "Localisation",
       },
       course: {
         onlyFutureCourse: "N'afficher que les voyages à venir",
