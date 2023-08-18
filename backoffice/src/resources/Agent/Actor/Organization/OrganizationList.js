@@ -1,5 +1,5 @@
 import React from 'react';
-import { Datagrid, TextField, ShowButton, EditButton } from 'react-admin';
+import { Datagrid, TextField, ShowButton, EditButton, useTranslate } from 'react-admin';
 import { MultiViewsList } from '@semapps/list-components';
 import { MapList } from '@semapps/geo-components';
 import MapIcon from '@material-ui/icons/Map';
@@ -7,12 +7,14 @@ import ListIcon from '@material-ui/icons/List';
 import PublishButton from '../../../../pair/PublishButton';
 import List from "../../../../layout/list/List";
 
-const OrganizationList = (props) => (
+const OrganizationList = (props) => {
+  const translate = useTranslate();
+  return (
   <MultiViewsList
     ListComponent={List}
     views={{
       list: {
-        label: 'Liste',
+        label: translate('app.action.listView'),
         icon: ListIcon,
         sort: { field: 'pair:label', order: 'DESC' },
         perPage: 25,
@@ -26,7 +28,7 @@ const OrganizationList = (props) => (
         ),
       },
       map: {
-        label: 'Carte',
+        label: translate('app.action.mapView'),
         icon: MapIcon,
         perPage: 500,
         pagination: false,
@@ -43,6 +45,7 @@ const OrganizationList = (props) => (
     }}
     {...props}
   />
-);
+  );
+}
 
 export default OrganizationList;
