@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { makeStyles, Box, Typography } from '@material-ui/core';
-import { useShowContext } from 'react-admin';
+import { useShowContext, useTranslate } from 'react-admin';
 import { Link } from 'react-router-dom';
 import LargeContainer from '../../LargeContainer';
 import FullWidthBox from '../../FullWidthBox';
@@ -69,6 +69,8 @@ const useStyles = makeStyles((theme) => ({
 const SimilarEvents = () => {
   const classes = useStyles();
   const { record } = useShowContext();
+  const translate = useTranslate();
+
   return (
     <FullWidthBox className={classes.background}>
       <LargeContainer className={classes.agenda}>
@@ -76,7 +78,7 @@ const SimilarEvents = () => {
           <Box width={1} className={classes.header}>
             <img src={PictoAgenda} alt="logo" className={classes.logo}/>
             <Box>
-              <Typography variant="h2">Les Événements</Typography>
+              <Typography variant="h2">{translate('app.bookmark.event')} </Typography>
               <Typography variant="h3" component="div" className={classes.subTitle}>
                 similaires
               </Typography>

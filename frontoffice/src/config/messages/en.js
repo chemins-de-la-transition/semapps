@@ -7,21 +7,26 @@ module.exports = {
       search: "Search",
       newSearch: "Start a new search",
       contactPlace: "Contact the place",
-      close:"Close",
-      send:"Send",
+      close: "Close",
+      send: "Send",
       listView: "list view",
       mapView: "map view",
+      calendarView: "calendar view",
       filters: "filters",
       removeFilters: "remove all filters",
+      showFilters:"Show all filters",
+      help: "Help",
+      contactPathOrganizer: "Contact the organizers of this path",
       organization: {
         contact: "Contact the organization",
         create: "Add an organization",
-        myOrganizations: "My organizations"
+        myOrganizations: "My organizations",
       },
       person: {
         contact: "Contact",
       },
       event: {
+        event:"Events",
         contact: "Contact the organizers",
         create: "Add an event",
         myEvents: "List",
@@ -31,6 +36,15 @@ module.exports = {
         myPlaces: "My places",
         create: "Add a place",
       },
+      offerAndNeed: {
+        contact: "Contact the writer",
+        mine: "My announcements",
+        create: "Add an announcement",
+      },
+      alert: {
+        mine: "My alerts",
+        create: "Add an alert",
+      }
     },
     page: {
       home: "Welcome to the Transition Pathways !",
@@ -84,6 +98,7 @@ module.exports = {
       facilitator: 'Facilitator',
       linkedPath: 'Linked Path',
       placeType: "Place type",
+      offerAndNeedType: "Announcement type",
       skills: "Skills",
       organization: {
         label: "Organization Name",
@@ -164,9 +179,32 @@ module.exports = {
       errorRegistration: "You must be logged in to register",
       moreEvents: "This place offers multiple events. Click on it to learn more and/or participate.",
       results: "result(s)",
-      noResult: "No result found"
+      noResult: "No result found",
+      topBarMessage: "The place to share and learn while traveling",
+      topBarButton: "Support the platform with a donation",
+      betaVersion: "Beta version",
+      footer: {
+        codeOfConduct: "Transition Pathways Charter",
+        legalNotice: "Legal Notice",
+        dataPolicy: "Data Management Policy",
+        join: "Join the community",
+        joinSubText1: "Do you want to share your knowledge about transition and perhaps host travelers for a visit or more to train them?",
+        joinSubText2: "Do you want to register your place or an event on our platform to give it visibility?",
+        joinButton: "I'm in",
+        usefulLinks: "Useful Links",
+        about: "About",
+        forum: "Our Forum",
+        website: "Our Website",
+      },
     },
     tab: {
+      path: {
+        about: "About this path",
+        links: "Path links",
+        place: "Places",
+        event: "Events",
+        course: "Journeys",
+      },
       organization: {
         about: "About this organization",
         links: "Organization links",
@@ -208,9 +246,14 @@ module.exports = {
         about: "About the place",
         link: "Related to the place",
         contact: "Contact",
-        title:"More places",
+        title: "More places",
         subtitle: "For more inspiration",
         linkText: "See all places"
+      },
+      offerAndNeed: {
+        description: "Description",
+        contact: "Contact",
+        visibility: "Visibility"
       },
       economicalConditions: 'Economical Conditions',
       accommodation: 'Accommodation',
@@ -231,7 +274,7 @@ module.exports = {
       financialSupport: "Discover various funding mechanisms",
     },
     validation: {},
-    menu:{
+    menu: {
       bookmarks: "My bookmarks",
       places: "My Places",
       events: "My Events",
@@ -240,12 +283,7 @@ module.exports = {
       login: "Login",
       signup: "Sign Up",
       profile: "My Profile",
-    },
-    nav:{
-      path: "Paths",
-      place: "Places",
-      event: "Events",
-      course: "Courses",
+      offerAndNeed: "Announcements"
     },
     bookmark: {
       title: "My bookmarks",
@@ -253,10 +291,12 @@ module.exports = {
       place: "places",
       event: "events",
       course: "courses",
-      pathHeadComment:"To compose my trip",
+      offerAndNeed: "announcements",
+      pathHeadComment: "To compose my trip",
       placeHeadComment: "To compose my trip",
       eventHeadComment: "To compose my trip",
       courseHeadComment: "To compose my trip",
+      offerAndNeedHeadComment: "To compose my trip",
     }
   },
 };

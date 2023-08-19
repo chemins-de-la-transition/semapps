@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles, Grid, FormControl, InputLabel, Select, MenuItem, SvgIcon, useMediaQuery, Button } from '@material-ui/core';
-import { useGetList } from 'react-admin';
+import { useGetList, useTranslate } from 'react-admin';
 
 const useStyles = makeStyles((theme) => ({
     box: {
@@ -95,14 +95,15 @@ const AgendaFilter = ({ eventType, setEventType, category, setCategory, region, 
     const classes = useStyles();
     const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
     const [areFiltersOpen, openFilters] = useState(false);
-    
+    const translate = useTranslate();
+
     return (
         <Grid container className={classes.box}>
         <Grid item xs={12} spacing={2} sm={10}>
           <Grid container spacing={2} className={classes.filters}>
           {xs ?
             <Button IconComponent={ChevronIcon} className={classes.filtersButton} onClick={() => openFilters(!areFiltersOpen)}>
-              Afficher les filtres
+             {translate('app.action.showFilters')}
               {areFiltersOpen ? <ChevronIcon className={classes.chevronUp}/> : <ChevronIcon />}
             </Button>
             :
@@ -112,7 +113,7 @@ const AgendaFilter = ({ eventType, setEventType, category, setCategory, region, 
             <>
             <Grid item xs={12} sm={3}>
                 <FormControl className={classes.formControl} size="small" fullWidth>  
-                <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>Événements</InputLabel>
+                <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>{translate('app.action.event.event')}</InputLabel>
                 <SelectResources
                   reference="Type"
                   inverseSource="pair:typeOf"
@@ -128,7 +129,7 @@ const AgendaFilter = ({ eventType, setEventType, category, setCategory, region, 
             </Grid>
             <Grid item xs={12} sm={3}>
               <FormControl className={classes.formControl} size="small" fullWidth>
-                <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>Secteur d'activité</InputLabel>
+                <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>{translate('app.input.sector')}</InputLabel>
                 <SelectResources
                   reference="Sector"
                   inverseSource="pair:sectorOf"
@@ -143,7 +144,7 @@ const AgendaFilter = ({ eventType, setEventType, category, setCategory, region, 
             </Grid>
             <Grid item xs={12} sm={3}>
               <FormControl className={classes.formControl} size="small" fullWidth>
-                <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>Région</InputLabel>
+                <InputLabel id="demo-select-area-label" className={classes.inputLabelText}>{translate('app.input.region')}</InputLabel>
                 <SelectResources
                   reference="Region"
                   inverseSource="cdlt:regionOf"

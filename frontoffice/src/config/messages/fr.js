@@ -7,12 +7,16 @@ module.exports = {
       search: "Rechercher",
       newSearch: "Commencez votre recherche",
       contactPlace: "Contacter le lieu",
-      close:"Fermer",
-      send:"Envoyer",
+      close: "Fermer",
+      send: "Envoyer",
       listView: "vue liste",
       mapView: "vue carte",
+      calendarView: "vue calendrier",
       filters: "filtres",
       removeFilters: "Enlever tous les filtres",
+      showFilters:"Afficher les filtres",
+      help: "Aide",
+      contactPathOrganizer: "Contacter les instigateurs de ce chemin",
       organization: {
         contact: "Contacter l'organisation",
         create: "Ajouter une organisation",
@@ -22,6 +26,7 @@ module.exports = {
         contact: "Contact",
       },
       event: {
+        event:"Événements",
         contact: "Contacter les organisateurs·ices",
         create: "Ajouter un événement",
         myEvents: "Liste",
@@ -31,6 +36,15 @@ module.exports = {
         myPlaces: "Mes lieux",
         create: "Ajouter un lieu",
       },
+      offerAndNeed: {
+        contact: "Contacter le rédacteur",
+        mine: "Mes annonces",
+        create: "Ajouter une annonce",
+      },
+      alert: {
+        mine: "Mes alerts",
+        create: "Ajouter une alerte",
+      }
     },
     page: {
       home: "Bienvenue sur les Chemins de la Transition !",
@@ -44,7 +58,7 @@ module.exports = {
         supports: "Contributeur de",
         organizes: "Prochaines activités",
         onlyFutureEvents: "N'afficher que les activités à venir",
-        partnerOf: "Partenaire de"
+        partnerOf: "Partenaire de",
       },
       person: {
         hasRegion: "Région",
@@ -68,6 +82,7 @@ module.exports = {
         to: " au ",
         bookedOn: " Réservé le : "
       }
+      similar:"similaires",
     },
     block: {
       search: "Partez sur les chemins de la transition"
@@ -84,6 +99,7 @@ module.exports = {
       facilitator: "Qui intervient",
       linkedPath: "Fait partie de",
       placeType: "Type de lieu",
+      offerAndNeedType: "Type d'annonce",
       organization: {
         label: "Nom de l'organisation",
         hasType: "Quel type d'organisation ?",
@@ -163,7 +179,23 @@ module.exports = {
       errorRegistration: "Vous devez vous connecter pour pouvoir vous inscrire",
       moreEvents: "Ce lieu propose plusieurs événements. Cliquez dessus pour en savoir plus et/ou participer.",
       results: "resultat(s)",
-      noResult: "Aucun résultat trouvé"
+      noResult: "Aucun résultat trouvé",
+      topBarMessage: "Le lieu pour partager et apprendre en voyageant",
+      topBarButton: "Soutenez la plateforme avec un don",
+      betaVersion: "Version bêta",
+      footer: {
+        codeOfConduct: "Charte des chemins de la transition",
+        legalNotice: "Mentions légales",
+        dataPolicy: "Politique de gestion des données",
+        join: "Rejoindre la communauté",
+        joinSubText1: "Vous avez envie de partager vos connaissances en matière de transition et pourquoi pas accueillir des voyageurs le temps d'une visite ou plus pour les former?",
+        joinSubText2: "Vous avez envie d'inscrire votre lieu ou un évènement sur notre plateforme afin de lui donner de la visibilité?",
+        joinButton: "Je me lance",
+        usefulLinks:"Liens utiles",
+        about:"A propos",
+        forum:"Notre forum",
+        website:"Notre site web",
+      },
     },
     tab: {
       organization: {
@@ -202,15 +234,26 @@ module.exports = {
         linkText: "Voir tous les voyages",
         learningObjectives: "Objectifs pédagogiques",
         practicalConditions: "Infos pratiques",
-      },      
+      },
       place: {
         about: "A propos du lieu",
         link: "En lien avec le lieu",
         contact: "Contact",
-        title:"Les lieux",
+        title: "Les lieux",
         subtitle: "Similaires",
-        linkText:"Voir tous les lieux"
-
+        linkText: "Voir tous les lieux"
+      },
+      offerAndNeed: {
+        description: "Description",
+        contact: "Contact",
+        visibility: "Visibilité"
+      },
+      path: {
+        about: "A propos de ce chemin",
+        links: "Liens",
+        place: "Lieux",
+        event: "Evénements",
+        course: "Voyages",
       },
       economicalConditions: "Conditions financières",
       accommodation: "Modalités d'accueil",
@@ -231,7 +274,7 @@ module.exports = {
       financialSupport: "Découvrir les différents dispositifs de financement",
     },
     validation: {},
-    menu:{
+    menu: {
       bookmarks: "Mes favoris",
       places: "Mes lieux",
       events: "Mes événements",
@@ -240,23 +283,20 @@ module.exports = {
       login: "Se connecter",
       signup: "Créer un compte",
       profile: "Mon profil",
-    },
-    nav:{
-      path: "Chemins",
-      place: "Lieux",
-      event: "Evénements",
-      course: "Voyages",
+      offerAndNeed: "Annonces"
     },
     bookmark: {
       title: "Mes favoris",
-      path: "les chemins",
-      place: "les lieux",
-      event: "les événements",
-      course: "les voyages",
-      pathHeadComment:"Pour composer mon voyage à la carte",
+      path: "Les chemins",
+      place: "Les lieux",
+      event: "Les événements",
+      course: "Les voyages",
+      offerAndNeed: "Les annonces",
+      pathHeadComment: "Pour composer mon voyage à la carte",
       placeHeadComment: "Pour composer mon voyage à la carte",
       eventHeadComment: "Pour composer mon voyage à la carte",
       courseHeadComment: "Pour composer mon voyage à la carte",
+      offerAndNeedHeadComment: "Pour composer mon voyage à la carte",
     }
   },
 };

@@ -38,19 +38,19 @@ const PathShow = (props) => {
           <HeaderShow
             type="pair:hasType"
             details={<PathDetails />}
-            actionButton={<ContactButton label="Contacter les instigateurs de ce chemin" />}
+            actionButton={<ContactButton label={translate('app.action.contactPathOrganizer')} />}
           />
           <BodyList
             aside={
               <StickyCard
-                actionButton={<ContactButton label="Contacter les instigateurs de ce chemin" />}
+                actionButton={<ContactButton label={translate('app.action.contactPathOrganizer')} />}
               >
                 <PathDetails orientation="vertical" />
               </StickyCard>
             }
           >
             <GroupOfFields
-              title="A propos du chemin"
+              title={translate('app.tab.path.about')}
               sources={["pair:comment","pair:hasFinality","pair:hasSector","pair:hasTopic","cdlt:hasCourseType","pair:description"]}
               addLabel
               noBorder
@@ -97,17 +97,17 @@ const PathShow = (props) => {
               </ReferenceArrayField>
             </GroupOfFields>  
       
-            <ReferenceArrayField source="cdlt:hasPlace" reference="Place" className={classes.cardsList} label="Lieux">
+            <ReferenceArrayField source="cdlt:hasPlace" reference="Place" className={classes.cardsList} label={translate('app.tab.path.place')}>
               <Box pt={1}>
                 <CardsList CardComponent={PlaceCard} />
               </Box>
             </ReferenceArrayField>
-            <ReferenceArrayField source="cdlt:hasEvent" reference="Event" className={classes.cardsList} label="Evénements">
+            <ReferenceArrayField source="cdlt:hasEvent" reference="Event" className={classes.cardsList} label={translate('app.tab.path.event')}>
               <Box pt={1}>
                 <CardsList CardComponent={EventCard} />
               </Box>
             </ReferenceArrayField>
-            <ReferenceArrayField source="cdlt:hasCourse" reference="Course" className={classes.cardsList} label="Voyages">
+            <ReferenceArrayField source="cdlt:hasCourse" reference="Course" className={classes.cardsList} label={translate('app.tab.path.course')}>
               <Box pt={1}>
                 <CardsList CardComponent={CourseCard} />
               </Box>

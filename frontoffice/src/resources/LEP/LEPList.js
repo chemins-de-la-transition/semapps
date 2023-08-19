@@ -34,7 +34,7 @@ const LEPList = (props) => {
       filters={[
         <SearchFilter />,
         <FormGroup className={classes.formGroup}>
-          <FormControlLabel control={<Checkbox checked={checked} />} label="N'afficher que les activités à venir" onChange={e => setChecked(e.target.checked)}/>
+          <FormControlLabel control={<Checkbox checked={checked} />} label={translate('app.card.organization.onlyFutureEvents')} onChange={e => setChecked(e.target.checked)}/>
         </FormGroup>,
         <Filter reference="Type" source="cdlt:hasCourseType" inverseSource="cdlt:typeOfCourse" label={translate('app.input.courseType')} />,
         <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label={translate('app.input.sector')} />,
