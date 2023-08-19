@@ -124,6 +124,11 @@ module.exports = {
       capacityTo:"to",
       miminumPerson:"minimum people",
       maximumPerson:"maximum people",
+      externalForm: "Link to external registration system",
+      chooseDefaultForm:"Choose the default form",
+      defaultForm:"Default form",
+      chooseRegistrationType: "Choose a registration option",
+      chooseJotform: "Choose a JotForm",
       organization: {
         label: "Organization Name",
         hasType: "What type of organization?",

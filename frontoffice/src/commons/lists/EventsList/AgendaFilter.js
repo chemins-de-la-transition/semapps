@@ -75,9 +75,11 @@ const ChevronIcon = (props) => (
 
 const SelectResources = ({ reference, inverseSource, selectIcon, filter, ...rest }) =>{
     const { data, ids } = useGetList(reference, { perPage: 999, page: 1 }, { field: 'pair:label', order: 'ASC' }, filter);
+    const translate = useTranslate();
+
     return (
       <Select {...rest} IconComponent = {selectIcon}>
-        <MenuItem value="">Choisir...</MenuItem>
+        <MenuItem value="">{translate('app.helper.choose')}</MenuItem>
         {ids
           .filter((id) => !inverseSource || data[id]?.[inverseSource])
           .map((id) => (
