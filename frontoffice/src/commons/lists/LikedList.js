@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { ListContextProvider, useGetMany } from 'react-admin';
+import { ListContextProvider, useGetMany, useTranslate } from 'react-admin';
 import { Box, LinearProgress, Typography, makeStyles } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import { useCollection } from "@semapps/activitypub-components";
@@ -76,6 +76,7 @@ const LikedList = ({ id, type, resource, title, subtitle, headComment, CardCompo
       .forEach(record => (filteredData[record.id] = record));
     return filteredData;
   },[data, type]);
+  const translate = useTranslate();
   
   return (
     <FullWidthBox className={classes.background}>
@@ -92,14 +93,14 @@ const LikedList = ({ id, type, resource, title, subtitle, headComment, CardCompo
         </Box>
         { items.length === 0 && loaded &&
           <Typography variant="body2" component="div" className={classes.noData}>
-            Aucun favori enregistré
+           {translate('app.message.noSavedBookmarks')}
           </Typography>
         }
         { !loaded && !error &&
           <LinearProgress className={classes.likedLoading}/>
         }
         { error &&
-          <Alert severity="error" className={classes.errorContainer}>Un problème est survenu</Alert>
+          <Alert severity="error" className={classes.errorContainer}>{translate('app.message.error')}</Alert>
         }
         { data.length > 0 && !loading && !error &&
           <Box className={classes.listBase}>

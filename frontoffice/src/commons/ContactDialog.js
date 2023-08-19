@@ -54,7 +54,7 @@ const ContactDialog = ({ open, onClose, name }) => {
 
     if( result.ok ) {
       onClose();
-      notify('Votre message a bien été envoyé', 'success'); // #TODO @srosset81 or @VincentFarcy how do I internationlize this? 
+      notify(translate('app.action.successMessageSent'), 'success'); 
     } else {
       const json = await result.json();
       notify(json.message, 'error');

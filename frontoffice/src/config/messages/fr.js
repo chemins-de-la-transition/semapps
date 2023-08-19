@@ -9,6 +9,13 @@ module.exports = {
       contactPlace: "Contacter le lieu",
       successAddBookmark:"Ajouté à vos favoris",
       successRemoveBookmark: "Supprimé de vos favoris",
+      successMessageSent:"Votre message a bien été envoyé",
+      publish: "publier",
+      unpublish: "dépublier",
+      published:"La ressource a été publiée",
+      unpublished:"La ressource a été dépubliée",
+      userCreation:"Utilisateur en cours de création...",
+      userCreated:"Utilisateur créé",
       close: "Fermer",
       send: "Envoyer",
       listView: "vue liste",
@@ -84,6 +91,8 @@ module.exports = {
         to: " au ",
         bookedOn: " Réservé le : "
       },
+      place:"Lieu",
+      location:"Localisation",
       similar: "similaires",
     },
     block: {
@@ -173,6 +182,7 @@ module.exports = {
       full: "Cochez cette case si l'événement est complet",
       financialSupport: "Si éligible, précisez les types de financements (CPF, Qualiopi...)",
       connectToAddBookmark:"Connectez-vous pour ajouter une page à vos favoris",
+      userCreation:"Si vous créer un utilisateur de type Acteur, il recevra automatiquement une invitation à son adresse mail",
     },
     message: {
       welcome: "Une université ouverte, nomade et pair à pair autour des enjeux et des métiers de la transition. Pour apprendre en voyageant et partager des connaissances, expériences et savoir-faire liés aux enjeux écologiques, énergétiques, culturels, sociaux, économiques, technologiques et sociétaux de notre temps.",
@@ -191,6 +201,8 @@ module.exports = {
       reminderToFill:"N'oubliez pas de renseigner le",
       reminderSecondTab:"deuxième onglet",
       reminderEndText:"du formulaire, c'est là qu'on pose les questions les plus intéressantes !",
+      noSavedBookmarks: "Aucun favori enregistré",
+      error:"Un problème est survenu",
       home: {
         places: "Les lieux",
         toVisit: "A visiter",
@@ -225,6 +237,10 @@ module.exports = {
         mentoring: "Compagnonnage",
         mentoringSubtext: "Inscrivez-vous à des formations itinérantes, certifiées et qualifiantes en immersion auprès d'acteurs experts dans leur domaine.",
         mentoringSubtextAbout:"Je décide de me lancer pour me former à une pratique. Vous serez en immersion longue au sein d'un lieu et suivrez des modules théoriques pour une validation d'acquis.",
+        courseDiscovery:"Voyage découverte",
+        courseLearning:"Voyage apprenant",
+        courseImmersion:"Voyage immersif",
+        courseMentoring:"Compagnonnage",
       },
       partners: {
         withTheSupport: "Avec le soutien de",

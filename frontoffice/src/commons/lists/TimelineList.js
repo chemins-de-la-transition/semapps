@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useListContext, Link, linkToRecord, TextField, RecordContextProvider, ReferenceField } from 'react-admin';
+import { useListContext, Link, linkToRecord, TextField, RecordContextProvider, ReferenceField, useTranslate  } from 'react-admin';
 import { Icon, Box, makeStyles, Typography } from '@material-ui/core';
 import RoundIcon from '../../svg/RoundIcon';
 import DateToDateField from '../fields/DateToDateField';
@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 const TimelineList = () => {
   const classes = useStyles();
   const { ids, data, basePath } = useListContext();
+  const translate = useTranslate();
   return (
     <Box className={classes.root}>
       {ids.map((id) => {
@@ -59,13 +60,13 @@ const TimelineList = () => {
               { data[id]['pair:hostedIn'] &&
                 <Typography variant="body2" color="secondary" paragraph>
                   <ReferenceField record={data[id]} source="pair:hostedIn" reference="Place" linkType="show" className={classes.place}>
-                    <strong>Lieu: <TextField source="pair:label" /></strong>
+                    <strong>{translate('app.card.place')}: <TextField source="pair:label" /></strong>
                   </ReferenceField>
                 </Typography>
               }
               { ! data[id]['pair:hostedIn'] && data[id]['pair:hasLocation'] &&
                 <Typography variant="body2" color="secondary" paragraph>
-                  <strong>Localisation: {data[id]['pair:hasLocation']['pair:label']}</strong>
+                  <strong>{translate('app.card.location')}: {data[id]['pair:hasLocation']['pair:label']}</strong>
                 </Typography>
               }
               <p>

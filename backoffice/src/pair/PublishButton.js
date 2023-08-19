@@ -16,13 +16,13 @@ const PublishButton = ({ resource, record }) => {
   const publish = (e) => {
     e.stopPropagation();
     update(resource, record.id, { ...record, 'cdlt:hasPublicationStatus': PUBLISHED_STATUS }, record);
-    notify('La ressource a été publié');
+    notify(translate('app.action.published'));
   };
 
   const unpublish = (e) => {
     e.stopPropagation();
     update(resource, record.id, { ...record, 'cdlt:hasPublicationStatus': UNPUBLISHED_STATUS }, record);
-    notify('La ressource a été dépublié');
+    notify(translate('app.action.unpublished'));
   };
   
   const translate = useTranslate();
