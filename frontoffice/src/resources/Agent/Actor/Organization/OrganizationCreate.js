@@ -22,7 +22,7 @@ const OrganizationCreate = (props) => {
   useCheckPermissions(createContainerUri, 'create');
   return (
     <ThemeProvider theme={organizationTheme}>
-      <HeaderTitle actions={actions}>Ajouter une organisation</HeaderTitle>
+      <HeaderTitle actions={actions}>{translate('app.action.organization.create')}</HeaderTitle>
       <FullWidthBox>
         <LargeContainer>
           <Create title={<OrganizationTitle />} actions={null} {...props}>

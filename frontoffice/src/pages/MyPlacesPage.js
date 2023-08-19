@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListBase } from 'react-admin';
+import { ListBase, useTranslate } from 'react-admin';
 import { useCheckAuthenticated } from '@semapps/auth-provider';
 import CardsList from '../commons/lists/CardsList';
 import PlaceCard from '../resources/Place/PlaceCard';
@@ -8,14 +8,16 @@ import LargeContainer from '../commons/LargeContainer';
 import HeaderTitle from '../commons/HeaderTitle';
 import Button from '../commons/Button';
 
-const actions = [<Button to="/Place/create">Ajouter</Button>];
 
 const MyPlacesPage = () => {
   const { identity, loading } = useCheckAuthenticated();
+  const translate = useTranslate();
+  const actions = [<Button to="/Place/create">{translate('app.action.create')}</Button>];
+
   if (loading) return null;
   return (
     <>
-      <HeaderTitle actions={actions}>Mes lieux</HeaderTitle>
+      <HeaderTitle actions={actions}>{translate('app.menu.places')}</HeaderTitle>
       <br />
       <FullWidthBox>
         <LargeContainer>

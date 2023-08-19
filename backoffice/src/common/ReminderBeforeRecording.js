@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, linkToRecord, useEditContext } from "react-admin";
+import { Link, linkToRecord, useEditContext, useTranslate } from "react-admin";
 import { makeStyles } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ReminderBeforeRecording = () => {
-  
+
   const handleClick = () => {
     window.scrollTo({
       top: 0,
@@ -22,19 +22,21 @@ const ReminderBeforeRecording = () => {
   }
   const { basePath, record } = useEditContext();
   const classes = useStyles();
+  const translate = useTranslate();
 
   return (
-  <Alert severity="warning">
-    N'oubliez pas de renseigner le&nbsp;
-    <Link
-      to={linkToRecord(basePath, record?.id) + '/1'}
-      onClick={handleClick}
-      className={classes.link}
-    >
-      deuxième onglet
-    </Link>
-    &nbsp;du formulaire, c'est là qu'on pose les questions les plus intéressantes !
-  </Alert>
-);}
+    <Alert severity="warning">
+      {translate('app.message.reminderToFill')}&nbsp;
+      <Link
+        to={linkToRecord(basePath, record?.id) + '/1'}
+        onClick={handleClick}
+        className={classes.link}
+      >
+        {translate('app.message.reminderSecondTab')}
+      </Link>
+      &nbsp;{translate('app.message.reminderEndText')}
+    </Alert>
+  );
+}
 
 export default ReminderBeforeRecording;

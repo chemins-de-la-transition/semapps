@@ -10,29 +10,33 @@ import Traveler from './Traveler/Traveler';
 import PictoLieu from '../../icons/PictoLieu.png' ;
 import PictoParcours from '../../icons/PictoParcours.png' ;
 import PictoAgenda from '../../icons/PictoAgenda.png' ;
+import { useTranslate } from 'react-admin';
 
-const HomePage = () => (
+const HomePage = () => {
+  
+  const translate = useTranslate();
+  return (
   <>
     <Welcome />
     <FeaturedList
       resource="Place"
       basePath="/Place"
-      title="Les lieux"
-      subtitle="A visiter"
-      comment="Découvrez des lieux impliqués dans les transitions, les activités qui s’y pratiquent, partez à la rencontre des acteurs et actrices qui font le monde de demain !"
+      title={translate('app.message.home.places')}
+      subtitle={translate('app.message.home.toVisit')}
+      comment={translate('app.message.home.discoverPlaces')}
       logo={PictoLieu}
-      linkText="Voir tous les lieux"
+      linkText={translate('app.message.home.seeAllPlaces')}
       CardSubHeaderComponent={PlaceSubHeader}
     />
     <Traveler />
     <FeaturedList
       resource="Event"
       basePath="/Event"
-      title="L'agenda"
-      subtitle="Des événements"
-      comment="Découvrez les événements autour de la transmission de savoirs, ouvrez votre champ des possibles, apprenez, formez-vous aux enjeux et métiers de la transition !"
+      title={translate('app.message.home.agenda')}
+      subtitle={translate('app.message.home.events')}
+      comment={translate('app.message.home.discoverEvents')}
       logo={PictoAgenda}
-      linkText="Voir tous les événements"
+      linkText={translate('app.message.home.seeAllEvents')}
       CardSubHeaderComponent={CourseSubHeader}
       isAgenda={true}
     />
@@ -40,25 +44,26 @@ const HomePage = () => (
     <FeaturedList
       resource="Path"
       basePath="/Path"
-      title="Les chemins"
-      subtitle="A découvrir"
-      comment="Quelques inspirations que nous vous proposons, découvrez une thématique précise, constituez-vous votre programme à la carte !"
+      title={translate('app.message.home.paths')}
+      subtitle={translate('app.message.home.toDiscover')}
+      comment={translate('app.message.home.dicoverPaths')}
       logo={PictoParcours}
-      linkText="Voir tous les chemins"
+      linkText={translate('app.message.home.seeAllPaths')}
       CardSubHeaderComponent={PathSubHeader}
     />
     <FeaturedList
       resource="Course"
       basePath="/Course"
-      title="Nos voyages"
-      subtitle="Thématiques & géographiques"
-      comment="Découvrez des voyages préconçus, à la rencontre de plusieurs initiatives de transition, sur une thématique et/ou un secteur géographique donné !"
+      title={translate('app.message.home.courses')}
+      subtitle={translate('app.message.home.themesAndLocation')}
+      comment={translate('app.message.home.discoverCourses')}
       logo={PictoParcours}
-      linkText="Voir tous les voyages"
+      linkText={translate('app.message.home.seeAllCourses')}
       CardSubHeaderComponent={CourseSubHeader}
     />
     <Partners />
   </>
-);
+  )
+};
 
 export default HomePage;
