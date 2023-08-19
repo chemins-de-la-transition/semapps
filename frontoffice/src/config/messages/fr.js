@@ -81,7 +81,7 @@ module.exports = {
         bookingPeriod: "Date de la réservation : du ",
         to: " au ",
         bookedOn: " Réservé le : "
-      }
+      },
       similar:"similaires",
     },
     block: {
