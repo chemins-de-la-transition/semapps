@@ -88,12 +88,20 @@ module.exports = {
       },
       registration: {
         bookingPeriod: "Booking date: from ",
+        from:"from",
         to: " to ",
         bookedOn: " Booked on: "
       },
       place:"Place",
       location:"Location",
       similar: "similar",
+      duration:{
+        months:"months",
+        days:"days",
+        hours:"hours",
+        minutes:"minutes",
+        minute:"minute",
+      }
     },
     block: {
       search: "Follow the pathways of transition",
@@ -112,6 +120,10 @@ module.exports = {
       placeType: "Place type",
       offerAndNeedType: "Announcement type",
       skills: "Skills",
+      capacityFrom:"From",
+      capacityTo:"to",
+      miminumPerson:"minimum people",
+      maximumPerson:"maximum people",
       organization: {
         label: "Organization Name",
         hasType: "What type of organization?",
@@ -156,6 +168,7 @@ module.exports = {
         aims: "What skills are you looking for?",
         hasFinality: "What goals are you pursuing?",
         phone: "Your phone number?",
+        website: "Your website?",
         hasLocation: "Where do you live?",
         affiliatedBy: "Member of one (or more) organizations?",
         inspiredBy: "Are there individuals who inspire you?"
