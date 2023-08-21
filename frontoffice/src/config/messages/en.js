@@ -204,7 +204,7 @@ module.exports = {
     },
     message: {
       welcome: "An open, nomadic, peer-to-peer platform to serve researchers, practitioners, and adult educators from ecovillages and academia as well as policy makers on all levels in order to make the knowledge gained within and through ecovillages more accessible both for research and policy decisions on sustainable lifestyles and living environments. ",
-      login: "Welcome to Transition Pathways! Creating an account on the platform will allow you to provide information about your profile: who you are, what you're involved in, what you're looking for, and what you have to offer. It will also enable you to save your favorites (actors, places, events, journeys) and join the Transition Pathways community! By logging in, you confirm your adherence to the Transition Pathways Charter.", //TODO @Tonfa add <Link to='/Page/charte-des-chemins-de-la-transition/show' target='_blank'> to the text as hyperlink 
+      login: "Welcome to the Ecommunity Research Platform! Creating an account on the platform will allow you to provide information about your profile: who you are, what you're involved in, what you're looking for, and what you have to offer. It will also enable you to save your favorites (actors, places, events, journeys) and join the Ecommunity Research Platform community! By logging in, you confirm your adherence to the Ecommunity Research Platform Charter.", //TODO @Tonfa add <Link to='/Page/charte-des-chemins-de-la-transition/show' target='_blank'> to the text as hyperlink 
       organization: {
         involvedActivities: "This organization is involved in multiple activities. Click to learn more and/or participate.",
       },
@@ -224,7 +224,7 @@ module.exports = {
       welcomeContent: {
         title: "Travel, Discover, Learn,",
         subTitle: "Share, Spread...",
-        text: "Traveling is primarily about taking a break from our lives, a parenthesis that allows us to see what's happening elsewhere, to venture out and discover new practices. Transition Pathways offers a journey from place to place, off the beaten path, to meet transition actors (energy, social, solidarity...). And why not, in your turn, share your knowledge.",
+        text: "Ecommunity Research Platform offers a journey from place to place, off the beaten path, to meet transition actors (energy, social, solidarity...). And why not, in your turn, share your knowledge.",
       },
       home: {
         places: "Places",
@@ -279,7 +279,7 @@ module.exports = {
       goals: {
         title: "Our Goal",
         subTitle: "Empowering Learning Through Travel",
-        subText: "The Transition Pathways is first and foremost a desire to connect and link actors of transition, but also to transmit in order to see initiatives multiply. Let's act together to contribute to the discovery, education, and networking of individuals who want to engage in the Transition, so that the dream of witnessing solidarity and ecological worlds blossom, mature, and intertwine becomes rooted in our reality.",
+        subText: "The Ecommunity Research Platform is first and foremost a desire to connect and link actors of transition, but also to transmit in order to see initiatives multiply between researchers, practitioners, and adult educators from ecovillages and academia as well as policy makers on all levels in order to make the knowledge gained within and through ecovillages more accessible both for research and policy decisions on sustainable lifestyles and living environments.",
         goal1: "Connecting Territories & Valuing Existing Initiatives",
         text1goal1: "Referencing inspirational places and initiatives open to transmission that contribute to transition (ecological, energy, social, cultural, economic...).",
         text2goal1: "Promoting and energizing the attractiveness of rural areas through a new flow dynamic focused on discovering local transition actors.",
@@ -302,7 +302,7 @@ module.exports = {
         subTitle: "to explore",
       },
       footer: {
-        codeOfConduct: "Transition Pathways Charter",
+        codeOfConduct: "Ecommunity Research Platform Charter",
         legalNotice: "Legal Notice",
         dataPolicy: "Data Management Policy",
         join: "Join the community",

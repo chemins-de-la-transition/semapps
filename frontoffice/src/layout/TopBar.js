@@ -91,7 +91,7 @@ const TopBar = () => {
               color="secondary"
               typographyVariant="button1"
             >
-              {translate('app.message.topBarMessage')}
+              {translate('app.message.topBarButton')}
             </Button>
           </a>
         </Box>

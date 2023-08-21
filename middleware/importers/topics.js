@@ -13,7 +13,7 @@ module.exports = {
   settings: {
     source: {
       discourse: {
-        baseUrl: 'https://forum.gen-europe.org/',
+        baseUrl: 'https://forum.gen-europe.org',
         type: 'topics'
       },
     },
