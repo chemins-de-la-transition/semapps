@@ -3,7 +3,6 @@ import { IconButton, useMediaQuery, makeStyles, Typography } from '@material-ui/
 import { Link } from 'react-router-dom';
 import Button from '../commons/Button';
 import { useTranslate } from 'react-admin';
-import regen4all from '../../icons/regen4all.png';
 
 import {
   Facebook as FacebookIcon,
@@ -104,10 +103,10 @@ const Footer = () => {
             <Link variant="body2" to="/About" align={xs ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.about')}
             </Link>
-            <Link variant="body2" to={{ pathname: "https://forum.gen-europe.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to={{ pathname: "https://forums.lescheminsdelatransition.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.forum')}
             </Link>
-            <Link variant="body2" to={{ pathname: "https://gen-europe.org/regenerative-communities-for-all-project-launch/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to={{ pathname: "https://projet.lescheminsdelatransition.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.website')}
             </Link>
             <Link variant="body2" to="/Page/contact/show" align={xs ? "center" : undefined} className={classes.textLinks}>
@@ -132,11 +131,11 @@ const Footer = () => {
     return (
       <div className={classes.footer1}>
           <Typography align={"center"}>
-            <img src={regen4all} alt="logo" className={classes.logo} />
+            <img src={process.env.PUBLIC_URL + '/logoCut512.png'} alt="logo" className={classes.logo} />
           </Typography>
           <div className={classes.socialNetworks}>
           <Typography variant="h3" color="secondary" component="h3" align={"center"} className={classes.size}>
-            Suivez-nous
+          {translate('app.message.home.followUs')} 
           </Typography>
           <Typography align={"center"}>
               <IconButton
@@ -182,7 +181,7 @@ const Footer = () => {
             <Typography variant="body2" align={xs ? "center" : undefined}>
             {translate('app.message.footer.joinSubText2')}
             </Typography>
-            <Button to={{ pathname: "https://forum.gen-europe.org/"}} target="_blank" variant="contained" color="secondary" component={Link} typographyVariant="button1" className={classes.button}>
+            <Button to={{ pathname: "https://forums.lescheminsdelatransition.org/"}} target="_blank" variant="contained" color="secondary" component={Link} typographyVariant="button1" className={classes.button}>
             {translate('app.message.footer.joinButton')}  
             </Button>
           </div>
