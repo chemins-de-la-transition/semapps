@@ -404,7 +404,7 @@ module.exports = {
       offerAndNeed: "Announcements"
     },
     nav: {
-      path: "Paths",
+      path: "Community of Practice",
       place: "Places",
       event: "Events",
       course: "Courses",

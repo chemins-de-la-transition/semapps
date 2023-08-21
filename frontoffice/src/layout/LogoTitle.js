@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles, Box } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import regen4all from '../icons/regen4all.png';
 
 const logoHeight = 77;
 const logoHeightSmall = 40;
@@ -27,7 +28,7 @@ const LogoTitle = ({ title, classes, ...other }) => {
     <Box className={classesLogo.logoBox} flexShrink={0} {...other}>
       <Link to="/" className={classes ? classes.menuLink : ''}>
         <Box display="flex" alignItems="center">
-          <img src={process.env.PUBLIC_URL + '/logoCut512.png'} alt="logo" className={classesLogo.logo} />
+          <img src={regen4all} alt="logo" className={classesLogo.logo} />
         </Box>
       </Link>
     </Box>
