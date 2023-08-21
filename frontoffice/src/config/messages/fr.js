@@ -243,6 +243,7 @@ module.exports = {
         themesAndLocation: "Thématiques & géographiques",
         discoverCourses: "Découvrez des voyages préconçus, à la rencontre de plusieurs initiatives de transition, sur une thématique et/ou un secteur géographique donné !",
         seeAllCourses: "Voir tous les voyages",
+        followUs:"Suivez nous",
       },
       coursesTypes: {
         title: "Une aventure unique",
