@@ -77,7 +77,7 @@ export default {
         'cdlt:hasCourseType': 'Travel Mode',
         'cdlt:organizationHostedIn': 'Where are we',
         'pair:hasFinality': 'Objectives',
-        'cdlt:intentions': 'Our intentions in coming to the paths of transition',
+        'cdlt:intentions': 'Our intentions in coming to the Ecommunity Research Platform',
         'cdlt:practicalConditions': 'Accommodation Terms',
         'cdlt:maximumCapacity': 'Maximum Accommodation Capacity',
         'pair:produces': 'Skills present in the organization',
