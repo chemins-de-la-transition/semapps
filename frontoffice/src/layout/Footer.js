@@ -135,7 +135,7 @@ const Footer = () => {
           </Typography>
           <div className={classes.socialNetworks}>
           <Typography variant="h3" color="secondary" component="h3" align={"center"} className={classes.size}>
-            Suivez-nous
+          {translate('app.message.home.followUs')} 
           </Typography>
           <Typography align={"center"}>
               <IconButton
