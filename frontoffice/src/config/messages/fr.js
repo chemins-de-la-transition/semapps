@@ -253,7 +253,7 @@ module.exports = {
         discoverySubtext: "En solo, en famille ou avec vos amis, baladez-vous, à pied, à cheval ou à vélo, de lieux en lieux sur les Chemins de la Transition",
         discoverySubtextAbout: "Je suis curieux, j'ouvre les yeux sur des métiers liés à la transition qui existent en visitant des lieux inspirants pendant mon voyage", learning: "Apprenant",
         learninbSubtext: "Rencontrez le temps de quelques heures ou d'une journée des acteurs de la transition afin de vous enrichir de leurs pratiques",
-        learninbSubtextAbout: "Une pratique m'intéresse, j'ai envie d'en savoir plus. Profitez de ces parcours sur quelques jours pour visiter différents lieux et rencontrer les porteurs de projets",
+        learningSubtextAbout: "Une pratique m'intéresse, j'ai envie d'en savoir plus. Profitez de ces parcours sur quelques jours pour visiter différents lieux et rencontrer les porteurs de projets",
         immersion: "Immersif",
         immersionSubtext: "Contribuez et apprenez en contribuant, contre le gîte et le couvert, en immersion auprès d'acteurs de la transition.",
         immersionSubtextAbout: "J'ai envie d'apprendre en participant. Ces parcours sur quelques semaines vous permettront d'experimenter par le faire et de participer à un projet de votre choix",
