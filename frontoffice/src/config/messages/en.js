@@ -56,7 +56,7 @@ module.exports = {
       }
     },
     page: {
-      home: "Welcome to the Transition Pathways !",
+      home: "Welcome to the Ecommunity Research Platform !",
     },
     card: {
       organization: {
@@ -203,7 +203,7 @@ module.exports = {
       userCreation: "If you create a user of type Actor, they will automatically receive an invitation at their email address.",
     },
     message: {
-      welcome: "An open, nomadic, peer-to-peer university focusing on transition issues and professions. Learn while you travel, and share knowledge, experience and know-how on the ecological, energy, cultural, social, economic, technological and societal issues of our time.",
+      welcome: "An open, nomadic, peer-to-peer platform to serve researchers, practitioners, and adult educators from ecovillages and academia as well as policy makers on all levels in order to make the knowledge gained within and through ecovillages more accessible both for research and policy decisions on sustainable lifestyles and living environments. ",
       login: "Welcome to Transition Pathways! Creating an account on the platform will allow you to provide information about your profile: who you are, what you're involved in, what you're looking for, and what you have to offer. It will also enable you to save your favorites (actors, places, events, journeys) and join the Transition Pathways community! By logging in, you confirm your adherence to the Transition Pathways Charter.", //TODO @Tonfa add <Link to='/Page/charte-des-chemins-de-la-transition/show' target='_blank'> to the text as hyperlink 
       organization: {
         involvedActivities: "This organization is involved in multiple activities. Click to learn more and/or participate.",
@@ -247,19 +247,19 @@ module.exports = {
       coursesTypes: {
         title: "A Unique Adventure",
         subTitle: "Tailored to Your Knowledge Level",
-        learnByTravelling: "Learning While Traveling",
-        mode: "in",
-        discovery: "Discovery",
-        discoverySubtext: "Whether solo, with family, or friends, explore the Transition Pathways by walking, horseback riding, or cycling between places.",
-        discoverySubtextAbout: "I'm curious, I open my eyes to transition-related professions by visiting inspiring places during my journey.",
-        learning: "Learner",
-        learninbSubtext: "Spend a few hours or a day meeting transition actors to enrich yourself with their practices.",
-        learninbSubtextAbout: "A practice interests me, I want to know more. Take advantage of these multi-day journeys to visit different places and meet project leaders.",
-        immersion: "Immersive",
-        immersionSubtext: "Contribute and learn by immersing yourself with transition actors, offering your participation in exchange for accommodation and meals.",
-        immersionSubtextAbout: "I want to learn by actively participating. These multi-week journeys allow you to learn through hands-on experience and contribute to a project of your choice.",
-        mentoring: "Mentoring",
-        mentoringSubtext: "Enroll in certified and qualifying itinerant training programs, immersing yourself with expert transition actors.",
+        learnByTravelling: "As a practitioner, ecovillager or an educator",
+        mode: "you can",
+        discovery: "Reach out",
+        discoverySubtext: "Reach ecovillage related research, to know it is there and available to use it in your work",
+        discoverySubtextAbout: "I'm curious about ecovillage research and take my first step to connect and discover the field.",
+        learning: "Cooperate",
+        learningSubtext: "This project is a starting point for a flourishing cooperation between researchers, educators  and practitioners. Within the project the aim is to create Communities of Practice within those target groups, both on a national and European scale",
+        learningSubtextAbout: "A Community of Practice (CoP) interests me, I want to know more. I can take advantage of the colloqiums and events that activates the CoP.",
+        immersion: "Matchmaking",
+        immersionSubtext: "Thanks to our matching system between ecovillage researchers and ecovillages and a code of conduct on how to approach ecovillages as a researcher and for ecovillages how to handle researchers conducting research in their ecovillages.",
+        immersionSubtextAbout: "I want to find ecovillages and ecocommunities that fit my research work, to send questionnaires, conduct interview, or in-field research",
+        mentoring: "Access ecovillage research",
+        mentoringSubtext: "Get access of our database that contains a collection of literature about ecovillage research ",
         mentoringSubtextAbout: "I'm ready to commit to training in a specific practice. You'll be deeply immersed in a location and complete theoretical modules for validation of your skills.",
         courseDiscovery: "Discovery Journey",
         courseLearning: "Learning Journey",
@@ -268,8 +268,8 @@ module.exports = {
       },
       partners: {
         withTheSupport: "With the support of",
-        financialPartners: "our financial partners",
-        businessPartners: "our business partners",
+        financialPartners: "the project team",
+        businessPartners: "our funders",
       },
       traveler: {
         joinCommunityText: "Do you want to suggest a place, an event or travel ideas?",
