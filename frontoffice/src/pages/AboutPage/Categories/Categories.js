@@ -3,6 +3,7 @@ import { makeStyles, Typography} from '@material-ui/core';
 import FullWidthBox from '../../../commons/FullWidthBox';
 import LargeContainer from '../../../commons/LargeContainer';
 import Illustration from './Illustration/Illustration';
+import { useTranslate } from 'react-admin';
 
 const useStyles = makeStyles((theme) => ({
   mainBox: {
@@ -62,14 +63,15 @@ const useStyles = makeStyles((theme) => ({
 
 const Categories = () => {
   const classes = useStyles();
+  const translate = useTranslate();
   return (
     <FullWidthBox className={classes.mainBox}>
       <LargeContainer className={classes.container}>
         <Typography variant="h1" className={classes.title}>
-          Des thématiques
+        {translate('app.message.categories.title')}
         </Typography>
         <Typography variant="h3" className={classes.subTitle}>
-          variées à explorer
+        {translate('app.message.categories.subTitle')}
         </Typography>
         <Illustration/>
       </LargeContainer>

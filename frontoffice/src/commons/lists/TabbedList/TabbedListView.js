@@ -171,7 +171,7 @@ const TabbedListView = ({ tabs, filters, futureActivities }) => {
               </Box>
               <Box p={2}>
                 {Object.keys(filterValues).length > 0 &&
-                  <Button variant="outlined" color="secondary" onClick={() => removeFilters()}>Effacer les filtres</Button>
+                  <Button variant="outlined" color="secondary" onClick={() => removeFilters()}>{translate('app.action.removeFilters')}</Button>
                 }
               </Box>
             </Drawer>
@@ -180,14 +180,14 @@ const TabbedListView = ({ tabs, filters, futureActivities }) => {
       ) : (
         <Grid item sm={4} className={classes.filters}>
           <Box p={2} className={classes.filtersTitle}>
-            <Typography variant="subtitle1">Filtres:</Typography>
+            <Typography variant="subtitle1">{translate('app.action.filters')}:</Typography>
           </Box>
           <StickyBox offsetTop={100}>
             <Box p={2}>{filters.map((filter, i) => React.cloneElement(filter, { key: i }))}</Box>
           </StickyBox>
           <Box p={2}>
             {Object.keys(filterValues).length > 0 &&
-              <Button variant="outlined" color="secondary" onClick={() => removeFilters()}>Effacer les filtres</Button>
+              <Button variant="outlined" color="secondary" onClick={() => removeFilters()}>{translate('app.action.removeFilters')}</Button>
             }
           </Box>
         </Grid>
@@ -211,7 +211,7 @@ const TabbedListView = ({ tabs, filters, futureActivities }) => {
             <Typography variant="h6" component="div">{translate('app.message.noResult')}</Typography>
             <br />
             {Object.keys(filterValues).length > 0 &&
-              <Button variant="contained" color="primary" className={classes.removeFiltersButton} onClick={() => setFilters({})}>Enlever tous les filtres</Button>
+              <Button variant="contained" color="primary" className={classes.removeFiltersButton} onClick={() => setFilters({})}>{translate('app.action.removeFilters')}</Button>
             }
           </Box>
           :

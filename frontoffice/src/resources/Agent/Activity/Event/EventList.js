@@ -28,8 +28,8 @@ const EventList = (props) => {
       filters={[
         <SearchFilter />,
         <SparqlFilter checked={checked} setChecked={setChecked} sparqlWhere={futureEventSparql} label={translate('app.card.event.onlyFutureEvents')} />,
-        <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label={translate('app.input.region')} />,
         <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label={translate('app.input.sector')} />,
+        <Filter reference="Topic" source="pair:hasTopic" inverseSource="pair:topicOf" label={translate('app.input.topic')} />,
         <Filter
           reference="Type"
           source="cdlt:hasCourseType"
@@ -50,7 +50,7 @@ const EventList = (props) => {
       ]}
       views={{
         list: {
-          label: 'Vue liste',
+          label: translate('app.action.listView'),
           icon: ListIcon,
           perPage: 1000,
           sort: { field: 'pair:startDate', order: 'ASC' },
@@ -64,7 +64,7 @@ const EventList = (props) => {
         calendar: xs
           ? undefined
           : {
-              label: 'Vue calendrier',
+              label: translate('app.action.calendarView'),
               icon: Calendar,
               perPage: 1000,
               filterDefaultValues: { blankNodes: [] },
@@ -81,7 +81,7 @@ const EventList = (props) => {
               ),
             },
         map: {
-          label: 'Vue carte',
+          label: translate('app.action.mapView'),
           icon: MapIcon,
           perPage: 1000,
           filterDefaultValues: { sparqlWhere: futureEventSparql },

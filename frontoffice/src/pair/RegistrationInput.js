@@ -1,20 +1,23 @@
 import React from 'react';
-import { FormDataConsumer, RadioButtonGroupInput, SelectInput, BooleanInput, TextInput } from 'react-admin';
+import { FormDataConsumer, RadioButtonGroupInput, SelectInput, BooleanInput, TextInput, useTranslate } from 'react-admin';
 
-const registrationOptions = [
-    { id: 0, name: "Utiliser un formulaire par défaut"},
-    { id: 2, name: "Utiliser un système d'inscription externe"},
+
+
+export const RegistrationInput = ({ directRegistrationSource, registrationOptionSource, jotformLinkSource, registrationLinkSource, ...rest }) => {  
+  const translate = useTranslate();
+  const registrationOptions = [
+    { id: 0, name: translate('app.input.chooseDefaultForm')},
+    { id: 2, name: translate('app.input.externalForm')},
 ];
 
 const jotformOptions = [
-    { id: "https://form.jotform.com/212722469132048?", name: "Formulaire par défaut"},
-    // { id: "0", name: 'Formulaire événement' },
-    // { id: "1", name: 'Formulaire voyage' },
-    // { id: "2", name: 'Formulaire chemin' },
-    // { id: "3", name: 'Formulaire lieu' },
+  { id: "https://form.jotform.com/212722469132048?", name: translate('app.input.defaultForm')},
+  // { id: "0", name: 'Formulaire événement' },
+  // { id: "1", name: 'Formulaire voyage' },
+  // { id: "2", name: 'Formulaire chemin' },
+  // { id: "3", name: 'Formulaire lieu' },
 ];
-
-export const RegistrationInput = ({ directRegistrationSource, registrationOptionSource, jotformLinkSource, registrationLinkSource, ...rest }) => (
+  return (
     <>
       <BooleanInput source={directRegistrationSource} fullWidth {...rest}/>
       <FormDataConsumer {...rest}>
@@ -23,7 +26,7 @@ export const RegistrationInput = ({ directRegistrationSource, registrationOption
             <>
             <RadioButtonGroupInput
               source={registrationOptionSource}
-              label={"Choisissez une option d'inscription"}
+              label={translate('app.input.chooseRegistrationType')}
               choices={registrationOptions}
               {...rest}
               allowEmpty
@@ -32,7 +35,7 @@ export const RegistrationInput = ({ directRegistrationSource, registrationOption
                 {({ formData, ...rest }) => 
                 (formData[registrationOptionSource] === 0) ?
                     <SelectInput
-                        label={"Choisissez un formulaire JotForm"}
+                        label={translate('app.input.chooseJotform')}
                         source={jotformLinkSource}
                         choices={jotformOptions}
                         {...rest}
@@ -40,7 +43,7 @@ export const RegistrationInput = ({ directRegistrationSource, registrationOption
                     />
                 : (formData[registrationOptionSource] === 2) &&
                 <TextInput 
-                    label={"Lien du système d'inscription externe" } 
+                    label={translate('app.input.externalForm')}
                     source={registrationLinkSource}
                     {...rest}
                     type="url"
@@ -52,5 +55,6 @@ export const RegistrationInput = ({ directRegistrationSource, registrationOption
       </FormDataConsumer>
     </>
   )
+}
 
-export default RegistrationInput ;
+export default RegistrationInput;

@@ -126,13 +126,14 @@ const ChevronIcon = (props) => (
 
 const SelectResources = ({ reference, inverseSource, selectIcon, ...rest }) =>{
   const translate = useTranslate();
+  const courseWeights = typeOfCourseWeight(translate);
   const { data, ids } = useGetList(reference, { perPage: 999, page: 1 }, { field: 'pair:label', order: 'ASC' });
   return (
     <Select {...rest} IconComponent = {selectIcon}>
       <MenuItem value="">{translate('app.helper.choose')}</MenuItem>
       {ids
         .filter((id) => !inverseSource || data[id]?.[inverseSource])
-        .sort((a, b) => (typeOfCourseWeight[data[b]?.['pair:label']] || 0) - (typeOfCourseWeight[data[a]?.['pair:label']] || 0))
+        .sort((a, b) => (courseWeights[data[b]?.['pair:label']] || 0) - (courseWeights[data[a]?.['pair:label']] || 0))
         .map((id) => (
           <MenuItem key={id} value={id}>
             {data[id]['pair:label']}

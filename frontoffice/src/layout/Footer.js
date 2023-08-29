@@ -2,6 +2,7 @@ import React from 'react';
 import { IconButton, useMediaQuery, makeStyles, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import Button from '../commons/Button';
+import { useTranslate } from 'react-admin';
 
 import {
   Facebook as FacebookIcon,
@@ -90,35 +91,36 @@ const useStyles = makeStyles((theme) => ({
 const Footer = () => {
   const classes = useStyles();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
+  const translate = useTranslate();
 
   const LinkBloc = () => {
     return (
       <div className={classes.footer2}>
           <div className={classes.footerContent1}>
             <Typography variant="h3" align={xs ? "center" : undefined} className={classes.size}>
-              Liens utiles
+            {translate('app.message.footer.usefulLinks')}
             </Typography>
             <Link variant="body2" to="/About" align={xs ? "center" : undefined} className={classes.textLinks}>
-              A propos
+            {translate('app.message.footer.about')}
             </Link>
             <Link variant="body2" to={{ pathname: "https://forums.lescheminsdelatransition.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
-              Notre forum
+            {translate('app.message.footer.forum')}
             </Link>
             <Link variant="body2" to={{ pathname: "https://projet.lescheminsdelatransition.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
-              Notre site web
+            {translate('app.message.footer.website')}
             </Link>
             <Link variant="body2" to="/Page/contact/show" align={xs ? "center" : undefined} className={classes.textLinks}>
               Contact
             </Link>
             <div className={classes.textBar} />
             <Link variant="body2" to="/Page/charte-des-chemins-de-la-transition/show" align={xs ? "center" : undefined} className={classes.textLinks}>
-              Charte des chemins de la transition
+            {translate('app.message.footer.codeOfConduct')}
             </Link>
             <Link variant="body2" to="/Page/mentions-legales/show" align={xs ? "center" : undefined} className={classes.textLinks}>
-              Mentions légales
+            {translate('app.message.footer.legalNotice')}
             </Link>
             <Link variant="body2" to="/Page/rgpd/show" align={xs ? "center" : undefined} className={classes.textLinks}>
-              Politique de gestion des données
+            {translate('app.message.footer.dataPolicy')} 
             </Link>
           </div>
         </div>
@@ -133,7 +135,7 @@ const Footer = () => {
           </Typography>
           <div className={classes.socialNetworks}>
           <Typography variant="h3" color="secondary" component="h3" align={"center"} className={classes.size}>
-            Suivez-nous
+          {translate('app.message.home.followUs')} 
           </Typography>
           <Typography align={"center"}>
               <IconButton
@@ -171,16 +173,16 @@ const Footer = () => {
       <div className={classes.footer3}>
           <div className={classes.footerContent1}>
             <Typography variant="h3" align={xs ? "center" : undefined} className={classes.size}>
-              Rejoindre la communauté
+            {translate('app.message.footer.join')}
             </Typography>
             <Typography variant="body2" align={xs ? "center" : undefined}>
-              Vous avez envie de partager vos connaissances en matière de transition et pourquoi pas accueillir des voyageurs le temps d’une visite ou plus pour les former?
+            {translate('app.message.footer.joinSubText1')}
             </Typography>
             <Typography variant="body2" align={xs ? "center" : undefined}>
-              Vous avez envie d’inscrire votre lieu ou un évènement sur notre plateforme afin de lui donner de la visibilité?
+            {translate('app.message.footer.joinSubText2')}
             </Typography>
             <Button to={{ pathname: "https://forums.lescheminsdelatransition.org/"}} target="_blank" variant="contained" color="secondary" component={Link} typographyVariant="button1" className={classes.button}>
-              Je me lance
+            {translate('app.message.footer.joinButton')}  
             </Button>
           </div>
         </div>

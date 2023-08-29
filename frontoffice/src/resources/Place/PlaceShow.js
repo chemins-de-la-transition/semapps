@@ -103,7 +103,7 @@ const PlaceShow = (props) => {
               </ReferenceArrayField>
             </GroupOfFields>
             <GroupOfFields
-              label={translate('app.input.accommodation')}
+              label={translate('app.tab.accommodation')}
               sources={["cdlt:practicalConditions", "cdlt:maximumCapacity"]}
               addLabel
             >

@@ -39,35 +39,35 @@ const PathDetails = (props) => {
         }
         {/*Aside*/}
         { (isVertical || sm ) && 
-          <ReferenceArrayField reference="Person" source="cdlt:proposedBy" icon={<ActorIcon />} label="Qui contribue">
+          <ReferenceArrayField reference="Person" source="cdlt:proposedBy" icon={<ActorIcon />} >
             <SeparatedListField link="show" separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
         }
         { (isVertical || sm ) && 
-          <ReferenceArrayField reference="Organization" source="cdlt:supportedBy" icon={<ActorIcon />} label="Qui est partenaire">
+          <ReferenceArrayField reference="Organization" source="cdlt:supportedBy" icon={<ActorIcon />} >
             <SeparatedListField link="show" separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
         }
         { (isVertical || sm ) && 
-          <ReferenceArrayField reference="Place" source="cdlt:hasPlace" icon={<PlaceIcon />} label="Dans quels lieux" filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}>
+          <ReferenceArrayField reference="Place" source="cdlt:hasPlace" icon={<PlaceIcon />}  filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}>
             <SeparatedListField link="show" separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
         }
         { (isVertical || sm ) && 
-          <ReferenceArrayField reference="Event" source="cdlt:hasEvent" icon={<CalendarIcon />} label="Quels événements" filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}>
+          <ReferenceArrayField reference="Event" source="cdlt:hasEvent" icon={<CalendarIcon />} filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}>
             <SeparatedListField link="show" separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
         }
         { (isVertical || sm ) && 
-          <ReferenceArrayField reference="Course" source="cdlt:hasCourse" icon={<CourseIcon />} label="Quels voyages" filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}>
+          <ReferenceArrayField reference="Course" source="cdlt:hasCourse" icon={<CourseIcon />} filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}>
             <SeparatedListField link="show" separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
