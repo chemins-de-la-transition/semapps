@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiIconButton-label::after': {
       textTransform: "uppercase",
       marginLeft: '0.5em',
-      content: "'Se connecter'",
+      content: "'Se connecter'", //TODO @srosset81 j'ai pas reussi a internationaliser pour utiliser app.menu.login
       fontFamily: theme.typography.subtitle2.fontFamily,
       fontSize: theme.typography.subtitle2.fontSize,
       fontWeight: theme.typography.subtitle2.fontWeight,
