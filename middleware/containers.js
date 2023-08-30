@@ -73,6 +73,17 @@ module.exports = [
     newResourcesPermissions: writePermissionToCreator
   },
   {
+    path: '/offer-and-need-templates',
+    acceptedTypes: ['cdlt:OfferAndNeedTemplate'],
+    preferredView: '/OfferAndNeedTemplate',
+    permissions: {
+      ...anonReadPermission,
+      ...writePermissionToActors,
+      ...defaultWritePermissionToContributors
+    },
+    newResourcesPermissions: writePermissionToCreator,
+  },
+  {
     path: '/alerts',
     acceptedTypes: ['cdlt:Alert'],
     preferredView: '/Alert',

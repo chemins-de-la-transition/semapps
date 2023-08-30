@@ -3,16 +3,16 @@ import { ImageInput, TabbedForm, FormTab, TextInput, email, required, useTransla
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/field-components';
 import OfferAndNeedTitle from './OfferAndNeedTitle';
-import { PairLocationInput } from '../../pair';
 import { 
   OrganizationsInput,
+  PairLocationInput,
   PersonsInput, 
   SectorsInput,
   TopicsInput,
   TypeInput, 
-} from '../../pair';
+} from '../../../pair';
 // import ReminderBeforeRecording from '../../common/ReminderBeforeRecording';
-import Edit from "../../layout/edit/Edit";
+import Edit from "../../../layout/edit/Edit";
 
 export const OfferAndNeedEdit = (props) => {
   const translate = useTranslate();

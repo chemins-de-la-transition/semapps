@@ -6,8 +6,8 @@ import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
 import { GridList } from '@semapps/list-components';
 import OfferAndNeedTitle from './OfferAndNeedTitle';
-import Show from "../../layout/show/Show";
-import { MainList, SideList, Hero } from "../../common/list";
+import Show from "../../../layout/show/Show";
+import { MainList, SideList, Hero } from "../../../common/list";
 
 const OfferAndNeedShow = (props) => (
   <Show title={<OfferAndNeedTitle />} {...props}>

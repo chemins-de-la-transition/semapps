@@ -1,4 +1,4 @@
-import { PairResourceCreate } from '../../pair';
+import OfferAndNeedCreate from './OfferAndNeedCreate';
 import OfferAndNeedEdit from './OfferAndNeedEdit';
 import OfferAndNeedList from './OfferAndNeedList';
 import OfferAndNeedShow from './OfferAndNeedShow';
@@ -8,11 +8,12 @@ export default {
   config: {
     list: OfferAndNeedList,
     show: OfferAndNeedShow,
-    create: PairResourceCreate,
+    create: OfferAndNeedCreate,
     edit: OfferAndNeedEdit,
     icon: OfferAndNeedIcon,
     options: {
       label: 'Annonces',
+      parent: 'OfferAndNeedFolder',
     },
   },
   dataModel: {
@@ -37,6 +38,7 @@ export default {
       fields: {
         'pair:label': 'Nom',
         'cdlt:hasPublicationStatus':'Statut de publication',
+        'cdlt:hasTemplate': 'Modèle d\'annonce',
         'pair:comment': "Phrase d'accroche",
         'pair:description': "Description",
         'pair:depictedBy': 'Image',
@@ -58,6 +60,7 @@ export default {
       fields: {
         'pair:label': 'Name',
         'cdlt:hasPublicationStatus':'Visibility',
+        'cdlt:hasTemplate': 'Announcement template',
         'pair:comment': "Summary",
         'pair:description': "Description",
         'pair:depictedBy': 'Image',
