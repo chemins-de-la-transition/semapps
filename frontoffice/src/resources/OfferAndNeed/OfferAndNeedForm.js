@@ -32,7 +32,7 @@ const OfferAndNeedForm = ({ mode, record, ...rest }) => {
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />
         <SectorsInput source="pair:hasSector" fullWidth />
         <TopicsInput source="pair:hasTopic" fullWidth />
-        <PersonsInput source="cdlt:proposedBy" fullWidth />
+        <PersonsInput source="cdlt:proposedBy" fullWidth validate={[required()]} />
         <OrganizationsInput source="cdlt:sponsoredBy" fullWidth />
         <PairLocationInput source="pair:hasLocation" fullWidth />
       </FormTab>

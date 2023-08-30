@@ -1,9 +1,10 @@
 import React from 'react';
-import { SimpleForm, FormDataConsumer, SelectInput, TextInput, useGetList } from 'react-admin';
+import { SimpleForm, FormDataConsumer, SelectInput, TextInput, useGetList, useGetIdentity, required } from 'react-admin';
 import { Typography, makeStyles } from '@material-ui/core';
 import Create from "../../../layout/create/Create";
 import { ReferenceInput } from '@semapps/input-components';
 import Markdown from 'markdown-to-jsx';
+import { PersonsInput } from '../../../pair';
 
 const useStyles = makeStyles((theme) => ({
   markdown: {
@@ -16,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 const OfferAndNeedCreate = (props) => {
   const classes = useStyles();
+  const { identity } = useGetIdentity();
   const { data } = useGetList('OfferAndNeedTemplate');
   return (
     <Create {...props} >
@@ -39,6 +41,14 @@ const OfferAndNeedCreate = (props) => {
               }
             }
           }}
+        </FormDataConsumer>
+        <FormDataConsumer>
+          {({ formData, record, ...rest }) => {
+            if (identity?.id) {
+              formData["cdlt:proposedBy"] = identity.id;
+              return (<PersonsInput source="cdlt:proposedBy" fullWidth validate={[required()]} />);
+            }
+          }}  
         </FormDataConsumer>
       </SimpleForm>
     </Create>

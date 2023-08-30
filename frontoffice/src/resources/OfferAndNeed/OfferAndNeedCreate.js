@@ -1,10 +1,21 @@
 import React from 'react';
-import { Create, useTranslate, SimpleForm, FormDataConsumer, SelectInput, TextInput, useGetList } from 'react-admin';
+import {
+  Create,
+  useTranslate,
+  SimpleForm,
+  FormDataConsumer,
+  SelectInput,
+  TextInput,
+  required,
+  useGetList,
+  useGetIdentity
+} from 'react-admin';
 import { Typography, makeStyles } from '@material-ui/core';
 import { useCheckPermissions } from '@semapps/auth-provider';
 import { useCreateContainer } from "@semapps/semantic-data-provider";
 import { ReferenceInput } from '@semapps/input-components';
 import Markdown from 'markdown-to-jsx';
+import { PersonsInput } from '../../pair';
 import FullWidthBox from '../../commons/FullWidthBox';
 import LargeContainer from '../../commons/LargeContainer';
 import HeaderTitle from '../../commons/HeaderTitle';
@@ -22,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
 const OfferAndNeedCreate = (props) => {
   const createContainerUri = useCreateContainer(props.resource);
   useCheckPermissions(createContainerUri, 'create');
+  const { identity } = useGetIdentity();
   const classes = useStyles();
   const translate = useTranslate();
   const { data } = useGetList('OfferAndNeedTemplate');
@@ -52,6 +64,14 @@ const OfferAndNeedCreate = (props) => {
                     }
                   }
                 }}
+              </FormDataConsumer>
+              <FormDataConsumer>
+                {({ formData, record, ...rest }) => {
+                  if (identity?.id) {
+                    formData["cdlt:proposedBy"] = identity.id;
+                    return (<PersonsInput source="cdlt:proposedBy" fullWidth validate={[required()]} />);
+                  }
+                }}  
               </FormDataConsumer>
             </SimpleForm>
           </Create>
