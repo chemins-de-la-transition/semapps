@@ -28,6 +28,7 @@ export { default as JobOpportunities } from './Concept/JobOpportunities';
 
 // Announces
 export { default as OfferAndNeed } from './OfferAndNeed';
+export { default as OfferAndNeedTemplate } from './OfferAndNeed/Template';
 export { default as Alert } from './Alert';
 
 // Other

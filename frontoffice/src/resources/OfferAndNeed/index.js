@@ -38,6 +38,7 @@ export default {
       fields: {
         'pair:label': 'Nom',
         'cdlt:hasPublicationStatus':'Statut de publication',
+        'cdlt:hasTemplate': 'Modèle d\'annonce',
         'pair:comment': "Phrase d'accroche",
         'pair:description': "Description",
         'pair:depictedBy': 'Image',
@@ -59,6 +60,7 @@ export default {
       fields: {
         'pair:label': 'Name',
         'cdlt:hasPublicationStatus':'Visibility',
+        'cdlt:hasTemplate': 'Announcement template',
         'pair:comment': "Summary",
         'pair:description': "Description",
         'pair:depictedBy': 'Image',
