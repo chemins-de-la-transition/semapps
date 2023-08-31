@@ -6,6 +6,7 @@ import LargeContainer from '../commons/LargeContainer';
 import HeaderTitle from '../commons/HeaderTitle';
 import Button from '../commons/Button';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 const MyAlertsPage = () => {
   const { identity, loading } = useCheckAuthenticated();
@@ -28,6 +29,7 @@ const MyAlertsPage = () => {
               marginBottom: 8,
               boxShadow: '0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)',
             })}
+            rightIcon={(record) => {if (record['cdlt:hasPublicationStatus'] !== process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide') { return( <VisibilityOffIcon />);}}}
           />
           </ListBase>
         </LargeContainer>

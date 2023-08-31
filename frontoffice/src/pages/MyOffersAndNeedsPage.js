@@ -20,7 +20,7 @@ const MyOffersAndNeedsPage = () => {
       <FullWidthBox>
         <LargeContainer>
           <ListBase resource="OfferAndNeed" basePath="/OfferAndNeed" filter={{ 'cdlt:proposedBy': identity?.id }}>
-            <CardsList CardComponent={OfferAndNeedCard} link="show" />
+            <CardsList CardComponent={OfferAndNeedCard} link="show" all />
           </ListBase>
         </LargeContainer>
       </FullWidthBox>
