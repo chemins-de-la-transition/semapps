@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useTranslate } from 'react-admin';
 import TabbedList from "../../commons/lists/TabbedList/TabbedList";
 import Filter from '../../commons/Filter';
 import CourseCard from '../Agent/Activity/Course/CourseCard';
@@ -26,18 +27,18 @@ const useStyles = makeStyles((theme) => ({
 const LEPList = (props) => {
   const [checked, setChecked] = useState(true);
   const classes = useStyles();
-
+  const translate = useTranslate();
   return (
     <>
     <TabbedList
       filters={[
         <SearchFilter />,
         <FormGroup className={classes.formGroup}>
-          <FormControlLabel control={<Checkbox checked={checked} />} label="N'afficher que les activités à venir" onChange={e => setChecked(e.target.checked)}/>
+          <FormControlLabel control={<Checkbox checked={checked} />} label={translate('app.card.organization.onlyFutureEvents')} onChange={e => setChecked(e.target.checked)}/>
         </FormGroup>,
-        <Filter reference="Type" source="cdlt:hasCourseType" inverseSource="cdlt:typeOfCourse" label="Mode de voyage" />,
-        <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label="Secteur d'activité" />,
-        <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label="Région" />,
+        <Filter reference="Type" source="cdlt:hasCourseType" inverseSource="cdlt:typeOfCourse" label={translate('app.input.courseType')} />,
+        <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label={translate('app.input.sector')} />,
+        <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label={translate('app.input.region')} />,
       ]}
       futureActivities={checked}
       tabs={[

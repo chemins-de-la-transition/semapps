@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageInput, TabbedForm, FormTab, NumberInput, TextInput, email, required } from 'react-admin';
+import { ImageInput, TabbedForm, FormTab, NumberInput, TextInput, email, required, useTranslate } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { extractContext, LocationInput } from '@semapps/geo-components';
 import { ImageField } from '@semapps/field-components';
@@ -19,7 +19,9 @@ import {
 import ReminderBeforeRecording from '../../common/ReminderBeforeRecording';
 import Edit from "../../layout/edit/Edit";
 
-export const PlaceEdit = (props) => (
+export const PlaceEdit = (props) => {
+  const translate = useTranslate();
+  return (
   <Edit title={<PlaceTitle />} {...props}>
     <TabbedForm redirect="show">
       <FormTab label="A propos du lieu">
@@ -48,9 +50,9 @@ export const PlaceEdit = (props) => (
         {/*<EventsInput source="pair:hosts" fullWidth />*/}
       </FormTab>
       <FormTab label="Contact">
-        <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />  
-        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
-        <TextInput source="cdlt:publicPhone" fullWidth helperText="Numéro public affiché sur la page" />
+        <TextInput source="pair:e-mail" fullWidth helperText={translate('app.helper.nonVisible')} validate={[required(), email()]} />  
+        <TextInput source="pair:phone" fullWidth helperText={translate('app.helper.nonVisible')} />
+        <TextInput source="cdlt:publicPhone" fullWidth helperText={translate('app.helper.publicPhone')} />
         <TextInput source="pair:homePage" fullWidth helperText="Lien affiché sur la page"/>        
         <RegistrationInput 
           directRegistrationSource="cdlt:directRegistration" helperText="Si non, les voyageurs devront vous écrire via un formulaire de contact au préalable"
@@ -85,6 +87,7 @@ export const PlaceEdit = (props) => (
       </FormTab>
     </TabbedForm>
   </Edit>
-);
+  );
+}
 
 export default PlaceEdit;

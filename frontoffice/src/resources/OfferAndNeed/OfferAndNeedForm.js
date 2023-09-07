@@ -1,16 +1,20 @@
 import React from 'react';
-import { TabbedForm, FormTab, ImageInput, TextInput, useGetIdentity, email, required } from 'react-admin';
+import { TabbedForm, FormTab, ImageInput, TextInput, useGetIdentity, email, required, useTranslate } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/field-components';
 import {
+  OrganizationsInput,
   PersonsInput,
+  PublicationStatusInput,
   SectorsInput,
+  TopicsInput,
   TypeInput
 } from '../../pair';
 import { PairLocationInput } from '../../pair';
 // import ReminderBeforeRecording from '../../commons/ReminderBeforeRecording';
 
 const OfferAndNeedForm = ({ mode, record, ...rest }) => {
+  const translate = useTranslate();
   const { identity } = useGetIdentity();
   return (
     <TabbedForm 
@@ -18,7 +22,7 @@ const OfferAndNeedForm = ({ mode, record, ...rest }) => {
       {...rest}
       redirect="show"
     >
-      <FormTab label="Description">
+      <FormTab label={translate('app.tab.offerAndNeed.description')}>
         <TypeInput source="pair:hasType" filter={{ a: 'cdlt:OfferAndNeedType' }} validate={[required()]} />
         <TextInput source="pair:label" fullWidth validate={[required()]} />
         <TextInput source="pair:comment" fullWidth validate={[required()]} />
@@ -27,13 +31,18 @@ const OfferAndNeedForm = ({ mode, record, ...rest }) => {
         </ImageInput>
         <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />
         <SectorsInput source="pair:hasSector" fullWidth />
-        <PersonsInput source="cdlt:proposedBy" fullWidth />
+        <TopicsInput source="pair:hasTopic" fullWidth />
+        <PersonsInput source="cdlt:proposedBy" fullWidth validate={[required()]} />
+        <OrganizationsInput source="cdlt:sponsoredBy" fullWidth />
         <PairLocationInput source="pair:hasLocation" fullWidth />
       </FormTab>
-      <FormTab label="Contact">
-        <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />  
-        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
-        <TextInput source="pair:homePage" fullWidth helperText="Lien affiché sur la page"/>        
+      <FormTab label={translate('app.tab.offerAndNeed.contact')}>
+        <TextInput source="pair:e-mail" fullWidth helperText={translate('app.helper.nonVisible')} validate={[required(), email()]} />  
+        <TextInput source="pair:phone" fullWidth helperText={translate('app.helper.nonVisible')} />
+        <TextInput source="pair:homePage" fullWidth helperText={translate('app.helper.publicLink')} />        
+      </FormTab>
+      <FormTab label={translate('app.tab.offerAndNeed.visibility')}>
+        <PublicationStatusInput source="cdlt:hasPublicationStatus" />
       </FormTab>
     </TabbedForm>
   );

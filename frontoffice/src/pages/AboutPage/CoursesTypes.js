@@ -6,6 +6,7 @@ import Type1Icon from '../../icons/Type1Icon.png';
 import Type2Icon from '../../icons/Type2Icon.png';
 import Type3Icon from '../../icons/Type3Icon.png';
 import Type4Icon from '../../icons/Type4Icon.png';
+import { useTranslate } from 'react-admin';
 
 const useStyles = makeStyles((theme) => ({
   mainBox: {
@@ -79,34 +80,35 @@ const LocalGridItem = ({ title, text, image, icon }) => {
 
 const CoursesTypes = () => {
   const classes = useStyles();
+  const translate = useTranslate();
   return (
     <FullWidthBox className={classes.mainBox}>
       <LargeContainer className={classes.container}>
         <Typography variant="h1" className={classes.title}>
-          Une aventure unique
+        {translate('app.message.coursesTypes.title')}
         </Typography>
         <Typography variant="h3" className={classes.subTitle}>
-          adaptée à votre niveau de connaissance
+        {translate('app.message.coursesTypes.subTitle')}
         </Typography>
         <Grid container spacing={3}>
           <LocalGridItem
-            title="Découverte"
-            text="Je suis curieux, j’ouvre les yeux sur des métiers liés à la transition qui existent en visitant des lieux inspirants pendant mon voyage"
+            title={translate('app.message.coursesTypes.discovery')}
+            text={translate('app.message.coursesTypes.discoverySubtextAbout')}
             icon={<img src={Type1Icon} alt="découverte" />}
           />
           <LocalGridItem
-            title="Apprentissage"
-            text="Une pratique m’intéresse, j’ai envie d’en savoir plus. Profitez de ces parcours sur quelques jours pour visiter différents lieux et rencontrer les porteurs de projets"
+            title={translate('app.message.coursesTypes.learning')}
+            text={translate('app.message.coursesTypes.learningSubtextAbout')}
             icon={<img src={Type2Icon} alt="apprentissage" />}
           />
           <LocalGridItem
-            title="Immersion"
-            text="J’ai envie d’apprendre en participant. Ces parcours sur quelques semaines vous permettront d’experimenter par le faire et de participer à un projet de votre choix"
+            title={translate('app.message.coursesTypes.immersion')}
+            text={translate('app.message.coursesTypes.immersionSubtextAbout')}
             icon={<img src={Type3Icon} alt="immersion" />}
           />
           <LocalGridItem
-            title="Compagnonnage"
-            text="Je décide de me lancer pour me former à une pratique. Vous serez en immersion longue au sein d’un lieu et suivrez des modules théoriques pour une validation d’acquis."
+            title={translate('app.message.coursesTypes.mentoring')}
+            text={translate('app.message.coursesTypes.mentoringSubtextAbout')}
             icon={<img src={Type4Icon} alt="compagnonnage" />}
           />
         </Grid>

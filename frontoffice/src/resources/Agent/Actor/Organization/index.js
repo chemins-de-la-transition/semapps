@@ -53,5 +53,37 @@ export default {
         'pair:hasType': 'Type d\'organisation',
       },
     },
+    en: {
+      name: 'Organization |||| Organizations',
+      fields: {
+        'pair:label': 'Name',
+        'cdlt:hasPublicationStatus': 'Publication Status',
+        'pair:comment': 'In a few words',
+        'pair:description': 'Description',
+        'pair:homePage': 'Links',
+        'pair:e-mail': 'Email Address',
+        'pair:phone': 'Phone',
+        'cdlt:publicPhone': 'Phone',
+        'pair:depictedBy': 'Logo',
+        'pair:affiliates': 'Has Members', /*Person*/
+        'pair:partnerOf': 'Partner of', /*Organization*/
+        'pair:inspiredBy': 'Inspired by', /*Organization*/
+        'pair:hasSector': 'Activity Sectors',
+        'pair:hasTopic': 'Keywords', /*Topic*/
+        'pair:hasLocation': 'Location',
+        'cdlt:organizes': 'Organizes',
+        'cdlt:hasRegion': 'Region(s)',
+        'cdlt:supports': 'Paths', /*Paths*/
+        'cdlt:hasCourseType': 'Travel Mode',
+        'cdlt:organizationHostedIn': 'Where are we',
+        'pair:hasFinality': 'Objectives',
+        'cdlt:intentions': 'Our intentions in coming to the paths of transition',
+        'cdlt:practicalConditions': 'Accommodation Terms',
+        'cdlt:maximumCapacity': 'Maximum Accommodation Capacity',
+        'pair:produces': 'Skills present in the organization',
+        'pair:aims': 'Skills sought by the organization',
+        'pair:hasType': 'Organization Type',
+      },
+    }
   },
 };

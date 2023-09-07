@@ -6,8 +6,8 @@ import { MarkdownField } from '@semapps/markdown-components';
 import { MapField } from '@semapps/geo-components';
 import { GridList } from '@semapps/list-components';
 import OfferAndNeedTitle from './OfferAndNeedTitle';
-import Show from "../../layout/show/Show";
-import { MainList, SideList, Hero } from "../../common/list";
+import Show from "../../../layout/show/Show";
+import { MainList, SideList, Hero } from "../../../common/list";
 
 const OfferAndNeedShow = (props) => (
   <Show title={<OfferAndNeedTitle />} {...props}>
@@ -46,6 +46,11 @@ const OfferAndNeedShow = (props) => (
       <Grid item xs={12} sm={3}>
         <SideList>
           <ReferenceArrayField reference="Person" source="cdlt:proposedBy">
+            <GridList xs={6} linkType="show">
+              <AvatarWithLabelField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
+            </GridList>
+          </ReferenceArrayField>
+          <ReferenceArrayField reference="Organization" source="cdlt:sponsoredBy">
             <GridList xs={6} linkType="show">
               <AvatarWithLabelField label="pair:label" image="pair:depictedBy" labelColor="grey.300" />
             </GridList>

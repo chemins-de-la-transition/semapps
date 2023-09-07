@@ -6,6 +6,7 @@ import Type1Icon from '../../icons/Type1Icon.png';
 import Type2Icon from '../../icons/Type2Icon.png';
 import Type3Icon from '../../icons/Type3Icon.png';
 import Type4Icon from '../../icons/Type4Icon.png';
+import { useTranslate } from 'react-admin';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -66,7 +67,7 @@ const LocalGridItem = ({ title, text, icon, type }) => {
   const classes = useStyles();
   const filters = {'cdlt:hasCourseType':process.env.REACT_APP_MIDDLEWARE_URL+"types/"+type}
   const link = window.location.href +`LEP?filter=${encodeURIComponent(JSON.stringify(filters))}`
-  
+
   return (
     <Grid item sm={6} md={3}>
       <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column">
@@ -86,37 +87,39 @@ const LocalGridItem = ({ title, text, icon, type }) => {
 
 const CoursesTypes = () => {
   const classes = useStyles();
+  const translate = useTranslate();
+
   return (
     <FullWidthBox className={classes.mainBox}>
       <LargeContainer className={classes.container}>
         <Typography variant="h1" className={classes.title}>
-          Apprendre en voyageant
+        {translate('app.message.coursesTypes.learnByTravelling')}
         </Typography>
         <Typography variant="h3" className={classes.subTitle}>
-          en mode
+        {translate('app.message.coursesTypes.mode')}
         </Typography>
         <Grid container spacing={3}>
           <LocalGridItem
-            title="Découverte"
-            text="En solo, en famille ou avec vos amis, baladez-vous, à pied, à cheval ou à vélo, de lieux en lieux sur les Chemins de la Transition"
+            title={translate('app.message.coursesTypes.discovery')}
+            text={translate('app.message.coursesTypes.discoverySubtext')}
             icon={Type1Icon}
             type="ecotourisme" 
           />
           <LocalGridItem
-            title="Apprenant"
-            text="Rencontrez le temps de quelques heures ou d’une journée des acteurs de la transition afin de vous enrichir de leurs pratiques"
+            title={translate('app.message.coursesTypes.learning')}
+            text={translate('app.message.coursesTypes.learninbSubtext')}
             icon={Type2Icon}
             type="voyage-apprenant1"
           />
           <LocalGridItem
-            title="Immersif"
-            text="Contribuez et apprenez en contribuant, contre le gîte et le couvert, en immersion auprès d’acteurs de la transition."
+            title={translate('app.message.coursesTypes.immersion')}
+            text={translate('app.message.coursesTypes.immersionSubtext')}
             icon={Type3Icon}
             type="immersion-longue"
           />
           <LocalGridItem
-            title="Compagnonnage"
-            text="Inscrivez-vous à des formations itinérantes, certifiées et qualifiantes en immersion auprès d’acteurs experts dans leur domaine."
+            title={translate('app.message.coursesTypes.mentoring')}
+            text={translate('app.message.coursesTypes.mentoringSubtext')}
             icon={Type4Icon}
             type="compagnonnage"
           />

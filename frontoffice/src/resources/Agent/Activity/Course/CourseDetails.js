@@ -1,6 +1,6 @@
 import React from 'react';
 import resourceDetailsStyle from '../../../../commons/style/resourceDetailsStyle';
-import { TextField } from 'react-admin';
+import { TextField, useTranslate } from 'react-admin';
 import { Box, useMediaQuery } from '@material-ui/core';
 import { SeparatedListField, ReferenceArrayField } from '@semapps/field-components';
 import { linkToFilteredList } from "../../../../utils";
@@ -20,49 +20,50 @@ const CourseDetails = (props) => {
   const separator = isVertical ? "" : ", "
   const classes = useStyles({ isVertical });
   const sm = useMediaQuery((theme) => theme.breakpoints.down('sm'), { noSsr: true });
+  const translate = useTranslate();
   return(
     <Box className={classes.mainContainer}>
       <IconsList {...props}>
         { ( !isVertical || sm ) && 
-          <ReferenceArrayField reference="Path" source="cdlt:courseOn" icon={<PathIcon />} label="Type de chemin">
+          <ReferenceArrayField reference="Path" source="cdlt:courseOn" icon={<PathIcon />}>
             <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:courseOn')} separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
         }
         { ( !isVertical || sm ) && 
-          <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon />}>
+          <ReferenceArrayField source="cdlt:hasCourseType" reference="Type" icon={<CourseIcon/>}>
             <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:hasCourseType')} separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
         }
         { ( !isVertical || sm ) && 
-          <ReferenceArrayField reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />}>
+          <ReferenceArrayField source="cdlt:hasRegion" reference="Region" icon={<PlaceIcon/>} >
             <SeparatedListField link={linkToFilteredList('LEP', 'cdlt:hasRegion')} separator={separator}>
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
         }
         { ( !isVertical || sm ) && 
-          <RangeDateField source="pair:startDate" toSource="pair:endDate" icon={<CalendarIcon />} label="Dates" />
+          <RangeDateField source="pair:startDate" toSource="pair:endDate" icon={<CalendarIcon />} label={translate('app.input.dates')} />
         }
         { (isVertical || sm ) && 
-          <ReferenceArrayField source="cdlt:organizedBy" reference="Actor" icon={<ActorIcon />} label="Qui organise">
+          <ReferenceArrayField source="cdlt:organizedBy" reference="Actor" icon={<ActorIcon />} >
             <SeparatedListField linkType="show">
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
         }
         { (isVertical || sm ) && 
-          <ReferenceArrayField source="cdlt:hasMentor" reference="Person" icon={<ActorIcon />} label="Qui intervient">
+          <ReferenceArrayField source="cdlt:hasMentor" reference="Person" icon={<ActorIcon />} >
             <SeparatedListField linkType="show">
               <TextField source="pair:label" />
             </SeparatedListField>
           </ReferenceArrayField>
         }
         { (isVertical || sm ) && 
-          <ReferenceArrayField source="cdlt:courseOn" reference="Path" icon={<PathIcon />} label="Fait partie de">
+          <ReferenceArrayField source="cdlt:courseOn" reference="Path" icon={<PathIcon />} >
             <SeparatedListField linkType="show">
               <TextField source="pair:label" />
             </SeparatedListField>

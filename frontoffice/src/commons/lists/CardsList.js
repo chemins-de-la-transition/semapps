@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CardsList = ({ CardComponent, link, hasLike, external, onlyFutureEvents }) => {
+const CardsList = ({ CardComponent, link, hasLike, external, onlyFutureEvents, all }) => {
   const classes = useStyles();
   const { ids, data, basePath, loading } = useListContext();
   return loading ? (
@@ -56,7 +56,7 @@ const CardsList = ({ CardComponent, link, hasLike, external, onlyFutureEvents })
   ) : (
     ids.map((id) => {
       if (!data[id] || data[id]['_error']) return null;
-      if (data[id]?.['cdlt:hasPublicationStatus'] !== process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide') return null;
+      if (!all && data[id]?.['cdlt:hasPublicationStatus'] !== process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide') return null;
       if (onlyFutureEvents && data[id]?.['pair:startDate']<(new Date()).toISOString()) return null;
       const image = data[id]?.['pair:depictedBy'];
       const card =

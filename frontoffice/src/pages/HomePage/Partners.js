@@ -7,6 +7,7 @@ import ademe from '../../icons/ademe.png';
 import fdva from '../../icons/fdva.jpg';
 import ANCT from '../../icons/ANCT.png';
 import region_occitanie from '../../icons/region_occitanie.png';
+import { useTranslate } from 'react-admin';
 
 const useStyles = makeStyles((theme) => ({
   mainBox: {
@@ -65,6 +66,7 @@ const partnersWeight = {
 };
 
 const Partners = () => {
+  const translate = useTranslate();
   const { data, ids, loading, error } = useGetList(
     'Organization',
     { page: 1, perPage: 99 },
@@ -80,8 +82,8 @@ const Partners = () => {
     <FullWidthBox className={classes.mainBox}>
       <LargeContainer className={classes.container}>
         <Box>
-          <Typography variant="h2">Avec le soutien de</Typography>
-          <Typography variant="h3" component="div" className={classes.subTitle}>nos partenaires financiers</Typography>
+          <Typography variant="h2">{translate('app.message.partners.withTheSupport')}</Typography>
+          <Typography variant="h3" component="div" className={classes.subTitle}>{translate('app.message.partners.financialPartners')}</Typography>
           <ul className={classes.partnersList}>
             <a href={'https://www.ademe.fr/'} target="_blank" rel="noopener noreferrer">
               <img className={classes.logo} src={ademe} alt={"logo ademe"}/>
@@ -100,7 +102,7 @@ const Partners = () => {
         {loading && <LinearProgress />}
         {!loading && !error &&
           <Box>
-            <Typography variant="h3" component="div" className={classes.subTitle}>nos partenaires métiers</Typography>
+            <Typography variant="h3" component="div" className={classes.subTitle}>{translate('app.message.partners.businessPartners')}</Typography>
             <ul className={classes.partnersList}>
               {ids.map(id => {
                 if ( data[id] && data[id]['pair:label'] && data[id]['pair:depictedBy'] ) {

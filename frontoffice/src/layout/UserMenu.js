@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo } from 'react';
-import { UserMenu as RaUserMenu, MenuItemLink, useGetIdentity } from 'react-admin';
+import { UserMenu as RaUserMenu, MenuItemLink, useGetIdentity, useTranslate } from 'react-admin';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PlaceIcon from '../svg/PlaceIcon';
 import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
@@ -7,48 +7,131 @@ import EventIcon from '@material-ui/icons/Event';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import AnnouncementIcon from '@material-ui/icons/Announcement';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 
-const MyBookmarks = forwardRef(({ onClick }, ref) => (
-  <MenuItemLink ref={ref} to="/MyBookmarks" primaryText="Mes favoris" leftIcon={<FavoriteIcon />} onClick={onClick} />
-));
+const MyBookmarks = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
 
-const MyPlacesMenu = forwardRef(({ onClick }, ref) => (
-  <MenuItemLink ref={ref} to="/MyPlaces" primaryText="Mes lieux" leftIcon={<PlaceIcon />} onClick={onClick} />
-));
+  return (
+    <MenuItemLink
+      ref={ref}
+      to="/MyBookmarks"
+      primaryText={translate('app.menu.bookmarks')}
+      leftIcon={<FavoriteIcon />}
+      onClick={onClick}
+    />
+  );
+});
 
-const MyEventsMenu = forwardRef(({ onClick }, ref) => (
-  <MenuItemLink ref={ref} to="/MyEvents" primaryText="Mes événements" leftIcon={<EventIcon />} onClick={onClick} />
-));
+const MyPlacesMenu = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
 
-const MyOrganizationsMenu = forwardRef(({ onClick }, ref) => (
-  <MenuItemLink ref={ref} to="/MyOrganizations" primaryText="Mes organisations" leftIcon={<HomeIcon />} onClick={onClick} />
-));
+  return (
+    <MenuItemLink
+      ref={ref}
+      to="/MyPlaces"
+      primaryText={translate('app.menu.places')}
+      leftIcon={<PlaceIcon />}
+      onClick={onClick}
+    />
+  );
+});
 
-const MyReservationsMenu = forwardRef(({ onClick }, ref) => (
-  <MenuItemLink ref={ref} to="/MyReservations" primaryText="Mes réservations" leftIcon={<WorkOutlineIcon />} onClick={onClick} />
-));
+const MyEventsMenu = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
 
-const MyOfferAndNeedMenu = forwardRef(({ onClick }, ref) => (
-  <MenuItemLink ref={ref} to="/MyOffersAndNeeds" primaryText="Mes annonces" leftIcon={<AnnouncementIcon />} onClick={onClick} />
-));
+  return (
+    <MenuItemLink
+      ref={ref}
+      to="/MyEvents"
+      primaryText={translate('app.menu.events')}
+      leftIcon={<EventIcon />}
+      onClick={onClick}
+    />
+  );
+});
 
-const LoginMenu = forwardRef(({ onClick }, ref) => (
-  <MenuItemLink ref={ref} to="/login" primaryText="Se connecter" onClick={onClick} />
-));
+const MyOrganizationsMenu = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
 
-const SignupMenu = forwardRef(({ onClick }, ref) => (
-  <MenuItemLink ref={ref} to="/login?signup=true" primaryText="Créer un compte" onClick={onClick} />
-));
+  return (
+    <MenuItemLink
+      ref={ref}
+      to="/MyOrganizations"
+      primaryText={translate('app.menu.organizations')}
+      leftIcon={<HomeIcon />}
+      onClick={onClick}
+    />
+  );
+});
 
-const EditProfileMenu = forwardRef(({ onClick, webId }, ref) => (
-  <MenuItemLink
-    ref={ref}
-    to={`/Person/${encodeURIComponent(webId)}/show`}
-    primaryText="Mon profil"
-    leftIcon={<AccountCircleIcon />}
-    onClick={onClick}
-  />
-));
+const MyReservationsMenu = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
+
+  return (
+    <MenuItemLink
+      ref={ref}
+      to="/MyReservations"
+      primaryText={translate('app.menu.reservations')}
+      leftIcon={<WorkOutlineIcon />}
+      onClick={onClick}
+    />
+  );
+});
+
+const LoginMenu = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
+
+  return (
+    <MenuItemLink
+      ref={ref}
+      to="/login"
+      primaryText={translate('app.menu.login')}
+      onClick={onClick}
+    />
+  );
+});
+
+const SignupMenu = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
+
+  return (
+    <MenuItemLink
+      ref={ref}
+      to="/login?signup=true"
+      primaryText={translate('app.menu.signup')}
+      onClick={onClick}
+    />
+  );
+});
+
+const EditProfileMenu = forwardRef(({ onClick, webId }, ref) => {
+  const translate = useTranslate();
+
+  return (
+    <MenuItemLink
+      ref={ref}
+      to={`/Person/${encodeURIComponent(webId)}/show`}
+      primaryText={translate('app.menu.profile')}
+      leftIcon={<AccountCircleIcon />}
+      onClick={onClick}
+    />
+  );
+});
+
+const MyOfferAndNeedMenu = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
+  return (
+    <MenuItemLink ref={ref} to="/MyOffersAndNeeds" primaryText={translate('app.action.offerAndNeed.mine')} leftIcon={<AnnouncementIcon />} onClick={onClick} />
+  )
+});
+
+const MyAlertMenu = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
+  return (
+    <MenuItemLink ref={ref} to="/MyAlerts" primaryText={translate('app.action.alert.mine')} leftIcon={<NotificationsIcon />} onClick={onClick} />
+  )
+});
 
 const UserMenu = ({ logout, ...otherProps }) => {
   const { identity } = useGetIdentity();
@@ -75,6 +158,7 @@ const UserMenu = ({ logout, ...otherProps }) => {
             <MyEventsMenu key="my-events" />,
             <MyReservationsMenu key="my-reservations" />,
             <MyOfferAndNeedMenu key="my-offers-and-needs" />,
+            <MyAlertMenu key="my-alerts" />,
             React.cloneElement(logout, { key: 'logout' }),
           ]
         )

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
 import { useCheckAuthenticated } from '@semapps/auth-provider';
-import { ListBase } from 'react-admin';
+import { ListBase, useTranslate } from 'react-admin';
 import FullWidthBox from '../commons/FullWidthBox';
 import LargeContainer from '../commons/LargeContainer';
 import HeaderTitle from '../commons/HeaderTitle';
@@ -11,10 +11,11 @@ import RegistrationCard from '../resources/Registration/RegistrationCard';
 
 const MyReservationsPage = () => {
   const { identity } = useCheckAuthenticated();
+  const translate = useTranslate();
 
   return (
     <>
-      <HeaderTitle>Mes réservations</HeaderTitle>
+      <HeaderTitle>{translate('app.menu.reservations')}</HeaderTitle>
       <br />
       <FullWidthBox>
         <LargeContainer>

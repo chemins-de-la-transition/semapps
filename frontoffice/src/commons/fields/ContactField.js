@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRecordContext } from 'react-admin';
+import { useRecordContext, useTranslate } from 'react-admin';
 import { makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -13,13 +13,14 @@ const useStyles = makeStyles((theme) => ({
 const ContactField = ({ phone, website, mail, ...rest }) => {
   const classes = useStyles();
   const record = useRecordContext(rest);
+  const translate = useTranslate();
   return(
     <ul>
-      <li><Typography variant="body2" color="secondary"  className={classes.p}>Téléphone: {record[phone]}</Typography></li>
+      <li><Typography variant="body2" color="secondary"  className={classes.p}> {translate('app.input.person.phone')} {record[phone]}</Typography></li>
       {record[website] &&
         <li>
           <Typography variant="body2" color="secondary" className={classes.p}>
-            Site web:{" "}
+          {translate('app.input.person.website')} {" "}
             <a href={record[website]} target="_blank" rel="noopener noreferrer">
               {record[website]}
             </a>
@@ -29,7 +30,7 @@ const ContactField = ({ phone, website, mail, ...rest }) => {
       {record[mail] &&
         <li>
           <Typography variant="body2" color="secondary" className={classes.p}>
-            Adresse mail:{" "}
+          {translate('app.input.person.email')} {" "}
             <a href={'mailto:'+record[mail]} target="_blank" rel="noopener noreferrer">
               {record[mail]}
             </a>

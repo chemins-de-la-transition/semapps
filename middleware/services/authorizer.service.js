@@ -36,7 +36,23 @@ module.exports = {
           control: true
         },
         users: record => record.id || record['@id']
-      }
+      },
+      {
+        match: { type: 'cdlt:OfferAndNeed' },
+        rights: {
+          read: true,
+          write: true
+        },
+        users: record => record['cdlt:proposedBy']
+      },
+      {
+        match: { type: 'cdlt:Alert' },
+        rights: {
+          read: true,
+          write: true
+        },
+        users: record => record['cdlt:proposedBy']
+      },
     ]
   }
 };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
+import {  ChipField,  ShowBase,  SingleFieldList,  TextField,  UrlField,  useTranslate} from 'react-admin';
 import { ThemeProvider } from '@material-ui/core';
 import personTheme from '../../../../config/themes/personTheme';
 import resourceShowStyle from '../../../../commons/style/resourceShowStyle';
@@ -13,17 +13,18 @@ import BodyList from '../../../../commons/lists/BodyList/BodyList';
 import PersonDetails from './PersonDetails';
 import OrganizationCard from '../../../../resources/Agent/Actor/Organization/OrganizationCard';
 import CardsList from '../../../../commons/lists/CardsList';
-import ContactDialog from "../../../../commons/ContactDialog";
+import ContactDialog from '../../../../commons/ContactDialog';
 import SectorField from '../../../../commons/fields/SectorField';
-import ContactButton from "../../../../commons/buttons/ContactButton";
+import ContactButton from '../../../../commons/buttons/ContactButton';
 import GroupOfFields from '../../../../commons/fields/GroupOfFields';
-import { linkToFilteredList } from "../../../../utils";
+import { linkToFilteredList } from '../../../../utils';
 
 const useStyles = resourceShowStyle;
 
 const PersonShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
   const classes = useStyles();
+  const translate = useTranslate();
   return (
     <ThemeProvider theme={personTheme}>
       <ShowBase {...props}>
@@ -31,19 +32,19 @@ const PersonShow = (props) => {
           <HeaderShow
             type="pair:hasType"
             details={<PersonDetails />}
-            actionButton={<ContactButton label="Contacter la personne" />}
+            actionButton={<ContactButton label={translate('app.action.person.contact')} />}
           />
           <BodyList
             aside={
               <StickyCard
-                actionButton={<ContactButton label="Contacter la personne" />}
+                actionButton={<ContactButton label={translate('app.action.person.contact')} />}
               >
                 <PersonDetails orientation="vertical" />
               </StickyCard>
             }
           >
             <GroupOfFields
-              title="A propos de la personne"
+              title={translate('app.tab.person.about')}
               sources={["pair:description","pair:comment","pair:hasFinality","pair:hasSector","pair:hasTopic","cdlt:intentions"]}
               addLabel
               noBorder
@@ -68,8 +69,8 @@ const PersonShow = (props) => {
               <MarkdownField source="cdlt:intentions" />
             </GroupOfFields>
             <GroupOfFields
-              title="Compétences"
-              sources={["pair:produces","pair:offers","pair:aims"]}
+              title={translate('app.tab.person.skills')}
+              sources={['pair:produces', 'pair:offers', 'pair:aims']}
               addLabel
             >
               <ReferenceArrayField reference="Skill" source="pair:produces">
@@ -87,9 +88,10 @@ const PersonShow = (props) => {
                   <ChipField source="pair:label" color="primary" className={classes.chipField} />
                 </SeparatedListField>
               </ReferenceArrayField>
-            </GroupOfFields>     
-            <MarkdownField source="cdlt:practicalConditions" addLabel={false}/>
-            <ReferenceArrayField source="pair:inspiredBy" reference="Organization" className={classes.cardsList} label="Est inspirée par">
+            </GroupOfFields>
+            <MarkdownField source="cdlt:practicalConditions" addLabel={false} />
+            <ReferenceArrayField source="pair:inspiredBy" reference="Organization" className={classes.cardsList} label={translate('app.input.person.inspiredBy')}
+            >
               <Box pt={1}>
                 <CardsList CardComponent={OrganizationCard} />
               </Box>
@@ -103,7 +105,7 @@ const PersonShow = (props) => {
               scrollWheelZoom={false}
               dragging={false}
             />
-            <UrlField source="pair:homePage" label="Liens" className={classes.urlField} />
+            <UrlField source="pair:homePage" label={translate('app.input.person.links')} className={classes.urlField} />
             
             {/*
             <MarkdownField source="cdlt:asAHostIntentions" />

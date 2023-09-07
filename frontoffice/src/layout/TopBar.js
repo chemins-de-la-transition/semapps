@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, useMediaQuery, makeStyles, Typography } from '@material-ui/core';
+import { useTranslate } from 'react-admin';
 import { Link } from 'react-router-dom';
 import FullWidthBox from '../commons/FullWidthBox';
 import LargeContainer from '../commons/LargeContainer';
@@ -49,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const TopBar = () => {
+  const translate = useTranslate();
   const classes = useStyles();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
   return (
@@ -59,14 +61,14 @@ const TopBar = () => {
             (xs) ? ''
             : 
             <>
-              <Typography variant="subtitle2">Le lieu pour partager et apprendre en voyageant</Typography>
+              <Typography variant="subtitle2">{translate('app.message.topBarMessage')}</Typography>
               <a href="#top" aria-current="page" className={classes.betaButton}>
                 <Button
                   variant="outlined"
                   color="primary"
                   typographyVariant="button1"
                 >
-                  Version bêta
+                  {translate('app.message.betaVersion')}
                 </Button>
               </a>
             </>
@@ -77,7 +79,7 @@ const TopBar = () => {
             className={classes.topBarHelpIcon}
             color="inherit"
             component={Link}
-            aria-label="Aide"
+            aria-label={translate('app.action.help')}
             typographyVariant="subtitle2"
           >
             ?
@@ -89,7 +91,7 @@ const TopBar = () => {
               color="secondary"
               typographyVariant="button1"
             >
-              Soutenez la plateforme avec un don
+              {translate('app.message.topBarButton')}
             </Button>
           </a>
         </Box>

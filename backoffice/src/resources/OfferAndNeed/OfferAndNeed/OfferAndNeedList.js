@@ -1,7 +1,7 @@
 import React from 'react';
 import { Datagrid, TextField, ShowButton, EditButton } from 'react-admin';
-import PublishButton from '../../pair/PublishButton';
-import List from "../../layout/list/List";
+import PublishButton from '../../../pair/PublishButton';
+import List from "../../../layout/list/List";
 import OfferAndNeedFilterSidebar from './OfferAndNeedFilterSidebar';
 
 const OfferAndNeedList = (props) => (

@@ -53,7 +53,46 @@ export default {
         'pair:aims': 'Compétences recherchées', /*Skill*/
         'pair:inspiredBy': 'Est inspirée par', /*Organization*/
         'cdlt:supports': 'Chemins', /*Paths*/
+        'pair:produces': 'Compétences dans l\'organisation',
+
       },
     },
+    en: {
+      name: 'Person |||| People',
+      fields: {
+        'pair:firstName': 'First Name',
+        'pair:lastName': 'Last Name',
+        'pair:alternativeLabel': 'Username',
+        'pair:comment': 'In a few words',
+        'pair:description': 'Description',
+        'pair:homePage': 'Website',
+        'pair:depictedBy': 'Photo',
+        'pair:hasType': 'Type',
+        'pair:hasStatus': 'Status',
+        'pair:hasSector': 'Activity Sectors',
+        'pair:hasTopic': 'Keywords',
+        'pair:hasLocation': 'Location',
+        'pair:hasFinality': 'Purposes',
+        'cdlt:intentions': 'My intentions in joining the paths of transition',
+        /*
+        'cdlt:asAHostIntentions': 'Intentions as a host',
+        'cdlt:asAMentorIntentions': 'Intentions as a mentor',
+        'cdlt:asAnOrganiserIntentions': 'Intentions as an organizer',
+        'cdlt:asATravelerIntentions': 'Intentions as a traveler',
+        */
+        'pair:affiliatedBy': 'Member of',
+        'cdlt:mentorOn': 'Is a speaker for',
+        'cdlt:organizes': 'Organizes',
+        'cdlt:proposes': 'Hosts',
+        'foaf:email': 'Email Address',
+        'pair:phone': 'Phone',
+        'pair:offers': 'Current Skills',
+        'pair:aims': 'Desired Skills',
+        'pair:inspiredBy': 'Is inspired by',
+        'cdlt:supports': 'Paths',
+        'pair:produces': 'Skills in the organization',
+      },
+    },
+    
   },
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, DateField } from 'react-admin';
+import { TextField, DateField, useTranslate} from 'react-admin';
 import { ReferenceField } from '@semapps/field-components';
 import { makeStyles, Typography } from '@material-ui/core';
 import CalendarIcon from '../../svg/CalendarIcon';
@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
 const RegistrationCard = ({ record }) => {
   const classes = useStyles();
+  const translate = useTranslate();
 
   return (
     <>
@@ -26,9 +27,9 @@ const RegistrationCard = ({ record }) => {
     {record['pair:startDate'] && record['pair:endDate'] && (
         <Chip icon={<CalendarIcon />}>
           <Typography variant="body2" component="div">
-            { "Date de la réservation : du "}
+            {translate('app.card.registration.bookingPeriod')}
             <DateField record={record} source="pair:startDate" options={{ year: 'numeric', month: 'numeric', day: 'numeric' }}/>
-            {" au "}
+            {translate('app.card.registration.to')}
             <DateField record={record} source="pair:endDate" options={{ year: 'numeric', month: 'numeric', day: 'numeric' }} />
           </Typography>
         </Chip>
@@ -36,7 +37,7 @@ const RegistrationCard = ({ record }) => {
     {record['dc:created'] && (
         <Chip icon={<CalendarIcon />}>
           <Typography variant="body2" component="div">
-            {" Réservé le : "}
+          {translate('app.card.registration.to')}
             <DateField record={record} source="dc:created" options={{ year: 'numeric', month: 'numeric', day: 'numeric' }} />
           </Typography>
         </Chip>

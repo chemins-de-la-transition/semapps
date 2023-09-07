@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { useShowContext, useNotify, Link } from "react-admin";
+import { useShowContext, useNotify, Link, useTranslate } from "react-admin";
 import { IconButton, makeStyles, Tooltip } from "@material-ui/core";
 import { useOutbox, useCollection, ACTIVITY_TYPES, PUBLIC_URI } from "@semapps/activitypub-components";
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -16,7 +16,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 const LikeButton = (props) => {
-  
+  const translate = useTranslate();
+
   const { record } = useShowContext(props);
   const classes = useStyles();
 
@@ -32,8 +33,8 @@ const LikeButton = (props) => {
       object: record.id,
       to: PUBLIC_URI
     });
-    notify('Ajouté à vos favoris', 'success');
-  }, [outbox, record, notify, addItem]);
+    notify(translate('app.action.successAddBookmark'), 'success');
+  }, [outbox, record, notify, addItem, translate]);
 
   const unlike = useCallback(async () => {
     removeItem(record.id);
@@ -46,8 +47,8 @@ const LikeButton = (props) => {
       },
       to: PUBLIC_URI
     });
-    notify('Supprimé de vos favoris', 'success');
-  }, [outbox, record, notify, removeItem]);
+    notify(translate('app.action.successRemoveBookmark'), 'success');
+  }, [outbox, record, notify, removeItem, translate]);
 
   if( outbox.owner ) {
     if( liked.includes(record?.id) ) {
@@ -66,7 +67,7 @@ const LikeButton = (props) => {
   } else {
     return(
       <Link to="/login" >
-        <Tooltip title="Connectez-vous pour ajouter une page à vos favoris" placement="top" arrow>
+        <Tooltip title={translate('app.helper.connectToAddBookmark')} placement="top" arrow>
           <IconButton className={classes.button+ ' ' + props.class} >
             <FavoriteBorderIcon />
           </IconButton>
@@ -76,5 +77,6 @@ const LikeButton = (props) => {
     )
   }
 }
+
 
 export default LikeButton;

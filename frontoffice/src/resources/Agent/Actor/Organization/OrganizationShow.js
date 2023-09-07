@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChipField, ShowBase, SingleFieldList, TextField } from 'react-admin';
+import { ChipField, ShowBase, SingleFieldList, TextField, useTranslate } from 'react-admin';
 import { ThemeProvider, FormControlLabel, Checkbox, FormGroup } from '@material-ui/core';
 import organizationTheme from '../../../../config/themes/organizationTheme';
 import resourceShowStyle from '../../../../commons/style/resourceShowStyle';
@@ -29,6 +29,7 @@ const OrganizationShow = (props) => {
   const [onlyFutureEvents, setOnlyFutureEvents] = useState(true);
   const mentions = useMentions('Person');
   const classes = useStyles();
+  const translate = useTranslate();
 
   return (
     <ThemeProvider theme={organizationTheme}>
@@ -37,19 +38,19 @@ const OrganizationShow = (props) => {
           <HeaderShow
             type="pair:hasType"
             details={<OrganizationDetails />}
-            actionButton={<ContactButton label="Contacter l'organisation" />}
+            actionButton={<ContactButton label={translate('app.action.organization.contact')} />}
           />
           <BodyList
             aside={
               <StickyCard
-                actionButton={<ContactButton label="Contacter l'organisation" />}
+                actionButton={<ContactButton label={translate('app.action.organization.contact')} />}
               >
                 <OrganizationDetails orientation="vertical" />
               </StickyCard>
             }
           >
             <GroupOfFields
-              title="A propos de cette organisation"
+              title={translate('app.tab.organization.about')}
               sources={["pair:comment","pair:hasFinality","pair:hasSector","pair:hasType","pair:hasTopic","cdlt:intentions","pair:description"]}
               addLabel
               noBorder
@@ -79,7 +80,7 @@ const OrganizationShow = (props) => {
               <MarkdownField source="cdlt:intentions" />
             </GroupOfFields>
             <GroupOfFields
-              title="Compétences"
+              title={translate('app.tab.organization.skills')}
               sources={["pair:produces","pair:aims"]}
               addLabel
             >
@@ -95,14 +96,14 @@ const OrganizationShow = (props) => {
               </ReferenceArrayField>
             </GroupOfFields>     
             <GroupOfFields
-              title="Modalités d'accueil"
+              title={translate('app.tab.organization.accommodation')}
               sources={["cdlt:practicalConditions","cdlt:maximumCapacity"]}
               addLabel
             >
               <MarkdownField source="cdlt:practicalConditions" addLabel={false}/>
-              <NumberWithUnitField source="cdlt:maximumCapacity" addLabel unit='personnes' color="grey40" />
+              <NumberWithUnitField source="cdlt:maximumCapacity" addLabel unit={translate('app.input.organization.capacityUnit')} color="grey40" />
             </GroupOfFields>
-            {/* <ReferenceArrayField source="cdlt:organizes" reference="Activity" sort={{ field: 'pair:startDate', order: 'ASC' }} className={classes.cardsList} label="Activités">
+            {/* <ReferenceArrayField source="cdlt:organizes" reference="Activity" sort={{ field: 'pair:startDate', order: 'ASC' }} className={classes.cardsList} label={translate('app.tab.organization.activities')}>
               <Box pt={1}>
                 <Typography variant="body2" component="div" className={classes.textBody} >
                   Cette organisation est impliquée dans plusieurs activités. Cliquez dessus pour en savoir plus et/ou participer.
@@ -110,18 +111,18 @@ const OrganizationShow = (props) => {
                 <CardsList CardComponent={EventCard} />
               </Box>
             </ReferenceArrayField> */}
-            <ReferenceArrayField source="cdlt:organizes" reference="Activity" sort={{ field: 'pair:startDate', order: 'ASC' }} className={classes.cardsList} label="Activités">
+            <ReferenceArrayField source="cdlt:organizes" reference="Activity" sort={{ field: 'pair:startDate', order: 'ASC' }} className={classes.cardsList} label={translate('app.tab.organization.activities')}>
               <Box pt={1}>
                 <Typography variant="body2" component="div" className={classes.textBody}>
-                  Cette organisation est impliquée dans plusieurs activités. Cliquez dessus pour en savoir plus et/ou participer.
+                {translate('app.message.organization.involvedActivities')}
                   <FormGroup >
-                    <FormControlLabel control={<Checkbox checked={onlyFutureEvents} />} label={"N'afficher que les activités à venir"} onChange={() => setOnlyFutureEvents(!onlyFutureEvents)}/>
+                    <FormControlLabel control={<Checkbox checked={onlyFutureEvents} />} label={translate('app.input.organization.onlyFutureEvents')} onChange={() => setOnlyFutureEvents(!onlyFutureEvents)}/>
                   </FormGroup>
                 </Typography>
                 <CardsList onlyFutureEvents={onlyFutureEvents} CardComponent={EventCard} />
               </Box>
             </ReferenceArrayField>
-            <ReferenceArrayField source="pair:inspiredBy" reference="Organization" className={classes.cardsList} label="Est inspirée par">
+            <ReferenceArrayField source="pair:inspiredBy" reference="Organization" className={classes.cardsList} label={translate('app.tab.organization.inspiredBy')}>
               <Box pt={1}>
                 <CardsList CardComponent={OrganizationCard} />
               </Box>
@@ -145,7 +146,7 @@ const OrganizationShow = (props) => {
               </SingleFieldList>
             </ReferenceArrayField>
             <ReferenceArrayField
-              label="Evénements"
+              label={translate('app.input.organization.event')}
               reference="Event"
               filter={{ '@type': 'pair:Event' }}
               source="pair:involvedIn"
@@ -167,5 +168,6 @@ const OrganizationShow = (props) => {
     </ThemeProvider>
   );
 };
+
 
 export default OrganizationShow;
