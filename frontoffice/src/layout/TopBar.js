@@ -84,7 +84,7 @@ const TopBar = () => {
           >
             ?
           </Button>
-          <a href="https://projet.lescheminsdelatransition.org/nous-soutenir/" target="_blank" rel="noopener noreferrer">
+          <a href="https://gen-europe.org/donate/" target="_blank" rel="noopener noreferrer">
             <Button
               className={classes.topBarButton}
               variant="outlined"
