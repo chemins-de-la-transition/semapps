@@ -21,7 +21,7 @@ module.exports = {
             en: 'View',
             fr: 'Voir',
           },
-          actionLink: '/OfferAndNeed/{{encodeUri activity.object.id}}'
+          actionLink: '/OfferAndNeed/{{encodeUri activity.object.id}}/show'
         }
       }
     ],

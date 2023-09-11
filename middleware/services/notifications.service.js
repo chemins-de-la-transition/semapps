@@ -4,7 +4,7 @@ const CONFIG = require('../config');
 const transport = require('../transport');
 
 module.exports = {
-  mixins: [SingleMailNotificationsService, QueueMixin(CONFIG.QUEUE_SERVICE_URL)],
+  mixins: [SingleMailNotificationsService, CONFIG.NODE_ENV === 'production' && CONFIG.QUEUE_SERVICE_URL ? QueueMixin(CONFIG.QUEUE_SERVICE_URL) : {}],
   settings: {
     defaultLocale: CONFIG.LOCALE,
     defaultFrontUrl: CONFIG.FRONTOFFICE_URL,
