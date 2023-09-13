@@ -27,6 +27,12 @@ const AlertService = {
     'ldp.registry'
   ],
   async started() {
+    // Wait until bots container has been created
+    let containerExist;
+    do {
+      containerExist = await this.broker.call('ldp.container.exist', { containerUri: urlJoin(CONFIG.HOME_URL), webId: 'system' });
+    } while (!containerExist);
+
     const botExist = await this.broker.call('auth.account.usernameExists', { username: BOT_SLUG });
 
     if (!botExist) {
