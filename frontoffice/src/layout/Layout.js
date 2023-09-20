@@ -13,7 +13,7 @@ const Layout = ({ logout, theme, children, title }) => {
     { link: '/Path', name: translate('app.nav.path') },
     { link: '/Place', name: translate('app.nav.place') },
     { link: '/Event', name: translate('app.nav.event') },
-    { link: '/Page/https%3A%2F%2Fdata.pathways.gen-europe.org%2Fpages%2Fecommunity-library/show', name: translate('app.nav.library') },
+    { link: '/Page/https//data.pathways.gen-europe.org/pages/ecommunity-library/show', name: translate('app.nav.library') },
     //{ link: '/Course', name: translate('app.nav.course') },
   ];
   // const xs = useMediaQuery(theme.breakpoints.down('xs'));
