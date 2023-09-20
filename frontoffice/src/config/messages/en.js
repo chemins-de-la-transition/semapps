@@ -408,7 +408,8 @@ module.exports = {
       place: "Places",
       event: "Events",
       course: "Courses",
-      offerAndNeed: "Announcements"
+      offerAndNeed: "Announcements",
+      library: "Ecommunity Library"
     },
     bookmark: {
       title: "My bookmarks",
