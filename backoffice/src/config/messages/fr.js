@@ -142,7 +142,7 @@ module.exports = {
         link: "En lien avec le lieu",
         contact: "Contact",
         title:"Les lieux",
-        subtitle: "Similaires",
+        subtitle: "",
         linkText:"Voir tous les lieux"
 
       },
