@@ -139,7 +139,7 @@ const PlaceShow = (props) => {
             basePath="/Place"
             logo={PictoLieu}
             title={translate('app.tab.place.title')}
-            subtitle={translate('app.tab.place.subtitle')}
+            subtitle={translate('app.tab.place.subTitle')}
             headComment=""
             linkText={translate('app.tab.place.linkText')}
             CardSubHeaderComponent={PlaceSubHeader}
