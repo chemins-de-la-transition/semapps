@@ -98,7 +98,10 @@ module.exports = {
       errorRegistration: "You must be logged in to register",
       moreEvents: "This place offers multiple events. Click on it to learn more and/or participate.",
       results: "result(s)",
-      noResult: "No result found"
+      noResult: "No result found",
+      reminderToFill: "Don't forget to fill in the",
+      reminderSecondTab: "second tab",
+      reminderEndText: "of the form, that's where we ask the most interesting questions!",
     },
     tab: {
       organization: {
