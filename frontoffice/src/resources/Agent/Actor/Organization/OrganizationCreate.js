@@ -23,7 +23,7 @@ const OrganizationCreate = (props) => {
       <FullWidthBox>
         <LargeContainer>
           <Create title={<OrganizationTitle />} actions={null} {...props}>
-            <OrganizationForm initialValues={{ 'pair:affiliatedBy': identity?.id, 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }} />
+            <OrganizationForm initialValues={{ 'pair:affiliates': identity?.id, 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }} />
           </Create>
         </LargeContainer>
       </FullWidthBox>
