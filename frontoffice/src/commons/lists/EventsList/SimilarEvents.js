@@ -80,12 +80,12 @@ const SimilarEvents = () => {
             <Box>
               <Typography variant="h2">{translate('app.bookmark.event')} </Typography>
               <Typography variant="h3" component="div" className={classes.subTitle}>
-              {translate('app.card.similaires')}
+              {translate('app.card.similar')}
               </Typography>
             </Box>
             <Link to='/Event' className={classes.link}>
               <Typography component="span" className={classes.linkText}>
-              {translate('app.home.seeAllEvents')}
+              {translate('app.message.home.seeAllEvents')}
               </Typography>
               <ChevronRightIcon />
             </Link>
