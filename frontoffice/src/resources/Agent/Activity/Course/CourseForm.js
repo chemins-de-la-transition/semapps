@@ -1,31 +1,51 @@
 import React from 'react';
-import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput, email, required } from 'react-admin';
+import {
+  DateInput,
+  NumberInput,
+  FormTab,
+  ImageInput,
+  TabbedForm,
+  TextInput,
+  email,
+  required,
+  useGetIdentity
+} from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/field-components';
 import {
-  PathsInput, 
   ActorsInput,
   EventsInput,
   FinalitiesInput,
-  PersonsInput,
-  TopicsInput,
-  SectorsInput,
-//  StatusInput,
-  TypesInput,
-  SkillsInput,
-//  DocumentsType,
-  RegistrationInput,
-  TargetAudienceInput,
   JobOpportunitiesInput,
+  PathsInput,
+  PersonsInput,
+  PublicationStatusInput,
+  RegistrationInput,
+  SectorsInput,
+  SkillsInput,
+  TargetAudienceInput,
+  TopicsInput,
+  TypesInput,
 } from '../../../../pair';
-import CourseTitle from './CourseTitle';
-import { DateInput } from '@semapps/date-components';
+import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
 import frLocale from 'date-fns/locale/fr';
-import Edit from "../../../../layout/edit/Edit";
+import { Box, makeStyles } from '@material-ui/core';
 
-const CourseEdit = (props) => (
-  <Edit title={<CourseTitle />} {...props}>
-    <TabbedForm redirect="show">
+const useStyles = makeStyles((theme) => ({
+  spacer: {
+    marginTop: 16,
+  },
+}));
+
+const CourseForm = ({ mode, record, ...rest }) => {
+  const { identity } = useGetIdentity();
+  const classes = useStyles();
+  return (
+    <TabbedForm
+      initialValues={mode === 'create' ? { 'cdlt:organizedBy': identity?.id, 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' } : undefined}
+      {...rest}
+      redirect="show"
+    >
       <FormTab label="A propos du voyage">
         <TextInput source="pair:label" label="Nom du voyage" fullWidth validate={[required()]} />
         <TextInput source="pair:comment" label="Comment le décririez-vous en une phrase ?" fullWidth validate={[required()]} />
@@ -62,6 +82,8 @@ const CourseEdit = (props) => (
         <MarkdownInput source="cdlt:organizerDescription" label="Vous pouvez les décrire ici" fullWidth />
         <PathsInput source="cdlt:courseOn" label="De quel(s) chemin(s) votre voyage fait-il partie ?" />
         <EventsInput source="pair:hasPart" label="Quelles sont les étapes (événements) constitutives de ce voyage" fullWidth helperText="Vous devez au préalable avoir créé les événements correspondant aux différentes étapes de votre voyage" />       
+        <Box className={classes.spacer}></Box>
+        <ReminderBeforeRecording />
       </FormTab>
       <FormTab label="Volet pédagogique">
         <PersonsInput source="cdlt:hasMentor" label="Qui sont les intervenant.e.s ?" />
@@ -90,8 +112,11 @@ const CourseEdit = (props) => (
           fullWidth
         />
       </FormTab>
+      <FormTab label="Visibilité">
+        <PublicationStatusInput source="cdlt:hasPublicationStatus" />
+      </FormTab>
     </TabbedForm>
-  </Edit>
-);
+  );
+};
 
-export default CourseEdit;
+export default CourseForm;

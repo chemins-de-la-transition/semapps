@@ -4,6 +4,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import PlaceIcon from '../svg/PlaceIcon';
 import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import EventIcon from '@material-ui/icons/Event';
+import CourseIcon from '@material-ui/icons/DateRange';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 
@@ -17,6 +18,10 @@ const MyPlacesMenu = forwardRef(({ onClick }, ref) => (
 
 const MyEventsMenu = forwardRef(({ onClick }, ref) => (
   <MenuItemLink ref={ref} to="/MyEvents" primaryText="Mes événements" leftIcon={<EventIcon />} onClick={onClick} />
+));
+
+const MyCoursesMenu = forwardRef(({ onClick }, ref) => (
+  <MenuItemLink ref={ref} to="/MyCourses" primaryText="Mes voyages" leftIcon={<CourseIcon />} onClick={onClick} />
 ));
 
 const MyOrganizationsMenu = forwardRef(({ onClick }, ref) => (
@@ -68,6 +73,7 @@ const UserMenu = ({ logout, ...otherProps }) => {
             <MyOrganizationsMenu key="my-organizations" />,
             <MyPlacesMenu key="my-places" />,
             <MyEventsMenu key="my-events" />,
+            <MyCoursesMenu key="my-courses" />,
             <MyReservationsMenu key="my-reservations" />,
             React.cloneElement(logout, { key: 'logout' }),
           ]

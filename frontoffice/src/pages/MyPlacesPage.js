@@ -20,7 +20,7 @@ const MyPlacesPage = () => {
       <FullWidthBox>
         <LargeContainer>
           <ListBase resource="Place" basePath="/Place" filter={{ 'cdlt:proposedBy': identity?.id }}>
-            <CardsList CardComponent={PlaceCard} link="show" />
+            <CardsList CardComponent={PlaceCard} link="show" all />
           </ListBase>
         </LargeContainer>
       </FullWidthBox>
