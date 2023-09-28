@@ -34,7 +34,7 @@ module.exports = [
       ...writePermissionToActors,
       ...defaultWritePermissionToContributors
     },
-    newResourcesPermissions: {} // By default, no read rights to new courses
+    newResourcesPermissions: writePermissionToCreator
   },
   {
     path: '/events',
