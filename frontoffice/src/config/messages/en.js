@@ -25,7 +25,7 @@ module.exports = {
       removeFilters: "remove all filters",
       showFilters: "Show all filters",
       help: "Help",
-      contactPathOrganizer: "Contact the organizers of this path",
+      contactPathOrganizer: "Contact the organizers of this Community of Practice",
       organization: {
         contact: "Contact the organization",
         create: "Add an organization",
@@ -56,7 +56,7 @@ module.exports = {
       }
     },
     page: {
-      home: "Welcome to the Ecommunity Research Platform !",
+      home: "Welcome to the E-community Research Platform !",
     },
     card: {
       organization: {
@@ -104,7 +104,7 @@ module.exports = {
       }
     },
     block: {
-      search: "Follow the Ecommunity Research Platform",
+      search: "Follow the E-community Research Platform",
     },
     input: {
       courseType: "Course type",
@@ -116,7 +116,7 @@ module.exports = {
       dates: 'Dates',
       organizer: 'Organizer',
       facilitator: 'Facilitator',
-      linkedPath: 'Linked Path',
+      linkedPath: 'Linked Community of Practice',
       placeType: "Place type",
       offerAndNeedType: "Announcement type",
       skills: "Skills",
@@ -138,15 +138,15 @@ module.exports = {
         hasSector: "In which sectors does it operate?",
         hasTopic: "What keywords would you use to characterize it?",
         hasFinality: "What goals are you pursuing?",
-        intentions: "What are your intentions in coming to the Ecommunity Research Platform?",
+        intentions: "What are your intentions in coming to the E-community Research Platform?",
         practicalConditions: "Can you accommodate travelers? If yes, under what conditions?",
         maximumCapacity: "How many travelers maximum?",
         hasCourseType: "In what travel modes can you accommodate travelers?",
         produces: "What skills can you offer?",
-        partnerOf: "Do you have partners on the Ecommunity Research Platform?",
+        partnerOf: "Do you have partners on the E-community Research Platform?",
         inspiredBy: "Organizations that inspire you?",
-        affiliates: "Members of your organization on the Ecommunity Research Platform?",
-        supports: "Are you joining a path?",
+        affiliates: "Members of your organization on the E-community Research Platform?",
+        supports: "Are you joining a Community of Practice?",
         organizationHostedIn: "In which place(s) are you present?",
         capacityUnit: "persons",
       },
@@ -165,7 +165,7 @@ module.exports = {
         comment: "Who are you in one sentence?",
         homePage: "A link about you?",
         description: "Feel free to describe yourself in more detail!",
-        intentions: "Your intentions in coming to the Ecommunity Research Platform?",
+        intentions: "Your intentions in coming to the E-community Research Platform?",
         depictedBy: "Your photo! (It's important for the platform's friendliness)",
         hasSector: "Are you interested in specific activity sectors?",
         hasTopic: "What are your areas of interest?",
@@ -203,8 +203,8 @@ module.exports = {
       userCreation: "If you create a user of type Actor, they will automatically receive an invitation at their email address.",
     },
     message: {
-      welcome: "An open, nomadic, peer-to-peer platform to serve researchers, practitioners, and adult educators from ecovillages and academia as well as policy makers on all levels in order to make the knowledge gained within and through ecovillages more accessible both for research and policy decisions on sustainable lifestyles and living environments. ",
-      login: "Welcome to the Ecommunity Research Platform! Creating an account on the platform will allow you to provide information about your profile: who you are, what you're involved in, what you're looking for, and what you have to offer. It will also enable you to save your favorites (actors, places, events, journeys) and join the Ecommunity Research Platform community! By logging in, you confirm your adherence to the Ecommunity Research Platform Charter.", //TODO @Tonfa add <Link to='/Page/charte-des-chemins-de-la-transition/show' target='_blank'> to the text as hyperlink 
+      welcome: "An open, peer-to-peer platform to serve researchers, practitioners, and adult educators from ecovillages and academia as well as policy makers on all levels in order to make the knowledge gained within and through ecovillages more accessible both for research and policy decisions on sustainable lifestyles and living environments. ",
+      login: "Welcome to the E-community Research Platform! Creating an account on the platform will allow you to provide information about your profile: who you are, what you're involved in, what you're looking for, and what you have to offer. It will also enable you to save your favorites (actors, places, events, journeys) and join the E-community Research Platform community! By logging in, you confirm your adherence to the E-community Research Platform Charter.", //TODO @Tonfa add <Link to='/Page/charte-des-chemins-de-la-transition/show' target='_blank'> to the text as hyperlink 
       organization: {
         involvedActivities: "This organization is involved in multiple activities. Click to learn more and/or participate.",
       },
@@ -224,7 +224,7 @@ module.exports = {
       welcomeContent: {
         title: "Travel, Discover, Learn,",
         subTitle: "Share, Spread...",
-        text: "Ecommunity Research Platform offers a journey from place to place, off the beaten path, to meet transition actors (energy, social, solidarity...). And why not, in your turn, share your knowledge.",
+        text: "E-community Research Platform offers a journey from place to place, off the beaten path, to meet transition actors (energy, social, solidarity...). And why not, in your turn, share your knowledge.",
       },
       home: {
         places: "Places",
@@ -235,10 +235,10 @@ module.exports = {
         events: "Events",
         discoverEvents: "Discover events around the transmission of knowledge, open up your field of possibilities, learn, train yourself in the challenges and professions of transition!",
         seeAllEvents: "See all events",
-        paths: "Paths",
+        paths: "Community of Practice",
         toDiscover: "To discover",
         dicoverPaths: "Some inspirations that we offer you, discover a specific theme, create your own program à la carte!",
-        seeAllPaths: "See all paths",
+        seeAllPaths: "See all Community of Practice",
         courses: "Our travels",
         themesAndLocation: "Themes & locations",
         discoverCourses: "Discover preconceived journeys, meeting several transition initiatives, on a given theme and/or geographical sector!",
@@ -279,7 +279,7 @@ module.exports = {
       goals: {
         title: "Our Goal",
         subTitle: "Empowering Learning Through Travel",
-        subText: "The Ecommunity Research Platform is first and foremost a desire to connect and link actors of transition, but also to transmit in order to see initiatives multiply between researchers, practitioners, and adult educators from ecovillages and academia as well as policy makers on all levels in order to make the knowledge gained within and through ecovillages more accessible both for research and policy decisions on sustainable lifestyles and living environments.",
+        subText: "The E-community Research Platform is first and foremost a desire to connect and link actors of transition, but also to transmit in order to see initiatives multiply between researchers, practitioners, and adult educators from ecovillages and academia as well as policy makers on all levels in order to make the knowledge gained within and through ecovillages more accessible both for research and policy decisions on sustainable lifestyles and living environments.",
         goal1: "Connecting Territories & Valuing Existing Initiatives",
         text1goal1: "Referencing inspirational places and initiatives open to transmission that contribute to transition (ecological, energy, social, cultural, economic...).",
         text2goal1: "Promoting and energizing the attractiveness of rural areas through a new flow dynamic focused on discovering local transition actors.",
@@ -302,7 +302,7 @@ module.exports = {
         subTitle: "to explore",
       },
       footer: {
-        codeOfConduct: "Ecommunity Research Platform Charter",
+        codeOfConduct: "E-community Research Platform Charter",
         legalNotice: "Legal Notice",
         dataPolicy: "Data Management Policy",
         join: "Join the community",
@@ -317,8 +317,8 @@ module.exports = {
     },
     tab: {
       path: {
-        about: "About this path",
-        links: "Path links",
+        about: "About this Community of Practice",
+        links: "Links",
         place: "Places",
         event: "Events",
         course: "Journeys",
@@ -384,7 +384,7 @@ module.exports = {
       dates: 'Dates',
       organizer: 'Organizer',
       facilitator: 'Facilitator',
-      linkedPath: 'Linked Path',
+      linkedPath: 'Linked Community of Practice',
     },
     notification: {
       full: "This event is full",
@@ -408,11 +408,12 @@ module.exports = {
       place: "Places",
       event: "Events",
       course: "Courses",
-      offerAndNeed: "Announcements"
+      offerAndNeed: "Announcements",
+      library: "E-community Library"
     },
     bookmark: {
       title: "My bookmarks",
-      path: "paths",
+      path: "Community of Practice",
       place: "places",
       event: "events",
       course: "courses",
