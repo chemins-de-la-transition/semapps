@@ -273,8 +273,8 @@ module.exports = {
         businessPartners: "our funders",
       },
       traveler: {
-        joinCommunityText: "Do you want to suggest a place, an event or travel ideas?",
-        joinCommunityButton: "Join the community",
+        joinCommunityText: "Do you want to join our matchmaking system to share your knowledge about transition and perhaps host researchers for a study visit?",
+        joinCommunityButton: "Join the Matchmaking system",
       },
       goals: {
         title: "Our Goal",
@@ -306,9 +306,9 @@ module.exports = {
         legalNotice: "Legal Notice",
         dataPolicy: "Data Management Policy",
         join: "Join the community",
-        joinSubText1: "Do you want to share your knowledge about transition and perhaps host travelers for a visit or more to train them?",
-        joinSubText2: "Do you want to register your place or an event on our platform to give it visibility?",
-        joinButton: "I'm in",
+        joinSubText1: "If you are interested, join the conversation in our Community of Practice Forum?",
+        joinSubText2: "It is an opportunity to exchange and discuss with researchers and practitionners",
+        joinButton: "Join the COP Forum",
         usefulLinks: "Useful Links",
         about: "About",
         forum: "Our Forum",
