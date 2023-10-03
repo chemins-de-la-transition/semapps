@@ -103,7 +103,7 @@ const Footer = () => {
             <Link variant="body2" to="/About" align={xs ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.about')}
             </Link>
-            <Link variant="body2" to={{ pathname: "https://forum.gen-europe.org" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to={{ pathname: "https://forum.gen-europe.org/c/research-investigation/15" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.forum')}
             </Link>
             <Link variant="body2" to={{ pathname: "https://gen-europe.org/regenerative-communities-for-all-project-launch/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
@@ -181,7 +181,7 @@ const Footer = () => {
             <Typography variant="body2" align={xs ? "center" : undefined}>
             {translate('app.message.footer.joinSubText2')}
             </Typography>
-            <Button to={{ pathname: "https://forum.gen-europe.org"}} target="_blank" variant="contained" color="secondary" component={Link} typographyVariant="button1" className={classes.button}>
+            <Button to={{ pathname: "https://forum.gen-europe.org/c/research-investigation/15"}} target="_blank" variant="contained" color="secondary" component={Link} typographyVariant="button1" className={classes.button}>
             {translate('app.message.footer.joinButton')}  
             </Button>
           </div>
