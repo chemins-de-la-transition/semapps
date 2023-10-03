@@ -89,7 +89,7 @@ module.exports = {
       financialSupport: "If eligible, specify the types of funding (CPF, Qualiopi...)"
     },
     message: {
-      welcome: "An open, nomadic, peer-to-peer university focusing on transition issues and professions. Learn while you travel, and share knowledge, experience and know-how on the ecological, energy, cultural, social, economic, technological and societal issues of our time.",
+      welcome: "An open, peer-to-peer university focusing on transition issues and professions. Learn while you travel, and share knowledge, experience and know-how on the ecological, energy, cultural, social, economic, technological and societal issues of our time.",
       organization: {
         involvedActivities: "This organization is involved in multiple activities. Click to learn more and/or participate.",
       },
