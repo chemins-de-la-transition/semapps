@@ -13,6 +13,9 @@ const Layout = ({ logout, theme, children, title }) => {
     { link: '/Path', name: translate('app.nav.path') },
     { link: '/Place', name: translate('app.nav.place') },
     { link: '/Event', name: translate('app.nav.event') },
+    { link: '/Page/https://data.pathways.gen-europe.org/pages/ecommunity-library/show', name: translate('app.nav.library') },
+    
+    { link: '/OfferAndNeed', name: translate('app.nav.offerAndNeed') },
     //{ link: '/Course', name: translate('app.nav.course') },
   ];
   // const xs = useMediaQuery(theme.breakpoints.down('xs'));

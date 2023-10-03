@@ -8,6 +8,7 @@ import ecolise from '../../icons/ecolise.png';
 import loes from '../../icons/loes.png';
 import iscte from '../../icons/iscte.png';
 import genInternational from '../../icons/genInternational.png';
+import erasmusPlus from '../../icons/erasmusPlus.jpeg';
 import { useTranslate } from 'react-admin';
 
 const useStyles = makeStyles((theme) => ({
@@ -108,6 +109,10 @@ const Partners = () => {
           <Box>
             <Typography variant="h3" component="div" className={classes.subTitle}>{translate('app.message.partners.businessPartners')}</Typography>
             <ul className={classes.partnersList}>
+            <a href={'https://erasmus-plus.ec.europa.eu/'} target="_blank" rel="noopener noreferrer">
+              <img className={classes.logo} src={erasmusPlus} alt={"Erasmus Plus"}/>
+            </a>
+              {/* 
               {ids.map(id => {
                 if ( data[id] && data[id]['pair:label'] && data[id]['pair:depictedBy'] ) {
                   const label = data[id]['pair:label'];
@@ -124,6 +129,7 @@ const Partners = () => {
                   return null;
                 }
               })}
+               */} 
             </ul>
           </Box>
         }
