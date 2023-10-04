@@ -9,7 +9,7 @@ const AboutPage = () => (
     <Welcome />
     <CoursesTypes />
     <Goals />
-    <Categories />
+    {/*<Categories />*/}
     
   </>
 );

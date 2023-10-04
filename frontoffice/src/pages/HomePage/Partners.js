@@ -3,10 +3,12 @@ import { useGetList } from 'react-admin';
 import { makeStyles, Typography, Box, LinearProgress } from '@material-ui/core';
 import FullWidthBox from '../../commons/FullWidthBox';
 import LargeContainer from '../../commons/LargeContainer';
-import ademe from '../../icons/ademe.png';
-import fdva from '../../icons/fdva.jpg';
-import ANCT from '../../icons/ANCT.png';
-import region_occitanie from '../../icons/region_occitanie.png';
+import genEurope from '../../icons/gen-europe.png';
+import ecolise from '../../icons/ecolise.png';
+import loes from '../../icons/loes.png';
+import iscte from '../../icons/iscte.png';
+import genInternational from '../../icons/genInternational.png';
+import erasmusPlus from '../../icons/erasmusPlus.jpeg';
 import { useTranslate } from 'react-admin';
 
 const useStyles = makeStyles((theme) => ({
@@ -85,17 +87,20 @@ const Partners = () => {
           <Typography variant="h2">{translate('app.message.partners.withTheSupport')}</Typography>
           <Typography variant="h3" component="div" className={classes.subTitle}>{translate('app.message.partners.financialPartners')}</Typography>
           <ul className={classes.partnersList}>
-            <a href={'https://www.ademe.fr/'} target="_blank" rel="noopener noreferrer">
-              <img className={classes.logo} src={ademe} alt={"logo ademe"}/>
+            <a href={'https://gen-europe.org/'} target="_blank" rel="noopener noreferrer">
+              <img className={classes.logo} src={genEurope} alt={"logo gen-europe"}/>
             </a>
-            <a href={'https://www.associations.gouv.fr/FDVA.html'} target="_blank" rel="noopener noreferrer">
-              <img className={classes.logo} src={fdva} alt={"logo fdva"}/>
+            <a href={'https://www.ecolise.eu/about-ecolise/'} target="_blank" rel="noopener noreferrer">
+              <img className={classes.logo} src={ecolise} alt={"logo ECOLISE"}/>
             </a>
-            <a href={'https://agence-cohesion-territoires.gouv.fr/'} target="_blank" rel="noopener noreferrer">
-              <img className={classes.logo} src={ANCT} alt={"logo anct"}/>
+            <a href={'https://okosamfund.dk/'} target="_blank" rel="noopener noreferrer">
+              <img className={classes.logo} src={loes} alt={"logo loes"}/>
             </a>
-            <a href={'https://www.laregion.fr/'} target="_blank" rel="noopener noreferrer">
-              <img className={classes.logo} src={region_occitanie} alt={"logo region occitanie"}/>
+            <a href={'https://www.iscte-iul.pt/'} target="_blank" rel="noopener noreferrer">
+              <img className={classes.logo} src={iscte} alt={"iscte"}/>
+            </a>
+            <a href={'https://ecovillage.org/'} target="_blank" rel="noopener noreferrer">
+              <img className={classes.logo} src={genInternational} alt={"genInternational"}/>
             </a>
           </ul>
         </Box>
@@ -104,6 +109,10 @@ const Partners = () => {
           <Box>
             <Typography variant="h3" component="div" className={classes.subTitle}>{translate('app.message.partners.businessPartners')}</Typography>
             <ul className={classes.partnersList}>
+            <a href={'https://erasmus-plus.ec.europa.eu/'} target="_blank" rel="noopener noreferrer">
+              <img className={classes.logo} src={erasmusPlus} alt={"Erasmus Plus"}/>
+            </a>
+              {/* 
               {ids.map(id => {
                 if ( data[id] && data[id]['pair:label'] && data[id]['pair:depictedBy'] ) {
                   const label = data[id]['pair:label'];
@@ -120,6 +129,7 @@ const Partners = () => {
                   return null;
                 }
               })}
+               */} 
             </ul>
           </Box>
         }

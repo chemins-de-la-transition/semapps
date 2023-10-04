@@ -73,7 +73,7 @@ export default {
         'pair:hasTopic': 'Keywords',
         'pair:hasLocation': 'Location',
         'pair:hasFinality': 'Purposes',
-        'cdlt:intentions': 'My intentions in joining the paths of transition',
+        'cdlt:intentions': 'My intentions in joining the Ecommunity Research Platform',
         /*
         'cdlt:asAHostIntentions': 'Intentions as a host',
         'cdlt:asAMentorIntentions': 'Intentions as a mentor',

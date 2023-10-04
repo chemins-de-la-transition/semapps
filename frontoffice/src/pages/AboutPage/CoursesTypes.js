@@ -98,7 +98,7 @@ const CoursesTypes = () => {
           />
           <LocalGridItem
             title={translate('app.message.coursesTypes.learning')}
-            text={translate('app.message.coursesTypes.discoverySubtextAbout')}
+            text={translate('app.message.coursesTypes.learningSubtextAbout')}
             icon={<img src={Type2Icon} alt="apprentissage" />}
           />
           <LocalGridItem

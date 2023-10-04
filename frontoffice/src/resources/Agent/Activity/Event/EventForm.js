@@ -226,7 +226,7 @@ const EventForm = ({ mode, record, ...rest }) => {
         <SectorsInput source="pair:hasSector"  />
         <TopicsInput source="pair:hasTopic"  />
         <FinalitiesInput source="pair:hasFinality" />
-        <TypesInput source="cdlt:hasCourseType"  filter={{ a: 'cdlt:CourseType' }} validate={[required()]} fullWidth />
+        {/* <TypesInput source="cdlt:hasCourseType"  filter={{ a: 'cdlt:CourseType' }} fullWidth /> */}
         <TypesInput source="pair:hasType" lfilter={{ a: 'pair:EventType' }} validate={[required()]} fullWidth />
         <TargetAudienceInput source="cdlt:hasTargetAudience"  fullWidth />
         <ActorsInput source="cdlt:organizedBy"  />  

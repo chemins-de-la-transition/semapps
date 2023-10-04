@@ -51,6 +51,7 @@ const HomePage = () => {
       linkText={translate('app.message.home.seeAllPaths')}
       CardSubHeaderComponent={PathSubHeader}
     />
+    {/*
     <FeaturedList
       resource="Course"
       basePath="/Course"
@@ -61,6 +62,7 @@ const HomePage = () => {
       linkText={translate('app.message.home.seeAllCourses')}
       CardSubHeaderComponent={CourseSubHeader}
     />
+    */}
     <Partners />
   </>
   )

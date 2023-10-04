@@ -3,7 +3,7 @@ import { useTranslate } from "react-admin";
 import { makeStyles, Box, Typography } from '@material-ui/core';
 import FullWidthBox from '../../../commons/FullWidthBox';
 import LargeContainer from '../../../commons/LargeContainer';
-import SearchContent from './SearchContent';
+// import SearchContent from './SearchContent';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -80,7 +80,10 @@ const WelcomeContent = () => {
           </Typography>
         </Box>
       </LargeContainer>
-      <SearchContent />
+
+    {/*
+          <SearchContent />
+*/}
     </FullWidthBox>
   );
 };

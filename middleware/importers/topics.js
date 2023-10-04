@@ -13,7 +13,7 @@ module.exports = {
   settings: {
     source: {
       discourse: {
-        baseUrl: 'https://forums.lescheminsdelatransition.org/',
+        baseUrl: 'https://forum.gen-europe.org/c/research-investigation/15',
         type: 'topics'
       },
     },
