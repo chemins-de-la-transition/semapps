@@ -14,6 +14,7 @@ const Layout = ({ logout, theme, children, title }) => {
     { link: '/Place', name: translate('app.nav.place') },
     { link: '/Event', name: translate('app.nav.event') },
     { link: '/Course', name: translate('app.nav.course') },
+    { link: '/OfferAndNeed', name: 'Annonces' },
   ];
   // const xs = useMediaQuery(theme.breakpoints.down('xs'));
   const [sidebarOpen, setSidebarOpen] = useState(false);

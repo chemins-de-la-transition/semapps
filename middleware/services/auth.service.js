@@ -34,7 +34,7 @@ module.exports = {
           triple(namedNode(webId), namedNode('http://virtual-assembly.org/ontologies/pair#label'), literal(`${profileData.name} ${profileData.familyName.toUpperCase()}`)),
           triple(namedNode(webId), namedNode('http://virtual-assembly.org/ontologies/pair#firstName'), literal(profileData.name)),
           triple(namedNode(webId), namedNode('http://virtual-assembly.org/ontologies/pair#lastName'), literal(profileData.familyName)),
-          triple(namedNode(webId), namedNode('http://virtual-assembly.org/ontologies/pair#hasType'), namedNode(urlJoin(CONFIG.HOME_URL, 'types/traveler'))),
+          triple(namedNode(webId), namedNode('http://virtual-assembly.org/ontologies/pair#hasType'), namedNode(urlJoin(CONFIG.HOME_URL, 'types/actor'))),
         ],
         webId: 'system'
       });

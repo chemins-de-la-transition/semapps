@@ -1,29 +1,26 @@
 import React from 'react';
-import { ListBase, useTranslate} from 'react-admin';
+import { ListBase } from 'react-admin';
 import { useCheckAuthenticated } from '@semapps/auth-provider';
 import CardsList from '../commons/lists/CardsList';
-import EventCard from '../resources/Agent/Activity/Event/EventCard';
+import OfferAndNeedCard from '../resources/OfferAndNeed/OfferAndNeedCard';
 import FullWidthBox from '../commons/FullWidthBox';
 import LargeContainer from '../commons/LargeContainer';
 import HeaderTitle from '../commons/HeaderTitle';
 import Button from '../commons/Button';
 
+const actions = [<Button to="/OfferAndNeed/create">Ajouter</Button>];
 
-const MyEventsPage = () => {
+const MyOffersAndNeedsPage = () => {
   const { identity, loading } = useCheckAuthenticated();
-  const translate = useTranslate();
-  const actions = [<Button to="/Event/create">{translate('app.action.create')}</Button>];
-
   if (loading) return null;
   return (
     <>
-      <HeaderTitle actions={actions}>{translate('app.menu.events')}
-</HeaderTitle>
+      <HeaderTitle actions={actions}>Mes annonces</HeaderTitle>
       <br />
       <FullWidthBox>
         <LargeContainer>
-          <ListBase resource="Event" basePath="/Event" filter={{ 'cdlt:organizedBy': identity?.id }}>
-            <CardsList CardComponent={EventCard} link="show" all />
+          <ListBase resource="OfferAndNeed" basePath="/OfferAndNeed" filter={{ 'cdlt:proposedBy': identity?.id }}>
+            <CardsList CardComponent={OfferAndNeedCard} link="show" />
           </ListBase>
         </LargeContainer>
       </FullWidthBox>
@@ -31,4 +28,4 @@ const MyEventsPage = () => {
   );
 };
 
-export default MyEventsPage;
+export default MyOffersAndNeedsPage;
