@@ -56,9 +56,7 @@ const CardsList = ({ CardComponent, link, hasLike, external, onlyFutureEvents, a
   ) : (
     ids.map((id) => {
       if (!data[id] || data[id]['_error']) return null;
-      if (!all) {
-        if (data[id]?.['cdlt:hasPublicationStatus'] !== process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide') return null;
-      }
+      if (!all && data[id]?.['cdlt:hasPublicationStatus'] !== process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide') return null;
       if (onlyFutureEvents && data[id]?.['pair:startDate']<(new Date()).toISOString()) return null;
       const image = data[id]?.['pair:depictedBy'];
       const card =

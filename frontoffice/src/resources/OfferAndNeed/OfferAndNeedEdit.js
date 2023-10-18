@@ -1,5 +1,5 @@
 import React from 'react';
-import { Edit } from 'react-admin';
+import { Edit, useTranslate } from 'react-admin';
 import { useCheckPermissions } from '@semapps/auth-provider';
 import FullWidthBox from '../../commons/FullWidthBox';
 import LargeContainer from '../../commons/LargeContainer';
@@ -8,10 +8,10 @@ import OfferAndNeedTitle from './OfferAndNeedTitle';
 import OfferAndNeedForm from './OfferAndNeedForm';
 import Button from '../../commons/Button';
 
-const actions = [<Button to="/MyOffersAndNeeds">Mes annonces</Button>];
-
 const OfferAndNeedEdit = (props) => {
   useCheckPermissions(props.id, 'edit', props.basePath);
+  const translate = useTranslate();
+  const actions = [<Button to="/MyOffersAndNeeds">{translate('app.action.offerAndNeed.mine')}</Button>];
   return (
     <>
       <HeaderTitle actions={actions} />

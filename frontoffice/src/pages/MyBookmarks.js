@@ -63,9 +63,9 @@ const MyBookmarksPage = () => {
                 id={identity.id}
                 resource="OfferAndNeed"
                 type="cdlt:OfferAndNeed"
-                title="Mes favoris "
-                subtitle="les annonces"
-                headComment="Pour composer mon voyage à la carte"
+                title={translate('app.bookmark.title')}
+                subtitle={translate('app.bookmark.offerAndNeed')}
+                headComment={translate('app.bookmark.offerAndNeedHeadComment')}
                 CardComponent={OfferAndNeedCard}
               />
             </Box>

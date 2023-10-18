@@ -12,7 +12,8 @@ export default {
     edit: OfferAndNeedEdit,
     icon: OfferAndNeedIcon,
     options: {
-      label: 'Annonces'
+      label: 'Annonces',
+      parent: 'OfferAndNeedFolder',
     },
   },
   dataModel: {
@@ -25,8 +26,7 @@ export default {
     list: {
       containers: {
         cdlt: ['/offers-and-needs']
-      },
-      explicitEmbedOnFraming: false, // Increase performance since explicit embed is not necessary
+      }
     },
     fieldsMapping: {
       title: 'pair:label'

@@ -128,6 +128,20 @@ const EditProfileMenu = forwardRef(({ onClick, webId }, ref) => {
   );
 });
 
+const MyOfferAndNeedMenu = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
+  return (
+    <MenuItemLink ref={ref} to="/MyOffersAndNeeds" primaryText={translate('app.action.offerAndNeed.mine')} leftIcon={<AnnouncementIcon />} onClick={onClick} />
+  )
+});
+
+const MyAlertMenu = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
+  return (
+    <MenuItemLink ref={ref} to="/MyAlerts" primaryText={translate('app.action.alert.mine')} leftIcon={<NotificationsIcon />} onClick={onClick} />
+  )
+});
+
 const UserMenu = ({ logout, ...otherProps }) => {
   const { identity } = useGetIdentity();
   const TRAVELER_TYPE_URL = process.env.REACT_APP_MIDDLEWARE_URL + 'types/traveler';

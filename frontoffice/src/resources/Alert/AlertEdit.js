@@ -1,5 +1,5 @@
 import React from 'react';
-import { Edit } from 'react-admin';
+import { Edit, useTranslate } from 'react-admin';
 import { useCheckPermissions } from '@semapps/auth-provider';
 import FullWidthBox from '../../commons/FullWidthBox';
 import LargeContainer from '../../commons/LargeContainer';
@@ -8,10 +8,10 @@ import AlertTitle from './AlertTitle';
 import AlertForm from './AlertForm';
 import Button from '../../commons/Button';
 
-const actions = [<Button to="/MyAlerts">Mes alertes</Button>];
-
 const AlertEdit = (props) => {
   useCheckPermissions(props.id, 'edit', props.basePath);
+  const translate = useTranslate();
+  const actions = [<Button to="/MyAlerts">{translate('app.action.alert.mine')}</Button>];
   return (
     <>
       <HeaderTitle actions={actions} />

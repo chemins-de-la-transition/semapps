@@ -41,5 +41,17 @@ export default {
         'cdlt:hasRegion': 'Région',
       },
     },
+    en: {
+      name: 'Alert |||| Alerts',
+      fields: {
+        'pair:label': 'Name',
+        'cdlt:hasPublicationStatus':'Visibility',
+        'pair:hasSector': 'Activity sectors',
+        'pair:hasTopic': 'Keywords',
+        'pair:hasLocation': 'Location',
+        'cdlt:radius': 'Radius (km)',
+        'cdlt:hasRegion': 'Region',
+      },
+    },
   },
 };

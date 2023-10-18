@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShowButton } from 'react-admin';
+import { ShowButton, useTranslate } from 'react-admin';
 import { Box, useMediaQuery } from '@material-ui/core';
 import { MapList } from '@semapps/geo-components';
 import MultiViewsFilterList from '../../commons/lists/MultiViewsFilterList/MultiViewsFilterList';
@@ -12,6 +12,7 @@ import SearchFilter from '../../commons/SearchFilter';
 
 const OfferAndNeedList = (props) => {
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
+  const translate = useTranslate();
   return (
     <MultiViewsFilterList
       filter= {{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}
@@ -21,14 +22,14 @@ const OfferAndNeedList = (props) => {
           reference="Type"
           source="pair:hasType"
           /*inverseSource="pair:typeOf"*/ filter={{ a: 'cdlt:OfferAndNeedType' }}
-          label="Type d'annonce"
+          label={translate('app.input.offerAndNeedType')}
         />,
-        <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label="Secteur d'activité" />,
-        <Filter reference="Topic" source="pair:hasTopic" inverseSource="pair:topicOf" label="Mots clé" />,
+        <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label={translate('app.input.sector')} />,
+        <Filter reference="Topic" source="pair:hasTopic" inverseSource="pair:topicOf" label={translate('app.input.topic')} />,
       ]}
       views={{
         map: {
-          label: 'Vue carte',
+          label: translate('app.action.mapView'),
           icon: MapIcon,
           perPage: 1000,
           list: (
@@ -47,7 +48,7 @@ const OfferAndNeedList = (props) => {
           ),
         },
         list: {
-          label: 'Vue liste',
+          label: translate('app.action.listView'),
           icon: ListIcon,
           perPage: 1000,
           list: (

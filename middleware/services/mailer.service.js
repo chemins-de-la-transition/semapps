@@ -2,21 +2,15 @@ const path = require('path');
 const MailerService = require('moleculer-mail');
 const { MIME_TYPES } = require('@semapps/mime-types');
 const CONFIG = require('../config');
+const transport = require('../transport');
 
 module.exports = {
   name: 'mailer',
   mixins: [MailerService],
   settings: {
     from: `${CONFIG.FROM_NAME} <${CONFIG.FROM_EMAIL}>`,
-    transport: {
-      host: CONFIG.SMTP_HOST,
-      port: CONFIG.SMTP_PORT,
-      secure: CONFIG.SMTP_SECURE,
-      auth: {
-        user: CONFIG.SMTP_USER,
-        pass: CONFIG.SMTP_PASS,
-      },
-    },
+    fallbackLanguage: CONFIG.LOCALE,
+    transport,
     templateFolder: path.join(__dirname, "../templates"),
   },
   dependencies: ['api'],
