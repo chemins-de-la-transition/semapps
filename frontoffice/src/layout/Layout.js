@@ -13,6 +13,7 @@ const Layout = ({ logout, theme, children, title }) => {
     { link: '/Place', name: 'Lieux' },
     { link: '/Event', name: 'Événements' },
     { link: '/Course', name: 'Voyages' },
+    { link: '/OfferAndNeed', name: 'Annonces' },
   ];
   // const xs = useMediaQuery(theme.breakpoints.down('xs'));
   const [sidebarOpen, setSidebarOpen] = useState(false);

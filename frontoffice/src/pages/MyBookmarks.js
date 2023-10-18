@@ -9,6 +9,7 @@ import PathCard from '../resources/Idea/Path/PathCard';
 import PlaceCard from '../resources/Place/PlaceCard';
 import EventCard from '../resources/Agent/Activity/Event/EventCard';
 import CourseCard from '../resources/Agent/Activity/Course/CourseCard';
+import OfferAndNeedCard from '../resources/OfferAndNeed/OfferAndNeedCard';
 
 const MyBookmarksPage = () => {
   const { identity } = useCheckAuthenticated();
@@ -55,6 +56,15 @@ const MyBookmarksPage = () => {
                 subtitle="les voyages"
                 headComment="Pour composer mon voyage à la carte"
                 CardComponent={CourseCard}
+              />
+              <LikedList
+                id={identity.id}
+                resource="OfferAndNeed"
+                type="cdlt:OfferAndNeed"
+                title="Mes favoris "
+                subtitle="les annonces"
+                headComment="Pour composer mon voyage à la carte"
+                CardComponent={OfferAndNeedCard}
               />
             </Box>
           }

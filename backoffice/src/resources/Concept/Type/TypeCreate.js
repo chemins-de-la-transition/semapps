@@ -15,6 +15,7 @@ const TypeCreate = (props) => (
           { id: 'pair:DocumentType', name: 'DocumentType' },
           { id: 'pair:OrganizationType', name: 'OrganizationType' },
           { id: 'cdlt:CourseType', name: 'CourseType' },
+          { id: 'cdlt:OfferAndNeedType', name: 'OfferAndNeedType' },
           // { id: 'cdlt:PathType', name: 'PathType' },
         ]}
       />

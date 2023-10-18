@@ -7,7 +7,9 @@ export default {
       'pair:EventType',
       'pair:OrganizationType',
       'cdlt:CourseType',
-      'cdlt:PathType'],
+      'cdlt:PathType',
+      'cdlt:OfferAndNeedType'
+    ],
     fieldsMapping: {
       title: 'pair:label'
     }
