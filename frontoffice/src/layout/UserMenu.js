@@ -66,18 +66,6 @@ const MyOrganizationsMenu = forwardRef(({ onClick }, ref) => {
   );
 });
 
-const MyOfferAndNeedMenu = forwardRef(({ onClick }, ref) => (
-  <MenuItemLink ref={ref} to="/MyOffersAndNeeds" primaryText="Mes annonces" leftIcon={<AnnouncementIcon />} onClick={onClick} />
-));
-
-const MyAlertMenu = forwardRef(({ onClick }, ref) => (
-  <MenuItemLink ref={ref} to="/MyAlerts" primaryText="Mes alertes" leftIcon={<NotificationsIcon />} onClick={onClick} />
-));
-
-const LoginMenu = forwardRef(({ onClick }, ref) => (
-  <MenuItemLink ref={ref} to="/login" primaryText="Se connecter" onClick={onClick} />
-));
-
 const MyReservationsMenu = forwardRef(({ onClick }, ref) => {
   const translate = useTranslate();
   return (
