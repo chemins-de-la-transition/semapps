@@ -21,6 +21,14 @@ module.exports = {
         users: record => record['cdlt:proposedBy']
       },
       {
+        match: { type: 'cdlt:Course' },
+        rights: {
+          read: true,
+          write: true
+        },
+        users: record => record['cdlt:organizedBy']
+      },
+      {
         match: { type: 'pair:Organization' },
         rights: {
           read: true,

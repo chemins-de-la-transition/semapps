@@ -4,6 +4,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import PlaceIcon from '../svg/PlaceIcon';
 import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import EventIcon from '@material-ui/icons/Event';
+import CourseIcon from '@material-ui/icons/DateRange';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import AnnouncementIcon from '@material-ui/icons/Announcement';
@@ -11,7 +12,6 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 
 const MyBookmarks = forwardRef(({ onClick }, ref) => {
   const translate = useTranslate();
-
   return (
     <MenuItemLink
       ref={ref}
@@ -25,7 +25,6 @@ const MyBookmarks = forwardRef(({ onClick }, ref) => {
 
 const MyPlacesMenu = forwardRef(({ onClick }, ref) => {
   const translate = useTranslate();
-
   return (
     <MenuItemLink
       ref={ref}
@@ -39,7 +38,6 @@ const MyPlacesMenu = forwardRef(({ onClick }, ref) => {
 
 const MyEventsMenu = forwardRef(({ onClick }, ref) => {
   const translate = useTranslate();
-
   return (
     <MenuItemLink
       ref={ref}
@@ -51,9 +49,12 @@ const MyEventsMenu = forwardRef(({ onClick }, ref) => {
   );
 });
 
+const MyCoursesMenu = forwardRef(({ onClick }, ref) => (
+  <MenuItemLink ref={ref} to="/MyCourses" primaryText="Mes voyages" leftIcon={<CourseIcon />} onClick={onClick} />
+));
+
 const MyOrganizationsMenu = forwardRef(({ onClick }, ref) => {
   const translate = useTranslate();
-
   return (
     <MenuItemLink
       ref={ref}
@@ -65,9 +66,20 @@ const MyOrganizationsMenu = forwardRef(({ onClick }, ref) => {
   );
 });
 
+const MyOfferAndNeedMenu = forwardRef(({ onClick }, ref) => (
+  <MenuItemLink ref={ref} to="/MyOffersAndNeeds" primaryText="Mes annonces" leftIcon={<AnnouncementIcon />} onClick={onClick} />
+));
+
+const MyAlertMenu = forwardRef(({ onClick }, ref) => (
+  <MenuItemLink ref={ref} to="/MyAlerts" primaryText="Mes alertes" leftIcon={<NotificationsIcon />} onClick={onClick} />
+));
+
+const LoginMenu = forwardRef(({ onClick }, ref) => (
+  <MenuItemLink ref={ref} to="/login" primaryText="Se connecter" onClick={onClick} />
+));
+
 const MyReservationsMenu = forwardRef(({ onClick }, ref) => {
   const translate = useTranslate();
-
   return (
     <MenuItemLink
       ref={ref}
@@ -81,7 +93,6 @@ const MyReservationsMenu = forwardRef(({ onClick }, ref) => {
 
 const LoginMenu = forwardRef(({ onClick }, ref) => {
   const translate = useTranslate();
-
   return (
     <MenuItemLink
       ref={ref}
@@ -94,7 +105,6 @@ const LoginMenu = forwardRef(({ onClick }, ref) => {
 
 const SignupMenu = forwardRef(({ onClick }, ref) => {
   const translate = useTranslate();
-
   return (
     <MenuItemLink
       ref={ref}
@@ -107,7 +117,6 @@ const SignupMenu = forwardRef(({ onClick }, ref) => {
 
 const EditProfileMenu = forwardRef(({ onClick, webId }, ref) => {
   const translate = useTranslate();
-
   return (
     <MenuItemLink
       ref={ref}
@@ -156,6 +165,7 @@ const UserMenu = ({ logout, ...otherProps }) => {
             <MyOrganizationsMenu key="my-organizations" />,
             <MyPlacesMenu key="my-places" />,
             <MyEventsMenu key="my-events" />,
+            <MyCoursesMenu key="my-courses" />,
             <MyReservationsMenu key="my-reservations" />,
             <MyOfferAndNeedMenu key="my-offers-and-needs" />,
             <MyAlertMenu key="my-alerts" />,

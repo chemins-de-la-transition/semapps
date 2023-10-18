@@ -1,11 +1,16 @@
+import CourseEdit from './CourseEdit';
 import CourseList from './CourseList';
 import CourseShow from './CourseShow';
 import DateRangeIcon from '@material-ui/icons/DateRange';
+import CourseCreate from './CourseCreate';
+
 
 export default {
   config: {
     list: CourseList,
     show: CourseShow,
+    create: CourseCreate,
+    edit: CourseEdit,
     icon: DateRangeIcon,
     options: {
       label: 'Voyages'
@@ -14,9 +19,7 @@ export default {
   dataModel: {
     types: ['cdlt:Course'],
     list: {
-      filter: {
-        'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide'
-      }
+      explicitEmbedOnFraming: false, // Increase performance since explicit embed is not necessary
     },
     fieldsMapping: {
       title: 'pair:label'

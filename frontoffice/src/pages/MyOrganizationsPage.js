@@ -23,7 +23,7 @@ const MyOrganizationsPage = () => {
       <FullWidthBox>
         <LargeContainer>
           <ListBase resource="Organization" basePath="/Organization" filter={{ 'pair:affiliates': identity?.id }}>
-            <CardsList CardComponent={OrganizationCard} link="show" />
+            <CardsList CardComponent={OrganizationCard} link="show" all />
           </ListBase>
         </LargeContainer>
       </FullWidthBox>
