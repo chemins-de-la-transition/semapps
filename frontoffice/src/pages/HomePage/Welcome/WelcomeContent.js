@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslate } from "react-admin";
 import { makeStyles, Box, Typography } from '@material-ui/core';
 import FullWidthBox from '../../../commons/FullWidthBox';
 import LargeContainer from '../../../commons/LargeContainer';
@@ -65,16 +66,17 @@ const useStyles = makeStyles((theme) => ({
 
 const WelcomeContent = () => {
   const classes = useStyles();
+  const translate = useTranslate();
   return (
     <FullWidthBox className={classes.root}>
       <LargeContainer className={classes.container}>
         <Box display="flex" justifyContent="center" flexDirection="column" justifySelf="center">
           <Typography variant="h1" className={classes.text}>
-            Bienvenue sur les Chemins de la Transition ! 
+            {translate("app.page.home")}
           </Typography>
           <div className={classes.textBar} />
           <Typography variant="body1" className={classes.subtitleText} component="div">
-          Une université ouverte, nomade et pair à pair autour des enjeux et des métiers de la transition. Pour apprendre en voyageant et partager des connaissances, expériences et savoir-faire liés aux enjeux écologiques, énergétiques, culturels, sociaux, économiques, technologiques et sociétaux de notre temps.
+            {translate("app.message.welcome")}
           </Typography>
         </Box>
       </LargeContainer>

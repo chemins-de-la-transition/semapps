@@ -47,5 +47,28 @@ export default {
         "cdlt:hasJobOpportunities":"Idées de débouchés vers des métiers de transition"
       },
     },
+    en: {
+      name: 'Path |||| Paths',
+      fields: {
+        'pair:label': 'Title',
+        'cdlt:hasPublicationStatus':'Publication status',
+        'pair:comment': 'In a few words',
+        'pair:description': 'Description',
+        'pair:depictedBy': 'Image',
+        'pair:produces': "Allows to learn", /*Skill*/
+        'cdlt:proposedBy': 'Proposed by', /*Person*/
+        'cdlt:supportedBy': 'Partnered with', /*Organization*/
+        'cdlt:hasPlace': 'Places', /*Place*/
+        'cdlt:hasEvent': 'Events', /*Event*/
+        'cdlt:hasCourse': 'Trips', /*Course*/
+        'pair:hasSector': 'Sectors of activity',
+        'pair:hasTopic': 'Keywords', /*Topic*/
+        'pair:hasFinality': 'Purposes',
+        'pair:nourishes': 'Discussions',
+        'cdlt:hasCourseType': 'Travel mode',
+        'cdlt:learningObjectives': 'Educational objectives',
+        "cdlt:hasJobOpportunities":"Ideas for job opportunities in transition"
+      },
+    },
   },
 };

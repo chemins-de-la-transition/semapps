@@ -70,5 +70,50 @@ export default {
         "cdlt:hasJobOpportunities":"Idées de débouchés vers des métiers de transition",
       },
     },
+    en: 
+    {
+      name: 'Journey |||| Journeys',
+      fields: {
+        'pair:label': 'Title',
+        'cdlt:hasPublicationStatus': 'Publication Status',
+        'pair:depictedBy': 'Image',
+        'cdlt:hasCourseType': 'Travel Mode',
+        'pair:hasSector': 'Activity Sectors',
+        'pair:hasTopic': 'Keywords', /*Topic*/
+        'cdlt:hasRegion': 'Region(s)',
+        'pair:produces': 'Targeted Skills', /*Skill*/
+        'cdlt:requiredSkills': 'Required Skills', /*Skill*/
+        'pair:startDate': 'Start Date',
+        'pair:endDate': 'End Date',
+        'cdlt:priceRange': 'Cost',
+        'pair:description': 'Journey Description',
+        'cdlt:organizerDescription': 'Organizers',
+        'cdlt:mentorDescription': 'Speakers',
+        'pair:hasPart': 'Journey Program', /*Event*/
+        'cdlt:prerequisites': 'Other Prerequisites',
+        'cdlt:practicalConditions': 'Practical Information',
+        'cdlt:minimumCapacity': 'Minimum Number of Participants',
+        'cdlt:maximumCapacity': 'Maximum Number of Participants',
+        'cdlt:learningObjectives': 'Educational Objectives',
+        'cdlt:economicalConditions': 'Financial Conditions',
+        'cdlt:financialSupport': 'Eligibility for Financing Schemes',
+        'pair:e-mail': 'Email Address',
+        'pair:phone': 'Phone',
+        'pair:homePage': 'Website',
+        'pair:comment': 'In a Few Words',
+        'cdlt:hasMentor': 'Facilitated by', /*Person*/
+        'cdlt:organizedBy': 'Organized by', /*Actor*/
+        //'pair:documentedBy': 'Documents',
+        'cdlt:courseOn': 'Paths', /*Path*/
+        'pair:hasFinality': 'Objectives',
+        'cdlt:directRegistration': 'Direct Registration Option',
+        'cdlt:registrationOption': 'Registration Option',
+        'cdlt:jotformLink': 'JotForm Registration Form',
+        'cdlt:registrationLink': 'Registration System Link',
+        'cdlt:referenceNumber': 'Journey Number',
+        'cdlt:hasTargetAudience': 'Target Audience',
+        'cdlt:hasJobOpportunities': 'Transition Career Ideas',
+      },
+    },
   },
 };

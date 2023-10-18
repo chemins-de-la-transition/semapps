@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNotify, useUpdate } from 'react-admin';
+import { useNotify, useUpdate, useTranslate } from 'react-admin';
 import { Button } from '@material-ui/core';
 import PublishIcon from '@material-ui/icons/Publish';
 import GetAppIcon from '@material-ui/icons/GetApp';
@@ -16,14 +16,16 @@ const PublishButton = ({ resource, record }) => {
   const publish = (e) => {
     e.stopPropagation();
     update(resource, record.id, { ...record, 'cdlt:hasPublicationStatus': PUBLISHED_STATUS }, record);
-    notify('La ressource a été publié');
+    notify(translate('app.action.published'));
   };
 
   const unpublish = (e) => {
     e.stopPropagation();
     update(resource, record.id, { ...record, 'cdlt:hasPublicationStatus': UNPUBLISHED_STATUS }, record);
-    notify('La ressource a été dépublié');
+    notify(translate('app.action.unpublished'));
   };
+  
+  const translate = useTranslate();
 
   return (
     <Button
@@ -32,7 +34,7 @@ const PublishButton = ({ resource, record }) => {
       size="small"
       onClick={isPublished ? unpublish : publish}
     >
-      {isPublished ? 'Dépublier' : 'Publier'}
+      {isPublished ? translate('app.action.unpublish') : translate('app.action.publish')}
     </Button>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput, email } from 'react-admin';
+import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput, email, useTranslate } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { MultiLinesInput } from '@semapps/input-components';
 import { ImageField } from '@semapps/field-components';
@@ -18,45 +18,47 @@ import {
 } from '../../../../pair';
 import ReminderBeforeRecording from '../../../../commons/ReminderBeforeRecording';
 
-const OrganizationForm = ({ record, ...rest }) => (
-  <TabbedForm {...rest} redirect="show">
-    <FormTab label="A propos de l'organisation">
-      <TextInput source="pair:label" label="Quel est le nom de votre organisation ?" fullWidth />
-      <TypesInput source="pair:hasType" label="Quel type d'organisation ?" filter={{ a: 'pair:OrganizationType' }} />
-      <TextInput source="pair:comment" label="Pourriez-vous le décrire en une phrase" fullWidth />
-      <MarkdownInput source="pair:description" label="N'hésitez pas à le décrire plus longuement ici" fullWidth />
-      <ImageInput source="pair:depictedBy" label="Mettez un logo !" accept="image/*">
-        <ImageField source="src" />
-      </ImageInput>
-      <SectorsInput source="pair:hasSector" label="Dans quels secteurs d'activités s'inscrit-elle ?"  />
-      <TopicsInput source="pair:hasTopic" label="Quels mots-clés utiliseriez-vous pour la caractériser ?" />
-      <FinalitiesInput source="pair:hasFinality" label="Quelles sont les finalités que vous poursuivez" />
-      <MarkdownInput source="cdlt:intentions" label="Quelles sont vos intentions en venant sur les chemins de la transition" fullWidth />
-      <MarkdownInput source="cdlt:practicalConditions" label="Pouvez-vous accueillir des voyageurs ? Si oui, dans quelles conditions ?" fullWidth />
-      <NumberInput source="cdlt:maximumCapacity" label="Combien de voyageurs au maximum ?" fullWidth />
-      <TypesInput source="cdlt:hasCourseType" label="Selon quels modes de voyages pouvez-vous accueillir des voyageurs ?" filter={{ a: 'cdlt:CourseType' }} />
-      <SkillsInput source="pair:produces" label="Quelles sont les compétences que vous pouvez offrir" fullWidth />
-      <PairLocationInput source="pair:hasLocation" fullWidth />
-      <ReminderBeforeRecording />
-    </FormTab>
-    <FormTab label="En lien avec l'organisation">
-      <OrganizationsInput source="pair:partnerOf" label="Avez-vous des partenaires sur les Chemins de la Transition ?" />
-      <OrganizationsInput source="pair:inspiredBy" label="Des organisations qui vous inspirent ?" />
-      <UsersInput source="pair:affiliates" label="Des membres de votre organisation sur les Chemins de la Transition ?" />
-      <PathsInput source="cdlt:supports" label="Vous inscrivez-vous sur un chemin ?" />
-      <PlacesInput source="cdlt:organizationHostedIn" label="Dans quel(s) lieu(x) êtes vous présent ?" fullWidth />
-    </FormTab>
-    <FormTab label="Contact">
-      <MultiLinesInput source="pair:homePage" fullWidth />
-      <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[email()]} />
-      <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
-      <TextInput source="cdlt:publicPhone" fullWidth helperText="Numéro public affiché sur la page" />
-    </FormTab>
-    <FormTab label="Visibilité">
-      <PublicationStatusInput source="cdlt:hasPublicationStatus" />
-    </FormTab>
-  </TabbedForm>
-);
-
+const OrganizationForm = ({ record, ...rest }) => {
+  const translate = useTranslate();
+  return (
+    <TabbedForm {...rest} redirect="show">
+      <FormTab label={translate('app.tab.organization.about')}>
+        <TextInput source="pair:label" label={translate('app.input.organization.label')} fullWidth />
+        <TypesInput source="pair:hasType" label={translate('app.input.organization.hasType')} filter={{ a: 'pair:OrganizationType' }} />
+        <TextInput source="pair:comment" label={translate('app.input.organization.comment')} fullWidth />
+        <MarkdownInput source="pair:description" label={translate('app.input.organization.description')} fullWidth />
+        <ImageInput source="pair:depictedBy" label={translate('app.input.organization.depictedBy')} accept="image/*">
+          <ImageField source="src" />
+        </ImageInput>
+        <SectorsInput source="pair:hasSector" label={translate('app.input.organization.hasSector')}  />
+        <TopicsInput source="pair:hasTopic" label={translate('app.input.organization.hasTopic')} />
+        <FinalitiesInput source="pair:hasFinality" label={translate('app.input.organization.hasFinality')} />
+        <MarkdownInput source="cdlt:intentions" label={translate('app.input.organization.intentions')} fullWidth />
+        <MarkdownInput source="cdlt:practicalConditions" label={translate('app.input.organization.practicalConditions')} fullWidth />
+        <NumberInput source="cdlt:maximumCapacity" label={translate('app.input.organization.maximumCapacity')} fullWidth />
+        <TypesInput source="cdlt:hasCourseType" label={translate('app.input.organization.hasCourseType')} filter={{ a: 'cdlt:CourseType' }} />
+        <SkillsInput source="pair:produces" label={translate('app.input.organization.produces')} fullWidth />
+        <PairLocationInput source="pair:hasLocation" fullWidth />
+        <ReminderBeforeRecording />
+      </FormTab>
+      <FormTab label={translate('app.tab.organization.links')}>
+        <OrganizationsInput source="pair:partnerOf" label={translate('app.input.organization.partnerOf')} />
+        <OrganizationsInput source="pair:inspiredBy" label={translate('app.input.organization.inspiredBy')} />
+        <UsersInput source="pair:affiliates" label={translate('app.input.organization.affiliates')} />
+        <PathsInput source="cdlt:supports" label={translate('app.input.organization.supports')} />
+        <PlacesInput source="cdlt:organizationHostedIn" label={translate('app.input.organization.organizationHostedIn')} fullWidth />
+      </FormTab>
+      <FormTab label={translate('app.tab.organization.contact')}>
+        <MultiLinesInput source="pair:homePage" fullWidth />
+        <TextInput source="pair:e-mail" fullWidth helperText={translate('app.helper.organization.email')} validate={[email()]} />
+        <TextInput source="pair:phone" fullWidth helperText={translate('app.helper.organization.phone')} />
+        <TextInput source="cdlt:publicPhone" fullWidth helperText={translate('app.helper.organization.publicPhone')} />
+      </FormTab>
+      <FormTab label={translate('app.tab.organization.visibility')}>
+        <PublicationStatusInput source="cdlt:hasPublicationStatus" />
+      </FormTab>
+    </TabbedForm>
+  );
+};
 
 export default OrganizationForm;

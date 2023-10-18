@@ -1,5 +1,5 @@
 import React from 'react';
-import { Create } from 'react-admin';
+import { Create, useTranslate} from 'react-admin';
 import { useCheckPermissions } from '@semapps/auth-provider';
 import { useCreateContainer } from "@semapps/semantic-data-provider";
 import FullWidthBox from '../../commons/FullWidthBox';
@@ -9,14 +9,16 @@ import PlaceTitle from './PlaceTitle';
 import PlaceForm from './PlaceForm';
 import Button from '../../commons/Button';
 
-const actions = [<Button to="/MyPlaces">Mes lieux</Button>];
 
 const PlaceCreate = (props) => {
   const createContainerUri = useCreateContainer(props.resource);
   useCheckPermissions(createContainerUri, 'create');
+  const translate = useTranslate();
+  const actions = [<Button to="/MyPlaces">{translate('app.action.place.myPlaces')}</Button>];
+
   return (
     <>
-      <HeaderTitle actions={actions}>Ajouter un lieu</HeaderTitle>
+      <HeaderTitle actions={actions}>{translate('app.action.place.create')}</HeaderTitle>
       <FullWidthBox>
         <LargeContainer>
           <Create title={<PlaceTitle />} actions={null} {...props}>

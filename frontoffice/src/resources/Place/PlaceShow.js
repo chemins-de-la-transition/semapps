@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
+import { ChipField, ShowBase, SingleFieldList, TextField, UrlField, useTranslate } from 'react-admin';
 import { ThemeProvider, Checkbox, FormGroup, FormControlLabel, Box, Typography } from '@material-ui/core';
 import resourceTheme from '../../config/themes/resourceTheme';
 import resourceShowStyle from '../../commons/style/resourceShowStyle';
@@ -21,7 +21,7 @@ import SimilarList from "../../commons/lists/FeaturedList/SimilarList";
 import ContactButton from "../../commons/buttons/ContactButton";
 import GroupOfFields from '../../commons/fields/GroupOfFields';
 import { linkToFilteredList } from "../../utils";
-import PictoLieu from '../../icons/PictoLieu.png' ;
+import PictoLieu from '../../icons/PictoLieu.png';
 import Traveler from "../../pages/HomePage/Traveler/Traveler";
 
 const useStyles = resourceShowStyle;
@@ -29,6 +29,7 @@ const useStyles = resourceShowStyle;
 const PlaceShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
   const [onlyFutureEvents, setOnlyFutureEvents] = useState(true);
+  const translate = useTranslate();
   const mentions = useMentions('Person');
   const classes = useStyles();
   return (
@@ -38,24 +39,24 @@ const PlaceShow = (props) => {
           <HeaderShow
             type="pair:hasType"
             details={<PlaceDetails onlyFutureEvents={onlyFutureEvents} />}
-            actionButton={<ContactButton label="Contacter le lieu" />}
+            actionButton={<ContactButton label={translate('app.action.contactPlace')} />}
           />
           <BodyList
             aside={
               <StickyCard
-                actionButton={<ContactButton label="Contacter le lieu" />}
+                actionButton={<ContactButton label={translate('app.action.contactPlace')} />}
               >
                 <PlaceDetails orientation="vertical" />
               </StickyCard>
             }
           >
             <GroupOfFields
-              title="A propos du lieu"
-              sources={["pair:comment","pair:hasFinality","pair:hasSector","pair:hasType","cdlt:hasCourseType","pair:hasTopic","pair:description","cdlt:hostDescription","cdlt:activities"]}
+              title={translate('app.tab.place.about')}
+              sources={["pair:comment", "pair:hasFinality", "pair:hasSector", "pair:hasType", "cdlt:hasCourseType", "pair:hasTopic", "pair:description", "cdlt:hostDescription", "cdlt:activities"]}
               addLabel
               noBorder
             >
-              <TextField variant="body2" source="pair:comment"/>
+              <TextField variant="body2" source="pair:comment" />
               <ReferenceArrayField reference="Finality" source="pair:hasFinality">
                 <SeparatedListField link={false} separator=" / ">
                   <TextField variant="body2" source="pair:label" />
@@ -78,7 +79,7 @@ const PlaceShow = (props) => {
               </ReferenceArrayField>
               <ReferenceArrayField reference="Topic" source="pair:hasTopic">
                 <SeparatedListField link={linkToFilteredList('LEP', 'pair:hasTopic')} separator="">
-                  <ChipField source="pair:label" color="primary" className={classes.chipField}/>
+                  <ChipField source="pair:label" color="primary" className={classes.chipField} />
                 </SeparatedListField>
               </ReferenceArrayField>
               <MarkdownField source="pair:description" />
@@ -86,8 +87,8 @@ const PlaceShow = (props) => {
               <MarkdownField source="cdlt:activities" />
             </GroupOfFields>
             <GroupOfFields
-              title="Compétences"
-              sources={["pair:produces","pair:aims"]}
+              label={translate('app.input.skills')}
+              sources={["pair:produces", "pair:aims"]}
               addLabel
             >
               <ReferenceArrayField reference="Skill" source="pair:produces">
@@ -100,21 +101,21 @@ const PlaceShow = (props) => {
                   <ChipField source="pair:label" color="primary" className={classes.chipField} />
                 </SeparatedListField>
               </ReferenceArrayField>
-            </GroupOfFields>            
+            </GroupOfFields>
             <GroupOfFields
-              title="Modalités d'accueil"
-              sources={["cdlt:practicalConditions","cdlt:maximumCapacity"]}
+              label={translate('app.tab.accommodation')}
+              sources={["cdlt:practicalConditions", "cdlt:maximumCapacity"]}
               addLabel
             >
-              <MarkdownField source="cdlt:practicalConditions" addLabel={false}/>
+              <MarkdownField source="cdlt:practicalConditions" addLabel={false} />
               <NumberWithUnitField source="cdlt:maximumCapacity" addLabel unit='personnes' color="grey40" />
             </GroupOfFields>
             <ReferenceArrayField source="pair:hosts" reference="Event" sort={{ field: 'pair:startDate', order: 'ASC' }}>
               <Box pt={1}>
                 <Typography variant="body2" component="div">
-                  Ce lieu propose plusieurs événements. Cliquez dessus pour en savoir plus et/ou participer.
+                  {translate('app.message.moreEvents')}
                   <FormGroup >
-                    <FormControlLabel control={<Checkbox checked={onlyFutureEvents} />} label={"N'afficher que les événements à venir"} onChange={() => setOnlyFutureEvents(!onlyFutureEvents)}/>
+                    <FormControlLabel control={<Checkbox checked={onlyFutureEvents} />} label={"N'afficher que les événements à venir"} onChange={() => setOnlyFutureEvents(!onlyFutureEvents)} />
                   </FormGroup>
                 </Typography>
                 <CardsList onlyFutureEvents={onlyFutureEvents} CardComponent={EventCard} />
@@ -129,7 +130,7 @@ const PlaceShow = (props) => {
               scrollWheelZoom={false}
               dragging={false}
             />
-            <UrlField source="pair:homePage" label="Liens" className={classes.urlField} />
+            <UrlField source="pair:homePage" label={translate('app.tab.links')} className={classes.urlField} />
             <TextField source="cdlt:publicPhone" />
             <CommentsField userResource="Person" mentions={mentions} />
           </BodyList>
@@ -137,10 +138,10 @@ const PlaceShow = (props) => {
             resource="Place"
             basePath="/Place"
             logo={PictoLieu}
-            title="Les lieux"
-            subtitle="Similaires"
+            title={translate('app.tab.place.title')}
+            subtitle={translate('app.tab.place.subtitle')}
             headComment=""
-            linkText="Voir tous les lieux"
+            linkText={translate('app.tab.place.linkText')}
             CardSubHeaderComponent={PlaceSubHeader}
           />
           <Traveler />

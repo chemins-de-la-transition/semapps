@@ -1,6 +1,6 @@
 import React from 'react';
 import resourceDetailsStyle from '../../../../commons/style/resourceDetailsStyle';
-import { TextField } from 'react-admin';
+import { TextField, useTranslate } from 'react-admin';
 import { Box, useMediaQuery } from '@material-ui/core';
 import { SeparatedListField, ReferenceField, ReferenceArrayField } from '@semapps/field-components';
 import { linkToFilteredList } from "../../../../utils";
@@ -19,16 +19,18 @@ const PersonDetails = (props) => {
   const separator = isVertical ? "" : ", "
   const classes = useStyles({ isVertical });
   const sm = useMediaQuery((theme) => theme.breakpoints.down('sm'), { noSsr: true });
+  const translate = useTranslate();
+
   return(
     <Box className={classes.mainContainer}>
         <IconsList {...props}>
           { ( !isVertical || sm ) && 
-            <ReferenceField label="Région" reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList('LEP', 'cdlt:hasRegion')}>
-              <TextField source="pair:label" />
+            <ReferenceField label={translate('app.card.person.hasRegion')} reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList('LEP', 'cdlt:hasRegion')}>
+            <TextField source="pair:label" />
             </ReferenceField>
           }
           { ( !isVertical || sm ) && 
-            <ReferenceField label="Type de personne" reference="Type" source="pair:hasType" icon={<TypeIcon /> } link={false}>
+            <ReferenceField label={translate('app.card.person.hasType')} reference="Type" source="pair:hasType" icon={<TypeIcon /> } link={false}>
               <TextField source="pair:label" />
             </ReferenceField>
           }
@@ -40,35 +42,35 @@ const PersonDetails = (props) => {
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField reference="Place" source="cdlt:proposes" icon={<PlaceIcon />} label="Hôte de">
-              <SeparatedListField link="show" separator={separator}>
+            <ReferenceArrayField reference="Place" source="cdlt:proposes" icon={<PlaceIcon />} label={translate('app.card.person.proposes')}>
+            <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField reference="Organization" source="pair:affiliatedBy" icon={<ActorIcon />} label="Membre de">
-              <SeparatedListField link="show" separator={separator}>
+            <ReferenceArrayField reference="Organization" source="pair:affiliatedBy" icon={<ActorIcon />} label={translate('app.card.person.affiliatedBy')}>
+            <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
           }
           { (isVertical || sm ) && 
-            <ReferenceArrayField reference="Path" source="cdlt:supports" icon={<ActorIcon />} label="Contributeur de">
+            <ReferenceArrayField reference="Path" source="cdlt:supports" icon={<ActorIcon />} label={translate('app.card.person.supports')}>
+            <SeparatedListField link="show" separator={separator}>
+                <TextField source="pair:label" />
+              </SeparatedListField>
+            </ReferenceArrayField>
+          }
+          {  (isVertical && ! sm ) && 
+            <ReferenceArrayField reference="Activity" source="cdlt:organizes" icon={<ActorIcon />} label={translate('app.card.person.organizes')}>
               <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>
             </ReferenceArrayField>
           }
           {  (isVertical && ! sm ) && 
-            <ReferenceArrayField reference="Activity" source="cdlt:organizes" icon={<ActorIcon />} label="Organisateur de">
-              <SeparatedListField link="show" separator={separator}>
-                <TextField source="pair:label" />
-              </SeparatedListField>
-            </ReferenceArrayField>
-          }
-          {  (isVertical && ! sm ) && 
-            <ReferenceArrayField reference="Activity" source="cdlt:mentorOn" icon={<CalendarIcon />} label="intervenant sur">
+            <ReferenceArrayField reference="Activity" source="cdlt:mentorOn" icon={<CalendarIcon />} label={translate('app.card.person.mentorOn')}>
               <SeparatedListField link="show" separator={separator}>
                 <TextField source="pair:label" />
               </SeparatedListField>

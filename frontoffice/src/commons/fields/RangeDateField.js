@@ -1,5 +1,5 @@
 import React from 'react';
-import { DateField } from 'react-admin';
+import { DateField, useTranslate } from 'react-admin';
 import { Box, Typography, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -12,11 +12,13 @@ const useStyles = makeStyles((theme) => ({
 
 const RangeDateField = ({ source, toSource, variant, color, component, ...rest }) => {
   const classes = useStyles({color});
+  const translate = useTranslate();
+
   return (
     <Box className={classes.rangeDateField}>
       <Typography variant={variant} color={color} component={component}>
-        <span>du</span>&nbsp;<DateField source="pair:startDate" />
-        <span>au</span>&nbsp;<DateField source="pair:endDate" />
+        <span>{translate('app.card.registration.from')}</span>&nbsp;<DateField source="pair:startDate" />
+        <span>{translate('app.card.registration.to')}</span>&nbsp;<DateField source="pair:endDate" />
       </Typography>
     </Box>
   )

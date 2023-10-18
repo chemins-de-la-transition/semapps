@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, makeStyles, Typography, AppBar as MuiAppBar, useMediaQuery, IconButton } from '@material-ui/core';
+import { useTranslate } from 'react-admin';
 import MenuIcon from '@material-ui/icons/Menu';
 import { LogoutButton } from '@semapps/auth-provider';
 import { Link, useLocation } from 'react-router-dom';
@@ -46,7 +47,8 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiIconButton-label::after': {
       textTransform: "uppercase",
       marginLeft: '0.5em',
-      content: "'Se connecter'",
+      content: props => "'" + props.signInLabel + "'",
+      whiteSpace: 'nowrap',
       fontFamily: theme.typography.subtitle2.fontFamily,
       fontSize: theme.typography.subtitle2.fontSize,
       fontWeight: theme.typography.subtitle2.fontWeight,
@@ -68,7 +70,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AppBar = ({ menuItems, setSidebarOpen, title }) => {
-  const classes = useStyles();
+  const translate = useTranslate();
+  const signInLabel = translate('app.menu.login');
+  const classes = useStyles({ signInLabel });
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
   const location = useLocation();
   return (

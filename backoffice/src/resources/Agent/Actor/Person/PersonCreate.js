@@ -1,5 +1,5 @@
 import React from 'react';
-import { SimpleForm, TextInput, useNotify, useRefresh, useRedirect } from 'react-admin';
+import { SimpleForm, TextInput, useNotify, useRefresh, useRedirect, useTranslate } from 'react-admin';
 import { TypeInput } from '../../../../pair';
 import Create from "../../../../layout/create/Create";
 
@@ -7,11 +7,12 @@ const PersonCreate = (props) => {
   const notify = useNotify();
   const refresh = useRefresh();
   const redirect = useRedirect();
+  const translate = useTranslate();
 
   const onSuccess = () => {
-    notify('Utilisateur en cours de création...');
+    notify(translate('app.action.userCreation'));
     setTimeout(() => {
-      notify('Utilisateur créé');
+      notify(translate('app.action.successMessageSent'));
       redirect('/Person');
       refresh();
     }, 8000)
@@ -36,11 +37,11 @@ const PersonCreate = (props) => {
       {...props}
     >
       <SimpleForm>
-        <TextInput source="pair:firstName" label="Prénom" fullWidth />
-        <TextInput source="pair:lastName" label="Nom de famille" fullWidth />
-        <TextInput source="pair:alternativeLabel" label="Nom d'utilisateur" fullWidth />
+        <TextInput source="pair:firstName" label={translate('app.input.person.firstname')} fullWidth />
+        <TextInput source="pair:lastName" label={translate('app.input.person.lastName')} fullWidth />
+        <TextInput source="pair:alternativeLabel" label={translate('app.input.person.alternativeLabel')} fullWidth />
         <TextInput source="foaf:email" fullWidth />
-        <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} fullWidth helperText="Si vous créer un utilisateur de type Acteur, il recevra automatiquement une invitation à son adresse mail"  />
+        <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} fullWidth helperText={translate('app.input.person.userCreation')}  />
       </SimpleForm>
     </Create>
   );

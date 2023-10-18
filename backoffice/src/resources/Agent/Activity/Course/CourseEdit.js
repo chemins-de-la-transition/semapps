@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput, email, required } from 'react-admin';
+import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput, email, required, useTranslate } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/field-components';
 import {
@@ -23,7 +23,9 @@ import { DateInput } from '@semapps/date-components';
 import frLocale from 'date-fns/locale/fr';
 import Edit from "../../../../layout/edit/Edit";
 
-const CourseEdit = (props) => (
+const CourseEdit = (props) => {
+  const translate = useTranslate();
+  return (
   <Edit title={<CourseTitle />} {...props}>
     <TabbedForm redirect="show">
       <FormTab label="A propos du voyage">
@@ -77,8 +79,8 @@ const CourseEdit = (props) => (
         <MarkdownInput source="cdlt:practicalConditions" label="Quelles sont les modalités d'accueil ?" fullWidth />
         <NumberInput source="cdlt:minimumCapacity" label="Nombre minimum de participants pour que le voyage ait lieu" fullWidth />
         <NumberInput source="cdlt:maximumCapacity" label="Nombre maximum de participants" fullWidth />
-        <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />
-        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
+        <TextInput source="pair:e-mail" fullWidth helperText={translate('app.helper.nonVisible')} validate={[required(), email()]} />
+        <TextInput source="pair:phone" fullWidth helperText={translate('app.helper.nonVisible')} />
         <TextInput source="pair:homePage" fullWidth/>
         <MarkdownInput source="cdlt:economicalConditions" label="Quelles sont les conditions financières pour y participer ?" fullWidth />
         <MarkdownInput source="cdlt:financialSupport" label="Ce voyage est-il éligible à des dispositifs de financement ?" fullWidth />
@@ -92,6 +94,7 @@ const CourseEdit = (props) => (
       </FormTab>
     </TabbedForm>
   </Edit>
-);
+  );
+}
 
 export default CourseEdit;

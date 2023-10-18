@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageInput, FormTab, TabbedForm, TextInput } from 'react-admin';
+import { ImageInput, FormTab, TabbedForm, TextInput, useTranslate } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import {
   ActivitiesInput,
@@ -20,7 +20,9 @@ import ReminderBeforeRecording from '../../../../common/ReminderBeforeRecording'
 import PersonTitle from './PersonTitle';
 import Edit from "../../../../layout/edit/Edit";
 
-export const PersonEdit = (props) => (
+export const PersonEdit = (props) => {
+  const translate = useTranslate();
+  return (
   <Edit
     title={<PersonTitle />}
     transform={(data) => {
@@ -53,7 +55,7 @@ export const PersonEdit = (props) => (
         <SkillsInput source="pair:offers" label="C\'est quoi ses compétences actuelles ?" />
         <SkillsInput source="pair:aims" label="Quelles sont les compétences qu'il/elle recherche ?" fullWidth />
         <FinalitiesInput source="pair:hasFinality" label="Quelles sont les finalités qu'il/elle poursuit ?"  />
-        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
+        <TextInput source="pair:phone" fullWidth helperText={translate('app.helper.nonVisible')} />
         <TypeInput source="pair:hasType" filter={{ a: 'pair:PersonType' }} />
         <StatusInput source="pair:hasStatus" filter={{ a: 'pair:AgentStatus' }} />
         <PairLocationInput source="pair:hasLocation" fullWidth />
@@ -75,6 +77,7 @@ export const PersonEdit = (props) => (
       </FormTab>
     </TabbedForm>
   </Edit>
-);
+  );
+}
 
 export default PersonEdit;

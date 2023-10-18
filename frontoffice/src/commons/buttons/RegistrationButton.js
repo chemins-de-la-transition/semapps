@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import qs from "query-string";
 import { lightFormat } from "date-fns";
-import { useGetIdentity, useShowContext, useGetMany } from "react-admin";
+import { useGetIdentity, useShowContext, useGetMany, useTranslate } from "react-admin";
 import { useHistory } from 'react-router';
 import { AuthDialog } from "@semapps/auth-provider";
 import { defaultToArray } from "../../utils";
@@ -13,6 +13,7 @@ const RegistrationButton = ({ label: labelProp, mainButton }) => {
   const history = useHistory();
   const [openAuth, setOpenAuth] = useState(false);
   const { data: types, loading } = useGetMany('Type', defaultToArray(record['pair:hasType']));
+  const translate = useTranslate();
 
   const registrationLink = useMemo(() => {
     if (!loading && record && identity && identity.id !== '') {
@@ -100,7 +101,7 @@ const RegistrationButton = ({ label: labelProp, mainButton }) => {
         open={openAuth}
         onClose={() => setOpenAuth(false)}
         redirect={history.location.pathname + '?register'}
-        message="Vous devez vous connecter pour pouvoir vous inscrire"
+        message={translate('app.message.errorRegistration')}
       />
     </>
   );

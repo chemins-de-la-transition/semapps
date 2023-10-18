@@ -85,7 +85,7 @@ const EventCard = ({ record, variant }) => {
         (record['pair:hasLocation'] && (
           <Chip icon={<PlaceIcon />}>
             <ReferenceField record={record} source="pair:hasLocation" reference="Place" link={false}>
-              <FunctionField label="Localisation" render={renderLocation}/>
+              <FunctionField source="pair:hasLocation" render={renderLocation}/>
             </ReferenceField>
           </Chip>
         ))

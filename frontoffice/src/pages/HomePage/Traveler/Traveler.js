@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import FullWidthBox from '../../../commons/FullWidthBox';
 import LargeContainer from '../../../commons/LargeContainer';
 import Button from '../../../commons/Button';
+import { useTranslate } from 'react-admin';
 // import Path from './BackgroundImages/Path';
 // import PathBottom from './BackgroundImages/PathBottom';
 // import FirstMan from './BackgroundImages/FirstMan';
@@ -137,6 +138,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Traveler = () => {
   const classes = useStyles();
+  const translate = useTranslate();
   return (
     <>
     {/* <FullWidthBox className={classes.box}>
@@ -158,10 +160,10 @@ const Traveler = () => {
     <FullWidthBox className={classes.messageBox}>
       <LargeContainer className={classes.messageContainer}>
         <Typography variant="h1" className={classes.title2}>
-          <span className={classes.span}>Vous souhaitez proposer un lieu, un événement ou des idées de voyage ?</span>
+          <span className={classes.span}>{translate('app.message.traveler.joinCommunityText')}</span>
         </Typography>
         <Button to={{ pathname: "https://forums.lescheminsdelatransition.org/" }} target="_blank" variant="contained" color="primary" component={Link} typographyVariant="button1" className={classes.button}>
-            Rejoignez la communauté
+        {translate('app.message.traveler.joinCommunityButton')}
         </Button>
       </LargeContainer>
     </FullWidthBox>

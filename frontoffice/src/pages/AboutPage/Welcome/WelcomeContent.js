@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles, Box, Typography } from '@material-ui/core';
 import FullWidthBox from '../../../commons/FullWidthBox';
+import { useTranslate } from 'react-admin';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,21 +55,19 @@ const useStyles = makeStyles((theme) => ({
 
 const WelcomeContent = () => {
   const classes = useStyles();
+  const translate = useTranslate();
   return (
     <FullWidthBox className={classes.root}>
         <Box display="flex" justifyContent="center" flexDirection="column" justifySelf="center" className={classes.container}>
           <Typography variant="h1" className={classes.text}>
-            Voyager, Découvrir, Apprendre,
+            {translate('app.message.welcomeContent.title')}
           </Typography>
           <Typography variant="h1" className={classes.text}>
-            Partager, Essaimer...
+          {translate('app.message.welcomeContent.subTitle')}
           </Typography>
           <div className={classes.textBar} />
           <Typography variant="body1" className={classes.subtitleText} component="div">
-            Voyager c'est avant tout faire une pause dans nos vies, une parenthèse qui nous permet de voir ce qu'il se 
-            passe ailleurs, de partir à l'aventure pour découvrir de nouvelles pratiques. Les Chemins de la Transition 
-            propose de voyager de lieux en lieux en sortant des sentiers battus pour aller à la rencontre des acteurs 
-            de la transition (énergétique, sociale, solidaire...). Et&nbsp;pourquoi pas à votre tour, partager vos connaissances.
+          {translate('app.message.welcomeContent.text')}
           </Typography>
         </Box>
     </FullWidthBox>

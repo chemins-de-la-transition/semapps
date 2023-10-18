@@ -12,6 +12,13 @@ export default {
       fields: {
         
       }
+    },
+    en: {
+      name: 'Booking |||| Bookings',
+      fields: {
+        
+      }
     }
+    
   }
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListBase } from 'react-admin';
+import { ListBase, useTranslate} from 'react-admin';
 import { useCheckAuthenticated } from '@semapps/auth-provider';
 import CardsList from '../commons/lists/CardsList';
 import EventCard from '../resources/Agent/Activity/Event/EventCard';
@@ -8,14 +8,17 @@ import LargeContainer from '../commons/LargeContainer';
 import HeaderTitle from '../commons/HeaderTitle';
 import Button from '../commons/Button';
 
-const actions = [<Button to="/Event/create">Ajouter</Button>];
 
 const MyEventsPage = () => {
   const { identity, loading } = useCheckAuthenticated();
+  const translate = useTranslate();
+  const actions = [<Button to="/Event/create">{translate('app.action.create')}</Button>];
+
   if (loading) return null;
   return (
     <>
-      <HeaderTitle actions={actions}>Mes événements</HeaderTitle>
+      <HeaderTitle actions={actions}>{translate('app.menu.events')}
+</HeaderTitle>
       <br />
       <FullWidthBox>
         <LargeContainer>
