@@ -65,7 +65,10 @@ export const PlaceEdit = (props) => {
           mapboxConfig={{
             access_token: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
             types: ['place', 'address', 'region'],
-            country: ['fr', 'be', 'ch'],
+            country: ['al', 'ad', 'at', 'by', 'be', 'ba', 'bg', 'hr', 'cy', 'cz', 'dk', 'ee',
+            'fi', 'fr', 'de', 'gr', 'hu', 'is', 'ie', 'it', 'xk', 'lv', 'li', 'lt',
+            'lu', 'mk', 'mt', 'md', 'mc', 'me', 'nl', 'no', 'pl', 'pt', 'ro', 'ru',
+            'sm', 'rs', 'sk', 'si', 'es', 'se', 'ch', 'ua', 'gb', 'va'],
           }}
           source="pair:hasPostalAddress"
           parse={(value) => {
