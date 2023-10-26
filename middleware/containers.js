@@ -34,7 +34,7 @@ module.exports = [
       ...writePermissionToActors,
       ...defaultWritePermissionToContributors
     },
-    newResourcesPermissions: {} // By default, no read rights to new courses
+    newResourcesPermissions: writePermissionToCreator
   },
   {
     path: '/events',
@@ -53,6 +53,41 @@ module.exports = [
     acceptedTypes: ['pair:Place'],
     preferredView: '/Place',
     dereference: ['pair:hasPostalAddress'],
+    permissions: {
+      ...anonReadPermission,
+      ...writePermissionToActors,
+      ...defaultWritePermissionToContributors
+    },
+    newResourcesPermissions: writePermissionToCreator
+  },
+  {
+    path: '/offers-and-needs',
+    acceptedTypes: ['cdlt:OfferAndNeed'],
+    preferredView: '/OfferAndNeed',
+    dereference: ['pair:hasLocation/pair:hasPostalAddress'],
+    permissions: {
+      ...anonReadPermission,
+      ...writePermissionToActors,
+      ...defaultWritePermissionToContributors
+    },
+    newResourcesPermissions: writePermissionToCreator
+  },
+  {
+    path: '/offer-and-need-templates',
+    acceptedTypes: ['cdlt:OfferAndNeedTemplate'],
+    preferredView: '/OfferAndNeedTemplate',
+    permissions: {
+      ...anonReadPermission,
+      ...writePermissionToActors,
+      ...defaultWritePermissionToContributors
+    },
+    newResourcesPermissions: writePermissionToCreator,
+  },
+  {
+    path: '/alerts',
+    acceptedTypes: ['cdlt:Alert'],
+    preferredView: '/Alert',
+    dereference: ['pair:hasLocation/pair:hasPostalAddress'],
     permissions: {
       ...anonReadPermission,
       ...writePermissionToActors,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput, email, useTranslate } from 'react-admin';
+import { FormTab, ImageInput, NumberInput, TabbedForm, TextInput, email, required, useTranslate } from 'react-admin';
 import { MarkdownInput } from '@semapps/markdown-components';
 import { ImageField } from '@semapps/field-components';
 import {
@@ -29,8 +29,8 @@ const CourseEdit = (props) => {
   <Edit title={<CourseTitle />} {...props}>
     <TabbedForm redirect="show">
       <FormTab label="A propos du voyage">
-        <TextInput source="pair:label" label="Nom du voyage" fullWidth />
-        <TextInput source="pair:comment" label="Comment le décririez-vous en une phrase ?" fullWidth />
+        <TextInput source="pair:label" label="Nom du voyage" fullWidth validate={[required()]} />
+        <TextInput source="pair:comment" label="Comment le décririez-vous en une phrase ?" fullWidth validate={[required()]} />
         <ImageInput source="pair:depictedBy" label="Vous pouvez mettre 2 images !" accept="image/*" multiple>
           <ImageField source="src" />
         </ImageInput>
@@ -60,7 +60,7 @@ const CourseEdit = (props) => {
         <TopicsInput source="pair:hasTopic" label="Quels mots-clés choisiriez-vous pour le caractériser ?" /> 
         <FinalitiesInput source="pair:hasFinality" label="A quoi contribue t'il ?" />
         <TargetAudienceInput source="cdlt:hasTargetAudience" label="A qui s'adresse t'il ?" fullWidth/>
-        <ActorsInput source="cdlt:organizedBy" label="Qui sont les organisateur.trice.s (individus et organisations) ?" />
+        <ActorsInput source="cdlt:organizedBy" label="Qui sont les organisateur.trice.s (individus et organisations) ?" validate={[required()]} />
         <MarkdownInput source="cdlt:organizerDescription" label="Vous pouvez les décrire ici" fullWidth />
         <PathsInput source="cdlt:courseOn" label="De quel(s) chemin(s) votre voyage fait-il partie ?" />
         <EventsInput source="pair:hasPart" label="Quelles sont les étapes (événements) constitutives de ce voyage" fullWidth helperText="Vous devez au préalable avoir créé les événements correspondant aux différentes étapes de votre voyage" />       
@@ -79,7 +79,7 @@ const CourseEdit = (props) => {
         <MarkdownInput source="cdlt:practicalConditions" label="Quelles sont les modalités d'accueil ?" fullWidth />
         <NumberInput source="cdlt:minimumCapacity" label="Nombre minimum de participants pour que le voyage ait lieu" fullWidth />
         <NumberInput source="cdlt:maximumCapacity" label="Nombre maximum de participants" fullWidth />
-        <TextInput source="pair:e-mail" fullWidth helperText={translate('app.helper.nonVisible')} validate={[email()]} />
+        <TextInput source="pair:e-mail" fullWidth helperText={translate('app.helper.nonVisible')} validate={[required(), email()]} />
         <TextInput source="pair:phone" fullWidth helperText={translate('app.helper.nonVisible')} />
         <TextInput source="pair:homePage" fullWidth/>
         <MarkdownInput source="cdlt:economicalConditions" label="Quelles sont les conditions financières pour y participer ?" fullWidth />

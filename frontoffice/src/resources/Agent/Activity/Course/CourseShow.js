@@ -164,7 +164,7 @@ const CourseShow = (props) => {
             basePath="/Course"
             logo={PictoParcours}
             title={translate('app.tab.course.title')}
-            subtitle={translate('app.tab.course.subtitle')}
+            subtitle={translate('app.tab.course.subTitle')}
             headComment=""
             linkText={translate('app.tab.course.linkText')}
             CardSubHeaderComponent={CourseSubHeader}

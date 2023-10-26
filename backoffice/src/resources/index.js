@@ -35,6 +35,11 @@ export { default as JobOpportunities } from './Concept/JobOpportunities';
 // Pages
 export { default as Page } from './Page';
 
+// Announces
+export { default as OfferAndNeedFolder } from './OfferAndNeed/OfferAndNeedFolder';
+export { default as OfferAndNeed } from './OfferAndNeed/OfferAndNeed';
+export { default as OfferAndNeedTemplate } from './OfferAndNeed/Template';
+
 // Put this at the end, otherwise it will load as the homepage
 export { default as Agent } from './Agent/Agent';
 export { default as Subject } from './Subject';

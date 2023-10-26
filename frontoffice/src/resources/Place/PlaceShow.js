@@ -103,7 +103,7 @@ const PlaceShow = (props) => {
               </ReferenceArrayField>
             </GroupOfFields>
             <GroupOfFields
-              label={translate('app.input.accommodation')}
+              label={translate('app.tab.accommodation')}
               sources={["cdlt:practicalConditions", "cdlt:maximumCapacity"]}
               addLabel
             >
@@ -139,7 +139,7 @@ const PlaceShow = (props) => {
             basePath="/Place"
             logo={PictoLieu}
             title={translate('app.tab.place.title')}
-            subtitle={translate('app.tab.place.subtitle')}
+            subtitle={translate('app.tab.place.subTitle')}
             headComment=""
             linkText={translate('app.tab.place.linkText')}
             CardSubHeaderComponent={PlaceSubHeader}

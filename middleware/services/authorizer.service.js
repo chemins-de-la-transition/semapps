@@ -21,6 +21,14 @@ module.exports = {
         users: record => record['cdlt:proposedBy']
       },
       {
+        match: { type: 'cdlt:Course' },
+        rights: {
+          read: true,
+          write: true
+        },
+        users: record => record['cdlt:organizedBy']
+      },
+      {
         match: { type: 'pair:Organization' },
         rights: {
           read: true,
@@ -36,7 +44,23 @@ module.exports = {
           control: true
         },
         users: record => record.id || record['@id']
-      }
+      },
+      {
+        match: { type: 'cdlt:OfferAndNeed' },
+        rights: {
+          read: true,
+          write: true
+        },
+        users: record => record['cdlt:proposedBy']
+      },
+      {
+        match: { type: 'cdlt:Alert' },
+        rights: {
+          read: true,
+          write: true
+        },
+        users: record => record['cdlt:proposedBy']
+      },
     ]
   }
 };

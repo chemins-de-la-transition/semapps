@@ -343,7 +343,7 @@ module.exports = {
         inspiredBy: "Inspired by",
       },
       event: {
-        about: "About ",
+        about: "About the event",
         pathway: "Journey Program",
         location: "Location",
         title: "Our journeys",

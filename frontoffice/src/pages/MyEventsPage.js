@@ -23,7 +23,7 @@ const MyEventsPage = () => {
       <FullWidthBox>
         <LargeContainer>
           <ListBase resource="Event" basePath="/Event" filter={{ 'cdlt:organizedBy': identity?.id }}>
-            <CardsList CardComponent={EventCard} link="show" />
+            <CardsList CardComponent={EventCard} link="show" all />
           </ListBase>
         </LargeContainer>
       </FullWidthBox>

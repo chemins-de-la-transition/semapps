@@ -18,5 +18,15 @@
     "type": "pair:PersonType",
     "slug": "traveler",
     "pair:label": "Voyageur"
+  },
+  {
+    "type": "cdlt:OfferAndNeedType",
+    "slug": "need",
+    "pair:label": "Need"
+  },
+  {
+    "type": "cdlt:OfferAndNeedType",
+    "slug": "offer",
+    "pair:label": "Offer"
   }
 ]

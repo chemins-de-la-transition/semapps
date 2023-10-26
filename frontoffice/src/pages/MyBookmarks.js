@@ -10,6 +10,7 @@ import PathCard from '../resources/Idea/Path/PathCard';
 import PlaceCard from '../resources/Place/PlaceCard';
 import EventCard from '../resources/Agent/Activity/Event/EventCard';
 import CourseCard from '../resources/Agent/Activity/Course/CourseCard';
+import OfferAndNeedCard from '../resources/OfferAndNeed/OfferAndNeedCard';
 
 const MyBookmarksPage = () => {
   const { identity } = useCheckAuthenticated();
@@ -57,6 +58,15 @@ const MyBookmarksPage = () => {
                 subtitle={translate('app.bookmark.course')}
                 headComment={translate('app.bookmark.courseHeadComment')}
                 CardComponent={CourseCard}
+              />
+              <LikedList
+                id={identity.id}
+                resource="OfferAndNeed"
+                type="cdlt:OfferAndNeed"
+                title={translate('app.bookmark.title')}
+                subtitle={translate('app.bookmark.offerAndNeed')}
+                headComment={translate('app.bookmark.offerAndNeedHeadComment')}
+                CardComponent={OfferAndNeedCard}
               />
             </Box>
           }
