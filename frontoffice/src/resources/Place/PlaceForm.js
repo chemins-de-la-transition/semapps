@@ -42,14 +42,14 @@ const PlaceForm = ({ mode, record, ...rest }) => {
                 <SkillsInput source="pair:produces" fullWidth />
                 <MarkdownInput source="cdlt:practicalConditions" fullWidth />
                 <NumberInput source="cdlt:maximumCapacity" fullWidth />
-                <ReminderBeforeRecording />
+            {/*    <ReminderBeforeRecording />
             </FormTab>
-            <FormTab label={translate('app.tab.place.link')}>
+            <FormTab label={translate('app.tab.place.link')}>*/}
                 <PersonsInput source="cdlt:proposedBy" fullWidth />
                 <OrganizationsInput source="cdlt:hostsOrganization" />
                 <PathsInput source="cdlt:placeOn" fullWidth />
-            </FormTab>
-            <FormTab label={translate('app.tab.place.contact')}>
+            {/*</FormTab>
+            <FormTab label={translate('app.tab.place.contact')}>*/}
                 <TextInput source="pair:e-mail" validate={[required(), email()]} />
                 <TextInput source="pair:phone" fullWidth helperText={translate('app.helper.nonVisible')} />
                 <TextInput source="cdlt:publicPhone" fullWidth helperText={translate('app.helper.publicPhone')} />
@@ -88,8 +88,8 @@ const PlaceForm = ({ mode, record, ...rest }) => {
                     validate={[required()]}
                     fullWidth
                 />
-            </FormTab>
-            <FormTab label={translate('app.tab.visibility')}>
+            {/*</FormTab>
+            <FormTab label={translate('app.tab.visibility')}>*/}
                 <PublicationStatusInput source="cdlt:hasPublicationStatus" />
             </FormTab>
         </TabbedForm>
