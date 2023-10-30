@@ -131,6 +131,7 @@ const PlaceShow = (props) => {
               dragging={false}
             />
             <UrlField source="pair:homePage" label={translate('app.tab.links')} className={classes.urlField} />
+            <TextField source="pair:e-mail" />
             <TextField source="cdlt:publicPhone" />
             <CommentsField userResource="Person" mentions={mentions} />
           </BodyList>

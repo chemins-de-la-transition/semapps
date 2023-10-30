@@ -50,7 +50,7 @@ const PlaceForm = ({ mode, record, ...rest }) => {
                 <PathsInput source="cdlt:placeOn" fullWidth />
             </FormTab>
             <FormTab label={translate('app.tab.place.contact')}>
-                <TextInput source="pair:e-mail" fullWidth helperText={translate('app.helper.nonVisible')} validate={[required(), email()]} />
+                <TextInput source="pair:e-mail" validate={[required(), email()]} />
                 <TextInput source="pair:phone" fullWidth helperText={translate('app.helper.nonVisible')} />
                 <TextInput source="cdlt:publicPhone" fullWidth helperText={translate('app.helper.publicPhone')} />
                 <TextInput source="pair:homePage" fullWidth helperText={translate('app.helper.publicLink')} />
