@@ -33,20 +33,20 @@ const PlaceForm = ({ mode, record, ...rest }) => {
                     <ImageField source="src" />
                 </ImageInput>
                 <MarkdownInput source="pair:description" fullWidth validate={[required()]} isRequired />
-                <MarkdownInput source="cdlt:hostDescription" fullWidth />
+                {/*<MarkdownInput source="cdlt:hostDescription" fullWidth />
                 <MarkdownInput source="cdlt:activities" fullWidth />
                 <SectorsInput source="pair:hasSector" fullWidth />
                 <TopicsInput source="pair:hasTopic" fullWidth />
                 <FinalitiesInput source="pair:hasFinality" />
-                {/*<TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />*/}
+                <TypesInput source="cdlt:hasCourseType" filter={{ a: 'cdlt:CourseType' }} validate={[required()]} />
                 <SkillsInput source="pair:produces" fullWidth />
                 <MarkdownInput source="cdlt:practicalConditions" fullWidth />
                 <NumberInput source="cdlt:maximumCapacity" fullWidth />
-            {/*    <ReminderBeforeRecording />
+                <ReminderBeforeRecording />
             </FormTab>
             <FormTab label={translate('app.tab.place.link')}>*/}
                 <PersonsInput source="cdlt:proposedBy" fullWidth />
-                <OrganizationsInput source="cdlt:hostsOrganization" />
+            {/*    <OrganizationsInput source="cdlt:hostsOrganization" />*/}
                 <PathsInput source="cdlt:placeOn" fullWidth />
             {/*</FormTab>
             <FormTab label={translate('app.tab.place.contact')}>*/}
