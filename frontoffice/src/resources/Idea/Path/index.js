@@ -56,7 +56,7 @@ export default {
         'pair:description': 'Description',
         'pair:depictedBy': 'Image',
         'pair:produces': "Allows to learn", /*Skill*/
-        'cdlt:proposedBy': 'Proposed by', /*Person*/
+        'cdlt:proposedBy': 'Submitted by', /*Person*/
         'cdlt:supportedBy': 'Partnered with', /*Organization*/
         'cdlt:hasPlace': 'Places', /*Place*/
         'cdlt:hasEvent': 'Events', /*Event*/

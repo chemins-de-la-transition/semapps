@@ -83,7 +83,7 @@ module.exports = {
       nonVisible: "Not visible on the platform",
       publicPhone: "Publicly displayed phone number on the page",
       publicLink: "Link publicly displayed on the page",
-      directRegistration: "If not, travelers will need to contact you directly via a contact form beforehand",
+      directRegistration: "If not, interested people will need to contact you directly via a contact form beforehand",
       practicalConditions: "Specify if equipment is needed, registration procedures, accommodation, meals...",
       accessibility: "Specify the event's accessibility for people with disabilities",
       full: "Check this box if the event is full",

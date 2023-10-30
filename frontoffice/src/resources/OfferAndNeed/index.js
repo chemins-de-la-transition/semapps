@@ -64,7 +64,7 @@ export default {
         'pair:comment': "Summary",
         'pair:description': "Description",
         'pair:depictedBy': 'Image',
-        'cdlt:proposedBy': 'Proposed by',
+        'cdlt:proposedBy': 'Submitted by',
         'cdlt:sponsoredBy': 'Sponsored by',
         'pair:hasType': 'Type',
         'pair:hasStatus': 'Status',

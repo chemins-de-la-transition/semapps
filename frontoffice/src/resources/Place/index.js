@@ -91,7 +91,7 @@ export default {
         'cdlt:practicalConditions': 'Hosting Terms',
         'cdlt:maximumCapacity': 'Maximum Hosting Capacity',
         'pair:hasPostalAddress': 'Location',
-        'cdlt:proposedBy': 'Proposed by',
+        'cdlt:proposedBy': 'Submitted by',
         'pair:e-mail': 'Email Address',
         'pair:phone': 'Phone',
         'cdlt:publicPhone': 'Phone',
