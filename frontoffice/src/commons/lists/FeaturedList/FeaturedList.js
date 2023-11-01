@@ -3,7 +3,7 @@ import { makeStyles, Typography, Box, useMediaQuery } from '@material-ui/core';
 import FullWidthBox from '../../FullWidthBox';
 import LargeContainer from '../../LargeContainer';
 import ChevronRightIcon from '../../../svg/ChevronRightIcon';
-import { ListBase } from 'react-admin';
+import ListBaseWithOnlyPublishedResources from '../ListBaseWithOnlyPublishedResources';
 import { Link } from 'react-router-dom';
 import ItemsGrid from './ItemsGrid';
 import { linkToFilteredList } from "../../../utils";
@@ -139,9 +139,15 @@ const FeaturedList = ({ resource, basePath, title, subtitle, comment, logo, link
           </Box>
         : 
           <Box className={classes.listBase}>
-            <ListBase resource={resource} basePath={basePath} perPage={xs ? 10 : 4} sort={{ field: 'dc:created', order: 'DESC' }} filter={filter ? {[filter.field]:filter.value} : null}>
+            <ListBaseWithOnlyPublishedResources
+              resource={resource}
+              basePath={basePath}
+              perPage={xs ? 10 : 4}
+              sort={{ field: 'dc:created', order: 'DESC' }}
+              filter={filter ? {[filter.field]:filter.value} : null}
+            >
               <ItemsGrid CardSubHeaderComponent={CardSubHeaderComponent} resource={resource}/>
-            </ListBase>
+            </ListBaseWithOnlyPublishedResources>
           </Box>
         }
       </LargeContainer>
