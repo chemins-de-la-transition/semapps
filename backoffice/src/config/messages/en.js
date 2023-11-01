@@ -132,7 +132,7 @@ module.exports = {
         linkText: "View all journeys",
       },
       event: {
-        about: "About ",
+        about: "About the event",
         pathway: "Journey Program",
         location: "Location",
         title: "Our journeys",

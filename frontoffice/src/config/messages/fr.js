@@ -4,6 +4,7 @@ module.exports = {
   app: {
     action: {
       create: "Ajouter",
+      list: "Liste",
       search: "Rechercher",
       newSearch: "Commencez votre recherche",
       contactPlace: "Contacter le lieu",
@@ -38,12 +39,14 @@ module.exports = {
         event: "Événements",
         contact: "Contacter les organisateurs·ices",
         create: "Ajouter un événement",
-        myEvents: "Liste",
         register: "Je m'inscris",
       },
       place: {
         myPlaces: "Mes lieux",
         create: "Ajouter un lieu",
+      },
+      course: {
+        create: "Ajouter un voyage",
       },
       offerAndNeed: {
         contact: "Contacter le rédacteur",
@@ -51,7 +54,7 @@ module.exports = {
         create: "Ajouter une annonce",
       },
       alert: {
-        mine: "Mes alerts",
+        mine: "Mes alertes",
         create: "Ajouter une alerte",
       }
     },
@@ -181,16 +184,6 @@ module.exports = {
     },
     helper: {
       choose: "Choisir...",
-      organization: {
-        email: "Non visible sur la plateforme",
-        phone: "Non visible sur la plateforme",
-        publicPhone: "Numéro public affiché sur la page",
-      },
-      person: {
-        email: "Non visible sur la plateforme",
-        phone: "Non visible sur la plateforme",
-        publicPhone: "Numéro public affiché sur la page",
-      },
       nonVisible: "Non visible sur la plateforme",
       publicPhone: "Numéro public affiché sur la page",
       publicLink: "Lien affiché sur la page",
@@ -201,6 +194,7 @@ module.exports = {
       financialSupport: "Si éligible, précisez les types de financements (CPF, Qualiopi...)",
       connectToAddBookmark: "Connectez-vous pour ajouter une page à vos favoris",
       userCreation: "Si vous créer un utilisateur de type Acteur, il recevra automatiquement une invitation à son adresse mail",
+      courseCreation: "Vous devez au préalable avoir créé les événements correspondant aux différentes étapes de votre voyage."
     },
     message: {
       welcome: "Une université ouverte, nomade et pair à pair autour des enjeux et des métiers de la transition. Pour apprendre en voyageant et partager des connaissances, expériences et savoir-faire liés aux enjeux écologiques, énergétiques, culturels, sociaux, économiques, technologiques et sociétaux de notre temps.",
@@ -348,6 +342,8 @@ module.exports = {
         title: "Nos voyages",
         subtitle: "Similaires",
         linkText: "Voir tous les voyages",
+        learningObjectives: "Objectifs pédagogiques",
+        practicalConditions: "Infos pratiques",
       },
       event: {
         about: "A propos de ",
@@ -395,6 +391,7 @@ module.exports = {
       bookmarks: "Mes favoris",
       places: "Mes lieux",
       events: "Mes événements",
+      courses: "Mes voyages",
       organizations: "Mes organisations",
       reservations: "Mes réservations",
       login: "Se connecter",

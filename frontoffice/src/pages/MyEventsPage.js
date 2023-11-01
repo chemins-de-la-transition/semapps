@@ -8,7 +8,6 @@ import LargeContainer from '../commons/LargeContainer';
 import HeaderTitle from '../commons/HeaderTitle';
 import Button from '../commons/Button';
 
-
 const MyEventsPage = () => {
   const { identity, loading } = useCheckAuthenticated();
   const translate = useTranslate();
@@ -17,8 +16,7 @@ const MyEventsPage = () => {
   if (loading) return null;
   return (
     <>
-      <HeaderTitle actions={actions}>{translate('app.menu.events')}
-</HeaderTitle>
+      <HeaderTitle actions={actions}>{translate('app.menu.events')}</HeaderTitle>
       <br />
       <FullWidthBox>
         <LargeContainer>

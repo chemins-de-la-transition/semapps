@@ -1,5 +1,5 @@
 import React from 'react';
-import { Edit } from 'react-admin';
+import { Edit, useTranslate } from 'react-admin';
 import { usePermissionsWithRefetch } from '@semapps/auth-provider';
 import FullWidthBox from '../../../../commons/FullWidthBox';
 import LargeContainer from '../../../../commons/LargeContainer';
@@ -8,10 +8,10 @@ import EventTitle from './EventTitle';
 import EventForm from './EventForm';
 import Button from '../../../../commons/Button';
 
-const actions = [<Button to="/MyEvents">Liste</Button>];
-
 const EventEdit = (props) => {
   usePermissionsWithRefetch(props.id, 'edit', props.basePath);
+  const translate = useTranslate();
+  const actions = [<Button to="/MyEvents">{translate('app.action.list')}</Button>];
   return (
     <>
       <HeaderTitle actions={actions} />

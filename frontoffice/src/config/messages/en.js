@@ -4,6 +4,7 @@ module.exports = {
   app: {
     action: {
       create: "Add",
+      list: "List",
       search: "Search",
       newSearch: "Start a new search",
       contactPlace: "Contact the place",
@@ -38,12 +39,14 @@ module.exports = {
         event: "Events",
         contact: "Contact the organizers",
         create: "Add an event",
-        myEvents: "List",
         register: "I register",
       },
       place: {
         myPlaces: "My places",
         create: "Add a place",
+      },
+      course: {
+        create: "Add a course",
       },
       offerAndNeed: {
         contact: "Contact the writer",
@@ -181,16 +184,6 @@ module.exports = {
     },
     helper: {
       choose: "Choose...",
-      organization: {
-        email: "Not visible on the platform",
-        phone: "Not visible on the platform",
-        publicPhone: "Public number displayed on the page",
-      },
-      person: {
-        email: "Not visible on the platform",
-        phone: "Not visible on the platform",
-        publicPhone: "Public number displayed on the page",
-      },
       nonVisible: "Not visible on the platform",
       publicPhone: "Publicly displayed phone number on the page",
       publicLink: "Link publicly displayed on the page",
@@ -201,6 +194,7 @@ module.exports = {
       financialSupport: "If eligible, specify the types of funding (CPF, Qualiopi...)",
       connectToAddBookmark: "Connect to add a page to your bookmarks",
       userCreation: "If you create a user of type Actor, they will automatically receive an invitation at their email address.",
+      courseCreation: "You must first have created the events corresponding to the different stages of your trip."
     },
     message: {
       welcome: "An open, nomadic, peer-to-peer university focusing on transition issues and professions. Learn while you travel, and share knowledge, experience and know-how on the ecological, energy, cultural, social, economic, technological and societal issues of our time.",
@@ -342,6 +336,16 @@ module.exports = {
         skills: "Skills",
         inspiredBy: "Inspired by",
       },
+      course: {
+        about: "About the journey",
+        pathway: "Journey program",
+        location: "Location",
+        title: "Our journeys",
+        subTitle: "For more inspiration",
+        linkText: "View all journeys",
+        learningObjectives: "Learning Objectives",
+        practicalConditions: "Practical Information",
+      },
       event: {
         about: "About the event",
         pathway: "Journey Program",
@@ -351,14 +355,6 @@ module.exports = {
         linkText: "See all journeys",
         learningObjectives: "Learning Objectives",
         practicalConditions: "Practical Information",
-      },
-      course: {
-        about: "About the journey",
-        pathway: "Journey program",
-        location: "Location",
-        title: "Our journeys",
-        subTitle: "For more inspiration",
-        linkText: "View all journeys",
       },
       place: {
         about: "About the place",
@@ -396,6 +392,7 @@ module.exports = {
       bookmarks: "My bookmarks",
       places: "My Places",
       events: "My Events",
+      courses: "My Courses",
       organizations: "My Organizations",
       reservations: "My Bookings",
       login: "Login",

@@ -37,7 +37,7 @@ const OfferAndNeedDetails = (props) => {
             </ReferenceArrayField>
           }
           { ( !isVertical || sm ) && 
-            <ReferenceField label="Région" reference="Region" source="cdlt:hasRegion" icon={<OfferAndNeedIcon />} link={linkToFilteredList('LEP', 'cdlt:hasRegion')}>
+            <ReferenceField reference="Region" source="cdlt:hasRegion" icon={<OfferAndNeedIcon />} link={linkToFilteredList('LEP', 'cdlt:hasRegion')}>
               <TextField source="pair:label" />
             </ReferenceField>
           }

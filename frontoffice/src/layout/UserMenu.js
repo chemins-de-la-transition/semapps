@@ -49,9 +49,18 @@ const MyEventsMenu = forwardRef(({ onClick }, ref) => {
   );
 });
 
-const MyCoursesMenu = forwardRef(({ onClick }, ref) => (
-  <MenuItemLink ref={ref} to="/MyCourses" primaryText="Mes voyages" leftIcon={<CourseIcon />} onClick={onClick} />
-));
+const MyCoursesMenu = forwardRef(({ onClick }, ref) => {
+  const translate = useTranslate();
+  return (
+    <MenuItemLink
+      ref={ref}
+      to="/MyCourses"
+      primaryText={translate('app.menu.courses')}
+      leftIcon={<CourseIcon />}
+      onClick={onClick}
+    />
+  );
+})
 
 const MyOrganizationsMenu = forwardRef(({ onClick }, ref) => {
   const translate = useTranslate();

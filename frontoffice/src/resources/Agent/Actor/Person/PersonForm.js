@@ -40,7 +40,7 @@ const PersonForm = ({ ...rest }) => {
       <SkillsInput source="pair:offers" label={translate('app.input.person.offers')} />
       <SkillsInput source="pair:aims" label={translate('app.input.person.aims')} fullWidth />
       <FinalitiesInput source="pair:hasFinality" label={translate('app.input.person.hasFinality')} />
-      <TextInput source="pair:phone" label={translate('app.input.person.phone')} fullWidth helperText={translate('app.helper.person.phone')} />
+      <TextInput source="pair:phone" label={translate('app.input.person.phone')} fullWidth helperText={translate('app.helper.nonVisible')} />
       <PairLocationInput source="pair:hasLocation" label={translate('app.input.person.hasLocation')} fullWidth />
       <ReminderBeforeRecording />
     </FormTab>

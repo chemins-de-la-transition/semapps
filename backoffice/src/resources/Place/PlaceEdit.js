@@ -55,7 +55,7 @@ export const PlaceEdit = (props) => {
         <TextInput source="cdlt:publicPhone" fullWidth helperText={translate('app.helper.publicPhone')} />
         <TextInput source="pair:homePage" fullWidth helperText="Lien affiché sur la page"/>        
         <RegistrationInput 
-          directRegistrationSource="cdlt:directRegistration" helperText="Si non, les voyageurs devront vous écrire via un formulaire de contact au préalable"
+          directRegistrationSource="cdlt:directRegistration" helperText={translate('app.helper.directRegistration')}
           registrationOptionSource="cdlt:registrationOption"
           jotformLinkSource="cdlt:jotformLink"
           registrationLinkSource="cdlt:registrationLink"          

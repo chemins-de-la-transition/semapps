@@ -14,8 +14,7 @@ const EventCreate = (props) => {
   const createContainerUri = useCreateContainer(props.resource);
   useCheckPermissions(createContainerUri, 'create');
   const translate = useTranslate();
-  const actions = [<Button to="/MyEvents">{translate('app.action.event.myEvents')}</Button>];
-
+  const actions = [<Button to="/MyEvents">{translate('app.action.list')}</Button>];
   return (
     <>
       <HeaderTitle actions={actions}>{translate('app.action.event.create')}</HeaderTitle>

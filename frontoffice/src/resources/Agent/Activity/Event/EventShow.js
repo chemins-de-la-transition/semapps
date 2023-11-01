@@ -47,7 +47,7 @@ const EventShow = (props) => {
             alert={<EventAlert />}
           >
             <GroupOfFields
-              title={translate('app.event.about')}
+              title={translate('app.tab.event.about')}
               sources={["pair:comment","pair:description","cdlt:program","pair:hasTopic","pair:hasFinality"]}
               addLabel
               noBorder

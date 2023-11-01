@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChipField, ShowBase, SingleFieldList, TextField, UrlField } from 'react-admin';
+import { ChipField, ShowBase, SingleFieldList, TextField, UrlField, useTranslate } from 'react-admin';
 import { ThemeProvider, Box } from '@material-ui/core';
 import resourceTheme from '../../config/themes/resourceTheme';
 import resourceShowStyle from '../../commons/style/resourceShowStyle';
@@ -19,6 +19,7 @@ const useStyles = resourceShowStyle;
 
 const OfferAndNeedShow = (props) => {
   const classes = useStyles();
+  const translate = useTranslate();
   return (
     <ThemeProvider theme={resourceTheme}>
       <ShowBase {...props}>
@@ -26,12 +27,12 @@ const OfferAndNeedShow = (props) => {
           <HeaderShow
             type="pair:hasType"
             details={<OfferAndNeedDetails />}
-            actionButton={<ContactButton label="Contacter le rédacteur" />}
+            actionButton={<ContactButton label={translate('app.action.offerAndNeed.contact')} />}
           />
           <BodyList
             aside={
               <StickyCard
-                actionButton={<ContactButton label="Contacter le rédacteur" />}
+                actionButton={<ContactButton label={translate('app.action.offerAndNeed.contact')} />}
               >
                 <OfferAndNeedDetails orientation="vertical" />
               </StickyCard>
@@ -70,7 +71,7 @@ const OfferAndNeedShow = (props) => {
               scrollWheelZoom={false}
               dragging={false}
             />
-            <UrlField source="pair:homePage" label="Liens" className={classes.urlField} />
+            <UrlField source="pair:homePage" className={classes.urlField} />
           </BodyList>
         </Box>
       </ShowBase>

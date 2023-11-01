@@ -50,9 +50,9 @@ const OrganizationForm = ({ record, ...rest }) => {
       </FormTab>
       <FormTab label={translate('app.tab.organization.contact')}>
         <MultiLinesInput source="pair:homePage" fullWidth />
-        <TextInput source="pair:e-mail" fullWidth helperText={translate('app.helper.organization.email')} validate={[email()]} />
-        <TextInput source="pair:phone" fullWidth helperText={translate('app.helper.organization.phone')} />
-        <TextInput source="cdlt:publicPhone" fullWidth helperText={translate('app.helper.organization.publicPhone')} />
+        <TextInput source="pair:e-mail" fullWidth helperText={translate('app.helper.nonVisible')} validate={[email()]} />
+        <TextInput source="pair:phone" fullWidth helperText={translate('app.helper.nonVisible')} />
+        <TextInput source="cdlt:publicPhone" fullWidth helperText={translate('app.helper.publicPhone')} />
       </FormTab>
       <FormTab label={translate('app.tab.organization.visibility')}>
         <PublicationStatusInput source="cdlt:hasPublicationStatus" />

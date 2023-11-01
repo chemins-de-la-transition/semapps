@@ -32,8 +32,8 @@ export const OfferAndNeedEdit = (props) => (
         <PairLocationInput source="pair:hasLocation" fullWidth />
       </FormTab>
       <FormTab label="Contact">
-        <TextInput source="pair:e-mail" fullWidth helperText="Non visible sur la plateforme" validate={[required(), email()]} />  
-        <TextInput source="pair:phone" fullWidth helperText="Non visible sur la plateforme" />
+        <TextInput source="pair:e-mail" fullWidth helperText={translate('app.helper.nonVisible')} validate={[required(), email()]} />  
+        <TextInput source="pair:phone" fullWidth helperText={translate('app.helper.nonVisible')} />
         <TextInput source="pair:homePage" fullWidth helperText="Lien affiché sur la page"/>        
       </FormTab>
     </TabbedForm>
