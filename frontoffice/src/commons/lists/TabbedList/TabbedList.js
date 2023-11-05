@@ -1,5 +1,4 @@
 import React from 'react';
-import { ListBase } from 'react-admin';
 import TabbedListView from "./TabbedListView";
 import ListBaseWithOnlyPublishedResources from '../ListBaseWithOnlyPublishedResources';
 
