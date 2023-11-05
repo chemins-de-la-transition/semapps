@@ -1,5 +1,6 @@
 import React from 'react';
-import { ChipField, ShowBase, SingleFieldList, TextField, UrlField, useTranslate } from 'react-admin';
+import { ChipField, SingleFieldList, TextField, UrlField, useTranslate } from 'react-admin';
+import ShowBaseOnlyIfPublished from '../../commons/ShowBaseOnlyIfPublished';
 import { ThemeProvider, Box } from '@material-ui/core';
 import resourceTheme from '../../config/themes/resourceTheme';
 import resourceShowStyle from '../../commons/style/resourceShowStyle';
@@ -22,7 +23,7 @@ const OfferAndNeedShow = (props) => {
   const translate = useTranslate();
   return (
     <ThemeProvider theme={resourceTheme}>
-      <ShowBase {...props}>
+      <ShowBaseOnlyIfPublished {...props}>
         <Box className={classes.mainContainer}>
           <HeaderShow
             type="pair:hasType"
@@ -74,7 +75,7 @@ const OfferAndNeedShow = (props) => {
             <UrlField source="pair:homePage" className={classes.urlField} />
           </BodyList>
         </Box>
-      </ShowBase>
+      </ShowBaseOnlyIfPublished>
     </ThemeProvider>
   );
 };

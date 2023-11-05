@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ChipField, ShowBase, SingleFieldList, TextField, useTranslate} from 'react-admin';
+import { ChipField, SingleFieldList, TextField, useTranslate} from 'react-admin';
+import ShowBaseOnlyIfPublished from '../../../commons/ShowBaseOnlyIfPublished';
 import { ThemeProvider } from '@material-ui/core';
 import resourceTheme from '../../../config/themes/resourceTheme';
 import resourceShowStyle from '../../../commons/style/resourceShowStyle';
@@ -33,7 +34,7 @@ const PathShow = (props) => {
 
   return (
     <ThemeProvider theme={resourceTheme}>
-      <ShowBase {...props}>
+      <ShowBaseOnlyIfPublished {...props}>
         <Box className={classes.mainContainer}>
           <HeaderShow
             type="pair:hasType"
@@ -121,7 +122,7 @@ const PathShow = (props) => {
           <br />
           <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
         </Box>
-      </ShowBase>
+      </ShowBaseOnlyIfPublished>
     </ThemeProvider>
   );
 };
