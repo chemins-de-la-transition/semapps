@@ -24,7 +24,6 @@ const EventList = (props) => {
 
   return (
     <MultiViewsFilterList
-      filter= {{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}
       filters={[
         <SearchFilter />,
         <SparqlFilter checked={checked} setChecked={setChecked} sparqlWhere={futureEventSparql} label={translate('app.card.event.onlyFutureEvents')} />,

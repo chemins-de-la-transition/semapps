@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react' ;
 import { makeStyles, Box, useMediaQuery } from '@material-ui/core';
-import { ListBase } from 'react-admin';
+import ListBaseWithOnlyPublishedResources from '../ListBaseWithOnlyPublishedResources';
 import EventItemsGrid from './EventItemsGrid';
 import AgendaFilter from './AgendaFilter';
 import useFutureEventSparql from "../../../hooks/useFutureEventSparql";
@@ -43,7 +43,7 @@ const NextEvents = ({ similarRecord }) => {
         setRegion={setRegion}
       />
       <Box className={classes.eventsBox}>
-      <ListBase
+      <ListBaseWithOnlyPublishedResources
         resource="Event"
         basePath="/Event"
         className={classes.eventListBase}
@@ -53,7 +53,7 @@ const NextEvents = ({ similarRecord }) => {
         sort={{ field: 'pair:startDate', order: 'ASC' }}
       >
         <EventItemsGrid similarRecord={similarRecord}/>
-      </ListBase>
+      </ListBaseWithOnlyPublishedResources>
       </Box>
     </>
   );

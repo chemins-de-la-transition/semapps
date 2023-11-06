@@ -15,7 +15,6 @@ const PlaceList = (props) => {
   const translate = useTranslate();
   return (
     <MultiViewsFilterList
-      filter= {{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}
       filters={[
         <SearchFilter />,
         <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label={translate('app.input.region')} />,

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ChipField, ShowBase, SingleFieldList, TextField, useTranslate } from 'react-admin';
+import { ChipField, SingleFieldList, TextField, useTranslate } from 'react-admin';
+import ShowBaseOnlyIfPublished from '../../../../commons/ShowBaseOnlyIfPublished';
 import { ThemeProvider } from '@material-ui/core';
 import resourceTheme from '../../../../config/themes/resourceTheme';
 import resourceShowStyle from '../../../../commons/style/resourceShowStyle';
@@ -30,7 +31,7 @@ const EventShow = (props) => {
   const translate = useTranslate();
   return (
     <ThemeProvider theme={resourceTheme}>
-      <ShowBase {...props}>
+      <ShowBaseOnlyIfPublished {...props}>
         <Box className={classes.mainContainer}>
           <HeaderShow
             details={<EventDetails />}
@@ -153,7 +154,7 @@ const EventShow = (props) => {
           <br />
           <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
         </Box>
-      </ShowBase>
+      </ShowBaseOnlyIfPublished>
     </ThemeProvider>
   );
 };

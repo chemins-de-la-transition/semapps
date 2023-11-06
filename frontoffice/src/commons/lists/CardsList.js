@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useListContext, Loading, linkToRecord, Link } from 'react-admin';
 import { Box, Card, CardMedia, CardContent, makeStyles } from '@material-ui/core';
 import LikeButton from "../buttons/LikeButton";
+import { PUBLISHED_STATUS } from '../../config/constants';
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -56,7 +57,7 @@ const CardsList = ({ CardComponent, link, hasLike, external, onlyFutureEvents, a
   ) : (
     ids.map((id) => {
       if (!data[id] || data[id]['_error']) return null;
-      if (!all && data[id]?.['cdlt:hasPublicationStatus'] !== process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide') return null;
+      if (!all && data[id]?.['cdlt:hasPublicationStatus'] !== PUBLISHED_STATUS) return null;
       if (onlyFutureEvents && data[id]?.['pair:startDate']<(new Date()).toISOString()) return null;
       const image = data[id]?.['pair:depictedBy'];
       const card =

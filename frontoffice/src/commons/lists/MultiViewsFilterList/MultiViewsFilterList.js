@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { ListBase } from 'react-admin';
+import ListBaseWithOnlyPublishedResources from '../ListBaseWithOnlyPublishedResources';
 import { useLocation } from 'react-router';
 import MultiViewsFilterListView from "./MultiViewsFilterListView";
 
@@ -11,14 +11,14 @@ const MultiViewsFilterList = ({ views, filters, clearFilters, ...rest }) => {
   const [currentView, setView] = useState(initialView);
 
   return(
-    <ListBase
+    <ListBaseWithOnlyPublishedResources
       perPage={views[initialView].perPage}
       filterDefaultValues={views[initialView].filterDefaultValues}
       sort={views[initialView].sort}
       {...rest}
     >
       <MultiViewsFilterListView views={views} filters={filters} currentView={currentView} setView={setView} clearFilters={clearFilters}/>
-    </ListBase>
+    </ListBaseWithOnlyPublishedResources>
   )
 };
 

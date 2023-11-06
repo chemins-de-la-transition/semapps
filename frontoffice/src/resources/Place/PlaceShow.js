@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ChipField, ShowBase, SingleFieldList, TextField, UrlField, useTranslate } from 'react-admin';
+import { ChipField, SingleFieldList, TextField, UrlField, useTranslate } from 'react-admin';
+import ShowBaseOnlyIfPublished from '../../commons/ShowBaseOnlyIfPublished';
 import { ThemeProvider, Checkbox, FormGroup, FormControlLabel, Box, Typography } from '@material-ui/core';
 import resourceTheme from '../../config/themes/resourceTheme';
 import resourceShowStyle from '../../commons/style/resourceShowStyle';
@@ -34,7 +35,7 @@ const PlaceShow = (props) => {
   const classes = useStyles();
   return (
     <ThemeProvider theme={resourceTheme}>
-      <ShowBase {...props}>
+      <ShowBaseOnlyIfPublished {...props}>
         <Box className={classes.mainContainer}>
           <HeaderShow
             type="pair:hasType"
@@ -148,7 +149,7 @@ const PlaceShow = (props) => {
           <br />
           <ContactDialog open={showDialog} onClose={() => setShowDialog(false)} />
         </Box>
-      </ShowBase>
+      </ShowBaseOnlyIfPublished>
     </ThemeProvider>
   );
 };

@@ -3,7 +3,8 @@ import { makeStyles, Typography, Box } from '@material-ui/core';
 import FullWidthBox from '../../FullWidthBox';
 import LargeContainer from '../../LargeContainer';
 import ChevronRightIcon from '../../../svg/ChevronRightIcon';
-import {ListBase, useShowContext} from 'react-admin';
+import {useShowContext} from 'react-admin';
+import ListBaseWithOnlyPublishedResources from '../ListBaseWithOnlyPublishedResources';
 import { Link } from 'react-router-dom';
 import ItemsGrid from './ItemsGrid';
 
@@ -92,9 +93,12 @@ const SimilarList = ({ resource, basePath, title, subtitle, logo, headComment, l
           </Link>
         </Box>
         <Box className={classes.listBase}>
-          <ListBase resource={resource} basePath={basePath}>
+          <ListBaseWithOnlyPublishedResources
+            resource={resource}
+            basePath={basePath}
+          >
             <ItemsGrid similarRecord={record} CardSubHeaderComponent={CardSubHeaderComponent} />
-          </ListBase>
+          </ListBaseWithOnlyPublishedResources>
         </Box>
       </LargeContainer>
     </FullWidthBox>

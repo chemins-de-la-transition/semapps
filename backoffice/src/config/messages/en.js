@@ -8,6 +8,8 @@ module.exports = {
       mapView: "map",
       publish: "publish",
       unpublish: "unpublish",
+      published: "La ressource a été publiée",
+      unpublished: "La ressource a été dépubliée",
     },
     page: {},
     card: {},
