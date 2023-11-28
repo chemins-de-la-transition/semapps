@@ -1,21 +1,22 @@
 import { useEffect } from 'react';
-import { useRecordContext, useNotify, useRedirect } from 'react-admin';
+import { useRecordContext, useNotify, useGetIdentity, useRedirect } from 'react-admin';
 import { PUBLISHED_STATUS } from '../config/constants';
 
 const RedirectIfUnpublished = ({setIsPublished}) => {
+  const { identity } = useGetIdentity();
   const record = useRecordContext();
   const redirect = useRedirect();
   const notify = useNotify();
   useEffect(() => {
-    if (record) {
-      if (record['cdlt:hasPublicationStatus'] !== PUBLISHED_STATUS) {
+    if (record && identity) {
+      if (record['cdlt:hasPublicationStatus'] !== PUBLISHED_STATUS && record['dc:creator'] !== identity.id) {
         notify('auth.message.resource_show_forbidden' , { type: 'error' });
         redirect('/');
       } else {
         setIsPublished(true);
       }
     }
-  }, [record, notify, redirect, setIsPublished]);
+  }, [record, identity, notify, redirect, setIsPublished]);
   return;
 };
 
