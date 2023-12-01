@@ -111,7 +111,7 @@ module.exports = {
     },
     input: {
       courseType: "Mode de voyage",
-      sector: "Secteur d'activité",
+      sector: "Centres d'intérêts",
       topic: "Mot clé",
       region: "Région(s)",
       TargetAudience: "Public cible",
@@ -255,10 +255,10 @@ module.exports = {
         mentoring: "Compagnonnage",
         mentoringSubtext: "Inscrivez-vous à des formations itinérantes, certifiées et qualifiantes en immersion auprès d'acteurs experts dans leur domaine.",
         mentoringSubtextAbout: "Je décide de me lancer pour me former à une pratique. Vous serez en immersion longue au sein d'un lieu et suivrez des modules théoriques pour une validation d'acquis.",
-        courseDiscovery: "Voyage découverte",
-        courseLearning: "Voyage apprenant",
-        courseImmersion: "Voyage immersif",
-        courseMentoring: "Compagnonnage",
+        courseDiscovery: "Excursions (quelques jours sur chaque lieu)",
+        courseLearning: "Expéditions collectives (voyages apprenants sur quelques jours)",
+        courseImmersion: "Immersions (quelques semaines sur chaque lieu)",
+        courseMentoring: "Compagnonnage (formations itinérantes sur plusieurs mois)",
       },
       partners: {
         withTheSupport: "Avec le soutien de",
