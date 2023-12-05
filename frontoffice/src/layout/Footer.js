@@ -2,7 +2,7 @@ import React from 'react';
 import { IconButton, useMediaQuery, makeStyles, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import Button from '../commons/Button';
-import { useTranslate } from 'react-admin';
+import { SimpleForm, useTranslate } from 'react-admin';
 
 import {
   Facebook as FacebookIcon,
@@ -13,7 +13,7 @@ import {
 const useStyles = makeStyles((theme) => ({
   bloc: {
     display: 'flex',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       display: 'block',
     },
   },
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     height: 125,
     top: 40,
     position: 'relative',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       width: '40%',
       height: '40%',
     },
@@ -48,14 +48,14 @@ const useStyles = makeStyles((theme) => ({
     height: 1,
     backgroundColor: theme.palette.white.main,
     marginTop: 30,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       placeSelf: 'center',
     },
   },
   button: {
     marginTop: 40,
     width: 215,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       placeSelf: 'center',
     },
   },
@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       fontSize: 20,
     },
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       fontSize: 20,
     },
   },
@@ -80,8 +80,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main, 
     color: theme.palette.secondary.contrastText,
     width: '100%',
-    [theme.breakpoints.down('xs')]: {
-      paddingBottom: 50,
+    [theme.breakpoints.down('sm')]: {
+      paddingBottom: 80,
     },
   }
 }));
@@ -90,36 +90,36 @@ const useStyles = makeStyles((theme) => ({
 
 const Footer = () => {
   const classes = useStyles();
-  const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
+  const sm = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   const translate = useTranslate();
 
   const LinkBloc = () => {
     return (
       <div className={classes.footer2}>
           <div className={classes.footerContent1}>
-            <Typography variant="h3" align={xs ? "center" : undefined} className={classes.size}>
+            <Typography variant="h3" align={SimpleForm ? "center" : undefined} className={classes.size}>
             {translate('app.message.footer.usefulLinks')}
             </Typography>
-            <Link variant="body2" to="/About" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to="/About" align={sm ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.about')}
             </Link>
-            <Link variant="body2" to={{ pathname: "https://forums.lescheminsdelatransition.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to={{ pathname: "https://forums.lescheminsdelatransition.org/" }} target="_blank" align={sm ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.forum')}
             </Link>
-            <Link variant="body2" to={{ pathname: "https://projet.lescheminsdelatransition.org/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to={{ pathname: "https://projet.lescheminsdelatransition.org/" }} target="_blank" align={sm ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.website')}
             </Link>
-            <Link variant="body2" to="/Page/contact/show" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to="/Page/contact/show" align={sm ? "center" : undefined} className={classes.textLinks}>
               Contact
             </Link>
             <div className={classes.textBar} />
-            <Link variant="body2" to="/Page/charte-des-chemins-de-la-transition/show" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to="/Page/charte-des-chemins-de-la-transition/show" align={sm ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.codeOfConduct')}
             </Link>
-            <Link variant="body2" to="/Page/mentions-legales/show" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to="/Page/mentions-legales/show" align={sm ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.legalNotice')}
             </Link>
-            <Link variant="body2" to="/Page/rgpd/show" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to="/Page/rgpd/show" align={sm ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.dataPolicy')} 
             </Link>
           </div>
@@ -172,13 +172,13 @@ const Footer = () => {
     return (
       <div className={classes.footer3}>
           <div className={classes.footerContent1}>
-            <Typography variant="h3" align={xs ? "center" : undefined} className={classes.size}>
+            <Typography variant="h3" align={sm ? "center" : undefined} className={classes.size}>
             {translate('app.message.footer.join')}
             </Typography>
-            <Typography variant="body2" align={xs ? "center" : undefined}>
+            <Typography variant="body2" align={sm ? "center" : undefined}>
             {translate('app.message.footer.joinSubText1')}
             </Typography>
-            <Typography variant="body2" align={xs ? "center" : undefined}>
+            <Typography variant="body2" align={sm ? "center" : undefined}>
             {translate('app.message.footer.joinSubText2')}
             </Typography>
             <Button to={{ pathname: "https://forums.lescheminsdelatransition.org/"}} target="_blank" variant="contained" color="secondary" component={Link} typographyVariant="button1" className={classes.button}>

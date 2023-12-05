@@ -24,12 +24,30 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.contrastText
   },
   container: {
-    marginTop: 25,
-    marginBottom: 10,
+    margin: 0,
+    padding: '25px 2rem 10px',
+    [theme.breakpoints.down('sm')]: {
+      padding: '25px 1rem 10px',
+      display: 'flex',
+      flexDirection: 'column'
+    },
+  },
+  innerContainer: {
+    position: 'relative',   
+    marginTop: 10,
+    [theme.breakpoints.down('xs')]: {
+      marginTop: 15,
+    }
   },
   title: {
     fontSize: 40,
     lineHeight: 1.15,
+    paddingRight: 100,
+    display: 'block',
+    [theme.breakpoints.down('xs')]: {
+      marginTop: 50,
+      paddingRight: 0,
+    }
   },
   iconsContainer: {
     paddingTop: 16,
@@ -77,6 +95,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MultipleImagesField = ({ source, max = 2 }) => {
   const classes = useStyles();
+  const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'));
   const record = useRecordContext();
   const [imageWidth, setImageWidth] = useState(0);
 
@@ -98,7 +117,17 @@ const MultipleImagesField = ({ source, max = 2 }) => {
     )
   } else {
     return(
-      <img src={record[source]} onLoad={onImgLoad} className={(imageWidth > 1000) ? classes.fullWidth : (imageWidth < 400) ? classes.leftImage :''} alt={record['pair:label']} />
+      <img
+        src={record[source]}
+        onLoad={onImgLoad}
+        className={
+          (imageWidth > 1000 || xs)
+            ? classes.fullWidth
+            : (imageWidth < 400)
+              ? classes.leftImage
+              :''}
+        alt={record['pair:label']}
+      />
     )
   }
 };
@@ -123,13 +152,11 @@ const HeaderShow = ({ details, content, actionButton, hasComment, variant }) => 
         <Box className={classes.images}>
           <MultipleImagesField source="pair:depictedBy" max={2} />
         </Box>
-        <Box position="relative">
-          {!xs &&
-            <div className={classes.buttons}>
-              <EditButton />
-              <LikeButton />
-            </div>
-          }
+        <Box className={classes.innerContainer}>
+          <div className={classes.buttons}>
+            <EditButton />
+            <LikeButton />
+          </div>
           <TextField source="pair:label" variant="h1" className={classes.title} />
           {hasComment &&
             <TextField source="pair:comment" variant="h2" component="h2" />
