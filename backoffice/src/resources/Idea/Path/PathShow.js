@@ -13,7 +13,7 @@ const PathShow = (props) => (
   <Show title={<PathTitle />} {...props}>
     <Grid container spacing={5}>
       <Grid item xs={12} sm={9}>
-        <Hero>
+        <Hero image="pair:depictedBy">
           <TextField source="pair:comment" />
           <ReferenceArrayField source="cdlt:hasCourseType" reference="Type">
             <SeparatedListField link={false}>
