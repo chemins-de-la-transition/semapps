@@ -1,10 +1,11 @@
 import React from 'react';
 import resourceDetailsStyle from '../../commons/style/resourceDetailsStyle';
-import { TextField,useListContext, Link, linkToRecord } from 'react-admin';
+import { TextField } from 'react-admin';
 import { Box, useMediaQuery } from '@material-ui/core';
 import { SeparatedListField, ReferenceField, ReferenceArrayField } from '@semapps/field-components';
 import { linkToFilteredList } from "../../utils";
 import IconsList from '../../commons/lists/IconsList';
+import OnlyFutureEventLinks from '../../commons/lists/EventsList/OnlyFutureEventLinks';
 import TopicIcon from '../../svg/TopicIcon';
 import CourseIcon from '../../svg/CourseIcon';
 import PathIcon from '../../svg/PathIcon';
@@ -15,18 +16,6 @@ import GuardianIcon from '../../svg/GuardianIcon';
 import CalendarIcon from '../../svg/CalendarIcon';
 
 const useStyles = resourceDetailsStyle;
-
-const FilteredEvents = () => {
-  const { ids, data, basePath } = useListContext();
-  const futureEvents = ids.filter((id) => data[id] && (data[id]?.['pair:startDate']>(new Date()).toISOString()) )
-  return (
-    futureEvents.slice(0,5).map((id) =>
-      <Link to={linkToRecord(basePath, id, "show")} key={id}>
-        <TextField record={data[id]} source="pair:label" />
-      </Link>
-    )
-  )
-};
 
 const PlaceDetails = (props) => { 
   const { orientation } = props;
@@ -94,7 +83,7 @@ const PlaceDetails = (props) => {
           }
           { (isVertical || sm ) && 
             <ReferenceArrayField source="pair:hosts" reference="Event" icon={<CalendarIcon />} filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}>
-              <FilteredEvents />
+              <OnlyFutureEventLinks />
             </ReferenceArrayField>
           }
         </IconsList>

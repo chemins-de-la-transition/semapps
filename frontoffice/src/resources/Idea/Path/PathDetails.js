@@ -5,6 +5,7 @@ import { Box, useMediaQuery } from '@material-ui/core';
 import { SeparatedListField, ReferenceArrayField } from '@semapps/field-components';
 import { linkToFilteredList } from "../../../utils";
 import IconsList from '../../../commons/lists/IconsList';
+import OnlyFutureEventLinks from '../../../commons/lists/EventsList/OnlyFutureEventLinks';
 import TopicIcon from '../../../svg/TopicIcon';
 import CourseIcon from '../../../svg/CourseIcon';
 import PlaceIcon from '../../../svg/PlaceIcon';
@@ -61,9 +62,7 @@ const PathDetails = (props) => {
         }
         { (isVertical || sm ) && 
           <ReferenceArrayField reference="Event" source="cdlt:hasEvent" icon={<CalendarIcon />} filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}>
-            <SeparatedListField link="show" separator={separator}>
-              <TextField source="pair:label" />
-            </SeparatedListField>
+            <OnlyFutureEventLinks />
           </ReferenceArrayField>
         }
         { (isVertical || sm ) && 
