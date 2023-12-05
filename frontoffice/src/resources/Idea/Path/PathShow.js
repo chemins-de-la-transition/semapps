@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { ChipField, SingleFieldList, TextField, useTranslate} from 'react-admin';
 import ShowBaseOnlyIfPublished from '../../../commons/ShowBaseOnlyIfPublished';
-import { ThemeProvider } from '@material-ui/core';
+import { ThemeProvider, Checkbox, FormGroup, FormControlLabel, Box, Typography } from '@material-ui/core';
 import resourceTheme from '../../../config/themes/resourceTheme';
 import resourceShowStyle from '../../../commons/style/resourceShowStyle';
 import { SeparatedListField, ReferenceArrayField } from '@semapps/field-components';
-import { Box } from '@material-ui/core';
 import { CommentsField, useMentions } from '@semapps/activitypub-components';
 import MarkdownField from '../../../commons/fields/MarkdownField';
 import HeaderShow from '../../../commons/HeaderShow';
@@ -28,6 +27,7 @@ const useStyles = resourceShowStyle;
 
 const PathShow = (props) => {
   const [showDialog, setShowDialog] = useState(false);
+  const [onlyFutureEvents, setOnlyFutureEvents] = useState(true);
   const mentions = useMentions('Person');
   const classes = useStyles();
   const translate = useTranslate();
@@ -38,7 +38,7 @@ const PathShow = (props) => {
         <Box className={classes.mainContainer}>
           <HeaderShow
             type="pair:hasType"
-            details={<PathDetails />}
+            details={<PathDetails onlyFutureEvents={onlyFutureEvents} />}
             actionButton={<ContactButton label={translate('app.action.contactPathOrganizer')} />}
           />
           <BodyList
@@ -103,9 +103,15 @@ const PathShow = (props) => {
                 <CardsList CardComponent={PlaceCard} />
               </Box>
             </ReferenceArrayField>
-            <ReferenceArrayField source="cdlt:hasEvent" reference="Event" className={classes.cardsList} label={translate('app.tab.path.event')}>
+            <ReferenceArrayField source="cdlt:hasEvent" reference="Event" sort={{ field: 'pair:startDate', order: 'ASC' }} className={classes.cardsList} label={translate('app.tab.path.event')}>
               <Box pt={1}>
-                <CardsList CardComponent={EventCard} />
+                <Typography variant="body2" component="div">
+                  {translate('app.message.moreEvents')}
+                  <FormGroup >
+                    <FormControlLabel control={<Checkbox checked={onlyFutureEvents} />} label={"N'afficher que les événements à venir"} onChange={() => setOnlyFutureEvents(!onlyFutureEvents)} />
+                  </FormGroup>
+                </Typography>
+                <CardsList onlyFutureEvents={onlyFutureEvents} CardComponent={EventCard} />
               </Box>
             </ReferenceArrayField>
             <ReferenceArrayField source="cdlt:hasCourse" reference="Course" className={classes.cardsList} label={translate('app.tab.path.course')}>
