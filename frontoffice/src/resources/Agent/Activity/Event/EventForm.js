@@ -118,6 +118,8 @@ const EventForm = ({ mode, record, ...rest }) => {
         if ( ! [
           'cdlt:organizedBy',
           'pair:label',
+          'likes',
+          'replies'
         ].includes(property)) {
           formatedEvent = { ...formatedEvent, [property]: chosenEvent[property] };
         }
