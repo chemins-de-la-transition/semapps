@@ -360,7 +360,7 @@ module.exports = {
         link: "En lien avec le lieu",
         contact: "Contact",
         title: "Les lieux",
-        subtitle: "Similaires",
+        subTitle: "Similaire",
         linkText: "Voir tous les lieux"
       },
       offerAndNeed: {
