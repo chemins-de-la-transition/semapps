@@ -40,15 +40,19 @@ const TimelineList = () => {
     <Box className={classes.root}>
       {ids.map((id) => {
         if( !data[id] || data[id]['_error'] ) return null;
+        let informedStartdate = data[id]['startDate'];
+        console.log(informedStartdate);
         return (
           <Box position="relative" className={classes.event}>
             <Icon className={classes.roundIcon} color="secondary">
               <RoundIcon />
             </Icon>
             <RecordContextProvider value={data[id]} key={id}>
-              <p>
-                <DateToDateField startDate="pair:startDate" endDate="pair:endDate" variant="subtitle1" color="primary" />
-              </p>
+              {data[id]['pair:startDate'] !== undefined &&
+                <p>
+                  <DateToDateField startDate="pair:startDate" endDate="pair:endDate" variant="subtitle1" color="primary" />
+                </p>
+              }
               <Link to={linkToRecord(basePath, id, 'show')} onClick={(e) => e.stopPropagation()}>
                 <Typography variant="body2" color="secondary" paragraph>
                   <strong>{data[id]['pair:label']}</strong>
