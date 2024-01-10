@@ -181,7 +181,7 @@ const Footer = () => {
             <Typography variant="body2" align={xs ? "center" : undefined}>
             {translate('app.message.footer.joinSubText2')}
             </Typography>
-            <Button to={{ pathname: "https://forums.lescheminsdelatransition.org/"}} target="_blank" variant="contained" color="secondary" component={Link} typographyVariant="button1" className={classes.button}>
+            <Button to={{ pathname: "https://forums.lescheminsdelatransition.org/t/bienvenue-sur-les-chemins-de-la-transition/152"}} target="_blank" variant="contained" color="secondary" component={Link} typographyVariant="button1" className={classes.button}>
             {translate('app.message.footer.joinButton')}  
             </Button>
           </div>
