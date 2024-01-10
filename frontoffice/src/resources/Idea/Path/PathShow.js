@@ -54,17 +54,17 @@ const PathShow = (props) => {
           >
             <ReferenceArrayField
               label={translate('app.tab.path.pathway')}
-              reference="Event"
-              source="cdlt:hasEvent"
-              sort={{ field: 'pair:startDate', order: 'ASC' }}
-              filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}
+              reference="Place"
+              source="cdlt:hasPlace"
+              // sort={{ field: 'pair:startDate', order: 'ASC' }}
+              // filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}
             >
               <TimelineList />
             </ReferenceArrayField>
             <ReferenceArrayField
                 label={translate('app.tab.path.location')}
-                reference="Event"
-                source="cdlt:hasEvent"
+                reference="Place"
+                source="cdlt:hasPlace"
                 sort={{ field: 'pair:startDate', order: 'ASC' }}
                 filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}
               >
