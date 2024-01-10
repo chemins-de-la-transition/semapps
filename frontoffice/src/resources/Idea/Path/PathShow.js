@@ -5,6 +5,7 @@ import { ThemeProvider } from '@material-ui/core';
 import resourceTheme from '../../../config/themes/resourceTheme';
 import resourceShowStyle from '../../../commons/style/resourceShowStyle';
 import { SeparatedListField, ReferenceArrayField } from '@semapps/field-components';
+import { MapList } from '@semapps/geo-components';
 import { Box } from '@material-ui/core';
 import { CommentsField, useMentions } from '@semapps/activitypub-components';
 import MarkdownField from '../../../commons/fields/MarkdownField';
@@ -16,6 +17,7 @@ import CourseCard from '../../../resources/Agent/Activity/Course/CourseCard';
 import EventCard from '../../Agent/Activity/Event/EventCard';
 import PlaceCard from '../../../resources/Place/PlaceCard';
 import CardsList from '../../../commons/lists/CardsList';
+import TimelineList from '../../../commons/lists/TimelineList';
 import ContactDialog from "../../../commons/ContactDialog";
 import SectorField from '../../../commons/fields/SectorField';
 import ContactButton from "../../../commons/buttons/ContactButton";
@@ -50,6 +52,34 @@ const PathShow = (props) => {
               </StickyCard>
             }
           >
+            <ReferenceArrayField
+              label={translate('app.tab.path.pathway')}
+              reference="Event"
+              source="cdlt:hasEvent"
+              sort={{ field: 'pair:startDate', order: 'ASC' }}
+              filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}
+            >
+              <TimelineList />
+            </ReferenceArrayField>
+            <ReferenceArrayField
+                label={translate('app.tab.path.location')}
+                reference="Event"
+                source="cdlt:hasEvent"
+                sort={{ field: 'pair:startDate', order: 'ASC' }}
+                filter={{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}
+              >
+                <MapList
+                  latitude={(record) => record?.['pair:hasLocation']?.['pair:latitude']}
+                  longitude={(record) => record?.['pair:hasLocation']?.['pair:longitude']}
+                  label={(record) => record?.['pair:label']}
+                  description={(record) => record?.['pair:comment']}
+                  groupClusters={false}
+                  connectMarkers
+                  boundToMarkers
+                  scrollWheelZoom={false}
+                  dragging={false}
+                />
+            </ReferenceArrayField>
             <GroupOfFields
               title={translate('app.tab.path.about')}
               sources={["pair:comment","pair:hasFinality","pair:hasSector","pair:hasTopic","cdlt:hasCourseType","pair:description"]}
