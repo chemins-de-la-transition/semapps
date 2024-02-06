@@ -46,9 +46,11 @@ const TimelineList = () => {
               <RoundIcon />
             </Icon>
             <RecordContextProvider value={data[id]} key={id}>
-              <p>
-                <DateToDateField startDate="pair:startDate" endDate="pair:endDate" variant="subtitle1" color="primary" />
-              </p>
+              {data[id]['pair:startDate'] !== undefined &&
+                <p>
+                  <DateToDateField startDate="pair:startDate" endDate="pair:endDate" variant="subtitle1" color="primary" />
+                </p>
+              }
               <Link to={linkToRecord(basePath, id, 'show')} onClick={(e) => e.stopPropagation()}>
                 <Typography variant="body2" color="secondary" paragraph>
                   <strong>{data[id]['pair:label']}</strong>

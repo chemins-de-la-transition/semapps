@@ -316,6 +316,8 @@ module.exports = {
         place: "Places",
         event: "Events",
         course: "Journeys",
+        pathway: "Journey Program",
+        location: "Location",
       },
       organization: {
         about: "About this organization",

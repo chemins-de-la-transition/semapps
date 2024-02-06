@@ -315,6 +315,8 @@ module.exports = {
         place: "Lieux",
         event: "Evénements",
         course: "Voyages",
+        pathway: "Programme du chemin",
+        location: "Localisation",
       },
       organization: {
         about: "A propos de cette organisation",
