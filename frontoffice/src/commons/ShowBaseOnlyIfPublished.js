@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ShowBase } from 'react-admin';
+import { Box } from '@material-ui/core';
 import RedirectIfUnpublished from './RedirectIfUnpublished';
 
 const ShowBaseOnlyIfPublished = ({children, ...props}) => {
@@ -8,10 +9,10 @@ const ShowBaseOnlyIfPublished = ({children, ...props}) => {
   return (
     <ShowBase {...props}>
       <RedirectIfUnpublished setIsPublished={setIsPublished} />
-      {isPublished && fields.map((field) => (
-        <>
+      {isPublished && fields.map((field, i) => (
+        <Box key={i}>
           {React.cloneElement(field)}
-        </>
+        </Box>
       ))}
     </ShowBase>
   );
