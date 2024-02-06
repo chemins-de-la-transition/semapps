@@ -262,7 +262,109 @@ module.exports = {
           this.logger.info('Adding ' + publicationStatus + ' to ' + resourceUri + '...');
         }
       }
-    }
+    },
+    async fixEventsLikesAndReplies(ctx, params) {
+      /* 2 params :
+      call migration.fixEventsLikesAndReplies --id http://localhost:3000/events/test-evt2 --mode test => check one id
+      call migration.fixEventsLikesAndReplies --id all --mode test                                    => check all events
+      call migration.fixEventsLikesAndReplies --id all --mode real                                    => fix all events
+      */
+      if (!ctx.params.id) {
+        this.logger.error("id param missing (resource id or 'all' keyword). Ex : call migration.fixEventsLikesAndReplies --id all --mode test");
+        return;
+      }
+      if (!ctx.params.mode) {
+        this.logger.error("mode param missing ('test' or 'real'). Ex : call migration.fixEventsLikesAndReplies --id all --mode test");
+        return;
+      }
+      this.logger.info('param id   : ' + ctx.params.id);
+      this.logger.info('param mode : ' + ctx.params.mode);
+ 
+      const events = await ctx.call('ldp.container.getUris', { containerUri: urlJoin(CONFIG.HOME_URL, 'events') });
+      let nbUpdate = 0;
+      for( let eventUri of events ) {
+        if (ctx.params.id !== eventUri && ctx.params.id !== 'all') {
+          continue;
+        } else {
+          const event = await ctx.call('ldp.resource.get', {
+            resourceUri: eventUri,
+            accept: MIME_TYPES.JSON,
+            webId: 'system'
+          });
+          let likes = null;
+          let replies = null;
+          if (event.likes && event.likes.constructor === Array) {
+            likes = eventUri + '/likes';
+          }
+          if (event.replies && event.replies.constructor === Array) {
+            replies = eventUri + '/replies';
+          }
+          if (likes || replies) {
+            if (ctx.params.mode === 'real') {
+              if (likes) {
+                // Delete current likes
+                await this.broker.call('triplestore.update', {
+                  query: `
+                    PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>
+                    DELETE
+                    WHERE {
+                      <${eventUri}> <https://www.w3.org/ns/activitystreams#likes> ?likes
+                    }
+                  `,
+                  webId: 'system'
+                });
+                // Insert new likes
+                await this.broker.call('triplestore.update', {
+                  query: `
+                    PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>
+                    PREFIX ldp: <http://www.w3.org/ns/ldp#>
+                    INSERT DATA {
+                      <${eventUri}> <https://www.w3.org/ns/activitystreams#likes> <${likes}>
+                    }
+                  `,
+                  webId: 'system'
+                });
+              }
+              if (replies) {
+                // Delete current replies
+                await this.broker.call('triplestore.update', {
+                  query: `
+                    PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>
+                    DELETE
+                    WHERE {
+                      <${eventUri}> <https://www.w3.org/ns/activitystreams#replies> ?replies
+                    }
+                  `,
+                  webId: 'system'
+                });
+                // Insert new replies
+                await this.broker.call('triplestore.update', {
+                  query: `
+                    PREFIX pair: <http://virtual-assembly.org/ontologies/pair#>
+                    PREFIX ldp: <http://www.w3.org/ns/ldp#>
+                    INSERT DATA {
+                      <${eventUri}> <https://www.w3.org/ns/activitystreams#replies> <${replies}>
+                    }
+                  `,
+                  webId: 'system'
+                });
+              }
+            }
+            nbUpdate++;
+            this.logger.info(ctx.params.mode === 'real' ? 'FIXED:' : 'TEST :', event.id);
+            if (likes) {
+              this.logger.info('      ', event.likes);
+              this.logger.info('   => ', likes);
+            }
+            if (replies) {
+              this.logger.info('      ', event.replies);
+              this.logger.info('   => ', replies);
+            }
+          }
+        }
+      }
+      this.logger.info(nbUpdate + ' resources found');
+    },
   },
   methods: {
     async setWritePermissionsToCreatorForASingleResource(ctx, resourceSlug) {

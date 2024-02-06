@@ -37,6 +37,7 @@ const FILTERED_PREDICATES = [
   'dc:created',
   'dc:modified',
   'dc:creator',
+  'likes',
   'replies',
   'cdlt:organizedBy',
   'pair:label'
