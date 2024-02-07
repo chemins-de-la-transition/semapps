@@ -78,14 +78,16 @@ const ItemsGrid = ({ similarRecord, CardSubHeaderComponent }) => {
                         CardSubHeaderComponent={CardSubHeaderComponent}
                         resource={resource}
                     />
-                : null}
+                    : null}
             </Box>
             <Button className={classes.button} onClick={handleNext} disabled={activeStep === maxSteps - 1}>
                 <StepNextIcon />
             </Button>
         </Box>
         :
-        sortedIds.map((id) => (
+        sortedIds
+        .filter((id) => data[id]['pair:depictedBy'] !== undefined )
+        .map((id) => (
           <CardBlock
             key={id}
             record={data[id]}
