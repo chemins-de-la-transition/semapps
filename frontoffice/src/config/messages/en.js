@@ -227,10 +227,10 @@ module.exports = {
         text: "E-community Research Platform offers a journey from place to place, off the beaten path, to meet transition actors (energy, social, solidarity...). And why not, in your turn, share your knowledge.",
       },
       home: {
-        places: "Matchmaking platform",
+        places: "Places",
         toVisit: "With places to visit",
         discoverPlaces: "Match with places involved in transitions, activities that are practiced there, meet the actors and actresses who are making tomorrow's world!",
-        seeAllPlaces: "Access the Matchmaking system to see all places",
+        seeAllPlaces: "Access the Matchmaking platform to see all places",
         agenda: "Agenda",
         events: "Events",
         discoverEvents: "Discover events around the transmission of knowledge, open up your field of possibilities, learn, train yourself in the challenges and professions of transition!",
@@ -257,7 +257,7 @@ module.exports = {
         learningSubtext: "This project is a starting point for a flourishing cooperation between researchers, educators  and practitioners. Within the project the aim is to create Communities of Practice within those target groups, both on a national and European scale",
         learningSubtextAbout: "A Community of Practice (CoP) interests me, I want to know more. I can take advantage of the colloqiums and events that activates the CoP.",
         immersion: "Matchmaking",
-        immersionSubtext: "Thanks to our matching system between ecovillage researchers and ecovillages and a code of conduct on how to approach ecovillages as a researcher and for ecovillages how to handle researchers conducting research in their ecovillages.",
+        immersionSubtext: "Thanks to our matching platform between ecovillage researchers and ecovillages and a code of conduct on how to approach ecovillages as a researcher and for ecovillages how to handle researchers conducting research in their ecovillages.",
         immersionSubtextAbout: "I want to find ecovillages and ecocommunities that fit my research work, to send questionnaires, conduct interview, or in-field research",
         mentoring: "Access ecovillage research",
         mentoringSubtext: "Get access of our database that contains a collection of literature about ecovillage research ",
@@ -273,8 +273,8 @@ module.exports = {
         businessPartners: "our funders",
       },
       traveler: {
-        joinCommunityText: "Do you want to join our matchmaking system to share your knowledge about transition and perhaps host researchers for a study visit?",
-        joinCommunityButton: "Join the Matchmaking system",
+        joinCommunityText: "Do you want to join our matchmaking platform to share your knowledge about transition and perhaps host researchers for a study visit?",
+        joinCommunityButton: "Join the Matchmaking platform",
       },
       goals: {
         title: "Our Goal",
@@ -405,7 +405,7 @@ module.exports = {
     },
     nav: {
       path: "Community of Practice",
-      place: "Matchmaking platform",
+      place: "Places",
       event: "Events",
       course: "Courses",
       offerAndNeed: "Announcements",
@@ -414,7 +414,7 @@ module.exports = {
     bookmark: {
       title: "My bookmarks",
       path: "Community of Practice",
-      place: "Matchmaking platform",
+      place: "Places",
       event: "events",
       course: "courses",
       offerAndNeed: "Annoucement board",
