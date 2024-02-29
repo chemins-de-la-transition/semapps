@@ -417,7 +417,7 @@ module.exports = {
       place: "Places",
       event: "events",
       course: "courses",
-      offerAndNeed: "Annoucement board",
+      offerAndNeed: "Announcement board",
       pathHeadComment: "To compose my trip",
       placeHeadComment: "To compose my trip",
       eventHeadComment: "To compose my trip",
