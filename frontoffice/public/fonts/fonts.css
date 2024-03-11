@@ -1,4 +1,18 @@
-/* kaushan-script-regular - latin */
+/* lato */
+@font-face {
+     font-family: 'Lato';
+     font-style: normal;
+     font-weight: 400;
+     src: url('./lato/lato-regular.eot'); /* IE9 Compat Modes */
+     src: local(''),
+         url('./lato/lato-regular.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./lato/lato-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./lato/lato-regular.woff') format('woff'), /* Modern Browsers */
+         url('./lato/lato-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('./lato/lato-regular.svg#Lato') format('svg'); /* Legacy iOS */
+     } 
+
+     /* kaushan-script-regular - latin */
 @font-face {
     font-family: 'Kaushan Script';
     font-style: normal;
@@ -236,3 +250,4 @@
           url('./poppins-v15-latin/poppins-v15-latin-900italic.svg#Poppins') format('svg'); /* Legacy iOS */
    }
    
+

@@ -5,27 +5,27 @@ const defaultTheme = createTheme();
 const smallScreenTreshold = 'xs';
 
 const white = '#FFFFFF';
-const primary = '#D4A24C';
-const secondary = '#203142';
-const tertiary = '#F6F6F6';
+const primary = '#87B6D5'; //light blue / CDLT=#D4A24C 
+const secondary = '#006DAD'; // dark blue / CDLT=#203142
+const tertiary = '#FFFFFF'; //CDLT=F6F6F6
 const neutral_web_grey190 = '#201F1E';
-const theme_1 = '#8D3431';
-const theme_2 = '#9B471F';
-const theme_3 = '#88534D';
-const theme_4 = '#897171';
-const theme_5 = '#4C7788';
-const theme_6 = '#1E5544';
-const theme_7 = '#069782';
-const theme_8 = '#AEBDA5';
+const theme_1 = '#D33217'; //CDLT=#8D3431
+const theme_2 = '#D33217'; //CDLT=#9B471F
+const theme_3 = '#D33217'; //CDLT=#88534D
+const theme_4 = '#D33217'; //CDLT=#897171
+const theme_5 = '#D33217'; //CDLT=#4C7788
+const theme_6 = '#D33217'; //CDLT=#1E5544
+const theme_7 = '#D33217'; //CDLT=#069782
+const theme_8 = '#D33217'; //CDLT=#AEBDA5
 const grey10 = '#FAF9F8';
 const grey20 = '#F3F2F1';
 const grey30 = '#E1DFDD';
-const grey40 = '#828282';
+const grey40 = '#999999'; //CDLT=#828282
 const overlay_light = white + '66'; //40% in HEX
 const overlay_dark = '#00000066'; /// black 40%
-const font1 = '"Kaushan Script","serif"'; // serif in case of error;
-const font2 = '"Roboto", "Open Sans", "sans-serif"';
-const font3 = '"Poppins", "Open Sans", "sans-serif"'; // Poppins instead of Sofia Pro
+const font1 = '"Lato","sans-serif"'; //CDLT=Kaushan Script,serif
+const font2 = '"Lato", "Open Sans", "sans-serif"'; //CDLT=Roboto
+const font3 = '"Lato", "Open Sans", "sans-serif"'; //CDLT=Poppins
 
 let theme = createTheme({
   palette: {

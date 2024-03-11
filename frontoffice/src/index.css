@@ -14,10 +14,10 @@ code {
 }
 
 a, a:active {
-  color: #D4A24C;
+  color: #006dad; /* CDLT=#D4A24C */
   text-decoration: none;
 }
 
 a:hover {
-  color: #D4A24C;
+  color: #006dad; /* CDLT=#D4A24C */
 }
