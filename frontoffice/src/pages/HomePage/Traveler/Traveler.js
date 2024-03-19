@@ -125,8 +125,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   span: {
-    color: theme.palette.secondary.main,
-    backgroundColor: theme.palette.white.main,
+    color: theme.palette.secondary.contrastText,
+    backgroundColor: theme.palette.secondary.main,
     lineHeight: '2em'
   },
   button: {
