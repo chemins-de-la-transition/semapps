@@ -35,7 +35,7 @@ const PlaceList = (props) => {
       ]}
       views={{
         map: {
-          label: 'Vue carte', // srosset81 how to translate this?
+          label: 'View map', // srosset81 how to translate this? /*AnMa temporarily hard translated into english*/
           icon: MapIcon,
           perPage: 1000,
           list: (
@@ -55,7 +55,7 @@ const PlaceList = (props) => {
           ),
         },
         list: {
-          label: 'Vue liste', // srosset81 how to translate this?
+          label: 'View List', // srosset81 how to translate this? /*AnMa temporarily hard translated into english*/
           icon: ListIcon,
           perPage: 1000,
           list: (
