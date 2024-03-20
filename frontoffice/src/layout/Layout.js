@@ -26,7 +26,9 @@ const Layout = ({ logout, theme, children, title }) => {
     <ThemeProvider theme={theme}>
       <ScrollToTop />
       <SideMenu menuItems={menuItems} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      {/* AnMa: removed temporarily for ecommunity. Needs to be removable via configuration in the future
       <TopBar />
+      */}
       <AppBar title={title} logout={logout} menuItems={menuItems} setSidebarOpen={setSidebarOpen} />
       <Box>{children}</Box>
       <Footer />
