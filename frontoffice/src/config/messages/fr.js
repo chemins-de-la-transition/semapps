@@ -177,6 +177,7 @@ module.exports = {
         website: "Site web:",
         hasLocation: "Tu vis où ?",
         affiliatedBy: "Membre d'une (ou plusieurs) organisations ?",
+        links: 'Links',
         inspiredBy: "Des personnes t'inspirent ?"
       }
     },
