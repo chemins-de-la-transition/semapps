@@ -404,12 +404,14 @@ module.exports = {
       offerAndNeed: "Announcements"
     },
     nav: {
-      path: "Community of Practice",
+      home: "Home",
+      path: "Communities of Practice",
       place: "Places",
       event: "Events",
       course: "Courses",
-      offerAndNeed: "Announcements",
-      library: "E-community Library"
+      offerAndNeed: "Needs & Offers",
+      library: "E-community Library",
+      codeOfConduct: "Code of Conduct"
     },
     bookmark: {
       title: "My bookmarks",

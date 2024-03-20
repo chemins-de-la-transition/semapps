@@ -10,10 +10,12 @@ import TopBar from './TopBar';
 const Layout = ({ logout, theme, children, title }) => {
   const translate = useTranslate();
   const menuItems = [
+    { link: '/', name: translate('app.nav.home') },
     { link: '/Path', name: translate('app.nav.path') },
     { link: '/Place', name: translate('app.nav.place') },
     { link: '/Event', name: translate('app.nav.event') },
-    { link: '/Page/https://data.pathways.gen-europe.org/pages/ecommunity-library/show', name: translate('app.nav.library') },
+    { link: '/Page/https://data.ecommunity.gen-europe.org/pages/ecommunity-library/show', name: translate('app.nav.library') },
+    { link: '/Page/https://data.ecommunity.gen-europe.org/pages/ecommunity-research-platform-charter/show', name: translate('app.nav.codeOfConduct') },
     
     { link: '/OfferAndNeed', name: translate('app.nav.offerAndNeed') },
     //{ link: '/Course', name: translate('app.nav.course') },

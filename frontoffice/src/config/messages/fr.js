@@ -403,11 +403,13 @@ module.exports = {
       offerAndNeed: "Annonces"
     },
     nav: {
+      home: "Home",
       path: "Chemins",
       place: "Lieux",
       event: "Evénements",
       course: "Voyages",
-      offerAndNeed: "Annonces"
+      offerAndNeed: "Needs & Offers",
+      codeOfConduct: "Code of Conduct"
     },
     bookmark: {
       title: "Mes favoris",
