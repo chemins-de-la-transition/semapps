@@ -18,7 +18,9 @@ const PlaceList = (props) => {
       filter= {{ 'cdlt:hasPublicationStatus': process.env.REACT_APP_MIDDLEWARE_URL + 'publication-status/valide' }}
       filters={[
         <SearchFilter />,
+        /*AnMa: remove regional filter from ecommunity. Needs to be solved by configuration in the future  
         <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label={translate('app.input.region')} />,
+        */
         <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label={translate('app.input.sector')} />,
         <Filter
           reference="Type"

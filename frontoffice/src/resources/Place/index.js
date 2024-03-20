@@ -96,7 +96,7 @@ export default {
         'pair:phone': 'Phone',
         'cdlt:publicPhone': 'Phone',
         'pair:homePage': 'Website',
-        'cdlt:placeOn': 'Part of a path',
+        'cdlt:placeOn': 'Part of a community of practice',
         'pair:hasFinality': 'Purposes',
         'cdlt:directRegistration': 'Option for direct registration',
         'cdlt:registrationOption': 'Registration Option',

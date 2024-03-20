@@ -38,7 +38,9 @@ const LEPList = (props) => {
         </FormGroup>,
         <Filter reference="Type" source="cdlt:hasCourseType" inverseSource="cdlt:typeOfCourse" label={translate('app.input.courseType')} />,
         <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label={translate('app.input.sector')} />,
+        /*AnMa: remove regional filter from ecommunity. Needs to be solved by configuration in the future  
         <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label={translate('app.input.region')} />,
+        */
       ]}
       futureActivities={checked}
       tabs={[
