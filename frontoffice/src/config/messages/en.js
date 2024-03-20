@@ -35,6 +35,7 @@ module.exports = {
         contact: "Contact",
       },
       event: {
+        about: "About the event",
         event: "Events",
         contact: "Contact the organizers",
         create: "Add an event",
