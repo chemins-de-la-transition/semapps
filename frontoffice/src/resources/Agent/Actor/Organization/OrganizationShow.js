@@ -138,7 +138,9 @@ const OrganizationShow = (props) => {
             />
             <MultiUrlField source="pair:homePage" />
             <TextField source="cdlt:publicPhone" />
+            {/*AnMa: remove comments from ecommunity. Needs to be solved by configuration in the future
             <CommentsField userResource="Person" mentions={mentions} />
+            */}
 {/*
             <ReferenceArrayField reference="Project" source="pair:involvedIn">
               <SingleFieldList linkType="show">

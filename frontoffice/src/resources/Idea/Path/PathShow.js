@@ -115,7 +115,9 @@ const PathShow = (props) => {
             <ReferenceArrayField reference="Debate" source="pair:nourishes" perPage={5} sort={{ field: 'dc:created', sort: 'ASC' }}>
               <CardsList CardComponent={DebateCard} external link={record => record['pair:webPage']} />
             </ReferenceArrayField>
+            {/*AnMa: remove comments from ecommunity. Needs to be solved by configuration in the future
             <CommentsField userResource="Person" mentions={mentions} />
+            */}
           </BodyList>
           <Traveler />
           <br />

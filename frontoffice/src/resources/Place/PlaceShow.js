@@ -133,7 +133,9 @@ const PlaceShow = (props) => {
             <UrlField source="pair:homePage" label={translate('app.tab.links')} className={classes.urlField} />
             <TextField source="pair:e-mail" />
             <TextField source="cdlt:publicPhone" />
+            {/*AnMa: remove comments from ecommunity. Needs to be solved by configuration in the future
             <CommentsField userResource="Person" mentions={mentions} />
+            */}
           </BodyList>
           <SimilarList
             resource="Place"

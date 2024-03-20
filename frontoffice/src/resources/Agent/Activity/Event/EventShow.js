@@ -146,7 +146,9 @@ const EventShow = (props) => {
                 <SectorField />
               </SingleFieldList>
             </ReferenceArrayField>
+            {/*AnMa: remove comments from ecommunity. Needs to be solved by configuration in the future
             <CommentsField userResource="Person" mentions={mentions} />
+            */}
           </BodyList>
           <SimilarEvents />
           <Traveler />
