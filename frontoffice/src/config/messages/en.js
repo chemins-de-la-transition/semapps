@@ -235,7 +235,7 @@ module.exports = {
         seeAllPlaces: "See all places here",
         agenda: "Agenda",
         events: "Events",
-        discoverEvents: "Discover events around the transmission of knowledge, open up your field of possibilities, learn, train yourself in the challenges and professions of transition!",
+        discoverEvents: "Attend some of the events and meet others interested in ecovillage research - the first step for inspiration and new collaborations",
         seeAllEvents: "See all events",
         paths: "Communities of Practice",
         toDiscover: "To discover",

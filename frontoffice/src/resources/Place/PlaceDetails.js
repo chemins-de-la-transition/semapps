@@ -66,11 +66,13 @@ const PlaceDetails = (props) => {
               </SeparatedListField>
             </ReferenceArrayField>
           }
+          {/* remove regional filter from ecommunity. Needs to be solved by configuration in the future  
           { ( !isVertical || sm ) && 
             <ReferenceField  reference="Region" source="cdlt:hasRegion" icon={<PlaceIcon />} link={linkToFilteredList('LEP', 'cdlt:hasRegion')}>
               <TextField source="pair:label" />
             </ReferenceField>
           }
+        */}
           { (isVertical || sm ) && 
             <ReferenceArrayField reference="Person" source="cdlt:proposedBy" icon={<ActorIcon/>}>
               <SeparatedListField linkType="show">

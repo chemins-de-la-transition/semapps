@@ -22,7 +22,9 @@ const CourseList = (props) => {
       filters={[
         <SearchFilter />,
         <SparqlFilter checked={checked} setChecked={setChecked} sparqlWhere={futureCoursesSparql} label={translate('app.card.course.onlyFutureCourse')}/>,
+        /*AnMa: remove regional filter from ecommunity. Needs to be solved by configuration in the future  
         <Filter reference="Region" source="cdlt:hasRegion" inverseSource="cdlt:regionOf" label={translate('app.input.region')} />,
+        */
         <Filter reference="Sector" source="pair:hasSector" inverseSource="pair:sectorOf" label={translate('app.input.sector')} />,
         <Filter
           reference="Type"
