@@ -211,7 +211,7 @@ const Goals = () => {
               <ListGoalsItem text={translate('app.message.goals.text1goal1')} />
               <ListGoalsItem text={translate('app.message.goals.text2goal1')} />
               <ListGoalsItem text={translate('app.message.goals.text3goal1')} />
-              <ListGoalsItem text={translate('app.message.goals.text4goal1')} />
+              {/*<ListGoalsItem text={translate('app.message.goals.text4goal1')} />*/}
             </ul>
           </Grid>
         </Grid>
