@@ -16,6 +16,7 @@ const Layout = ({ logout, theme, children, title }) => {
     { link: '/Event', name: translate('app.nav.event') },
     { link: '/Page/https%3A%2F%2Fdata.ecommunity.gen-europe.org%2Fpages%2Fecommunity-library/show', name: translate('app.nav.library') },
     { link: '/Page/https%3A%2F%2Fdata.ecommunity.gen-europe.org%2Fpages%2Fecommunity-research-platform-charter/show', name: translate('app.nav.codeOfConduct') },
+    { link: '/Colloquiums', name: translate('app.nav.colloquiums') },
     
     { link: '/OfferAndNeed', name: translate('app.nav.offerAndNeed') },
     //{ link: '/Course', name: translate('app.nav.course') },

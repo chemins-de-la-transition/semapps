@@ -402,7 +402,8 @@ module.exports = {
       login: "Se connecter",
       signup: "Créer un compte",
       profile: "Mon profil",
-      offerAndNeed: "Annonces"
+      offerAndNeed: "Annonces",
+      colloquiums: "Colloquiums"
     },
     nav: {
       home: "Home",
@@ -411,7 +412,8 @@ module.exports = {
       event: "Evénements",
       course: "Voyages",
       offerAndNeed: "Needs & Offers",
-      codeOfConduct: "Code of Conduct"
+      codeOfConduct: "Code of Conduct",
+      colloquiums: "Colloquiums"
     },
     bookmark: {
       title: "Mes favoris",
