@@ -6,14 +6,14 @@ import EventCard from '../resources/Agent/Activity/Event/EventCard';
 import FullWidthBox from '../commons/FullWidthBox';
 import LargeContainer from '../commons/LargeContainer';
 import HeaderTitle from '../commons/HeaderTitle';
-import Button from '../commons/Button';
+//import Button from '../commons/Button';
 
 
 const ColloquiumsPage = () => {
   const type = 'colloquium';
   const { identity, loading } = useCheckAuthenticated();
   const translate = useTranslate();
-  const actions = [<Button to="/Event/create">{translate('app.action.create')}</Button>];
+  const actions = []; //<Button to="/Event/create">{translate('app.action.create')}</Button>
 
   if (loading) return null;
   return (
