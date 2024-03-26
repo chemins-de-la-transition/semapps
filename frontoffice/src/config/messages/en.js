@@ -223,6 +223,7 @@ module.exports = {
       reminderEndText: "of the form, that's where we ask the most interesting questions!",
       noSavedBookmarks: "No saved favorites",
       error: "An issue occurred",
+      colloquiumsIntro: "The ReGEN4ALL Colloquium Series serve to investigate selected topics where researchers, educators and practitioners share contributions and open for dialoge. They are open for everybody with interest for the topic and they have all been recorded and made available here.",
       welcomeContent: {
         title: "Connect, collaborate,",
         subTitle: "co-create...",

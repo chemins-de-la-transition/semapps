@@ -1,4 +1,5 @@
 import React from 'react';
+import { makeStyles, Box, Typography } from '@material-ui/core';
 import { ListBase, useTranslate} from 'react-admin';
 import { useCheckAuthenticated } from '@semapps/auth-provider';
 import CardsList from '../commons/lists/CardsList';
@@ -23,6 +24,10 @@ const ColloquiumsPage = () => {
       <br />
       <FullWidthBox>
         <LargeContainer>
+        <Typography variant="subtitle1" color="secondary" component="span">
+          {translate('app.message.colloquiumsIntro')}
+          <p></p>
+          </Typography>
           <ListBase resource="Event" basePath="/Event" 
           filter={{ 'pair:hasType':process.env.REACT_APP_MIDDLEWARE_URL+"types/"+type }}
           sort={{ field: 'pair:startDate', order: 'ASC' }}>

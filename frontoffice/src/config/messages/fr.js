@@ -223,6 +223,7 @@ module.exports = {
       reminderEndText: "du formulaire, c'est là qu'on pose les questions les plus intéressantes !",
       noSavedBookmarks: "Aucun favori enregistré",
       error: "Un problème est survenu",
+      colloquiumsIntro: "The ReGEN4ALL Colloquium Series serve to investigate selected topics where researchers, educators and practitioners share contributions and open for dialoge. They are open for everybody with interest for the topic and they have all been recorded and made available here.",
       welcomeContent: {
         title: "Voyager, Découvrir, Apprendre,",
         subtitle: "Partager, Essaimer...",
