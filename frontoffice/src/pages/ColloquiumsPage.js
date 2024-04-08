@@ -12,11 +12,11 @@ import HeaderTitle from '../commons/HeaderTitle';
 
 const ColloquiumsPage = () => {
   const type = 'colloquium';
-  const { identity, loading } = useCheckAuthenticated();
+  //const { identity, loading } = useCheckAuthenticated();
   const translate = useTranslate();
   const actions = []; //<Button to="/Event/create">{translate('app.action.create')}</Button>
 
-  if (loading) return null;
+  //if (loading) return null;
   return (
     <>
       <HeaderTitle actions={actions}>{translate('app.menu.colloquiums')}
@@ -24,8 +24,12 @@ const ColloquiumsPage = () => {
       <br />
       <FullWidthBox>
         <LargeContainer>
-        <Typography variant="subtitle1" color="secondary" component="span">
+        <Typography variant="h4" color="secondary" component="span">
           {translate('app.message.colloquiumsIntro')}
+          <p></p>
+          </Typography>
+          <Typography variant="h4" color="secondary" component="span">
+          {translate('app.message.colloquiumsIntro2')}
           <p></p>
           </Typography>
           <ListBase resource="Event" basePath="/Event" 

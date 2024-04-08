@@ -223,7 +223,8 @@ module.exports = {
       reminderEndText: "du formulaire, c'est là qu'on pose les questions les plus intéressantes !",
       noSavedBookmarks: "Aucun favori enregistré",
       error: "Un problème est survenu",
-      colloquiumsIntro: "The ReGEN4ALL Colloquium Series serve to investigate selected topics where researchers, educators and practitioners share contributions and open for dialoge. They are open for everybody with interest for the topic and they have all been recorded and made available here.",
+      colloquiumsIntro: "Inspired by a previous series of colloquiums organized by the GEN Research Group between 2020 and 2022, the ReGEN4all colloquiums seek to provide a space for interaction and constructive dialogue among community-led initiatives, universities and academics. The ReGEN4all colloquiums were, however, developed in a new and innovative format, in which not only researchers but also practitioners were invited to present and reflect on relevant topics. The goal was to connect research and practice to produce actionable knowledge that is based on the concrete experiences of change-makers on the ground, while at the same time being supported by scientific data. The colloquium series is open to all interested people and free of charge in order to make knowledge on ecovillages more accessible to broader society.",
+      colloquiumsIntro2: "The ReGEN4all colloquium series consisted of six events on the topics described below. Here you can find their video recordings, information on the presenters, and additional materials. If you have any suggestions of topics you would like to see being discussed on the colloquium series or interesting people you would like us to invite, feel free to write your suggestions in our Forum.",
       welcomeContent: {
         title: "Voyager, Découvrir, Apprendre,",
         subtitle: "Partager, Essaimer...",
@@ -414,7 +415,7 @@ module.exports = {
       course: "Voyages",
       offerAndNeed: "Needs & Offers",
       codeOfConduct: "Code of Conduct",
-      colloquiums: "Colloquiums"
+      colloquiums: "The ReGEN4all Colloquium Series"
     },
     bookmark: {
       title: "Mes favoris",
