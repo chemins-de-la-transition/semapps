@@ -28,6 +28,16 @@ const OfferAndNeedList = (props) => {
         <Filter reference="Topic" source="pair:hasTopic" inverseSource="pair:topicOf" label={translate('app.input.topic')} />,
       ]}
       views={{
+        list: {
+          label: translate('app.action.listView'),
+          icon: ListIcon,
+          perPage: 1000,
+          list: (
+            <Box p={{ xs: 2, sm: 3 }}>
+              <CardsList CardComponent={OfferAndNeedCard} />
+            </Box>
+          ),
+        },
         map: {
           label: translate('app.action.mapView'),
           icon: MapIcon,
@@ -45,16 +55,6 @@ const OfferAndNeedList = (props) => {
                 </>
               )}
             />
-          ),
-        },
-        list: {
-          label: translate('app.action.listView'),
-          icon: ListIcon,
-          perPage: 1000,
-          list: (
-            <Box p={{ xs: 2, sm: 3 }}>
-              <CardsList CardComponent={OfferAndNeedCard} />
-            </Box>
           ),
         },
       }}

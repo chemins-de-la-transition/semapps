@@ -4,6 +4,8 @@ import { makeStyles, Box, Typography } from '@material-ui/core';
 import FullWidthBox from '../../../commons/FullWidthBox';
 import LargeContainer from '../../../commons/LargeContainer';
 // import SearchContent from './SearchContent';
+import { Link } from 'react-router-dom';
+import Button from '../../../commons/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -62,6 +64,9 @@ const useStyles = makeStyles((theme) => ({
       backgroundPosition: 'center',
     },
   },
+  button: {
+    margin: '30px',
+  },
 }));
 
 const WelcomeContent = () => {
@@ -80,7 +85,17 @@ const WelcomeContent = () => {
           </Typography>
         </Box>
       </LargeContainer>
-
+      
+        <Box display="flex" justifyContent="center" justifySelf="center" >
+          <Button to={{ pathname: "/About" }} variant="contained" color="secondary" component={Link} typographyVariant="button1" className={classes.button}>
+          Read more about Ecommunity
+          </Button>
+          
+          <Button to={{ pathname: "https://forum.gen-europe.org/c/research-investigation/15" }} target="_blank" variant="contained" color="secondary" component={Link} typographyVariant="button1" className={classes.button}>
+          Visit our Forum
+          </Button>
+        </Box>
+      
     {/*
           <SearchContent />
 */}
