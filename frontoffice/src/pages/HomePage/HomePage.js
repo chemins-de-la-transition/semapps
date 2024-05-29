@@ -27,6 +27,7 @@ const HomePage = () => {
       logo={PictoLieu}
       linkText={translate('app.message.home.seeAllPlaces')}
       CardSubHeaderComponent={PlaceSubHeader}
+      sortingOrder='DESC'
     />
     <Traveler />
     <FeaturedList
@@ -39,6 +40,7 @@ const HomePage = () => {
       linkText={translate('app.message.home.seeAllEvents')}
       CardSubHeaderComponent={CourseSubHeader}
       isAgenda={true}
+      sortingOrder='DESC'
     />
     <CoursesTypes />
     <FeaturedList
@@ -50,6 +52,7 @@ const HomePage = () => {
       logo={PictoParcours}
       linkText={translate('app.message.home.seeAllPaths')}
       CardSubHeaderComponent={PathSubHeader}
+      sortingOrder='ASC'
     />
     {/*
     <FeaturedList
@@ -61,6 +64,7 @@ const HomePage = () => {
       logo={PictoParcours}
       linkText={translate('app.message.home.seeAllCourses')}
       CardSubHeaderComponent={CourseSubHeader}
+      sortingOrder='DESC'
     />
     */}
     <Partners />

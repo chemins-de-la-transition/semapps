@@ -108,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const FeaturedList = ({ resource, basePath, title, subtitle, comment, logo, linkText, CardSubHeaderComponent, filter, isAgenda }) => {
+const FeaturedList = ({ resource, basePath, title, subtitle, comment, logo, linkText, CardSubHeaderComponent, filter, isAgenda, sortingOrder }) => {
   const classes = useStyles();
   const xs = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true });
 
@@ -139,7 +139,7 @@ const FeaturedList = ({ resource, basePath, title, subtitle, comment, logo, link
           </Box>
         : 
           <Box className={classes.listBase}>
-            <ListBase resource={resource} basePath={basePath} perPage={xs ? 10 : 4} sort={{ field: 'dc:created', order: 'DESC' }} filter={filter ? {[filter.field]:filter.value} : null}>
+            <ListBase resource={resource} basePath={basePath} perPage={xs ? 10 : 4} sort={{ field: 'dc:created', order: sortingOrder }} filter={filter ? {[filter.field]:filter.value} : null}>
               <ItemsGrid CardSubHeaderComponent={CardSubHeaderComponent} resource={resource}/>
             </ListBase>
           </Box>

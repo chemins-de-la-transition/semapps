@@ -6,7 +6,7 @@ import PathCard from './PathCard';
 
 const PathList = (props) => {
   return (
-    <ListBase perPage={1000} {...props}>
+    <ListBase sort={{ field: 'dc:created', order: 'ASC' }} perPage={1000} {...props}>
       <Container>
         <Box sx={{ m: 4 }}>
           <CardsList CardComponent={PathCard} />

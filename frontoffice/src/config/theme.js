@@ -185,14 +185,14 @@ let theme = createTheme({
     },
     body1: {
       fontFamily: font2,
-      fontSize: 16,
+      fontSize: 18,
       fontStyle: 'normal',
       fontWeight: 'normal',
       lineHeight: '19px',
     },
     body2: {
       fontFamily: font2,
-      fontSize: 14,
+      fontSize: 16,
       fontStyle: 'normal',
       fontWeight: 'normal',
       lineHeight: '16px',

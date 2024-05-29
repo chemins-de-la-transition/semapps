@@ -26,12 +26,12 @@ const OfferAndNeedShow = (props) => {
           <HeaderShow
             type="pair:hasType"
             details={<OfferAndNeedDetails />}
-            actionButton={<ContactButton label="Contacter le rédacteur" />}
+            actionButton={<ContactButton label="Contact the editor" />}
           />
           <BodyList
             aside={
               <StickyCard
-                actionButton={<ContactButton label="Contacter le rédacteur" />}
+                actionButton={<ContactButton label="Contact the editor" />}
               >
                 <OfferAndNeedDetails orientation="vertical" />
               </StickyCard>
