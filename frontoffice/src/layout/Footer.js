@@ -131,7 +131,7 @@ const Footer = () => {
     return (
       <div className={classes.footer1}>
           <Typography align={"center"}>
-            <img src={process.env.PUBLIC_URL + '/logoCut512.png'} alt="logo" className={classes.logo} />
+            <img src={process.env.PUBLIC_URL + '/newLogo.png'} alt="logo" className={classes.logo} />
           </Typography>
           <div className={classes.socialNetworks}>
           <Typography variant="h3" color="secondary" component="h3" align={"center"} className={classes.size}>

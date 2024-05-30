@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage:
       "linear-gradient(180deg, rgba(0, 0, 0, 0.56) 0%,rgba(0, 0, 0, 0) 100%),url('" +
       process.env.PUBLIC_URL +
-      "/pexels-zen-chung-5529604_1280.jpg')",
+      "/MainBanner.png')",
     backgroundClip: 'padding-box',
     backgroundPosition: 'center -40px',
     backgroundRepeat: 'no-repeat',
