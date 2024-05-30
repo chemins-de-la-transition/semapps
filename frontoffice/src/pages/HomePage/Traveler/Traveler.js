@@ -111,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title2: {
-    fontSize: 40,
+    fontSize: 34,
     lineHeight: 'inherit',
     width: '70%',
     [theme.breakpoints.down('sm')]: {
@@ -162,7 +162,7 @@ const Traveler = () => {
         <Typography variant="h1" className={classes.title2}>
           <span className={classes.span}>{translate('app.message.traveler.joinCommunityText')}</span>
         </Typography>
-        <Button to={{ pathname: "/Place/create" }} target="_blank" variant="contained" color="primary" component={Link} typographyVariant="button1" className={classes.button}>
+        <Button to={{ pathname: "/OfferAndNeed/create" }} target="_blank" variant="contained" color="primary" component={Link} typographyVariant="button1" className={classes.button}>
         {translate('app.message.traveler.joinCommunityButton')}
         </Button>
       </LargeContainer>

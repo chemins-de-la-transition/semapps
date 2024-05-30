@@ -43,14 +43,14 @@ const useStyles = makeStyles((theme) => ({
   iconContainer: {
     position: 'relative',
     width: 150,
-    height: 150,
+    height: 'auto',
     marginBottom: 15,
     '& img': {
       backgroundColor: "white",
       borderRadius: 100,
       width: 150,
-      height: 150,
-      paddingRight: 10,
+      height: 'auto',
+      paddingRight: 0,
       [theme.breakpoints.down('xs')]: {
         width: 100,
         height: 100,

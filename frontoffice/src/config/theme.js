@@ -177,9 +177,9 @@ let theme = createTheme({
     },
     subtitle2: {
       fontFamily: font3,
-      fontSize: 12,
+      fontSize: 14,
       fontStyle: 'normal',
-      fontWeight: '500',
+      fontWeight: '700',
       lineHeight: '14px',
       textTransform: 'uppercase',
     },

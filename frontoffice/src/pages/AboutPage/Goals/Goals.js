@@ -197,7 +197,7 @@ const Goals = () => {
           </Hidden>
           <Grid item sm={4} className={classes.firstImageContainer}>
             <img
-              src={GoalsImage1}
+              src={process.env.PUBLIC_URL + '/images/goal1.png'}
               className={classes.firstImage}
               alt="illustration objectif 1"
             />
@@ -218,7 +218,7 @@ const Goals = () => {
         <Grid container spacing={3}>
           <Grid item sm={4} className={classes.secondImageContainer}>
             <img
-              src={process.env.PUBLIC_URL + '/images/goal2.jpg'}
+              src={process.env.PUBLIC_URL + '/images/goal2.png'}
               className={classes.secondImage}
               alt="objectif 2"
             />
@@ -232,7 +232,7 @@ const Goals = () => {
               <ListGoalsItem text={translate('app.message.goals.text1goal2')} />
               <ListGoalsItem text={translate('app.message.goals.text2goal2')} />
               <ListGoalsItem text={translate('app.message.goals.text3goal2')} />
-              <ListGoalsItem text={translate('app.message.goals.text4goal2')} />
+              {/*<ListGoalsItem text={translate('app.message.goals.text4goal2')} />*/}
             </ul>
           </Grid>
         </Grid>
@@ -255,7 +255,7 @@ const Goals = () => {
           </Grid>
           <Grid item sm={4} className={classes.thirdImageContainer}>
             <img
-              src={process.env.PUBLIC_URL + '/images/goal3.jpg'}
+              src={process.env.PUBLIC_URL + '/images/goal3.png'}
               className={classes.thirdImage}
               alt="objectif 3"
             />

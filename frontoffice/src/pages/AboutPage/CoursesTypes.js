@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   iconContainer: {
     position: 'relative',
     width: 150,
-    height: 150,
+    height: 'auto',
     '& img': {
       width: '100%',
       height: 'auto'

@@ -232,7 +232,7 @@ module.exports = {
       },
       home: {
         places: "Places",
-        toVisit: "With places to visit",
+        toVisit: "to visit",
         discoverPlaces: "Match with places involved in transitions, activities that are practiced there, meet the actors and actresses who are making tomorrow's world!",
         seeAllPlaces: "See all places here",
         agenda: "Agenda",
@@ -277,8 +277,8 @@ module.exports = {
         businessPartners: "our funders",
       },
       traveler: {
-        joinCommunityText: "Do you want to join our needs & offers platform to share your knowledge about transition and perhaps host researchers for a study visit?",
-        joinCommunityButton: "Add a place to the Needs & Offers platform",
+        joinCommunityText: "Do you need support in your research? Partners to interview? A specific place to do research on? Or do you have an important question that arose in your community and could be answeredy by researchers?",
+        joinCommunityButton: "Add your research needs or offers here",
       },
       goals: {
         title: "The Goal",
@@ -289,17 +289,17 @@ module.exports = {
         text2goal1: "Gathering ecovillage research and making it accessible and visible - to be used.",
         text3goal1: "Setting up guidelines for research in ecovillages - developing a Code of Conduct.",
         text4goal1: "Accelerating projects through assistance provided by travelers.",
-        goal2: "SHARING, LEARNING, COLLABORATING - FINDING NEW INSPIRATION YOU DIDN'T KNOW WAS YOUR NEED",
-        text1goal2: "Immersive journeys by activity sectors to easily access emerging practices in all fields of transition.",
-        text2goal2: "Journeys with multiple levels of discovery and learning through doing.",
-        text3goal2: "The freedom to create one's own paths according to interests, availability, and the desired level of learning (discovering, learning by doing, training in professions).",
+        goal2: "Researching, sharing, collaborating, educating",
+        text1goal2: "We offer you a place to find likeminded people and research in community",
+        text2goal2: "Exchange forums and communities of practice",
+        text3goal2: "Research ideas from the field itself and places where you can go for research",
         text4goal2: "Enabling the discovery and learning of transition professions through contact with passionate and committed actors.",
-        goal3: "The Traveler as a Pollinator of New Practices",
-        text1goal3: "Contributing to the spread of projects with strong local impact and growing the transition ecosystem.",
-        text2goal3: "Stimulating the emergence of new initiatives.",
-        text3goal3: "Creating connections through a space for exchanging and sharing information, ideas, and projects.",
-        text4goal3: "Amplifying socio-ecological transition by involving citizens in the implementation of transition actions.",
-        text5goal3: "Increasing the resilience of the territory through the development of local solutions."
+        goal3: "Researcher and educators as pollinators of knowledge and practices also for policy work",
+        text1goal3: "Contributing to a wider knowledge about intentional communities and ecovilages",
+        text2goal3: "Inspiring activists to start a new ecological project",
+        text3goal3: "Stimulating policy makers to contribute to a great environment for ecological projects of all kinds and sustainable living conditions",
+        text4goal3: "Amplifying socio-ecological transition and transformation by spreading the word and making the knowledge available for everybody",
+        text5goal3: "Bringing local solutions on meta levels"
       },
       categories: {
         title: "Diverse categories",

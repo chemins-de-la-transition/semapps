@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     width: 150,
-    height: 125,
+    height: 150,
     top: 40,
     position: 'relative',
     [theme.breakpoints.down('xs')]: {
@@ -113,13 +113,13 @@ const Footer = () => {
               Contact
             </Link>
             <div className={classes.textBar} />
-            <Link variant="body2" to="/Page/charte-des-chemins-de-la-transition/show" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to="/Page/https%3A%2F%2Fdata.ecommunity.gen-europe.org%2Fpages%2Fecommunity-research-platform-charter/show" align={xs ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.codeOfConduct')}
             </Link>
-            <Link variant="body2" to="/Page/mentions-legales/show" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to="https://gen-europe.org/impressum/" align={xs ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.legalNotice')}
             </Link>
-            <Link variant="body2" to="/Page/rgpd/show" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to="https://gen-europe.org/privacy-policy/" align={xs ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.dataPolicy')} 
             </Link>
           </div>
@@ -131,7 +131,7 @@ const Footer = () => {
     return (
       <div className={classes.footer1}>
           <Typography align={"center"}>
-            <img src={process.env.PUBLIC_URL + '/newLogo.png'} alt="logo" className={classes.logo} />
+            <img src={process.env.PUBLIC_URL + '/newLogo2.png'} alt="logo" className={classes.logo} />
           </Typography>
           <div className={classes.socialNetworks}>
           <Typography variant="h3" color="secondary" component="h3" align={"center"} className={classes.size}>

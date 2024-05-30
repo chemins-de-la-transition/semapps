@@ -19,6 +19,17 @@ const HomePage = () => {
   <>
     <Welcome />
     <FeaturedList
+      resource="Path"
+      basePath="/Path"
+      title={translate('app.message.home.paths')}
+      subtitle={translate('app.message.home.toDiscover')}
+      comment={translate('app.message.home.dicoverPaths')}
+      logo={PictoParcours}
+      linkText={translate('app.message.home.seeAllPaths')}
+      CardSubHeaderComponent={PathSubHeader}
+      sortingOrder='ASC'
+    />
+    <FeaturedList
       resource="Place"
       basePath="/Place"
       title={translate('app.message.home.places')}
@@ -43,17 +54,6 @@ const HomePage = () => {
       sortingOrder='DESC'
     />
     <CoursesTypes />
-    <FeaturedList
-      resource="Path"
-      basePath="/Path"
-      title={translate('app.message.home.paths')}
-      subtitle={translate('app.message.home.toDiscover')}
-      comment={translate('app.message.home.dicoverPaths')}
-      logo={PictoParcours}
-      linkText={translate('app.message.home.seeAllPaths')}
-      CardSubHeaderComponent={PathSubHeader}
-      sortingOrder='ASC'
-    />
     {/*
     <FeaturedList
       resource="Course"

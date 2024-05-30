@@ -3,7 +3,7 @@ import { makeStyles, Box } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import regen4all from '../icons/regen4all.png';
 
-const logoHeight = 77;
+const logoHeight = 100;
 const logoHeightSmall = 40;
 const breakPointlimit = 720;
 const useStyles = makeStyles((theme) => ({
