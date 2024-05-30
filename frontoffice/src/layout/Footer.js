@@ -116,10 +116,10 @@ const Footer = () => {
             <Link variant="body2" to="/Page/https%3A%2F%2Fdata.ecommunity.gen-europe.org%2Fpages%2Fecommunity-research-platform-charter/show" align={xs ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.codeOfConduct')}
             </Link>
-            <Link variant="body2" to="https://gen-europe.org/impressum/" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to={{ pathname: "https://gen-europe.org/impressum/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.legalNotice')}
             </Link>
-            <Link variant="body2" to="https://gen-europe.org/privacy-policy/" align={xs ? "center" : undefined} className={classes.textLinks}>
+            <Link variant="body2" to={{ pathname: "https://gen-europe.org/privacy-policy/" }} target="_blank" align={xs ? "center" : undefined} className={classes.textLinks}>
             {translate('app.message.footer.dataPolicy')} 
             </Link>
           </div>
