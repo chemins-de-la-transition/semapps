@@ -142,18 +142,18 @@ const Footer = () => {
                 aria-label="facebook"
                 target="_blank" 
                 color="secondary"
-                href="https://www.facebook.com/groups/lescheminsdelatransition"
+                href="https://www.facebook.com/geneurope/"
                 className={classes.icon}
               >
                 <FacebookIcon fontSize="large" />
               </IconButton>
-              <IconButton aria-label="twitter" target="_blank" color="secondary" href="https://twitter.com/CDLTransition" className={classes.icon}>
+              <IconButton aria-label="twitter" target="_blank" color="secondary" href="https://x.com/geneurope" className={classes.icon}>
                 <TwitterIcon fontSize="large" />
               </IconButton>
-              <IconButton aria-label="linkedin" target="_blank" color="secondary" href="https://www.linkedin.com/company/les-chemins-de-la-transition/" className={classes.icon}>
+              <IconButton aria-label="linkedin" target="_blank" color="secondary" href="https://www.linkedin.com/company/gen-europe" className={classes.icon}>
                 <LinkedInIcon fontSize="large" />
               </IconButton>
-              <IconButton
+              {/*<IconButton
                 aria-label="facebook"
                 color="secondary"
                 target="_blank"
@@ -161,7 +161,7 @@ const Footer = () => {
                 className={classes.icon}
               >
                 <FacebookIcon fontSize="large" />
-              </IconButton>
+    </IconButton>*/}
           </Typography>
           </div>
         </div>

@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 8
   },
   iconContainer: {
+    marginBottom: 10,
     position: 'relative',
     width: 150,
     height: 'auto',

@@ -261,7 +261,7 @@ module.exports = {
         learningSubtext: "Join our Communities of Practice. They exist on national, regional and international scale.",
         learningSubtextAbout: "A Community of Practice (CoP) interests me, I want to know more. I can take advantage of the colloqiums and events that activates the CoP.",
         immersion: "Needs & Offers",
-        immersionSubtext: "Match with others and create synergies",
+        immersionSubtext: "Match with others and create synergies for a more successful research",
         immersionSubtextAbout: "I want to find ecovillages and ecocommunities that fit my research work, to send questionnaires, conduct interview, or in-field research",
         mentoring: "Access ecovillage research",
         mentoringSubtext: "Visit the library and its collection of literature about ecovillage research ",
