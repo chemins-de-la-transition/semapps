@@ -41,3 +41,10 @@ blockquote p {
   display: inline; 
   font-style: italic !important; 
 }
+
+@media (min-width: 960px) {
+  .MuiGrid-grid-md-9 {
+      max-width: 100% !important;
+      flex-basis: 100% !important;
+  }
+}
