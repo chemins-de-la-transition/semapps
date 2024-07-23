@@ -112,6 +112,10 @@ const Partners = () => {
             <a href={'https://erasmus-plus.ec.europa.eu/'} target="_blank" rel="noopener noreferrer">
               <img className={classes.logo} src={erasmusPlus} alt={"Erasmus Plus"}/>
             </a>
+            <Typography variant="h4" color="secondary" component="span">
+              {translate('app.message.erasmusPlus')}
+              <p></p>
+            </Typography>
               {/* 
               {ids.map(id => {
                 if ( data[id] && data[id]['pair:label'] && data[id]['pair:depictedBy'] ) {
