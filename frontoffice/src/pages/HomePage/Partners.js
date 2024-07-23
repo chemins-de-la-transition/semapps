@@ -8,7 +8,7 @@ import ecolise from '../../icons/ecolise.png';
 import loes from '../../icons/loes.png';
 import iscte from '../../icons/iscte.png';
 import genInternational from '../../icons/genInternational.png';
-import erasmusPlus from '../../icons/erasmusPlus.jpeg';
+import erasmusPlus from '../../icons/erasmusPlus.png';
 import { useTranslate } from 'react-admin';
 
 const useStyles = makeStyles((theme) => ({
